@@ -1,0 +1,2280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBControl" kind="class" language="C++" prot="public">
+    <compoundname>BControl</compoundname>
+    <basecompoundref refid="classBView" prot="public" virt="non-virtual">BView</basecompoundref>
+    <basecompoundref refid="classBInvoker" prot="public" virt="non-virtual">BInvoker</basecompoundref>
+    <derivedcompoundref refid="classBButton" prot="public" virt="non-virtual">BButton</derivedcompoundref>
+    <derivedcompoundref refid="classBChannelControl" prot="public" virt="non-virtual">BChannelControl</derivedcompoundref>
+    <derivedcompoundref refid="classBCheckBox" prot="public" virt="non-virtual">BCheckBox</derivedcompoundref>
+    <derivedcompoundref refid="classBColorControl" prot="public" virt="non-virtual">BColorControl</derivedcompoundref>
+    <derivedcompoundref refid="classBOptionControl" prot="public" virt="non-virtual">BOptionControl</derivedcompoundref>
+    <derivedcompoundref refid="classBPictureButton" prot="public" virt="non-virtual">BPictureButton</derivedcompoundref>
+    <derivedcompoundref refid="classBRadioButton" prot="public" virt="non-virtual">BRadioButton</derivedcompoundref>
+    <derivedcompoundref refid="classBSlider" prot="public" virt="non-virtual">BSlider</derivedcompoundref>
+    <derivedcompoundref refid="classBTextControl" prot="public" virt="non-virtual">BTextControl</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBControl_1a1224f952eb63f1b0d338720b88fdf220" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BControl::BControl</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BControl</name>
+        <qualifiedname>BControl::BControl</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBControl" kindref="compound">BControl</ref> object from an <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is usually not called directly. If you want to build a control from a message you should call <ref refid="classBControl_1ad5ba32b4f839a5a9bc60fcf037e23846" kindref="member">Instantiate()</ref> which can handle errors properly.</para>
+<para>If the <emphasis>data</emphasis> deep, the <ref refid="classBControl" kindref="compound">BControl</ref> object will also undata each of its child views recursively.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>data</emphasis> message to restore from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a2581a447a34eef102c62d0e998155290" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BControl::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BControl::Archive</qualifiedname>
+        <reimplements refid="classBView_1ab6de1b48cbc3ef15a0d02113036f002d">Archive</reimplements>
+        <reimplementedby refid="classBPictureButton_1ab476f82e9d75a3b4a9b54ca35d1ad036">Archive</reimplementedby>
+        <reimplementedby refid="classBTextControl_1af68449ec551e8a089a441fd270954b99">Archive</reimplementedby>
+        <reimplementedby refid="classBButton_1adce5e4839a58c3bb85965398a490d720">Archive</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1aa71189c8b008cb3329c17b58f786617e">Archive</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a75511a8252ef3ffa1177f57af97b67ca">Archive</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a6437907efd1d39a492db1f55b5f4dc36">Archive</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1aeed1a7a2142b1ac7b1499234f884caae">Archive</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1ac216b412d86275115516b886c4f9b578">Archive</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the control into <emphasis>data</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target <emphasis>data</emphasis> that the data will go into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to recursively data child views.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>data</emphasis> message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive operation failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44" kindref="member">BArchivable::Archive()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="38" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1ad5ba32b4f839a5a9bc60fcf037e23846" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BControl::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BControl::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new object from an <emphasis>data</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the message is a valid object then the instance created from the passed in <emphasis>data</emphasis> will be returned. Otherwise this method will return <computeroutput>NULL</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>data</emphasis> message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An instance of the object if <emphasis>data</emphasis> is valid or <computeroutput>NULL</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBArchivable_1a04efcb17fa2a64a776923cc12303efcd" kindref="member">BArchivable::Instantiate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="37" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBControl_1a15953e715df0de3a2da24d4bd2fcb0c0" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BControl::_reserved[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BControl::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="114" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1ae30707869ead382c362fa064de215992" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BControl::fEnabled</definition>
+        <argsstring></argsstring>
+        <name>fEnabled</name>
+        <qualifiedname>BControl::fEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="105" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1a5692bef53aca27d25b6b92058be58cba" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BControl::fFocusChanging</definition>
+        <argsstring></argsstring>
+        <name>fFocusChanging</name>
+        <qualifiedname>BControl::fFocusChanging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="106" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1af562529f834ab5d80bc8bc135631c802" prot="private" static="no" mutable="no">
+        <type>BPrivate::BIcon *</type>
+        <definition>BPrivate::BIcon* BControl::fIcon</definition>
+        <argsstring></argsstring>
+        <name>fIcon</name>
+        <qualifiedname>BControl::fIcon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="109" column="16" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1ab6c37667b5a522079e93e34dfabb631f" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* BControl::fLabel</definition>
+        <argsstring></argsstring>
+        <name>fLabel</name>
+        <qualifiedname>BControl::fLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="103" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1af6668f2c56b4b46c06c5adcaf91134f9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BControl::fTracking</definition>
+        <argsstring></argsstring>
+        <name>fTracking</name>
+        <qualifiedname>BControl::fTracking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="107" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1a054809bc8d917ed6655111f8b41d8761" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BControl::fValue</definition>
+        <argsstring></argsstring>
+        <name>fValue</name>
+        <qualifiedname>BControl::fValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="104" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBControl_1a0934211a488b5702b40914882b2ab102" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BControl::fWantsNav</definition>
+        <argsstring></argsstring>
+        <name>fWantsNav</name>
+        <qualifiedname>BControl::fWantsNav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="108" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBControl_1ae2bd77f0349ca0197b7599393a6ae3ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BControl::BControl</definition>
+        <argsstring>(BRect frame, const char *name, const char *label, BMessage *message, uint32 resizingMode, uint32 flags)</argsstring>
+        <name>BControl</name>
+        <qualifiedname>BControl::BControl</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>resizingMode</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Construct a control in the <emphasis>frame</emphasis> with a <emphasis>name</emphasis>, <emphasis>label</emphasis>, model <emphasis>message</emphasis>, <emphasis>resizingMode</emphasis>, and creation <emphasis>flags</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The initial value of the control is set to 0 (<computeroutput>B_CONTROL_OFF</computeroutput>). The <emphasis>label</emphasis> and the <emphasis>message</emphasis> parameters can be set to <computeroutput>NULL</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>frame</emphasis> to draw the control in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>name</emphasis> of the control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>label</emphasis> displayed along with the control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> to send when the control is activated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resizingMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Defines the behavior of the control as the parent view resizes, see <ref refid="classBView" kindref="compound">BView</ref> for more details. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Behavior <emphasis>flags</emphasis> for the control, see <ref refid="classBView" kindref="compound">BView</ref> for details.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a6243ab82eecb7ac3a5c35592a057845d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BControl::BControl</definition>
+        <argsstring>(const char *name, const char *label, BMessage *message, uint32 flags)</argsstring>
+        <name>BControl</name>
+        <qualifiedname>BControl::BControl</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Construct a control with a <emphasis>name</emphasis>, <emphasis>label</emphasis>, model <emphasis>message</emphasis>, and creation <emphasis>flags</emphasis> suitable for use with the Layout API. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The initial value of the control is set to 0 (<computeroutput>B_CONTROL_OFF</computeroutput>). The <emphasis>label</emphasis> and the <emphasis>message</emphasis> parameters can be set to <computeroutput>NULL</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>name</emphasis> of the control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>label</emphasis> displayed along with the control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> to send when the control is activated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Behavior <emphasis>flags</emphasis> for the control, see <ref refid="classBView" kindref="compound">BView</ref> for details.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a82c073b898fb760954b80ada2c731962" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BControl::~BControl</definition>
+        <argsstring>()</argsstring>
+        <name>~BControl</name>
+        <qualifiedname>BControl::~BControl</qualifiedname>
+        <briefdescription>
+<para>Frees all memory used by the <ref refid="classBControl" kindref="compound">BControl</ref> object including the memory used by the model message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="34" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a2abeec720f873da7c4bc3a2709ff8be0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::AllAttached</definition>
+        <argsstring>()</argsstring>
+        <name>AllAttached</name>
+        <qualifiedname>BControl::AllAttached</qualifiedname>
+        <reimplements refid="classBView_1a6d6379e0993bd525f2cac5f848718870">AllAttached</reimplements>
+        <reimplementedby refid="classBButton_1a9a888bcbcdcf8a924b6010ef6e7f46a9">AllAttached</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1abfb89e632dec0539147b79e770090b23">AllAttached</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a3d555861d9a8ce0be86193cac484f1ac">AllAttached</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a0429d5c2f2a748e50b556e03b60c3f84">AllAttached</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1a9fb0e8fefa909b2f7a25d0b2a3ba473e">AllAttached</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a1d263b8ec7ccde013c7a462c702052dd">AllAttached</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1af941f0cf47d024337e30653bc4dcd5d2">AllAttached</reimplementedby>
+        <reimplementedby refid="classBTextControl_1abae889f35648d9a08f5b997986381c06">AllAttached</reimplementedby>
+        <briefdescription>
+<para>Similar to <ref refid="classBControl_1a460fa93bcdd5309d8d86f8bfcd53b584" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="44" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a991c0eecd0279cbc27c5f9a0fbc37920" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::AllDetached</definition>
+        <argsstring>()</argsstring>
+        <name>AllDetached</name>
+        <qualifiedname>BControl::AllDetached</qualifiedname>
+        <reimplements refid="classBView_1a19dd2213f4b953b54524d7f523d9b406">AllDetached</reimplements>
+        <reimplementedby refid="classBButton_1a4c8d87c3ceb9b867dae9adc68526cb0b">AllDetached</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a4339e7bc207a4c3887a4aef63bdff817">AllDetached</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1aabe966d7094a102a029eb86f53156b52">AllDetached</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a3053cfbbb6aeff2b1fe9852a91fe6364">AllDetached</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a699d006ff7d23e3448ee8b23555815c4">AllDetached</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1aa821c3cb4a2f47e3af2f7bde5b129427">AllDetached</reimplementedby>
+        <reimplementedby refid="classBTextControl_1ad47ac17bae76e2be8786ec25ebd30b89">AllDetached</reimplementedby>
+        <briefdescription>
+<para>Similar to <ref refid="classBControl_1a460fa93bcdd5309d8d86f8bfcd53b584" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="45" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a460fa93bcdd5309d8d86f8bfcd53b584" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::AttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>AttachedToWindow</name>
+        <qualifiedname>BControl::AttachedToWindow</qualifiedname>
+        <reimplements refid="classBView_1ae8117cb4634f4a4413988eea07cf75a0">AttachedToWindow</reimplements>
+        <reimplementedby refid="classBButton_1a8514d1d173d5a852f52354107dedce7f">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1aaed17a427fd040df721062ea646ee360">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a896559c9ffdf6c29fec0071f7e74326e">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a6975f3d06240cfc32d9422163d21760c">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a0a4c898ee218990de45a53a90663d12e">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1a5c301cf20c932c72700eea57a427e68d">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1ae6b51e465aa9807d707316a00b6fe22d">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1abacc25df48c377cd37ae3cb5eaf3917d">AttachedToWindow</reimplementedby>
+        <reimplementedby refid="classBTextControl_1ae3adb78b19be6c737882972695c5f84f">AttachedToWindow</reimplementedby>
+        <briefdescription>
+<para>Hook method called when the control is attached to a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method overrides <ref refid="classBView_1ae8117cb4634f4a4413988eea07cf75a0" kindref="member">BView::AttachedToWindow()</ref> setting the low color and view color of the <ref refid="classBControl" kindref="compound">BControl</ref> so that it matches the view color of the control&apos;s parent view. It also makes the attached window the default target for <ref refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" kindref="member">Invoke()</ref> as long as another target has not already been set.</para>
+<para><simplesect kind="see"><para><ref refid="classBView_1ae8117cb4634f4a4413988eea07cf75a0" kindref="member">BView::AttachedToWindow()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" kindref="member">Invoke()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBInvoker_1ac857ceb882d95a5826447dc12dd06c74" kindref="member">BInvoker::SetTarget()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a588fea0ded4cdc4c1b4fb5d1f5565f27" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::DetachedFromWindow</definition>
+        <argsstring>()</argsstring>
+        <name>DetachedFromWindow</name>
+        <qualifiedname>BControl::DetachedFromWindow</qualifiedname>
+        <reimplements refid="classBView_1a8abc2ea500951a0a22cf018e958ba791">DetachedFromWindow</reimplements>
+        <reimplementedby refid="classBButton_1a2324e5b37fa2c3c4e8d2c63763172d12">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a2ba05bb52a1d79b9e840c28e08531e98">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a0e62e869e80944ad32a2c0dc8b813e35">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a9d332c16b89814d6255fa7ff96827943">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBColorControl_1ae1b42162705172630cf7961d4af876f2">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1ac5c3a2f7ac5f4876cdc6f74b467b763a">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a0c66b7a3964716897d10713a6880bc9c">DetachedFromWindow</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a6a6832d8df544412d84839a1011c6da0">DetachedFromWindow</reimplementedby>
+        <briefdescription>
+<para>Hook method called when the control is detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="43" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a22455c705a4ed0fd09908b36a8dda3ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::GetPreferredSize</definition>
+        <argsstring>(float *_width, float *_height)</argsstring>
+        <name>GetPreferredSize</name>
+        <qualifiedname>BControl::GetPreferredSize</qualifiedname>
+        <reimplements refid="classBView_1a089c3ff794c454388a9388c7b6568478">GetPreferredSize</reimplements>
+        <reimplementedby refid="classBButton_1adba3ed10370f960a0a408413569adf30">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a0f2838b9bd42bd8454658dbdd78b179b">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1aff828221de6947696a0b60d73241315c">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a20210c9c80b0bfd88a0e6d5d89da0a64">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1ae2fcf40dcd30ba8560ee3f737485fcc5">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a2f2dddfafa62ccea5770aab99893dae9">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a2129a420a7dfc70b6d9a97b1458764f6">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a9ebbd271bca4c72ba2a5db8dc1876082">GetPreferredSize</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1aacccdb670d6553e5204c8ae317f6029a">GetPreferredSize</reimplementedby>
+        <param>
+          <type>float *</type>
+          <declname>_width</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_height</declname>
+        </param>
+        <briefdescription>
+<para>Fill out the preferred width and height of the control into the <emphasis>_width</emphasis> and <emphasis>_height</emphasis> parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Derived classes can override this method to set the preferred width and height of the control.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a <computeroutput>float</computeroutput> to hold the width of the control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a <computeroutput>float</computeroutput> to hold the height of the control.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a089c3ff794c454388a9388c7b6568478" kindref="member">BView::GetPreferredSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="65" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a3b545ffe2ee04f62eaa567582225adba" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BControl::GetSupportedSuites</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BControl::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBView_1a772462d751d457f63ee0fc56d8ba02d1">GetSupportedSuites</reimplements>
+        <reimplementedby refid="classBChannelControl_1abfb5744f9faf08ed02d22a33ae9e9ab8">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1affd29de4f880e122c72d4d3b25b7ed9d">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a5f10efed53781673b0f5a3f40b7d527d">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a08e86268e927d332501bee63892fb2bd">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a9281b5fa852c3fe841bc7f102a96078a">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBButton_1af912fac07ee02f90a12a4011e5a493cb">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a6075229f070c3723a0fc102e7984e8f2">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a513f368c4eb7c7d1aa81da79bee492ea">GetSupportedSuites</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Report the suites of messages this control understands. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the string &quot;suite/vnd.Be-control&quot; to the message.</para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="73" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a186746c30c79d2645fb94301ef05dfff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+        <definition>const BBitmap * BControl::IconBitmap</definition>
+        <argsstring>(uint32 which) const</argsstring>
+        <name>IconBitmap</name>
+        <qualifiedname>BControl::IconBitmap</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+<para>Get the currently set bitmap for a specific state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state to retrieve the icon for.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the icon set for the state, or <computeroutput>NULL</computeroutput> in case there is no icon set for that state.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="81" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BControl::Invoke</definition>
+        <argsstring>(BMessage *message=NULL)</argsstring>
+        <name>Invoke</name>
+        <qualifiedname>BControl::Invoke</qualifiedname>
+        <reimplements refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c">Invoke</reimplements>
+        <reimplementedby refid="classBButton_1ad9942f380f9e8337147f307972e02a9b">Invoke</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a29dcbf2de885c423dc2981c95b225691">Invoke</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a90978d140f092824dc9aeff535bd8638">Invoke</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a40cd8db37322ffb2770896ded8ec1600">Invoke</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1ad3f58a97ed8348711aff7128ebf0b5dd">Invoke</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1ae0aec96932eaa5f1de8591392a739b0b">Invoke</reimplementedby>
+        <reimplementedby refid="classBTextControl_1ae82b482d40833e4a2903301839e37f8c">Invoke</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sends a copy of the model <emphasis>message</emphasis> to the designated target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" kindref="member">BControl::Invoke()</ref> overrides <ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref>. Derived classes should use this method in their <ref refid="classBControl_1aae264c07bf8006acf1fa96ceedc5f74d" kindref="member">MouseDown()</ref> and <ref refid="classBControl_1ade80a87b7da08e9b84b188c629ec36c8" kindref="member">KeyDown()</ref> methods and should call <ref refid="classBControl_1a179de32505328b72911cd85bf2c3cfe8" kindref="member">IsEnabled()</ref> to check if the control is enabled before calling <ref refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" kindref="member">Invoke()</ref>.</para>
+<para>The following fields added to the <ref refid="classBMessage" kindref="compound">BMessage</ref>:<itemizedlist>
+<listitem><para>&quot;when&quot; <computeroutput>B_INT64_TYPE</computeroutput> system_time()</para>
+</listitem><listitem><para>&quot;source&quot; <computeroutput>B_POINTER_TYPE</computeroutput> A pointer to the <ref refid="classBControl" kindref="compound">BControl</ref> object.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the control was invoked, otherwise an error code is returned.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1a179de32505328b72911cd85bf2c3cfe8" kindref="member">IsEnabled()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="69" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a179de32505328b72911cd85bf2c3cfe8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BControl::IsEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>IsEnabled</name>
+        <qualifiedname>BControl::IsEnabled</qualifiedname>
+        <briefdescription>
+<para>Gets whether or not the control is currently enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the control is enabled, <computeroutput>false</computeroutput> if it is disabled.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="63" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1ade80a87b7da08e9b84b188c629ec36c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::KeyDown</definition>
+        <argsstring>(const char *bytes, int32 numBytes)</argsstring>
+        <name>KeyDown</name>
+        <qualifiedname>BControl::KeyDown</qualifiedname>
+        <reimplements refid="classBView_1abea50ea665ce5fcb76b32f1302a6852d">KeyDown</reimplements>
+        <reimplementedby refid="classBButton_1a1946a6658404aef5e374bf37e0d276ad">KeyDown</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1acea7a9db888f42a0a20640efd9ad0a4b">KeyDown</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a4b02a354633080c08f03bdf39e1bdec6">KeyDown</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a94675a83e628146d8bb9670064d59242">KeyDown</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a0a7cfc055ee00a2435f25138a5bbcd40">KeyDown</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a2f39aded0be52643dd5f541f62699d34">KeyDown</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a37ac118342e3d4fe79faa33b88e56813">KeyDown</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>numBytes</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a keyboard key is pressed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Overrides <ref refid="classBView_1abea50ea665ce5fcb76b32f1302a6852d" kindref="member">BView::KeyDown()</ref> to toggle the control value and then calls <ref refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" kindref="member">Invoke()</ref> for <computeroutput>B_SPACE</computeroutput> or <computeroutput>B_ENTER</computeroutput>. If this is not desired you should override this method in derived classes.</para>
+<para>The <ref refid="classBControl_1ade80a87b7da08e9b84b188c629ec36c8" kindref="member">KeyDown()</ref> method is only called if the <ref refid="classBControl" kindref="compound">BControl</ref> is the focus view in the active window. If the window has a default button, <computeroutput>B_ENTER</computeroutput> will be passed to that object instead of the focus view.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bytes of the key combination pressed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes in <emphasis>bytes</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1abea50ea665ce5fcb76b32f1302a6852d" kindref="member">BView::KeyDown()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1aaeeae39969b598868ad0e8d3298efb00" kindref="member">MakeFocus()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="50" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a0c345befac88d6af592ce2b3e7d7214e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * BControl::Label</definition>
+        <argsstring>() const</argsstring>
+        <name>Label</name>
+        <qualifiedname>BControl::Label</qualifiedname>
+        <briefdescription>
+<para>Gets the label of the control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The control&apos;s label.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="57" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1aaeeae39969b598868ad0e8d3298efb00" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::MakeFocus</definition>
+        <argsstring>(bool focus=true)</argsstring>
+        <name>MakeFocus</name>
+        <qualifiedname>BControl::MakeFocus</qualifiedname>
+        <reimplements refid="classBView_1a266a368d81c6e1668b2b9b22b5016853">MakeFocus</reimplements>
+        <reimplementedby refid="classBButton_1abc826951b0a87f2ce4cf6cc10eb792d6">MakeFocus</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a70245c6a6207a737c74a6092cc2374a6">MakeFocus</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a1f2f84e388730e3f018e0e16d682bf37">MakeFocus</reimplementedby>
+        <reimplementedby refid="classBTextControl_1abf98183ccf195db2a411dc5a1f67ee33">MakeFocus</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a0b638537dadfd72221c21dbb6fd48a46">MakeFocus</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a82b299852c7650b09af6662581cedaae">MakeFocus</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1affd38edbaca04a9db31ef3e749b119e7">MakeFocus</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>focus</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Gives or removes focus from the control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBControl_1aaeeae39969b598868ad0e8d3298efb00" kindref="member">BControl::MakeFocus()</ref> overrides <ref refid="classBView_1a266a368d81c6e1668b2b9b22b5016853" kindref="member">BView::MakeFocus()</ref> to call <ref refid="classBView_1aa55014241fc2f5556415850692b52db2" kindref="member">Draw()</ref> when the focus changes. Derived classes generally don&apos;t have to re-implement <ref refid="classBControl_1aaeeae39969b598868ad0e8d3298efb00" kindref="member">MakeFocus()</ref>.</para>
+<para><ref refid="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" kindref="member">IsFocusChanging()</ref> returns <computeroutput>true</computeroutput> when <ref refid="classBView_1aa55014241fc2f5556415850692b52db2" kindref="member">Draw()</ref> is called from this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>focus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>true</emphasis> to set focus, <emphasis>false</emphasis> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a266a368d81c6e1668b2b9b22b5016853" kindref="member">BView::MakeFocus()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" kindref="member">IsFocusChanging()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="48" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a19960b4d0a96144f73065a6ea1f2f8e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BControl::MessageReceived</qualifiedname>
+        <reimplements refid="classBView_1aca0a16b0e04288e1fdc0b63690ea7a6d">MessageReceived</reimplements>
+        <reimplementedby refid="classBButton_1a9954aa8549ffb7cddd1a401997fd07a7">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a7c3c5174a2f31f0a24c3fe4258d372da">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1aa60391cfc92b6c1a59ae7e92aa1f5bae">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a668832dfbcab06cad06d0fb7d9a6244a">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a9cf939fb5e7ef82a70e0792ccc0cfc1f">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBOptionControl_1a6bff9c89ab78d899edfb88d3f9e2300c">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1a05b397e2521fe0b10ae3a2b05e78acae">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a7b6a5dc266664f155b6191d101ce48cd">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a2f07af2fe9eedce7ffecd2b29a4b5d6a">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBTextControl_1afad72eca02699a6577c4bc0949e1c9ae">MessageReceived</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handle <emphasis>message</emphasis> received by the associated looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> received by the associated looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">BHandler::MessageReceived()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="47" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1aae264c07bf8006acf1fa96ceedc5f74d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::MouseDown</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseDown</name>
+        <qualifiedname>BControl::MouseDown</qualifiedname>
+        <reimplements refid="classBView_1a5f5bd975d15df94f2ebbc80eb79cc3f6">MouseDown</reimplements>
+        <reimplementedby refid="classBButton_1a479d27a48b957709b47159360c04157f">MouseDown</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a858647630d03d081d3a2817e00f2e548">MouseDown</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a641e4f5e6cf5b87302af5feb146969a0">MouseDown</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a45399dd2cd33d8761709ee9e378fab56">MouseDown</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1aee724ca332fa7a49b2ea2fa5c680f8a4">MouseDown</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a0aef53a65bca065d5c23a254fbf87c82">MouseDown</reimplementedby>
+        <reimplementedby refid="classBTextControl_1ab1a5a0a5efb5e08a1ec98432529f02d9">MouseDown</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a00e4315bf31cfe8b0a071cf5766427a8">MouseDown</reimplementedby>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is pressed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is pressed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="51" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1aafa3507bfcf6f058d269a6e3bd6d30be" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::MouseMoved</definition>
+        <argsstring>(BPoint where, uint32 code, const BMessage *dragMessage)</argsstring>
+        <name>MouseMoved</name>
+        <qualifiedname>BControl::MouseMoved</qualifiedname>
+        <reimplements refid="classBView_1ac8b20516e42bab2f1eeb130e2432bde0">MouseMoved</reimplements>
+        <reimplementedby refid="classBColorControl_1af1aa066eeb6541eaf1c3c72d72758a5d">MouseMoved</reimplementedby>
+        <reimplementedby refid="classBButton_1a8ba8b18062ea15ecd55d83458885adf1">MouseMoved</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1ac18ca09f358bcd8acf7c5c00572ddfd9">MouseMoved</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1af8e6d077c64b703b0e939458508bdd75">MouseMoved</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a013acca6d097f0b6d889b9f8e32e5064">MouseMoved</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a54f043d454c571fdc1291946c54ff214">MouseMoved</reimplementedby>
+        <reimplementedby refid="classBTextControl_1ae34f333c6ccd0ce7f98fe15a31973536">MouseMoved</reimplementedby>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>dragMessage</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the mouse is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new location of the mouse in the view&apos;s coordinate system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the following:<itemizedlist>
+<listitem><para><computeroutput>B_ENTERED_VIEW</computeroutput> The cursor has just entered the view.</para>
+</listitem><listitem><para><computeroutput>B_INSIDE_VIEW</computeroutput> The cursor is inside the view.</para>
+</listitem><listitem><para><computeroutput>B_EXITED_VIEW</computeroutput> The cursor has left the view&apos;s bounds. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>.</para>
+</listitem><listitem><para><computeroutput>B_OUTSIDE_VIEW</computeroutput> The cursor is outside the view. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dragMessage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If a drag-and-drop operation is taking place this is a pointer to a <ref refid="classBMessage" kindref="compound">BMessage</ref> that holds the drag information, otherwise the pointer is <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref>, <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" kindref="member">DragMessage()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="53" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1aeef31f13aee4d5d0b3dbb0f7e12beb39" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::MouseUp</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseUp</name>
+        <qualifiedname>BControl::MouseUp</qualifiedname>
+        <reimplements refid="classBView_1acdb92b30069157b2e3c522a3ef9d6ae4">MouseUp</reimplements>
+        <reimplementedby refid="classBColorControl_1a22dc58e1aebc262b91d105ae8db1b779">MouseUp</reimplementedby>
+        <reimplementedby refid="classBButton_1abdf9eedcccc9bbf8edce48b32361a749">MouseUp</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a0d9fccc6e4a04d86c1fbf78ae0cb6eba">MouseUp</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1ae24408c8af1f1e0792564b0bb4109547">MouseUp</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a0770c7585a64a6c5cc1a960f2a01569b">MouseUp</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a8cfb56dd13ec44c09cf6b2790c155fc2">MouseUp</reimplementedby>
+        <reimplementedby refid="classBTextControl_1aa9f01c01c01799296e81f3a075890db5">MouseUp</reimplementedby>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is released. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is released.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="52" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a0b32524cd2abfb7ea37b9988b180c733" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BControl::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BControl::Perform</qualifiedname>
+        <reimplements refid="classBView_1a512a6c8dca1a62b14cdcb1c22070129b">Perform</reimplements>
+        <reimplementedby refid="classBCheckBox_1abcac265789890adbf485f42d34d8c8e3">Perform</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a57e7eef2e379994c13b8c93eeb5cf3c5">Perform</reimplementedby>
+        <reimplementedby refid="classBButton_1aee74330d076b7b8487fe21443118b03d">Perform</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a8ec5063623c0c27052af71be1a4eafca">Perform</reimplementedby>
+        <reimplementedby refid="classBTextControl_1af07cb4cc28a119fd6080d416632f6395">Perform</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a44c726ed88d3a132e9d3055ebf98f3e6">Perform</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+          <defname>code</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+          <defname>_data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Perform some action. (Internal Method)  </para>
+<para>This method is available to allow classes to be extended while maintaining binary compatibility.</para>
+<para>The following perform codes are recognized:<itemizedlist>
+<listitem><para><computeroutput>PERFORM_CODE_MIN_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_MAX_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_PREFERRED_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_LAYOUT_ALIGNMENT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_HAS_HEIGHT_FOR_WIDTH:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_GET_HEIGHT_FOR_WIDTH:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_SET_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_INVALIDATE_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_DO_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_GET_TOOL_TIP_AT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_ALL_UNARCHIVED:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_ALL_ARCHIVED:</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The perform code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to store some data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="75" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1ad25f5ce6f17b5fe6fd6347021e9222e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::ResizeToPreferred</definition>
+        <argsstring>()</argsstring>
+        <name>ResizeToPreferred</name>
+        <qualifiedname>BControl::ResizeToPreferred</qualifiedname>
+        <reimplements refid="classBView_1abe8c63c85555e800e063388e7cf3e1a7">ResizeToPreferred</reimplements>
+        <reimplementedby refid="classBButton_1a6468013205fd98f26440cd63911b9b34">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a6df6fe17dedbf19a1d4e868ad24410f6">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a0dedbdd99597789621ef09bb4e8f4b2b">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a4c2ba5009024549e36b6d06b68ece03c">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1aa2c5587ec3c4202409b19a32b425ea08">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1ac16a945ef32c4ae9fc066fd066da1242">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1ab7975b6bd97b13278719aab270ca40de">ResizeToPreferred</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a5072df60c0f2c20d5b1ff4a2dbecbe7b">ResizeToPreferred</reimplementedby>
+        <briefdescription>
+<para>Resize the control to its preferred size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBView_1abe8c63c85555e800e063388e7cf3e1a7" kindref="member">BView::ResizeToPreferred()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="67" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a084be37bbc0c49627c42a078c4b4dac8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BControl::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 what, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BControl::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBView_1a4c0c6d3b21ae92056e5e40fe4d3ec175">ResolveSpecifier</reimplements>
+        <reimplementedby refid="classBChannelSlider_1ab95b5eebb6adcc7502c856789f08b6d2">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBButton_1a16b56f270bcba826cd8a1eb043adb474">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1af12f883b6e60f2ea071bb18724593350">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1ae860f1cfc296c79754697d95fc289a9e">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a2bc94c2bffc9dec2b1a844c21833cb93">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a8553ac7d4f76b03d53dce14073cb50de">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a767171da7c902ec3e06d19951f8b1404">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a666a6fd256b57c98f9e75b3c19a03a89">ResolveSpecifier</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the proper handler for a scripting message.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a54529bfa2d272ef17f1b790d27c7ff17" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::SetEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>SetEnabled</name>
+        <qualifiedname>BControl::SetEnabled</qualifiedname>
+        <reimplementedby refid="classBTextControl_1a2cd97358b190f50977b9b4d74c607474">SetEnabled</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1a7c9182a20b3481e7a4900d655eb4d817">SetEnabled</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1a345cf8ee4d0c063df32e8ac21b0eafcf">SetEnabled</reimplementedby>
+        <reimplementedby refid="classBColorControl_1aa34f71fa3963c172c9a71fc5cfb5f191">SetEnabled</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables the control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBControl" kindref="compound">BControl</ref> objects are enabled by default. If the control changes enabled state then it is redrawn.</para>
+<para>Disabled controls generally won&apos;t allow the user to focus on them (The <computeroutput>B_NAVIGABLE</computeroutput> flag is turned off), and don&apos;t post any messages.</para>
+<para>Disabled controls in derived classes should be drawn in subdued colors to visually indicate that they are disabled and should not respond to keyboard or mouse events.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>enabled</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput> enables the control, if <computeroutput>false</computeroutput>, disables it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="62" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1acf788aa66dd061c78256f357df691765" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BControl::SetIcon</definition>
+        <argsstring>(const BBitmap *bitmap, uint32 flags=0)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BControl::SetIcon</qualifiedname>
+        <reimplementedby refid="classBButton_1ad167627166b5988a41c90bfa95ece336">SetIcon</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a66c449d2c003034e2f9a5767ae9ea0c0">SetIcon</reimplementedby>
+        <reimplementedby refid="classBColorControl_1aef3688503bf82355812f2fbc4be0985a">SetIcon</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a477263b77a52c15550436447a25ffd73">SetIcon</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a65c54a649a091b163625f43af69ffbb9">SetIcon</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a025b67f14fb0868be05813b6f72d9c39">SetIcon</reimplementedby>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>bitmap</declname>
+          <defname>icon</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>This convenience method is used to set the bitmaps for the standard states from a single bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It also supports cropping the icon to its non-transparent area. The icon is meant as an addition to or replacement of the label.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>icon</emphasis> to set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Modify how the icon is set.<itemizedlist>
+<listitem><para><computeroutput>B_TRIM_ICON_BITMAP</computeroutput> Crop the bitmap to the not fully transparent area, may change the icon size.</para>
+</listitem><listitem><para><computeroutput>B_TRIM_ICON_BITMAP_KEEP_ASPECT</computeroutput> Like <computeroutput>B_TRIM_BITMAP</computeroutput>, but keeps the aspect ratio.</para>
+</listitem><listitem><para><computeroutput>B_CREATE_ACTIVE_ICON_BITMAP</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_CREATE_PARTIALLY_ACTIVE_ICON_BITMAP</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_CREATE_DISABLED_ICON_BITMAPS</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the icon was set or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="77" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a1017ff0cf130fa1246291a016b2a7f2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BControl::SetIconBitmap</definition>
+        <argsstring>(const BBitmap *bitmap, uint32 which, uint32 flags=0)</argsstring>
+        <name>SetIconBitmap</name>
+        <qualifiedname>BControl::SetIconBitmap</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>bitmap</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>which</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Icon bitmaps for various states of the control (off, on, partially on, each enabled or disabled, plus up to 125 custom states) can be set individually. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bitmap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>bitmap</emphasis> icon to set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state to set the icon for. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Modify how the icon is set.<itemizedlist>
+<listitem><para><computeroutput>B_KEEP_ICON_BITMAP</computeroutput> Transfer ownership of the bitmap to the control.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the icon was set or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="79" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a2894bf781c41b3ab8a99417f098e71dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::SetLabel</definition>
+        <argsstring>(const char *string)</argsstring>
+        <name>SetLabel</name>
+        <qualifiedname>BControl::SetLabel</qualifiedname>
+        <reimplementedby refid="classBButton_1addc58de70c9b2acff2c1e407696f772f">SetLabel</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1ab288fd4c009a1ca297fba4150247a215">SetLabel</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+          <defname>label</defname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>label</emphasis> of the control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>label</emphasis> changes the control is redrawn.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>label</emphasis> to set, can be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="56" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a7841a122e7fa9ab5efb5217c562e763d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::SetValue</definition>
+        <argsstring>(int32 value)</argsstring>
+        <name>SetValue</name>
+        <qualifiedname>BControl::SetValue</qualifiedname>
+        <reimplementedby refid="classBColorControl_1a7e29f94f4ccdcbcea0e377e61cd720f8">SetValue</reimplementedby>
+        <reimplementedby refid="classBButton_1a2944b5facaa051c2e2f20b2f9874b494">SetValue</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a689d5c240ce7cea39f2b9da865ad5627">SetValue</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1ab5f2a0687c785b84ccb9c7fea3efbfda">SetValue</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1a7d73205017815c1227487467a7a441ec">SetValue</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a0ee7dd1bc8976d7cb82a6525505789f6">SetValue</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a3c65e4237040ba5d6554882bcf36569d">SetValue</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a81e42842670062d0b6add0478d8f52dc">SetValue</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the value of the control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>value</emphasis> changes the control is redrawn.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>value</emphasis> to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBControl_1a367df71f0b9b64905f3acb98cd111cda" kindref="member">SetValueNoUpdate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="59" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a759e9aebe200495c3773d2920e19e91f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BControl::Value</definition>
+        <argsstring>() const</argsstring>
+        <name>Value</name>
+        <qualifiedname>BControl::Value</qualifiedname>
+        <briefdescription>
+<para>Gets the value of the control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The control&apos;s value.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="60" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1ab665fb93df191662a1757f78555a5b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BControl::WindowActivated</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>WindowActivated</name>
+        <qualifiedname>BControl::WindowActivated</qualifiedname>
+        <reimplements refid="classBView_1a5b7aeff0b2608ec63e2c01153a7717f6">WindowActivated</reimplements>
+        <reimplementedby refid="classBButton_1ace1f01da01eef93adbecd91ce2d49ac1">WindowActivated</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1af3e0b0e3afc3d2adfb2e3cf0f9bb3b82">WindowActivated</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a2c1edfc72af90482e70328b152998001">WindowActivated</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a5f15ba4b79b38cb260b2b95e52c60a83">WindowActivated</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a38f83894076d23f426e1e347f7ef933d">WindowActivated</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1aa9d3e2bfcd8fbd5901b82960c11484bf">WindowActivated</reimplementedby>
+        <reimplementedby refid="classBColorControl_1acea993086cd5dd46f36e12149017930c">WindowActivated</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the attached window is activated or deactivated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Redraws the focus ring around the control when the window is activated or deactivated if it is the window&apos;s current focus view.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> if the window becomes activated, <computeroutput>false</computeroutput> if the window becomes deactivated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a5b7aeff0b2608ec63e2c01153a7717f6" kindref="member">BView::WindowActivated()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="40" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BControl::IsFocusChanging</definition>
+        <argsstring>() const</argsstring>
+        <name>IsFocusChanging</name>
+        <qualifiedname>BControl::IsFocusChanging</qualifiedname>
+        <briefdescription>
+<para>Check if the control is changing focus. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Many controls have different looks depending on whether they have focus or not. You can use this method within your <ref refid="classBView_1aa55014241fc2f5556415850692b52db2" kindref="member">Draw()</ref> call to determine whether you are asked to redraw because the focus is changing, meaning your control is getting in or out of focus, so that you can conditionally run the drawing code.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBView_1aa55014241fc2f5556415850692b52db2" kindref="member">Draw()</ref> method was called because of a focus change for this control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBView_1aa55014241fc2f5556415850692b52db2" kindref="member">Draw()</ref> method was not called because of a focus change for this control.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="84" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a253dcd4904a221e750c58ce41cea6c8c" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BControl::IsTracking</definition>
+        <argsstring>() const</argsstring>
+        <name>IsTracking</name>
+        <qualifiedname>BControl::IsTracking</qualifiedname>
+        <briefdescription>
+<para>Check whether this control is set to tracking. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="classBControl_1a28daada6c5a36e5fd8445d1b5580b6c2" kindref="member">SetTracking()</ref> for the usage pattern. By default, the control wil return <computeroutput>false</computeroutput>.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="85" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a28daada6c5a36e5fd8445d1b5580b6c2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BControl::SetTracking</definition>
+        <argsstring>(bool state)</argsstring>
+        <name>SetTracking</name>
+        <qualifiedname>BControl::SetTracking</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Modify the control&apos;s tracking state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The tracking state is a feature of this <ref refid="classBControl" kindref="compound">BControl</ref> class, that allows you to set a flag when you are watching the behavior of users when they interact with your control.</para>
+<para>For example, a button may have a draw state when it is not pressed, and when it is pressed. When the user presses their mouse down, within the control, the control will be drawn in the pressed state. The code can set the tracking flag, so that in the case of the mouse up event, the control knows it has to redraw.</para>
+<para>This flag does not affect anything within this class, other than the return value of the <ref refid="classBControl_1a253dcd4904a221e750c58ce41cea6c8c" kindref="member">IsTracking()</ref> method, so it can be used at will by custom implementations of this class.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pass <computeroutput>true</computeroutput> if the control is in a tracking state, or <computeroutput>false</computeroutput> if it is not.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="86" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a367df71f0b9b64905f3acb98cd111cda" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BControl::SetValueNoUpdate</definition>
+        <argsstring>(int32 value)</argsstring>
+        <name>SetValueNoUpdate</name>
+        <qualifiedname>BControl::SetValueNoUpdate</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the value of the control without redrawing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>value</emphasis> to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBControl_1a7841a122e7fa9ab5efb5217c562e763d" kindref="member">SetValue()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="88" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBControl_1a69bcc454ea231c9d8da3480caf064746" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BControl::_ReservedControl2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedControl2</name>
+        <qualifiedname>BControl::_ReservedControl2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="94" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1af38c5ede2d3c03630a162b5558dad8cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BControl::_ReservedControl3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedControl3</name>
+        <qualifiedname>BControl::_ReservedControl3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="95" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a01d7c7384bbf3487541df077ae02b435" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BControl::_ReservedControl4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedControl4</name>
+        <qualifiedname>BControl::_ReservedControl4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="96" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a223a5a97ef3ffeae49239f8bf9ff86dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BControl::InitData</definition>
+        <argsstring>(BMessage *data=NULL)</argsstring>
+        <name>InitData</name>
+        <qualifiedname>BControl::InitData</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="100" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBControl_1a9ae6ba00d51f52b9bcd6455802197faf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBControl" kindref="compound">BControl</ref> &amp;</type>
+        <definition>BControl &amp; BControl::operator=</definition>
+        <argsstring>(const BControl &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BControl::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBControl" kindref="compound">BControl</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="98" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classBControl" kindref="compound">BControl</ref> is the base class for user-event handling objects. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Simple controls such as <ref refid="classBCheckBox" kindref="compound">BCheckBox</ref> and <ref refid="classBButton" kindref="compound">BButton</ref> deviate only a bit from <ref refid="classBControl" kindref="compound">BControl</ref>, whereas more complicated controls such as <ref refid="classBColorControl" kindref="compound">BColorControl</ref> and BSlider re-implement much more functionality. Whether you are building a simple control or something more complicated you should inherit from <ref refid="classBControl" kindref="compound">BControl</ref> as it provides a common set of methods for intercepting received messages from mouse and keyboard events.</para>
+<para>Controls have state which they keep in their value. The value of a control, stored as an int32, is read and set by the virtual <ref refid="classBControl_1a759e9aebe200495c3773d2920e19e91f" kindref="member">Value()</ref> and <ref refid="classBControl_1a7841a122e7fa9ab5efb5217c562e763d" kindref="member">SetValue()</ref> methods. <ref refid="classBControl" kindref="compound">BControl</ref> defines <computeroutput>B_CONTROL_ON</computeroutput> and <computeroutput>B_CONTROL_OFF</computeroutput> values that you can use as a convenience if your control has a simple on/off state. If your <ref refid="classBControl" kindref="compound">BControl</ref> derived class stores a larger set of states then you should define your own integer values instead.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="6">
+        <label>BButton</label>
+        <link refid="classBButton"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BChannelControl</label>
+        <link refid="classBChannelControl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>BChannelSlider</label>
+        <link refid="classBChannelSlider"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>BCheckBox</label>
+        <link refid="classBCheckBox"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>BColorControl</label>
+        <link refid="classBColorControl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BControl</label>
+        <link refid="classBControl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BInvoker</label>
+        <link refid="classBInvoker"/>
+      </node>
+      <node id="11">
+        <label>BOptionControl</label>
+        <link refid="classBOptionControl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>BOptionPopUp</label>
+        <link refid="classBOptionPopUp"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>BPictureButton</label>
+        <link refid="classBPictureButton"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>BRadioButton</label>
+        <link refid="classBRadioButton"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>BTextControl</label>
+        <link refid="classBTextControl"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BControl</label>
+        <link refid="classBControl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BInvoker</label>
+        <link refid="classBInvoker"/>
+      </node>
+      <node id="2">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/Control.h" line="27" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Control.h" bodystart="27" bodyend="116"/>
+    <listofallmembers>
+      <member refid="classBControl_1a15953e715df0de3a2da24d4bd2fcb0c0" prot="private" virt="non-virtual"><scope>BControl</scope><name>_reserved</name></member>
+      <member refid="classBControl_1a69bcc454ea231c9d8da3480caf064746" prot="private" virt="virtual"><scope>BControl</scope><name>_ReservedControl2</name></member>
+      <member refid="classBControl_1af38c5ede2d3c03630a162b5558dad8cd" prot="private" virt="virtual"><scope>BControl</scope><name>_ReservedControl3</name></member>
+      <member refid="classBControl_1a01d7c7384bbf3487541df077ae02b435" prot="private" virt="virtual"><scope>BControl</scope><name>_ReservedControl4</name></member>
+      <member refid="classBView_1ab6382c582e5e1be527d3199459d05e8f" prot="public" virt="non-virtual"><scope>BControl</scope><name>AddChild</name></member>
+      <member refid="classBView_1a5d30ae4fa0119bf5286f52f83c2f351c" prot="public" virt="non-virtual"><scope>BControl</scope><name>AddChild</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BControl</scope><name>AddFilter</name></member>
+      <member refid="classBView_1a88440336a66ee9b1a4b1661e9ba9e59c" prot="public" virt="non-virtual"><scope>BControl</scope><name>AddLine</name></member>
+      <member refid="classBView_1ac780f029d415ee0a915792b4e756fa77" prot="public" virt="non-virtual"><scope>BControl</scope><name>AdoptParentColors</name></member>
+      <member refid="classBView_1a0e429a82fe06e9ab390b06d993ee31be" prot="public" virt="non-virtual"><scope>BControl</scope><name>AdoptSystemColors</name></member>
+      <member refid="classBView_1ab68ad7103708884f9e6fd84e8a579746" prot="public" virt="non-virtual"><scope>BControl</scope><name>AdoptViewColors</name></member>
+      <member refid="classBView_1a561e82ed41cbb93d3bacf371787497bf" prot="public" virt="virtual"><scope>BControl</scope><name>AllArchived</name></member>
+      <member refid="classBControl_1a2abeec720f873da7c4bc3a2709ff8be0" prot="public" virt="virtual"><scope>BControl</scope><name>AllAttached</name></member>
+      <member refid="classBControl_1a991c0eecd0279cbc27c5f9a0fbc37920" prot="public" virt="virtual"><scope>BControl</scope><name>AllDetached</name></member>
+      <member refid="classBView_1ab7bd04272afed8b28bf57d1de33cbe05" prot="public" virt="virtual"><scope>BControl</scope><name>AllUnarchived</name></member>
+      <member refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" prot="public" virt="non-virtual"><scope>BControl</scope><name>AppendToPicture</name></member>
+      <member refid="classBControl_1a2581a447a34eef102c62d0e998155290" prot="public" virt="virtual"><scope>BControl</scope><name>Archive</name></member>
+      <member refid="classBControl_1a460fa93bcdd5309d8d86f8bfcd53b584" prot="public" virt="virtual"><scope>BControl</scope><name>AttachedToWindow</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BControl</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BControl</scope><name>BArchivable</name></member>
+      <member refid="classBControl_1ae2bd77f0349ca0197b7599393a6ae3ca" prot="public" virt="non-virtual"><scope>BControl</scope><name>BControl</name></member>
+      <member refid="classBControl_1a6243ab82eecb7ac3a5c35592a057845d" prot="public" virt="non-virtual"><scope>BControl</scope><name>BControl</name></member>
+      <member refid="classBControl_1a1224f952eb63f1b0d338720b88fdf220" prot="public" virt="non-virtual"><scope>BControl</scope><name>BControl</name></member>
+      <member refid="classBInvoker_1ada272cb8671448d7f7efd607791f31a7" prot="protected" virt="non-virtual"><scope>BControl</scope><name>BeginInvokeNotify</name></member>
+      <member refid="classBView_1abe65757b7c83c8db390bf0c87457a343" prot="public" virt="non-virtual"><scope>BControl</scope><name>BeginLayer</name></member>
+      <member refid="classBView_1ab3f2e9f54d2b93952b27e182ac552983" prot="public" virt="non-virtual"><scope>BControl</scope><name>BeginLineArray</name></member>
+      <member refid="classBView_1a14155192773aad22ebe47a9975afac5f" prot="public" virt="non-virtual"><scope>BControl</scope><name>BeginPicture</name></member>
+      <member refid="classBView_1ac1eb1eeee67ec97205a4acc6955185bd" prot="public" virt="non-virtual"><scope>BControl</scope><name>BeginRectTracking</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BControl</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BControl</scope><name>BHandler</name></member>
+      <member refid="classBInvoker_1ad03149db91cd6460f12adb72780a7080" prot="public" virt="non-virtual"><scope>BControl</scope><name>BInvoker</name></member>
+      <member refid="classBInvoker_1a6405334f1589c7a9fc3604ff8a4c8c83" prot="public" virt="non-virtual"><scope>BControl</scope><name>BInvoker</name></member>
+      <member refid="classBInvoker_1adaf9b3df1b4a318e10df04a5eb9f59ee" prot="public" virt="non-virtual"><scope>BControl</scope><name>BInvoker</name></member>
+      <member refid="classBView_1acbb8ea442346e91428689163db9d633e" prot="public" virt="non-virtual"><scope>BControl</scope><name>Bounds</name></member>
+      <member refid="classBView_1ab148f59c41c9a22ced87bf7a0221ed62" prot="public" virt="non-virtual"><scope>BControl</scope><name>BView</name></member>
+      <member refid="classBView_1ae3a1b2a66dc19690e766623be65c37e2" prot="public" virt="non-virtual"><scope>BControl</scope><name>BView</name></member>
+      <member refid="classBView_1ae982fac35c278cc64990c506efe3965e" prot="public" virt="non-virtual"><scope>BControl</scope><name>BView</name></member>
+      <member refid="classBView_1aaf91592f50f2f44d16f23e7504f494cb" prot="public" virt="non-virtual"><scope>BControl</scope><name>ChildAt</name></member>
+      <member refid="classBView_1ae7582b9a2b0b446a1de16c681f23baf9" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClearViewBitmap</name></member>
+      <member refid="classBView_1a0ae48f37c3f56b422841638971488cc0" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClearViewOverlay</name></member>
+      <member refid="classBView_1a18d61bcae2a7ca8a1a0977ac23d15171" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClipToInversePicture</name></member>
+      <member refid="classBView_1ad1762d160500ec3ce90c7bd73944d8a7" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClipToInverseRect</name></member>
+      <member refid="classBView_1a17dcb4f2e92994cde9a9ece9caa619c2" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClipToInverseShape</name></member>
+      <member refid="classBView_1a9c92c9e8e306d00dbfef81f2b0282339" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClipToPicture</name></member>
+      <member refid="classBView_1a22ff147a2f0a0bd65de494c9a039acee" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClipToRect</name></member>
+      <member refid="classBView_1ac0884c62949361a7eb6a4834f46b902c" prot="public" virt="non-virtual"><scope>BControl</scope><name>ClipToShape</name></member>
+      <member refid="classBInvoker_1a6eb323ab957a5ee99e8db2b2fb0e9800" prot="public" virt="non-virtual"><scope>BControl</scope><name>Command</name></member>
+      <member refid="classBView_1a656b8d82a6a7c7c6ab33c3dd08aad6ec" prot="public" virt="virtual"><scope>BControl</scope><name>ConstrainClippingRegion</name></member>
+      <member refid="classBView_1a43c16140dd4491a6a6f7bad11bbea1f9" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1aa3201bdf5c489fbab7d67afe3453466d" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1ab2aeeb14409a18f950173e7cb22e147c" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a45b405f10c29442aea8b70161410565f" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a4b794ccd899dc6a0cafd886169122df5" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a75f1d68cf77bccc03930eb8e273f2967" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a3fbc496f437925cb02ccf9e817406e4e" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a44c3b5174e4ccfa4c123e0d5d54e9408" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1ab20700567eabd5f8135be179b4232e2c" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1a91e6a7edab78547be47cb8dc84cfdecf" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ac7bd2e0e7aac40d1be9a47999b5701a9" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ae3b385e4d1b9f70bc848bf2fd0b7753c" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1aefefb1242613b869feb6b8e0cc119518" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1af90cdeb62cc60adf64eb9a669c37c153" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ad99f5af006f28c485f02484752a2ac5d" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ae60c56c306d0cf3f504d710fac8b9bed" prot="public" virt="non-virtual"><scope>BControl</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1a8ace5c5cc811c4ad16acf281ffd1a48d" prot="public" virt="non-virtual"><scope>BControl</scope><name>CopyBits</name></member>
+      <member refid="classBView_1ae30d094a1cb1f3357c4aa7caa4b0e29d" prot="public" virt="non-virtual"><scope>BControl</scope><name>CountChildren</name></member>
+      <member refid="classBView_1ae2a9da1ca04489dd60ef8aefa86331ed" prot="public" virt="non-virtual"><scope>BControl</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBView_1a6389a46cf1842eb0d412b44958955e61" prot="public" virt="non-virtual"><scope>BControl</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBControl_1a588fea0ded4cdc4c1b4fb5d1f5565f27" prot="public" virt="virtual"><scope>BControl</scope><name>DetachedFromWindow</name></member>
+      <member refid="classBView_1aa165cbaac7d6915feaae6048c4378c85" prot="public" virt="non-virtual"><scope>BControl</scope><name>DisableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9d766a06d0885200c6ababba4c87808b" prot="protected" virt="virtual"><scope>BControl</scope><name>DoLayout</name></member>
+      <member refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" prot="public" virt="non-virtual"><scope>BControl</scope><name>DragMessage</name></member>
+      <member refid="classBView_1a466287a3d939759cc09e4a6d1c9982cd" prot="public" virt="non-virtual"><scope>BControl</scope><name>DragMessage</name></member>
+      <member refid="classBView_1ae1caa1d0bef9452db00c2adc8e3280b4" prot="public" virt="non-virtual"><scope>BControl</scope><name>DragMessage</name></member>
+      <member refid="classBView_1aa55014241fc2f5556415850692b52db2" prot="public" virt="virtual"><scope>BControl</scope><name>Draw</name></member>
+      <member refid="classBView_1abb50623b4236926b068fc5a2264f6a48" prot="public" virt="virtual"><scope>BControl</scope><name>DrawAfterChildren</name></member>
+      <member refid="classBView_1a6171150993fbf7c73966c7c302a95573" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a63db7245fd9b9fefd461d7596c15f9cc" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1abce81666128d183d59b5cf2ed75c7f07" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a1c8b6e3e9218388a68ae43dd408a187c" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a769c3e3dee7d86ed50308f7a3f46ef91" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1ae66727344d35f05c56b6163ad70e360c" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a0ef432afa41aefcb3fdd537e2d290001" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1aa3275b791787a66f3638611cd6a5ae09" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a6931c5fe803eb5fa9e66438d347c4b6d" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1ab50fba0500357abebb9f3ef3832f2e68" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a02ba5c68f21d4345ec3ee683496ce851" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawChar</name></member>
+      <member refid="classBView_1a2ed7c3628692426116fc0bb450c0f0c7" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawChar</name></member>
+      <member refid="classBView_1ae7953a2e451fb6e5a439df9e9dc8451a" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawingMode</name></member>
+      <member refid="classBView_1ae4b252943befd9f0b62e30517b3ecec2" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a2fdf36421cccce9136cdd9966a971955" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a9f5781a2b37113c55950c93b621984a7" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a65498927c21d6681a0e77c4e3d29efba" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a05881f8b07989e1e9db0bd41f8181341" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a7f2fde4e7719bded5af33805b8242b06" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a5c261dbbb4e8157799e85d6ad1530920" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawString</name></member>
+      <member refid="classBView_1a83d77965bd9cda6212189d92b97d8198" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawString</name></member>
+      <member refid="classBView_1ad3830d09ed0300a1144d47ac78cd2dde" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawString</name></member>
+      <member refid="classBView_1a4e1f1c59352a1373ccace7255a0ccf23" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawString</name></member>
+      <member refid="classBView_1a5dacf5d193a0c492f296bc1e402e6370" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawString</name></member>
+      <member refid="classBView_1a135868eb5cd1b35ee1c2d03517b9a33f" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawString</name></member>
+      <member refid="classBView_1a8848d931fd0354860a0e71934e66cb03" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawTiledBitmap</name></member>
+      <member refid="classBView_1ad281a4e40f212e3cb56c23fa6e574a84" prot="public" virt="non-virtual"><scope>BControl</scope><name>DrawTiledBitmapAsync</name></member>
+      <member refid="classBView_1ad43cc5c22f83d95632d3d81eff73f425" prot="public" virt="non-virtual"><scope>BControl</scope><name>EnableLayoutInvalidation</name></member>
+      <member refid="classBInvoker_1a2169cfbba1c3da1921baa9a550581b54" prot="protected" virt="non-virtual"><scope>BControl</scope><name>EndInvokeNotify</name></member>
+      <member refid="classBView_1a9f54d4478a12823f116168a45af30898" prot="public" virt="non-virtual"><scope>BControl</scope><name>EndLayer</name></member>
+      <member refid="classBView_1a24ba922f9698936bc27f48b3c51349a1" prot="public" virt="non-virtual"><scope>BControl</scope><name>EndLineArray</name></member>
+      <member refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" prot="public" virt="non-virtual"><scope>BControl</scope><name>EndPicture</name></member>
+      <member refid="classBView_1a7bcc3532c03eeeb929278de8fcc1fd25" prot="public" virt="non-virtual"><scope>BControl</scope><name>EndRectTracking</name></member>
+      <member refid="classBView_1a8851d500773c732ddbb1a4b31f0ad664" prot="public" virt="non-virtual"><scope>BControl</scope><name>EventMask</name></member>
+      <member refid="classBView_1a1f078f5c987061c5cf3059f7091bcb1a" prot="public" virt="non-virtual"><scope>BControl</scope><name>ExplicitAlignment</name></member>
+      <member refid="classBView_1a4e63cc8ca1f604ccb20f5891adade70f" prot="public" virt="non-virtual"><scope>BControl</scope><name>ExplicitMaxSize</name></member>
+      <member refid="classBView_1a1b24db754473008766cdd0fd9c4ee3b7" prot="public" virt="non-virtual"><scope>BControl</scope><name>ExplicitMinSize</name></member>
+      <member refid="classBView_1a218cd0d238104a6ff31c1d72ae2d9e6e" prot="public" virt="non-virtual"><scope>BControl</scope><name>ExplicitPreferredSize</name></member>
+      <member refid="classBControl_1ae30707869ead382c362fa064de215992" prot="private" virt="non-virtual"><scope>BControl</scope><name>fEnabled</name></member>
+      <member refid="classBControl_1a5692bef53aca27d25b6b92058be58cba" prot="private" virt="non-virtual"><scope>BControl</scope><name>fFocusChanging</name></member>
+      <member refid="classBControl_1af562529f834ab5d80bc8bc135631c802" prot="private" virt="non-virtual"><scope>BControl</scope><name>fIcon</name></member>
+      <member refid="classBView_1af0e5d362474d39199116045aa9621aa5" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillArc</name></member>
+      <member refid="classBView_1ac216c652253a21f0f28a7caef07deb77" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillArc</name></member>
+      <member refid="classBView_1a49017edefe45ca5c74954e1227e673bb" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillArc</name></member>
+      <member refid="classBView_1a4304fe45708f72d0ba20b579870c24ce" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillArc</name></member>
+      <member refid="classBView_1a531ad43e129d810ee64208123b550193" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a7cf8a5eaa5451b2c7df0d6fa392012bd" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a06942f0dd4c13175bcfff6a88eae7cc0" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a98a73cbccb42edfc61b93f9aa6f4a13b" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a2738cf2f3d39f560d0cff90543f45afa" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a86de91f260577187eaf22ba0fdf32fba" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1ae72733cae8a1fc2da8feb47c0c2149fa" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1adc7d96f2d60a819f03685eb11b6945e2" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a1bdc02a311b2a051ad7fbdbf1789e958" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a96cdb60a8c87e4958380a3077a2197a5" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a22a5ce1f024e622b6eade6a9176ff1f7" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a57b0870cd6a0109c347d80c34ca2f34a" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a4d074663998c7ba922a9d981d0cfe086" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRect</name></member>
+      <member refid="classBView_1aae6a3ff6683bb15ac8c647c946475e8f" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRect</name></member>
+      <member refid="classBView_1a4810086c415d90bffa25ab2963716936" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a56828d13947717462b661e1645305509" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a38d7e7b15a13591c20020599886402b5" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a73956d28b356b2eee83ebc19bd6e398b" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a3a2fd2d7313a9bb7dff359a4f4362a5f" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillRule</name></member>
+      <member refid="classBView_1a91b9ce4b8b8ee13ff5f1071e1fb0d829" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillShape</name></member>
+      <member refid="classBView_1a9a82da733397e97b985875be941f77a6" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillShape</name></member>
+      <member refid="classBView_1a46ec16609a402d03baa322a04d8c50e2" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1af512b76752705cba87f89c8dac313005" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a5dd1c64839c11a79e80581e37656cc26" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a0878dea14a61d58c951bd8e11c0a2ef6" prot="public" virt="non-virtual"><scope>BControl</scope><name>FillTriangle</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BControl</scope><name>FilterList</name></member>
+      <member refid="classBView_1ab83ef89f1876913174c825ff7cd02c4a" prot="public" virt="non-virtual"><scope>BControl</scope><name>FindView</name></member>
+      <member refid="classBControl_1ab6c37667b5a522079e93e34dfabb631f" prot="private" virt="non-virtual"><scope>BControl</scope><name>fLabel</name></member>
+      <member refid="classBView_1a561b10abf94dd65a26b02253af667508" prot="public" virt="non-virtual"><scope>BControl</scope><name>Flags</name></member>
+      <member refid="classBView_1a15465930f84d2d01f7818bd79bc91c3e" prot="public" virt="non-virtual"><scope>BControl</scope><name>Flush</name></member>
+      <member refid="classBView_1a424161ccf6f52a354fdd67ed1376d196" prot="public" virt="non-virtual"><scope>BControl</scope><name>ForceFontAliasing</name></member>
+      <member refid="classBView_1a487b04a3aaffdd1a1afb730dca36a7e2" prot="public" virt="non-virtual"><scope>BControl</scope><name>Frame</name></member>
+      <member refid="classBView_1a551c22b45301e13a3ba959eece3cec7f" prot="public" virt="virtual"><scope>BControl</scope><name>FrameMoved</name></member>
+      <member refid="classBView_1a85d88f9c2bb6800560874b2061378fa0" prot="public" virt="virtual"><scope>BControl</scope><name>FrameResized</name></member>
+      <member refid="classBControl_1af6668f2c56b4b46c06c5adcaf91134f9" prot="private" virt="non-virtual"><scope>BControl</scope><name>fTracking</name></member>
+      <member refid="classBControl_1a054809bc8d917ed6655111f8b41d8761" prot="private" virt="non-virtual"><scope>BControl</scope><name>fValue</name></member>
+      <member refid="classBControl_1a0934211a488b5702b40914882b2ab102" prot="private" virt="non-virtual"><scope>BControl</scope><name>fWantsNav</name></member>
+      <member refid="classBView_1ad50d5ba2249fdf3dd8640b3573c2a2e8" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetBlendingMode</name></member>
+      <member refid="classBView_1acf50a063c9621f35a84b1d0245b12d69" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetClippingRegion</name></member>
+      <member refid="classBView_1af244d01f85e6d9ae7f5fcca4637dc78c" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetFont</name></member>
+      <member refid="classBView_1a5bf95d66754634c647b2ddf7d39b4dfb" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetFontHeight</name></member>
+      <member refid="classBView_1ad34bee968b1ec98a0bf89343340b6b07" prot="public" virt="virtual"><scope>BControl</scope><name>GetHeightForWidth</name></member>
+      <member refid="classBView_1aec2975b51966c397aa52b9e3eebd2c85" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetLayout</name></member>
+      <member refid="classBView_1a830ce9cf2ac2ffb5f73f526ee5d6e53d" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetMouse</name></member>
+      <member refid="classBControl_1a22455c705a4ed0fd09908b36a8dda3ae" prot="public" virt="virtual"><scope>BControl</scope><name>GetPreferredSize</name></member>
+      <member refid="classBView_1aaae0dc93bc61d7f221465fbe0aecd30a" prot="public" virt="non-virtual"><scope>BControl</scope><name>GetStringWidths</name></member>
+      <member refid="classBControl_1a3b545ffe2ee04f62eaa567582225adba" prot="public" virt="virtual"><scope>BControl</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBView_1afb826fe9b8964e4d843cae190170badf" prot="protected" virt="virtual"><scope>BControl</scope><name>GetToolTipAt</name></member>
+      <member refid="classBInvoker_1a710e78abc03eb29e9e25d11d34c874cc" prot="public" virt="non-virtual"><scope>BControl</scope><name>HandlerForReply</name></member>
+      <member refid="classBView_1a606e0e7e03516dccb53bf073827460a8" prot="public" virt="non-virtual"><scope>BControl</scope><name>HasDefaultColors</name></member>
+      <member refid="classBView_1abd411461b7e23ad17e7294f8f5e1cbeb" prot="public" virt="virtual"><scope>BControl</scope><name>HasHeightForWidth</name></member>
+      <member refid="classBView_1aa9aacc95606b650e6a8d776b51cb902b" prot="public" virt="non-virtual"><scope>BControl</scope><name>HasSystemColors</name></member>
+      <member refid="classBView_1a7688dc04178a2955950154ee3670d029" prot="public" virt="virtual"><scope>BControl</scope><name>Hide</name></member>
+      <member refid="classBView_1af75bbc1131ad6a90e299c6cbcf623fa7" prot="public" virt="non-virtual"><scope>BControl</scope><name>HideToolTip</name></member>
+      <member refid="classBView_1abda3583967fba9f6ed9524058d00a6e9" prot="public" virt="non-virtual"><scope>BControl</scope><name>HighColor</name></member>
+      <member refid="classBView_1aa86f548fba2e82d022066198be6d5af6" prot="public" virt="non-virtual"><scope>BControl</scope><name>HighUIColor</name></member>
+      <member refid="classBControl_1a186746c30c79d2645fb94301ef05dfff" prot="public" virt="non-virtual"><scope>BControl</scope><name>IconBitmap</name></member>
+      <member refid="classBControl_1a223a5a97ef3ffeae49239f8bf9ff86dd" prot="private" virt="non-virtual"><scope>BControl</scope><name>InitData</name></member>
+      <member refid="classBControl_1ad5ba32b4f839a5a9bc60fcf037e23846" prot="public" virt="non-virtual"><scope>BControl</scope><name>Instantiate</name></member>
+      <member refid="classBView_1a8c767d948dc9435c006cabdcab1cd08e" prot="public" virt="non-virtual"><scope>BControl</scope><name>Invalidate</name></member>
+      <member refid="classBView_1ac70b682819c0f9b008c428e02015b19b" prot="public" virt="non-virtual"><scope>BControl</scope><name>Invalidate</name></member>
+      <member refid="classBView_1adfced0dcb244e199f872fdbd48349a05" prot="public" virt="non-virtual"><scope>BControl</scope><name>Invalidate</name></member>
+      <member refid="classBView_1a4a711316094e43076a3f5478d937accf" prot="public" virt="non-virtual"><scope>BControl</scope><name>InvalidateLayout</name></member>
+      <member refid="classBView_1af7e5ebc41cd5a471dcdcfa1f3db801a5" prot="public" virt="non-virtual"><scope>BControl</scope><name>InvertRect</name></member>
+      <member refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" prot="public" virt="virtual"><scope>BControl</scope><name>Invoke</name></member>
+      <member refid="classBInvoker_1a6e33e81c7ee307621295e8da6181d3f8" prot="protected" virt="non-virtual"><scope>BControl</scope><name>InvokeKind</name></member>
+      <member refid="classBInvoker_1ab009fe9c6a1f64798c614612e8c3db20" prot="public" virt="non-virtual"><scope>BControl</scope><name>InvokeNotify</name></member>
+      <member refid="classBControl_1a179de32505328b72911cd85bf2c3cfe8" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsEnabled</name></member>
+      <member refid="classBView_1a165719de682845f80735042a499692ff" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsFocus</name></member>
+      <member refid="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" prot="protected" virt="non-virtual"><scope>BControl</scope><name>IsFocusChanging</name></member>
+      <member refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a95cfa8ee585230ea8fb224e88eddc503" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a4e86b719129a12afbda7c10371eeca47" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsLayoutInvalidationDisabled</name></member>
+      <member refid="classBView_1a00a5d5d6edee7d488d77df03945b3e94" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsLayoutValid</name></member>
+      <member refid="classBView_1a8e3f1722e40fdf01c5131e49199ec3ff" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsPrinting</name></member>
+      <member refid="classBInvoker_1a17470932a103267815f01d0df9e891e9" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsTargetLocal</name></member>
+      <member refid="classBControl_1a253dcd4904a221e750c58ce41cea6c8c" prot="protected" virt="non-virtual"><scope>BControl</scope><name>IsTracking</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BControl</scope><name>IsWatched</name></member>
+      <member refid="classBControl_1ade80a87b7da08e9b84b188c629ec36c8" prot="public" virt="virtual"><scope>BControl</scope><name>KeyDown</name></member>
+      <member refid="classBView_1acbc528bb70be49993bd99aa136dbb089" prot="public" virt="virtual"><scope>BControl</scope><name>KeyUp</name></member>
+      <member refid="classBControl_1a0c345befac88d6af592ce2b3e7d7214e" prot="public" virt="non-virtual"><scope>BControl</scope><name>Label</name></member>
+      <member refid="classBView_1a854b6ca54eeca610db9eab8b58d68a8b" prot="public" virt="non-virtual"><scope>BControl</scope><name>Layout</name></member>
+      <member refid="classBView_1a2f74b3e7c602045d8c927f923f45eefa" prot="public" virt="virtual"><scope>BControl</scope><name>LayoutAlignment</name></member>
+      <member refid="classBView_1ada521f848e4c800cd02eb4fe529e7ea0" prot="protected" virt="virtual"><scope>BControl</scope><name>LayoutChanged</name></member>
+      <member refid="classBView_1ae066513c0a788a9544744d409f28cada" prot="public" virt="non-virtual"><scope>BControl</scope><name>LayoutContext</name></member>
+      <member refid="classBView_1a0a552cc0d8678939c619f98dcc80d254" prot="protected" virt="virtual"><scope>BControl</scope><name>LayoutInvalidated</name></member>
+      <member refid="classBView_1a5d252dfe28eee049be2192d1a01ed6e3" prot="public" virt="non-virtual"><scope>BControl</scope><name>LeftTop</name></member>
+      <member refid="classBView_1a551f5961188e4f26ef310eb5eea7c926" prot="public" virt="non-virtual"><scope>BControl</scope><name>LineCapMode</name></member>
+      <member refid="classBView_1a0aa47adb29d91b4cc6c4924b7f436012" prot="public" virt="non-virtual"><scope>BControl</scope><name>LineJoinMode</name></member>
+      <member refid="classBView_1ab1cd7cf77a4fa01755d186a05163cfbe" prot="public" virt="non-virtual"><scope>BControl</scope><name>LineMiterLimit</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BControl</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BControl</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BControl</scope><name>Looper</name></member>
+      <member refid="classBView_1a423c54f22ab95745b28b583af999e554" prot="public" virt="non-virtual"><scope>BControl</scope><name>LowColor</name></member>
+      <member refid="classBView_1ae32ca6d8f106d44b5b51df82a7eb64c5" prot="public" virt="non-virtual"><scope>BControl</scope><name>LowUIColor</name></member>
+      <member refid="classBControl_1aaeeae39969b598868ad0e8d3298efb00" prot="public" virt="virtual"><scope>BControl</scope><name>MakeFocus</name></member>
+      <member refid="classBView_1ad1f1843a380e850948cf7e4ed2d5f1ba" prot="public" virt="virtual"><scope>BControl</scope><name>MaxSize</name></member>
+      <member refid="classBInvoker_1ab0b73729de282c93b4da51e6b9dbc170" prot="public" virt="non-virtual"><scope>BControl</scope><name>Message</name></member>
+      <member refid="classBControl_1a19960b4d0a96144f73065a6ea1f2f8e2" prot="public" virt="virtual"><scope>BControl</scope><name>MessageReceived</name></member>
+      <member refid="classBInvoker_1aac0992846032f0caaed3d968cd9a1fca" prot="public" virt="non-virtual"><scope>BControl</scope><name>Messenger</name></member>
+      <member refid="classBView_1acfb0cffde35b853dab6bc5d1bb03265f" prot="public" virt="virtual"><scope>BControl</scope><name>MinSize</name></member>
+      <member refid="classBControl_1aae264c07bf8006acf1fa96ceedc5f74d" prot="public" virt="virtual"><scope>BControl</scope><name>MouseDown</name></member>
+      <member refid="classBControl_1aafa3507bfcf6f058d269a6e3bd6d30be" prot="public" virt="virtual"><scope>BControl</scope><name>MouseMoved</name></member>
+      <member refid="classBControl_1aeef31f13aee4d5d0b3dbb0f7e12beb39" prot="public" virt="virtual"><scope>BControl</scope><name>MouseUp</name></member>
+      <member refid="classBView_1a6e122baca4494f6ce739a507054fa81f" prot="public" virt="non-virtual"><scope>BControl</scope><name>MoveBy</name></member>
+      <member refid="classBView_1a979f8f0090284919b6e7c6c04d91cbde" prot="public" virt="non-virtual"><scope>BControl</scope><name>MovePenBy</name></member>
+      <member refid="classBView_1acb61254a2121f569f6223a95cd835abd" prot="public" virt="non-virtual"><scope>BControl</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1ae32d7951a4ce9cff6b81899f5208a25f" prot="public" virt="non-virtual"><scope>BControl</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1acce9c93118a3db24078f16bdabc6fbec" prot="public" virt="non-virtual"><scope>BControl</scope><name>MoveTo</name></member>
+      <member refid="classBView_1a1c9b2df47ba1b9f3a1ce3286995fb8bd" prot="public" virt="non-virtual"><scope>BControl</scope><name>MoveTo</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BControl</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BControl</scope><name>NextHandler</name></member>
+      <member refid="classBView_1a76e7d862fe78e4d2766573bf073b9d30" prot="public" virt="non-virtual"><scope>BControl</scope><name>NextSibling</name></member>
+      <member refid="classBControl_1a9ae6ba00d51f52b9bcd6455802197faf" prot="private" virt="non-virtual"><scope>BControl</scope><name>operator=</name></member>
+      <member refid="classBView_1aefbf71a7a403900e960ffa3943dc9901" prot="public" virt="non-virtual"><scope>BControl</scope><name>Origin</name></member>
+      <member refid="classBView_1a332f34d9862000dbc859fd4e308839dd" prot="public" virt="non-virtual"><scope>BControl</scope><name>Parent</name></member>
+      <member refid="classBView_1a2774e13c2b12c6a5fee333e95b76b07d" prot="public" virt="non-virtual"><scope>BControl</scope><name>PenLocation</name></member>
+      <member refid="classBView_1a69d8657d26b49773fa2de914f263b204" prot="public" virt="non-virtual"><scope>BControl</scope><name>PenSize</name></member>
+      <member refid="classBControl_1a0b32524cd2abfb7ea37b9988b180c733" prot="public" virt="virtual"><scope>BControl</scope><name>Perform</name></member>
+      <member refid="classBView_1abc0d202fe13366b80703afbdb3832951" prot="public" virt="non-virtual"><scope>BControl</scope><name>PopState</name></member>
+      <member refid="classBView_1a7f51d63e71b60a2721d04436ffbcfe36" prot="public" virt="virtual"><scope>BControl</scope><name>PreferredSize</name></member>
+      <member refid="classBView_1a2a46f78756eacca3f3d4c90d31c758b1" prot="public" virt="non-virtual"><scope>BControl</scope><name>PreviousSibling</name></member>
+      <member refid="classBView_1a0ae8ec3e94ee3d41cb329e3df6966566" prot="public" virt="virtual"><scope>BControl</scope><name>Pulse</name></member>
+      <member refid="classBView_1a1dcb914cd0c6ef8d1291aa8492968d40" prot="public" virt="non-virtual"><scope>BControl</scope><name>PushState</name></member>
+      <member refid="classBView_1a2cf4e698a4322ecfb946e440e0f7ac62" prot="public" virt="non-virtual"><scope>BControl</scope><name>Relayout</name></member>
+      <member refid="classBView_1a5f93a23d06267da83c128bce222ceb17" prot="public" virt="non-virtual"><scope>BControl</scope><name>RemoveChild</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BControl</scope><name>RemoveFilter</name></member>
+      <member refid="classBView_1a87e0848b1760a9f28aad4516467a03ed" prot="public" virt="non-virtual"><scope>BControl</scope><name>RemoveSelf</name></member>
+      <member refid="classBView_1a127933a3820f0bfe0497b5e7ddfa191f" prot="public" virt="non-virtual"><scope>BControl</scope><name>ResetLayoutInvalidation</name></member>
+      <member refid="classBView_1ace23acc948bbc9b9272da8dc7f01d3ce" prot="public" virt="non-virtual"><scope>BControl</scope><name>ResizeBy</name></member>
+      <member refid="classBView_1a742bccd6034ef9ade65b0e596fba55f2" prot="public" virt="non-virtual"><scope>BControl</scope><name>ResizeTo</name></member>
+      <member refid="classBView_1a6134097569f75679616257a361086d7a" prot="public" virt="non-virtual"><scope>BControl</scope><name>ResizeTo</name></member>
+      <member refid="classBControl_1ad25f5ce6f17b5fe6fd6347021e9222e4" prot="public" virt="virtual"><scope>BControl</scope><name>ResizeToPreferred</name></member>
+      <member refid="classBView_1a1e93df523fc9edc807274ac6cfd2dc8d" prot="public" virt="non-virtual"><scope>BControl</scope><name>ResizingMode</name></member>
+      <member refid="classBControl_1a084be37bbc0c49627c42a078c4b4dac8" prot="public" virt="virtual"><scope>BControl</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBView_1a02ab6b6196b140b20ae516a55680e30b" prot="public" virt="non-virtual"><scope>BControl</scope><name>RotateBy</name></member>
+      <member refid="classBView_1a50e12d6b8080b3bc6bc617d31d1ab200" prot="public" virt="non-virtual"><scope>BControl</scope><name>Scale</name></member>
+      <member refid="classBView_1ac83f9fdfb882f849e3ac79bfb06a0fd6" prot="public" virt="non-virtual"><scope>BControl</scope><name>ScaleBy</name></member>
+      <member refid="classBView_1a0878bc7981ba814190b822349599a120" prot="public" virt="non-virtual"><scope>BControl</scope><name>ScrollBar</name></member>
+      <member refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" prot="public" virt="non-virtual"><scope>BControl</scope><name>ScrollBy</name></member>
+      <member refid="classBView_1a33ed2a9eeff474a756b548996a82b964" prot="public" virt="non-virtual"><scope>BControl</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a2b76ddc60289ce92e1fb706332edbafc" prot="public" virt="virtual"><scope>BControl</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a54991372110199183fed775598ae1912" prot="protected" virt="non-virtual"><scope>BControl</scope><name>ScrollWithMouseWheelDelta</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BControl</scope><name>SendNotices</name></member>
+      <member refid="classBView_1ad01fc0fd68e4683af9b9386bf33abf63" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetBlendingMode</name></member>
+      <member refid="classBView_1a8ba0fe3a3dbeec1b7fd8c9655070ef64" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetDiskMode</name></member>
+      <member refid="classBView_1a0c392ed0e36213e1007322a9cbca71c0" prot="public" virt="virtual"><scope>BControl</scope><name>SetDrawingMode</name></member>
+      <member refid="classBControl_1a54529bfa2d272ef17f1b790d27c7ff17" prot="public" virt="virtual"><scope>BControl</scope><name>SetEnabled</name></member>
+      <member refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetEventMask</name></member>
+      <member refid="classBView_1a6906e47d4fdd6923dd51edb60a83ccea" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetExplicitAlignment</name></member>
+      <member refid="classBView_1acd759dd7505050f9cbd8213c71991b8b" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetExplicitMaxSize</name></member>
+      <member refid="classBView_1abfcb5c761f9b06da3b4a6788aad5d0ee" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetExplicitMinSize</name></member>
+      <member refid="classBView_1a98b7d450210099ed59b7cd34f2575e20" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetExplicitPreferredSize</name></member>
+      <member refid="classBView_1aeef8a27a5577db87251412ce44421494" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetExplicitSize</name></member>
+      <member refid="classBView_1a2019def93337069c0b7d416e103522e9" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetFillRule</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BControl</scope><name>SetFilterList</name></member>
+      <member refid="classBView_1a4740f9a1e1163073b042102a421a2e33" prot="public" virt="virtual"><scope>BControl</scope><name>SetFlags</name></member>
+      <member refid="classBView_1a9247127c151153542a3e6bc1f3904433" prot="public" virt="virtual"><scope>BControl</scope><name>SetFont</name></member>
+      <member refid="classBView_1a443e4d9ff182f85a6b1c8478ef22ffe8" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetFontSize</name></member>
+      <member refid="classBInvoker_1a9983897bef828eea70f574f9571b8e85" prot="public" virt="virtual"><scope>BControl</scope><name>SetHandlerForReply</name></member>
+      <member refid="classBView_1ab5482f91a642d545bc3fcefe199f95e9" prot="public" virt="virtual"><scope>BControl</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1aff9e1ab5e88f33027e72b39874868e9b" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1a54eefc28bf7a4bc30612cf83aff2963b" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetHighUIColor</name></member>
+      <member refid="classBControl_1acf788aa66dd061c78256f357df691765" prot="public" virt="virtual"><scope>BControl</scope><name>SetIcon</name></member>
+      <member refid="classBControl_1a1017ff0cf130fa1246291a016b2a7f2b" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetIconBitmap</name></member>
+      <member refid="classBControl_1a2894bf781c41b3ab8a99417f098e71dc" prot="public" virt="virtual"><scope>BControl</scope><name>SetLabel</name></member>
+      <member refid="classBView_1acac1ebbba8c76e543e1b06e84dffab02" prot="public" virt="virtual"><scope>BControl</scope><name>SetLayout</name></member>
+      <member refid="classBView_1ae97bfe6c0c93fce98bc7bbd93761dbfb" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetLineMode</name></member>
+      <member refid="classBView_1af0426243110fb150ad7ef0705209a12c" prot="public" virt="virtual"><scope>BControl</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a929fb1ca47a00220c355ae55a0ea6077" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a879ab88d4e64345069f1041d3a7b652f" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetLowUIColor</name></member>
+      <member refid="classBInvoker_1a42fae8f984af3765c1a6af404dc36816" prot="public" virt="virtual"><scope>BControl</scope><name>SetMessage</name></member>
+      <member refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetMouseEventMask</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BControl</scope><name>SetNextHandler</name></member>
+      <member refid="classBView_1a769e5fa6486adf12e7a3511ed372a06c" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a7cf4e3ac5b0759b9c38d7b36517f2337" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a80ea4cb97d2e6e2c3088e610a9e157e6" prot="public" virt="virtual"><scope>BControl</scope><name>SetPenSize</name></member>
+      <member refid="classBView_1a38d29ea581880c3978d7e50dcc851696" prot="public" virt="virtual"><scope>BControl</scope><name>SetResizingMode</name></member>
+      <member refid="classBView_1a077136ea06f0a6b39aa0b8b24311cce8" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetScale</name></member>
+      <member refid="classBInvoker_1ac857ceb882d95a5826447dc12dd06c74" prot="public" virt="virtual"><scope>BControl</scope><name>SetTarget</name></member>
+      <member refid="classBInvoker_1a17e8040bfd829b6b084c2f6234776e11" prot="public" virt="virtual"><scope>BControl</scope><name>SetTarget</name></member>
+      <member refid="classBInvoker_1ab3c4f55b01f3775832871944b5c943de" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetTimeout</name></member>
+      <member refid="classBView_1a75fb825a3ef69c1c6fbf3535ee2260ab" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1aa377bad64048a2d3cd1c2b272ae3079b" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetToolTip</name></member>
+      <member refid="classBControl_1a28daada6c5a36e5fd8445d1b5580b6c2" prot="protected" virt="non-virtual"><scope>BControl</scope><name>SetTracking</name></member>
+      <member refid="classBView_1afbd9b8f35226ba89980c450f7626fc85" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetTransform</name></member>
+      <member refid="classBControl_1a7841a122e7fa9ab5efb5217c562e763d" prot="public" virt="virtual"><scope>BControl</scope><name>SetValue</name></member>
+      <member refid="classBControl_1a367df71f0b9b64905f3acb98cd111cda" prot="protected" virt="non-virtual"><scope>BControl</scope><name>SetValueNoUpdate</name></member>
+      <member refid="classBView_1ac247ddc58f1cb719d60e354a77c51c1e" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1a046a9c1656823db5401e530cf8121734" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1ae8dde0e0330b394db016f3e609e7fb6a" prot="public" virt="virtual"><scope>BControl</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a7dace2963c85b5ce55b7d8e96946625c" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a39b4878773b4436e3c76aee51c4fbc09" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewCursor</name></member>
+      <member refid="classBView_1a576100502a8c6dfb46ff36b08cbe9405" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a9770c1bb97d7ffd797f7c40ca1339f98" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a34f020c4bb1008cef972cf1eec7dba0f" prot="public" virt="non-virtual"><scope>BControl</scope><name>SetViewUIColor</name></member>
+      <member refid="classBView_1a06e0584057d6c7a7c7e048b6272b7016" prot="public" virt="virtual"><scope>BControl</scope><name>Show</name></member>
+      <member refid="classBView_1a61d28f55d6fdc55b59c38c44b9788205" prot="public" virt="non-virtual"><scope>BControl</scope><name>ShowToolTip</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BControl</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BControl</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BControl</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BControl</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BControl</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BControl</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BControl</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BControl</scope><name>StopWatchingAll</name></member>
+      <member refid="classBView_1adef480de8a8bcd2fff3129660501616e" prot="public" virt="non-virtual"><scope>BControl</scope><name>StringWidth</name></member>
+      <member refid="classBView_1aef3638cf597407e6a9f31bc75cd42097" prot="public" virt="non-virtual"><scope>BControl</scope><name>StringWidth</name></member>
+      <member refid="classBView_1a57222cd40096dfe23e1df86a01277041" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a9c958b9399925a8a0ea333afd337ebfd" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a64ea2ad06018b0b3b156113d201c7ad7" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeBezier</name></member>
+      <member refid="classBView_1a042703445263f1d9a9213757fcf27414" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1ae7727ca808873634363e5306fdbcc09a" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1a909ee03901fac4ae5504f7faf5e41a7c" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ab713fc42e330d0a091a9774edfb9626f" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ae871d03592c1bba5d6be3d5d982ea747" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1638c58553467f3ebe5ee2b3683d4905" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1482fddababe3dd1377f86a038f7119b" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1ad3893af66d3891855f9db7072bfb4de7" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeRect</name></member>
+      <member refid="classBView_1acf743b2ba22b82c8bc38eb514513df55" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeRoundRect</name></member>
+      <member refid="classBView_1a507e9b732e880ac8e6379e19e74d5757" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeShape</name></member>
+      <member refid="classBView_1a8221cce8942e590c2fea954f57933e78" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1ae59fc9e9cfaba5e2d6e79a90723a3330" prot="public" virt="non-virtual"><scope>BControl</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1a27e217abb3fefa45b6e4ceb7a54cb362" prot="public" virt="non-virtual"><scope>BControl</scope><name>Sync</name></member>
+      <member refid="classBInvoker_1aba5a469f2e0c94c08553ebe59c238cc8" prot="public" virt="non-virtual"><scope>BControl</scope><name>Target</name></member>
+      <member refid="classBView_1a668a4ed5419c86a7f2696ca7ece28df7" prot="public" virt="virtual"><scope>BControl</scope><name>TargetedByScrollView</name></member>
+      <member refid="classBInvoker_1af2632aee4882b11ed1bc34ce55ef4bbe" prot="public" virt="non-virtual"><scope>BControl</scope><name>Timeout</name></member>
+      <member refid="classBView_1a127ceec2101b12c0fbe1e0e66a7b9dc1" prot="public" virt="non-virtual"><scope>BControl</scope><name>ToolTip</name></member>
+      <member refid="classBView_1ab16cc72cf8ae3b40abcf1f714e7e9b74" prot="public" virt="non-virtual"><scope>BControl</scope><name>Transform</name></member>
+      <member refid="classBView_1a98597d70ae48b2576683f25078135534" prot="public" virt="non-virtual"><scope>BControl</scope><name>TransformTo</name></member>
+      <member refid="classBView_1a8ae6d4e1cdfeeee33b753d56bee6ae7f" prot="public" virt="non-virtual"><scope>BControl</scope><name>TranslateBy</name></member>
+      <member refid="classBView_1ac2e293fbdd999e4857b44b6e4d4c3820" prot="public" virt="non-virtual"><scope>BControl</scope><name>TruncateString</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BControl</scope><name>UnlockLooper</name></member>
+      <member refid="classBControl_1a759e9aebe200495c3773d2920e19e91f" prot="public" virt="non-virtual"><scope>BControl</scope><name>Value</name></member>
+      <member refid="classBView_1a8b2b1d9e08ce0c1763dd6a077ed02fdd" prot="public" virt="non-virtual"><scope>BControl</scope><name>ViewColor</name></member>
+      <member refid="classBView_1aec6c89446eb4f5ded151adced9126df8" prot="public" virt="non-virtual"><scope>BControl</scope><name>ViewUIColor</name></member>
+      <member refid="classBView_1a32733d357b76bc3504cae326d174f4a2" prot="public" virt="non-virtual"><scope>BControl</scope><name>Window</name></member>
+      <member refid="classBControl_1ab665fb93df191662a1757f78555a5b21" prot="public" virt="virtual"><scope>BControl</scope><name>WindowActivated</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BControl</scope><name>~BArchivable</name></member>
+      <member refid="classBControl_1a82c073b898fb760954b80ada2c731962" prot="public" virt="virtual"><scope>BControl</scope><name>~BControl</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BControl</scope><name>~BHandler</name></member>
+      <member refid="classBInvoker_1a68714c3b78a2cf2931daf54f5dc94dca" prot="public" virt="virtual"><scope>BControl</scope><name>~BInvoker</name></member>
+      <member refid="classBView_1a7df0d7eaeb97a3c8a800f9e321f23f67" prot="public" virt="virtual"><scope>BControl</scope><name>~BView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

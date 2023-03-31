@@ -1,0 +1,949 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBStreamingGameSound" kind="class" language="C++" prot="public">
+    <compoundname>BStreamingGameSound</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BGameSound</basecompoundref>
+    <derivedcompoundref refid="classBFileGameSound" prot="public" virt="non-virtual">BFileGameSound</derivedcompoundref>
+    <derivedcompoundref refid="classBPushGameSound" prot="public" virt="non-virtual">BPushGameSound</derivedcompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classBStreamingGameSound_1a8ebb77a2b247cd16ed295463da59eaac" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* BStreamingGameSound::hook) (void *cookie, void *buffer, size_t byteCount, BStreamingGameSound *me)</definition>
+        <argsstring>)(void *cookie, void *buffer, size_t byteCount, BStreamingGameSound *me)</argsstring>
+        <name>hook</name>
+        <qualifiedname>BStreamingGameSound::hook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="30" column="8" bodyfile="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBStreamingGameSound_1a2d57709280d31675974d9bfadf326285" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BStreamingGameSound::_reserved[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BStreamingGameSound::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="88" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBStreamingGameSound_1a612fb762f7f03cf0b28c1ee07106a772" prot="private" static="no" mutable="no">
+        <type><ref refid="classBLocker" kindref="compound">BLocker</ref></type>
+        <definition>BLocker BStreamingGameSound::fLock</definition>
+        <argsstring></argsstring>
+        <name>fLock</name>
+        <qualifiedname>BStreamingGameSound::fLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="86" column="8" bodyfile="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBStreamingGameSound_1a8539bf4378f5e780aaa32e0670954d60" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* BStreamingGameSound::fStreamCookie</definition>
+        <argsstring></argsstring>
+        <name>fStreamCookie</name>
+        <qualifiedname>BStreamingGameSound::fStreamCookie</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="85" column="5" bodyfile="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBStreamingGameSound_1af29c6d85e7b62de693710ab27f56cd85" prot="private" static="no" mutable="no">
+        <type>hook</type>
+        <definition>hook BStreamingGameSound::fStreamHook</definition>
+        <argsstring></argsstring>
+        <name>fStreamHook</name>
+        <qualifiedname>BStreamingGameSound::fStreamHook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="84" column="5" bodyfile="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBStreamingGameSound_1ae35b2b0ca63c3ae578cc074b8e30b95d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BStreamingGameSound::BStreamingGameSound</definition>
+        <argsstring>(size_t bufferFrameCount, const gs_audio_format *format, size_t bufferCount=2, BGameSoundDevice *device=NULL)</argsstring>
+        <name>BStreamingGameSound</name>
+        <qualifiedname>BStreamingGameSound::BStreamingGameSound</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>bufferFrameCount</declname>
+        </param>
+        <param>
+          <type>const gs_audio_format *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferCount</declname>
+          <defval>2</defval>
+        </param>
+        <param>
+          <type>BGameSoundDevice *</type>
+          <declname>device</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a0e81a41fba813eecb9c307abe70696f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BStreamingGameSound::~BStreamingGameSound</definition>
+        <argsstring>()</argsstring>
+        <name>~BStreamingGameSound</name>
+        <qualifiedname>BStreamingGameSound::~BStreamingGameSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="26" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1ab7edfcd23366da6b07fa515dc3d1886b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>BGameSound *</type>
+        <definition>virtual BGameSound * BStreamingGameSound::Clone</definition>
+        <argsstring>() const</argsstring>
+        <name>Clone</name>
+        <qualifiedname>BStreamingGameSound::Clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="28" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a6043711c03eb20096b47a04256e51090" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BStreamingGameSound::FillBuffer</definition>
+        <argsstring>(void *buffer, size_t byteCount)</argsstring>
+        <name>FillBuffer</name>
+        <qualifiedname>BStreamingGameSound::FillBuffer</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>byteCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="35" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a5db208a65734c003ab2588f5763795d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::Perform</definition>
+        <argsstring>(int32 selector, void *data)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BStreamingGameSound::Perform</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>selector</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="40" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1aec0ae8d5ce8fdcfe5f60bda36a1e1b39" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::SetAttributes</definition>
+        <argsstring>(gs_attribute *attributes, size_t attributeCount)</argsstring>
+        <name>SetAttributes</name>
+        <qualifiedname>BStreamingGameSound::SetAttributes</qualifiedname>
+        <param>
+          <type>gs_attribute *</type>
+          <declname>attributes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>attributeCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="37" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a7e9bac03d9000995fb708d1320bb9efb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::SetStreamHook</definition>
+        <argsstring>(hook h, void *cookie)</argsstring>
+        <name>SetStreamHook</name>
+        <qualifiedname>BStreamingGameSound::SetStreamHook</qualifiedname>
+        <param>
+          <type>hook</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>cookie</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="33" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBStreamingGameSound_1a71a62a1b9a254bdcf83ffaf8a1a6049c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BStreamingGameSound::BStreamingGameSound</definition>
+        <argsstring>(BGameSoundDevice *device)</argsstring>
+        <name>BStreamingGameSound</name>
+        <qualifiedname>BStreamingGameSound::BStreamingGameSound</qualifiedname>
+        <param>
+          <type>BGameSoundDevice *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a54b5349db705d08cbbc5cfb24c5e241e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BStreamingGameSound::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <qualifiedname>BStreamingGameSound::Lock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="49" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1ae60a34808220a281e85b8aadb4923ed9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::SetParameters</definition>
+        <argsstring>(size_t bufferFrameCount, const gs_audio_format *format, size_t bufferCount)</argsstring>
+        <name>SetParameters</name>
+        <qualifiedname>BStreamingGameSound::SetParameters</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>bufferFrameCount</declname>
+        </param>
+        <param>
+          <type>const gs_audio_format *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="45" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1adcd32da3111cf58b31551bdcca6966b1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BStreamingGameSound::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <qualifiedname>BStreamingGameSound::Unlock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="50" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBStreamingGameSound_1adf18aafa2c0cf4e3ce465354416582fc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BStreamingGameSound::BStreamingGameSound</definition>
+        <argsstring>()</argsstring>
+        <name>BStreamingGameSound</name>
+        <qualifiedname>BStreamingGameSound::BStreamingGameSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a10b1e037749b9646ccd80095324a3378" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BStreamingGameSound::BStreamingGameSound</definition>
+        <argsstring>(const BStreamingGameSound &amp;other)</argsstring>
+        <name>BStreamingGameSound</name>
+        <qualifiedname>BStreamingGameSound::BStreamingGameSound</qualifiedname>
+        <param>
+          <type>const BStreamingGameSound &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a353c010ff304015feffa8aff0e4f640c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_0</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_0</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_0</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="58" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1ac0db3ac34f467035e6a014b3776eac82" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_1</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_1</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_1</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="59" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a4794baedb9ee90486425113ba851e96c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_10</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_10</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_10</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="68" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1acb7c1e99685ed8b305261522d359ffca" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_11</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_11</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_11</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="69" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a7ec7fc54ff435728ebc7d1cfb1ed74f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_12</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_12</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_12</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a95d91ef64d380e30bbf91f68c4eac30b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_13</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_13</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_13</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="71" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a9e7f5843bc49ff6d8168183735f7e314" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_14</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_14</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_14</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="72" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1aeeed056fad968b5ed3c026f3be080470" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_15</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_15</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_15</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="73" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a9c1ee833fdd6429720e258e3fb61e709" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_16</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_16</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_16</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="74" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a9a7eb93374b91abc4564bfb03febea6e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_17</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_17</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_17</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="75" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1aa012e2f46437c59216fd634f5d4eb88d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_18</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_18</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_18</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="76" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a5e520bcd4c27099ba9bcfac22ad0b643" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_19</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_19</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_19</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="77" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a1d9eb8798fec6c1c3ab42eff62575bf1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_2</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_2</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_2</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="60" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a5fe25eca6eef158e187e182f5693d094" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_20</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_20</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_20</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="78" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a354908377d24c2ae468daf229fc39d88" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_21</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_21</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_21</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="79" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a7a7b281c7b3bb5f18d76ffddcee2f660" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_22</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_22</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_22</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="80" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1afa578bb82c41e83033e597bc8886dbfa" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_23</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_23</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_23</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="81" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a645288a92ffd7ce8fdbde973eabde2c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_3</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_3</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_3</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="61" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a2ad7b9850073e91d4d4ada3f08e17a5c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_4</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_4</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_4</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="62" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1aaba4388a0b5c52da6f079b2790bc4580" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_5</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_5</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_5</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="63" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1ad15d3713f964181a47e3f3d73c8c58f0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_6</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_6</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_6</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="64" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1ad35f209fa37dee8baf351322d1170d5e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_7</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_7</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_7</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="65" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1ab87a6f3defcbb681a78f52f098505e88" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_8</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_8</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_8</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="66" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1af35b425d7dc041d952784af717a84955" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BStreamingGameSound::_Reserved_BStreamingGameSound_9</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BStreamingGameSound_9</name>
+        <qualifiedname>BStreamingGameSound::_Reserved_BStreamingGameSound_9</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="67" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBStreamingGameSound_1a78f06e6fc26b49ef9f1e93d83e5fdfb9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>BStreamingGameSound &amp;</type>
+        <definition>BStreamingGameSound &amp; BStreamingGameSound::operator=</definition>
+        <argsstring>(const BStreamingGameSound &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BStreamingGameSound::operator=</qualifiedname>
+        <param>
+          <type>const BStreamingGameSound &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="56" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BFileGameSound</label>
+        <link refid="classBFileGameSound"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BStreamingGameSound</label>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" line="18" column="1" bodyfile="/boot/home/src/haiku/headers/os/game/StreamingGameSound.h" bodystart="19" bodyend="89"/>
+    <listofallmembers>
+      <member refid="classBStreamingGameSound_1a2d57709280d31675974d9bfadf326285" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>_reserved</name></member>
+      <member refid="classBStreamingGameSound_1a353c010ff304015feffa8aff0e4f640c" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_0</name></member>
+      <member refid="classBStreamingGameSound_1ac0db3ac34f467035e6a014b3776eac82" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_1</name></member>
+      <member refid="classBStreamingGameSound_1a4794baedb9ee90486425113ba851e96c" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_10</name></member>
+      <member refid="classBStreamingGameSound_1acb7c1e99685ed8b305261522d359ffca" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_11</name></member>
+      <member refid="classBStreamingGameSound_1a7ec7fc54ff435728ebc7d1cfb1ed74f4" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_12</name></member>
+      <member refid="classBStreamingGameSound_1a95d91ef64d380e30bbf91f68c4eac30b" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_13</name></member>
+      <member refid="classBStreamingGameSound_1a9e7f5843bc49ff6d8168183735f7e314" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_14</name></member>
+      <member refid="classBStreamingGameSound_1aeeed056fad968b5ed3c026f3be080470" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_15</name></member>
+      <member refid="classBStreamingGameSound_1a9c1ee833fdd6429720e258e3fb61e709" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_16</name></member>
+      <member refid="classBStreamingGameSound_1a9a7eb93374b91abc4564bfb03febea6e" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_17</name></member>
+      <member refid="classBStreamingGameSound_1aa012e2f46437c59216fd634f5d4eb88d" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_18</name></member>
+      <member refid="classBStreamingGameSound_1a5e520bcd4c27099ba9bcfac22ad0b643" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_19</name></member>
+      <member refid="classBStreamingGameSound_1a1d9eb8798fec6c1c3ab42eff62575bf1" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_2</name></member>
+      <member refid="classBStreamingGameSound_1a5fe25eca6eef158e187e182f5693d094" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_20</name></member>
+      <member refid="classBStreamingGameSound_1a354908377d24c2ae468daf229fc39d88" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_21</name></member>
+      <member refid="classBStreamingGameSound_1a7a7b281c7b3bb5f18d76ffddcee2f660" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_22</name></member>
+      <member refid="classBStreamingGameSound_1afa578bb82c41e83033e597bc8886dbfa" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_23</name></member>
+      <member refid="classBStreamingGameSound_1a645288a92ffd7ce8fdbde973eabde2c1" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_3</name></member>
+      <member refid="classBStreamingGameSound_1a2ad7b9850073e91d4d4ada3f08e17a5c" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_4</name></member>
+      <member refid="classBStreamingGameSound_1aaba4388a0b5c52da6f079b2790bc4580" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_5</name></member>
+      <member refid="classBStreamingGameSound_1ad15d3713f964181a47e3f3d73c8c58f0" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_6</name></member>
+      <member refid="classBStreamingGameSound_1ad35f209fa37dee8baf351322d1170d5e" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_7</name></member>
+      <member refid="classBStreamingGameSound_1ab87a6f3defcbb681a78f52f098505e88" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_8</name></member>
+      <member refid="classBStreamingGameSound_1af35b425d7dc041d952784af717a84955" prot="private" virt="virtual"><scope>BStreamingGameSound</scope><name>_Reserved_BStreamingGameSound_9</name></member>
+      <member refid="classBGameSound_1acddea7386d9096f233e5af4ee4e85689" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>BGameSound</name></member>
+      <member refid="classBGameSound_1ad947800b2abaa755237fbf2769e5e3ee" prot="protected" virt="non-virtual"><scope>BStreamingGameSound</scope><name>BGameSound</name></member>
+      <member refid="classBStreamingGameSound_1ae35b2b0ca63c3ae578cc074b8e30b95d" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>BStreamingGameSound</name></member>
+      <member refid="classBStreamingGameSound_1a71a62a1b9a254bdcf83ffaf8a1a6049c" prot="protected" virt="non-virtual"><scope>BStreamingGameSound</scope><name>BStreamingGameSound</name></member>
+      <member refid="classBStreamingGameSound_1adf18aafa2c0cf4e3ce465354416582fc" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>BStreamingGameSound</name></member>
+      <member refid="classBStreamingGameSound_1a10b1e037749b9646ccd80095324a3378" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>BStreamingGameSound</name></member>
+      <member refid="classBStreamingGameSound_1ab7edfcd23366da6b07fa515dc3d1886b" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>Clone</name></member>
+      <member refid="classBGameSound_1adc2e67dc82d86b529ab843c7fc74de60" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Device</name></member>
+      <member refid="classBStreamingGameSound_1a6043711c03eb20096b47a04256e51090" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>FillBuffer</name></member>
+      <member refid="classBStreamingGameSound_1a612fb762f7f03cf0b28c1ee07106a772" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>fLock</name></member>
+      <member refid="classBGameSound_1a67580a90f699c740e4f7ac09abbf0e86" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Format</name></member>
+      <member refid="classBStreamingGameSound_1a8539bf4378f5e780aaa32e0670954d60" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>fStreamCookie</name></member>
+      <member refid="classBStreamingGameSound_1af29c6d85e7b62de693710ab27f56cd85" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>fStreamHook</name></member>
+      <member refid="classBGameSound_1a9890be6265e7061be9df6ea671f6724c" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Gain</name></member>
+      <member refid="classBGameSound_1aa67a88767a20352737bd0e84c4c17d65" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>GetAttributes</name></member>
+      <member refid="classBStreamingGameSound_1a8ebb77a2b247cd16ed295463da59eaac" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>hook</name></member>
+      <member refid="classBGameSound_1aa125786bc9af021d8edef146a930c706" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>ID</name></member>
+      <member refid="classBGameSound_1a7cac809d316483c86188eb3aa6f8f5d5" prot="protected" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Init</name></member>
+      <member refid="classBGameSound_1ae5bc47926c79441500e37ca5cb556daf" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>InitCheck</name></member>
+      <member refid="classBGameSound_1a9936d3c82add5f5c7b1692d0d466d5a2" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>IsPlaying</name></member>
+      <member refid="classBStreamingGameSound_1a54b5349db705d08cbbc5cfb24c5e241e" prot="protected" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Lock</name></member>
+      <member refid="classBGameSound_1aa59acd7e62dbab92351cfb68f6deeac0" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>LockMemoryPool</name></member>
+      <member refid="classBGameSound_1a04c36c79daa3acfca0586c9bd9d8ee6b" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>operator delete</name></member>
+      <member refid="classBGameSound_1a6edda9b6a69aa609832d563feec275b9" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>operator delete</name></member>
+      <member refid="classBGameSound_1a14debc57c27d021ff4d9812bf62046ff" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>operator new</name></member>
+      <member refid="classBGameSound_1ac570307f6d54dbdb880c55e8fd4747bc" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>operator new</name></member>
+      <member refid="classBStreamingGameSound_1a78f06e6fc26b49ef9f1e93d83e5fdfb9" prot="private" virt="non-virtual"><scope>BStreamingGameSound</scope><name>operator=</name></member>
+      <member refid="classBGameSound_1a4757aa56e3e39a97de8607e04e45cbc1" prot="protected" virt="non-virtual" ambiguityscope="BGameSound::"><scope>BStreamingGameSound</scope><name>operator=</name></member>
+      <member refid="classBGameSound_1abed278ebeb1fc1606903d9e58b906536" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Pan</name></member>
+      <member refid="classBStreamingGameSound_1a5db208a65734c003ab2588f5763795d4" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>Perform</name></member>
+      <member refid="classBStreamingGameSound_1aec0ae8d5ce8fdcfe5f60bda36a1e1b39" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>SetAttributes</name></member>
+      <member refid="classBGameSound_1a9c0b80aa71e9c562c86c9fad6bb1c468" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>SetGain</name></member>
+      <member refid="classBGameSound_1a53c565ee1ccc636820959d8e2475efbf" prot="protected" virt="non-virtual"><scope>BStreamingGameSound</scope><name>SetInitError</name></member>
+      <member refid="classBGameSound_1a59231cc8c90dc2d4d19e3eb490a0de03" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>SetMaxSoundCount</name></member>
+      <member refid="classBGameSound_1a799a311b1352544c0a85ab92dbcfb7de" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>SetMemoryPoolSize</name></member>
+      <member refid="classBGameSound_1ae0cdb0db78ba012cccdb8249e9dfc580" prot="public" virt="non-virtual"><scope>BStreamingGameSound</scope><name>SetPan</name></member>
+      <member refid="classBStreamingGameSound_1ae60a34808220a281e85b8aadb4923ed9" prot="protected" virt="virtual"><scope>BStreamingGameSound</scope><name>SetParameters</name></member>
+      <member refid="classBStreamingGameSound_1a7e9bac03d9000995fb708d1320bb9efb" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>SetStreamHook</name></member>
+      <member refid="classBGameSound_1ac2a041a7ff644481a6fbcb200acad7e7" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>StartPlaying</name></member>
+      <member refid="classBGameSound_1a539de1d1bd4cb2c6e4dc3b1bfdb9ae93" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>StopPlaying</name></member>
+      <member refid="classBStreamingGameSound_1adcd32da3111cf58b31551bdcca6966b1" prot="protected" virt="non-virtual"><scope>BStreamingGameSound</scope><name>Unlock</name></member>
+      <member refid="classBGameSound_1a57d7369240d8c8aa3b84542657e50a0e" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>~BGameSound</name></member>
+      <member refid="classBStreamingGameSound_1a0e81a41fba813eecb9c307abe70696f3" prot="public" virt="virtual"><scope>BStreamingGameSound</scope><name>~BStreamingGameSound</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

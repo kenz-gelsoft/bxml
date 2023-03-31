@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="keyboard" kind="page">
+    <compoundname>keyboard</compoundname>
+    <title>Keyboard</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This page details how Haiku reads keys from the keyboard including modifier key and special characters, and how you can read and process these encoded characters in your application.</para>
+<sect1 id="keyboard_1unicode">
+<title>Haiku and UTF-8</title>
+<para>Haiku encodes all characters using UTF-8. UTF-8 allows Haiku to represent characters from all over the world while still maintaining backwards compatibility with 7-bit ASCII codes. This means that the most commonly used characters are encoded in just one byte while less common characters can be encoded by extending the character encoding to use two, three, or, rarely, four bytes.</para>
+</sect1>
+<sect1 id="keyboard_1keycodes">
+<title>Key Codes</title>
+<para>Each key on the keyboard is assigned a numeric code to identify it to the operating system. Most of the time you should not have to access these codes directly, instead use one of the constants defined in <ref refid="InterfaceDefs_8h" kindref="compound">InterfaceDefs.h</ref> such <computeroutput>B_BACKSPACE</computeroutput> or <computeroutput>B_ENTER</computeroutput> or read the character from the <computeroutput>key_map</computeroutput> struct.</para>
+<para>The following diagram shows the key codes as they appear on a US 104-key keyboard.</para>
+<para><image type="html" name="US_PC_keyboard_keycodes.png"></image>
+</para>
+<para>In addition to the keys listed in the picture above, some more keys are defined:</para>
+<para>International keyboards each differ a bit but generally share an extra key located in-between the left shift key and Z with the key code 0x69.</para>
+<para>Mac keyboards have an equal sign in the keypad with key code 0x6a and some other differences. Often times the keys produce the same key code but appear in different locations.</para>
+<para>Some keyboards provide additional &quot;multimedia&quot; keys. These are reported based on their USB HID keycodes. Note that these codes are larger than 127, and therefore cannot be mapped in the keymap. These keys can only be handled using B_UNMAPPED_KEY_DOWN messages and are never associated with a character.</para>
+<para>Here is a list of the commonly available key codes:</para>
+<para>Key code | Description ------------ | -------------------------------- 0x00010081 | Power off 0x00010082 | Sleep 0x00010083 | Wake up 0x000C00B0 | Play media 0x000C00B5 | Scan next track 0x000C00B6 | Scan previous track 0x000C00B7 | Stop media 0x000C00E2 | Mute sound 0x000C00E9 | Increase sound volume 0x000C00EA | Decrease sound volume 0x000C0183 | Launch control configuration application 0x000C018A | Launch e-mail application 0x000C0192 | Launch calculator application 0x000C0194 | Launch file manager application 0x000C0221 | Search 0x000C0223 | Go to home page 0x000C0224 | Previous page 0x000C0225 | Next page 0x000C0226 | Stop 0x000C0227 | Refresh 0x000C022A | Bookmarks</para>
+</sect1>
+<sect1 id="keyboard_1modifiers">
+<title>Modifier Keys</title>
+<para>Modifier keys are keys which have no effect on their own but when combined with another key modify the usual behavior of that key.</para>
+<para>The following modifier keys are defined in <ref refid="InterfaceDefs_8h" kindref="compound">InterfaceDefs.h</ref></para>
+<para><table rows="5" cols="2"><row>
+<entry thead="no"><para><computeroutput>B_SHIFT_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para>Transforms lowercase case characters into uppercase characters or chooses alternative punctuation characters. The shift key is also used in combination with <computeroutput>B_COMMAND_KEY</computeroutput> to produce keyboard shortcuts.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_COMMAND_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para>Produces keyboard shortcuts for common operations such as cut, copy, paste, print, and find.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_CONTROL_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para>Outputs control characters in terminal. The control key is sometimes also used as an alternative to <computeroutput>B_COMMAND_KEY</computeroutput> to produce keyboard shortcuts in applications.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_OPTION_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para>Used to in combination with other keys to output special characters such as accented letters and symbols. Because <computeroutput>B_OPTION_KEY</computeroutput> is not found on all keyboards it should not be used for essential functions.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_MENU_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para>The Menu key is used to produce contextual menus. Like <computeroutput>B_OPTION_KEY</computeroutput>, the Menu key should not be used for essential functions since it is not available on all keyboards.   </para>
+</entry></row>
+</table>
+</para>
+<para>In addition you can access the left and right modifier keys individually with the following constants: <table rows="2" cols="4"><row>
+<entry thead="no"><para><computeroutput>B_LEFT_SHIFT_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_RIGHT_SHIFT_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_LEFT_COMMAND_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_RIGHT_COMMAND_KEY</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_LEFT_CONTROL_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_RIGHT_CONTROL_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_LEFT_OPTION_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_RIGHT_OPTION_KEY</computeroutput>   </para>
+</entry></row>
+</table>
+</para>
+<para>Scroll lock, num lock, and caps lock alter other keys pressed after they are released. They are defined by the following constants:</para>
+<para><table rows="3" cols="2"><row>
+<entry thead="no"><para><computeroutput>B_CAPS_LOCK</computeroutput>  </para>
+</entry><entry thead="no"><para>Produces uppercase characters. Reverses the effect of <computeroutput>B_SHIFT_KEY</computeroutput> for letters.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_SCROLL_LOCK</computeroutput>  </para>
+</entry><entry thead="no"><para>Prevents the terminal from scrolling.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_NUM_LOCK</computeroutput>  </para>
+</entry><entry thead="no"><para>Informs the numeric keypad to output numbers when on. Reverses the function of <computeroutput>B_SHIFT_KEY</computeroutput> for keys on the numeric keypad.   </para>
+</entry></row>
+</table>
+</para>
+<para>To get the currently active modifiers use the <ref refid="InterfaceDefs_8h_1a1378b08d543f75ebc35df699573c526e" kindref="member">modifiers()</ref> function defined in <ref refid="InterfaceDefs_8h" kindref="compound">InterfaceDefs.h</ref>. This function returns a bitmap containing the currently active modifier keys. You can create a bit mask of the above constants to determine which modifiers are active.</para>
+</sect1>
+<sect1 id="keyboard_1other_constants">
+<title>Other Constants</title>
+<para>The Interface Kit also defines constants for keys that are aren&apos;t represented by a symbol, these include:</para>
+<para><table rows="3" cols="6"><row>
+<entry thead="no"><para><computeroutput>B_BACKSPACE</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_RETURN</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_ENTER</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_SPACE</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_TAB</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_ESCAPE</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_SUBSTITUTE</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_LEFT_ARROW</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_RIGHT_ARROW</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_UP_ARROW</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_DOWN_ARROW</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_INSERT</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_DELETE</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_HOME</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_END</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_PAGE_UP</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_PAGE_DOWN</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_FUNCTION_KEY</computeroutput>   </para>
+</entry></row>
+</table>
+</para>
+<para>The <computeroutput>B_FUNCTION_KEY</computeroutput> constant can further be broken down into the following constants: <table rows="3" cols="5"><row>
+<entry thead="no"><para><computeroutput>B_F1_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F4_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F7_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F10_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_PRINT_KEY</computeroutput> (Print Screen)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_F2_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F5_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F8_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F11_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_SCROLL_KEY</computeroutput> (Scroll Lock)  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_F3_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F6_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F9_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_F12_KEY</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>B_PAUSE_KEY</computeroutput> (Pause/Break)  </para>
+</entry></row>
+</table>
+</para>
+<para>For Japanese keyboard two more constants are defined:<itemizedlist>
+<listitem><para><computeroutput>B_KATAKANA_HIRAGANA</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_HANKAKU_ZENKAKU</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="keyboard_1keymap">
+<title>The Keymap</title>
+<para>The characters produced by each of the key codes is determined by the keymap. The usual way to for the user to choose and modify their keymap is the Keymap preference application. A number of alternative keymaps such as dvorak and keymaps for different locales are available.</para>
+<para><image type="html" name="keymap.png"></image>
+</para>
+<para>A full description of the Keymap preflet can be found in the <ulink url="http://haiku-os.org/docs/userguide/en/preferences/keymap.html">User Guide</ulink>.</para>
+<para>The keymap is a map of the characters produced by each key on the keyboard including the characters produced when combined with the modifier constants described above. The keymap also contains the codes of the modifier keys and tables for dead keys.</para>
+<para>To get the current system keymap create a pointer to a <computeroutput>key_map</computeroutput> struct and <computeroutput>char</computeroutput> array and pass their addresses to the <ref refid="InterfaceDefs_8h_1ab4902c396dd4d5ebb19f27bd4b63f614" kindref="member">get_key_map()</ref> function. The <computeroutput>key_map</computeroutput> struct will be filled out with the current system keymap and the <computeroutput>char</computeroutput> array will be filled out with the UTF-8 character encodings.</para>
+<para>The <computeroutput>key_map</computeroutput> struct contains a number of fields. Each field is described in several sections below.</para>
+<para>The first section contains a version number and the code assigned to each of the modifier keys.</para>
+<para><table rows="8" cols="2"><row>
+<entry thead="no"><para><computeroutput>version</computeroutput>  </para>
+</entry><entry thead="no"><para>The version number of the keymap  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>caps_key</computeroutput> <linebreak/>
+ <computeroutput>scroll_key</computeroutput> <linebreak/>
+ <computeroutput>num_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Lock key codes  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>left_shift_key</computeroutput> <linebreak/>
+ <computeroutput>right_shift_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Left and right shift key codes  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>left_command_key</computeroutput> <linebreak/>
+ <computeroutput>right_command_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Left and right command key codes  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>left_control_key</computeroutput> <linebreak/>
+ <computeroutput>right_control_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Left and right control key codes  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>left_option_key</computeroutput> <linebreak/>
+ <computeroutput>right_option_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Left and right option key codes  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>menu_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Menu key code  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>lock_settings</computeroutput>  </para>
+</entry><entry thead="no"><para>A bitmap containing the default state of the lock keys  </para>
+</entry></row>
+</table>
+</para>
+<para>To programmatically set a modifier key in the system keymap use the <ref refid="InterfaceDefs_8h_1ac4ec63e4e6c08a95cc0ffc7a20ca0e6f" kindref="member">set_modifier_key()</ref> function. You can also programmatically set the state of the num lock, caps lock, and scroll lock keys by calling the <ref refid="InterfaceDefs_8h_1aaedfd092d2abb375bc0b49661458b797" kindref="member">set_keyboard_locks()</ref> function.</para>
+</sect1>
+<sect1 id="keyboard_1character_maps">
+<title>Character Maps</title>
+<para>The next section of the <computeroutput>key_map</computeroutput> struct contains maps of offsets into the array of UTF-8 character encodings filled out in the second parameter of <ref refid="InterfaceDefs_8h_1ab4902c396dd4d5ebb19f27bd4b63f614" kindref="member">get_key_map()</ref>. Since the character maps are filled with UTF-8 characters they may be 1, 2, 3, or rarely 4 bytes long. The characters are contained in non-<computeroutput>NUL</computeroutput> terminated Pascal strings. The first byte of the string indicates how many bytes the character is made up of. For example the string for a horizontal ellipses (...) character looks like this:</para>
+<para><programlisting><codeline><highlight class="normal">x03xE2x80xA6</highlight></codeline>
+</programlisting></para>
+<para>The first byte is 03 meaning that the character is 3 bytes long. The remaining bytes E2 80 A6 are the UTF-8 byte representation of the horizontal ellipses character. Recall that there is no terminating <computeroutput>NUL</computeroutput> character for these strings.</para>
+<para>Not every key is mapped to a character. If a key is unmapped the character array contains a 0-byte string. Unmapped keys do not produce <computeroutput>B_KEY_DOWN</computeroutput> messages.</para>
+<para>Modifier keys should not be mapped into the character array.</para>
+<para>The following character maps are defined: <table rows="9" cols="2"><row>
+<entry thead="no"><para><computeroutput>control_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when the control key is pressed  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>option_caps_shift_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when caps lock is turned on and both the option key and shift keys are pressed.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>option_caps_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when caps lock is turned on and the option key is pressed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>option_shift_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when both shift and option keys are pressed  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>option_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when the option key is pressed  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>caps_shift_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when caps lock is on and the shift key is pressed   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>caps_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when caps lock is turned on  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>shift_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when shift is pressed  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>normal_map</computeroutput>  </para>
+</entry><entry thead="no"><para>Map of characters when no modifiers keys are pressed  </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+<sect1 id="keyboard_1dead_keys">
+<title>Dead Keys</title>
+<para>Dead keys are keys that do not produce a character until they are combined with another key. Because these keys do not produce a character on their own they are considered &quot;dead&quot; until they are &quot;brought to life&quot; by being combined with another key. Dead keys are generally used to produce accented characters.</para>
+<para>Each of the fields below is a 32-byte array of dead key characters. The dead keys are organized into pairs in the array. Each dead key array can contain up to 16 pairs of dead key characters. The first pair in the array should contain <computeroutput>B_SPACE</computeroutput> followed by and the accent character in the second offset. This serves to identify which accent character is contained in the array and serves to define a space followed by accent pair to represent the unadorned accent character.</para>
+<para>The rest of the array is filled with pairs containing an unaccented character followed by the accent character.</para>
+<para><table rows="5" cols="2"><row>
+<entry thead="no"><para><computeroutput>acute_dead_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Acute dead keys array  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>grave_dead_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Grave dead keys array  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>circumflex_dead_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Circumflex dead keys array  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>dieresis_dead_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Dieresis dead keys array  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>tilde_dead_key</computeroutput>  </para>
+</entry><entry thead="no"><para>Tilde dead keys array  </para>
+</entry></row>
+</table>
+</para>
+<para>The final section contains bitmaps that indicate which character table is used for each of the above dead keys. The bitmap can contain any of the following constants:<itemizedlist>
+<listitem><para><computeroutput>B_CONTROL_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_CAPS_SHIFT_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_OPTION_CAPS_SHIFT_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_CAPS_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_OPTION_CAPS_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_SHIFT_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_OPTION_SHIFT_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_NORMAL_TABLE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_OPTION_TABLE</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para>The bitmaps often contain <computeroutput>B_OPTION_TABLE</computeroutput> because accent characters are generally produced by combining a letter with <computeroutput>B_OPTION_KEY</computeroutput>.</para>
+<para><table rows="5" cols="2"><row>
+<entry thead="no"><para><computeroutput>acute_tables</computeroutput>  </para>
+</entry><entry thead="no"><para>Acute dead keys table bitmap  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>grave_tables</computeroutput>  </para>
+</entry><entry thead="no"><para>Grave dead keys table bitmap  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>circumflex_tables</computeroutput>  </para>
+</entry><entry thead="no"><para>Circumflex dead keys table bitmap  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>dieresis_tables</computeroutput>  </para>
+</entry><entry thead="no"><para>Dieresis dead keys table bitmap  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>tilde_tables</computeroutput>  </para>
+</entry><entry thead="no"><para>Tilde dead keys table bitmap  </para>
+</entry></row>
+</table>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="keyboard/keyboard.dox"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1860 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBObjectList" kind="class" language="C++" prot="public">
+    <compoundname>BObjectList</compoundname>
+    <basecompoundref prot="private" virt="non-virtual">_PointerList_</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Operators</header>
+      <memberdef kind="function" id="classBObjectList_1a6bfe88eb43f988df25ea869d33e57d20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBObjectList" kindref="compound">BObjectList</ref> &amp;</type>
+        <definition>BObjectList&lt; T &gt; &amp; BObjectList&lt; T &gt;::operator=</definition>
+        <argsstring>(const BObjectList &amp;list)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BObjectList::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBObjectList" kindref="compound">BObjectList</ref> &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBObjectList" kindref="compound">BObjectList</ref> as a copy of another <emphasis>list</emphasis> by overloading the = operator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> to copy from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="131" column="12" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="457" bodyend="472"/>
+        <references refid="classBObjectList_1a406ad33a266101bbc9add7562f64096e" compoundref="ObjectList_8h" startline="617" endline="620">BObjectList&lt; T &gt;::CountItems</references>
+        <references refid="classBObjectList_1ad25f9f1202e9e59576d5ab292c39b916" compoundref="ObjectList_8h" startline="531" endline="534">BObjectList&lt; T &gt;::ItemAt</references>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Adding and Removing Items</header>
+      <memberdef kind="function" id="classBObjectList_1a8474455acae0f14ac9c4104727f06f99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::AddItem</definition>
+        <argsstring>(T *)</argsstring>
+        <name>AddItem</name>
+        <qualifiedname>BObjectList::AddItem</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <briefdescription>
+<para>Append the <emphasis>item</emphasis> to the end of the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> to append.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>item</emphasis> was appended. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> was appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>item</emphasis> was not appended, since resizing the <ref refid="classBObjectList" kindref="compound">BObjectList</ref> failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="136" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="477" bodyend="481"/>
+        <references refid="classBList_1ab827c4118ba2a46eae24f5a41eb9bdb6">BList::AddItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a22edb4014fc68be267e6327d39918894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::AddItem</definition>
+        <argsstring>(T *, int32)</argsstring>
+        <name>AddItem</name>
+        <qualifiedname>BObjectList::AddItem</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Add <emphasis>item</emphasis> at the specified <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> to add. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The place in the list to add the <emphasis>item</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the item was added. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item was added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Item was not added. Either the index is negative or invalid, or resizing the <ref refid="classBObjectList" kindref="compound">BObjectList</ref> failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="137" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="486" bodyend="489"/>
+        <references refid="classBList_1ab827c4118ba2a46eae24f5a41eb9bdb6">BList::AddItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aab84cecc949a75574321ac580b4297f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::AddList</definition>
+        <argsstring>(BObjectList *)</argsstring>
+        <name>AddList</name>
+        <qualifiedname>BObjectList::AddList</qualifiedname>
+        <param>
+          <type><ref refid="classBObjectList" kindref="compound">BObjectList</ref> *</type>
+          <defname>list</defname>
+        </param>
+        <briefdescription>
+<para>Append a <emphasis>list</emphasis> of items to this list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The original list is not altered.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> to be added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>list</emphasis> was added. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> was added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to append the list, resizing failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="138" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="494" bodyend="497"/>
+        <references refid="classBList_1ad6d19427b9f9f6accf0ab5ab5df7f219">BList::AddList</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a7f5617dfaef8d4fd1dd4395ce5442a76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::AddList</definition>
+        <argsstring>(BObjectList *, int32)</argsstring>
+        <name>AddList</name>
+        <qualifiedname>BObjectList::AddList</qualifiedname>
+        <param>
+          <type><ref refid="classBObjectList" kindref="compound">BObjectList</ref> *</type>
+          <defname>list</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Add a <emphasis>list</emphasis> of items to this list at the specified <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The original list is not altered.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> to be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position in the current <emphasis>list</emphasis> where the new item(s) are added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>list</emphasis> was added. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> was added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to insert the <emphasis>list</emphasis> resizing failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="139" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="502" bodyend="505"/>
+        <references refid="classBList_1ad6d19427b9f9f6accf0ab5ab5df7f219">BList::AddList</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ab2122267be7d9699b6cf66396824dc24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::RemoveItem</definition>
+        <argsstring>(T *, bool deleteIfOwning=true)</argsstring>
+        <name>RemoveItem</name>
+        <qualifiedname>BObjectList::RemoveItem</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deleteIfOwning</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Remove <emphasis>item</emphasis> from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> to be removed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deleteIfOwning</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Also delete the <emphasis>item</emphasis> if owned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>item</emphasis> was removed. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> was found and removed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> was not in this list and thus not removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="141" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="510" bodyend="518"/>
+        <references refid="classBList_1abea827f5275c57b89fe463e1ad191088">BList::RemoveItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aa1865b1756f09be36b674414be3d0251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::RemoveItemAt</definition>
+        <argsstring>(int32)</argsstring>
+        <name>RemoveItemAt</name>
+        <qualifiedname>BObjectList::RemoveItemAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Remove the item at <emphasis>index</emphasis> from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>index</emphasis> of the item to be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The pointer to the item that was removed, or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> was invalid.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="143" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="523" bodyend="526"/>
+        <references refid="classBList_1abea827f5275c57b89fe463e1ad191088">BList::RemoveItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a6471f8710c7739d8504ee68d427aaa4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BObjectList&lt; T &gt;::MakeEmpty</definition>
+        <argsstring>(bool deleteIfOwning=true)</argsstring>
+        <name>MakeEmpty</name>
+        <qualifiedname>BObjectList::MakeEmpty</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>deleteIfOwning</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Clear all the items from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deleteIfOwning</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Also deletes items if owned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="146" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="625" bodyend="633"/>
+        <references refid="classBList_1ad7529a3817b21cd33f34802f1efa26bd">BList::MakeEmpty</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ad25f9f1202e9e59576d5ab292c39b916" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::ItemAt</definition>
+        <argsstring>(int32) const</argsstring>
+        <name>ItemAt</name>
+        <qualifiedname>BObjectList::ItemAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Return a pointer to the item at the given <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item to retrieve.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the item in that position, or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> is out of bounds.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="149" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="531" bodyend="534"/>
+        <references refid="classBList_1a8dd0ea855550a6923294ceff045a82b0">BList::ItemAt</references>
+        <referencedby refid="classBObjectList_1a449243e3a95086a2be5009689bb34617" compoundref="ObjectList_8h" startline="427" endline="442">BObjectList&lt; T &gt;::BObjectList</referencedby>
+        <referencedby refid="classBObjectList_1a6bfe88eb43f988df25ea869d33e57d20" compoundref="ObjectList_8h" startline="457" endline="472">BObjectList&lt; T &gt;::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a5c5e979d20943344e54680d0fe7a2df7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::ReplaceItem</definition>
+        <argsstring>(int32 index, T *)</argsstring>
+        <name>ReplaceItem</name>
+        <qualifiedname>BObjectList::ReplaceItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <briefdescription>
+<para>Replace an item with another one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the list where to put the <emphasis>item</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new <emphasis>item</emphasis> to put in the list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the item was replaced. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item was replaced. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>index</emphasis> was invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="151" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="539" bodyend="545"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Reordering Items</header>
+      <memberdef kind="function" id="classBObjectList_1ad97a4612eb873ebcb8cc69d8d9a7916c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::SwapWithItem</definition>
+        <argsstring>(int32 index, T *newItem)</argsstring>
+        <name>SwapWithItem</name>
+        <qualifiedname>BObjectList::SwapWithItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>newItem</declname>
+          <defname>item</defname>
+        </param>
+        <briefdescription>
+<para>Swap the <emphasis>item</emphasis> with the item at <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the list where to put the <emphasis>item</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new <emphasis>item</emphasis> to put in the list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the item in that position, or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> is out of bounds.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="154" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="550" bodyend="556"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a2ae3e6502ab34c5a583a669ecf9411f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::MoveItem</definition>
+        <argsstring>(int32 from, int32 to)</argsstring>
+        <name>MoveItem</name>
+        <qualifiedname>BObjectList::MoveItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+<para>Move the item at <emphasis>from</emphasis> to the position of <emphasis>to</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index to move the item <emphasis>from</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index to move the item <emphasis>to</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the items were moved. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The items were moved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>from</emphasis> or <emphasis>to</emphasis> index was invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1a9a90328dd4eb4f86160b2acc1ea90cee" kindref="member">BList::MoveItem()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="158" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="561" bodyend="564"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a115bcccb12d870156ef7386e3e1a6b10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BObjectList&lt; T &gt;::SortItems</definition>
+        <argsstring>(CompareFunction)</argsstring>
+        <name>SortItems</name>
+        <qualifiedname>BObjectList::SortItems</qualifiedname>
+        <param>
+          <type>CompareFunction</type>
+          <defname>function</defname>
+        </param>
+        <briefdescription>
+<para>Sort the items with the use of a supplied comparison <emphasis>function</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>function</emphasis> used to sort the items.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="172" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="680" bodyend="683"/>
+        <references refid="classBList_1abe55aa005c16d47128365775b7aee021">BList::SortItems</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a59674c869fbe0849b7c25a3de8154dd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BObjectList&lt; T &gt;::SortItems</definition>
+        <argsstring>(CompareFunctionWithState, void *state)</argsstring>
+        <name>SortItems</name>
+        <qualifiedname>BObjectList::SortItems</qualifiedname>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>function</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Sort the items with the use of a supplied comparison <emphasis>function</emphasis> and addtional <emphasis>state</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>function</emphasis> used to sort the items. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Additional information used to sort the items.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="173" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="688" bodyend="691"/>
+        <references refid="classBList_1abe55aa005c16d47128365775b7aee021">BList::SortItems</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a0b883ffbe420ebb12ef9b12991fb4342" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BObjectList&lt; T &gt;::HSortItems</definition>
+        <argsstring>(CompareFunction)</argsstring>
+        <name>HSortItems</name>
+        <qualifiedname>BObjectList::HSortItems</qualifiedname>
+        <param>
+          <type>CompareFunction</type>
+          <defname>function</defname>
+        </param>
+        <briefdescription>
+<para>Sort the items with the use of a supplied comparison <emphasis>function</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>function</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>function</emphasis> used to sort the items.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="175" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="696" bodyend="699"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Querying Items</header>
+      <memberdef kind="function" id="classBObjectList_1adb2d3f2ba5a5bcb6bd1d3b185771b6dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::FirstItem</definition>
+        <argsstring>() const</argsstring>
+        <name>FirstItem</name>
+        <qualifiedname>BObjectList::FirstItem</qualifiedname>
+        <briefdescription>
+<para>Return a pointer to the first item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the first item or <computeroutput>NULL</computeroutput> if the list is empty.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBObjectList_1ac3c9f69bfb2f53f323de43425e3e6516" kindref="member">BObjectList&lt;T&gt;::LastItem() const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="160" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="585" bodyend="588"/>
+        <references refid="classBList_1a0f942e4b3c56a1a5b4b6685eda799d65">BList::FirstItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ac3c9f69bfb2f53f323de43425e3e6516" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::LastItem</definition>
+        <argsstring>() const</argsstring>
+        <name>LastItem</name>
+        <qualifiedname>BObjectList::LastItem</qualifiedname>
+        <briefdescription>
+<para>Return a pointer to the last item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the last item or <computeroutput>NULL</computeroutput> if the list is empty.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBObjectList_1adb2d3f2ba5a5bcb6bd1d3b185771b6dc" kindref="member">BObjectList&lt;T&gt;::FirstItem() const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="161" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="593" bodyend="596"/>
+        <references refid="classBList_1a38e516f6bf9f058b970793f877c4d41f">BList::LastItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a4676ea2919f4bf735f972a1b04fbff29" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BObjectList&lt; T &gt;::IndexOf</definition>
+        <argsstring>(const T *) const</argsstring>
+        <name>IndexOf</name>
+        <qualifiedname>BObjectList::IndexOf</qualifiedname>
+        <param>
+          <type>const T *</type>
+          <defname>item</defname>
+        </param>
+        <briefdescription>
+<para>Return the index of <emphasis>item</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The index of the item, or -1 when the item is not in the list.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="164" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="577" bodyend="580"/>
+        <references refid="classBList_1aa66edf99e4c395006964e665805a9f84">BList::IndexOf</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a6ec26fa32fa3e05902a690d1c1e1a82b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::HasItem</definition>
+        <argsstring>(const T *) const</argsstring>
+        <name>HasItem</name>
+        <qualifiedname>BObjectList::HasItem</qualifiedname>
+        <param>
+          <type>const T *</type>
+          <defname>item</defname>
+        </param>
+        <briefdescription>
+<para>Return whether or not <emphasis>item</emphasis> is in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the <emphasis>item</emphasis> was in the list, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="165" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="601" bodyend="604"/>
+        <references refid="classBList_1a52eba743d386b339fcc092781a25ba81">BList::HasItem</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a57160ca46fda7d6268ce6d3b05f3f940" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::IsEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>IsEmpty</name>
+        <qualifiedname>BObjectList::IsEmpty</qualifiedname>
+        <briefdescription>
+<para>Return whether or not there are items in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the list was empty, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="166" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="609" bodyend="612"/>
+        <references refid="classBList_1a8fe0fa7c73e17ce27e543f4de22751ad">BList::IsEmpty</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a406ad33a266101bbc9add7562f64096e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BObjectList&lt; T &gt;::CountItems</definition>
+        <argsstring>() const</argsstring>
+        <name>CountItems</name>
+        <qualifiedname>BObjectList::CountItems</qualifiedname>
+        <briefdescription>
+<para>Returns the number of items in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of items in the list as an int32.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="167" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="617" bodyend="620"/>
+        <references refid="classBList_1a9934f3617c27ae2276607efd0de858f0">BList::CountItems</references>
+        <referencedby refid="classBObjectList_1a449243e3a95086a2be5009689bb34617" compoundref="ObjectList_8h" startline="427" endline="442">BObjectList&lt; T &gt;::BObjectList</referencedby>
+        <referencedby refid="classBObjectList_1a6bfe88eb43f988df25ea869d33e57d20" compoundref="ObjectList_8h" startline="457" endline="472">BObjectList&lt; T &gt;::operator=</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Iterating Over Items</header>
+      <memberdef kind="function" id="classBObjectList_1a8e66847b716ea785b58eb126a67c886e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::EachElement</definition>
+        <argsstring>(EachFunction, void *)</argsstring>
+        <name>EachElement</name>
+        <qualifiedname>BObjectList::EachElement</qualifiedname>
+        <param>
+          <type>EachFunction</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <defname>params</defname>
+        </param>
+        <briefdescription>
+<para>Perform an action on each item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A function that takes a <computeroutput>void*</computeroutput> argument and returns a boolean. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters for <emphasis>func</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the item.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="169" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="638" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1afc78677b0a018ced0242e5d9ac2de61d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T * BObjectList&lt; T &gt;::EachElement</definition>
+        <argsstring>(ConstEachFunction, void *) const</argsstring>
+        <name>EachElement</name>
+        <qualifiedname>BObjectList::EachElement</qualifiedname>
+        <param>
+          <type>ConstEachFunction</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <defname>params</defname>
+        </param>
+        <briefdescription>
+<para>Perform an action on each item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A function that takes a <computeroutput>void*</computeroutput> argument and returns a boolean. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>params</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>parameters for <emphasis>func</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the item.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="170" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="646" bodyend="651"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Finding Items</header>
+      <memberdef kind="function" id="classBObjectList_1aa3b864be1e70145b282c54e2062196e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T * BObjectList&lt; T &gt;::FindIf</definition>
+        <argsstring>(const UnaryPredicate&lt; T &gt; &amp;) const</argsstring>
+        <name>FindIf</name>
+        <qualifiedname>BObjectList::FindIf</qualifiedname>
+        <param>
+          <type>const UnaryPredicate&lt; T &gt; &amp;</type>
+          <defname>predicate</defname>
+        </param>
+        <briefdescription>
+<para>Find items that match <emphasis>predicate</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A const pointer to T.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="181" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="655" bodyend="663"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a81a1f4fdd663f73f19f4dbd63ed704b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::FindIf</definition>
+        <argsstring>(const UnaryPredicate&lt; T &gt; &amp;)</argsstring>
+        <name>FindIf</name>
+        <qualifiedname>BObjectList::FindIf</qualifiedname>
+        <param>
+          <type>const UnaryPredicate&lt; T &gt; &amp;</type>
+          <defname>predicate</defname>
+        </param>
+        <briefdescription>
+<para>Find items that match <emphasis>predicate</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to T.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="182" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="667" bodyend="675"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aefc143364f62438a410194ae6b645c95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinarySearch</definition>
+        <argsstring>(const T &amp;, CompareFunction) const</argsstring>
+        <name>BinarySearch</name>
+        <qualifiedname>BObjectList::BinarySearch</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <defname>key</defname>
+        </param>
+        <param>
+          <type>CompareFunction</type>
+          <defname>func</defname>
+        </param>
+        <briefdescription>
+<para>Search for <emphasis>key</emphasis> in the list of items using the supplied comparison function via a binary search algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>key</emphasis> to search for. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The comparison function to use.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to T.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="186" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="712" bodyend="715"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ae58f46a1903e49fb185e4f184c81d026" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinarySearch</definition>
+        <argsstring>(const T &amp;, CompareFunctionWithState, void *state) const</argsstring>
+        <name>BinarySearch</name>
+        <qualifiedname>BObjectList::BinarySearch</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <defname>key</defname>
+        </param>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+<para>Search for <emphasis>key</emphasis> in the list of items using the supplied comparison function via a binary search algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>key</emphasis> to search for. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The comparison function to use. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Additional information used to search for the item.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to T.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="187" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="720" bodyend="725"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classBObjectList_1aa7a0b6e4275fd7ae8acc586d49c947ae" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* BObjectList&lt; T &gt;::CompareFunction) (const T *, const T *)</definition>
+        <argsstring>)(const T *, const T *)</argsstring>
+        <name>CompareFunction</name>
+        <qualifiedname>BObjectList::CompareFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="119" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBObjectList_1a75255e75825786b6192f13b46152dfab" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* BObjectList&lt; T &gt;::CompareFunctionWithState) (const T *, const T *, void *state)</definition>
+        <argsstring>)(const T *, const T *, void *state)</argsstring>
+        <name>CompareFunctionWithState</name>
+        <qualifiedname>BObjectList::CompareFunctionWithState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="120" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBObjectList_1a8ca94def307f5a733fb4a199dff9fd80" prot="public" static="no">
+        <type>const T *(*</type>
+        <definition>typedef const T *(* BObjectList&lt; T &gt;::ConstEachFunction) (const T *, void *)</definition>
+        <argsstring>)(const T *, void *)</argsstring>
+        <name>ConstEachFunction</name>
+        <qualifiedname>BObjectList::ConstEachFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="118" column="14" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBObjectList_1a9ee39d91778aebea8531407fcff97ade" prot="public" static="no">
+        <type>T *(*</type>
+        <definition>typedef T *(* BObjectList&lt; T &gt;::EachFunction) (T *, void *)</definition>
+        <argsstring>)(T *, void *)</argsstring>
+        <name>EachFunction</name>
+        <qualifiedname>BObjectList::EachFunction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="117" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBObjectList_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BObjectList::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="250" column="13" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBObjectList_1a449243e3a95086a2be5009689bb34617" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BObjectList&lt; T &gt;::BObjectList</definition>
+        <argsstring>(const BObjectList &amp;list)</argsstring>
+        <name>BObjectList</name>
+        <qualifiedname>BObjectList::BObjectList</qualifiedname>
+        <param>
+          <type>const <ref refid="classBObjectList" kindref="compound">BObjectList</ref> &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBObjectList" kindref="compound">BObjectList</ref> as a copy of another <emphasis>list</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> to copy from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="125" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="427" bodyend="442"/>
+        <references refid="classBObjectList_1a406ad33a266101bbc9add7562f64096e" compoundref="ObjectList_8h" startline="617" endline="620">BObjectList&lt; T &gt;::CountItems</references>
+        <references refid="classBObjectList_1ad25f9f1202e9e59576d5ab292c39b916" compoundref="ObjectList_8h" startline="531" endline="534">BObjectList&lt; T &gt;::ItemAt</references>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aa926c392c7be6b4f342564e7b4cbf9bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BObjectList&lt; T &gt;::BObjectList</definition>
+        <argsstring>(int32 itemsPerBlock=20, bool owning=false)</argsstring>
+        <name>BObjectList</name>
+        <qualifiedname>BObjectList::BObjectList</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>itemsPerBlock</declname>
+          <defval>20</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>owning</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBObjectList" kindref="compound">BObjectList</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>itemsPerBlock</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of items per block to allocate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>owning</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the <ref refid="classBObjectList" kindref="compound">BObjectList</ref> deletes its items when it is emptied or deleted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="123" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="419" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aa054cef49648f8393b5d799179fde73c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BObjectList&lt; T &gt;::~BObjectList</definition>
+        <argsstring>()</argsstring>
+        <name>~BObjectList</name>
+        <qualifiedname>BObjectList::~BObjectList</qualifiedname>
+        <briefdescription>
+<para>Deletes the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the list owns its items they are deleted too.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="129" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="446" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ace51ecb14de61ead571dd2ce1b16af1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::BinaryInsert</definition>
+        <argsstring>(T *, CompareFunction)</argsstring>
+        <name>BinaryInsert</name>
+        <qualifiedname>BObjectList::BinaryInsert</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>CompareFunction</type>
+          <defname>func</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="213" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="782" bodyend="792"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1af0de955f40829d812e0bb529031bedb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::BinaryInsert</definition>
+        <argsstring>(T *, CompareFunctionWithState, void *state)</argsstring>
+        <name>BinaryInsert</name>
+        <qualifiedname>BObjectList::BinaryInsert</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="214" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="797" bodyend="808"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ad2242babd6ef787131b34b1a8db352fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::BinaryInsert</definition>
+        <argsstring>(T *, const UnaryPredicate&lt; T &gt; &amp;)</argsstring>
+        <name>BinaryInsert</name>
+        <qualifiedname>BObjectList::BinaryInsert</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>const UnaryPredicate&lt; T &gt; &amp;</type>
+          <defname>pred</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="216" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="928" bodyend="931"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ad3084afb19aee6a0a06f6fd9d4af806c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinaryInsertCopy</definition>
+        <argsstring>(const T &amp;copyThis, CompareFunction)</argsstring>
+        <name>BinaryInsertCopy</name>
+        <qualifiedname>BObjectList::BinaryInsertCopy</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>copyThis</declname>
+        </param>
+        <param>
+          <type>CompareFunction</type>
+          <defname>func</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="228" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="840" bodyend="853"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ae298db60405218eb88a544f9d19fb08a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinaryInsertCopy</definition>
+        <argsstring>(const T &amp;copyThis, CompareFunctionWithState, void *state)</argsstring>
+        <name>BinaryInsertCopy</name>
+        <qualifiedname>BObjectList::BinaryInsertCopy</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>copyThis</declname>
+        </param>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="230" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="858" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a87f0b58358f8cf00764a24f6a0f275f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinaryInsertCopyUnique</definition>
+        <argsstring>(const T &amp;copyThis, CompareFunction)</argsstring>
+        <name>BinaryInsertCopyUnique</name>
+        <qualifiedname>BObjectList::BinaryInsertCopyUnique</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>copyThis</declname>
+        </param>
+        <param>
+          <type>CompareFunction</type>
+          <defname>func</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="236" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="877" bodyend="888"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a228dc4d3d699cc6e88d46c69c0d28821" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinaryInsertCopyUnique</definition>
+        <argsstring>(const T &amp;copyThis, CompareFunctionWithState, void *state)</argsstring>
+        <name>BinaryInsertCopyUnique</name>
+        <qualifiedname>BObjectList::BinaryInsertCopyUnique</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>copyThis</declname>
+        </param>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="238" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="893" bodyend="905"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a7295bf49c8741a4666b0361deebb988c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::BinaryInsertUnique</definition>
+        <argsstring>(T *, CompareFunction)</argsstring>
+        <name>BinaryInsertUnique</name>
+        <qualifiedname>BObjectList::BinaryInsertUnique</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>CompareFunction</type>
+          <defname>func</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="220" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="813" bodyend="821"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a5e6398162c7f4cd98b925fe951017ef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::BinaryInsertUnique</definition>
+        <argsstring>(T *, CompareFunctionWithState, void *state)</argsstring>
+        <name>BinaryInsertUnique</name>
+        <qualifiedname>BObjectList::BinaryInsertUnique</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>func</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="221" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="826" bodyend="835"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a617880a6285bbb7e721a2ed30395c8da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BObjectList&lt; T &gt;::BinaryInsertUnique</definition>
+        <argsstring>(T *, const UnaryPredicate&lt; T &gt; &amp;)</argsstring>
+        <name>BinaryInsertUnique</name>
+        <qualifiedname>BObjectList::BinaryInsertUnique</qualifiedname>
+        <param>
+          <type>T *</type>
+          <defname>item</defname>
+        </param>
+        <param>
+          <type>const UnaryPredicate&lt; T &gt; &amp;</type>
+          <defname>pred</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="223" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="936" bodyend="945"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ae59d75fa18f54d16d230b0b654f56fc8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Key</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinarySearchByKey</definition>
+        <argsstring>(const Key &amp;key, int(*compare)(const Key *, const T *)) const</argsstring>
+        <name>BinarySearchByKey</name>
+        <qualifiedname>BObjectList::BinarySearchByKey</qualifiedname>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int(*)(const Key *, const T *)</type>
+          <declname>compare</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="191" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="731" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aa8a34025d26236ab9dcaa51233a62773" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Key</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T * BObjectList&lt; T &gt;::BinarySearchByKey</definition>
+        <argsstring>(const Key &amp;key, int(*compare)(const Key *, const T *, void *), void *state) const</argsstring>
+        <name>BinarySearchByKey</name>
+        <qualifiedname>BObjectList::BinarySearchByKey</qualifiedname>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int(*)(const Key *, const T *, void *)</type>
+          <declname>compare</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="195" column="2" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="742" bodyend="747"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1aecfe9dba4050a94c6ab4d172b8f8c8a2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BObjectList&lt; T &gt;::BinarySearchIndex</definition>
+        <argsstring>(const T &amp;item, CompareFunction compare) const</argsstring>
+        <name>BinarySearchIndex</name>
+        <qualifiedname>BObjectList::BinarySearchIndex</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>CompareFunction</type>
+          <declname>compare</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="199" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="752" bodyend="756"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a6200debab107a1c06f1d4fa3ddac7702" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BObjectList&lt; T &gt;::BinarySearchIndex</definition>
+        <argsstring>(const T &amp;item, CompareFunctionWithState compare, void *state) const</argsstring>
+        <name>BinarySearchIndex</name>
+        <qualifiedname>BObjectList::BinarySearchIndex</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <declname>compare</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="201" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="761" bodyend="766"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1ae01a85cb9e40f0f73f3d74f0581a06ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Key</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BObjectList&lt; T &gt;::BinarySearchIndexByKey</definition>
+        <argsstring>(const Key &amp;key, int(*compare)(const Key *, const T *)) const</argsstring>
+        <name>BinarySearchIndexByKey</name>
+        <qualifiedname>BObjectList::BinarySearchIndexByKey</qualifiedname>
+        <param>
+          <type>const Key &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>int(*)(const Key *, const T *)</type>
+          <declname>compare</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="206" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="772" bodyend="777"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a30d8e70bd8743458cd2fb851a10a09ab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BObjectList&lt; T &gt;::FindBinaryInsertionIndex</definition>
+        <argsstring>(const UnaryPredicate&lt; T &gt; &amp;, bool *alreadyInList=0) const</argsstring>
+        <name>FindBinaryInsertionIndex</name>
+        <qualifiedname>BObjectList::FindBinaryInsertionIndex</qualifiedname>
+        <param>
+          <type>const UnaryPredicate&lt; T &gt; &amp;</type>
+          <defname>pred</defname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>alreadyInList</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="241" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="910" bodyend="923"/>
+      </memberdef>
+      <memberdef kind="function" id="classBObjectList_1a40690e508116c47699046a5462f5bb17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BObjectList&lt; T &gt;::HSortItems</definition>
+        <argsstring>(CompareFunctionWithState, void *state)</argsstring>
+        <name>HSortItems</name>
+        <qualifiedname>BObjectList::HSortItems</qualifiedname>
+        <param>
+          <type>CompareFunctionWithState</type>
+          <defname>function</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="176" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="704" bodyend="707"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBObjectList_1af0d271eef7f0306ed62ea06a1b27835e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BObjectList&lt; T &gt;::_SetItem</definition>
+        <argsstring>(int32, T *)</argsstring>
+        <name>_SetItem</name>
+        <qualifiedname>BObjectList::_SetItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <defname>index</defname>
+        </param>
+        <param>
+          <type>T *</type>
+          <defname>newItem</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/ObjectList.h" line="252" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="569" bodyend="572"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classBObjectList" kindref="compound">BObjectList</ref> is a wrapper around <ref refid="classBList" kindref="compound">BList</ref> that adds type safety, optional object ownership, search, and insert operations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>BObjectList&lt; BJob &gt;</label>
+        <link refid="classBObjectList"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; BJob &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BObjectList&lt; BJobStateListener &gt;</label>
+        <link refid="classBObjectList"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; BJobStateListener &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BObjectList&lt; BMailAccountSettings &gt;</label>
+        <link refid="classBObjectList"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; BMailAccountSettings &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BObjectList&lt; BMailAddOnSettings &gt;</label>
+        <link refid="classBObjectList"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; BMailAddOnSettings &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BObjectList&lt; CacheEntry &gt;</label>
+        <link refid="classBObjectList"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; CacheEntry &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BObjectList&lt; T &gt;</label>
+        <link refid="classBObjectList"/>
+      </node>
+    </inheritancegraph>
+    <location file="support/ObjectList.dox" line="22" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/ObjectList.h" bodystart="114" bodyend="253"/>
+    <listofallmembers>
+      <member refid="classBObjectList_1af0d271eef7f0306ed62ea06a1b27835e" prot="private" virt="non-virtual"><scope>BObjectList</scope><name>_SetItem</name></member>
+      <member refid="classBObjectList_1a8474455acae0f14ac9c4104727f06f99" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>AddItem</name></member>
+      <member refid="classBObjectList_1a22edb4014fc68be267e6327d39918894" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>AddItem</name></member>
+      <member refid="classBList_1ab827c4118ba2a46eae24f5a41eb9bdb6" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>AddItem</name></member>
+      <member refid="classBList_1a466d0c711d3736a185ca243749120ad3" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>AddItem</name></member>
+      <member refid="classBObjectList_1aab84cecc949a75574321ac580b4297f8" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>AddList</name></member>
+      <member refid="classBObjectList_1a7f5617dfaef8d4fd1dd4395ce5442a76" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>AddList</name></member>
+      <member refid="classBList_1ad6d19427b9f9f6accf0ab5ab5df7f219" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>AddList</name></member>
+      <member refid="classBList_1a285e109e612c8e2c18fd09436e9afd6d" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>AddList</name></member>
+      <member refid="classBObjectList_1ace51ecb14de61ead571dd2ce1b16af1d" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsert</name></member>
+      <member refid="classBObjectList_1af0de955f40829d812e0bb529031bedb6" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsert</name></member>
+      <member refid="classBObjectList_1ad2242babd6ef787131b34b1a8db352fc" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsert</name></member>
+      <member refid="classBObjectList_1ad3084afb19aee6a0a06f6fd9d4af806c" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertCopy</name></member>
+      <member refid="classBObjectList_1ae298db60405218eb88a544f9d19fb08a" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertCopy</name></member>
+      <member refid="classBObjectList_1a87f0b58358f8cf00764a24f6a0f275f9" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertCopyUnique</name></member>
+      <member refid="classBObjectList_1a228dc4d3d699cc6e88d46c69c0d28821" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertCopyUnique</name></member>
+      <member refid="classBObjectList_1a7295bf49c8741a4666b0361deebb988c" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertUnique</name></member>
+      <member refid="classBObjectList_1a5e6398162c7f4cd98b925fe951017ef7" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertUnique</name></member>
+      <member refid="classBObjectList_1a617880a6285bbb7e721a2ed30395c8da" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinaryInsertUnique</name></member>
+      <member refid="classBObjectList_1aefc143364f62438a410194ae6b645c95" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearch</name></member>
+      <member refid="classBObjectList_1ae58f46a1903e49fb185e4f184c81d026" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearch</name></member>
+      <member refid="class__PointerList___1a67d4d4462aa14a0b6c828e92935fac28" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>BinarySearch</name></member>
+      <member refid="class__PointerList___1ad456b68d1e11ffad90490d6b2039f893" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>BinarySearch</name></member>
+      <member refid="classBObjectList_1ae59d75fa18f54d16d230b0b654f56fc8" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearchByKey</name></member>
+      <member refid="classBObjectList_1aa8a34025d26236ab9dcaa51233a62773" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearchByKey</name></member>
+      <member refid="classBObjectList_1aecfe9dba4050a94c6ab4d172b8f8c8a2" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearchIndex</name></member>
+      <member refid="classBObjectList_1a6200debab107a1c06f1d4fa3ddac7702" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearchIndex</name></member>
+      <member refid="class__PointerList___1a640819cf6b90222b05159af1c8bb46f0" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>BinarySearchIndex</name></member>
+      <member refid="class__PointerList___1aeea95e11330d255f6c39e1f3edbb2ab1" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>BinarySearchIndex</name></member>
+      <member refid="classBObjectList_1ae01a85cb9e40f0f73f3d74f0581a06ad" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BinarySearchIndexByKey</name></member>
+      <member refid="classBObjectList_1aa926c392c7be6b4f342564e7b4cbf9bf" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BObjectList</name></member>
+      <member refid="classBObjectList_1a449243e3a95086a2be5009689bb34617" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>BObjectList</name></member>
+      <member refid="classBObjectList_1aa7a0b6e4275fd7ae8acc586d49c947ae" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>CompareFunction</name></member>
+      <member refid="classBObjectList_1a75255e75825786b6192f13b46152dfab" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>CompareFunctionWithState</name></member>
+      <member refid="classBObjectList_1a8ca94def307f5a733fb4a199dff9fd80" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>ConstEachFunction</name></member>
+      <member refid="classBObjectList_1a406ad33a266101bbc9add7562f64096e" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>CountItems</name></member>
+      <member refid="classBObjectList_1a8e66847b716ea785b58eb126a67c886e" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>EachElement</name></member>
+      <member refid="classBObjectList_1afc78677b0a018ced0242e5d9ac2de61d" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>EachElement</name></member>
+      <member refid="class__PointerList___1a5cf14d2f862b131b009e44a2c4da8eab" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>EachElement</name></member>
+      <member refid="classBObjectList_1a9ee39d91778aebea8531407fcff97ade" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>EachFunction</name></member>
+      <member refid="classBObjectList_1a30d8e70bd8743458cd2fb851a10a09ab" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>FindBinaryInsertionIndex</name></member>
+      <member refid="classBObjectList_1aa3b864be1e70145b282c54e2062196e1" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>FindIf</name></member>
+      <member refid="classBObjectList_1a81a1f4fdd663f73f19f4dbd63ed704b7" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>FindIf</name></member>
+      <member refid="classBObjectList_1adb2d3f2ba5a5bcb6bd1d3b185771b6dc" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>FirstItem</name></member>
+      <member refid="classBObjectList_1a6ec26fa32fa3e05902a690d1c1e1a82b" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>HasItem</name></member>
+      <member refid="classBList_1a52eba743d386b339fcc092781a25ba81" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>HasItem</name></member>
+      <member refid="classBList_1a9046dd4910aa56e436eb97146984c050" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>HasItem</name></member>
+      <member refid="classBObjectList_1a0b883ffbe420ebb12ef9b12991fb4342" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>HSortItems</name></member>
+      <member refid="classBObjectList_1a40690e508116c47699046a5462f5bb17" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>HSortItems</name></member>
+      <member refid="class__PointerList___1a8856358fcae51e19875c5bab742d31ea" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>HSortItems</name></member>
+      <member refid="class__PointerList___1a88593c1dd023f63b6819912fe2ad6bac" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>HSortItems</name></member>
+      <member refid="classBObjectList_1a4676ea2919f4bf735f972a1b04fbff29" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>IndexOf</name></member>
+      <member refid="classBList_1aa66edf99e4c395006964e665805a9f84" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>IndexOf</name></member>
+      <member refid="classBList_1a17f9954ac3b3b8af9a2054f9caa0a63b" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>IndexOf</name></member>
+      <member refid="classBObjectList_1a57160ca46fda7d6268ce6d3b05f3f940" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>IsEmpty</name></member>
+      <member refid="classBObjectList_1ad25f9f1202e9e59576d5ab292c39b916" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>ItemAt</name></member>
+      <member refid="classBObjectList_1ac3c9f69bfb2f53f323de43425e3e6516" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>LastItem</name></member>
+      <member refid="classBObjectList_1a6471f8710c7739d8504ee68d427aaa4c" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>MakeEmpty</name></member>
+      <member refid="classBList_1ad7529a3817b21cd33f34802f1efa26bd" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>MakeEmpty</name></member>
+      <member refid="classBObjectList_1a2ae3e6502ab34c5a583a669ecf9411f7" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>MoveItem</name></member>
+      <member refid="classBObjectList_1a6bfe88eb43f988df25ea869d33e57d20" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>operator=</name></member>
+      <member refid="classBList_1af7da7ecbaaa1963074ca17302adb6099" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>operator=</name></member>
+      <member refid="classBObjectList_1ab2122267be7d9699b6cf66396824dc24" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>RemoveItem</name></member>
+      <member refid="classBList_1abea827f5275c57b89fe463e1ad191088" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>RemoveItem</name></member>
+      <member refid="classBList_1a4ce0e34daae40f74ff024773a5f799b2" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>RemoveItem</name></member>
+      <member refid="classBObjectList_1aa1865b1756f09be36b674414be3d0251" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>RemoveItemAt</name></member>
+      <member refid="classBObjectList_1a5c5e979d20943344e54680d0fe7a2df7" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>ReplaceItem</name></member>
+      <member refid="class__PointerList___1a60a63d1f92455ecd4b1d6ac9d5ee3dd1" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>ReplaceItem</name></member>
+      <member refid="classBObjectList_1a115bcccb12d870156ef7386e3e1a6b10" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>SortItems</name></member>
+      <member refid="classBObjectList_1a59674c869fbe0849b7c25a3de8154dd0" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>SortItems</name></member>
+      <member refid="class__PointerList___1ad4d8d8429d13da39bf8b1b4737fbbe63" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>SortItems</name></member>
+      <member refid="class__PointerList___1a12b348ce41b23e2927e95f36ffe501f0" prot="private" virt="non-virtual" ambiguityscope="_PointerList_::"><scope>BObjectList</scope><name>SortItems</name></member>
+      <member refid="classBList_1abe55aa005c16d47128365775b7aee021" prot="private" virt="non-virtual" ambiguityscope="BList::"><scope>BObjectList</scope><name>SortItems</name></member>
+      <member refid="classBObjectList_1ad97a4612eb873ebcb8cc69d8d9a7916c" prot="public" virt="non-virtual"><scope>BObjectList</scope><name>SwapWithItem</name></member>
+      <member refid="classBObjectList_1aa054cef49648f8393b5d799179fde73c" prot="public" virt="virtual"><scope>BObjectList</scope><name>~BObjectList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

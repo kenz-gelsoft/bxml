@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBFlattenable" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BFlattenable</compoundname>
+    <derivedcompoundref refid="classBAffineTransform" prot="public" virt="non-virtual">BAffineTransform</derivedcompoundref>
+    <derivedcompoundref refid="classBNetworkAddress" prot="public" virt="non-virtual">BNetworkAddress</derivedcompoundref>
+    <derivedcompoundref refid="classBParameter" prot="public" virt="non-virtual">BParameter</derivedcompoundref>
+    <derivedcompoundref refid="classBParameterGroup" prot="public" virt="non-virtual">BParameterGroup</derivedcompoundref>
+    <derivedcompoundref refid="classBParameterWeb" prot="public" virt="non-virtual">BParameterWeb</derivedcompoundref>
+    <derivedcompoundref refid="classBPath" prot="public" virt="non-virtual">BPath</derivedcompoundref>
+    <derivedcompoundref refid="classBPropertyInfo" prot="public" virt="non-virtual">BPropertyInfo</derivedcompoundref>
+    <derivedcompoundref refid="classBStringList" prot="public" virt="non-virtual">BStringList</derivedcompoundref>
+    <derivedcompoundref refid="structdormant__flavor__info" prot="public" virt="non-virtual">dormant_flavor_info</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBFlattenable_1a884e130a5d27acc15b1e4e4c505157ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BFlattenable::~BFlattenable</definition>
+        <argsstring>()</argsstring>
+        <name>~BFlattenable</name>
+        <qualifiedname>BFlattenable::~BFlattenable</qualifiedname>
+        <briefdescription>
+<para>Destructor. Does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="22" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1a30165696bba76fed10e37508cc4f6925" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BFlattenable::AllowsTypeCode</definition>
+        <argsstring>(type_code code) const</argsstring>
+        <name>AllowsTypeCode</name>
+        <qualifiedname>BFlattenable::AllowsTypeCode</qualifiedname>
+        <reimplementedby refid="classBPropertyInfo_1a52ef3962ccae6efe91780df25c2c043a">AllowsTypeCode</reimplementedby>
+        <reimplementedby refid="classBPath_1aef48a6f6cf10836b412df6b6e060c4c2">AllowsTypeCode</reimplementedby>
+        <reimplementedby refid="classBStringList_1ada0bef2ce78540984803c8cfa3967a6a">AllowsTypeCode</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Get whether or not the supplied type_code is supported. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This default implementation checks the <emphasis>code</emphasis> argument against the type_code returned by <ref refid="classBFlattenable_1a819507fa1b0906f14299db15f6e990d1" kindref="member">TypeCode()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type_code constant you want to check for.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the supplied type_code is supported. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type_code is supported. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type_code is not supported.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="18" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1ab934b64a8b218a4f9078ded191be6fbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFlattenable::Flatten</definition>
+        <argsstring>(void *buffer, ssize_t size) const =0</argsstring>
+        <name>Flatten</name>
+        <qualifiedname>BFlattenable::Flatten</qualifiedname>
+        <reimplementedby refid="classBPropertyInfo_1a141a4d054c98424d677af1aecdb8e176">Flatten</reimplementedby>
+        <reimplementedby refid="classBAffineTransform_1a8e9004914c3d7ac7ddb16d866cab918e">Flatten</reimplementedby>
+        <reimplementedby refid="classBPath_1a2866faf2cacac53e9d583f9a3dbd903c">Flatten</reimplementedby>
+        <reimplementedby refid="classBStringList_1a2950d106932743b78d006740557074fe">Flatten</reimplementedby>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>ssize_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual that should flatten the object into the supplied <emphasis>buffer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Please make sure that you check that the supplied buffer is not a <computeroutput>NULL</computeroutput> pointer. Also make sure that the size of the flattened object does isn&apos;t larger than the size of the buffer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to flatten in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was flattened. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was smaller than required. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer was a <computeroutput>NULL</computeroutput> pointer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="17" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1a9b5885d4454326ca448438960ecff466" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BFlattenable::FlattenedSize</definition>
+        <argsstring>() const =0</argsstring>
+        <name>FlattenedSize</name>
+        <qualifiedname>BFlattenable::FlattenedSize</qualifiedname>
+        <reimplementedby refid="classBPropertyInfo_1a326574fe08e91224d95e1c4943396bb6">FlattenedSize</reimplementedby>
+        <reimplementedby refid="classBAffineTransform_1a5ee0a422598727d1653c06d6769a26f9">FlattenedSize</reimplementedby>
+        <reimplementedby refid="classBPath_1a5c77e3e9fb829249e9d1b6366f6d5520">FlattenedSize</reimplementedby>
+        <reimplementedby refid="classBStringList_1a58b7d9d1f5581d6e05537fb24abbb241">FlattenedSize</reimplementedby>
+        <briefdescription>
+<para>Pure virtual that should return the size of the flattened object in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="16" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1ac019f502749a0cc78082f5ec7c8f5b56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>bool BFlattenable::IsFixedSize</definition>
+        <argsstring>() const =0</argsstring>
+        <name>IsFixedSize</name>
+        <qualifiedname>BFlattenable::IsFixedSize</qualifiedname>
+        <reimplementedby refid="classBPropertyInfo_1a33f147be78c14a2a0da3a45d21391bf2">IsFixedSize</reimplementedby>
+        <reimplementedby refid="classBAffineTransform_1ac4b8ff09ab94c925d2f6e068b945bf4b">IsFixedSize</reimplementedby>
+        <reimplementedby refid="classBPath_1ac43f61c0280de191eef4adcf6a642437">IsFixedSize</reimplementedby>
+        <reimplementedby refid="classBStringList_1a27f621354797cf96fd55327d0dafdc2e">IsFixedSize</reimplementedby>
+        <briefdescription>
+<para>Pure virtual that should return whether or not flattened objects of this type always have a fixed size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Should return whether or not the flattened objects of this type always have a fixed size.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="14" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1a819507fa1b0906f14299db15f6e990d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+        <definition>type_code BFlattenable::TypeCode</definition>
+        <argsstring>() const =0</argsstring>
+        <name>TypeCode</name>
+        <qualifiedname>BFlattenable::TypeCode</qualifiedname>
+        <reimplementedby refid="classBPropertyInfo_1a9217a74cb2653b6f63472166c4373196">TypeCode</reimplementedby>
+        <reimplementedby refid="classBAffineTransform_1a8b6a0f6bc9f1999f1f4a4e5a17610958">TypeCode</reimplementedby>
+        <reimplementedby refid="classBPath_1a05dc54fed4718135a3f55f476816f1cb">TypeCode</reimplementedby>
+        <reimplementedby refid="classBStringList_1aebe54b1791b65f0ea349f4fce771f0b9">TypeCode</reimplementedby>
+        <briefdescription>
+<para>Pure virtual that returns the type_code this class flattens to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Either one of the existing typecodes found in <ref refid="TypeConstants_8h" kindref="compound">TypeConstants.h</ref> if your class actually is compatible to those formats, or a custom four-byte integer constant if not.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="15" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1a41e7168574912690be159991d2b07a97" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFlattenable::Unflatten</definition>
+        <argsstring>(type_code code, const void *buffer, ssize_t size)=0</argsstring>
+        <name>Unflatten</name>
+        <qualifiedname>BFlattenable::Unflatten</qualifiedname>
+        <reimplementedby refid="classBPropertyInfo_1af4ae06ccc8b9f93ab74ffdde0d1f93ce">Unflatten</reimplementedby>
+        <reimplementedby refid="classBAffineTransform_1a00b1c34cc0b696e14fb233f3ad74212f">Unflatten</reimplementedby>
+        <reimplementedby refid="classBPath_1a437333127ec6d2e1037e72dd822afeca">Unflatten</reimplementedby>
+        <reimplementedby refid="classBStringList_1aaba64379fbd1a9fa334137c712a5e073">Unflatten</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>ssize_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual that should unflatten the buffer and put the contents into the current object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Make sure that the supplied buffer is not <computeroutput>NULL</computeroutput> and that you actually support the typecode.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type_code this data is. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to unflatten the data from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is unflattened. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>buffer</emphasis> pointer is <computeroutput>NULL</computeroutput> or the data is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>You don&apos;t support data with this <emphasis>code</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="19" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBFlattenable_1a425aa7edd36eca9515164cf041a1f6fe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BFlattenable::_ReservedFlattenable1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedFlattenable1</name>
+        <qualifiedname>BFlattenable::_ReservedFlattenable1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="25" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1a5b85d4287570de53b7f01c6e4899fe0a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFlattenable::_ReservedFlattenable2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedFlattenable2</name>
+        <qualifiedname>BFlattenable::_ReservedFlattenable2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="26" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFlattenable_1aa55508eae9b326d2078fb0f64ba31e8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFlattenable::_ReservedFlattenable3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedFlattenable3</name>
+        <qualifiedname>BFlattenable::_ReservedFlattenable3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="27" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for classes that can flatten and unflatten themselves to a stream of bytes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>It is convenient that objects can be stored as a flat stream of bytes. In this way, they can be written to disk, exchanged between applications or send over networks. This ability, known as marshaling in many other programming languages, is not native to C++. The Haiku API has created a universal interface that classes have if they are able to be flattened. This class defines the interface. This class does nothing on its own, and therefore contains pure virtual functions. By inheriting this class and implementing the methods in your own class, you will be able to use your objects as flattenable objects throughout the Haiku API.</para>
+<para>Flattened objects can be used for example when sending messages within an application or between applications. The <ref refid="classBMessage" kindref="compound">BMessage</ref> class uses the interface to store and transmit custom classes.</para>
+<para>If you want to be able to flatten your objects, you will need to implement various methods. <ref refid="classBFlattenable_1ab934b64a8b218a4f9078ded191be6fbb" kindref="member">Flatten()</ref> and <ref refid="classBFlattenable_1a41e7168574912690be159991d2b07a97" kindref="member">Unflatten()</ref> are where the magic happen. These methods handle the actual flattening and unflattening. To identify flattened data in for example <ref refid="classBMessage" kindref="compound">BMessage</ref>, the object has a type_code. Type codes are four byte long integers. You can choose to flatten to one of the existing types, if you are certain that you are compatible to those, but you&apos;ll usually define your own type. Your best option is by using a multicharacter constant, such as &apos;STRI&apos;. Implement <ref refid="classBFlattenable_1a819507fa1b0906f14299db15f6e990d1" kindref="member">TypeCode()</ref> to return the type you support. Implement <ref refid="classBFlattenable_1a9b5885d4454326ca448438960ecff466" kindref="member">FlattenedSize()</ref> to make sure that other objects can provide the right buffers. Implement <ref refid="classBFlattenable_1ac019f502749a0cc78082f5ec7c8f5b56" kindref="member">IsFixedSize()</ref> to return whether your objects always store to a fixed size.</para>
+<para>See the following example: <programlisting><codeline><highlight class="normal"><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref><sp/>CUSTOM_STRING_TYPE<sp/>=<sp/></highlight><highlight class="stringliteral">&apos;CUST&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CustomString<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classBFlattenable" kindref="compound">BFlattenable</ref><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>data[100];</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>from<sp/>BFlattenable</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsFixedSize()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref><sp/>TypeCode()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CUSTOM_STRING_TYPE;<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ssize_t<sp/>FlattenedSize()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>strlen(data);<sp/>};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>Flatten(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/>ssize_t<sp/>size)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((strlen(data)<sp/>+<sp/>1)<sp/>&lt;<sp/>size)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_BAD_VALUE;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(buffer,<sp/>data,<sp/>size);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_OK;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>Unflatten(<ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref><sp/>code,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/>ssize_t<sp/>size)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(code<sp/>!=<sp/>CUSTOM_STRING_TYPE)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_BAD_TYPE;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(size<sp/>&gt;<sp/>100)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_NO_MEMORY;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(data,<sp/>buffer,<sp/>size);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_OK;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting></para>
+<para>Have a look at <ref refid="TypeConstants_8h" kindref="compound">TypeConstants.h</ref> for a list of all the types that the Haiku API defines.</para>
+<para>The Haiku API has a second interface for storing objects, which is with <ref refid="classBArchivable" kindref="compound">BArchivable</ref>. <ref refid="classBArchivable" kindref="compound">BArchivable</ref> is for more complex cases. Instead of one flat datastream, it stores an object in a <ref refid="classBMessage" kindref="compound">BMessage</ref>. In that way you can reflect internals of a class better. It also provides an interface for instantiating objects, that is, for objects to restore themselves from a <ref refid="classBMessage" kindref="compound">BMessage</ref>. In essence, <ref refid="classBArchivable" kindref="compound">BArchivable</ref> is more suitable for objects that are alive. In short <ref refid="classBFlattenable" kindref="compound">BFlattenable</ref> is for data objects, <ref refid="classBArchivable" kindref="compound">BArchivable</ref> is for &apos;live&apos; objects.</para>
+<para>Other classes in the API that support flattening and unflattening are for example <ref refid="classBMessage" kindref="compound">BMessage</ref>, which enables you to conveniently write flattened data to disk. Another example is <ref refid="classBPath" kindref="compound">BPath</ref>. Because of that you can store paths and send them over via messages. Throughout the Haiku API you will find classes that provide the flattening interface.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BAffineTransform</label>
+        <link refid="classBAffineTransform"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BFlattenable</label>
+        <link refid="classBFlattenable"/>
+      </node>
+      <node id="3">
+        <label>BPath</label>
+        <link refid="classBPath"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BPropertyInfo</label>
+        <link refid="classBPropertyInfo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BStringList</label>
+        <link refid="classBStringList"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/support/Flattenable.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Flattenable.h" bodystart="12" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classBFlattenable_1a425aa7edd36eca9515164cf041a1f6fe" prot="private" virt="non-virtual"><scope>BFlattenable</scope><name>_ReservedFlattenable1</name></member>
+      <member refid="classBFlattenable_1a5b85d4287570de53b7f01c6e4899fe0a" prot="private" virt="virtual"><scope>BFlattenable</scope><name>_ReservedFlattenable2</name></member>
+      <member refid="classBFlattenable_1aa55508eae9b326d2078fb0f64ba31e8c" prot="private" virt="virtual"><scope>BFlattenable</scope><name>_ReservedFlattenable3</name></member>
+      <member refid="classBFlattenable_1a30165696bba76fed10e37508cc4f6925" prot="public" virt="virtual"><scope>BFlattenable</scope><name>AllowsTypeCode</name></member>
+      <member refid="classBFlattenable_1ab934b64a8b218a4f9078ded191be6fbb" prot="public" virt="pure-virtual"><scope>BFlattenable</scope><name>Flatten</name></member>
+      <member refid="classBFlattenable_1a9b5885d4454326ca448438960ecff466" prot="public" virt="pure-virtual"><scope>BFlattenable</scope><name>FlattenedSize</name></member>
+      <member refid="classBFlattenable_1ac019f502749a0cc78082f5ec7c8f5b56" prot="public" virt="pure-virtual"><scope>BFlattenable</scope><name>IsFixedSize</name></member>
+      <member refid="classBFlattenable_1a819507fa1b0906f14299db15f6e990d1" prot="public" virt="pure-virtual"><scope>BFlattenable</scope><name>TypeCode</name></member>
+      <member refid="classBFlattenable_1a41e7168574912690be159991d2b07a97" prot="public" virt="pure-virtual"><scope>BFlattenable</scope><name>Unflatten</name></member>
+      <member refid="classBFlattenable_1a884e130a5d27acc15b1e4e4c505157ff" prot="public" virt="virtual"><scope>BFlattenable</scope><name>~BFlattenable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__interface_interface_intro" kind="page">
+    <compoundname>interface_intro</compoundname>
+    <title>Introduction to the Interface Kit</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="support_intro_1Overview">
+<title>Overview</title>
+<para>The Interface Kit holds all the classes you&apos;ll need to develop a GUI. Building on the messaging facilities provided by the Application Kit, the Interface Kit can be used to create a responsive and attractive graphical user interface.</para>
+<para>The most important class in the Interface Kit is the <ref refid="classBView" kindref="compound">BView</ref> class, which handles drawing and user interaction. Pointer and keyboard events are processed in this class.</para>
+<para>Another important class is the <ref refid="classBWindow" kindref="compound">BWindow</ref> class, which holds BViews and makes them visible to the user. The <ref refid="classBWindow" kindref="compound">BWindow</ref> class also handles <ref refid="classBView" kindref="compound">BView</ref> focusing and <ref refid="classBMessage" kindref="compound">BMessage</ref> dispatching, among other things.</para>
+<para>A new addition Haiku has added over the BeOS API is the Layout API, which is based around the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> and <ref refid="classBLayout" kindref="compound">BLayout</ref> classes. These classes will take care of making sure all your GUI widgets end up where you want them, with enough space to be useful. You can start learning the Layout API by reading the <ref refid="layout_intro" kindref="compound">Introduction to the Layout API</ref>.</para>
+</sect1>
+<sect1 id="group__interface_1coordinatespaces">
+<title>Coordinate spaces</title>
+<para>All APIs using coordinates (such as <ref refid="classBRect" kindref="compound">BRect</ref> or <ref refid="classBPoint" kindref="compound">BPoint</ref>) refer to a specific space where these coordinates are interpreted. <ref refid="classBView" kindref="compound">BView</ref> and <ref refid="classBWindow" kindref="compound">BWindow</ref> provide various conversion function to translate coordinates between different spaces, as needed, or provide separate methods such as <ref refid="classBView" kindref="compound">BView</ref> Bounds() and Frame(), returning results in different spaces as needed.</para>
+<para>The initial coordinate space, from which all others are derived, is the screen space. Its origin is at the center of the screen&apos;s top-left pixel. Coordinates can be converted between this and a specific window or view space using the ConvertToScreen and ConvertFromScreen methods of the corresponding object.</para>
+<para>Each <ref refid="classBWindow" kindref="compound">BWindow</ref> has its own coordinate space. Its origin is at the center of the top-left pixel of the window client area (just inside the window border). Root level views added to the window have their frame rectangle defined in this space.</para>
+<para>Each <ref refid="classBView" kindref="compound">BView</ref> also gets its own coordinate space. The origin is initially at the top left of the view, but this can be changed by scrolling the view (programatically using ScrollBy or ScrollTo, or by the user acting on a scrollbar).</para>
+<para>Additionally, each <ref refid="classBView" kindref="compound">BView</ref> also has a drawing space. This is further transformed from the <ref refid="classBView" kindref="compound">BView</ref> coordinate space by calls to SetOrigin, SetScale, SetTransform, ScaleBy, RotateBy, and TranslateBy. The effects of the first two of these methods are independant from the other four, and it&apos;s not recommended to mix the two types of transformations in the same <ref refid="classBView" kindref="compound">BView</ref>. Note that this is the only space that can be scaled and rotated, and translated by non-integer units. All other coordinate spaces are only translations of the screen one and remain aligned on pixels.</para>
+<para>All drawing operations in a <ref refid="classBView" kindref="compound">BView</ref> use coordinates specified in the drawing space. However, the update rect passed to the Draw method (or passed to the Invalidate method) is in the <ref refid="classBView" kindref="compound">BView</ref> base coordinate space. Conversion between the two can be done using the affine transform returned by <ref refid="classBView_1a98597d70ae48b2576683f25078135534" kindref="member">BView::TransformTo</ref>. </para>
+</sect1>
+    </detaileddescription>
+    <location file="interface/_interface_intro.dox"/>
+  </compounddef>
+</doxygen>

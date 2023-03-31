@@ -1,0 +1,1230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBTimedEventQueue" kind="class" language="C++" prot="public">
+    <compoundname>BTimedEventQueue</compoundname>
+    <includes local="no">TimedEventQueue.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>cleanup_flag</name>
+        <qualifiedname>BTimedEventQueue::cleanup_flag</qualifiedname>
+        <enumvalue id="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aa98b8d195a6363479c96228c694903b15" prot="public">
+          <name>B_NO_CLEANUP</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aad84e8cfae111b909e099b9d61cc606f5" prot="public">
+          <name>B_RECYCLE_BUFFER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aa6bfbcb5cf0f776da969481aa3d916212" prot="public">
+          <name>B_EXPIRE_TIMER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aab7b2e5b5d6ed6d0d93126a5f6ceaa771" prot="public">
+          <name>B_USER_CLEANUP</name>
+          <initializer>= 0x4000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="75" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="75" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBTimedEventQueue_1aa99d308eaab4a531cc140315187abc24" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* BTimedEventQueue::cleanup_hook) (const media_timed_event *event, void *context)</definition>
+        <argsstring>)(const media_timed_event *event, void *context)</argsstring>
+        <name>cleanup_hook</name>
+        <qualifiedname>BTimedEventQueue::cleanup_hook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="142" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="enum" id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacb" prot="public" static="no" strong="no">
+        <type></type>
+        <name>event_type</name>
+        <qualifiedname>BTimedEventQueue::event_type</qualifiedname>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba97d803eff920c1fa6500c4ecc51f0b8a" prot="public">
+          <name>B_NO_EVENT</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba100d4aa5848520b5396770e52efe74e4" prot="public">
+          <name>B_ANY_EVENT</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba6d8471c9f7457c4cd410bdc94dbf9ac3" prot="public">
+          <name>B_START</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbaca53c8356463c6c17ba5350af3cf5963" prot="public">
+          <name>B_STOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba8f580adeba2d3b5279ae6c2af7515b84" prot="public">
+          <name>B_SEEK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbab37a6772170ff106679110752cca4594" prot="public">
+          <name>B_WARP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbabb0888878ec1fe869ec82d4971d26680" prot="public">
+          <name>B_TIMER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbac3fb8a8e60ddf0c3f490b00e96dd7791" prot="public">
+          <name>B_HANDLE_BUFFER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbadb29a5e5345df8dc3630d4b877e5a8f1" prot="public">
+          <name>B_DATA_STATUS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba57e31b03fb407bba54ef825840a7b04a" prot="public">
+          <name>B_HARDWARE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbaa7f90b5c5cebf7cce7a35b7b3d1ea412" prot="public">
+          <name>B_PARAMETER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba5ce95d166f054672617e3bd51a083b48" prot="public">
+          <name>B_USER_EVENT</name>
+          <initializer>= 0x4000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="58" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="58" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBTimedEventQueue_1ac71ed723b10cce5675da13021f1e928b" prot="public" static="no">
+        <type>queue_action(*</type>
+        <definition>typedef queue_action(* BTimedEventQueue::for_each_hook) (media_timed_event *event, void *context)</definition>
+        <argsstring>)(media_timed_event *event, void *context)</argsstring>
+        <name>for_each_hook</name>
+        <qualifiedname>BTimedEventQueue::for_each_hook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="129" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="enum" id="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>queue_action</name>
+        <qualifiedname>BTimedEventQueue::queue_action</qualifiedname>
+        <enumvalue id="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9ca162d555efa09ee3f834ba75c34a985a4" prot="public">
+          <name>B_DONE</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9cab1c0aefe4e46a063626fdf90ecd4f25a" prot="public">
+          <name>B_NO_ACTION</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9ca35d13673f0d6c52287e6b48a963a7906" prot="public">
+          <name>B_REMOVE_EVENT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9cac9afd7e863f241b304fe1e24a120e334" prot="public">
+          <name>B_RESORT_QUEUE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="123" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="123" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="enum" id="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128" prot="public" static="no" strong="no">
+        <type></type>
+        <name>time_direction</name>
+        <qualifiedname>BTimedEventQueue::time_direction</qualifiedname>
+        <enumvalue id="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128ad917ea03fedafa91824cd5ac805e7574" prot="public">
+          <name>B_ALWAYS</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128a8249bc0498485db767211b6100f35a4a" prot="public">
+          <name>B_BEFORE_TIME</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128a5cbba63d72f6bedb247bde36702f953f" prot="public">
+          <name>B_AT_TIME</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128a23b15a0ac88837565d0e0cfd90be7ac8" prot="public">
+          <name>B_AFTER_TIME</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="84" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="84" bodyend="89"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBTimedEventQueue_1acf5470bce9e36d83c31563626ea321a5" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BTimedEventQueue::_reserved_timed_event_queue_[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>_reserved_timed_event_queue_</name>
+        <qualifiedname>BTimedEventQueue::_reserved_timed_event_queue_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="185" column="8" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTimedEventQueue_1a6078e73939287c8643f3ecd226433996" prot="private" static="no" mutable="no">
+        <type>_event_queue_imp *</type>
+        <definition>_event_queue_imp* BTimedEventQueue::fImp</definition>
+        <argsstring></argsstring>
+        <name>fImp</name>
+        <qualifiedname>BTimedEventQueue::fImp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="183" column="18" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBTimedEventQueue_1a7c64cc7f41f62c785ce6345d61d28aac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTimedEventQueue::BTimedEventQueue</definition>
+        <argsstring>()</argsstring>
+        <name>BTimedEventQueue</name>
+        <qualifiedname>BTimedEventQueue::BTimedEventQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="95" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aeab1af8e67c377e091c72a959d267b4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BTimedEventQueue::~BTimedEventQueue</definition>
+        <argsstring>()</argsstring>
+        <name>~BTimedEventQueue</name>
+        <qualifiedname>BTimedEventQueue::~BTimedEventQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="96" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a604b07d21da533d19a57f5dc4427061c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTimedEventQueue::AddEvent</definition>
+        <argsstring>(const media_timed_event &amp;event)</argsstring>
+        <name>AddEvent</name>
+        <qualifiedname>BTimedEventQueue::AddEvent</qualifiedname>
+        <param>
+          <type>const media_timed_event &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="98" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a5b2362af0bd95e9ad2a7e2815396960a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTimedEventQueue::DoForEach</definition>
+        <argsstring>(for_each_hook hook, void *context, bigtime_t eventTime=0, time_direction direction=B_ALWAYS, bool inclusive=true, int32 eventType=B_ANY_EVENT)</argsstring>
+        <name>DoForEach</name>
+        <qualifiedname>BTimedEventQueue::DoForEach</qualifiedname>
+        <param>
+          <type>for_each_hook</type>
+          <declname>hook</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>eventTime</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>time_direction</type>
+          <declname>direction</declname>
+          <defval>B_ALWAYS</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inclusive</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>eventType</declname>
+          <defval>B_ANY_EVENT</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="132" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a464827283f3919553aaa1ec64c3131f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTimedEventQueue::EventCount</definition>
+        <argsstring>() const</argsstring>
+        <name>EventCount</name>
+        <qualifiedname>BTimedEventQueue::EventCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="104" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1af6c93d34af59d1dca9621e0b58df20a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_timed_event *</type>
+        <definition>const media_timed_event * BTimedEventQueue::FindFirstMatch</definition>
+        <argsstring>(bigtime_t eventTime, time_direction direction, bool inclusive=true, int32 eventType=B_ANY_EVENT)</argsstring>
+        <name>FindFirstMatch</name>
+        <qualifiedname>BTimedEventQueue::FindFirstMatch</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>eventTime</declname>
+        </param>
+        <param>
+          <type>time_direction</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inclusive</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>eventType</declname>
+          <defval>B_ANY_EVENT</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="112" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aa267b47c27ec17536cbb3bf459bc7b88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_timed_event *</type>
+        <definition>const media_timed_event * BTimedEventQueue::FirstEvent</definition>
+        <argsstring>() const</argsstring>
+        <name>FirstEvent</name>
+        <qualifiedname>BTimedEventQueue::FirstEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="107" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a697420c99312d271033169a10d2aed6a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+        <definition>bigtime_t BTimedEventQueue::FirstEventTime</definition>
+        <argsstring>() const</argsstring>
+        <name>FirstEventTime</name>
+        <qualifiedname>BTimedEventQueue::FirstEventTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="108" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a4d59dbd3ccd0f9bd5906c9d24e9df1b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTimedEventQueue::FlushEvents</definition>
+        <argsstring>(bigtime_t eventTime, time_direction direction, bool inclusive=true, int32 eventType=B_ANY_EVENT)</argsstring>
+        <name>FlushEvents</name>
+        <qualifiedname>BTimedEventQueue::FlushEvents</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>eventTime</declname>
+        </param>
+        <param>
+          <type>time_direction</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inclusive</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>eventType</declname>
+          <defval>B_ANY_EVENT</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="146" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aec074d39c2e6cb92227241bf240b2570" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BTimedEventQueue::HasEvents</definition>
+        <argsstring>() const</argsstring>
+        <name>HasEvents</name>
+        <qualifiedname>BTimedEventQueue::HasEvents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="103" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a0b7331e0e21800b9dffe6b5bcfd19a2b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_timed_event *</type>
+        <definition>const media_timed_event * BTimedEventQueue::LastEvent</definition>
+        <argsstring>() const</argsstring>
+        <name>LastEvent</name>
+        <qualifiedname>BTimedEventQueue::LastEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="109" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a0c1933c83ae65a808b959af2b13eb987" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+        <definition>bigtime_t BTimedEventQueue::LastEventTime</definition>
+        <argsstring>() const</argsstring>
+        <name>LastEventTime</name>
+        <qualifiedname>BTimedEventQueue::LastEventTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="110" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aabedd6ce5eb3c31526249143572d388c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BTimedEventQueue::operator delete</definition>
+        <argsstring>(void *ptr, size_t size)</argsstring>
+        <name>operator delete</name>
+        <qualifiedname>BTimedEventQueue::operator delete</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="93" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a438a39ece13c3637f375574e370a8afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BTimedEventQueue::operator new</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>operator new</name>
+        <qualifiedname>BTimedEventQueue::operator new</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="92" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1ab8dd6c2de5cc68cf5962bcf7771493e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTimedEventQueue::RemoveEvent</definition>
+        <argsstring>(const media_timed_event *event)</argsstring>
+        <name>RemoveEvent</name>
+        <qualifiedname>BTimedEventQueue::RemoveEvent</qualifiedname>
+        <param>
+          <type>const media_timed_event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="99" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a38f013217b315df9b86351008c159a1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTimedEventQueue::RemoveFirstEvent</definition>
+        <argsstring>(media_timed_event *_event=NULL)</argsstring>
+        <name>RemoveFirstEvent</name>
+        <qualifiedname>BTimedEventQueue::RemoveFirstEvent</qualifiedname>
+        <param>
+          <type>media_timed_event *</type>
+          <declname>_event</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="100" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a4858a85bb60b371ff6036908783a6929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BTimedEventQueue::SetCleanupHook</definition>
+        <argsstring>(cleanup_hook hook, void *context)</argsstring>
+        <name>SetCleanupHook</name>
+        <qualifiedname>BTimedEventQueue::SetCleanupHook</qualifiedname>
+        <param>
+          <type>cleanup_hook</type>
+          <declname>hook</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="144" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBTimedEventQueue_1a8a01a1db0395f2c2a22abfca46977a16" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTimedEventQueue::BTimedEventQueue</definition>
+        <argsstring>(const BTimedEventQueue &amp;other)</argsstring>
+        <name>BTimedEventQueue</name>
+        <qualifiedname>BTimedEventQueue::BTimedEventQueue</qualifiedname>
+        <param>
+          <type>const <ref refid="classBTimedEventQueue" kindref="compound">BTimedEventQueue</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="153" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aeb3e2e922d651c6dd0bb1c052e1427e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_0</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_0</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_0</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="157" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a29ad593c55c0c6ca5f911cdd4e25fccb" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_1</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_1</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_1</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="158" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aeb8045b86e7062d6ae52d0fa94cf82cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_10</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_10</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_10</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="167" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a7e7b3bfea732c5704aa0c2035bc5d8a6" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_11</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_11</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_11</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="168" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a2ff11d293236ebdb6e487fe25b74ad5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_12</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_12</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_12</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="169" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a2c5b5cf4565bd481bf6bb1933e979705" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_13</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_13</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_13</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="170" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a1192b7c1cee94e231401b32b7c290a0f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_14</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_14</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_14</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="171" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aa705ef364f12d49caa0bda83d04f0988" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_15</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_15</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_15</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="172" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1ad9aebab13200e763c338cdd4df6718d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_16</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_16</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_16</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="173" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1aa8aebd4e33c6ff853b39dccf699b2808" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_17</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_17</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_17</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="174" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a9b43075026ced7b455a1c9f26d593b63" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_18</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_18</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_18</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="175" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a3035eeb5c66db3ff7b37861d06e2a091" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_19</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_19</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_19</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="176" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1ab7ff2e428dda75871b52c8d599e85a71" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_2</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_2</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_2</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="159" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a595b451cdefec9a9f4576576245f5992" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_20</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_20</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_20</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="177" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a2cc8d4754f5fa8b1e28022a2f28b6a44" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_21</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_21</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_21</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="178" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1ae2880f2bf4181303efd4d2e64491a96e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_22</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_22</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_22</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="179" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1ac9d71ce7cebc876950b296d10360e480" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_23</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_23</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_23</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="180" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a35fb4030f82c7ba8710823ae9da49d5d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_3</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_3</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_3</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="160" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1af81ff7abd8a1dc90d9eb41f0e103a8f7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_4</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_4</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_4</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="161" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a531bcdc4fb86fd1d705f809bf4bc9de7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_5</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_5</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_5</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="162" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a6c214f2d2b4bb90c3acf59b00fe93ac7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_6</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_6</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_6</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="163" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a7a2e9e0fc4cea7704e8bfa7384d7598c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_7</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_7</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_7</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="164" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a84e678b43a70a88521541034d457af09" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_8</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_8</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_8</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="165" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1a3154866ba12bd27459952561baef656b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTimedEventQueue::_Reserved_BTimedEventQueue_9</definition>
+        <argsstring>(void *,...)</argsstring>
+        <name>_Reserved_BTimedEventQueue_9</name>
+        <qualifiedname>BTimedEventQueue::_Reserved_BTimedEventQueue_9</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="166" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTimedEventQueue_1af4b60593d17e466477ddf048d921bb17" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBTimedEventQueue" kindref="compound">BTimedEventQueue</ref> &amp;</type>
+        <definition>BTimedEventQueue &amp; BTimedEventQueue::operator=</definition>
+        <argsstring>(const BTimedEventQueue &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BTimedEventQueue::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBTimedEventQueue" kindref="compound">BTimedEventQueue</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="155" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>A priority queue for holding media_timed_events. Sorts by increasing time, so events near the front of the queue are to occur earlier. </para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" line="55" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/TimedEventQueue.h" bodystart="55" bodyend="186"/>
+    <listofallmembers>
+      <member refid="classBTimedEventQueue_1aeb3e2e922d651c6dd0bb1c052e1427e5" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_0</name></member>
+      <member refid="classBTimedEventQueue_1a29ad593c55c0c6ca5f911cdd4e25fccb" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_1</name></member>
+      <member refid="classBTimedEventQueue_1aeb8045b86e7062d6ae52d0fa94cf82cb" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_10</name></member>
+      <member refid="classBTimedEventQueue_1a7e7b3bfea732c5704aa0c2035bc5d8a6" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_11</name></member>
+      <member refid="classBTimedEventQueue_1a2ff11d293236ebdb6e487fe25b74ad5a" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_12</name></member>
+      <member refid="classBTimedEventQueue_1a2c5b5cf4565bd481bf6bb1933e979705" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_13</name></member>
+      <member refid="classBTimedEventQueue_1a1192b7c1cee94e231401b32b7c290a0f" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_14</name></member>
+      <member refid="classBTimedEventQueue_1aa705ef364f12d49caa0bda83d04f0988" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_15</name></member>
+      <member refid="classBTimedEventQueue_1ad9aebab13200e763c338cdd4df6718d8" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_16</name></member>
+      <member refid="classBTimedEventQueue_1aa8aebd4e33c6ff853b39dccf699b2808" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_17</name></member>
+      <member refid="classBTimedEventQueue_1a9b43075026ced7b455a1c9f26d593b63" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_18</name></member>
+      <member refid="classBTimedEventQueue_1a3035eeb5c66db3ff7b37861d06e2a091" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_19</name></member>
+      <member refid="classBTimedEventQueue_1ab7ff2e428dda75871b52c8d599e85a71" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_2</name></member>
+      <member refid="classBTimedEventQueue_1a595b451cdefec9a9f4576576245f5992" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_20</name></member>
+      <member refid="classBTimedEventQueue_1a2cc8d4754f5fa8b1e28022a2f28b6a44" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_21</name></member>
+      <member refid="classBTimedEventQueue_1ae2880f2bf4181303efd4d2e64491a96e" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_22</name></member>
+      <member refid="classBTimedEventQueue_1ac9d71ce7cebc876950b296d10360e480" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_23</name></member>
+      <member refid="classBTimedEventQueue_1a35fb4030f82c7ba8710823ae9da49d5d" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_3</name></member>
+      <member refid="classBTimedEventQueue_1af81ff7abd8a1dc90d9eb41f0e103a8f7" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_4</name></member>
+      <member refid="classBTimedEventQueue_1a531bcdc4fb86fd1d705f809bf4bc9de7" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_5</name></member>
+      <member refid="classBTimedEventQueue_1a6c214f2d2b4bb90c3acf59b00fe93ac7" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_6</name></member>
+      <member refid="classBTimedEventQueue_1a7a2e9e0fc4cea7704e8bfa7384d7598c" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_7</name></member>
+      <member refid="classBTimedEventQueue_1a84e678b43a70a88521541034d457af09" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_8</name></member>
+      <member refid="classBTimedEventQueue_1a3154866ba12bd27459952561baef656b" prot="private" virt="virtual"><scope>BTimedEventQueue</scope><name>_Reserved_BTimedEventQueue_9</name></member>
+      <member refid="classBTimedEventQueue_1acf5470bce9e36d83c31563626ea321a5" prot="private" virt="non-virtual"><scope>BTimedEventQueue</scope><name>_reserved_timed_event_queue_</name></member>
+      <member refid="classBTimedEventQueue_1a604b07d21da533d19a57f5dc4427061c" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>AddEvent</name></member>
+      <member refid="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128a23b15a0ac88837565d0e0cfd90be7ac8" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_AFTER_TIME</name></member>
+      <member refid="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128ad917ea03fedafa91824cd5ac805e7574" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_ALWAYS</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba100d4aa5848520b5396770e52efe74e4" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_ANY_EVENT</name></member>
+      <member refid="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128a5cbba63d72f6bedb247bde36702f953f" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_AT_TIME</name></member>
+      <member refid="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128a8249bc0498485db767211b6100f35a4a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_BEFORE_TIME</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbadb29a5e5345df8dc3630d4b877e5a8f1" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_DATA_STATUS</name></member>
+      <member refid="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9ca162d555efa09ee3f834ba75c34a985a4" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_DONE</name></member>
+      <member refid="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aa6bfbcb5cf0f776da969481aa3d916212" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_EXPIRE_TIMER</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbac3fb8a8e60ddf0c3f490b00e96dd7791" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_HANDLE_BUFFER</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba57e31b03fb407bba54ef825840a7b04a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_HARDWARE</name></member>
+      <member refid="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9cab1c0aefe4e46a063626fdf90ecd4f25a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_NO_ACTION</name></member>
+      <member refid="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aa98b8d195a6363479c96228c694903b15" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_NO_CLEANUP</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba97d803eff920c1fa6500c4ecc51f0b8a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_NO_EVENT</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbaa7f90b5c5cebf7cce7a35b7b3d1ea412" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_PARAMETER</name></member>
+      <member refid="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aad84e8cfae111b909e099b9d61cc606f5" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_RECYCLE_BUFFER</name></member>
+      <member refid="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9ca35d13673f0d6c52287e6b48a963a7906" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_REMOVE_EVENT</name></member>
+      <member refid="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9cac9afd7e863f241b304fe1e24a120e334" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_RESORT_QUEUE</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba8f580adeba2d3b5279ae6c2af7515b84" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_SEEK</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba6d8471c9f7457c4cd410bdc94dbf9ac3" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_START</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbaca53c8356463c6c17ba5350af3cf5963" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_STOP</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbabb0888878ec1fe869ec82d4971d26680" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_TIMER</name></member>
+      <member refid="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155aab7b2e5b5d6ed6d0d93126a5f6ceaa771" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_USER_CLEANUP</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacba5ce95d166f054672617e3bd51a083b48" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_USER_EVENT</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacbab37a6772170ff106679110752cca4594" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>B_WARP</name></member>
+      <member refid="classBTimedEventQueue_1a7c64cc7f41f62c785ce6345d61d28aac" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>BTimedEventQueue</name></member>
+      <member refid="classBTimedEventQueue_1a8a01a1db0395f2c2a22abfca46977a16" prot="private" virt="non-virtual"><scope>BTimedEventQueue</scope><name>BTimedEventQueue</name></member>
+      <member refid="classBTimedEventQueue_1a8d9d720862cd469e44e6d4ab99cb155a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>cleanup_flag</name></member>
+      <member refid="classBTimedEventQueue_1aa99d308eaab4a531cc140315187abc24" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>cleanup_hook</name></member>
+      <member refid="classBTimedEventQueue_1a5b2362af0bd95e9ad2a7e2815396960a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>DoForEach</name></member>
+      <member refid="classBTimedEventQueue_1a6821101fcf991be708817c960ffddacb" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>event_type</name></member>
+      <member refid="classBTimedEventQueue_1a464827283f3919553aaa1ec64c3131f5" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>EventCount</name></member>
+      <member refid="classBTimedEventQueue_1a6078e73939287c8643f3ecd226433996" prot="private" virt="non-virtual"><scope>BTimedEventQueue</scope><name>fImp</name></member>
+      <member refid="classBTimedEventQueue_1af6c93d34af59d1dca9621e0b58df20a8" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>FindFirstMatch</name></member>
+      <member refid="classBTimedEventQueue_1aa267b47c27ec17536cbb3bf459bc7b88" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>FirstEvent</name></member>
+      <member refid="classBTimedEventQueue_1a697420c99312d271033169a10d2aed6a" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>FirstEventTime</name></member>
+      <member refid="classBTimedEventQueue_1a4d59dbd3ccd0f9bd5906c9d24e9df1b3" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>FlushEvents</name></member>
+      <member refid="classBTimedEventQueue_1ac71ed723b10cce5675da13021f1e928b" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>for_each_hook</name></member>
+      <member refid="classBTimedEventQueue_1aec074d39c2e6cb92227241bf240b2570" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>HasEvents</name></member>
+      <member refid="classBTimedEventQueue_1a0b7331e0e21800b9dffe6b5bcfd19a2b" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>LastEvent</name></member>
+      <member refid="classBTimedEventQueue_1a0c1933c83ae65a808b959af2b13eb987" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>LastEventTime</name></member>
+      <member refid="classBTimedEventQueue_1aabedd6ce5eb3c31526249143572d388c" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>operator delete</name></member>
+      <member refid="classBTimedEventQueue_1a438a39ece13c3637f375574e370a8afa" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>operator new</name></member>
+      <member refid="classBTimedEventQueue_1af4b60593d17e466477ddf048d921bb17" prot="private" virt="non-virtual"><scope>BTimedEventQueue</scope><name>operator=</name></member>
+      <member refid="classBTimedEventQueue_1af350fc2793c58e3bd31cdb027816cf9c" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>queue_action</name></member>
+      <member refid="classBTimedEventQueue_1ab8dd6c2de5cc68cf5962bcf7771493e0" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>RemoveEvent</name></member>
+      <member refid="classBTimedEventQueue_1a38f013217b315df9b86351008c159a1e" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>RemoveFirstEvent</name></member>
+      <member refid="classBTimedEventQueue_1a4858a85bb60b371ff6036908783a6929" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>SetCleanupHook</name></member>
+      <member refid="classBTimedEventQueue_1a9135d7f07389303394b1e5b93f15c128" prot="public" virt="non-virtual"><scope>BTimedEventQueue</scope><name>time_direction</name></member>
+      <member refid="classBTimedEventQueue_1aeab1af8e67c377e091c72a959d267b4d" prot="public" virt="virtual"><scope>BTimedEventQueue</scope><name>~BTimedEventQueue</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

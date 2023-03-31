@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMidiProducer" kind="class" language="C++" prot="public">
+    <compoundname>BMidiProducer</compoundname>
+    <basecompoundref refid="classBMidiEndpoint" prot="public" virt="non-virtual">BMidiEndpoint</basecompoundref>
+    <derivedcompoundref refid="classBMidiLocalProducer" prot="public" virt="non-virtual">BMidiLocalProducer</derivedcompoundref>
+    <includes local="no">MidiProducer.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBMidiProducer_1af26e8954f5c14a4c48bfcd3766d9abd8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMidiLocalProducer</definition>
+        <argsstring></argsstring>
+        <name>BMidiLocalProducer</name>
+        <qualifiedname>BMidiProducer::BMidiLocalProducer</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="22" column="14" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMidiProducer_1a0dd92f24708e1530ff6437e668a2cbb9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMidiRoster</definition>
+        <argsstring></argsstring>
+        <name>BMidiRoster</name>
+        <qualifiedname>BMidiProducer::BMidiRoster</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiRoster" kindref="compound">BMidiRoster</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="23" column="14" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMidiProducer_1a5510ba3d18d9044213eea55d0051eb7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrivate::BMidiRosterLooper</definition>
+        <argsstring></argsstring>
+        <name>BPrivate::BMidiRosterLooper</name>
+        <qualifiedname>BMidiProducer::BMidiRosterLooper</qualifiedname>
+        <param>
+          <type>BPrivate::BMidiRosterLooper</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="24" column="14" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMidiProducer_1afb2e8a1cd4ccfe883d6283e7f241ccc2" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMidiProducer::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BMidiProducer::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="51" column="8" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMidiProducer_1a7023d8fdbad8ebff838e03153858e80d" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList* BMidiProducer::fConnections</definition>
+        <argsstring></argsstring>
+        <name>fConnections</name>
+        <qualifiedname>BMidiProducer::fConnections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="48" column="7" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMidiProducer_1a2cfca4e5640ed6bdb8e41c81c950b0d6" prot="private" static="no" mutable="yes">
+        <type><ref refid="classBLocker" kindref="compound">BLocker</ref></type>
+        <definition>BLocker BMidiProducer::fLocker</definition>
+        <argsstring></argsstring>
+        <name>fLocker</name>
+        <qualifiedname>BMidiProducer::fLocker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="49" column="17" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMidiProducer_1ae1fe6a25736a3f8eb154158429fc224a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMidiProducer::Connect</definition>
+        <argsstring>(BMidiConsumer *cons)</argsstring>
+        <name>Connect</name>
+        <qualifiedname>BMidiProducer::Connect</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+<para>Connects a consumer to this producer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Establishes a connection between this producer and the specified consumer endpoint. From now on, any events that this producer sprays will be sent to that consumer. You may connect multiple consumers to a producer.</para>
+<para><simplesect kind="return"><para>B_OK on success, or an error code when the connection could not be established. If the consumer is a proxy for a remote object and that object no longer exists, <ref refid="classBMidiProducer_1ae1fe6a25736a3f8eb154158429fc224a" kindref="member">Connect()</ref> returns B_ERROR. It also returns <computeroutput>B_ERROR</computeroutput> if you try to connect the same producer and consumer more than once.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMidiProducer_1a7f68b65fd703766a0fccb5d9535ea6ed" kindref="member">Disconnect()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="15" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a86959b229758ec9c9cccec9f8631d6ab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList * BMidiProducer::Connections</definition>
+        <argsstring>() const</argsstring>
+        <name>Connections</name>
+        <qualifiedname>BMidiProducer::Connections</qualifiedname>
+        <briefdescription>
+<para>Returns a list with all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns a <ref refid="classBList" kindref="compound">BList</ref> with pointers to <ref refid="classBMidiEndpoint" kindref="compound">BMidiEndpoint</ref> objects for all consumers that are connected to this producer. You can examine the contents of the list as follows: <programlisting><codeline><highlight class="normal"><ref refid="classBList" kindref="compound">BList</ref>*<sp/>list<sp/>=<sp/>prod-&gt;Connections();</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>t<sp/>=<sp/>0;<sp/>t<sp/>&lt;<sp/>list-&gt;<ref refid="classBList_1a9934f3617c27ae2276607efd0de858f0" kindref="member">CountItems</ref>();<sp/>++t)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBMidiEndpoint" kindref="compound">BMidiEndpoint</ref>*<sp/>endp<sp/>=<sp/>(<ref refid="classBMidiEndpoint" kindref="compound">BMidiEndpoint</ref>*)<sp/>list-&gt;<ref refid="classBList_1a8dd0ea855550a6923294ceff045a82b0" kindref="member">ItemAt</ref>(t);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>...do<sp/>stuff...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>endp-&gt;<ref refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" kindref="member">Release</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>yes,<sp/>here<sp/>too!</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>list;</highlight></codeline>
+</programlisting> Every time you call this function, a new <ref refid="classBList" kindref="compound">BList</ref> is allocated. The caller (that is you) is responsible for freeing this list. The <ref refid="classBMidiEndpoint" kindref="compound">BMidiEndpoint</ref> objects in the list have their reference counts bumped, so you need to <ref refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" kindref="member">Release()</ref> them before you delete the list or they will go all leaky on you. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="18" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a7f68b65fd703766a0fccb5d9535ea6ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMidiProducer::Disconnect</definition>
+        <argsstring>(BMidiConsumer *cons)</argsstring>
+        <name>Disconnect</name>
+        <qualifiedname>BMidiProducer::Disconnect</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+<para>Disconnects a consumer from this producer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Terminates the connection between this producer and the specified consumer endpoint. From now on, any events that this producer sprays no longer go to that consumer.</para>
+<para><simplesect kind="return"><para>B_OK on success, or an error code if there was no connection to break </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMidiProducer_1ae1fe6a25736a3f8eb154158429fc224a" kindref="member">Connect()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="16" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a1aca7bf741e4765737dfda6685c50063" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMidiProducer::IsConnected</definition>
+        <argsstring>(BMidiConsumer *cons) const</argsstring>
+        <name>IsConnected</name>
+        <qualifiedname>BMidiProducer::IsConnected</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+<para>Determines whether a consumer is connected to this producer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiProducer_1ae1fe6a25736a3f8eb154158429fc224a" kindref="member">Connect()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMidiProducer_1a7f68b65fd703766a0fccb5d9535ea6ed" kindref="member">Disconnect()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="17" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMidiProducer_1a99804ce37915dcc1e8f306da6b753e28" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMidiProducer::BMidiProducer</definition>
+        <argsstring>(const char *name=NULL)</argsstring>
+        <name>BMidiProducer</name>
+        <qualifiedname>BMidiProducer::BMidiProducer</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1abdd4a2f3c99f5fa0f6005b19d0b17742" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BMidiProducer::~BMidiProducer</definition>
+        <argsstring>()</argsstring>
+        <name>~BMidiProducer</name>
+        <qualifiedname>BMidiProducer::~BMidiProducer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a92465eea2f8dd2920d555e90e70b29cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved1</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved1</name>
+        <qualifiedname>BMidiProducer::_Reserved1</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1aa7ee010bc80ffbd9ec1b74bf236a0194">_Reserved1</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1a70adc8a5de463db9e1496eebd1524eda">_Reserved1</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="29" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a46838f96c04eebbf948d588566b4a1e4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved2</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved2</name>
+        <qualifiedname>BMidiProducer::_Reserved2</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1ac30fc1d038589d7267980d7531476db4">_Reserved2</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1ae54ce4d038f81f30294969815ffa2550">_Reserved2</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="30" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a636bb02c521268a018ff1904942db5d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved3</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved3</name>
+        <qualifiedname>BMidiProducer::_Reserved3</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1a93dc698558775869cbbf2682ddd9b2a5">_Reserved3</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1a9a81bd54f795ac63d833dc6d0ee94ac8">_Reserved3</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="31" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a1159874834cabea34e2a559bc4e1fb8a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved4</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved4</name>
+        <qualifiedname>BMidiProducer::_Reserved4</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1adae31d1e0b9c1b6df9f6e274307c2e50">_Reserved4</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1a787eee0e697999ca9438be0bc6a1bc48">_Reserved4</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="32" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a6f990ef6dc52b7fd9f7b2726d9cab958" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved5</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved5</name>
+        <qualifiedname>BMidiProducer::_Reserved5</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1a8dead721fe5798fac17a822e496b3c48">_Reserved5</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1a320605201325a7bacc51900fd1bf002e">_Reserved5</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="33" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1ac626cd1dffd8107674b47ed22b2d9886" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved6</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved6</name>
+        <qualifiedname>BMidiProducer::_Reserved6</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1a5c3870904cc517f7e2ebaff7f3b4bd50">_Reserved6</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1a0bfa853acc61bebe540500d82ea3d235">_Reserved6</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="34" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a18340767e54d71a63ae59749013997e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved7</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved7</name>
+        <qualifiedname>BMidiProducer::_Reserved7</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1a716439edef5c9b2dba50c42be8c539ec">_Reserved7</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1a5e34216517cc385e1006f3ecb5f0e4bb">_Reserved7</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1af897284baa6bddadd6ff6a82cf28a32f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiProducer::_Reserved8</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved8</name>
+        <qualifiedname>BMidiProducer::_Reserved8</qualifiedname>
+        <reimplements refid="classBMidiEndpoint_1aeb5f1d360e3c2f9fbc8a5658903d0f5c">_Reserved8</reimplements>
+        <reimplementedby refid="classBMidiLocalProducer_1ab03801ddef582da8eff6c1cb95917560">_Reserved8</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="36" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1aa88659f106c9c96796c7a476943938f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMidiProducer::ConnectionBroken</definition>
+        <argsstring>(BMidiConsumer *)</argsstring>
+        <name>ConnectionBroken</name>
+        <qualifiedname>BMidiProducer::ConnectionBroken</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="40" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a987a18c4ee463ad28081e19b20c12d2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiProducer::ConnectionMade</definition>
+        <argsstring>(BMidiConsumer *)</argsstring>
+        <name>ConnectionMade</name>
+        <qualifiedname>BMidiProducer::ConnectionMade</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="39" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a898d6ccf74db7f8b80bd8c3606a2e4ec" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+        <definition>BMidiConsumer * BMidiProducer::ConsumerAt</definition>
+        <argsstring>(int32) const</argsstring>
+        <name>ConsumerAt</name>
+        <qualifiedname>BMidiProducer::ConsumerAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="43" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a4147ba5a7395154d0ac411cde66957f3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMidiProducer::CountConsumers</definition>
+        <argsstring>() const</argsstring>
+        <name>CountConsumers</name>
+        <qualifiedname>BMidiProducer::CountConsumers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="42" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a0aa9c5689324af465d25abc68139ef72" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMidiProducer::LockProducer</definition>
+        <argsstring>() const</argsstring>
+        <name>LockProducer</name>
+        <qualifiedname>BMidiProducer::LockProducer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="45" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1aab1c2c88f7bbe2491469d08d1abb3c25" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMidiProducer::SendConnectRequest</definition>
+        <argsstring>(BMidiConsumer *, bool)</argsstring>
+        <name>SendConnectRequest</name>
+        <qualifiedname>BMidiProducer::SendConnectRequest</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="38" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiProducer_1a340f9c405ded7fd25ee5b9f605855a03" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiProducer::UnlockProducer</definition>
+        <argsstring>() const</argsstring>
+        <name>UnlockProducer</name>
+        <qualifiedname>BMidiProducer::UnlockProducer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="46" column="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Streams MIDI events to connected consumers. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A producer is an object that generate a stream of MIDI events. Each producer has a list of <ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> objects to which it is connected, and may be asked to connect to or disconnect from a <ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref>. A producer can spray its events to multiple consumers at the same time. A <ref refid="classBMidiProducer" kindref="compound">BMidiProducer</ref> either represents a local producer, i.e. a class extending from <ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref>, or is a proxy for a remote object published by another app. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BMidiEndpoint</label>
+        <link refid="classBMidiEndpoint"/>
+      </node>
+      <node id="3">
+        <label>BMidiLocalProducer</label>
+        <link refid="classBMidiLocalProducer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BMidiProducer</label>
+        <link refid="classBMidiProducer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BMidiEndpoint</label>
+        <link refid="classBMidiEndpoint"/>
+      </node>
+      <node id="1">
+        <label>BMidiProducer</label>
+        <link refid="classBMidiProducer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="11" column="1" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="12" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classBMidiProducer_1afb2e8a1cd4ccfe883d6283e7f241ccc2" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>_reserved</name></member>
+      <member refid="classBMidiProducer_1a92465eea2f8dd2920d555e90e70b29cc" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved1</name></member>
+      <member refid="classBMidiProducer_1a46838f96c04eebbf948d588566b4a1e4" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved2</name></member>
+      <member refid="classBMidiProducer_1a636bb02c521268a018ff1904942db5d3" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved3</name></member>
+      <member refid="classBMidiProducer_1a1159874834cabea34e2a559bc4e1fb8a" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved4</name></member>
+      <member refid="classBMidiProducer_1a6f990ef6dc52b7fd9f7b2726d9cab958" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved5</name></member>
+      <member refid="classBMidiProducer_1ac626cd1dffd8107674b47ed22b2d9886" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved6</name></member>
+      <member refid="classBMidiProducer_1a18340767e54d71a63ae59749013997e5" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved7</name></member>
+      <member refid="classBMidiProducer_1af897284baa6bddadd6ff6a82cf28a32f" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>_Reserved8</name></member>
+      <member refid="classBMidiEndpoint_1a504efce89310e4473c4a9ae77da7a641" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Acquire</name></member>
+      <member refid="classBMidiProducer_1a99804ce37915dcc1e8f306da6b753e28" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>BMidiProducer</name></member>
+      <member refid="classBMidiProducer_1ae1fe6a25736a3f8eb154158429fc224a" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Connect</name></member>
+      <member refid="classBMidiProducer_1aa88659f106c9c96796c7a476943938f5" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>ConnectionBroken</name></member>
+      <member refid="classBMidiProducer_1a987a18c4ee463ad28081e19b20c12d2a" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>ConnectionMade</name></member>
+      <member refid="classBMidiProducer_1a86959b229758ec9c9cccec9f8631d6ab" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Connections</name></member>
+      <member refid="classBMidiProducer_1a898d6ccf74db7f8b80bd8c3606a2e4ec" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>ConsumerAt</name></member>
+      <member refid="classBMidiProducer_1a4147ba5a7395154d0ac411cde66957f3" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>CountConsumers</name></member>
+      <member refid="classBMidiProducer_1a7f68b65fd703766a0fccb5d9535ea6ed" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Disconnect</name></member>
+      <member refid="classBMidiProducer_1a7023d8fdbad8ebff838e03153858e80d" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>fConnections</name></member>
+      <member refid="classBMidiProducer_1a2cfca4e5640ed6bdb8e41c81c950b0d6" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>fLocker</name></member>
+      <member refid="classBMidiEndpoint_1a5c6c8dc7f451e7c908df05319f24a64f" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>GetProperties</name></member>
+      <member refid="classBMidiEndpoint_1a3f5b840617bf84cddbca779c470cef17" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>ID</name></member>
+      <member refid="classBMidiProducer_1a1aca7bf741e4765737dfda6685c50063" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsConnected</name></member>
+      <member refid="classBMidiEndpoint_1ae20fe83d79bd0d08cb818d3dda0fdc23" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsConsumer</name></member>
+      <member refid="classBMidiEndpoint_1a3edca82a4aa8bfa2aad3874cc9192b4d" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsLocal</name></member>
+      <member refid="classBMidiEndpoint_1a20623d6d71190a701e9bccc23e646e6a" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsPersistent</name></member>
+      <member refid="classBMidiEndpoint_1a2555a377a070eaea225ca40b9e5bb696" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsProducer</name></member>
+      <member refid="classBMidiEndpoint_1a11fc9a34aee618e137d9affcd67a7b36" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsRemote</name></member>
+      <member refid="classBMidiEndpoint_1a0c9f93e72f5302f6f0c631e5a4f0ddb2" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>IsValid</name></member>
+      <member refid="classBMidiProducer_1a0aa9c5689324af465d25abc68139ef72" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>LockProducer</name></member>
+      <member refid="classBMidiEndpoint_1a685e4d64cfbf56e30c7a3c5849fc72d8" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Name</name></member>
+      <member refid="classBMidiEndpoint_1a6a818947b6098488a46e5a934d254186" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Register</name></member>
+      <member refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Release</name></member>
+      <member refid="classBMidiProducer_1aab1c2c88f7bbe2491469d08d1abb3c25" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>SendConnectRequest</name></member>
+      <member refid="classBMidiEndpoint_1afa167950f7b60558712224798f7e50aa" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>SetName</name></member>
+      <member refid="classBMidiEndpoint_1a58cf2c701ba336b640067db743ba9746" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>SetProperties</name></member>
+      <member refid="classBMidiProducer_1a340f9c405ded7fd25ee5b9f605855a03" prot="private" virt="non-virtual"><scope>BMidiProducer</scope><name>UnlockProducer</name></member>
+      <member refid="classBMidiEndpoint_1ad60d3fd6a9706a63f57851acf84db042" prot="public" virt="non-virtual"><scope>BMidiProducer</scope><name>Unregister</name></member>
+      <member refid="classBMidiProducer_1abdd4a2f3c99f5fa0f6005b19d0b17742" prot="private" virt="virtual"><scope>BMidiProducer</scope><name>~BMidiProducer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

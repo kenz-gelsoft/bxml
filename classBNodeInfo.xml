@@ -1,0 +1,1273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBNodeInfo" kind="class" language="C++" prot="public">
+    <compoundname>BNodeInfo</compoundname>
+    <derivedcompoundref refid="classBAppFileInfo" prot="public" virt="non-virtual">BAppFileInfo</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Constructor helper methods</header>
+      <memberdef kind="function" id="classBNodeInfo_1ac565dcc8ed1e34571e35a51b4f09ea39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::SetTo</definition>
+        <argsstring>(BNode *node)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNodeInfo::SetTo</qualifiedname>
+        <param>
+          <type><ref refid="classBNode" kindref="compound">BNode</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> to the supplied <emphasis>node</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> object does not copy the supplied <emphasis>node</emphasis> object, it uses it directly instead. You must not delete the supply <emphasis>node</emphasis> while the <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> object exists. The <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> does not take over ownership of the <emphasis>node</emphasis> and it doesn&apos;t delete it on destruction either.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>node</emphasis> to gather information on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a362e684a08d62ec3aa95c75395f3698e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BNodeInfo::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Checks whether or not the object has been properly initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was <bold>not</bold> properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="29" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>MIME-type methods</header>
+      <memberdef kind="function" id="classBNodeInfo_1a9bfd75065d98e817d078c968d02228e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetType</definition>
+        <argsstring>(char *type) const</argsstring>
+        <name>GetType</name>
+        <qualifiedname>BNodeInfo::GetType</qualifiedname>
+        <reimplementedby refid="classBAppFileInfo_1aef1969cb93211a9edafb4b34219c0ec8">GetType</reimplementedby>
+        <param>
+          <type>char *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Writes the MIME-type of the node into <emphasis>type</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The source of the type information is the <computeroutput>BEOS:TYPE</computeroutput> attribute of the node. The <emphasis>type</emphasis> buffer should be pre-allocated before it is passed into <ref refid="classBNodeInfo_1a9bfd75065d98e817d078c968d02228e4" kindref="member">GetType()</ref>, it should be at least <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> in length.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated char buffer of at least <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> length into which the MIME-type of the node is written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>type</emphasis> or the type string stored in the attribute is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stored type string attribute has the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No type is set on the node.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="31" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a27843b992dd5f5f9b5755073e7c6b310" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::SetType</definition>
+        <argsstring>(const char *type)</argsstring>
+        <name>SetType</name>
+        <qualifiedname>BNodeInfo::SetType</qualifiedname>
+        <reimplementedby refid="classBAppFileInfo_1a6fc65b958f2652f0a910ac2190252ff8">SetType</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Sets the MIME-type of the node. If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput> the <computeroutput>BEOS:TYPE</computeroutput> attribute is removed instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <emphasis>type</emphasis> string is written into the <computeroutput>BEOS:TYPE</computeroutput> attribute of the node. If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput>, the <computeroutput>BEOS:TYPE</computeroutput> attribute is removed instead. The <emphasis>type</emphasis> parameter may not by longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> in length including the terminating \0 character.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME-type to be assigned to the <emphasis>node</emphasis>. Must not be longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> (including the terminating <computeroutput>NUL</computeroutput>). May be <computeroutput>NULL</computeroutput> to remove the attribute.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>type</emphasis> is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="32" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Icon</header>
+      <memberdef kind="function" id="classBNodeInfo_1a68b1e0645325e3ef8251cd505fe9c854" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetIcon</definition>
+        <argsstring>(BBitmap *icon, icon_size which=B_LARGE_ICON) const</argsstring>
+        <name>GetIcon</name>
+        <qualifiedname>BNodeInfo::GetIcon</qualifiedname>
+        <reimplementedby refid="classBAppFileInfo_1a923c307844f5c97781adeb05df3fdf63">GetIcon</reimplementedby>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+          <defval><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15a788acb110dbd7d3c1533ebb556abe12d" kindref="member">B_LARGE_ICON</ref></defval>
+        </param>
+        <briefdescription>
+<para>Gets the icon of the node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The icon stored in the <computeroutput>BEOS:L:STD_ICON</computeroutput> attribute (large) or <computeroutput>BEOS:M:STD_ICON</computeroutput> attribute (mini) is retrieved.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object of the correct dimension to store the requested icon: 16x16 for the mini or 32x32 for the large icon. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the icon to be retrieved: <computeroutput>B_MINI_ICON</computeroutput> for a 16x16 icon and <computeroutput>B_LARGE_ICON</computeroutput> for a 32x32 icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>icon</emphasis>, unsupported icon size <emphasis>k</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>k</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="33" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a8ddb7be63e9a48ff851d61ab13f0a997" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::SetIcon</definition>
+        <argsstring>(const BBitmap *icon, icon_size which=B_LARGE_ICON)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BNodeInfo::SetIcon</qualifiedname>
+        <reimplementedby refid="classBAppFileInfo_1a08664bc229f29bb15648ff8d6fce4569">SetIcon</reimplementedby>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+          <defval><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15a788acb110dbd7d3c1533ebb556abe12d" kindref="member">B_LARGE_ICON</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sets the icon of the node. If <emphasis>icon</emphasis> is <computeroutput>NULL</computeroutput>, the attribute is removed instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The icon is stored in the <computeroutput>BEOS:L:STD_ICON</computeroutput> attribute (large) or <computeroutput>BEOS:M:STD_ICON</computeroutput> attribute (mini). If <emphasis>icon</emphasis> is <computeroutput>NULL</computeroutput> the respective attribute is removed instead.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object containing the icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the icon to be set: <computeroutput>B_MINI_ICON</computeroutput> for the mini or <computeroutput>B_LARGE_ICON</computeroutput> for the large icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unknown icon size <emphasis>k</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>k</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="35" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a0d2207fd5cd79534cc2ae1a5c2a7b489" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetIcon</definition>
+        <argsstring>(uint8 **data, size_t *size, type_code *type) const</argsstring>
+        <name>GetIcon</name>
+        <qualifiedname>BNodeInfo::GetIcon</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> **</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref> *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Gets the icon of the node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The icon stored in the <computeroutput>BEOS:ICON</computeroutput> attribute of the node is retrieved. The caller is responsible to <computeroutput>delete[]</computeroutput> the data if the icon was retrieved.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer in which a pointer to the icon data will be filled in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer in which the size of the found icon data will be filled in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer in which the type of the found icon data will be filled in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>data</emphasis>, <computeroutput>NULL</computeroutput> <emphasis>size</emphasis> or <computeroutput>NULL</computeroutput> <emphasis>type</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No memory to allocate the <emphasis>data</emphasis> buffer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="37" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a5b659144815814b289e4fbab020777d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::SetIcon</definition>
+        <argsstring>(const uint8 *data, size_t size)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BNodeInfo::SetIcon</qualifiedname>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the node icon of the node. If <emphasis>data</emphasis> is <computeroutput>NULL</computeroutput> or <emphasis>size</emphasis> is 0, the <computeroutput>BEOS:ICON</computeroutput> attribute is removed instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The icon is stored in the <computeroutput>BEOS:ICON</computeroutput> attribute of the node.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to valid icon data. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the provided data buffer. May be 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="39" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a2259ab1207533b6deb8c06e39086b980" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetTrackerIcon</definition>
+        <argsstring>(BBitmap *icon, icon_size which=B_LARGE_ICON) const</argsstring>
+        <name>GetTrackerIcon</name>
+        <qualifiedname>BNodeInfo::GetTrackerIcon</qualifiedname>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+          <defval><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15a788acb110dbd7d3c1533ebb556abe12d" kindref="member">B_LARGE_ICON</ref></defval>
+        </param>
+        <briefdescription>
+<para>Gets the icon displayed by Tracker for the icon. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method tries really hard to find an icon for the node:<itemizedlist>
+<listitem><para>If the node has no type this method returns the icon for <computeroutput>B_FILE_MIME_TYPE</computeroutput> if it&apos;s a regular file or <computeroutput>B_DIRECTORY_MIME_TYPE</computeroutput> if it&apos;s a directory, even if the node has its own icon!</para>
+</listitem><listitem><para>Next it will ask <ref refid="classBNodeInfo_1a68b1e0645325e3ef8251cd505fe9c854" kindref="member">GetIcon()</ref> for an icon.</para>
+</listitem><listitem><para>If this fails it will get the preferred application and ask the MIME database if the application has an icon for the file type of the node.</para>
+</listitem><listitem><para>Next it will ask the MIME database whether there is an icon for the file type of the node.</para>
+</listitem><listitem><para>Then it will ask the MIME database for the preferred application for the file type of the node and whether this application has a special icon for the type.</para>
+</listitem><listitem><para>Finally it will return a generic icon for whatever type of file type (file/dir/etc.) the node is from the MIME database.</para>
+</listitem></itemizedlist>
+</para>
+<para>The first action that provides an icon is used. In the case that none of them yield an icon this method fails, this is very unlikely though.</para>
+<para><simplesect kind="remark"><para>You can set <emphasis>which</emphasis> to get a scaled icon instead of using a predefined icon_size constant, pass in an integer casted to icon_size. For example to get a 64x64 icon pass in: <programlisting><codeline><highlight class="normal">(<ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref>)64</highlight></codeline>
+</programlisting></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> of the correct dimension to store the requested icon (16x16 for the mini and 32x32 for the large icon). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the icon to be retrieved: <computeroutput>B_MINI_ICON</computeroutput> for a 16x16 icon or <computeroutput>B_LARGE_ICON</computeroutput> for a 32x32 icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>icon</emphasis>, unsupported icon size <emphasis>which</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a7f0bfd78768ed5ce96cba288487c781b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetTrackerIcon</definition>
+        <argsstring>(const entry_ref *ref, BBitmap *icon, icon_size which=B_LARGE_ICON)</argsstring>
+        <name>GetTrackerIcon</name>
+        <qualifiedname>BNodeInfo::GetTrackerIcon</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+          <defval><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15a788acb110dbd7d3c1533ebb556abe12d" kindref="member">B_LARGE_ICON</ref></defval>
+        </param>
+        <briefdescription>
+<para>Gets the icon displayed by Tracker for the node referred to by <emphasis>ref</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This methods works similarly to the non-static version but <emphasis>ref</emphasis> identifies the node. <emphasis>icon</emphasis> must be pre-allocated to the size requested using <emphasis>which</emphasis> before being passed to this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the node for which the icon is retrieved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object of the correct dimension to store the requested icon (16x16 for the mini and 32x32 for the large icon). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the icon to be retrieved: <computeroutput>B_MINI_ICON</computeroutput> for a 16x16 icon or <computeroutput>B_LARGE_ICON</computeroutput> for a 32x32 icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> ref or <emphasis>icon</emphasis>, unsupported icon size <emphasis>which</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="50" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Preferred Application</header>
+      <memberdef kind="function" id="classBNodeInfo_1a7efa86ade48aec51d4a4b7ff4762c163" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetPreferredApp</definition>
+        <argsstring>(char *signature, app_verb verb=B_OPEN) const</argsstring>
+        <name>GetPreferredApp</name>
+        <qualifiedname>BNodeInfo::GetPreferredApp</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type>app_verb</type>
+          <declname>verb</declname>
+          <defval>B_OPEN</defval>
+        </param>
+        <briefdescription>
+<para>Gets the preferred application of the node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Writes the contents of the <computeroutput>BEOS:PREF_APP</computeroutput> attribute into the <emphasis>signature</emphasis> buffer. The preferred application can be identified by its signature. <emphasis>signature</emphasis> should be at least <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> or longer and pre-allocated before it is passed into this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated character buffer of size <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> or larger into which the MIME-type of the preferred application is written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>verb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of access the preferred application is requested. Currently <computeroutput>B_OPEN</computeroutput> is the only meaningful option.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>signature</emphasis> or bad app_verb. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1ae02314008ca406a34f3391ee2e2f2326" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::SetPreferredApp</definition>
+        <argsstring>(const char *signature, app_verb verb=B_OPEN)</argsstring>
+        <name>SetPreferredApp</name>
+        <qualifiedname>BNodeInfo::SetPreferredApp</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type>app_verb</type>
+          <declname>verb</declname>
+          <defval>B_OPEN</defval>
+        </param>
+        <briefdescription>
+<para>Sets the preferred application of the node. If <emphasis>signature</emphasis> is <computeroutput>NULL</computeroutput>, the <computeroutput>BEOS:PREF_APP</computeroutput> attribute is removed instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplied string is written into the <computeroutput>BEOS:PREF_APP</computeroutput> attribute of the node. If <emphasis>signature</emphasis> is <computeroutput>NULL</computeroutput>, the respective attribute is removed instead. <emphasis>signature</emphasis> must not be longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> (including the terminating <computeroutput>NUL</computeroutput>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signature of the preferred application to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>verb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of access set to the preferred application. Currently only <computeroutput>B_OPEN</computeroutput> is meaningful.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>signature</emphasis>, <emphasis>signature</emphasis> is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> or bad app_verb. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="43" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Application Hint</header>
+      <memberdef kind="function" id="classBNodeInfo_1a3ab221c59085959fa85387359a7afbee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::GetAppHint</definition>
+        <argsstring>(entry_ref *ref) const</argsstring>
+        <name>GetAppHint</name>
+        <qualifiedname>BNodeInfo::GetAppHint</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>ref</emphasis> with a pointer to a hint about the application that will open this node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The path contained in the <computeroutput>BEOS:PPATH</computeroutput> attribute of the node is converted into an <ref refid="structentry__ref" kindref="compound">entry_ref</ref> and returned. <emphasis>ref</emphasis> should be pre-allocated before being passed into this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structentry__ref" kindref="compound">entry_ref</ref> into which the app hint is written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_DATA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Attribute size greater than <computeroutput>B_PATH_NAME_LENGTH</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stored type string attribute has the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>ref</emphasis> object passed in was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to read <computeroutput>BEOS:PPATH</computeroutput> attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="45" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1af5efb90d7a21c84b73e80be96644a882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::SetAppHint</definition>
+        <argsstring>(const entry_ref *ref)</argsstring>
+        <name>SetAppHint</name>
+        <qualifiedname>BNodeInfo::SetAppHint</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Sets the application that will open the file type of the node. If <emphasis>ref</emphasis> is <computeroutput>NULL</computeroutput>, the <computeroutput>BEOS:PPATH</computeroutput> attribute is removed instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><emphasis>ref</emphasis> is converted into a path and stored in the <computeroutput>BEOS:PPATH</computeroutput> attribute of the node. If <emphasis>ref</emphasis> is NULL <computeroutput>BEOS:PPATH</computeroutput> is removed instead.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the application. May be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>ref</emphasis> object passed in was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>BEOS:PPATH</computeroutput> attribute not found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to write <computeroutput>BEOS:PPATH</computeroutput> attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="46" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBNodeInfo_1a96531599aed77b6140abaf31d0b45e21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BAppFileInfo</definition>
+        <argsstring></argsstring>
+        <name>BAppFileInfo</name>
+        <qualifiedname>BNodeInfo::BAppFileInfo</qualifiedname>
+        <param>
+          <type><ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="54" column="14" bodyfile="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBNodeInfo_1a5e11697b181b68a97111e659ae6043f3" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BNodeInfo::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BNodeInfo::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="66" column="7" bodyfile="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNodeInfo_1a55e26116f468c13f6914e0f97c79cefd" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNodeInfo::fCStatus</definition>
+        <argsstring></argsstring>
+        <name>fCStatus</name>
+        <qualifiedname>BNodeInfo::fCStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="67" column="9" bodyfile="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNodeInfo_1acebd8b15e29360aa15b979b208e2b1b6" prot="private" static="no" mutable="no">
+        <type><ref refid="classBNode" kindref="compound">BNode</ref> *</type>
+        <definition>BNode* BNodeInfo::fNode</definition>
+        <argsstring></argsstring>
+        <name>fNode</name>
+        <qualifiedname>BNodeInfo::fNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="65" column="6" bodyfile="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBNodeInfo_1ad752fd7c10a42b1f11ae35d910aa645c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNodeInfo::BNodeInfo</definition>
+        <argsstring>()</argsstring>
+        <name>BNodeInfo</name>
+        <qualifiedname>BNodeInfo::BNodeInfo</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After created a <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> with this, you should call <ref refid="classBNodeInfo_1ac565dcc8ed1e34571e35a51b4f09ea39" kindref="member">SetTo()</ref>.</para>
+<para><simplesect kind="see"><para><ref refid="classBNodeInfo_1ac565dcc8ed1e34571e35a51b4f09ea39" kindref="member">SetTo(BNode* node)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a98100e447a6fa36f7f77ee69acccd61e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNodeInfo::BNodeInfo</definition>
+        <argsstring>(BNode *node)</argsstring>
+        <name>BNodeInfo</name>
+        <qualifiedname>BNodeInfo::BNodeInfo</qualifiedname>
+        <param>
+          <type><ref refid="classBNode" kindref="compound">BNode</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> object and initializes it to the supplied <emphasis>node</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>node</emphasis> to initialize to and gather information.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a02c3e3aa4ffa005913a4ad32861d1f99" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BNodeInfo::~BNodeInfo</definition>
+        <argsstring>()</argsstring>
+        <name>~BNodeInfo</name>
+        <qualifiedname>BNodeInfo::~BNodeInfo</qualifiedname>
+        <briefdescription>
+<para>Frees the object and associated resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The internal <ref refid="classBNode" kindref="compound">BNode</ref> object is not deleted.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="25" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBNodeInfo_1a024f8dc11e4975e3f9e901aa1b32721d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNodeInfo::BNodeInfo</definition>
+        <argsstring>(const BNodeInfo &amp;other)</argsstring>
+        <name>BNodeInfo</name>
+        <qualifiedname>BNodeInfo::BNodeInfo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a2d2a5193d9fb4269afbe78d7564d4ea6" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNodeInfo::_ReservedNodeInfo1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedNodeInfo1</name>
+        <qualifiedname>BNodeInfo::_ReservedNodeInfo1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="56" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1ae4de14d12815d08111c4c0da228433c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNodeInfo::_ReservedNodeInfo2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedNodeInfo2</name>
+        <qualifiedname>BNodeInfo::_ReservedNodeInfo2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="57" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a63aa8cb2a436a4206232967a67235082" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNodeInfo::_ReservedNodeInfo3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedNodeInfo3</name>
+        <qualifiedname>BNodeInfo::_ReservedNodeInfo3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="58" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNodeInfo_1a4bacc6165a787347ec4623beac3ed584" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> &amp;</type>
+        <definition>BNodeInfo &amp; BNodeInfo::operator=</definition>
+        <argsstring>(const BNodeInfo &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BNodeInfo::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="60" column="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides access to file type meta data on a node. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> provides a nice wrapper to all sorts of useful meta data such as the MIME-type, the file&apos;s icon and the application that will open the file.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BAppFileInfo</label>
+        <link refid="classBAppFileInfo"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BNodeInfo</label>
+        <link refid="classBNodeInfo"/>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" line="21" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/NodeInfo.h" bodystart="21" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classBNodeInfo_1a5e11697b181b68a97111e659ae6043f3" prot="private" virt="non-virtual"><scope>BNodeInfo</scope><name>_reserved</name></member>
+      <member refid="classBNodeInfo_1a2d2a5193d9fb4269afbe78d7564d4ea6" prot="private" virt="virtual"><scope>BNodeInfo</scope><name>_ReservedNodeInfo1</name></member>
+      <member refid="classBNodeInfo_1ae4de14d12815d08111c4c0da228433c7" prot="private" virt="virtual"><scope>BNodeInfo</scope><name>_ReservedNodeInfo2</name></member>
+      <member refid="classBNodeInfo_1a63aa8cb2a436a4206232967a67235082" prot="private" virt="virtual"><scope>BNodeInfo</scope><name>_ReservedNodeInfo3</name></member>
+      <member refid="classBNodeInfo_1ad752fd7c10a42b1f11ae35d910aa645c" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>BNodeInfo</name></member>
+      <member refid="classBNodeInfo_1a98100e447a6fa36f7f77ee69acccd61e" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>BNodeInfo</name></member>
+      <member refid="classBNodeInfo_1a024f8dc11e4975e3f9e901aa1b32721d" prot="private" virt="non-virtual"><scope>BNodeInfo</scope><name>BNodeInfo</name></member>
+      <member refid="classBNodeInfo_1a55e26116f468c13f6914e0f97c79cefd" prot="private" virt="non-virtual"><scope>BNodeInfo</scope><name>fCStatus</name></member>
+      <member refid="classBNodeInfo_1acebd8b15e29360aa15b979b208e2b1b6" prot="private" virt="non-virtual"><scope>BNodeInfo</scope><name>fNode</name></member>
+      <member refid="classBNodeInfo_1a3ab221c59085959fa85387359a7afbee" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>GetAppHint</name></member>
+      <member refid="classBNodeInfo_1a68b1e0645325e3ef8251cd505fe9c854" prot="public" virt="virtual"><scope>BNodeInfo</scope><name>GetIcon</name></member>
+      <member refid="classBNodeInfo_1a0d2207fd5cd79534cc2ae1a5c2a7b489" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>GetIcon</name></member>
+      <member refid="classBNodeInfo_1a7efa86ade48aec51d4a4b7ff4762c163" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>GetPreferredApp</name></member>
+      <member refid="classBNodeInfo_1a2259ab1207533b6deb8c06e39086b980" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>GetTrackerIcon</name></member>
+      <member refid="classBNodeInfo_1a7f0bfd78768ed5ce96cba288487c781b" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>GetTrackerIcon</name></member>
+      <member refid="classBNodeInfo_1a9bfd75065d98e817d078c968d02228e4" prot="public" virt="virtual"><scope>BNodeInfo</scope><name>GetType</name></member>
+      <member refid="classBNodeInfo_1a362e684a08d62ec3aa95c75395f3698e" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>InitCheck</name></member>
+      <member refid="classBNodeInfo_1a4bacc6165a787347ec4623beac3ed584" prot="private" virt="non-virtual"><scope>BNodeInfo</scope><name>operator=</name></member>
+      <member refid="classBNodeInfo_1af5efb90d7a21c84b73e80be96644a882" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>SetAppHint</name></member>
+      <member refid="classBNodeInfo_1a8ddb7be63e9a48ff851d61ab13f0a997" prot="public" virt="virtual"><scope>BNodeInfo</scope><name>SetIcon</name></member>
+      <member refid="classBNodeInfo_1a5b659144815814b289e4fbab020777d2" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>SetIcon</name></member>
+      <member refid="classBNodeInfo_1ae02314008ca406a34f3391ee2e2f2326" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>SetPreferredApp</name></member>
+      <member refid="classBNodeInfo_1ac565dcc8ed1e34571e35a51b4f09ea39" prot="public" virt="non-virtual"><scope>BNodeInfo</scope><name>SetTo</name></member>
+      <member refid="classBNodeInfo_1a27843b992dd5f5f9b5755073e7c6b310" prot="public" virt="virtual"><scope>BNodeInfo</scope><name>SetType</name></member>
+      <member refid="classBNodeInfo_1a02c3e3aa4ffa005913a4ad32861d1f99" prot="public" virt="virtual"><scope>BNodeInfo</scope><name>~BNodeInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2085 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBNode" kind="class" language="C++" prot="public">
+    <compoundname>BNode</compoundname>
+    <basecompoundref refid="classBStatable" prot="public" virt="non-virtual">BStatable</basecompoundref>
+    <derivedcompoundref refid="classBDirectory" prot="public" virt="non-virtual">BDirectory</derivedcompoundref>
+    <derivedcompoundref refid="classBFile" prot="public" virt="non-virtual">BFile</derivedcompoundref>
+    <derivedcompoundref refid="classBSymLink" prot="public" virt="non-virtual">BSymLink</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Constructor Helpers</header>
+      <memberdef kind="function" id="classBNode_1a8d1e28412f778e344e539946268fd03a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BNode::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Checks whether the object has been properly initialized or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the object has been properly initialized, or <computeroutput>B_NO_INIT</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1aa19fa8eac744cbbe8ef0cd67842fb350" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::SetTo</definition>
+        <argsstring>(const entry_ref *ref)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNode::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the object to the specified <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the entry.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ref</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry was locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a6a9ed4db588ce169e9d5f464e0db43c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::SetTo</definition>
+        <argsstring>(const BEntry *entry)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNode::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBEntry" kindref="compound">BEntry</ref> *</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the object to the specified filesystem <emphasis>entry</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBEntry" kindref="compound">BEntry</ref> representing the entry.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>entry</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>entry</emphasis> could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>entry</emphasis> was locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a11cc1bc7f4765f2ec5665f4d6f8c68fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::SetTo</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNode::SetTo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the object to the specified <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry&apos;s path name; <emphasis>path</emphasis> can be relative or absolute, and can contain &quot;.&quot; and &quot;..&quot; elements. If path is relative, it uses the current working directory as the base directory.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>path</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry of was locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="49" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1aab2e862a78de7dac70ce8d6139b4e2a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::SetTo</definition>
+        <argsstring>(const BDirectory *dir, const char *path)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNode::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDirectory" kindref="compound">BDirectory</ref> *</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the object to the entry referred by the specified <emphasis>path</emphasis> relative to the the specified directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base <ref refid="classBDirectory" kindref="compound">BDirectory</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path name relative to <emphasis>dir</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>dir</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entry was locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="50" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a53045ffc7e7c8bf97487d0de2e925cc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BNode::Unset</definition>
+        <argsstring>()</argsstring>
+        <name>Unset</name>
+        <qualifiedname>BNode::Unset</qualifiedname>
+        <briefdescription>
+<para>Returns the object to an uninitialized state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="51" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Locking Methods</header>
+      <memberdef kind="function" id="classBNode_1ac323c1303a20a0eb21c11185bfc18039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <qualifiedname>BNode::Lock</qualifiedname>
+        <briefdescription>
+<para>Attains an exclusive lock on the data referred to by this node so that it may not be modified by any other objects or methods. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node is already locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1af1aed40f239513e1001af2ee543dd9ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <qualifiedname>BNode::Unlock</qualifiedname>
+        <briefdescription>
+<para>Unlocks the date referred to by this node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node is not locked.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a14e67d77c99a4ede2a0bc2fe2bc46da5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::Sync</definition>
+        <argsstring>()</argsstring>
+        <name>Sync</name>
+        <qualifiedname>BNode::Sync</qualifiedname>
+        <briefdescription>
+<para>Immediately performs any pending disk actions on the node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Something went wrong.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="56" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Attribute Methods</header>
+      <memberdef kind="function" id="classBNode_1a48b845ef1eafdc729ca672bb112bf873" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BNode::WriteAttr</definition>
+        <argsstring>(const char *name, type_code type, off_t offset, const void *buffer, size_t length)</argsstring>
+        <name>WriteAttr</name>
+        <qualifiedname>BNode::WriteAttr</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defname>attr</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Writes data from a buffer to an attribute. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Write <emphasis>length</emphasis> bytes of data from <emphasis>buffer</emphasis> to the attribute specified by <emphasis>name</emphasis> after erasing any data that existed previously. The type specified by <emphasis>type</emphasis> <emphasis>is</emphasis> remembered, and may be queried with <ref refid="classBNode_1a57b7c93cbf40df5b76b3c1aae2ad0201" kindref="member">GetAttrInfo()</ref>. The value of <emphasis>offset</emphasis> is currently ignored.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index at which to write the data (currently ignored). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer containing the data to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually written. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>attr</emphasis> or <emphasis>buffer</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized or the node it refers to was read only. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node resides on a read only volume. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEVICE_FULL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was insufficient disk space to complete the operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was insufficient memory to complete the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="58" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a6ae0c729e21a32902b13d0c00b53abc2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BNode::ReadAttr</definition>
+        <argsstring>(const char *name, type_code type, off_t offset, void *buffer, size_t length) const</argsstring>
+        <name>ReadAttr</name>
+        <qualifiedname>BNode::ReadAttr</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defname>attr</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Reads data from an attribute into <emphasis>buffer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads <emphasis>length</emphasis> bytes of data from the attribute given by <emphasis>name</emphasis> into <emphasis>buffer</emphasis>. <emphasis>type</emphasis> and <emphasis>offset</emphasis> are currently ignored.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>attr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the attribute (currently ignored). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index from which to read the data (currently ignored). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer for the data to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually read. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>attr</emphasis> or <emphasis>buffer</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node had no attribute <emphasis>attr</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="61" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a29fec4dac3d10f0459f7d3eb333aaf76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::RemoveAttr</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>RemoveAttr</name>
+        <qualifiedname>BNode::RemoveAttr</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Deletes the attribute given by <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the attribute to remove.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>name</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized or the node it referred to was read-only. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node had no attribute <emphasis>name</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node resided on a read-only volume.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1adacbbc1aef867abbf05c1f64941561bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::RenameAttr</definition>
+        <argsstring>(const char *oldName, const char *newName)</argsstring>
+        <name>RenameAttr</name>
+        <qualifiedname>BNode::RenameAttr</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>oldName</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>newName</declname>
+        </param>
+        <briefdescription>
+<para>Moves the attribute given by <emphasis>oldName</emphasis> to <emphasis>newName</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>newName</emphasis> already exists, the data is clobbered.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>oldName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the attribute to be renamed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new name for the attribute.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>oldName</emphasis> or <emphasis>newName</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized or the node it referred to was read only. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node had no attribute <emphasis>oldName</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node resided on a read-only volume.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="65" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a57b7c93cbf40df5b76b3c1aae2ad0201" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::GetAttrInfo</definition>
+        <argsstring>(const char *name, struct attr_info *info) const</argsstring>
+        <name>GetAttrInfo</name>
+        <qualifiedname>BNode::GetAttrInfo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>struct attr_info *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Fills in the pre-allocated attr_info struct pointed to by <emphasis>info</emphasis> with information about the attribute specified by <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attr_info structure to be filled in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>name</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node had no attribute <emphasis>name</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a7ce18e673746f0f2c385ec533f10a015" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::GetNextAttrName</definition>
+        <argsstring>(char *buffer)</argsstring>
+        <name>GetNextAttrName</name>
+        <qualifiedname>BNode::GetNextAttrName</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+<para>Copies the name of the attribute into <computeroutput>buffer</computeroutput> and then advances the pointer to the next attribute. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The name of the node is first copied into <emphasis>buffer</emphasis>, which should be at least <computeroutput>B_ATTR_NAME_LENGTH</computeroutput> characters long. The copied node name is \0 terminated. Once the name is copied the attribute list pointer is advanced to the next attribute in the list. When <ref refid="classBNode_1a7ce18e673746f0f2c385ec533f10a015" kindref="member">GetNextAttrName()</ref> reaches the end of the list it returns <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A buffer to copy the name of the attribute into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The Attribute name was copied and there are more attribute names to copy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>passed in <emphasis>buffer</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There were no more attributes, the last attribute name had already been copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="69" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a8848d2958c140f67e616415836835260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::RewindAttrs</definition>
+        <argsstring>()</argsstring>
+        <name>RewindAttrs</name>
+        <qualifiedname>BNode::RewindAttrs</qualifiedname>
+        <briefdescription>
+<para>Resets the object&apos;s attribute pointer to the first attribute in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Some other error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="70" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1aae3517eb2583c13ccf60e9488d5a198d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::WriteAttrString</definition>
+        <argsstring>(const char *name, const BString *data)</argsstring>
+        <name>WriteAttrString</name>
+        <qualifiedname>BNode::WriteAttrString</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Writes the specified string to the specified attribute, clobbering any previous data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classBString" kindref="compound">BString</ref> to be written to the attribute.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>name</emphasis> or <emphasis>data</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized or the node it referred to was read-only. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node resided on a read-only volume. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEVICE_FULL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was insufficient disk space to complete the operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was insufficient memory to complete the operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a92f9e44a87a4c5b2f20d8f6a2be89d5b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::ReadAttrString</definition>
+        <argsstring>(const char *name, BString *result) const</argsstring>
+        <name>ReadAttrString</name>
+        <qualifiedname>BNode::ReadAttrString</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+<para>Reads the data of the specified attribute into the pre-allocated <emphasis>result</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the name of the attribute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>result</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classBString" kindref="compound">BString</ref> to be set to the value of the attribute.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>name</emphasis> or <emphasis>result</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node had no attribute <emphasis>attr</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="73" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operators</header>
+      <memberdef kind="function" id="classBNode_1a690260cffeb7310ecb0461ecc118e402" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBNode" kindref="compound">BNode</ref> &amp;</type>
+        <definition>BNode &amp; BNode::operator=</definition>
+        <argsstring>(const BNode &amp;node)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BNode::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNode" kindref="compound">BNode</ref> &amp;</type>
+          <declname>node</declname>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+<para>Initializes the object as a copy of <emphasis>other</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classBNode" kindref="compound">BNode</ref> to be copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to this <ref refid="classBNode" kindref="compound">BNode</ref> object.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="76" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a19e5f2559d1a8649ad103cb559150897" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BNode::operator==</definition>
+        <argsstring>(const BNode &amp;node) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>BNode::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNode" kindref="compound">BNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Tests whether this and the supplied <ref refid="classBNode" kindref="compound">BNode</ref> object are equal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Two <ref refid="classBNode" kindref="compound">BNode</ref> objects are said to be equal if they&apos;re set to the same node, or if they&apos;re both unintialized</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBNode" kindref="compound">BNode</ref> to be compared against.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if the <ref refid="classBNode" kindref="compound">BNode</ref> objects are equal, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="77" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a9fd78c56dd4a25fffc5d9f8f4ce7a594" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BNode::operator!=</definition>
+        <argsstring>(const BNode &amp;node) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>BNode::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNode" kindref="compound">BNode</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Tests whether this and the supplied <ref refid="classBNode" kindref="compound">BNode</ref> object are not equal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Two <ref refid="classBNode" kindref="compound">BNode</ref> objects are said to be equal if they&apos;re set to the same node, or if they&apos;re both unintialized.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBNode" kindref="compound">BNode</ref> to be compared with</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>false</computeroutput>, if the <ref refid="classBNode" kindref="compound">BNode</ref> objects are equal, <computeroutput>true</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="78" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBNode_1a935fd85d79428a5c0ab583eca88eec01" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BDirectory</definition>
+        <argsstring></argsstring>
+        <name>BDirectory</name>
+        <qualifiedname>BNode::BDirectory</qualifiedname>
+        <param>
+          <type><ref refid="classBDirectory" kindref="compound">BDirectory</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="85" column="14" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBNode_1acab6e35bd4a0082245f848f4d8a0c146" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BFile</definition>
+        <argsstring></argsstring>
+        <name>BFile</name>
+        <qualifiedname>BNode::BFile</qualifiedname>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="84" column="14" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBNode_1aeb71a56aec7e91f7f29faaabe1c4f04c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BSymLink</definition>
+        <argsstring></argsstring>
+        <name>BSymLink</name>
+        <qualifiedname>BNode::BSymLink</qualifiedname>
+        <param>
+          <type><ref refid="classBSymLink" kindref="compound">BSymLink</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="86" column="14" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBNode_1a0b646cb807c8acfea69432c2d7eda20a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BNode::fAttrFd</definition>
+        <argsstring></argsstring>
+        <name>fAttrFd</name>
+        <qualifiedname>BNode::fAttrFd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="113" column="4" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNode_1a5204fdcb5acaa13a7e15f92a7f714cd1" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::fCStatus</definition>
+        <argsstring></argsstring>
+        <name>fCStatus</name>
+        <qualifiedname>BNode::fCStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="116" column="9" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNode_1a8aa882e235a4d4cef18d55b45e17b7af" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BNode::fFd</definition>
+        <argsstring></argsstring>
+        <name>fFd</name>
+        <qualifiedname>BNode::fFd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="111" column="4" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNode_1af057996037ae03ee61a38b3967521435" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BNode::rudeData[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>rudeData</name>
+        <qualifiedname>BNode::rudeData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="110" column="7" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBNode_1a4c41333d8fc73a6c9f37f77ae7418528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNode::BNode</definition>
+        <argsstring>()</argsstring>
+        <name>BNode</name>
+        <qualifiedname>BNode::BNode</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBNode" kindref="compound">BNode</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBNode_1aa19fa8eac744cbbe8ef0cd67842fb350" kindref="member">SetTo()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a959e6d749cdd455524fec3a5feca6008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNode::BNode</definition>
+        <argsstring>(const BDirectory *dir, const char *path)</argsstring>
+        <name>BNode</name>
+        <qualifiedname>BNode::BNode</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDirectory" kindref="compound">BDirectory</ref> *</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBNode" kindref="compound">BNode</ref> object and initializes it to the entry referred to by the specified path rooted in the specified directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The base <ref refid="classBDirectory" kindref="compound">BDirectory</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>path</emphasis> name relative to <emphasis>dir</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a2c8fd63c3e0e0d6d7596c1ca9c02cfc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNode::BNode</definition>
+        <argsstring>(const BEntry *entry)</argsstring>
+        <name>BNode</name>
+        <qualifiedname>BNode::BNode</qualifiedname>
+        <param>
+          <type>const <ref refid="classBEntry" kindref="compound">BEntry</ref> *</type>
+          <declname>entry</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBNode" kindref="compound">BNode</ref> object and initializes it to the specified filesystem entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBEntry" kindref="compound">BEntry</ref> referring to the node.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a4cb06c36614e334a2ce3f132188f0b33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNode::BNode</definition>
+        <argsstring>(const BNode &amp;node)</argsstring>
+        <name>BNode</name>
+        <qualifiedname>BNode::BNode</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNode" kindref="compound">BNode</ref> &amp;</type>
+          <declname>node</declname>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+<para>Creates a copy of the given <ref refid="classBNode" kindref="compound">BNode</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBNode" kindref="compound">BNode</ref> to be copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1acfd887aa410f42347482347672de19c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNode::BNode</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>BNode</name>
+        <qualifiedname>BNode::BNode</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBNode" kindref="compound">BNode</ref> object and initializes it to the entry referred to by the specified path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>path</emphasis> referring to the node.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a3ba1cd7e2d530124350485de1ccffbf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNode::BNode</definition>
+        <argsstring>(const entry_ref *ref)</argsstring>
+        <name>BNode</name>
+        <qualifiedname>BNode::BNode</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBNode" kindref="compound">BNode</ref> object and initializes it to the specified <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the node.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a2be9ef05bc8dc34f17982736a38e1adf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BNode::~BNode</definition>
+        <argsstring>()</argsstring>
+        <name>~BNode</name>
+        <qualifiedname>BNode::~BNode</qualifiedname>
+        <briefdescription>
+<para>Frees all resources associated with the <ref refid="classBNode" kindref="compound">BNode</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="41" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a74637e73a9f75f68eb8455ad2b1d920a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BNode::Dup</definition>
+        <argsstring>()</argsstring>
+        <name>Dup</name>
+        <qualifiedname>BNode::Dup</qualifiedname>
+        <briefdescription>
+<para>Gets the POSIX file descriptor referred to by this node. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Remember to call close() on the file descriptor when you&apos;re through with it.</para>
+<para><simplesect kind="return"><para>A valid file descriptor, or -1 if something went wrong.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="80" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1aa8c7b4e488e8077aabc8f5fbe4504189" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::GetStat</definition>
+        <argsstring>(struct stat *st) const</argsstring>
+        <name>GetStat</name>
+        <qualifiedname>BNode::GetStat</qualifiedname>
+        <reimplements refid="classBStatable_1a0fd44591384a51393418c7360d67c51d">GetStat</reimplements>
+        <param>
+          <type>struct stat *</type>
+          <declname>st</declname>
+          <defname>stat</defname>
+        </param>
+        <briefdescription>
+<para>Fills in the given stat structure with the <computeroutput>stat()</computeroutput> information for this object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a stat structure to be filled in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>stat</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="45" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBNode_1a16b76c199e5c58bebe8b2c3bdd8e1f49" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::_GetStat</definition>
+        <argsstring>(struct stat *stat) const</argsstring>
+        <name>_GetStat</name>
+        <qualifiedname>BNode::_GetStat</qualifiedname>
+        <param>
+          <type>struct stat *</type>
+          <declname>stat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="105" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1aeb5f43b0ad3853280452bf1d1db77fa1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BNode::_GetStat</definition>
+        <argsstring>(struct stat_beos *stat) const</argsstring>
+        <name>_GetStat</name>
+        <qualifiedname>BNode::_GetStat</qualifiedname>
+        <reimplements refid="classBStatable_1a52d35511773ddb642e7701527c2c1308">_GetStat</reimplements>
+        <param>
+          <type>struct stat_beos *</type>
+          <declname>stat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="106" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a026c819129488da5d9f26cfd972ead8d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::_RudeNode1</definition>
+        <argsstring>()</argsstring>
+        <name>_RudeNode1</name>
+        <qualifiedname>BNode::_RudeNode1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="88" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1ae93022ca3995cf24936779c380ca3302" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::_RudeNode2</definition>
+        <argsstring>()</argsstring>
+        <name>_RudeNode2</name>
+        <qualifiedname>BNode::_RudeNode2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="89" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1ad73ea845fb69680e8cee6ddf19e4e939" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::_RudeNode3</definition>
+        <argsstring>()</argsstring>
+        <name>_RudeNode3</name>
+        <qualifiedname>BNode::_RudeNode3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="90" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a189ca59796f1401c2968d6df87fccb77" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::_RudeNode4</definition>
+        <argsstring>()</argsstring>
+        <name>_RudeNode4</name>
+        <qualifiedname>BNode::_RudeNode4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="91" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a0485f48a3266f664b4c0c854ccf9428b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::_RudeNode5</definition>
+        <argsstring>()</argsstring>
+        <name>_RudeNode5</name>
+        <qualifiedname>BNode::_RudeNode5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="92" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a45d405d3ec42a20fc9981bfb6cc4bf94" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::_RudeNode6</definition>
+        <argsstring>()</argsstring>
+        <name>_RudeNode6</name>
+        <qualifiedname>BNode::_RudeNode6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="93" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a0f596581204ba7fff69a2c0a14d58a45" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::_SetTo</definition>
+        <argsstring>(const entry_ref *ref, bool traverse)</argsstring>
+        <name>_SetTo</name>
+        <qualifiedname>BNode::_SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>traverse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="101" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a43866be77fb0e0c9e392801f025e1e17" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::_SetTo</definition>
+        <argsstring>(int fd, const char *path, bool traverse)</argsstring>
+        <name>_SetTo</name>
+        <qualifiedname>BNode::_SetTo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>traverse</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="100" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a41fec1b8b693a7a8d835909ae50e163f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BNode::close_fd</definition>
+        <argsstring>()</argsstring>
+        <name>close_fd</name>
+        <qualifiedname>BNode::close_fd</qualifiedname>
+        <reimplementedby refid="classBDirectory_1aa719442ee7958468fb2bb2c2b50747a7">close_fd</reimplementedby>
+        <reimplementedby refid="classBFile_1abb060811f1e0c99f35a2ca7dcb3c5bd7">close_fd</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="97" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1ab1c2153e1f246c43b51889a8d566f270" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::InitAttrDir</definition>
+        <argsstring>()</argsstring>
+        <name>InitAttrDir</name>
+        <qualifiedname>BNode::InitAttrDir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="107" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1a5900a5593e684d82f0acdfb6dd86e2ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNode::set_fd</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>set_fd</name>
+        <qualifiedname>BNode::set_fd</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="96" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1afcb79b479deacbcd4309217f076f8e34" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BNode::set_stat</definition>
+        <argsstring>(struct stat &amp;stat, uint32 what)</argsstring>
+        <name>set_stat</name>
+        <qualifiedname>BNode::set_stat</qualifiedname>
+        <reimplements refid="classBStatable_1abbed307846be19643f0de64f835767a3">set_stat</reimplements>
+        <param>
+          <type>struct stat &amp;</type>
+          <declname>stat</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="103" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNode_1aeaac42c261e72b5d96a5fcb076b09bb9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BNode::set_status</definition>
+        <argsstring>(status_t newStatus)</argsstring>
+        <name>set_status</name>
+        <qualifiedname>BNode::set_status</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+          <declname>newStatus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="98" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A <ref refid="classBNode" kindref="compound">BNode</ref> represents a chunk of data in the filesystem. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classBNode" kindref="compound">BNode</ref> class provides an interface for manipulating the data and attributes belonging to filesystem entries. The <ref refid="classBNode" kindref="compound">BNode</ref> is unaware of the name that refers to it in the filesystem (i.e. its entry), instead, a <ref refid="classBNode" kindref="compound">BNode</ref> is concerned solely with the entry&apos;s data and attributes.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BDirectory</label>
+        <link refid="classBDirectory"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BFile</label>
+        <link refid="classBFile"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BNode</label>
+        <link refid="classBNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BStatable</label>
+        <link refid="classBStatable"/>
+      </node>
+      <node id="5">
+        <label>BSymLink</label>
+        <link refid="classBSymLink"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BNode</label>
+        <link refid="classBNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BStatable</label>
+        <link refid="classBStatable"/>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/storage/Node.h" line="33" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/Node.h" bodystart="33" bodyend="118"/>
+    <listofallmembers>
+      <member refid="classBNode_1a16b76c199e5c58bebe8b2c3bdd8e1f49" prot="private" virt="non-virtual"><scope>BNode</scope><name>_GetStat</name></member>
+      <member refid="classBNode_1aeb5f43b0ad3853280452bf1d1db77fa1" prot="private" virt="virtual"><scope>BNode</scope><name>_GetStat</name></member>
+      <member refid="classBNode_1a026c819129488da5d9f26cfd972ead8d" prot="private" virt="virtual"><scope>BNode</scope><name>_RudeNode1</name></member>
+      <member refid="classBNode_1ae93022ca3995cf24936779c380ca3302" prot="private" virt="virtual"><scope>BNode</scope><name>_RudeNode2</name></member>
+      <member refid="classBNode_1ad73ea845fb69680e8cee6ddf19e4e939" prot="private" virt="virtual"><scope>BNode</scope><name>_RudeNode3</name></member>
+      <member refid="classBNode_1a189ca59796f1401c2968d6df87fccb77" prot="private" virt="virtual"><scope>BNode</scope><name>_RudeNode4</name></member>
+      <member refid="classBNode_1a0485f48a3266f664b4c0c854ccf9428b" prot="private" virt="virtual"><scope>BNode</scope><name>_RudeNode5</name></member>
+      <member refid="classBNode_1a45d405d3ec42a20fc9981bfb6cc4bf94" prot="private" virt="virtual"><scope>BNode</scope><name>_RudeNode6</name></member>
+      <member refid="classBNode_1a43866be77fb0e0c9e392801f025e1e17" prot="private" virt="non-virtual"><scope>BNode</scope><name>_SetTo</name></member>
+      <member refid="classBNode_1a0f596581204ba7fff69a2c0a14d58a45" prot="private" virt="non-virtual"><scope>BNode</scope><name>_SetTo</name></member>
+      <member refid="classBNode_1a4c41333d8fc73a6c9f37f77ae7418528" prot="public" virt="non-virtual"><scope>BNode</scope><name>BNode</name></member>
+      <member refid="classBNode_1a3ba1cd7e2d530124350485de1ccffbf6" prot="public" virt="non-virtual"><scope>BNode</scope><name>BNode</name></member>
+      <member refid="classBNode_1a2c8fd63c3e0e0d6d7596c1ca9c02cfc7" prot="public" virt="non-virtual"><scope>BNode</scope><name>BNode</name></member>
+      <member refid="classBNode_1acfd887aa410f42347482347672de19c0" prot="public" virt="non-virtual"><scope>BNode</scope><name>BNode</name></member>
+      <member refid="classBNode_1a959e6d749cdd455524fec3a5feca6008" prot="public" virt="non-virtual"><scope>BNode</scope><name>BNode</name></member>
+      <member refid="classBNode_1a4cb06c36614e334a2ce3f132188f0b33" prot="public" virt="non-virtual"><scope>BNode</scope><name>BNode</name></member>
+      <member refid="classBNode_1a41fec1b8b693a7a8d835909ae50e163f" prot="private" virt="virtual"><scope>BNode</scope><name>close_fd</name></member>
+      <member refid="classBNode_1a74637e73a9f75f68eb8455ad2b1d920a" prot="public" virt="non-virtual"><scope>BNode</scope><name>Dup</name></member>
+      <member refid="classBNode_1a0b646cb807c8acfea69432c2d7eda20a" prot="private" virt="non-virtual"><scope>BNode</scope><name>fAttrFd</name></member>
+      <member refid="classBNode_1a5204fdcb5acaa13a7e15f92a7f714cd1" prot="private" virt="non-virtual"><scope>BNode</scope><name>fCStatus</name></member>
+      <member refid="classBNode_1a8aa882e235a4d4cef18d55b45e17b7af" prot="private" virt="non-virtual"><scope>BNode</scope><name>fFd</name></member>
+      <member refid="classBStatable_1a55dea9fb7be6e844b6515f73ee0a929a" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetAccessTime</name></member>
+      <member refid="classBNode_1a57b7c93cbf40df5b76b3c1aae2ad0201" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetAttrInfo</name></member>
+      <member refid="classBStatable_1ac80b82a49b8c757d4bf0034d70c33eb1" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetCreationTime</name></member>
+      <member refid="classBStatable_1ab27d67f089c0c4bd14cdc48f57c51a17" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetGroup</name></member>
+      <member refid="classBStatable_1a5571998c1d3ca9a59ad521556b3dee63" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetModificationTime</name></member>
+      <member refid="classBNode_1a7ce18e673746f0f2c385ec533f10a015" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetNextAttrName</name></member>
+      <member refid="classBStatable_1ad22f2b8b8b11b151bc94d63caeb16c95" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetNodeRef</name></member>
+      <member refid="classBStatable_1ae8cb57200fbeac9941622a33705d64a4" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetOwner</name></member>
+      <member refid="classBStatable_1a6a8b0225646734f4528858c72a5f9073" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetPermissions</name></member>
+      <member refid="classBStatable_1a52975e361937ae26f7c854da34e6e51a" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetSize</name></member>
+      <member refid="classBNode_1aa8c7b4e488e8077aabc8f5fbe4504189" prot="public" virt="virtual"><scope>BNode</scope><name>GetStat</name></member>
+      <member refid="classBStatable_1a2488e774eaa96bf07ae6156ea320fc0a" prot="public" virt="non-virtual"><scope>BNode</scope><name>GetVolume</name></member>
+      <member refid="classBNode_1ab1c2153e1f246c43b51889a8d566f270" prot="private" virt="non-virtual"><scope>BNode</scope><name>InitAttrDir</name></member>
+      <member refid="classBNode_1a8d1e28412f778e344e539946268fd03a" prot="public" virt="non-virtual"><scope>BNode</scope><name>InitCheck</name></member>
+      <member refid="classBStatable_1a853345d2d3673b47f59dd655b6a3adca" prot="public" virt="non-virtual"><scope>BNode</scope><name>IsDirectory</name></member>
+      <member refid="classBStatable_1acaa5a30c8a6ee1f8854a787958d13eaf" prot="public" virt="non-virtual"><scope>BNode</scope><name>IsFile</name></member>
+      <member refid="classBStatable_1aa07af7f2d36c453d00e101bc6c6a487e" prot="public" virt="non-virtual"><scope>BNode</scope><name>IsSymLink</name></member>
+      <member refid="classBNode_1ac323c1303a20a0eb21c11185bfc18039" prot="public" virt="non-virtual"><scope>BNode</scope><name>Lock</name></member>
+      <member refid="classBNode_1a9fd78c56dd4a25fffc5d9f8f4ce7a594" prot="public" virt="non-virtual"><scope>BNode</scope><name>operator!=</name></member>
+      <member refid="classBNode_1a690260cffeb7310ecb0461ecc118e402" prot="public" virt="non-virtual"><scope>BNode</scope><name>operator=</name></member>
+      <member refid="classBNode_1a19e5f2559d1a8649ad103cb559150897" prot="public" virt="non-virtual"><scope>BNode</scope><name>operator==</name></member>
+      <member refid="classBNode_1a6ae0c729e21a32902b13d0c00b53abc2" prot="public" virt="non-virtual"><scope>BNode</scope><name>ReadAttr</name></member>
+      <member refid="classBNode_1a92f9e44a87a4c5b2f20d8f6a2be89d5b" prot="public" virt="non-virtual"><scope>BNode</scope><name>ReadAttrString</name></member>
+      <member refid="classBNode_1a29fec4dac3d10f0459f7d3eb333aaf76" prot="public" virt="non-virtual"><scope>BNode</scope><name>RemoveAttr</name></member>
+      <member refid="classBNode_1adacbbc1aef867abbf05c1f64941561bb" prot="public" virt="non-virtual"><scope>BNode</scope><name>RenameAttr</name></member>
+      <member refid="classBNode_1a8848d2958c140f67e616415836835260" prot="public" virt="non-virtual"><scope>BNode</scope><name>RewindAttrs</name></member>
+      <member refid="classBNode_1af057996037ae03ee61a38b3967521435" prot="private" virt="non-virtual"><scope>BNode</scope><name>rudeData</name></member>
+      <member refid="classBNode_1a5900a5593e684d82f0acdfb6dd86e2ab" prot="private" virt="non-virtual"><scope>BNode</scope><name>set_fd</name></member>
+      <member refid="classBNode_1afcb79b479deacbcd4309217f076f8e34" prot="private" virt="virtual"><scope>BNode</scope><name>set_stat</name></member>
+      <member refid="classBNode_1aeaac42c261e72b5d96a5fcb076b09bb9" prot="private" virt="non-virtual"><scope>BNode</scope><name>set_status</name></member>
+      <member refid="classBStatable_1aab2c65df1f1459d014a0a2ba9638411e" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetAccessTime</name></member>
+      <member refid="classBStatable_1a6a92b04cda608babf49f70ef4e3a2f36" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetCreationTime</name></member>
+      <member refid="classBStatable_1af6e5ac17688536b3de2940a82349d043" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetGroup</name></member>
+      <member refid="classBStatable_1a1f2b84cea7b32a238b41f97e0264a048" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetModificationTime</name></member>
+      <member refid="classBStatable_1a640ef9862775efaa6720691ed4b58256" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetOwner</name></member>
+      <member refid="classBStatable_1aaf215f1b31486d4fd65dd96229b26f97" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetPermissions</name></member>
+      <member refid="classBNode_1aa19fa8eac744cbbe8ef0cd67842fb350" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetTo</name></member>
+      <member refid="classBNode_1a6a9ed4db588ce169e9d5f464e0db43c4" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetTo</name></member>
+      <member refid="classBNode_1a11cc1bc7f4765f2ec5665f4d6f8c68fb" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetTo</name></member>
+      <member refid="classBNode_1aab2e862a78de7dac70ce8d6139b4e2a0" prot="public" virt="non-virtual"><scope>BNode</scope><name>SetTo</name></member>
+      <member refid="classBNode_1a14e67d77c99a4ede2a0bc2fe2bc46da5" prot="public" virt="non-virtual"><scope>BNode</scope><name>Sync</name></member>
+      <member refid="classBNode_1af1aed40f239513e1001af2ee543dd9ec" prot="public" virt="non-virtual"><scope>BNode</scope><name>Unlock</name></member>
+      <member refid="classBNode_1a53045ffc7e7c8bf97487d0de2e925cc2" prot="public" virt="non-virtual"><scope>BNode</scope><name>Unset</name></member>
+      <member refid="classBNode_1a48b845ef1eafdc729ca672bb112bf873" prot="public" virt="non-virtual"><scope>BNode</scope><name>WriteAttr</name></member>
+      <member refid="classBNode_1aae3517eb2583c13ccf60e9488d5a198d" prot="public" virt="non-virtual"><scope>BNode</scope><name>WriteAttrString</name></member>
+      <member refid="classBNode_1a2be9ef05bc8dc34f17982736a38e1adf" prot="public" virt="virtual"><scope>BNode</scope><name>~BNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

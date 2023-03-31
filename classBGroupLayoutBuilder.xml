@@ -1,0 +1,734 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBGroupLayoutBuilder" kind="class" language="C++" prot="public">
+    <compoundname>BGroupLayoutBuilder</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBGroupLayoutBuilder_1a8af5c6946ffb9eb52e5d9e7b521f05b9" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref></type>
+        <definition>BList BGroupLayoutBuilder::fLayoutStack</definition>
+        <argsstring></argsstring>
+        <name>fLayoutStack</name>
+        <qualifiedname>BGroupLayoutBuilder::fLayoutStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="50" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBGroupLayoutBuilder_1a1c381396084ad5d55ef5594332c45cc9" prot="private" static="no" mutable="no">
+        <type><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> *</type>
+        <definition>BGroupLayout* BGroupLayoutBuilder::fRootLayout</definition>
+        <argsstring></argsstring>
+        <name>fRootLayout</name>
+        <qualifiedname>BGroupLayoutBuilder::fRootLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="49" column="13" bodyfile="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a1c6bdf7ce2f1de86572ad7fad7c8ea8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BGroupLayoutBuilder::BGroupLayoutBuilder</definition>
+        <argsstring>(BGroupLayout *layout)</argsstring>
+        <name>BGroupLayoutBuilder</name>
+        <qualifiedname>BGroupLayoutBuilder::BGroupLayoutBuilder</qualifiedname>
+        <param>
+          <type><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> *</type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+<para>Create a new layout builder that operates on <emphasis>layout</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The existing layout you want the builder to alter.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a7a370cc6380ca7319f53f2f5fb2faa7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BGroupLayoutBuilder::BGroupLayoutBuilder</definition>
+        <argsstring>(BGroupView *view)</argsstring>
+        <name>BGroupLayoutBuilder</name>
+        <qualifiedname>BGroupLayoutBuilder::BGroupLayoutBuilder</qualifiedname>
+        <param>
+          <type><ref refid="classBGroupView" kindref="compound">BGroupView</ref> *</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+<para>Create a new layout builder that operates on <emphasis>view</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The existing group view you want the builder to alter.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a1e8eb7c7f42c4da207c02fb48cc58e91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BGroupLayoutBuilder::BGroupLayoutBuilder</definition>
+        <argsstring>(orientation orientation=B_HORIZONTAL, float spacing=B_USE_DEFAULT_SPACING)</argsstring>
+        <name>BGroupLayoutBuilder</name>
+        <qualifiedname>BGroupLayoutBuilder::BGroupLayoutBuilder</qualifiedname>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+          <declname>orientation</declname>
+          <defval><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4ae796c97ca7ee2f24f65fc51ab650726d" kindref="member">B_HORIZONTAL</ref></defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>spacing</declname>
+          <defval>B_USE_DEFAULT_SPACING</defval>
+        </param>
+        <briefdescription>
+<para>Create a new layout builder with a new underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orientation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The orientation of the group. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spacing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The spacing between items.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a1ffcdbae947367a9db89ca87f780e360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::Add</definition>
+        <argsstring>(BLayoutItem *item)</argsstring>
+        <name>Add</name>
+        <qualifiedname>BGroupLayoutBuilder::Add</qualifiedname>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Add a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to the underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to add.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="28" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1adadce278c847bcdf569e5ce7089279d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::Add</definition>
+        <argsstring>(BLayoutItem *item, float weight)</argsstring>
+        <name>Add</name>
+        <qualifiedname>BGroupLayoutBuilder::Add</qualifiedname>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+<para>Add a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to the underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to add. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The weight of this view within the group.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="29" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1af68535944a6fb43ab2f1076ba34623aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::Add</definition>
+        <argsstring>(BView *view)</argsstring>
+        <name>Add</name>
+        <qualifiedname>BGroupLayoutBuilder::Add</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+<para>Add a <emphasis>view</emphasis> to the underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBView" kindref="compound">BView</ref> to add.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="26" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a8e06964e9ee417fc2f33c0685efca8ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::Add</definition>
+        <argsstring>(BView *view, float weight)</argsstring>
+        <name>Add</name>
+        <qualifiedname>BGroupLayoutBuilder::Add</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>view</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+<para>Add a <emphasis>view</emphasis> to the underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBView" kindref="compound">BView</ref> to add. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The weight of this view within the group.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="27" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a154b823784397326597af8d883e34cc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::AddGlue</definition>
+        <argsstring>(float weight=1.0f)</argsstring>
+        <name>AddGlue</name>
+        <qualifiedname>BGroupLayoutBuilder::AddGlue</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Set the glue for the top level group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The weight of the glue.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="36" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a600f1ee9816a86a42d39c381ef173c9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::AddGroup</definition>
+        <argsstring>(orientation orientation, float spacing=B_USE_DEFAULT_SPACING, float weight=1.0f)</argsstring>
+        <name>AddGroup</name>
+        <qualifiedname>BGroupLayoutBuilder::AddGroup</qualifiedname>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+          <declname>orientation</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>spacing</declname>
+          <defval>B_USE_DEFAULT_SPACING</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+<para>Add a subgroup to this layout, and return a reference to a builder that works on that subgroup. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>orientation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The orientation of the subgroup. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>spacing</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The spacing between elements of the subgroup. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The weight of the subgroup in the current group.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a reference to a builder that works on the newly added group. See <ref refid="classBGroupLayoutBuilder_1a63d7834965b8e4dea08e282fb5bed0d5" kindref="member">End()</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="31" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a77a9c4f7f6afcff8be00178f6d8aaf65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::AddStrut</definition>
+        <argsstring>(float size)</argsstring>
+        <name>AddStrut</name>
+        <qualifiedname>BGroupLayoutBuilder::AddStrut</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Add a strut to the current group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the strut.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="37" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a63d7834965b8e4dea08e282fb5bed0d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::End</definition>
+        <argsstring>()</argsstring>
+        <name>End</name>
+        <qualifiedname>BGroupLayoutBuilder::End</qualifiedname>
+        <briefdescription>
+<para>Get a reference to a builder of the parent of the current subgroup. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When you are currently in a subgroup, you may use this method to go back to the higher level layout.</para>
+<para><simplesect kind="return"><para>The method returns a reference to a builder that works on the parent of the current subgroup. If you use this method on a toplevel group, the returned reference will be unchanged from the level that you are currently working on.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="34" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a47c8064ab72d23c3cb1cd41c1f31c2a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::GetTopLayout</definition>
+        <argsstring>(BGroupLayout **_layout)</argsstring>
+        <name>GetTopLayout</name>
+        <qualifiedname>BGroupLayoutBuilder::GetTopLayout</qualifiedname>
+        <param>
+          <type><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> **</type>
+          <declname>_layout</declname>
+        </param>
+        <briefdescription>
+<para>Get a reference to the highest underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The variable to store a borrowed pointer to the highest underlying layout.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="22" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1ab66d2973d24717a9fb265eead5c84a8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::GetTopView</definition>
+        <argsstring>(BView **_view)</argsstring>
+        <name>GetTopView</name>
+        <qualifiedname>BGroupLayoutBuilder::GetTopView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> **</type>
+          <declname>_view</declname>
+        </param>
+        <briefdescription>
+<para>Get a reference to the owning <ref refid="classBView" kindref="compound">BView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The variable to store the borrowed pointer to the owning <ref refid="classBView" kindref="compound">BView</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="24" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1af9c2e9d75f1b1bed668d6d65f21860a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BGroupLayoutBuilder::operator BGroupLayout *</definition>
+        <argsstring>()</argsstring>
+        <name>operator BGroupLayout *</name>
+        <qualifiedname>BGroupLayoutBuilder::operator BGroupLayout *</qualifiedname>
+        <briefdescription>
+<para>Cast the builder to the underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Convenience method for the <ref refid="classBGroupLayoutBuilder_1a4748b55a8cba386b722e70c4e9a7f152" kindref="member">RootLayout()</ref> method.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a4748b55a8cba386b722e70c4e9a7f152" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> *</type>
+        <definition>BGroupLayout * BGroupLayoutBuilder::RootLayout</definition>
+        <argsstring>() const</argsstring>
+        <name>RootLayout</name>
+        <qualifiedname>BGroupLayoutBuilder::RootLayout</qualifiedname>
+        <briefdescription>
+<para>Get a reference to the closest underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A borrowed pointer to the current underlaying layout.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="20" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a4da1a3f35d3c6ea835b7f3cbe6089abe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayoutBuilder" kindref="compound">BGroupLayoutBuilder</ref> &amp;</type>
+        <definition>BGroupLayoutBuilder &amp; BGroupLayoutBuilder::SetInsets</definition>
+        <argsstring>(float left, float top, float right, float bottom)</argsstring>
+        <name>SetInsets</name>
+        <qualifiedname>BGroupLayoutBuilder::SetInsets</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>top</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>right</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>bottom</declname>
+        </param>
+        <briefdescription>
+<para>Set the insets of the top level group. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>left</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The left inset. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>top</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The top inset. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>right</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The right inset. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bottom</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bottom inset.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The method returns a self reference, so that calls to the builder may be chained.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="39" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a55d3d787154fe99f2697dc290f9adaf1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> *</type>
+        <definition>BGroupLayout * BGroupLayoutBuilder::TopLayout</definition>
+        <argsstring>() const</argsstring>
+        <name>TopLayout</name>
+        <qualifiedname>BGroupLayoutBuilder::TopLayout</qualifiedname>
+        <briefdescription>
+<para>Get a reference to the highest underlying <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A borrowed pointer to the current underlaying layout.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="21" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1ab748d35bd022ffc093d34fc600c7aba3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BGroupLayoutBuilder::TopView</definition>
+        <argsstring>() const</argsstring>
+        <name>TopView</name>
+        <qualifiedname>BGroupLayoutBuilder::TopView</qualifiedname>
+        <briefdescription>
+<para>Get a reference to the owning <ref refid="classBView" kindref="compound">BView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the same BView* as <ref refid="classBLayout_1adb34c16c239813c45d8159d3f18d96d9" kindref="member">BLayout::Owner()</ref>, this method is inherited from <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>.</para>
+<para><simplesect kind="return"><para>A borrowed pointer to the owning <ref refid="classBView" kindref="compound">BView</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="23" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a81c6dd2f923a52692912e885acb73e5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BGroupLayoutBuilder::_PopLayout</definition>
+        <argsstring>()</argsstring>
+        <name>_PopLayout</name>
+        <qualifiedname>BGroupLayoutBuilder::_PopLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="46" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBGroupLayoutBuilder_1a1c9c2602e6836018eeba4903a5b80295" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BGroupLayoutBuilder::_PushLayout</definition>
+        <argsstring>(BGroupLayout *layout)</argsstring>
+        <name>_PushLayout</name>
+        <qualifiedname>BGroupLayoutBuilder::_PushLayout</qualifiedname>
+        <param>
+          <type><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> *</type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="45" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><bold>Deprecated</bold> helper class that helps building a <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The modern builder can be found in <ref refid="classBLayoutBuilder_1_1Group" kindref="compound">BLayoutBuilder::Group&lt;&gt;</ref>.</para>
+<para>This builder supports nested group layouts. See <ref refid="classBGroupLayoutBuilder_1a600f1ee9816a86a42d39c381ef173c9f" kindref="member">AddGroup()</ref> and <ref refid="classBGroupLayoutBuilder_1a63d7834965b8e4dea08e282fb5bed0d5" kindref="member">End()</ref>.</para>
+<para><simplesect kind="warning"><para>This class is deprecated and should not be used in new projects. It may be removed in newer releases.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/GroupLayoutBuilder.h" bodystart="12" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classBGroupLayoutBuilder_1a81c6dd2f923a52692912e885acb73e5f" prot="private" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>_PopLayout</name></member>
+      <member refid="classBGroupLayoutBuilder_1a1c9c2602e6836018eeba4903a5b80295" prot="private" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>_PushLayout</name></member>
+      <member refid="classBGroupLayoutBuilder_1af68535944a6fb43ab2f1076ba34623aa" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>Add</name></member>
+      <member refid="classBGroupLayoutBuilder_1a8e06964e9ee417fc2f33c0685efca8ee" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>Add</name></member>
+      <member refid="classBGroupLayoutBuilder_1a1ffcdbae947367a9db89ca87f780e360" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>Add</name></member>
+      <member refid="classBGroupLayoutBuilder_1adadce278c847bcdf569e5ce7089279d6" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>Add</name></member>
+      <member refid="classBGroupLayoutBuilder_1a154b823784397326597af8d883e34cc6" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>AddGlue</name></member>
+      <member refid="classBGroupLayoutBuilder_1a600f1ee9816a86a42d39c381ef173c9f" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>AddGroup</name></member>
+      <member refid="classBGroupLayoutBuilder_1a77a9c4f7f6afcff8be00178f6d8aaf65" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>AddStrut</name></member>
+      <member refid="classBGroupLayoutBuilder_1a1e8eb7c7f42c4da207c02fb48cc58e91" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>BGroupLayoutBuilder</name></member>
+      <member refid="classBGroupLayoutBuilder_1a1c6bdf7ce2f1de86572ad7fad7c8ea8a" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>BGroupLayoutBuilder</name></member>
+      <member refid="classBGroupLayoutBuilder_1a7a370cc6380ca7319f53f2f5fb2faa7a" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>BGroupLayoutBuilder</name></member>
+      <member refid="classBGroupLayoutBuilder_1a63d7834965b8e4dea08e282fb5bed0d5" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>End</name></member>
+      <member refid="classBGroupLayoutBuilder_1a8af5c6946ffb9eb52e5d9e7b521f05b9" prot="private" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>fLayoutStack</name></member>
+      <member refid="classBGroupLayoutBuilder_1a1c381396084ad5d55ef5594332c45cc9" prot="private" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>fRootLayout</name></member>
+      <member refid="classBGroupLayoutBuilder_1a47c8064ab72d23c3cb1cd41c1f31c2a4" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>GetTopLayout</name></member>
+      <member refid="classBGroupLayoutBuilder_1ab66d2973d24717a9fb265eead5c84a8a" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>GetTopView</name></member>
+      <member refid="classBGroupLayoutBuilder_1af9c2e9d75f1b1bed668d6d65f21860a5" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>operator BGroupLayout *</name></member>
+      <member refid="classBGroupLayoutBuilder_1a4748b55a8cba386b722e70c4e9a7f152" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>RootLayout</name></member>
+      <member refid="classBGroupLayoutBuilder_1a4da1a3f35d3c6ea835b7f3cbe6089abe" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>SetInsets</name></member>
+      <member refid="classBGroupLayoutBuilder_1a55d3d787154fe99f2697dc290f9adaf1" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>TopLayout</name></member>
+      <member refid="classBGroupLayoutBuilder_1ab748d35bd022ffc093d34fc600c7aba3" prot="public" virt="non-virtual"><scope>BGroupLayoutBuilder</scope><name>TopView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

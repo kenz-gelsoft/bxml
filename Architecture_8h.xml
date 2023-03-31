@@ -1,0 +1,396 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="Architecture_8h" kind="file" language="C++">
+    <compoundname>Architecture.h</compoundname>
+    <includes local="no">sys/cdefs.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes refid="StringList_8h" local="no">StringList.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Architecture.h</label>
+        <link refid="Architecture_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Flattenable.h</label>
+        <link refid="Flattenable_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>List.h</label>
+        <link refid="List_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>String.h</label>
+        <link refid="String_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>StringList.h</label>
+        <link refid="StringList_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="8">
+        <label>inttypes.h</label>
+      </node>
+      <node id="11">
+        <label>stdarg.h</label>
+      </node>
+      <node id="12">
+        <label>string.h</label>
+      </node>
+      <node id="2">
+        <label>sys/cdefs.h</label>
+      </node>
+      <node id="3">
+        <label>sys/types.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__BEGIN_DECLS const char *</type>
+        <definition>const char * get_architecture</definition>
+        <argsstring>()</argsstring>
+        <name>get_architecture</name>
+        <briefdescription>
+<para>Returns the name of the caller&apos;s architecture. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the packaging architecture the caller&apos;s code has been built for, which may not be the system&apos;s primary architecture.</para>
+<para><simplesect kind="return"><para>The name of the caller&apos;s architecture.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="Architecture_8h_1a0efdcf18cd7ede4fac7a89cb90f96504" kindref="member">get_primary_architecture()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="16" column="11" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="16" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="Architecture_8h_1ab1f35f90c5b3c505968ec3c7451b09e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t get_architectures</definition>
+        <argsstring>(BStringList &amp;_architectures)</argsstring>
+        <name>get_architectures</name>
+        <param>
+          <type><ref refid="classBStringList" kindref="compound">BStringList</ref> &amp;</type>
+          <declname>_architectures</declname>
+        </param>
+        <briefdescription>
+<para>Returns the names of the system&apos;s primary and secondary architectures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a C++ interface similar to <ref refid="Architecture_8h_1a554cadb35f216e54dbe3ba232ac60eb8" kindref="member">get_architectures(const char**,size_t)</ref>. Instead of returning the architecture names in a pre-allocated array, it expects a <ref refid="classBStringList" kindref="compound">BStringList</ref>. Note that this version can fail when running out of memory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_architectures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to a <ref refid="classBStringList" kindref="compound">BStringList</ref> that will be set to the list of names of primary and secondary architectures. On error the list will be emptied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A memory allocation failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="Architecture_8h_1a554cadb35f216e54dbe3ba232ac60eb8" kindref="member">get_architectures(const char**,size_t)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="32" column="9" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="32" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="Architecture_8h_1a554cadb35f216e54dbe3ba232ac60eb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t get_architectures</definition>
+        <argsstring>(const char **architectures, size_t count)</argsstring>
+        <name>get_architectures</name>
+        <param>
+          <type>const char **</type>
+          <declname>architectures</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Returns the names of the system&apos;s primary and secondary architectures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a convenience function that returns both the primary architecture as returned by <ref refid="Architecture_8h_1a0efdcf18cd7ede4fac7a89cb90f96504" kindref="member">get_primary_architecture()</ref> and the secondary architectures as returned by <ref refid="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" kindref="member">get_secondary_architectures()</ref> in the provided array.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>architectures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pre-allocated array of size <emphasis>count</emphasis> where the names of the architectures will be stored. Can be <computeroutput>NULL</computeroutput> if <emphasis>count</emphasis> is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the <emphasis>architectures</emphasis> array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The actual number of architectures. May be greater than <emphasis>count</emphasis>, but at most <emphasis>count</emphasis> names will be written to <emphasis>architectures</emphasis>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="20" column="7" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="20" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="Architecture_8h_1a0efdcf18cd7ede4fac7a89cb90f96504" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * get_primary_architecture</definition>
+        <argsstring>()</argsstring>
+        <name>get_primary_architecture</name>
+        <briefdescription>
+<para>Returns the name of the system&apos;s primary architecture. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the packaging architecture the main system has been built for.</para>
+<para><simplesect kind="return"><para>The name of the system&apos;s primary architecture.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="17" column="11" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="17" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="Architecture_8h_1a201a5c7379de587df560fbdf39522669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>__END_DECLS <ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t get_secondary_architectures</definition>
+        <argsstring>(BStringList &amp;_architectures)</argsstring>
+        <name>get_secondary_architectures</name>
+        <param>
+          <type><ref refid="classBStringList" kindref="compound">BStringList</ref> &amp;</type>
+          <declname>_architectures</declname>
+        </param>
+        <briefdescription>
+<para>Returns the names of the system&apos;s secondary architectures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a C++ interface similar to <ref refid="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" kindref="member">get_secondary_architectures(const char**,size_t)</ref>. Instead of returning the architecture names in a pre-allocated array, it expects a <ref refid="classBStringList" kindref="compound">BStringList</ref>. Note that this version can fail when running out of memory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_architectures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to a <ref refid="classBStringList" kindref="compound">BStringList</ref> that will be set to the list of names of secondary architectures. On error the list will be emptied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A memory allocation failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" kindref="member">get_secondary_architectures(const char**,size_t)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="31" column="9" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="31" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t get_secondary_architectures</definition>
+        <argsstring>(const char **architectures, size_t count)</argsstring>
+        <name>get_secondary_architectures</name>
+        <param>
+          <type>const char **</type>
+          <declname>architectures</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Returns the names of the system&apos;s secondary architectures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>These are the packaging architectures the system does provide additional support for (i.e. not including the primary architecture). Only actually installed support is considered. E.g. on a pure x86 gcc 2 system (primary architecture &quot;x86_gcc2&quot;) without any support installed for gcc 4 executables, the function will not return any secondary architectures, even if it would be possible to install the support for gcc 4.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>architectures</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pre-allocated array of size <emphasis>count</emphasis> where the names of the secondary architectures will be stored. Can be <computeroutput>NULL</computeroutput>, if <emphasis>count</emphasis> is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the <emphasis>architectures</emphasis> array.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The actual number of secondary architectures. May be greater than <emphasis>count</emphasis>, but at most <emphasis>count</emphasis> names will be written to <emphasis>architectures</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="18" column="7" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="18" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="Architecture_8h_1af6527c1353b821375656e9720d033a1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * guess_architecture_for_path</definition>
+        <argsstring>(const char *path)</argsstring>
+        <name>guess_architecture_for_path</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Returns the name of the architecture associated with the given path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the given path refers to an executable, library, or add-on, the function determines for which architecture it has been built and returns that. Otherwise it analyzes the path itself, checking whether it points to/into a directory where files for a secondary architectures reside. If that proved inconclusive the name of the primary architecture is returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to be analyzed. It doesn&apos;t necessarily have to point to an existing file or directory.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the architecture determined from <emphasis>path</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Architecture.h" line="21" column="11" declfile="/boot/home/src/haiku/headers/os/support/Architecture.h" declline="21" declcolumn="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides functions for getting the primary and secondary architectures of the system. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2013-2014<sp/>Haiku,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_ARCHITECTURE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_ARCHITECTURE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/cdefs.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">__BEGIN_DECLS</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture</ref>();</highlight></codeline>
+<codeline lineno="17" refid="Architecture_8h_1a0efdcf18cd7ede4fac7a89cb90f96504" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="Architecture_8h_1a0efdcf18cd7ede4fac7a89cb90f96504" kindref="member">get_primary_architecture</ref>();</highlight></codeline>
+<codeline lineno="18" refid="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" kindref="member">get_secondary_architectures</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>architectures,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count);</highlight></codeline>
+<codeline lineno="20" refid="Architecture_8h_1a554cadb35f216e54dbe3ba232ac60eb8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Architecture_8h_1a554cadb35f216e54dbe3ba232ac60eb8" kindref="member">get_architectures</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">**<sp/>architectures,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count);</highlight></codeline>
+<codeline lineno="21" refid="Architecture_8h_1af6527c1353b821375656e9720d033a1e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="Architecture_8h_1af6527c1353b821375656e9720d033a1e" kindref="member">guess_architecture_for_path</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">__END_DECLS</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>C++<sp/>API<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="StringList_8h" kindref="compound">StringList.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="Architecture_8h_1a201a5c7379de587df560fbdf39522669" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><ref refid="Architecture_8h_1a876a31291f5cee93da7d8ca8fa2caed6" kindref="member">get_secondary_architectures</ref>(<ref refid="classBStringList" kindref="compound">BStringList</ref>&amp;<sp/>_architectures);</highlight></codeline>
+<codeline lineno="32" refid="Architecture_8h_1ab1f35f90c5b3c505968ec3c7451b09e1" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><ref refid="Architecture_8h_1a554cadb35f216e54dbe3ba232ac60eb8" kindref="member">get_architectures</ref>(<ref refid="classBStringList" kindref="compound">BStringList</ref>&amp;<sp/>_architectures);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_ARCHITECTURE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/support/Architecture.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="support_intro" kind="page">
+    <compoundname>support_intro</compoundname>
+    <title>Introduction to the Support Kit</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The Support Kit provides a handy set of classes that you can use in your applications. These classes provide:<itemizedlist>
+<listitem><para><bold>Thread</bold> <bold>Safety</bold>. Haiku can execute multiple threads of an application in parallel, letting certain parts of an application continue when one part is stalled, as well as letting an application process multiple pieces of data at the same time on multicore or multiprocessor systems. However, there are times when multiple threads desire to work on the same piece of data at the same time, potentially causing a conflict where variables or pointers are changed by one thread causing another to execute incorrectly. To prevent this, Haiku implements a "locking" mechanism, allowing one thread to "lock out" other threads from executing code that might modify the same data.</para>
+</listitem><listitem><para><bold>Archiving</bold> <bold>and</bold> <bold>IO</bold>. These classes allow a programmer to convert objects into a form that can more easily be transferred to other applications or stored to disk, as well as performing basic input and output operations.</para>
+</listitem><listitem><para><bold>Memory</bold> <bold>Allocation</bold>. This class allows a programmer to hand off some of the duties of memory accounting and management.</para>
+</listitem><listitem><para><bold>Common</bold> <bold>Datatypes</bold>. To avoid unnecessary duplication of code and to make life easier for programmers, Haiku includes classes that handle management of ordered lists and strings.</para>
+</listitem></itemizedlist>
+</para>
+<para>There are also a number of utility functions to time actions, play system alert sounds, compare strings, and atomically manipulate integers. Have a look at the overview, or go straight to the complete <ref refid="group__support" kindref="compound">list of components </ref> of this kit.</para>
+<sect1 id="support_intro_1Overview">
+<title>Overview</title>
+<para><itemizedlist>
+<listitem><para>Thread Safety:<itemizedlist>
+<listitem><para><ref refid="classBLocker" kindref="compound">BLocker</ref> provides a semaphore-like locking mechanism allowing for recursive locks.<itemizedlist>
+<listitem><para><ref refid="classBAutolock" kindref="compound">BAutolock</ref> provides a simple method of automatically removing a lock when a function ends.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><ref refid="TLS_8h" kindref="compound">Thread Local Storage</ref> allows a global variable\&apos;s content to be sensitive to thread context.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Archiving and IO:<itemizedlist>
+<listitem><para><ref refid="classBArchivable" kindref="compound">BArchivable</ref> provides an interface for "archiving" objects so that they may be sent to other applications where an identical copy will be recreated.<itemizedlist>
+<listitem><para><ref refid="classBArchiver" kindref="compound">BArchiver</ref> simplifies archiving of <ref refid="classBArchivable" kindref="compound">BArchivable</ref> hierarchies.</para>
+</listitem><listitem><para><ref refid="classBUnarchiver" kindref="compound">BUnarchiver</ref> simplifies unarchiving hierarchies that have been archived using <ref refid="classBArchiver" kindref="compound">BArchiver</ref>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><ref refid="classBFlattenable" kindref="compound">BFlattenable</ref> provides an interface for "flattening" objects so that they may be easily stored to disk.</para>
+</listitem><listitem><para><ref refid="classBDataIO" kindref="compound">BDataIO</ref> provides an interface for generalized read/write streams.<itemizedlist>
+<listitem><para><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> extends <ref refid="classBDataIO" kindref="compound">BDataIO</ref> to allow seeking within the data.<itemizedlist>
+<listitem><para><ref refid="classBBufferIO" kindref="compound">BBufferIO</ref> creates a buffer and attaches it to a <ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> stream, allowing for reduced load on the underlying stream.</para>
+</listitem><listitem><para><ref refid="classBMemoryIO" kindref="compound">BMemoryIO</ref> allows operation on an already-existing buffer.</para>
+</listitem><listitem><para><ref refid="classBMallocIO" kindref="compound">BMallocIO</ref> creates and allows operation on a buffer.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Memory Allocation:<itemizedlist>
+<listitem><para><ref refid="classBBlockCache" kindref="compound">BBlockCache</ref> allows an application to allocate a "pool" of memory blocks that the application can fetch and dispose of as it pleases, letting the application make only a few large memory allocations, instead of many expensive small allocations.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Common Datatypes:<itemizedlist>
+<listitem><para><ref refid="classBList" kindref="compound">BList</ref> allows simple ordered lists and provides common access, modification, and comparison functions.</para>
+</listitem><listitem><para><ref refid="classBString" kindref="compound">BString</ref> allows strings and provides common access, modification, and comparison functions.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><ref refid="classBStopWatch" kindref="compound">BStopWatch</ref> allows an application to measure the time an action takes.</para>
+</listitem><listitem><para><ref refid="group__support__globals" kindref="compound">Global functions</ref></para>
+</listitem><listitem><para><ref refid="TypeConstants_8h" kindref="compound">Common types and constants</ref></para>
+</listitem><listitem><para>Error codes for all kits </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="support/support_intro.dox"/>
+  </compounddef>
+</doxygen>

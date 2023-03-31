@@ -1,0 +1,589 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBNetworkAddressResolver" kind="class" language="C++" prot="public">
+    <compoundname>BNetworkAddressResolver</compoundname>
+    <basecompoundref refid="classBReferenceable" prot="public" virt="non-virtual">BReferenceable</basecompoundref>
+    <innerclass refid="structBNetworkAddressResolver_1_1CacheEntry" prot="private">BNetworkAddressResolver::CacheEntry</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBNetworkAddressResolver_1a96c598dc252ea52c6aa6ae6a273d3c07" prot="private" static="no" mutable="no">
+        <type>addrinfo *</type>
+        <definition>addrinfo* BNetworkAddressResolver::fInfo</definition>
+        <argsstring></argsstring>
+        <name>fInfo</name>
+        <qualifiedname>BNetworkAddressResolver::fInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="77" column="9" bodyfile="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNetworkAddressResolver_1a62cddf30f42f5f467de8ee30c2edd747" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::fStatus</definition>
+        <argsstring></argsstring>
+        <name>fStatus</name>
+        <qualifiedname>BNetworkAddressResolver::fStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="78" column="9" bodyfile="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classBNetworkAddressResolver_1a6fc5adef276674e595577b7b57ca15c2" prot="private" static="yes" mutable="no">
+        <type><ref refid="classBLocker" kindref="compound">BLocker</ref></type>
+        <definition>BLocker BNetworkAddressResolver::sCacheLock</definition>
+        <argsstring></argsstring>
+        <name>sCacheLock</name>
+        <qualifiedname>BNetworkAddressResolver::sCacheLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="107" column="14" bodyfile="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBNetworkAddressResolver_1a5df7be7cdf2087eeccf81878f17fcf50" prot="private" static="yes" mutable="no">
+        <type><ref refid="classBObjectList" kindref="compound">BObjectList</ref>&lt; CacheEntry &gt;</type>
+        <definition>BObjectList&lt;CacheEntry&gt; BNetworkAddressResolver::sCacheMap</definition>
+        <argsstring></argsstring>
+        <name>sCacheMap</name>
+        <qualifiedname>BNetworkAddressResolver::sCacheMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="108" column="19" bodyfile="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBNetworkAddressResolver_1ac3a61ba0750ed2ab2442977d4d77174f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNetworkAddressResolver::BNetworkAddressResolver</definition>
+        <argsstring>()</argsstring>
+        <name>BNetworkAddressResolver</name>
+        <qualifiedname>BNetworkAddressResolver::BNetworkAddressResolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a3f9bf7ea2b7f27cbf3dcce82ff2c0785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNetworkAddressResolver::BNetworkAddressResolver</definition>
+        <argsstring>(const char *address, const char *service, uint32 flags=0)</argsstring>
+        <name>BNetworkAddressResolver</name>
+        <qualifiedname>BNetworkAddressResolver::BNetworkAddressResolver</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a066c101516102af29b75f2ba7dfd2ca8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNetworkAddressResolver::BNetworkAddressResolver</definition>
+        <argsstring>(const char *address, uint16 port=0, uint32 flags=0)</argsstring>
+        <name>BNetworkAddressResolver</name>
+        <qualifiedname>BNetworkAddressResolver::BNetworkAddressResolver</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1aa3ec53d897bfebc3b22ccf9077c8fca1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNetworkAddressResolver::BNetworkAddressResolver</definition>
+        <argsstring>(int family, const char *address, const char *service, uint32 flags=0)</argsstring>
+        <name>BNetworkAddressResolver</name>
+        <qualifiedname>BNetworkAddressResolver::BNetworkAddressResolver</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a2db7cafc031e70557c84451206159665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNetworkAddressResolver::BNetworkAddressResolver</definition>
+        <argsstring>(int family, const char *address, uint16 port=0, uint32 flags=0)</argsstring>
+        <name>BNetworkAddressResolver</name>
+        <qualifiedname>BNetworkAddressResolver::BNetworkAddressResolver</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="34" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a28b27b17084145687159e56634479c36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNetworkAddressResolver::~BNetworkAddressResolver</definition>
+        <argsstring>()</argsstring>
+        <name>~BNetworkAddressResolver</name>
+        <qualifiedname>BNetworkAddressResolver::~BNetworkAddressResolver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a1ca6c8775b0209ab636cbde698a7a206" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::GetNextAddress</definition>
+        <argsstring>(int family, uint32 *cookie, BNetworkAddress &amp;address) const</argsstring>
+        <name>GetNextAddress</name>
+        <qualifiedname>BNetworkAddressResolver::GetNextAddress</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>cookie</declname>
+        </param>
+        <param>
+          <type>BNetworkAddress &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a4b5c01355461bc0c33877576187af2c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::GetNextAddress</definition>
+        <argsstring>(uint32 *cookie, BNetworkAddress &amp;address) const</argsstring>
+        <name>GetNextAddress</name>
+        <qualifiedname>BNetworkAddressResolver::GetNextAddress</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>cookie</declname>
+        </param>
+        <param>
+          <type>BNetworkAddress &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="55" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1ac05447980639a7ff2a91b67071b98977" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BNetworkAddressResolver::InitCheck</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a8efc3aa942fa508d7a0f49c7acc0eb4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::SetTo</definition>
+        <argsstring>(const char *address, const char *service, uint32 flags=0)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNetworkAddressResolver::SetTo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1ad7e6f355ffbd366afdc35ef6b79467ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::SetTo</definition>
+        <argsstring>(const char *address, uint16 port=0, uint32 flags=0)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNetworkAddressResolver::SetTo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="46" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1aaf5d7130042e8531dca5ffa15129131f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::SetTo</definition>
+        <argsstring>(int family, const char *address, const char *service, uint32 flags=0)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNetworkAddressResolver::SetTo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="52" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1aa57029c60f81c16dfc6db8ffe7c3c986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNetworkAddressResolver::SetTo</definition>
+        <argsstring>(int family, const char *address, uint16 port=0, uint32 flags=0)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BNetworkAddressResolver::SetTo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="50" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a39f018db139c09b5991e7e37cb2feccd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BNetworkAddressResolver::Unset</definition>
+        <argsstring>()</argsstring>
+        <name>Unset</name>
+        <qualifiedname>BNetworkAddressResolver::Unset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="44" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a01c60bdf9beadac31514dcfe4529cfcc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBReference" kindref="compound">BReference</ref>&lt; const BNetworkAddressResolver &gt;</type>
+        <definition>static BReference&lt; const BNetworkAddressResolver &gt; BNetworkAddressResolver::Resolve</definition>
+        <argsstring>(const char *address, const char *service, uint32 flags=0)</argsstring>
+        <name>Resolve</name>
+        <qualifiedname>BNetworkAddressResolver::Resolve</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="63" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a6283ca1b46d441a564298a810ce42e5e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBReference" kindref="compound">BReference</ref>&lt; const BNetworkAddressResolver &gt;</type>
+        <definition>static BReference&lt; const BNetworkAddressResolver &gt; BNetworkAddressResolver::Resolve</definition>
+        <argsstring>(const char *address, uint16 port=0, uint32 flags=0)</argsstring>
+        <name>Resolve</name>
+        <qualifiedname>BNetworkAddressResolver::Resolve</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="66" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1a2ad904bd40251a7256213d7d93e7702b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBReference" kindref="compound">BReference</ref>&lt; const BNetworkAddressResolver &gt;</type>
+        <definition>static BReference&lt; const BNetworkAddressResolver &gt; BNetworkAddressResolver::Resolve</definition>
+        <argsstring>(int family, const char *address, const char *service, uint32 flags=0)</argsstring>
+        <name>Resolve</name>
+        <qualifiedname>BNetworkAddressResolver::Resolve</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="69" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNetworkAddressResolver_1ae46b9b45e7f90d73f4c074bb40c551d2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBReference" kindref="compound">BReference</ref>&lt; const BNetworkAddressResolver &gt;</type>
+        <definition>static BReference&lt; const BNetworkAddressResolver &gt; BNetworkAddressResolver::Resolve</definition>
+        <argsstring>(int family, const char *address, uint16 port=0, uint32 flags=0)</argsstring>
+        <name>Resolve</name>
+        <qualifiedname>BNetworkAddressResolver::Resolve</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>family</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+          <declname>port</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="72" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BNetworkAddressResolver</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BReferenceable</label>
+        <link refid="classBReferenceable"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BNetworkAddressResolver</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BReferenceable</label>
+        <link refid="classBReferenceable"/>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" line="27" column="1" bodyfile="/boot/home/src/haiku/headers/os/net/NetworkAddressResolver.h" bodystart="27" bodyend="109"/>
+    <listofallmembers>
+      <member refid="classBReferenceable_1ac98c8b1801978166c2a7e6c994fb689a" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>AcquireReference</name></member>
+      <member refid="classBNetworkAddressResolver_1ac3a61ba0750ed2ab2442977d4d77174f" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>BNetworkAddressResolver</name></member>
+      <member refid="classBNetworkAddressResolver_1a066c101516102af29b75f2ba7dfd2ca8" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>BNetworkAddressResolver</name></member>
+      <member refid="classBNetworkAddressResolver_1a3f9bf7ea2b7f27cbf3dcce82ff2c0785" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>BNetworkAddressResolver</name></member>
+      <member refid="classBNetworkAddressResolver_1a2db7cafc031e70557c84451206159665" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>BNetworkAddressResolver</name></member>
+      <member refid="classBNetworkAddressResolver_1aa3ec53d897bfebc3b22ccf9077c8fca1" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>BNetworkAddressResolver</name></member>
+      <member refid="classBReferenceable_1aef45178f24465974be5d385b204176e3" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>BReferenceable</name></member>
+      <member refid="classBReferenceable_1a2ffe8211f9390cb6b83f0fc86824a3a1" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>CountReferences</name></member>
+      <member refid="classBNetworkAddressResolver_1a96c598dc252ea52c6aa6ae6a273d3c07" prot="private" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>fInfo</name></member>
+      <member refid="classBReferenceable_1aa9e2bd2354b0985827a2868b8aa15f47" prot="protected" virt="virtual"><scope>BNetworkAddressResolver</scope><name>FirstReferenceAcquired</name></member>
+      <member refid="classBReferenceable_1ad4035cf7e6b586c37743c2d8ce07c78d" prot="protected" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>fReferenceCount</name></member>
+      <member refid="classBNetworkAddressResolver_1a62cddf30f42f5f467de8ee30c2edd747" prot="private" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>fStatus</name></member>
+      <member refid="classBNetworkAddressResolver_1a4b5c01355461bc0c33877576187af2c9" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>GetNextAddress</name></member>
+      <member refid="classBNetworkAddressResolver_1a1ca6c8775b0209ab636cbde698a7a206" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>GetNextAddress</name></member>
+      <member refid="classBNetworkAddressResolver_1ac05447980639a7ff2a91b67071b98977" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>InitCheck</name></member>
+      <member refid="classBReferenceable_1a86ae8a45fa2fce4f5db3bdecac6a0a5e" prot="protected" virt="virtual"><scope>BNetworkAddressResolver</scope><name>LastReferenceReleased</name></member>
+      <member refid="classBReferenceable_1a699a804cd2650e9f9078c49958aa431b" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>ReleaseReference</name></member>
+      <member refid="classBNetworkAddressResolver_1a01c60bdf9beadac31514dcfe4529cfcc" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>Resolve</name></member>
+      <member refid="classBNetworkAddressResolver_1a6283ca1b46d441a564298a810ce42e5e" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>Resolve</name></member>
+      <member refid="classBNetworkAddressResolver_1a2ad904bd40251a7256213d7d93e7702b" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>Resolve</name></member>
+      <member refid="classBNetworkAddressResolver_1ae46b9b45e7f90d73f4c074bb40c551d2" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>Resolve</name></member>
+      <member refid="classBNetworkAddressResolver_1a6fc5adef276674e595577b7b57ca15c2" prot="private" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>sCacheLock</name></member>
+      <member refid="classBNetworkAddressResolver_1a5df7be7cdf2087eeccf81878f17fcf50" prot="private" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>sCacheMap</name></member>
+      <member refid="classBNetworkAddressResolver_1ad7e6f355ffbd366afdc35ef6b79467ee" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>SetTo</name></member>
+      <member refid="classBNetworkAddressResolver_1a8efc3aa942fa508d7a0f49c7acc0eb4f" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>SetTo</name></member>
+      <member refid="classBNetworkAddressResolver_1aa57029c60f81c16dfc6db8ffe7c3c986" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>SetTo</name></member>
+      <member refid="classBNetworkAddressResolver_1aaf5d7130042e8531dca5ffa15129131f" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>SetTo</name></member>
+      <member refid="classBNetworkAddressResolver_1a39f018db139c09b5991e7e37cb2feccd" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>Unset</name></member>
+      <member refid="classBNetworkAddressResolver_1a28b27b17084145687159e56634479c36" prot="public" virt="non-virtual"><scope>BNetworkAddressResolver</scope><name>~BNetworkAddressResolver</name></member>
+      <member refid="classBReferenceable_1aed77fa81682764305085f8c8480b2b19" prot="public" virt="virtual"><scope>BNetworkAddressResolver</scope><name>~BReferenceable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

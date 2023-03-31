@@ -1,0 +1,1834 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBLayout" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BLayout</compoundname>
+    <basecompoundref refid="classBLayoutItem" prot="public" virt="non-virtual">BLayoutItem</basecompoundref>
+    <derivedcompoundref refid="classBAbstractLayout" prot="public" virt="non-virtual">BAbstractLayout</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>BView Targeting and Attachment Information</header>
+      <memberdef kind="function" id="classBLayout_1adb34c16c239813c45d8159d3f18d96d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BLayout::Owner</definition>
+        <argsstring>() const</argsstring>
+        <name>Owner</name>
+        <qualifiedname>BLayout::Owner</qualifiedname>
+        <briefdescription>
+<para>Returns the Owner of this layout, i.e. the view this layout manages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="27" column="6"/>
+        <referencedby refid="classBLayoutBuilder_1_1Cards_1a08329883aebee0490f3faf96d86f1108" compoundref="LayoutBuilder_8h" startline="1433" endline="1440">BLayoutBuilder::Cards&lt; ParentBuilder &gt;::Cards</referencedby>
+        <referencedby refid="classBLayoutBuilder_1_1Grid_1ad7bd68789548063830f46a0bb279e17a" compoundref="LayoutBuilder_8h" startline="793" endline="800">BLayoutBuilder::Grid&lt; ParentBuilder &gt;::Grid</referencedby>
+        <referencedby refid="classBLayoutBuilder_1_1Group_1adebaf628afb53fdd86d6b153d60cf0ea" compoundref="LayoutBuilder_8h" startline="454" endline="461">BLayoutBuilder::Group&lt; ParentBuilder &gt;::Group</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a14639db95758a7b1b9604473e8f3a7c9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BLayout::TargetView</definition>
+        <argsstring>() const</argsstring>
+        <name>TargetView</name>
+        <qualifiedname>BLayout::TargetView</qualifiedname>
+        <briefdescription>
+<para>Returns the target view of this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The target view of a layout becomes the parent of any <ref refid="classBView" kindref="compound">BView</ref>&apos;s in this layout, as well as the <ref refid="classBView" kindref="compound">BView</ref>&apos;s returned by <ref refid="classBLayoutItem_1a4a053fcf62bc431028355efbd59873fc" kindref="member">BLayoutItem::View()</ref> for each <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> in this layout.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1aefd7bf5546d6b69d1561e7baebf15387" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BLayout::View</definition>
+        <argsstring>()</argsstring>
+        <name>View</name>
+        <qualifiedname>BLayout::View</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a4a053fcf62bc431028355efbd59873fc">View</reimplements>
+        <briefdescription>
+<para>Returns the same BView* as <ref refid="classBLayout_1adb34c16c239813c45d8159d3f18d96d9" kindref="member">BLayout::Owner()</ref>, this method is inherited from <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="29" column="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Adding, Removing, Counting and Accessing Children</header>
+      <memberdef kind="function" id="classBLayout_1a83f286f504a1a735f07304c7647ba7f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+        <definition>BLayoutItem * BLayout::AddView</definition>
+        <argsstring>(BView *child)</argsstring>
+        <name>AddView</name>
+        <qualifiedname>BLayout::AddView</qualifiedname>
+        <reimplementedby refid="classBGridLayout_1a226fb320cbb2f5028fe4b537d9922fb3">AddView</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1ac732947ea67a015a1d2babe82f60fd90">AddView</reimplementedby>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to represent a <ref refid="classBView" kindref="compound">BView</ref>, and adds that item to this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><emphasis>child</emphasis> is added to this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view.</para>
+<para><simplesect kind="return"><para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> created to represent <emphasis>child</emphasis>, or <computeroutput>NULL</computeroutput> if there was an error.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>child</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBView" kindref="compound">BView</ref> to be added to this <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="32" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1ad7ff945dc53e94a34954da6eaf9e2268" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+        <definition>BLayoutItem * BLayout::AddView</definition>
+        <argsstring>(int32 index, BView *child)</argsstring>
+        <name>AddView</name>
+        <qualifiedname>BLayout::AddView</qualifiedname>
+        <reimplementedby refid="classBGridLayout_1a98676374bc080f6070686362409b4378">AddView</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1a7fce65b286ae16105cb6b91661e24b55">AddView</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to represent <emphasis>child</emphasis>, and adds that item at <emphasis>index</emphasis> to this layout. <emphasis>child</emphasis> is added to this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="33" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a61bab6592bb26173d12488526b203ead" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLayout::AddItem</definition>
+        <argsstring>(BLayoutItem *item)</argsstring>
+        <name>AddItem</name>
+        <qualifiedname>BLayout::AddItem</qualifiedname>
+        <reimplementedby refid="classBGridLayout_1a2428b80791df9c5d01c5c88a62455d7e">AddItem</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1a7d53490ec7fe0b7fff6c2df5cc084493">AddItem</reimplementedby>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Adds a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to this layout, and adds the <ref refid="classBView" kindref="compound">BView</ref> it represents to this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to be added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the item was added, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="35" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a1b9a50f6a573a777afc2b27bac65c7f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLayout::AddItem</definition>
+        <argsstring>(int32 index, BLayoutItem *item)</argsstring>
+        <name>AddItem</name>
+        <qualifiedname>BLayout::AddItem</qualifiedname>
+        <reimplementedby refid="classBGridLayout_1a016186a888ad44a8807d7686c00f2d84">AddItem</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1abe585d5630ede5df6602b43421fe8ebc">AddItem</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Adds <emphasis>item</emphasis> to this layout, and adds the <ref refid="classBView" kindref="compound">BView</ref> <emphasis>item</emphasis> represents to this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index at which to add <computeroutput>item</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+If <emphasis>index</emphasis> is out of bounds, <emphasis>item</emphasis> will be added at the end. If <emphasis>index</emphasis> is somewhere between the first and last indices, then items from <emphasis>index</emphasis> to the end will be shuffled over by one.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the item was added, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a3120e95dc34ab57ab276c324ec94654c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLayout::RemoveView</definition>
+        <argsstring>(BView *child)</argsstring>
+        <name>RemoveView</name>
+        <qualifiedname>BLayout::RemoveView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+<para>Removes and deletes all <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> representing a <ref refid="classBView" kindref="compound">BView</ref> from this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>child</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBView" kindref="compound">BView</ref> to be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the item was removed, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="38" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1abf0b19d4203e1a41292137fd8a2038d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLayout::RemoveItem</definition>
+        <argsstring>(BLayoutItem *item)</argsstring>
+        <name>RemoveItem</name>
+        <qualifiedname>BLayout::RemoveItem</qualifiedname>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Removes a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> from this layout, and also removes the view it represents from this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to be removed</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para><emphasis>item</emphasis> is not deleted, you must delete it manually, or add it to another <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+</simplesect>
+<simplesect kind="warning"><para><emphasis>item-&gt;<ref refid="classBLayout_1aefd7bf5546d6b69d1561e7baebf15387" kindref="member">View()</ref></emphasis>, even when it is removed from the target view, is not deleted. If you want it deleted, you must delete it yourself!</para>
+</simplesect>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the item was removed, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="39" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a34a299447961069bdd54d19ae7a5176a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+        <definition>BLayoutItem * BLayout::RemoveItem</definition>
+        <argsstring>(int32 index)</argsstring>
+        <name>RemoveItem</name>
+        <qualifiedname>BLayout::RemoveItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Remove the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> at <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBLayout_1abf0b19d4203e1a41292137fd8a2038d0" kindref="member">RemoveItem(BLayoutItem*)</ref></para>
+</simplesect>
+<simplesect kind="return"><para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> that was removed.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="40" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1ad47d881e6008578d2f8cc0e3c6ea467a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+        <definition>BLayoutItem * BLayout::ItemAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>ItemAt</name>
+        <qualifiedname>BLayout::ItemAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> at <emphasis>index</emphasis>. Returns <computeroutput>NULL</computeroutput> if <emphasis>index</emphasis> is out of bounds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1ab7d1b881e91213047412abdcb10eae4f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLayout::CountItems</definition>
+        <argsstring>() const</argsstring>
+        <name>CountItems</name>
+        <qualifiedname>BLayout::CountItems</qualifiedname>
+        <briefdescription>
+<para>Get the number of <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> s in this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="43" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a1d3746cfb977dce44b052e7d58bd481c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLayout::IndexOfItem</definition>
+        <argsstring>(const BLayoutItem *item) const</argsstring>
+        <name>IndexOfItem</name>
+        <qualifiedname>BLayout::IndexOfItem</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Get the index of a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> in this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> whose index you want.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>-1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>item</emphasis> was not found in this <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="44" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1ade2afbfa0bd50c01a1ce3db6654eaa0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLayout::IndexOfView</definition>
+        <argsstring>(BView *child) const</argsstring>
+        <name>IndexOfView</name>
+        <qualifiedname>BLayout::IndexOfView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>child</declname>
+        </param>
+        <briefdescription>
+<para>Get the index of <emphasis>child</emphasis> in this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This finds the index of views added through <ref refid="classBLayout_1a83f286f504a1a735f07304c7647ba7f9" kindref="member">BLayout::AddView()</ref>, not the index of an item which represents <emphasis>child</emphasis> that was added through <ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">BLayout::AddItem()</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="45" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Subclass Helpers</header>
+      <description><para>These methods are meant to ease the development of <ref refid="classBLayout" kindref="compound">BLayout</ref> subclasses. </para>
+</description>
+      <memberdef kind="function" id="classBLayout_1a4f2ff9362ef1e84d7c886c58881d2be9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLayout::AncestorsVisible</definition>
+        <argsstring>() const</argsstring>
+        <name>AncestorsVisible</name>
+        <qualifiedname>BLayout::AncestorsVisible</qualifiedname>
+        <briefdescription>
+<para>Get the visibility of the ancestors of this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a <ref refid="classBLayout" kindref="compound">BLayout</ref> is connected to a <ref refid="classBView" kindref="compound">BView</ref>, this will always return <computeroutput>true</computeroutput>. If a <ref refid="classBLayout" kindref="compound">BLayout</ref> is nested in another layout (it was passed to <ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">AddItem()</ref>), then this will reflect the visibility of this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s parent layout. If any layout is hidden (by <ref refid="classBLayoutItem_1a51d14ca920b9f302662a619fa8b79957" kindref="member">BLayout::SetVisible()</ref>) between this layout and its target <ref refid="classBView" kindref="compound">BView</ref>&apos;s layout, then this method will return <computeroutput>false</computeroutput>.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="47" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a25735d4b3149817ab91b2f4cff0a2fed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BLayout::LayoutArea</definition>
+        <argsstring>()</argsstring>
+        <name>LayoutArea</name>
+        <qualifiedname>BLayout::LayoutArea</qualifiedname>
+        <briefdescription>
+<para>Returns the on-screen area this layout has received to lay out its items in. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The return value is in the coordinate space of this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view. If this <ref refid="classBLayout" kindref="compound">BLayout</ref> is attached directly to a <ref refid="classBView" kindref="compound">BView</ref>, then <computeroutput> <ref refid="classBLayout_1a25735d4b3149817ab91b2f4cff0a2fed" kindref="member">LayoutArea()</ref>.LeftTop() == B_ORIGIN </computeroutput>.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="60" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a7df37ec98c2d29dca5ce4f2246c5665a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::VisibilityChanged</definition>
+        <argsstring>(bool show)</argsstring>
+        <name>VisibilityChanged</name>
+        <qualifiedname>BLayout::VisibilityChanged</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>show</declname>
+        </param>
+        <briefdescription>
+<para>Method to be called by derived classes in their <ref refid="classBLayoutItem_1a51d14ca920b9f302662a619fa8b79957" kindref="member">SetVisible()</ref> implementation. Calls <ref refid="classBLayout_1a9fe7eaa534d51bbfc807b9aca444176f" kindref="member">AncestorVisibilityChanged()</ref> on the items in this <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>show</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to show, <computeroutput>false</computeroutput> to hide.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="89" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Invalidation and State Mutators and Accessors</header>
+      <memberdef kind="function" id="classBLayout_1a2b775de411ef6e9ecb4f7c412a26bf31" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::InvalidateLayout</definition>
+        <argsstring>(bool children=false)</argsstring>
+        <name>InvalidateLayout</name>
+        <qualifiedname>BLayout::InvalidateLayout</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a9afedf1de602c6b277e8eb6eb3ff928d">InvalidateLayout</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>children</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Invalidate this layout and any cached data this layout has relating to positioning and sizing of its items. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Invalidating a <ref refid="classBLayout" kindref="compound">BLayout</ref> also invalidates the view it is connected to (if there is one) and the <ref refid="classBLayout" kindref="compound">BLayout</ref> this layout (or this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s view) resides in.</para>
+<para>Although this method is virtual, you should not override it, override the <ref refid="classBLayout_1a76c0a3aee65267a10187e4081b6d240d" kindref="member">BLayout::LayoutInvalidated()</ref> hook instead.</para>
+<para>This method should be called whenever the layout becomes invalid. This might happen if the size constraints of an item in this layout change, this layout is given more or less space than it previously had, or an object in this layout has had its <ref refid="classBLayout_1a2b775de411ef6e9ecb4f7c412a26bf31" kindref="member">InvalidateLayout()</ref> method called.</para>
+<para><simplesect kind="see"><para><ref refid="classBView_1a4a711316094e43076a3f5478d937accf" kindref="member">BView::InvalidateLayout()</ref>, <ref refid="classBLayoutItem_1a9afedf1de602c6b277e8eb6eb3ff928d" kindref="member">BLayoutItem::InvalidateLayout()</ref>, <ref refid="classBLayout_1a76c0a3aee65267a10187e4081b6d240d" kindref="member">BLayout::LayoutInvalidated()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="51" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a1983a8770e7cd89c3f1afc4d961230d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::RequireLayout</definition>
+        <argsstring>()</argsstring>
+        <name>RequireLayout</name>
+        <qualifiedname>BLayout::RequireLayout</qualifiedname>
+        <briefdescription>
+<para>Flag this layout as stale, i.e. any cached data may still be valid, but the items need to be repositioned or resized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="54" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a9b5b6b764433dee59ed4d1f01aaada04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLayout::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <qualifiedname>BLayout::IsValid</qualifiedname>
+        <briefdescription>
+<para>Returns whether this layout has been invalidated (via <ref refid="classBLayout_1a2b775de411ef6e9ecb4f7c412a26bf31" kindref="member">BLayout::InvalidateLayout()</ref>) and has not yet been validated (by doing a layout, or by its <ref refid="classBLayout_1aacf1392bbef13efc20277e15595bb329" kindref="member">ResetLayoutInvalidation()</ref> method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="55" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a7f369cb77173c3922dddbb38db893a6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::EnableLayoutInvalidation</definition>
+        <argsstring>()</argsstring>
+        <name>EnableLayoutInvalidation</name>
+        <qualifiedname>BLayout::EnableLayoutInvalidation</qualifiedname>
+        <briefdescription>
+<para>Re-enable layout invalidation after a call to <ref refid="classBLayout_1a509ff18ffa060bd9aab042c4ee6af245" kindref="member">DisableLayoutInvalidation()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="56" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a509ff18ffa060bd9aab042c4ee6af245" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::DisableLayoutInvalidation</definition>
+        <argsstring>()</argsstring>
+        <name>DisableLayoutInvalidation</name>
+        <qualifiedname>BLayout::DisableLayoutInvalidation</qualifiedname>
+        <briefdescription>
+<para>Disable layout invalidation notifications, i.e. calls to this object&apos;s <ref refid="classBLayout_1a2b775de411ef6e9ecb4f7c412a26bf31" kindref="member">InvalidateLayout()</ref> method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1aacf1392bbef13efc20277e15595bb329" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::ResetLayoutInvalidation</definition>
+        <argsstring>()</argsstring>
+        <name>ResetLayoutInvalidation</name>
+        <qualifiedname>BLayout::ResetLayoutInvalidation</qualifiedname>
+        <briefdescription>
+<para>Reset layout invalidation, causing InvalidateLayout calls to proceed again. This method should be called once any cached data has been validated, or updated to valid values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="91" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Methods Triggering or Related to Laying Out the BLayout</header>
+      <memberdef kind="function" id="classBLayout_1a2a168d993feaf8fc58b53ded8243e7b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::Relayout</definition>
+        <argsstring>(bool immediate=false)</argsstring>
+        <name>Relayout</name>
+        <qualifiedname>BLayout::Relayout</qualifiedname>
+        <reimplements refid="classBLayoutItem_1afddc9eb49deca3121887f0b923da6a0b">Relayout</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>immediate</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Request this <ref refid="classBLayout" kindref="compound">BLayout</ref> to reposition and resize its items as required. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>immediate</emphasis> is <computeroutput>false</computeroutput>, and there is already a request to have the window this layout resides in re-laid-out, then the layout will happen at that time. If <emphasis>immediate</emphasis> is <computeroutput>true</computeroutput>, and there is no such pending request, nor is this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s parent layout in the process of laying out its items, then this <ref refid="classBLayout" kindref="compound">BLayout</ref> will now layout its items.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>immediate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to Relayout immediately or wait for pending requests first.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="52" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a683aba3445c345b47c7fa38a2b6c3c1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::LayoutItems</definition>
+        <argsstring>(bool force=false)</argsstring>
+        <name>LayoutItems</name>
+        <qualifiedname>BLayout::LayoutItems</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>If there is no layout currently ongoing, and <emphasis>force</emphasis> is <computeroutput>false</computeroutput>, creates a new BLayoutContext and calls the <ref refid="classBLayout_1a972a7f273fc24f7665f5918e99989658" kindref="member">DoLayout()</ref> method of this <ref refid="classBLayout" kindref="compound">BLayout</ref> and any <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s nested in this <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method also guarantees that the owner view of this layout (as returned by <ref refid="classBLayout_1adb34c16c239813c45d8159d3f18d96d9" kindref="member">BLayout::Owner()</ref>) performs a layout as well (if it is suitable to do so).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>force</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Force the LayoutItems.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="59" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a7d2db371223df3a53cd7a1c5f19f309a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>BLayoutContext *</type>
+        <definition>BLayoutContext * BLayout::LayoutContext</definition>
+        <argsstring>() const</argsstring>
+        <name>LayoutContext</name>
+        <qualifiedname>BLayout::LayoutContext</qualifiedname>
+        <briefdescription>
+<para>Returns the BLayoutContext this <ref refid="classBLayout" kindref="compound">BLayout</ref> is currently operating in, or <computeroutput>NULL</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="61" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <description><para>These methods relate to the archiving or unarchiving of this object and the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s it contains</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="function" id="classBLayout_1a0d5f0b0a3ca81f5f7d54dae6ab7a099f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLayout::Archive</definition>
+        <argsstring>(BMessage *into, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BLayout::Archive</qualifiedname>
+        <reimplements refid="classBLayoutItem_1af2c2593e6179ee367ef26eff7ab7409f">Archive</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1a76c6e663adb27a10972dafe22c898bf7">Archive</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a0cfce7f1c906b28d8e3abaca74bcda56">Archive</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1aab5e2df95091bb76bb93628dcd01013e">Archive</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1aae43bdb3a725755664e55f13a054b510">Archive</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1a405b207a3fa1770d5349de6d66705390">Archive</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>into</declname>
+          <defname>archive</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives this layout into <emphasis>archive</emphasis>. If deep is true, also archives the items in this layout, calling <ref refid="classBLayout_1a7b342780ed464d0074a63fe8fac67003" kindref="member">ItemArchived()</ref> for each one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="63" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a3517e73d524672645425f80ebd4f53c7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLayout::AllUnarchived</definition>
+        <argsstring>(const BMessage *from)</argsstring>
+        <name>AllUnarchived</name>
+        <qualifiedname>BLayout::AllUnarchived</qualifiedname>
+        <reimplements refid="classBLayoutItem_1af78b72941cf1532299c2396cfeb7f9ed">AllUnarchived</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1a2664ac14ab5dbe33a18cee88d420aa22">AllUnarchived</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a30c68436cd5efd9708c1cfd75655647a">AllUnarchived</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1a2cd9bd9915c14ac32c0081234e12a5fb">AllUnarchived</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1a25bd4f838e672aa3eb611a616c5ec5e0">AllUnarchived</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1a67ba660a95e7cf8647be8835184b6cc3">AllUnarchived</reimplementedby>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Unarchives the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s for this layout, calling <ref refid="classBLayout_1a6cf3d79228879f9a6e2c29d238a2a1cf" kindref="member">ItemUnarchived()</ref> for each one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a7b342780ed464d0074a63fe8fac67003" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLayout::ItemArchived</definition>
+        <argsstring>(BMessage *into, BLayoutItem *item, int32 index) const</argsstring>
+        <name>ItemArchived</name>
+        <qualifiedname>BLayout::ItemArchived</qualifiedname>
+        <reimplementedby refid="classBAbstractLayout_1a8f3461939aac1452b9e34ff707b38684">ItemArchived</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a8190101471e608007ca0b1864056512c">ItemArchived</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1aa78c81cd57baacbdb8890b0de281f720">ItemArchived</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1ab7a1143b436b800e42c76de98534dbc7">ItemArchived</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1af70e3bd455f4dafa684ac6352223fcc4">ItemArchived</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>into</declname>
+        </param>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Hook for derived classes to add data specific to <emphasis>item</emphasis> to the <emphasis>into</emphasis> <ref refid="classBMessage" kindref="compound">BMessage</ref>. <emphasis>item</emphasis> resides at <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The same archive is passed to <ref refid="classBLayout_1a7b342780ed464d0074a63fe8fac67003" kindref="member">BLayout::ItemArchived()</ref> for all items, so any data added for each item will be stored in an array.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="72" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a6cf3d79228879f9a6e2c29d238a2a1cf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLayout::ItemUnarchived</definition>
+        <argsstring>(const BMessage *from, BLayoutItem *item, int32 index)</argsstring>
+        <name>ItemUnarchived</name>
+        <qualifiedname>BLayout::ItemUnarchived</qualifiedname>
+        <reimplementedby refid="classBAbstractLayout_1a9c3fd4aa60076e9869fa937d37f55ad3">ItemUnarchived</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a54cbd1654003320469e93c258091f840">ItemUnarchived</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1ad7bda5e11e67558de88b0ccaeccd3949">ItemUnarchived</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1a3fee09f7df25a5d730a888fc88360f09">ItemUnarchived</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1a7e98a6fb9b41e0856e353f6c0baaee12">ItemUnarchived</reimplementedby>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Hook for derived classes to retrieve data specific to <emphasis>item</emphasis> from the <emphasis>from</emphasis> <ref refid="classBMessage" kindref="compound">BMessage</ref>. <emphasis>item</emphasis> resides at <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The same archive is passed to <ref refid="classBLayout_1a7b342780ed464d0074a63fe8fac67003" kindref="member">BLayout::ItemArchived()</ref> for all items, so any data added for each item will be stored in an array. You should pass <emphasis>index</emphasis> to the <ref refid="classBMessage" kindref="compound">BMessage</ref> methods you will be using in this method.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="74" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Hook Methods</header>
+      <memberdef kind="function" id="classBLayout_1a139763bba67c7e68cf0311eb6fd5a19d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLayout::ItemAdded</definition>
+        <argsstring>(BLayoutItem *item, int32 atIndex)</argsstring>
+        <name>ItemAdded</name>
+        <qualifiedname>BLayout::ItemAdded</qualifiedname>
+        <reimplementedby refid="classBAbstractLayout_1a842b424b62039753db229d3deafd0d10">ItemAdded</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a44ea0d7a577626d6992e292bd93556bc">ItemAdded</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1a5edc94b8a647debd21f7303a225c0bfe">ItemAdded</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1ab7222b8afc2e96f1396d226117fbbc34">ItemAdded</reimplementedby>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>atIndex</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when <emphasis>item</emphasis> is added to this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> that is being added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>atIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> on succcess, false if <emphasis>item</emphasis> will not be added.</para>
+</simplesect>
+<simplesect kind="note"><para>This is a good time to allocate data for a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> and attach it to <emphasis>item</emphasis> via <ref refid="classBLayoutItem_1abffd9c09f9951f25b4a752a06e4040c3" kindref="member">BLayoutItem::SetLayoutData()</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="77" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1af17a219d364b091425a28759a4d684f8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::ItemRemoved</definition>
+        <argsstring>(BLayoutItem *item, int32 fromIndex)</argsstring>
+        <name>ItemRemoved</name>
+        <qualifiedname>BLayout::ItemRemoved</qualifiedname>
+        <reimplementedby refid="classBAbstractLayout_1a4df45f148af285d521bc5d6a491dac7b">ItemRemoved</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1ab1b92790589cc18c25c9c5ec9521fd62">ItemRemoved</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1a69ef1fdfffae399d06a09fe99b72fda0">ItemRemoved</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1ac347c539f60e59dee72e7038bcb83ff6">ItemRemoved</reimplementedby>
+        <param>
+          <type><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>fromIndex</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when <emphasis>item</emphasis> is removed from this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> being removed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fromIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index where <emphasis>item</emphasis> used to reside.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+When this hook is called, <emphasis>item</emphasis> is not yet completely removed. It can no longer be accessed with LayoutItemAt(), nor does it contribute to the value of <ref refid="classBLayout_1ab7d1b881e91213047412abdcb10eae4f" kindref="member">CountItems()</ref>, but the item has not yet had its ItemDetached() hook called.</para>
+<para><simplesect kind="note"><para>This is a good time to delete the data you&apos;ve attached to <emphasis>item</emphasis> via <ref refid="classBLayoutItem_1abffd9c09f9951f25b4a752a06e4040c3" kindref="member">BLayoutItem::SetLayoutData()</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="78" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a76c0a3aee65267a10187e4081b6d240d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::LayoutInvalidated</definition>
+        <argsstring>(bool children)</argsstring>
+        <name>LayoutInvalidated</name>
+        <qualifiedname>BLayout::LayoutInvalidated</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a69da4cf2822d9add9dbd6760e30eabfb">LayoutInvalidated</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1aa8d37f3c77c4fa240c0c18f800e7c64a">LayoutInvalidated</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a98304460f6a41f4e3aa387d914310cf8">LayoutInvalidated</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1a213da2d0c283091e48562e8fbb448c5f">LayoutInvalidated</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>children</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when this layout becomes invalid. This is a good place to clear any caches your object might hold.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>children</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not child layouts have also been invalidated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="79" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a972a7f273fc24f7665f5918e99989658" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>void BLayout::DoLayout</definition>
+        <argsstring>()=0</argsstring>
+        <name>DoLayout</name>
+        <qualifiedname>BLayout::DoLayout</qualifiedname>
+        <reimplementedby refid="classBCardLayout_1adb91400ccc94cdbbba90efe8158c933f">DoLayout</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1a18eeeb1d0b5fa7b4b57d8a2a9dc3824b">DoLayout</reimplementedby>
+        <briefdescription>
+<para>Implemented by derived classes to position and resize the items in this layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="80" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a58f983930686b554fd70e7aacafe1817" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::OwnerChanged</definition>
+        <argsstring>(BView *was)</argsstring>
+        <name>OwnerChanged</name>
+        <qualifiedname>BLayout::OwnerChanged</qualifiedname>
+        <reimplementedby refid="classBAbstractLayout_1a3aca5334eed301df4013fb2a3fdfd5ac">OwnerChanged</reimplementedby>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>was</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when this layout is attached to a <ref refid="classBView" kindref="compound">BView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>was</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The previous owner of this <ref refid="classBLayout" kindref="compound">BLayout</ref>, for new <ref refid="classBLayout" kindref="compound">BLayout</ref> s, this will be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="81" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a18f9f855b86a1a517249288672adf680" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::AttachedToLayout</definition>
+        <argsstring>()</argsstring>
+        <name>AttachedToLayout</name>
+        <qualifiedname>BLayout::AttachedToLayout</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a4798b0eb99c785b1d61dc2c169fb7df0">AttachedToLayout</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1a0eb40b1488e9b5f524cbc263106e7f3b">AttachedToLayout</reimplementedby>
+        <briefdescription>
+<para>Hook method inherited from <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>, classes derived from <ref refid="classBLayout" kindref="compound">BLayout</ref> must include the <ref refid="classBLayout" kindref="compound">BLayout</ref> version of this method in their implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="84" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a1339f65fb6907b6944d24b2f37e6f738" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::DetachedFromLayout</definition>
+        <argsstring>(BLayout *layout)</argsstring>
+        <name>DetachedFromLayout</name>
+        <qualifiedname>BLayout::DetachedFromLayout</qualifiedname>
+        <reimplements refid="classBLayoutItem_1ad829ab9d9a38acffb39f0183e77acee8">DetachedFromLayout</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1a4535f6de7c5193ba20038b891944864b">DetachedFromLayout</reimplementedby>
+        <param>
+          <type><ref refid="classBLayout" kindref="compound">BLayout</ref> *</type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+<para>Hook method inherited from <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>, classes derived from <ref refid="classBLayout" kindref="compound">BLayout</ref> must include the <ref refid="classBLayout" kindref="compound">BLayout</ref> version of this method in their implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBLayout" kindref="compound">BLayout</ref> that this <ref refid="classBLayout" kindref="compound">BLayout</ref> was detached from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="85" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a9fe7eaa534d51bbfc807b9aca444176f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLayout::AncestorVisibilityChanged</definition>
+        <argsstring>(bool shown)</argsstring>
+        <name>AncestorVisibilityChanged</name>
+        <qualifiedname>BLayout::AncestorVisibilityChanged</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a46e148b6608b3b21b1442fbc3aa9f404">AncestorVisibilityChanged</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1a5e36e0a2cb89ef4f45905c20159ef371">AncestorVisibilityChanged</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>shown</declname>
+        </param>
+        <briefdescription>
+<para>Hook method inherited from <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>, classes derived from <ref refid="classBLayout" kindref="compound">BLayout</ref> must include the <ref refid="classBLayout" kindref="compound">BLayout</ref> version of this method in their implementation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="86" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBLayout_1a304c5edf0ab3769baf95966dda5800a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BView</definition>
+        <argsstring></argsstring>
+        <name>BView</name>
+        <qualifiedname>BLayout::BView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="111" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBLayout_1aef397bb4326032142e5baae051745b9f" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BLayout::_reserved[10]</definition>
+        <argsstring>[10]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BLayout::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="128" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1a84528f4a5cb5de5b5d1ddf7e908079a2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BLayout::fAncestorsVisible</definition>
+        <argsstring></argsstring>
+        <name>fAncestorsVisible</name>
+        <qualifiedname>BLayout::fAncestorsVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="120" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1a766c0fc1b462cb50221139fd2bf3d03a" prot="private" static="no" mutable="no">
+        <type>BLayoutContext *</type>
+        <definition>BLayoutContext* BLayout::fContext</definition>
+        <argsstring></argsstring>
+        <name>fContext</name>
+        <qualifiedname>BLayout::fContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="122" column="15" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1af5b7571c7b9acbd30b3848d863a1a54e" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLayout::fInvalidationDisabled</definition>
+        <argsstring></argsstring>
+        <name>fInvalidationDisabled</name>
+        <qualifiedname>BLayout::fInvalidationDisabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="121" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1a04899a129df62a0e611f19e02b4888d7" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref></type>
+        <definition>BList BLayout::fItems</definition>
+        <argsstring></argsstring>
+        <name>fItems</name>
+        <qualifiedname>BLayout::fItems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="125" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1a7d62a83fd120b07f6985cb708234385b" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref></type>
+        <definition>BList BLayout::fNestedLayouts</definition>
+        <argsstring></argsstring>
+        <name>fNestedLayouts</name>
+        <qualifiedname>BLayout::fNestedLayouts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="126" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1a4af335471f524e31b9c65243d97b932d" prot="private" static="no" mutable="no">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView* BLayout::fOwner</definition>
+        <argsstring></argsstring>
+        <name>fOwner</name>
+        <qualifiedname>BLayout::fOwner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="123" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1aa1416c12eba1043490eb9dc604fea1f6" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BLayout::fState</definition>
+        <argsstring></argsstring>
+        <name>fState</name>
+        <qualifiedname>BLayout::fState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="119" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLayout_1ad08339d47bbb4c903f2e6804ea59bcbe" prot="private" static="no" mutable="no">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView* BLayout::fTarget</definition>
+        <argsstring></argsstring>
+        <name>fTarget</name>
+        <qualifiedname>BLayout::fTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="124" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBLayout_1a95bf53912a8c34a70e63f74b155b42cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLayout::BLayout</definition>
+        <argsstring>()</argsstring>
+        <name>BLayout</name>
+        <qualifiedname>BLayout::BLayout</qualifiedname>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After this constructor has finished, this <ref refid="classBLayout" kindref="compound">BLayout</ref> holds no <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s and does not have a target <ref refid="classBView" kindref="compound">BView</ref>.</para>
+<para><simplesect kind="warning"><para>Because a new <ref refid="classBLayout" kindref="compound">BLayout</ref> does not have a target <ref refid="classBView" kindref="compound">BView</ref>, calls to the <ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">AddItem()</ref> and <ref refid="classBLayout_1a83f286f504a1a735f07304c7647ba7f9" kindref="member">AddView()</ref> methods will fail.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a972a6ece042bd46710f6b945d9d87763" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLayout::BLayout</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BLayout</name>
+        <qualifiedname>BLayout::BLayout</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Archive constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1aa3250586083f6cbd106051efaa6982d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BLayout::~BLayout</definition>
+        <argsstring>()</argsstring>
+        <name>~BLayout</name>
+        <qualifiedname>BLayout::~BLayout</qualifiedname>
+        <briefdescription>
+<para>Destructor, deletes all <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s that this layout manages, and detaches from this <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s owner view if there is one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructor method.</para>
+<para>Each <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s <ref refid="classBView" kindref="compound">BView</ref> (as returned by <ref refid="classBLayoutItem_1a4a053fcf62bc431028355efbd59873fc" kindref="member">BLayoutItem::View()</ref>) is also removed from their parent.</para>
+<para><simplesect kind="note"><para>Because nested <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s are treated as <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s, any layouts nested in this <ref refid="classBLayout" kindref="compound">BLayout</ref> will be deleted.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1</para>
+</simplesect>
+</para>
+<para>Standard Destructor.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="25" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1adb8e95073f7626f04fe78337ca7114f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BLayout::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BLayout::Perform</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a38b237fb8bbd1d0054e3a2b4cbc1fd15">Perform</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1aa4d7d592de1e566f73f440576d1c2cac">Perform</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1a7b75708b091f51e8dce826477f28e33a">Perform</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1a0ab603b381b9ba4d7efb3efbeae4940f">Perform</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1a31d82f6cd2fdecdc0a04d60d6e3943f7">Perform</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1aac851d9c86397296d0e7e69716c01926">Perform</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Perform some action (Internal method defined for binary compatibility purposes). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="65" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBLayout_1ab9747436e251333693d54d29d472e2f9" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BLayout::AllArchived</definition>
+        <argsstring>(BMessage *archive) const</argsstring>
+        <name>AllArchived</name>
+        <qualifiedname>BLayout::AllArchived</qualifiedname>
+        <reimplements refid="classBLayoutItem_1a13ec3faa075b23b3073f97531365102c">AllArchived</reimplements>
+        <reimplementedby refid="classBAbstractLayout_1a73b50e5ee03b980b4e8f08c875528162">AllArchived</reimplementedby>
+        <reimplementedby refid="classBCardLayout_1ac561655882cd31e4f8a8b214de846fb6">AllArchived</reimplementedby>
+        <reimplementedby refid="classBGridLayout_1adddbabf3f060e0e3d20af12cf3f3dab1">AllArchived</reimplementedby>
+        <reimplementedby refid="classBGroupLayout_1a62670753e05e05601592d49f0b5f438f">AllArchived</reimplementedby>
+        <reimplementedby refid="classBTwoDimensionalLayout_1adb001699008fe0cb2eff51661da175e6">AllArchived</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>into</defname>
+        </param>
+        <briefdescription>
+<para>Method relating to the use of <computeroutput><ref refid="classBArchiver" kindref="compound">BArchiver</ref></computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This hook function is called once the first <ref refid="classBArchiver" kindref="compound">BArchiver</ref> that was created in an archiving session is either destroyed, or has its Finish() method called. Implementations of this method can be used, in conjunction with <ref refid="classBArchiver_1a77f099b123416c719be2cd78eb999d19" kindref="member">BArchiver::IsArchived()</ref>, to reference objects in your archive that you do not own, depending on whether or not those objects were archived by their owners. Implementations of this method should call the implementation of their parent class, the same as for the <ref refid="classBLayout_1a0d5f0b0a3ca81f5f7d54dae6ab7a099f" kindref="member">Archive()</ref> method.</para>
+<para><simplesect kind="warning"><para>To guarantee that your <ref refid="classBLayout_1ab9747436e251333693d54d29d472e2f9" kindref="member">AllArchived()</ref> method will be called during archival, you must create a <ref refid="classBArchiver" kindref="compound">BArchiver</ref> object in your <ref refid="classBLayout_1a0d5f0b0a3ca81f5f7d54dae6ab7a099f" kindref="member">Archive()</ref> implementation.</para>
+</simplesect>
+<simplesect kind="warning"><para>You should archive any objects you own in your <ref refid="classBLayout_1a0d5f0b0a3ca81f5f7d54dae6ab7a099f" kindref="member">Archive()</ref> method implementation, and <bold>NOT</bold> your <ref refid="classBLayout_1ab9747436e251333693d54d29d472e2f9" kindref="member">AllArchived()</ref> method.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBArchiver" kindref="compound">BArchiver</ref> <ref refid="classBArchiver_1a7c82dbc0fb42795c575ac2c6a5405297" kindref="member">BArchiver::Finish()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="69" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBLayout_1a01391fdf3f2ad496c17dff6e6e512626" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLayout::BLayout</definition>
+        <argsstring>(const BLayout &amp;)</argsstring>
+        <name>BLayout</name>
+        <qualifiedname>BLayout::BLayout</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLayout" kindref="compound">BLayout</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a18d6833842ea6490c9aa03acbeb2ba0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::_LayoutWithinContext</definition>
+        <argsstring>(bool force, BLayoutContext *context)</argsstring>
+        <name>_LayoutWithinContext</name>
+        <qualifiedname>BLayout::_LayoutWithinContext</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+        </param>
+        <param>
+          <type>BLayoutContext *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="116" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1ad6f3ec457cf47afb51ec82e7cb094c3a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout1</name>
+        <qualifiedname>BLayout::_ReservedLayout1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="96" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a99cde69fec092ca27532ba7c58a7b20c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout10</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout10</name>
+        <qualifiedname>BLayout::_ReservedLayout10</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="105" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a03fdf5cdc72de273ddebd3ba41e26389" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout2</name>
+        <qualifiedname>BLayout::_ReservedLayout2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="97" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1aef2564d51a18d1aa85e000ed3354c8a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout3</name>
+        <qualifiedname>BLayout::_ReservedLayout3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="98" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a1e509f81f93211c83ed9d90b053218c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout4</name>
+        <qualifiedname>BLayout::_ReservedLayout4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="99" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a0d3ca8589c579793d9aee7f801caaf1f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout5</name>
+        <qualifiedname>BLayout::_ReservedLayout5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="100" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a7d9eeaa2a5852ea670bf202d73e991c9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout6</name>
+        <qualifiedname>BLayout::_ReservedLayout6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="101" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a58873b7b376f8f335e640c4a7c66a2e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout7</name>
+        <qualifiedname>BLayout::_ReservedLayout7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="102" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1aba08afad4cdc1a496b97fbc95bf062a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout8</name>
+        <qualifiedname>BLayout::_ReservedLayout8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="103" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a3f2c18798e4239f9cb0d66159cc8eee8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLayout::_ReservedLayout9</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLayout9</name>
+        <qualifiedname>BLayout::_ReservedLayout9</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="104" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a5c4649ad73e6c99532992aa15f55020e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::operator=</definition>
+        <argsstring>(const BLayout &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BLayout::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLayout" kindref="compound">BLayout</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="109" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1a1aae719e71cd96e5e3bfac5974870fa0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::SetOwner</definition>
+        <argsstring>(BView *owner)</argsstring>
+        <name>SetOwner</name>
+        <qualifiedname>BLayout::SetOwner</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="113" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLayout_1aba1d0ae576be52947d729c766d8e527c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLayout::SetTarget</definition>
+        <argsstring>(BView *target)</argsstring>
+        <name>SetTarget</name>
+        <qualifiedname>BLayout::SetTarget</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="114" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classBLayout" kindref="compound">BLayout</ref> class provides an interface, and some basic implementation to manage the positioning and sizing of <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> s. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>BLayouts can be attached to a <ref refid="classBView" kindref="compound">BView</ref>, managing the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>&apos;s and <ref refid="classBView" kindref="compound">BView</ref>&apos;s that reside in that view, or can be nested within another <ref refid="classBLayout" kindref="compound">BLayout</ref> as a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>.</para>
+<para>Before adding a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to a <ref refid="classBLayout" kindref="compound">BLayout</ref>, that layout must have a target view. When a <ref refid="classBLayout" kindref="compound">BLayout</ref> is attached directly to a <ref refid="classBView" kindref="compound">BView</ref> via <ref refid="classBView_1acac1ebbba8c76e543e1b06e84dffab02" kindref="member">BView::SetLayout()</ref> then that <ref refid="classBView" kindref="compound">BView</ref> becomes the target of the layout. When a <ref refid="classBLayout" kindref="compound">BLayout</ref> is nested in another <ref refid="classBLayout" kindref="compound">BLayout</ref> (via <ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">BLayout::AddItem()</ref>) the nested <ref refid="classBLayout" kindref="compound">BLayout</ref> inherits the target of the layout its nested in, if it does not have a target already. You can retrieve the target view for a layout with the <ref refid="classBLayout_1a14639db95758a7b1b9604473e8f3a7c9" kindref="member">TargetView()</ref> method. When adding a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> to a <ref refid="classBLayout" kindref="compound">BLayout</ref>, the item&apos;s view (as returned by <ref refid="classBLayoutItem_1a4a053fcf62bc431028355efbd59873fc" kindref="member">BLayoutItem::View()</ref>) is added to the <ref refid="classBLayout" kindref="compound">BLayout</ref>&apos;s target view.</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBView" kindref="compound">BView</ref>*<sp/>topView<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBGroupView" kindref="compound">BGroupView</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBLayout" kindref="compound">BLayout</ref>*<sp/>topLayout<sp/>=<sp/>topView-&gt;<ref refid="classBView_1aec2975b51966c397aa52b9e3eebd2c85" kindref="member">GetLayout</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBLayout" kindref="compound">BLayout</ref>*<sp/>nestedLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>(<ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4ae796c97ca7ee2f24f65fc51ab650726d" kindref="member">B_HORIZONTAL</ref>);</highlight></codeline>
+<codeline><highlight class="normal">topLayout-&gt;<ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">AddItem</ref>(nestedLayout);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBLayout" kindref="compound">BLayout</ref>*<sp/>veryNestedLayout<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>(<ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4a01c35140b008aea2cb9eca52ecf7cd4e" kindref="member">B_VERTICAL</ref>);</highlight></codeline>
+<codeline><highlight class="normal">nestedLayout-&gt;<ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">AddItem</ref>(veryNestedLayout);</highlight></codeline>
+</programlisting></para>
+<para>After executing this code, <computeroutput>veryNestedLayout</computeroutput>, <computeroutput>nestedLayout</computeroutput>, and <computeroutput>topLayout</computeroutput> all have the same target view: <computeroutput>topView</computeroutput>.</para>
+<para>Continuing with the same objects...</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBLayout" kindref="compound">BLayout</ref>*<sp/>nestedLayoutWithView<sp/>=<sp/>(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBGroupView" kindref="compound">BGroupView</ref>())-&gt;GetLayout();</highlight></codeline>
+<codeline><highlight class="normal">topLayout-&gt;<ref refid="classBLayout_1a61bab6592bb26173d12488526b203ead" kindref="member">AddItem</ref>(nestedLayoutWithView);</highlight></codeline>
+</programlisting></para>
+<para><computeroutput>nestedLayoutWithView</computeroutput> does have a target view of <computeroutput>topView</computeroutput>. This is because <computeroutput>nestedLayoutWithView</computeroutput> is attached directly to a <ref refid="classBView" kindref="compound">BView</ref>.</para>
+<para><simplesect kind="warning"><para>This class is not yet finalized, if you use it in your software assume that it will break some time in the future.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BAbstractLayout</label>
+        <link refid="classBAbstractLayout"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="5">
+        <label>BCardLayout</label>
+        <link refid="classBCardLayout"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BGridLayout</label>
+        <link refid="classBGridLayout"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>BGroupLayout</label>
+        <link refid="classBGroupLayout"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BLayout</label>
+        <link refid="classBLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BLayoutItem</label>
+        <link refid="classBLayoutItem"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BTwoDimensionalLayout</label>
+        <link refid="classBTwoDimensionalLayout"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BLayout</label>
+        <link refid="classBLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BLayoutItem</label>
+        <link refid="classBLayoutItem"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/Layout.h" line="21" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Layout.h" bodystart="21" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classBLayout_1a18d6833842ea6490c9aa03acbeb2ba0c" prot="private" virt="non-virtual"><scope>BLayout</scope><name>_LayoutWithinContext</name></member>
+      <member refid="classBLayout_1aef397bb4326032142e5baae051745b9f" prot="private" virt="non-virtual"><scope>BLayout</scope><name>_reserved</name></member>
+      <member refid="classBLayout_1ad6f3ec457cf47afb51ec82e7cb094c3a" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout1</name></member>
+      <member refid="classBLayout_1a99cde69fec092ca27532ba7c58a7b20c" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout10</name></member>
+      <member refid="classBLayout_1a03fdf5cdc72de273ddebd3ba41e26389" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout2</name></member>
+      <member refid="classBLayout_1aef2564d51a18d1aa85e000ed3354c8a9" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout3</name></member>
+      <member refid="classBLayout_1a1e509f81f93211c83ed9d90b053218c6" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout4</name></member>
+      <member refid="classBLayout_1a0d3ca8589c579793d9aee7f801caaf1f" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout5</name></member>
+      <member refid="classBLayout_1a7d9eeaa2a5852ea670bf202d73e991c9" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout6</name></member>
+      <member refid="classBLayout_1a58873b7b376f8f335e640c4a7c66a2e5" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout7</name></member>
+      <member refid="classBLayout_1aba08afad4cdc1a496b97fbc95bf062a9" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout8</name></member>
+      <member refid="classBLayout_1a3f2c18798e4239f9cb0d66159cc8eee8" prot="private" virt="virtual"><scope>BLayout</scope><name>_ReservedLayout9</name></member>
+      <member refid="classBLayout_1a61bab6592bb26173d12488526b203ead" prot="public" virt="virtual"><scope>BLayout</scope><name>AddItem</name></member>
+      <member refid="classBLayout_1a1b9a50f6a573a777afc2b27bac65c7f6" prot="public" virt="virtual"><scope>BLayout</scope><name>AddItem</name></member>
+      <member refid="classBLayout_1a83f286f504a1a735f07304c7647ba7f9" prot="public" virt="virtual"><scope>BLayout</scope><name>AddView</name></member>
+      <member refid="classBLayout_1ad7ff945dc53e94a34954da6eaf9e2268" prot="public" virt="virtual"><scope>BLayout</scope><name>AddView</name></member>
+      <member refid="classBLayoutItem_1a3b5b23daa375b3333fc58c9c22ce62fa" prot="public" virt="non-virtual"><scope>BLayout</scope><name>AlignInFrame</name></member>
+      <member refid="classBLayoutItem_1a3f34ad935970e7d941dafe7ca5290d26" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>Alignment</name></member>
+      <member refid="classBLayout_1ab9747436e251333693d54d29d472e2f9" prot="protected" virt="virtual"><scope>BLayout</scope><name>AllArchived</name></member>
+      <member refid="classBLayout_1a3517e73d524672645425f80ebd4f53c7" prot="protected" virt="virtual"><scope>BLayout</scope><name>AllUnarchived</name></member>
+      <member refid="classBLayout_1a4f2ff9362ef1e84d7c886c58881d2be9" prot="public" virt="non-virtual"><scope>BLayout</scope><name>AncestorsVisible</name></member>
+      <member refid="classBLayout_1a9fe7eaa534d51bbfc807b9aca444176f" prot="protected" virt="virtual"><scope>BLayout</scope><name>AncestorVisibilityChanged</name></member>
+      <member refid="classBLayout_1a0d5f0b0a3ca81f5f7d54dae6ab7a099f" prot="public" virt="virtual"><scope>BLayout</scope><name>Archive</name></member>
+      <member refid="classBLayout_1a18f9f855b86a1a517249288672adf680" prot="protected" virt="virtual"><scope>BLayout</scope><name>AttachedToLayout</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BLayout</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BLayout</scope><name>BArchivable</name></member>
+      <member refid="classBLayout_1a95bf53912a8c34a70e63f74b155b42cb" prot="public" virt="non-virtual"><scope>BLayout</scope><name>BLayout</name></member>
+      <member refid="classBLayout_1a972a6ece042bd46710f6b945d9d87763" prot="public" virt="non-virtual"><scope>BLayout</scope><name>BLayout</name></member>
+      <member refid="classBLayout_1a01391fdf3f2ad496c17dff6e6e512626" prot="private" virt="non-virtual"><scope>BLayout</scope><name>BLayout</name></member>
+      <member refid="classBLayoutItem_1ae147b703a6d2583545407d5f48809bac" prot="public" virt="non-virtual"><scope>BLayout</scope><name>BLayoutItem</name></member>
+      <member refid="classBLayoutItem_1ac639d9cfa9b8124106ef2d8bc5badb2e" prot="public" virt="non-virtual"><scope>BLayout</scope><name>BLayoutItem</name></member>
+      <member refid="classBLayout_1ab7d1b881e91213047412abdcb10eae4f" prot="public" virt="non-virtual"><scope>BLayout</scope><name>CountItems</name></member>
+      <member refid="classBLayout_1a1339f65fb6907b6944d24b2f37e6f738" prot="protected" virt="virtual"><scope>BLayout</scope><name>DetachedFromLayout</name></member>
+      <member refid="classBLayout_1a509ff18ffa060bd9aab042c4ee6af245" prot="public" virt="non-virtual"><scope>BLayout</scope><name>DisableLayoutInvalidation</name></member>
+      <member refid="classBLayout_1a972a7f273fc24f7665f5918e99989658" prot="protected" virt="pure-virtual"><scope>BLayout</scope><name>DoLayout</name></member>
+      <member refid="classBLayout_1a7f369cb77173c3922dddbb38db893a6c" prot="public" virt="non-virtual"><scope>BLayout</scope><name>EnableLayoutInvalidation</name></member>
+      <member refid="classBLayout_1a84528f4a5cb5de5b5d1ddf7e908079a2" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fAncestorsVisible</name></member>
+      <member refid="classBLayout_1a766c0fc1b462cb50221139fd2bf3d03a" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fContext</name></member>
+      <member refid="classBLayout_1af5b7571c7b9acbd30b3848d863a1a54e" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fInvalidationDisabled</name></member>
+      <member refid="classBLayout_1a04899a129df62a0e611f19e02b4888d7" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fItems</name></member>
+      <member refid="classBLayout_1a7d62a83fd120b07f6985cb708234385b" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fNestedLayouts</name></member>
+      <member refid="classBLayout_1a4af335471f524e31b9c65243d97b932d" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fOwner</name></member>
+      <member refid="classBLayoutItem_1a6bc751e914fc3b31dfaa072674972124" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>Frame</name></member>
+      <member refid="classBLayout_1aa1416c12eba1043490eb9dc604fea1f6" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fState</name></member>
+      <member refid="classBLayout_1ad08339d47bbb4c903f2e6804ea59bcbe" prot="private" virt="non-virtual"><scope>BLayout</scope><name>fTarget</name></member>
+      <member refid="classBLayoutItem_1addd90adf76c9caad200f6f465c06e0bf" prot="public" virt="virtual"><scope>BLayout</scope><name>GetHeightForWidth</name></member>
+      <member refid="classBLayoutItem_1a3186c8eec495915c5b074fe7d10dc94c" prot="public" virt="virtual"><scope>BLayout</scope><name>HasHeightForWidth</name></member>
+      <member refid="classBLayout_1a1d3746cfb977dce44b052e7d58bd481c" prot="public" virt="non-virtual"><scope>BLayout</scope><name>IndexOfItem</name></member>
+      <member refid="classBLayout_1ade2afbfa0bd50c01a1ce3db6654eaa0c" prot="public" virt="non-virtual"><scope>BLayout</scope><name>IndexOfView</name></member>
+      <member refid="classBArchivable_1a04efcb17fa2a64a776923cc12303efcd" prot="public" virt="non-virtual"><scope>BLayout</scope><name>Instantiate</name></member>
+      <member refid="classBLayout_1a2b775de411ef6e9ecb4f7c412a26bf31" prot="public" virt="virtual"><scope>BLayout</scope><name>InvalidateLayout</name></member>
+      <member refid="classBLayout_1a9b5b6b764433dee59ed4d1f01aaada04" prot="public" virt="non-virtual"><scope>BLayout</scope><name>IsValid</name></member>
+      <member refid="classBLayoutItem_1ad83886b5bef773a870e6668dd008a88a" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>IsVisible</name></member>
+      <member refid="classBLayout_1a139763bba67c7e68cf0311eb6fd5a19d" prot="protected" virt="virtual"><scope>BLayout</scope><name>ItemAdded</name></member>
+      <member refid="classBLayout_1a7b342780ed464d0074a63fe8fac67003" prot="protected" virt="virtual"><scope>BLayout</scope><name>ItemArchived</name></member>
+      <member refid="classBLayout_1ad47d881e6008578d2f8cc0e3c6ea467a" prot="public" virt="non-virtual"><scope>BLayout</scope><name>ItemAt</name></member>
+      <member refid="classBLayout_1af17a219d364b091425a28759a4d684f8" prot="protected" virt="virtual"><scope>BLayout</scope><name>ItemRemoved</name></member>
+      <member refid="classBLayout_1a6cf3d79228879f9a6e2c29d238a2a1cf" prot="protected" virt="virtual"><scope>BLayout</scope><name>ItemUnarchived</name></member>
+      <member refid="classBLayoutItem_1ab760ea9f0eb6bb25063b5bac7a52ec3d" prot="public" virt="non-virtual"><scope>BLayout</scope><name>Layout</name></member>
+      <member refid="classBLayout_1a25735d4b3149817ab91b2f4cff0a2fed" prot="public" virt="non-virtual"><scope>BLayout</scope><name>LayoutArea</name></member>
+      <member refid="classBLayout_1a7d2db371223df3a53cd7a1c5f19f309a" prot="public" virt="non-virtual"><scope>BLayout</scope><name>LayoutContext</name></member>
+      <member refid="classBLayoutItem_1a82ba24d424129d989855b74eb3a86627" prot="public" virt="non-virtual"><scope>BLayout</scope><name>LayoutData</name></member>
+      <member refid="classBLayout_1a76c0a3aee65267a10187e4081b6d240d" prot="protected" virt="virtual"><scope>BLayout</scope><name>LayoutInvalidated</name></member>
+      <member refid="classBLayout_1a683aba3445c345b47c7fa38a2b6c3c1a" prot="public" virt="non-virtual"><scope>BLayout</scope><name>LayoutItems</name></member>
+      <member refid="classBLayoutItem_1ac8279364e37b84f2b152fd052200f158" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>MaxSize</name></member>
+      <member refid="classBLayoutItem_1aa6b24064b472cf72f98dbfd11198f067" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>MinSize</name></member>
+      <member refid="classBLayout_1a5c4649ad73e6c99532992aa15f55020e" prot="private" virt="non-virtual"><scope>BLayout</scope><name>operator=</name></member>
+      <member refid="classBLayout_1adb34c16c239813c45d8159d3f18d96d9" prot="public" virt="non-virtual"><scope>BLayout</scope><name>Owner</name></member>
+      <member refid="classBLayout_1a58f983930686b554fd70e7aacafe1817" prot="protected" virt="virtual"><scope>BLayout</scope><name>OwnerChanged</name></member>
+      <member refid="classBLayout_1adb8e95073f7626f04fe78337ca7114f8" prot="public" virt="virtual"><scope>BLayout</scope><name>Perform</name></member>
+      <member refid="classBLayoutItem_1a7311fd45380396ae3840179f9b63fae3" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>PreferredSize</name></member>
+      <member refid="classBLayout_1a2a168d993feaf8fc58b53ded8243e7b7" prot="public" virt="virtual"><scope>BLayout</scope><name>Relayout</name></member>
+      <member refid="classBLayout_1abf0b19d4203e1a41292137fd8a2038d0" prot="public" virt="virtual"><scope>BLayout</scope><name>RemoveItem</name></member>
+      <member refid="classBLayout_1a34a299447961069bdd54d19ae7a5176a" prot="public" virt="virtual"><scope>BLayout</scope><name>RemoveItem</name></member>
+      <member refid="classBLayoutItem_1af4059e73a30336f0ae6bbbc04c70dd6a" prot="public" virt="non-virtual"><scope>BLayout</scope><name>RemoveSelf</name></member>
+      <member refid="classBLayout_1a3120e95dc34ab57ab276c324ec94654c" prot="public" virt="virtual"><scope>BLayout</scope><name>RemoveView</name></member>
+      <member refid="classBLayout_1a1983a8770e7cd89c3f1afc4d961230d5" prot="public" virt="non-virtual"><scope>BLayout</scope><name>RequireLayout</name></member>
+      <member refid="classBLayout_1aacf1392bbef13efc20277e15595bb329" prot="protected" virt="non-virtual"><scope>BLayout</scope><name>ResetLayoutInvalidation</name></member>
+      <member refid="classBLayoutItem_1a78604c5055ac0aca561f196d879d762d" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>SetExplicitAlignment</name></member>
+      <member refid="classBLayoutItem_1ad91aa5d8c83270f33ec4503dbc8e438e" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>SetExplicitMaxSize</name></member>
+      <member refid="classBLayoutItem_1ab5bfb3d6541b1e3097c77577be279346" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>SetExplicitMinSize</name></member>
+      <member refid="classBLayoutItem_1afa1c729ac363fc0296c9aca68eca4ddc" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>SetExplicitPreferredSize</name></member>
+      <member refid="classBLayoutItem_1ac630c7ab0e98d5da0225792e31f596f1" prot="public" virt="non-virtual"><scope>BLayout</scope><name>SetExplicitSize</name></member>
+      <member refid="classBLayoutItem_1ad6e6d52145cb3007e54b5eafe454caed" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>SetFrame</name></member>
+      <member refid="classBLayoutItem_1abffd9c09f9951f25b4a752a06e4040c3" prot="public" virt="non-virtual"><scope>BLayout</scope><name>SetLayoutData</name></member>
+      <member refid="classBLayout_1a1aae719e71cd96e5e3bfac5974870fa0" prot="private" virt="non-virtual"><scope>BLayout</scope><name>SetOwner</name></member>
+      <member refid="classBLayout_1aba1d0ae576be52947d729c766d8e527c" prot="private" virt="non-virtual"><scope>BLayout</scope><name>SetTarget</name></member>
+      <member refid="classBLayoutItem_1a51d14ca920b9f302662a619fa8b79957" prot="public" virt="pure-virtual"><scope>BLayout</scope><name>SetVisible</name></member>
+      <member refid="classBLayout_1a14639db95758a7b1b9604473e8f3a7c9" prot="public" virt="non-virtual"><scope>BLayout</scope><name>TargetView</name></member>
+      <member refid="classBLayout_1aefd7bf5546d6b69d1561e7baebf15387" prot="public" virt="virtual"><scope>BLayout</scope><name>View</name></member>
+      <member refid="classBLayout_1a7df37ec98c2d29dca5ce4f2246c5665a" prot="protected" virt="non-virtual"><scope>BLayout</scope><name>VisibilityChanged</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BLayout</scope><name>~BArchivable</name></member>
+      <member refid="classBLayout_1aa3250586083f6cbd106051efaa6982d9" prot="public" virt="virtual"><scope>BLayout</scope><name>~BLayout</name></member>
+      <member refid="classBLayoutItem_1ab2ab08ac19615c24d09f3461926acce2" prot="public" virt="virtual"><scope>BLayout</scope><name>~BLayoutItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

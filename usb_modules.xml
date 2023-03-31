@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="usb_modules" kind="page">
+    <compoundname>usb_modules</compoundname>
+    <title>Writing drivers for USB devices</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>The introduction of USB standardized the way many devices connected to a whole range of different computers and operating systems. It introduced a standard that was capable of getting rid of all the legacy systems, such as the LPT, the PS/2 and serial ports. The plug and play nature of the standard was revolutionary at the time of its introduction, and it changed the way which operating systems interacted with devices.</para>
+<para>With the grand standard that USB has become, Haiku has an implementation of it. It supports both the USB 1.1 and USB 2.0 specifications, and when Haiku R1 is released, it will support the three host controller standards: UHCI, OHCI and EHCI. The modularized design of Haiku&apos;s USB stack also paves the way for easy implementation of any future specifications, such as Wireless USB.</para>
+<sect1 id="usb_modules_1usb_modules_scope">
+<title>The Scope of this Document</title>
+<para>This document is written for driver developers that need to interact with USB devices. The USB specification standardizes the communication between the host controller and the devices, and how devices should transfer data, but it does not prescribe a standard environment that Operating Systems should provide to the driver interfaces. As such, every operating system has its own interface for drivers, and so does Haiku.</para>
+<para>This document will point driver developers to relevant parts of the USB module API and give a general impression of the workings of the USB stack. This document will not give information on the basics of writing drivers, or on how to use modules. Have a look elsewhere in this documentation for that. This document also assumes a basic knowledge of the USB specification, and on how you are supposed to interact with devices. See <ref refid="usb_modules_1usb_modules_resources" kindref="member">More Resources</ref> for tutorials on the web if you are looking for a basic introduction on communication with the USB protocol.</para>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_structure">
+<title>Structure of the Stack</title>
+<para>This section will outline how Haiku&apos;s USB stack is structured, and how you can interact with this stack.</para>
+<para>The goal of the USB stack is to provide a few basic features for drivers interacting with USB devices. It is important that the stack maintains a continually updated device grid, so that the driver modules are always aware of the latest status. The stack should also facilitate communication between drivers and the devices, by abstracting the actual transferring of bits via the host controller hardware in the computer. The stack therefore should implement a intuitive interface to give driver developers access to all features and possibilities the USB specification offers, and at the same time it should abstract many of the small requirements and peculiarities of that specification.</para>
+<para>The stack internally can be divided into two parts. The first part is the core module. This module, called <computeroutput>usb_busmanager</computeroutput>, performs all the operations required by the USB specification. For example, it performs the necessary low-level initialization when new devices are connected, or all the requirements when it comes to performing transfers. The core module also is the module that provides the abstractions to driver developers. The other part of the USB stack are the individual modules that control the different host controllers. Haiku supports the three types in existence: UHCI, OHCI and EHCI. These modules perform the communication between the core module and the hardware. As driver developer, you won&apos;t have to interact with these modules: the core module provides all the abstractions you need.</para>
+<para>Thus, as a driver developer you are interfacing with the <computeroutput>usb_busmanager</computeroutput> module. On Haiku, this module implements two API&apos;s. The <computeroutput>v2</computeroutput> API, identical to the API offered by BeOS R5, can be found in the <computeroutput>USB2.h</computeroutput> file. However, for new drivers, or for ports, the recommended API is the <computeroutput>v3</computeroutput> API, defined in the <ref refid="USB3_8h" kindref="compound">USB3.h</ref> file. This API is identical to the one provided by Zeta. The <computeroutput>v2</computeroutput> API should be considered to be deprecated.</para>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_registration">
+<title>Initial Steps: Driver Registration</title>
+<para>In order to be able to start using the USB stack to communicate with your devices, you will need to perform some actions. This section will outline those actions and will point you to their appropriate locations.</para>
+<para><simplesect kind="note"><para>The code examples are based on the <computeroutput>usb_hid</computeroutput> driver written by Jerome Duval. Have a look at this driver for a complete working example.</para>
+</simplesect>
+The following example gives an overview of the requirements to open the USB module, and to start your driver registration in order to receive connect and disconnect events.</para>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Global<sp/>variables<sp/>and<sp/>constants</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="structusb__module__info" kindref="compound">usb_module_info</ref><sp/>*gUsb;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*kDriverName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;usb_hid&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref><sp/>sSupportedDevices[1]<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/>USB_HID_DEVICE_CLASS,<sp/>0,<sp/>0,<sp/>0,<sp/>0<sp/>},</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Prototype<sp/>for<sp/>the<sp/>hooks<sp/>that<sp/>are<sp/>called<sp/>when<sp/>devices<sp/>are<sp/>added<sp/>or<sp/>removed</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>hid_device_added(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>*dev,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**cookie);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>hid_device_removed(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cookie);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref><sp/>sNotifyHooks<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>hid_device_added,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>hid_device_removed</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Driver<sp/>initialization,<sp/>called<sp/>by<sp/>the<sp/>kernel<sp/>when<sp/>the<sp/>driver<sp/>is<sp/>loaded</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/></highlight></codeline>
+<codeline><highlight class="normal">init_driver(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(get_module(<ref refid="USB3_8h_1a22b89f939badbd5ede71f3830811aeb5" kindref="member">B_USB_MODULE_NAME</ref>,<sp/>(module_info<sp/>**)&amp;gUsb)<sp/>!=<sp/>B_OK)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_ERROR;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>gUsb-&gt;register_driver(kDriverName,<sp/>sSupportedDevices,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>gUsb-&gt;install_notify(kDriverName,<sp/>&amp;sNotifyHooks);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_OK;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>Basically, this boils down to three steps. The first step is to acquire the <ref refid="structusb__module__info" kindref="compound">usb_module_info</ref> module. This struct contains a set of function pointers that you use to communicate with the stack. You can retrieve it like you would retrieve any other module.</para>
+<para>As soon as you have done that you can start registering your driver in the stack. What you do is you pass a unique identifier to identify your driver, zero or more <ref refid="structusb__support__descriptor" kindref="compound">support descriptors </ref> to provide the stack with information on which devices you support, and the number of support descriptors you provided. The stack is very flexible with what patterns it accepts, so even the most complex driver will be able to pass its credentials. Have a look at the <computeroutput><ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref></computeroutput> struct and the <computeroutput><ref refid="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" kindref="member">usb_module_info::register_driver()</ref></computeroutput> call for all the details.</para>
+<para>The last step in initialization is to provide the stack with notification hooks. These are functions in your driver that the stack should call as soon as a device is attached or removed. Please perform this call after your internal driver data structures are initialized, because as soon as you perform this call, the usb stack will start searching for already attached devices that match the credentials. Have a look at <computeroutput><ref refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" kindref="member">usb_module_info::install_notify()</ref></computeroutput> and the structure <computeroutput><ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref></computeroutput> for the details on the signatures of your hooks.</para>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_changes">
+<title>Handling Device Changes</title>
+<para>The USB stack will notify you of device connects and disconnects when they occur. You will receive notifications as soon as you have supplied the hooks to the stack, using <computeroutput><ref refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" kindref="member">usb_module_info::install_notify()</ref></computeroutput> . This section will explain some of the details when it comes to handling device changes.</para>
+<para>When a device is added, your supplied <ref refid="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" kindref="member">usb_notify_hooks::device_added()</ref> hook will be called if its credentials matches one of your support descriptors. Because the stack runs through all the registered drivers, it could be that two or more drivers operate on the same device. The stack does not provide a locking mechanism to prevent two conflicting drivers to get in each others way. It is up to the device maker to have supplied such a mechanism.</para>
+<para><simplesect kind="note"><para>In reality, it is very likely that your device will match at least one other driver, because Haiku supplies the <computeroutput>usb_raw</computeroutput> driver. This driver provides userland access to the usb devices and therefore it has a blank support descriptor that matches everything. The <computeroutput>usb_raw</computeroutput> driver will not conflict with your device interaction though (except when there is an userland application that tries to meddle with your device).</para>
+</simplesect>
+If your driver is willing to accept the supplied device, and your device_added() hook returns B_OK, the USB stack will ask the kernel to reload your published devices, so that your device is visible in userspace in the <computeroutput>/dev</computeroutput> tree.</para>
+<para>The other event that the stack reports, device disconnection, should be handled by your <computeroutput><ref refid="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" kindref="member">usb_notify_hooks::device_removed()</ref></computeroutput> hook. Because &quot;plug and
+	play&quot; also means &quot;unplug and leave&quot;, you should make sure your driver is capable of cleaning up in the likely event that the user removes their device, even during transfers. In your hook function, you have the ability to do clean up whatever there is to clean up, however, make sure that you cancel all the pending transfers. Use the <ref refid="structusb__module__info_1addadab9d5c4fbb672b563197bc6cfc3c" kindref="member">usb_module_info::cancel_queued_transfers()</ref> call for that end. Also, don&apos;t forget to free the cookie you supplied in your device_added() hook.</para>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_standard">
+<title>Standard USB Operations</title>
+<para>One of the many conveniences of the Haiku USB API is the fact that many of the standard operations can be performed by simple function calls. As such, you won&apos;t have to build many of the standard requests the USB specification defines by hand. This section will outline all the different conveniences and will point you to where to look if you do need something more advanced.</para>
+<sect2 id="usb_modules_1usb_modules_standard_descriptors">
+<title>Configurations, Interfaces and Descriptors</title>
+<para>Many standard USB operations have to do with configurations, interfaces and descriptors. All these operations are accessible by convenience functions.</para>
+<para>The device descriptor is one of the first things you will be interested in if you want to check out a device. The device descriptor can be retrieved quite easily using the <computeroutput><ref refid="structusb__module__info_1a52aad2b91cf3472c80ad32ffe3e6a008" kindref="member">usb_module_info::get_device_descriptor()</ref></computeroutput> call. The retrieved descriptor complies to the one dictated by the USB standard.</para>
+<para>Also important are configurations. Since every device has at least one configuration, you should be able to retrieve and manipulate configurations. You can use <computeroutput><ref refid="structusb__module__info_1a5d8882493d8803f3237b1808dda3a1a7" kindref="member">usb_module_info::get_nth_configuration()</ref></computeroutput> to get them. To set a configuration, you should use <computeroutput><ref refid="structusb__module__info_1a3acc17927855d50cedb3a99eca964b93" kindref="member">usb_module_info::set_configuration()</ref></computeroutput>. To get the active configuration, use <computeroutput><ref refid="structusb__module__info_1ab99f30d408ccce88e584c8ccc3a7d1b8" kindref="member">usb_module_info::get_configuration()</ref></computeroutput>.</para>
+<para><simplesect kind="attention"><para>By default, Haiku&apos;s stack will set the configuration at offset zero, which is according to the standard, the default configuration. Do not rely on that if you first get the device, that the currently active configuration is the default configuration though. Another driver might have manipulated this device already.</para>
+</simplesect>
+Every configuration has associated interfaces. To make life easier, the stack automatically gets the interface descriptors (and their associated endpoints), and stores them in the <computeroutput><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref></computeroutput> structure. This structure has a member called <ref refid="structusb__configuration__info_1a9fc77a24e6e884e1d6e3021802088193" kindref="member"><computeroutput>interface</computeroutput> </ref> which is of the type <computeroutput><ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref></computeroutput>. That object containts all the interfaces, including a pointer to the interface that is currently active. Each interface is described as a <computeroutput><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref></computeroutput>, which is a container for the interface, its associated endpoints and any unparsed descriptors. In order to change the active interface, you can use the stack&apos;s <computeroutput><ref refid="structusb__module__info_1a5e5e6b6008e3f38575b10d372eec6a5a" kindref="member">usb_module_info::set_alt_interface()</ref></computeroutput> call.</para>
+<para>Endpoints, the basic units with which you can communicate, are stored as <computeroutput><ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref></computeroutput> structures. Each of these structures carries the actual endpoint descriptor, and the accompanying usb_pipe handle that you can use to actually send and receive data.</para>
+<para>The last point of interest are descriptors. As you have seen, Haiku caches all the relevant descriptors itself, however, you might want to retrieve any other type of descriptor that could be relevant for your device. The convenience function to use in such a case is the <computeroutput><ref refid="structusb__module__info_1a8643ea1daa67bcbaa5dd5b0d7b79f4e4" kindref="member">usb_module_info::get_descriptor()</ref></computeroutput> call. This function takes all the parameters needed to build the actual descriptor, and performs the request over the default control pipe.</para>
+</sect2>
+<sect2 id="usb_modules_1usb_modules_standard_features">
+<title>Features</title>
+<para>Another one of the building blocks of USB are features. Every device should provide for a number of standard features, but the USB specification also leaves the option to using custom device specific features. Feature requests can be performed on devices, interfaces and pipes (which are tied to endpoints).</para>
+<para>To set a feature, you can use the <computeroutput><ref refid="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" kindref="member">usb_module_info::set_feature()</ref></computeroutput> call. To clear a feature, use the <computeroutput><ref refid="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" kindref="member">usb_module_info::clear_feature()</ref></computeroutput> call. One of the most used feature calls is the call to clear a <computeroutput>USB_FEATURE_ENDPOINT_HALT</computeroutput> .</para>
+</sect2>
+<sect2 id="usb_modules_1usb_modules_standard_other">
+<title>Other Standard Calls</title>
+<para>To get the status of a device, an interface or an endpoint, you can use the <computeroutput><ref refid="structusb__module__info_1a2d342f1553fb3a4b5ea61eb6d7db27a0" kindref="member">usb_module_info::get_status()</ref></computeroutput> call.</para>
+<para>If you are using isochronous transfers, you can use the <computeroutput><ref refid="structusb__module__info_1a5f4a673416744b496b8ea049a31e4447" kindref="member">usb_module_info::set_pipe_policy()</ref></computeroutput> to set the properties of the isochronous pipe.</para>
+</sect2>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_transfers">
+<title>Data Transfers</title>
+<para>Transfering data is one of the basic building blocks of the USB protocol. This section will demonstrate how to perform transfers via the four different protocols the USB stack offers.</para>
+<para>But first it is essential to show how to perform the transfers using the <computeroutput><ref refid="structusb__module__info" kindref="compound">usb_module_info</ref></computeroutput> interface. The interface provides five <computeroutput>queue_*</computeroutput> functions, with the asterix being one of the following: <computeroutput>bulk</computeroutput>, <computeroutput>bulk_v</computeroutput> (bulk transfers using a vector), <computeroutput>interrupt</computeroutput>, <computeroutput>isochronous</computeroutput> or <computeroutput>request</computeroutput> (over the standard control pipe). These five functions work asynchronously, which means that your driver is called back from a different thread when your transfer is finished.</para>
+<para>The five functions share some arguments. The first argument is always the pipe that is associated with the endpoint (except for control transfers, these only work on the device in general). All of the functions accept a data buffer, and the length of that buffer. All of the functions require a <computeroutput><ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref></computeroutput>, a function in your driver that can be called in case a transfer is finished. The functions also require a cookie that is provided to the callback function.</para>
+<para>The working order is as follows: first you queue a transfer, then you handle the result in the callback function when it&apos;s done. The callback function will be called with a <emphasis>status</emphasis> argument, in which you can check whether or not the transfer actually succeeded. See this <ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">description </ref> for how your callback function should behave and what kind of status there might have been.</para>
+<para>Finally, before going into the different transfer types, a note on buffer ownership. The usb stack keeps the internal buffers tidy, but the buffer you provide to the <computeroutput>queue_*</computeroutput> functions are yours. You are responsible for allocating and freeing them, and you may do with them whatever you like, <emphasis>except</emphasis> between queueing your transfer and the callback. During that period you should consider the USB stack the owner of the buffer.</para>
+<sect2 id="usb_modules_1usb_modules_transfers_control">
+<title>Control Requests</title>
+<para>Control requests are done over the device wide control pipe which is provided by every device. Haiku&apos;s stack has two functions that you can use to perform custom requests (opposed to many of the <ref refid="usb_modules_1usb_modules_standard" kindref="member">standard operations</ref>). Control transfers are the only transfers that you can perform synchronously as well as asynchronously. The functions you can use are <computeroutput><ref refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" kindref="member">usb_module_info::send_request()</ref></computeroutput> for synchronous requests and <computeroutput><ref refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" kindref="member">usb_module_info::queue_request()</ref></computeroutput> for asynchronous requests.</para>
+<para>Many of the constants that you should use when performing can be found in the <ref refid="USB__spec_8h" kindref="compound">USB_spec.h</ref> file which is automatically included if you include the main USB header. Have a look of how to use these constants in the following example:</para>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Send<sp/>a<sp/>request<sp/>that<sp/>is<sp/>defined<sp/>by<sp/>the<sp/>standard<sp/>of<sp/>this<sp/>class.<sp/>We<sp/>retrieve</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>a<sp/>report<sp/>from<sp/>the<sp/>device<sp/>on<sp/>one<sp/>of<sp/>its<sp/>interfaces.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>request<sp/>is<sp/>specified<sp/>by<sp/>the<sp/>HID<sp/>specification.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">status<sp/>=<sp/>usb-&gt;send_request(dev,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="USB__spec_8h_1a1bae0bcd7c7151cc1b986c4512182422" kindref="member">USB_REQTYPE_INTERFACE_IN</ref><sp/>|<sp/><ref refid="USB__spec_8h_1a77d6d88e09fe3af350a57649e8f34c7f" kindref="member">USB_REQTYPE_CLASS</ref>,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>USB_REQUEST_HID_GET_REPORT,<sp/>0x0100<sp/>|<sp/>report_id,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>interfaceNumber,<sp/>device-&gt;total_report_size,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>device-&gt;buffer,<sp/>&amp;actual);</highlight></codeline>
+</programlisting></para>
+<para><simplesect kind="warning"><para>Both the <ref refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" kindref="member"><emphasis>send_request()</emphasis> </ref> and <ref refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" kindref="member"><emphasis>queue_request()</emphasis> </ref> functions can be used to perform standard usb requests. Avoid low-level operations, because the stack needs to keep its internal data structures consistent. If you need to perform one of the <ref refid="usb_modules_1usb_modules_standard" kindref="member">standard operations</ref>, use the provided convenience functions.</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="usb_modules_1usb_modules_transfers_interrupt">
+<title>Interrupt</title>
+<para>Interrupt transfers apply to endpoints that receive data, or that can be polled in several instances of time. The intervals are determined by the endpoint descriptor.</para>
+<para>To schedule a transfer, use <ref refid="structusb__module__info_1af46188738f7e77b713f5925f949ce613" kindref="member">usb_module_info::queue_interrupt()</ref>. You only have to supply a buffer, the stack schedule the transfer in such a way that it will be performed within a certain timeframe. To create a continuous interrupt system, you should queue the next transfer in the callback function of the previous. The stack will make sure that the new transfer will be performed exactly after the required interval.</para>
+</sect2>
+<sect2 id="usb_modules_1usb_modules_transfers_bulk">
+<title>Bulk</title>
+<para>Bulk transfers are very similar to control transfers. They will be performed as soon as possible without stalling other transfers, and they transfer data. Bulk transfers are designed to transfer up to large amounts of data as efficiently as possible. Performing bulk transfers isn&apos;t difficult, you merely supply a buffer and the endpoint that should execute the request, and you&apos;re set.</para>
+<para>Bulk transfers come in two flavours. The first is <ref refid="structusb__module__info_1aaf2e5f284d228b5264827d98ffac7ef4" kindref="member">usb_module_info::queue_bulk()</ref>, which takes a standard data buffer. The second flavour is the <ref refid="structusb__module__info_1ab1ad7ea7155b166ffd4423a26b2fdf6d" kindref="member">usb_module_info::queue_bulk_v()</ref> function, which is designed to operate on (an array of) POSIX vectors. These functions only differ in the buffer they accept, they function in exactly the same way.</para>
+</sect2>
+<sect2 id="usb_modules_1usb_modules_transfers_isochronous">
+<title>Isochronous</title>
+<para>Isochronous transfers are not implemented on Haiku yet. As soon as they are, this section should contain information on how to queue them.</para>
+</sect2>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_cleanup">
+<title>Cleaning Up</title>
+<para>This section describes how to gracefully leave the stack after your driver is requested to shut down.</para>
+<para>There are truely only two simple actions to perform. The first is to uninstall your notification hooks, using <computeroutput><ref refid="structusb__module__info_1a09965c1a72c449d6d866ef33b31fa1dd" kindref="member">usb_module_info::uninstall_notify()</ref></computeroutput>. The second action is to &apos;put&apos; the module.</para>
+<para><programlisting><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">uninit_driver(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>usb-&gt;uninstall_notify(kDriverName);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>put_module(<ref refid="USB3_8h_1a22b89f939badbd5ede71f3830811aeb5" kindref="member">B_USB_MODULE_NAME</ref>);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="usb_modules_1usb_modules_resources">
+<title>More Resources</title>
+<para>This section should list more resources on the web. </para>
+</sect1>
+    </detaileddescription>
+    <location file="drivers/usb_modules.dox"/>
+  </compounddef>
+</doxygen>

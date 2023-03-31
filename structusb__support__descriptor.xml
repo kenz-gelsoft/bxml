@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structusb__support__descriptor" kind="struct" language="C++" prot="public">
+    <compoundname>usb_support_descriptor</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structusb__support__descriptor_1a6ce85c5c72a47373f7ae352956475597" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>usb_support_descriptor::dev_class</definition>
+        <argsstring></argsstring>
+        <name>dev_class</name>
+        <qualifiedname>usb_support_descriptor::dev_class</qualifiedname>
+        <briefdescription>
+<para>The supported device classes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="40" column="6" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__support__descriptor_1a8a21fd4563ea2c35af7b06ccd45e8ae7" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>usb_support_descriptor::dev_protocol</definition>
+        <argsstring></argsstring>
+        <name>dev_protocol</name>
+        <qualifiedname>usb_support_descriptor::dev_protocol</qualifiedname>
+        <briefdescription>
+<para>The supported device protocols. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="42" column="6" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__support__descriptor_1acaee3b468df565b077c5617d0efb027c" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>usb_support_descriptor::dev_subclass</definition>
+        <argsstring></argsstring>
+        <name>dev_subclass</name>
+        <qualifiedname>usb_support_descriptor::dev_subclass</qualifiedname>
+        <briefdescription>
+<para>The supported device subclasses. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="41" column="6" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__support__descriptor_1ade470c3d5cc3312a425bf0b91c01067f" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+        <definition>usb_support_descriptor::product</definition>
+        <argsstring></argsstring>
+        <name>product</name>
+        <qualifiedname>usb_support_descriptor::product</qualifiedname>
+        <briefdescription>
+<para>The supported device products. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="44" column="7" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__support__descriptor_1a2be3482d222395f65043a9a66c16eaf8" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref></type>
+        <definition>usb_support_descriptor::vendor</definition>
+        <argsstring></argsstring>
+        <name>vendor</name>
+        <qualifiedname>usb_support_descriptor::vendor</qualifiedname>
+        <briefdescription>
+<para>The supported device vendor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="43" column="7" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Description of device descriptor that the driver can handle. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Support descriptors can be used to match any form of class, subclass or protocol, or they can be used to match a vendor and/or product. If any field has the value <computeroutput>0</computeroutput>, it is treated as a wildcard.</para>
+<para>For example, if you want to watch for all the hubs, which have a device class of <computeroutput>0x09</computeroutput>, you would pass this descriptor:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref><sp/>hub_devs<sp/>=<sp/>{<sp/>9,<sp/>0,<sp/>0,<sp/>0,<sp/>0<sp/>};</highlight></codeline>
+</programlisting></para>
+<para>See <ref refid="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" kindref="member">usb_module_info::register_driver()</ref> for more information on how to use this object. </para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="39" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="39" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structusb__support__descriptor_1a6ce85c5c72a47373f7ae352956475597" prot="public" virt="non-virtual"><scope>usb_support_descriptor</scope><name>dev_class</name></member>
+      <member refid="structusb__support__descriptor_1a8a21fd4563ea2c35af7b06ccd45e8ae7" prot="public" virt="non-virtual"><scope>usb_support_descriptor</scope><name>dev_protocol</name></member>
+      <member refid="structusb__support__descriptor_1acaee3b468df565b077c5617d0efb027c" prot="public" virt="non-virtual"><scope>usb_support_descriptor</scope><name>dev_subclass</name></member>
+      <member refid="structusb__support__descriptor_1ade470c3d5cc3312a425bf0b91c01067f" prot="public" virt="non-virtual"><scope>usb_support_descriptor</scope><name>product</name></member>
+      <member refid="structusb__support__descriptor_1a2be3482d222395f65043a9a66c16eaf8" prot="public" virt="non-virtual"><scope>usb_support_descriptor</scope><name>vendor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

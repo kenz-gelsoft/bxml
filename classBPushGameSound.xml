@@ -1,0 +1,1104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBPushGameSound" kind="class" language="C++" prot="public">
+    <compoundname>BPushGameSound</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BStreamingGameSound</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>lock_status</name>
+        <qualifiedname>BPushGameSound::lock_status</qualifiedname>
+        <enumvalue id="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47baa02def4e6280035a5223ea0322b49222" prot="public">
+          <name>lock_failed</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47ba9620740a489d71f67a55581beeabf554" prot="public">
+          <name>lock_ok</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47ba9e2c65b14b90aeaf15359edf57caf0b7" prot="public">
+          <name>lock_ok_frames_dropped</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="22" column="1" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="22" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBPushGameSound_1a60f8a2ba23cd3e47e4ea671d076ac8e1" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BPushGameSound::_reserved[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BPushGameSound::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="96" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1a3b15f404feb6ea10e858bb1096347760" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* BPushGameSound::fBuffer</definition>
+        <argsstring></argsstring>
+        <name>fBuffer</name>
+        <qualifiedname>BPushGameSound::fBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="90" column="5" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1a4deae9753e1d1a6eb680393a5a1c0be6" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t BPushGameSound::fBufferSize</definition>
+        <argsstring></argsstring>
+        <name>fBufferSize</name>
+        <qualifiedname>BPushGameSound::fBufferSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="94" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1a35e564da872f2ff15aa5fce61474c4db" prot="private" static="no" mutable="no">
+        <type>sem_id</type>
+        <definition>sem_id BPushGameSound::fLock</definition>
+        <argsstring></argsstring>
+        <name>fLock</name>
+        <qualifiedname>BPushGameSound::fLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="85" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1aac5a5c7fe1f418c55fedb09321034b5d" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t BPushGameSound::fLockPos</definition>
+        <argsstring></argsstring>
+        <name>fLockPos</name>
+        <qualifiedname>BPushGameSound::fLockPos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="87" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1ac661c8ecc6634a38c77a318c5f5c9e56" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BPushGameSound::fPageCount</definition>
+        <argsstring></argsstring>
+        <name>fPageCount</name>
+        <qualifiedname>BPushGameSound::fPageCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="93" column="6" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1a87a6073887ec6b4eccd39f6952b99451" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList* BPushGameSound::fPageLocked</definition>
+        <argsstring></argsstring>
+        <name>fPageLocked</name>
+        <qualifiedname>BPushGameSound::fPageLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="86" column="6" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1ad038fb44256879071d500de4fd867964" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t BPushGameSound::fPageSize</definition>
+        <argsstring></argsstring>
+        <name>fPageSize</name>
+        <qualifiedname>BPushGameSound::fPageSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="92" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPushGameSound_1a902fa323ef74717b115334548eeec633" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t BPushGameSound::fPlayPos</definition>
+        <argsstring></argsstring>
+        <name>fPlayPos</name>
+        <qualifiedname>BPushGameSound::fPlayPos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="89" column="7" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBPushGameSound_1a3f396d2f4f5b344861353a1230bda880" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPushGameSound::BPushGameSound</definition>
+        <argsstring>(size_t inBufferFrameCount, const gs_audio_format *format, size_t inBufferCount=2, BGameSoundDevice *device=NULL)</argsstring>
+        <name>BPushGameSound</name>
+        <qualifiedname>BPushGameSound::BPushGameSound</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>inBufferFrameCount</declname>
+        </param>
+        <param>
+          <type>const gs_audio_format *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>inBufferCount</declname>
+          <defval>2</defval>
+        </param>
+        <param>
+          <type>BGameSoundDevice *</type>
+          <declname>device</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aee49e65fd1aca188f846c758cab947b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BPushGameSound::~BPushGameSound</definition>
+        <argsstring>()</argsstring>
+        <name>~BPushGameSound</name>
+        <qualifiedname>BPushGameSound::~BPushGameSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="20" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a711dd9f079bc4a208443d0e6a137c315" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>BGameSound *</type>
+        <definition>virtual BGameSound * BPushGameSound::Clone</definition>
+        <argsstring>() const</argsstring>
+        <name>Clone</name>
+        <qualifiedname>BPushGameSound::Clone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="35" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a3e45f3573ec8b394b85a533e00755452" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>size_t</type>
+        <definition>virtual size_t BPushGameSound::CurrentPosition</definition>
+        <argsstring>()</argsstring>
+        <name>CurrentPosition</name>
+        <qualifiedname>BPushGameSound::CurrentPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="33" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aa77c73b322c9eca2690ce737a7fcfc8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>lock_status</type>
+        <definition>virtual lock_status BPushGameSound::LockForCyclic</definition>
+        <argsstring>(void **_basePtr, size_t *_size)</argsstring>
+        <name>LockForCyclic</name>
+        <qualifiedname>BPushGameSound::LockForCyclic</qualifiedname>
+        <param>
+          <type>void **</type>
+          <declname>_basePtr</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="31" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a1a1ef473961813c88e36d965339a9ca6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>lock_status</type>
+        <definition>virtual lock_status BPushGameSound::LockNextPage</definition>
+        <argsstring>(void **_pagePtr, size_t *_pageSize)</argsstring>
+        <name>LockNextPage</name>
+        <qualifiedname>BPushGameSound::LockNextPage</qualifiedname>
+        <param>
+          <type>void **</type>
+          <declname>_pagePtr</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_pageSize</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="28" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a0405a0bf28c59d86cb54a63ad9687e62" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::Perform</definition>
+        <argsstring>(int32 selector, void *data)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BPushGameSound::Perform</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>selector</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="37" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1af2ce33ef59515a0090902455d6be1310" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::UnlockCyclic</definition>
+        <argsstring>()</argsstring>
+        <name>UnlockCyclic</name>
+        <qualifiedname>BPushGameSound::UnlockCyclic</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="32" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ae1a389bb75a8aa82874e709d34e46736" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::UnlockPage</definition>
+        <argsstring>(void *pagePtr)</argsstring>
+        <name>UnlockPage</name>
+        <qualifiedname>BPushGameSound::UnlockPage</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>pagePtr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="29" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBPushGameSound_1ac1c0e9feb460d06074b28fa34ea08341" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPushGameSound::BPushGameSound</definition>
+        <argsstring>(BGameSoundDevice *device)</argsstring>
+        <name>BPushGameSound</name>
+        <qualifiedname>BPushGameSound::BPushGameSound</qualifiedname>
+        <param>
+          <type>BGameSoundDevice *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ac274616e0071bec396c3774a769ff1b0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPushGameSound::FillBuffer</definition>
+        <argsstring>(void *buffer, size_t byteCount)</argsstring>
+        <name>FillBuffer</name>
+        <qualifiedname>BPushGameSound::FillBuffer</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>byteCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="50" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a04f17bfa6a957782b920da3aaa7a1e1a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::SetParameters</definition>
+        <argsstring>(size_t bufferFrameCount, const gs_audio_format *format, size_t bufferCount)</argsstring>
+        <name>SetParameters</name>
+        <qualifiedname>BPushGameSound::SetParameters</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>bufferFrameCount</declname>
+        </param>
+        <param>
+          <type>const gs_audio_format *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="42" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a10e6ca1190f3b20a13b6dec798ffb6c7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::SetStreamHook</definition>
+        <argsstring>(void(*hook)(void *inCookie, void *buffer, size_t byteCount, BStreamingGameSound *me), void *cookie)</argsstring>
+        <name>SetStreamHook</name>
+        <qualifiedname>BPushGameSound::SetStreamHook</qualifiedname>
+        <param>
+          <type>void(*)(void *inCookie, void *buffer, size_t byteCount, BStreamingGameSound *me)</type>
+          <declname>hook</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>cookie</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="45" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBPushGameSound_1a34905addf48a2d018c3d02e1a0c2b8f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPushGameSound::BPushGameSound</definition>
+        <argsstring>()</argsstring>
+        <name>BPushGameSound</name>
+        <qualifiedname>BPushGameSound::BPushGameSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="53" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aa738d9845389321014c165642078cbce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPushGameSound::BPushGameSound</definition>
+        <argsstring>(const BPushGameSound &amp;other)</argsstring>
+        <name>BPushGameSound</name>
+        <qualifiedname>BPushGameSound::BPushGameSound</qualifiedname>
+        <param>
+          <type>const BPushGameSound &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a0c97d734de354c3f9dc723a58710839d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_0</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_0</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_0</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="59" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a08b50e82c4ac9534a2a41389ebdbe22f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_1</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_1</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_1</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="60" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a282d46544bdf4e2594f95cdd5ec4fb74" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_10</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_10</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_10</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="69" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a32e2f1b0124d25c022e718f25f2d053a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_11</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_11</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_11</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a1af8e1f7876ac40148b594ce8c22fe2c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_12</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_12</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_12</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="71" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aa878e7f10bde4f7e26d0a02f8256d634" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_13</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_13</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_13</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="72" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aa0ff8ef9fec9d1ca8cc53c75ccea175e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_14</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_14</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_14</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="73" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a5f2b3e2de773d49392f03ccbb9a7e46d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_15</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_15</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_15</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="74" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ab96f053356e31c1661f0aacc369f04c2" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_16</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_16</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_16</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="75" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aa607da203ec26507f6a70f2978b9e990" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_17</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_17</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_17</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="76" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a253195b46a4cf1b899c791c7e2e9d9ce" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_18</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_18</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_18</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="77" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a72646818e6b6fc88716adbd62eb2bea0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_19</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_19</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_19</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="78" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a8c545d26beccca2ac8f03339fc3bfb47" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_2</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_2</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_2</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="61" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a316e0d4a8b93a5ffbab02b2f4df6265c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_20</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_20</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_20</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="79" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ab687c2a5108972bdd11fad27b9f6dd05" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_21</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_21</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_21</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="80" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ad61b4d64fddbf95f74696ee77824de4a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_22</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_22</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_22</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="81" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1af530b15514a758ddd64fbb090fbc77ec" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_23</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_23</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_23</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="82" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a33d5fa33859b9c339c857980fea8d974" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_3</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_3</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_3</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="62" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1af33ca8b561cc20dc8bc36c473675e089" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_4</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_4</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_4</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="63" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ababa9c820c93b13880357ddf93087173" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_5</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_5</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_5</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="64" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aa9ffb7e1c041a3c835a808d72f2236ff" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_6</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_6</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_6</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="65" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a908f2cbeb9d30acb40ae12f666aee7df" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_7</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_7</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_7</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="66" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1aefc21484e7df268ab71486844870fdac" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_8</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_8</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_8</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="67" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1ad5de3e5dfb97795c027ef9b0ca5df453" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BPushGameSound::_Reserved_BPushGameSound_9</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BPushGameSound_9</name>
+        <qualifiedname>BPushGameSound::_Reserved_BPushGameSound_9</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="68" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a7a97183931c853d332d3e457a570657b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BPushGameSound::BytesReady</definition>
+        <argsstring>(size_t *bytes)</argsstring>
+        <name>BytesReady</name>
+        <qualifiedname>BPushGameSound::BytesReady</qualifiedname>
+        <param>
+          <type>size_t *</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPushGameSound_1a1a2d28ec38d33666e3f5d9e6bc8a0fe5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>BPushGameSound &amp;</type>
+        <definition>BPushGameSound &amp; BPushGameSound::operator=</definition>
+        <argsstring>(const BPushGameSound &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BPushGameSound::operator=</qualifiedname>
+        <param>
+          <type>const BPushGameSound &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="55" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/game/PushGameSound.h" line="14" column="1" bodyfile="/boot/home/src/haiku/headers/os/game/PushGameSound.h" bodystart="14" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classBPushGameSound_1a60f8a2ba23cd3e47e4ea671d076ac8e1" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>_reserved</name></member>
+      <member refid="classBPushGameSound_1a0c97d734de354c3f9dc723a58710839d" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_0</name></member>
+      <member refid="classBPushGameSound_1a08b50e82c4ac9534a2a41389ebdbe22f" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_1</name></member>
+      <member refid="classBPushGameSound_1a282d46544bdf4e2594f95cdd5ec4fb74" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_10</name></member>
+      <member refid="classBPushGameSound_1a32e2f1b0124d25c022e718f25f2d053a" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_11</name></member>
+      <member refid="classBPushGameSound_1a1af8e1f7876ac40148b594ce8c22fe2c" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_12</name></member>
+      <member refid="classBPushGameSound_1aa878e7f10bde4f7e26d0a02f8256d634" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_13</name></member>
+      <member refid="classBPushGameSound_1aa0ff8ef9fec9d1ca8cc53c75ccea175e" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_14</name></member>
+      <member refid="classBPushGameSound_1a5f2b3e2de773d49392f03ccbb9a7e46d" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_15</name></member>
+      <member refid="classBPushGameSound_1ab96f053356e31c1661f0aacc369f04c2" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_16</name></member>
+      <member refid="classBPushGameSound_1aa607da203ec26507f6a70f2978b9e990" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_17</name></member>
+      <member refid="classBPushGameSound_1a253195b46a4cf1b899c791c7e2e9d9ce" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_18</name></member>
+      <member refid="classBPushGameSound_1a72646818e6b6fc88716adbd62eb2bea0" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_19</name></member>
+      <member refid="classBPushGameSound_1a8c545d26beccca2ac8f03339fc3bfb47" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_2</name></member>
+      <member refid="classBPushGameSound_1a316e0d4a8b93a5ffbab02b2f4df6265c" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_20</name></member>
+      <member refid="classBPushGameSound_1ab687c2a5108972bdd11fad27b9f6dd05" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_21</name></member>
+      <member refid="classBPushGameSound_1ad61b4d64fddbf95f74696ee77824de4a" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_22</name></member>
+      <member refid="classBPushGameSound_1af530b15514a758ddd64fbb090fbc77ec" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_23</name></member>
+      <member refid="classBPushGameSound_1a33d5fa33859b9c339c857980fea8d974" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_3</name></member>
+      <member refid="classBPushGameSound_1af33ca8b561cc20dc8bc36c473675e089" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_4</name></member>
+      <member refid="classBPushGameSound_1ababa9c820c93b13880357ddf93087173" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_5</name></member>
+      <member refid="classBPushGameSound_1aa9ffb7e1c041a3c835a808d72f2236ff" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_6</name></member>
+      <member refid="classBPushGameSound_1a908f2cbeb9d30acb40ae12f666aee7df" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_7</name></member>
+      <member refid="classBPushGameSound_1aefc21484e7df268ab71486844870fdac" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_8</name></member>
+      <member refid="classBPushGameSound_1ad5de3e5dfb97795c027ef9b0ca5df453" prot="private" virt="virtual"><scope>BPushGameSound</scope><name>_Reserved_BPushGameSound_9</name></member>
+      <member refid="classBGameSound_1acddea7386d9096f233e5af4ee4e85689" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>BGameSound</name></member>
+      <member refid="classBGameSound_1ad947800b2abaa755237fbf2769e5e3ee" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>BGameSound</name></member>
+      <member refid="classBPushGameSound_1a3f396d2f4f5b344861353a1230bda880" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>BPushGameSound</name></member>
+      <member refid="classBPushGameSound_1ac1c0e9feb460d06074b28fa34ea08341" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>BPushGameSound</name></member>
+      <member refid="classBPushGameSound_1a34905addf48a2d018c3d02e1a0c2b8f1" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>BPushGameSound</name></member>
+      <member refid="classBPushGameSound_1aa738d9845389321014c165642078cbce" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>BPushGameSound</name></member>
+      <member refid="classBStreamingGameSound_1ae35b2b0ca63c3ae578cc074b8e30b95d" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>BStreamingGameSound</name></member>
+      <member refid="classBStreamingGameSound_1a71a62a1b9a254bdcf83ffaf8a1a6049c" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>BStreamingGameSound</name></member>
+      <member refid="classBPushGameSound_1a7a97183931c853d332d3e457a570657b" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>BytesReady</name></member>
+      <member refid="classBPushGameSound_1a711dd9f079bc4a208443d0e6a137c315" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>Clone</name></member>
+      <member refid="classBPushGameSound_1a3e45f3573ec8b394b85a533e00755452" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>CurrentPosition</name></member>
+      <member refid="classBGameSound_1adc2e67dc82d86b529ab843c7fc74de60" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>Device</name></member>
+      <member refid="classBPushGameSound_1a3b15f404feb6ea10e858bb1096347760" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fBuffer</name></member>
+      <member refid="classBPushGameSound_1a4deae9753e1d1a6eb680393a5a1c0be6" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fBufferSize</name></member>
+      <member refid="classBPushGameSound_1ac274616e0071bec396c3774a769ff1b0" prot="protected" virt="virtual"><scope>BPushGameSound</scope><name>FillBuffer</name></member>
+      <member refid="classBPushGameSound_1a35e564da872f2ff15aa5fce61474c4db" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fLock</name></member>
+      <member refid="classBPushGameSound_1aac5a5c7fe1f418c55fedb09321034b5d" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fLockPos</name></member>
+      <member refid="classBGameSound_1a67580a90f699c740e4f7ac09abbf0e86" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>Format</name></member>
+      <member refid="classBPushGameSound_1ac661c8ecc6634a38c77a318c5f5c9e56" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fPageCount</name></member>
+      <member refid="classBPushGameSound_1a87a6073887ec6b4eccd39f6952b99451" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fPageLocked</name></member>
+      <member refid="classBPushGameSound_1ad038fb44256879071d500de4fd867964" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fPageSize</name></member>
+      <member refid="classBPushGameSound_1a902fa323ef74717b115334548eeec633" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>fPlayPos</name></member>
+      <member refid="classBGameSound_1a9890be6265e7061be9df6ea671f6724c" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>Gain</name></member>
+      <member refid="classBGameSound_1aa67a88767a20352737bd0e84c4c17d65" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>GetAttributes</name></member>
+      <member refid="classBStreamingGameSound_1a8ebb77a2b247cd16ed295463da59eaac" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>hook</name></member>
+      <member refid="classBGameSound_1aa125786bc9af021d8edef146a930c706" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>ID</name></member>
+      <member refid="classBGameSound_1a7cac809d316483c86188eb3aa6f8f5d5" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>Init</name></member>
+      <member refid="classBGameSound_1ae5bc47926c79441500e37ca5cb556daf" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>InitCheck</name></member>
+      <member refid="classBGameSound_1a9936d3c82add5f5c7b1692d0d466d5a2" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>IsPlaying</name></member>
+      <member refid="classBStreamingGameSound_1a54b5349db705d08cbbc5cfb24c5e241e" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>Lock</name></member>
+      <member refid="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47baa02def4e6280035a5223ea0322b49222" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>lock_failed</name></member>
+      <member refid="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47ba9620740a489d71f67a55581beeabf554" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>lock_ok</name></member>
+      <member refid="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47ba9e2c65b14b90aeaf15359edf57caf0b7" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>lock_ok_frames_dropped</name></member>
+      <member refid="classBPushGameSound_1a909c53ab14d63d57ec5d83a74fe2a47b" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>lock_status</name></member>
+      <member refid="classBPushGameSound_1aa77c73b322c9eca2690ce737a7fcfc8b" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>LockForCyclic</name></member>
+      <member refid="classBGameSound_1aa59acd7e62dbab92351cfb68f6deeac0" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>LockMemoryPool</name></member>
+      <member refid="classBPushGameSound_1a1a1ef473961813c88e36d965339a9ca6" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>LockNextPage</name></member>
+      <member refid="classBGameSound_1a04c36c79daa3acfca0586c9bd9d8ee6b" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>operator delete</name></member>
+      <member refid="classBGameSound_1a6edda9b6a69aa609832d563feec275b9" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>operator delete</name></member>
+      <member refid="classBGameSound_1a14debc57c27d021ff4d9812bf62046ff" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>operator new</name></member>
+      <member refid="classBGameSound_1ac570307f6d54dbdb880c55e8fd4747bc" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>operator new</name></member>
+      <member refid="classBPushGameSound_1a1a2d28ec38d33666e3f5d9e6bc8a0fe5" prot="private" virt="non-virtual"><scope>BPushGameSound</scope><name>operator=</name></member>
+      <member refid="classBGameSound_1a4757aa56e3e39a97de8607e04e45cbc1" prot="protected" virt="non-virtual" ambiguityscope="BGameSound::"><scope>BPushGameSound</scope><name>operator=</name></member>
+      <member refid="classBGameSound_1abed278ebeb1fc1606903d9e58b906536" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>Pan</name></member>
+      <member refid="classBPushGameSound_1a0405a0bf28c59d86cb54a63ad9687e62" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>Perform</name></member>
+      <member refid="classBStreamingGameSound_1aec0ae8d5ce8fdcfe5f60bda36a1e1b39" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>SetAttributes</name></member>
+      <member refid="classBGameSound_1a9c0b80aa71e9c562c86c9fad6bb1c468" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>SetGain</name></member>
+      <member refid="classBGameSound_1a53c565ee1ccc636820959d8e2475efbf" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>SetInitError</name></member>
+      <member refid="classBGameSound_1a59231cc8c90dc2d4d19e3eb490a0de03" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>SetMaxSoundCount</name></member>
+      <member refid="classBGameSound_1a799a311b1352544c0a85ab92dbcfb7de" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>SetMemoryPoolSize</name></member>
+      <member refid="classBGameSound_1ae0cdb0db78ba012cccdb8249e9dfc580" prot="public" virt="non-virtual"><scope>BPushGameSound</scope><name>SetPan</name></member>
+      <member refid="classBPushGameSound_1a04f17bfa6a957782b920da3aaa7a1e1a" prot="protected" virt="virtual"><scope>BPushGameSound</scope><name>SetParameters</name></member>
+      <member refid="classBPushGameSound_1a10e6ca1190f3b20a13b6dec798ffb6c7" prot="protected" virt="virtual"><scope>BPushGameSound</scope><name>SetStreamHook</name></member>
+      <member refid="classBStreamingGameSound_1a7e9bac03d9000995fb708d1320bb9efb" prot="public" virt="virtual" ambiguityscope="BStreamingGameSound::"><scope>BPushGameSound</scope><name>SetStreamHook</name></member>
+      <member refid="classBGameSound_1ac2a041a7ff644481a6fbcb200acad7e7" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>StartPlaying</name></member>
+      <member refid="classBGameSound_1a539de1d1bd4cb2c6e4dc3b1bfdb9ae93" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>StopPlaying</name></member>
+      <member refid="classBStreamingGameSound_1adcd32da3111cf58b31551bdcca6966b1" prot="protected" virt="non-virtual"><scope>BPushGameSound</scope><name>Unlock</name></member>
+      <member refid="classBPushGameSound_1af2ce33ef59515a0090902455d6be1310" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>UnlockCyclic</name></member>
+      <member refid="classBPushGameSound_1ae1a389bb75a8aa82874e709d34e46736" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>UnlockPage</name></member>
+      <member refid="classBGameSound_1a57d7369240d8c8aa3b84542657e50a0e" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>~BGameSound</name></member>
+      <member refid="classBPushGameSound_1aee49e65fd1aca188f846c758cab947b5" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>~BPushGameSound</name></member>
+      <member refid="classBStreamingGameSound_1a0e81a41fba813eecb9c307abe70696f3" prot="public" virt="virtual"><scope>BPushGameSound</scope><name>~BStreamingGameSound</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

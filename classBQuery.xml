@@ -1,0 +1,1769 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBQuery" kind="class" language="C++" prot="public">
+    <compoundname>BQuery</compoundname>
+    <basecompoundref refid="classBEntryList" prot="public" virt="non-virtual">BEntryList</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Predicate Push</header>
+      <description><para>Methods to push data onto the predicate stack.</para>
+<para><simplesect kind="warning"><para>In BeOS R5 these methods returned <computeroutput>void</computeroutput>. That is checking the return value will render your code source and binary incompatible! Calling PushXYZ() after a <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> does change the predicate on R5, but it doesn&apos;t affect the active query and the newly created predicate can not even be used for the next query, since in order to be able to reuse the <ref refid="classBQuery" kindref="compound">BQuery</ref> object for another query, <ref refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" kindref="member">Clear()</ref> has to be called and <ref refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" kindref="member">Clear()</ref> also deletes the predicate. </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="function" id="classBQuery_1a486babcb3938a19035aa820c85c10088" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushAttr</definition>
+        <argsstring>(const char *attrName)</argsstring>
+        <name>PushAttr</name>
+        <qualifiedname>BQuery::PushAttr</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>attrName</declname>
+        </param>
+        <briefdescription>
+<para>Pushes an attribute name onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>attrName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the attribute to push on the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>PushAttribute() was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="50" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a17f934eed4967e0df7a67a41336f88da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushOp</definition>
+        <argsstring>(query_op op)</argsstring>
+        <name>PushOp</name>
+        <qualifiedname>BQuery::PushOp</qualifiedname>
+        <param>
+          <type>query_op</type>
+          <declname>op</declname>
+        </param>
+        <briefdescription>
+<para>Pushes an operator onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>op</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operator code to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a17f934eed4967e0df7a67a41336f88da" kindref="member">PushOp()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="51" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a1cb827689d0485df5151661474f5c450" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushUInt32</definition>
+        <argsstring>(uint32 value)</argsstring>
+        <name>PushUInt32</name>
+        <qualifiedname>BQuery::PushUInt32</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a <computeroutput>uint32</computeroutput> onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>uint32</computeroutput> to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a1cb827689d0485df5151661474f5c450" kindref="member">PushUInt32()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a635dcf559feb1a07bb5910fab3a84b13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushInt32</definition>
+        <argsstring>(int32 value)</argsstring>
+        <name>PushInt32</name>
+        <qualifiedname>BQuery::PushInt32</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes an <computeroutput>int32</computeroutput> onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>int32</computeroutput> to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a635dcf559feb1a07bb5910fab3a84b13" kindref="member">PushInt32()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a21c56cfb7bbf927d702dab55ae333481" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushUInt64</definition>
+        <argsstring>(uint64 value)</argsstring>
+        <name>PushUInt64</name>
+        <qualifiedname>BQuery::PushUInt64</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a31809f9e3be3ab0398318f669d00a181" kindref="member">uint64</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a <computeroutput>uint64</computeroutput> onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>uint64</computeroutput> to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a21c56cfb7bbf927d702dab55ae333481" kindref="member">PushUInt64()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="55" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a581f2eec46eb664088d76d027b510612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushInt64</definition>
+        <argsstring>(int64 value)</argsstring>
+        <name>PushInt64</name>
+        <qualifiedname>BQuery::PushInt64</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes an int64 onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>int64</computeroutput> to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a581f2eec46eb664088d76d027b510612" kindref="member">PushInt64()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="56" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a67e418693af55811941975b4da275b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushFloat</definition>
+        <argsstring>(float value)</argsstring>
+        <name>PushFloat</name>
+        <qualifiedname>BQuery::PushFloat</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a <computeroutput>float</computeroutput> onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>float</computeroutput> to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a67e418693af55811941975b4da275b1d" kindref="member">PushFloat()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a7e654307d914dd003f7dc5dfe38af22f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushDouble</definition>
+        <argsstring>(double value)</argsstring>
+        <name>PushDouble</name>
+        <qualifiedname>BQuery::PushDouble</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a <computeroutput>double</computeroutput> onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>double</computeroutput> to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a7e654307d914dd003f7dc5dfe38af22f" kindref="member">PushDouble()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="58" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1aa5c9d0d2558cda8b127d705f9abfde54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushString</definition>
+        <argsstring>(const char *value, bool caseInsensitive=false)</argsstring>
+        <name>PushString</name>
+        <qualifiedname>BQuery::PushString</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>caseInsensitive</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Pushes a string onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to push onto the stack. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>caseInsensitive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the case of <emphasis>value</emphasis> should be ignored in the resulting query.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa5c9d0d2558cda8b127d705f9abfde54" kindref="member">PushString()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="59" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a0c01d4a0c19b3af80d1c861ca8ec3e6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::PushDate</definition>
+        <argsstring>(const char *date)</argsstring>
+        <name>PushDate</name>
+        <qualifiedname>BQuery::PushDate</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a date string onto the predicate stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplied date can be any string understood by <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>date</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The date string to push onto the stack.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a0c01d4a0c19b3af80d1c861ca8ec3e6c" kindref="member">PushDate()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="61" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Assignment</header>
+      <memberdef kind="function" id="classBQuery_1aa49ccd947942b5eca16c52a56a9a13db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::SetVolume</definition>
+        <argsstring>(const BVolume *volume)</argsstring>
+        <name>SetVolume</name>
+        <qualifiedname>BQuery::SetVolume</qualifiedname>
+        <param>
+          <type>const <ref refid="classBVolume" kindref="compound">BVolume</ref> *</type>
+          <declname>volume</declname>
+        </param>
+        <briefdescription>
+<para>Assigns <emphasis>volume</emphasis> to the <ref refid="classBQuery" kindref="compound">BQuery</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A query may only be assigned to one volume.</para>
+<para>The method fails if called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>. To reuse the <ref refid="classBQuery" kindref="compound">BQuery</ref> object it must first be reset using the <ref refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" kindref="member">Clear()</ref> method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>volume</emphasis> to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa49ccd947942b5eca16c52a56a9a13db" kindref="member">SetVolume()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="63" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::SetPredicate</definition>
+        <argsstring>(const char *expression)</argsstring>
+        <name>SetPredicate</name>
+        <qualifiedname>BQuery::SetPredicate</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>expression</declname>
+        </param>
+        <briefdescription>
+<para>Assigns the passed-in predicate <emphasis>expression</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A predicate can be set either using this method or by constructing one on the predicate stack, however, the two methods can not be mixed. The predicate stack takes precedence over this method.</para>
+<para>The method fails if called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>. To reuse the <ref refid="classBQuery" kindref="compound">BQuery</ref> object it must first be reset using the <ref refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" kindref="member">Clear()</ref> method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expression</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The predicate <emphasis>expression</emphasis> to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" kindref="member">SetPredicate()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1aca4694dedfd74796a38992ca256bc260" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::SetTarget</definition>
+        <argsstring>(BMessenger messenger)</argsstring>
+        <name>SetTarget</name>
+        <qualifiedname>BQuery::SetTarget</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>messenger</declname>
+        </param>
+        <briefdescription>
+<para>Assigns the target <emphasis>messenger</emphasis> and makes the query live. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The query update messages are sent to the specified target. They might roll in immediately after calling <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+<para>This methods fails if called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>. To reuse the <ref refid="classBQuery" kindref="compound">BQuery</ref> object it must first be reset via <ref refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" kindref="member">Clear()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>messenger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target <emphasis>messenger</emphasis> to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aca4694dedfd74796a38992ca256bc260" kindref="member">SetTarget()</ref> was called after <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="65" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Query Information</header>
+      <memberdef kind="function" id="classBQuery_1a9a6755cdc56b04b07feceacdc1051b04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BQuery::IsLive</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLive</name>
+        <qualifiedname>BQuery::IsLive</qualifiedname>
+        <briefdescription>
+<para>Gets whether the query associated with this object is live. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the query is live, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBQuery_1aca4694dedfd74796a38992ca256bc260" kindref="member">SetTarget()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a0566fa5220d288eaf9aece48a0d0d5d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t BQuery::PredicateLength</definition>
+        <argsstring>()</argsstring>
+        <name>PredicateLength</name>
+        <qualifiedname>BQuery::PredicateLength</qualifiedname>
+        <briefdescription>
+<para>Gets the length of the predicate string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method returns the length of the string representation of the predicate (including the terminating <computeroutput>NUL</computeroutput>) regardless of whether the predicate has been constructed using the predicate stack or set via <ref refid="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" kindref="member">SetPredicate()</ref>.</para>
+<para><simplesect kind="return"><para>The length of the predicate string or 0 if an error occurred.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" kindref="member">SetPredicate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="71" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1ab5d775120b8a329d94da275466c06880" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>dev_t</type>
+        <definition>dev_t BQuery::TargetDevice</definition>
+        <argsstring>() const</argsstring>
+        <name>TargetDevice</name>
+        <qualifiedname>BQuery::TargetDevice</qualifiedname>
+        <briefdescription>
+<para>Gets the device ID identifying the volume of the <ref refid="classBQuery" kindref="compound">BQuery</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The device ID of the volume or <computeroutput>B_NO_INIT</computeroutput> if the volume wasn&apos;t set.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="73" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Get Predicate</header>
+      <description><para>These methods fetch a string representation regardless of whether the predicate has been constructed using the predicate stack or via <ref refid="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" kindref="member">SetPredicate()</ref>.</para>
+<para><simplesect kind="note"><para>These methods cause the predicate stack to be evaluated and cleared. You can&apos;t interleave calls to push data and <ref refid="classBQuery_1a0735d502fefe1bfa6b9fd514f584658c" kindref="member">GetPredicate()</ref> methods. </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="function" id="classBQuery_1a0735d502fefe1bfa6b9fd514f584658c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::GetPredicate</definition>
+        <argsstring>(char *buffer, size_t length)</argsstring>
+        <name>GetPredicate</name>
+        <qualifiedname>BQuery::GetPredicate</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>buffer</emphasis> with the predicate string assigned to the <ref refid="classBQuery" kindref="compound">BQuery</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a buffer which the predicate is written to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size of <emphasis>buffer</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The predicate of the <ref refid="classBQuery" kindref="compound">BQuery</ref> object wasn&apos;t set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>buffer</emphasis> was <computeroutput>NULL</computeroutput> or too short.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="69" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a4964d96bf0349c95ff912c532f9326a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::GetPredicate</definition>
+        <argsstring>(BString *predicate)</argsstring>
+        <name>GetPredicate</name>
+        <qualifiedname>BQuery::GetPredicate</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>predicate</declname>
+        </param>
+        <briefdescription>
+<para>Fills out the passed-in <ref refid="classBString" kindref="compound">BString</ref> object with the predicate string assigned to the <ref refid="classBQuery" kindref="compound">BQuery</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>predicate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a <ref refid="classBString" kindref="compound">BString</ref> object that gets filled out with the predicate string.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The predicate of the <ref refid="classBQuery" kindref="compound">BQuery</ref> object wasn&apos;t set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>predicate</emphasis> was <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="70" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>BEntryList Interface</header>
+      <description><para>These methods are used to traverse the results of a query as a <ref refid="classBEntryList" kindref="compound">BEntryList</ref>.</para>
+<para><simplesect kind="note"><para>The iterator used by these methods is the same one used by <ref refid="classBQuery_1a40b44c5c8e047d005572334dd681bd37" kindref="member">GetNextRef()</ref> and <ref refid="classBQuery_1af5a9ba3e24f68c59b1247b7181433d23" kindref="member">GetNextDirents()</ref>. </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="function" id="classBQuery_1ab30c05e8425a5c39dd35bd5fe5b05748" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::GetNextEntry</definition>
+        <argsstring>(BEntry *entry, bool traverse=false)</argsstring>
+        <name>GetNextEntry</name>
+        <qualifiedname>BQuery::GetNextEntry</qualifiedname>
+        <reimplements refid="classBEntryList_1a52e6c79344a6e511e7890f008e7281d1">GetNextEntry</reimplements>
+        <param>
+          <type><ref refid="classBEntry" kindref="compound">BEntry</ref> *</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>traverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>entry</emphasis> with the next entry traversing symlinks if <emphasis>traverse</emphasis> is <computeroutput>true</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a <ref refid="classBEntry" kindref="compound">BEntry</ref> object initialized with the entry. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>traverse</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to follow symbolic links.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>At end of list. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The predicate included unindexed attributes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> was not previously called on the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="78" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a40b44c5c8e047d005572334dd681bd37" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::GetNextRef</definition>
+        <argsstring>(entry_ref *ref)</argsstring>
+        <name>GetNextRef</name>
+        <qualifiedname>BQuery::GetNextRef</qualifiedname>
+        <reimplements refid="classBEntryList_1a908ff7149239ab66683b12b27be917ee">GetNextRef</reimplements>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>ref</emphasis> with the next entry as an <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an <ref refid="structentry__ref" kindref="compound">entry_ref</ref> object filled out with the entry&apos;s data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>At end of list. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The predicate included unindexed attributes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> was not previously called on the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="79" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1af5a9ba3e24f68c59b1247b7181433d23" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BQuery::GetNextDirents</definition>
+        <argsstring>(struct dirent *buffer, size_t length, int32 count=INT_MAX)</argsstring>
+        <name>GetNextDirents</name>
+        <qualifiedname>BQuery::GetNextDirents</qualifiedname>
+        <reimplements refid="classBEntryList_1a2f8498249c876866d5f53a8b89044871">GetNextDirents</reimplements>
+        <param>
+          <type>struct dirent *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+          <defval>INT_MAX</defval>
+        </param>
+        <briefdescription>
+<para>Fill out up to <emphasis>count</emphasis> entries into the array of dirent structs pointed to by <emphasis>buffer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads as many but no more than <emphasis>count</emphasis> entries, as many entries as remain, or as many entries as will fit into the array at <emphasis>buffer</emphasis> with the given <emphasis>length</emphasis> (in bytes), whichever is smallest.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a buffer filled out with dirent structures of the entries. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of <emphasis>buffer</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of entries to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of dirent structures stored in the buffer, 0 when there are no more entries to be read, or an error code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The predicate included unindexed attributes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> was not previously called on the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="80" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a42e73f8b1328e0a0bf42610a87a97e4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::Rewind</definition>
+        <argsstring>()</argsstring>
+        <name>Rewind</name>
+        <qualifiedname>BQuery::Rewind</qualifiedname>
+        <reimplements refid="classBEntryList_1a6cbcd041425e5a1225a762c72a4eb8af">Rewind</reimplements>
+        <briefdescription>
+<para>Rewinds the entry list back to the first entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>BeOS R5 does not implement this method for <ref refid="classBQuery" kindref="compound">BQuery</ref>.</para>
+</simplesect>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> was not previously called on the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="82" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1ab57f2b6d7a84c557f77a77d3baaca421" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BQuery::CountEntries</definition>
+        <argsstring>()</argsstring>
+        <name>CountEntries</name>
+        <qualifiedname>BQuery::CountEntries</qualifiedname>
+        <reimplements refid="classBEntryList_1a290b792f7b12265c10ba589aa969b862">CountEntries</reimplements>
+        <briefdescription>
+<para>Unimplemented. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_ERROR</computeroutput>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="83" column="13"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBQuery_1adfeff6fe26092080f5432df24730350a" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BQuery::_reservedData[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>_reservedData</name>
+        <qualifiedname>BQuery::_reservedData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="109" column="6" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1aa0c001114a175e3c6d809397ee427bae" prot="private" static="no" mutable="no">
+        <type>dev_t</type>
+        <definition>dev_t BQuery::fDevice</definition>
+        <argsstring></argsstring>
+        <name>fDevice</name>
+        <qualifiedname>BQuery::fDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="104" column="6" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1a94ea691785940ef6455f70fabe71e65c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BQuery::fLive</definition>
+        <argsstring></argsstring>
+        <name>fLive</name>
+        <qualifiedname>BQuery::fLive</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="105" column="5" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1a0ea33a144cadea77daf21c648c9cfb77" prot="private" static="no" mutable="no">
+        <type>port_id</type>
+        <definition>port_id BQuery::fPort</definition>
+        <argsstring></argsstring>
+        <name>fPort</name>
+        <qualifiedname>BQuery::fPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="106" column="8" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1aabebd12f7e7a7298edfb81ed5d1a71b0" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* BQuery::fPredicate</definition>
+        <argsstring></argsstring>
+        <name>fPredicate</name>
+        <qualifiedname>BQuery::fPredicate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="103" column="5" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1a229e486cba98258aed240d812544210b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BQuery::fQueryFd</definition>
+        <argsstring></argsstring>
+        <name>fQueryFd</name>
+        <qualifiedname>BQuery::fQueryFd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="108" column="4" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1a04ad2f901c17c34f8045c943608d5f4a" prot="private" static="no" mutable="no">
+        <type>BPrivate::Storage::QueryStack *</type>
+        <definition>BPrivate::Storage::QueryStack* BQuery::fStack</definition>
+        <argsstring></argsstring>
+        <name>fStack</name>
+        <qualifiedname>BQuery::fStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="102" column="31" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBQuery_1aef8229dcb1a8c1bfebf1e4d89f77b6e1" prot="private" static="no" mutable="no">
+        <type>long</type>
+        <definition>long BQuery::fToken</definition>
+        <argsstring></argsstring>
+        <name>fToken</name>
+        <qualifiedname>BQuery::fToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="107" column="5" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBQuery_1a1314925aad6b0a1663e5c73196aac5f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BQuery::BQuery</definition>
+        <argsstring>()</argsstring>
+        <name>BQuery</name>
+        <qualifiedname>BQuery::BQuery</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBQuery" kindref="compound">BQuery</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" kindref="member">SetPredicate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1ac7d7b1e4fb011605eaa5ed2dfcc7165e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BQuery::~BQuery</definition>
+        <argsstring>()</argsstring>
+        <name>~BQuery</name>
+        <qualifiedname>BQuery::~BQuery</qualifiedname>
+        <briefdescription>
+<para>Destroys the <ref refid="classBQuery" kindref="compound">BQuery</ref> object and frees any associated resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="46" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <qualifiedname>BQuery::Clear</qualifiedname>
+        <briefdescription>
+<para>Resets the object to a uninitialized state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> </para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::Fetch</definition>
+        <argsstring>()</argsstring>
+        <name>Fetch</name>
+        <qualifiedname>BQuery::Fetch</qualifiedname>
+        <briefdescription>
+<para>Start fetching entries satisfying the predicate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After <ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> has been called <ref refid="classBQuery_1ab30c05e8425a5c39dd35bd5fe5b05748" kindref="member">GetNextEntry()</ref>, <ref refid="classBQuery_1a40b44c5c8e047d005572334dd681bd37" kindref="member">GetNextRef()</ref> and <ref refid="classBQuery_1af5a9ba3e24f68c59b1247b7181433d23" kindref="member">GetNextDirents()</ref> can be used to retrieve the entities. Live query updates may be sent immediately after this method has been called.</para>
+<para><ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> fails if it has already been called. To reuse the <ref refid="classBQuery" kindref="compound">BQuery</ref> object it must first be reset with the <ref refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" kindref="member">Clear()</ref> method.</para>
+<para><simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object predicate or the volume wasn&apos;t set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object predicate was invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" kindref="member">Fetch()</ref> already called.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="75" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBQuery_1ae8243180495708c15569631e8488c3df" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::_EvaluateStack</definition>
+        <argsstring>()</argsstring>
+        <name>_EvaluateStack</name>
+        <qualifiedname>BQuery::_EvaluateStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="90" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1ad7f3fcc000be5c03c5f3472c62d9531e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BQuery::_HasFetched</definition>
+        <argsstring>() const</argsstring>
+        <name>_HasFetched</name>
+        <qualifiedname>BQuery::_HasFetched</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="86" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a026d6c4ee22d7e6251e6b85b8b2cddd7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BQuery::_ParseDates</definition>
+        <argsstring>(BString &amp;parsedPredicate)</argsstring>
+        <name>_ParseDates</name>
+        <qualifiedname>BQuery::_ParseDates</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>parsedPredicate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="91" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a2041a78418180761a2b883be8276c416" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::_PushNode</definition>
+        <argsstring>(BPrivate::Storage::QueryNode *node, bool deleteOnError)</argsstring>
+        <name>_PushNode</name>
+        <qualifiedname>BQuery::_PushNode</qualifiedname>
+        <param>
+          <type>BPrivate::Storage::QueryNode *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deleteOnError</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="87" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1aec489af692753e384dacc13da32be484" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BQuery::_QwertyQuery1</definition>
+        <argsstring>()</argsstring>
+        <name>_QwertyQuery1</name>
+        <qualifiedname>BQuery::_QwertyQuery1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="94" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a28f0b1c4933297006d857ab34350487e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BQuery::_QwertyQuery2</definition>
+        <argsstring>()</argsstring>
+        <name>_QwertyQuery2</name>
+        <qualifiedname>BQuery::_QwertyQuery2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="95" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a6cea0798011e62dc3ff7d817d511035b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BQuery::_QwertyQuery3</definition>
+        <argsstring>()</argsstring>
+        <name>_QwertyQuery3</name>
+        <qualifiedname>BQuery::_QwertyQuery3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="96" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1ac871f8aabddc1d681b6254957a7a2c14" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BQuery::_QwertyQuery4</definition>
+        <argsstring>()</argsstring>
+        <name>_QwertyQuery4</name>
+        <qualifiedname>BQuery::_QwertyQuery4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="97" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1afcd4004d9ccb75641d4f613df77c872e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BQuery::_QwertyQuery5</definition>
+        <argsstring>()</argsstring>
+        <name>_QwertyQuery5</name>
+        <qualifiedname>BQuery::_QwertyQuery5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="98" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1a81d99c19f0cdcf0c16c049f367ab8447" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BQuery::_QwertyQuery6</definition>
+        <argsstring>()</argsstring>
+        <name>_QwertyQuery6</name>
+        <qualifiedname>BQuery::_QwertyQuery6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="99" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBQuery_1af3280fc590b1cfeca391d90a01e97c50" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BQuery::_SetPredicate</definition>
+        <argsstring>(const char *expression)</argsstring>
+        <name>_SetPredicate</name>
+        <qualifiedname>BQuery::_SetPredicate</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>expression</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="89" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides an interface for creating file system queries and implements <ref refid="classBEntryList" kindref="compound">BEntryList</ref> methods for iterating through the results. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BEntryList</label>
+        <link refid="classBEntryList"/>
+      </node>
+      <node id="1">
+        <label>BQuery</label>
+        <link refid="classBQuery"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BEntryList</label>
+        <link refid="classBEntryList"/>
+      </node>
+      <node id="1">
+        <label>BQuery</label>
+        <link refid="classBQuery"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/storage/Query.h" line="43" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/Query.h" bodystart="43" bodyend="110"/>
+    <listofallmembers>
+      <member refid="classBQuery_1ae8243180495708c15569631e8488c3df" prot="private" virt="non-virtual"><scope>BQuery</scope><name>_EvaluateStack</name></member>
+      <member refid="classBQuery_1ad7f3fcc000be5c03c5f3472c62d9531e" prot="private" virt="non-virtual"><scope>BQuery</scope><name>_HasFetched</name></member>
+      <member refid="classBQuery_1a026d6c4ee22d7e6251e6b85b8b2cddd7" prot="private" virt="non-virtual"><scope>BQuery</scope><name>_ParseDates</name></member>
+      <member refid="classBQuery_1a2041a78418180761a2b883be8276c416" prot="private" virt="non-virtual"><scope>BQuery</scope><name>_PushNode</name></member>
+      <member refid="classBQuery_1aec489af692753e384dacc13da32be484" prot="private" virt="virtual"><scope>BQuery</scope><name>_QwertyQuery1</name></member>
+      <member refid="classBQuery_1a28f0b1c4933297006d857ab34350487e" prot="private" virt="virtual"><scope>BQuery</scope><name>_QwertyQuery2</name></member>
+      <member refid="classBQuery_1a6cea0798011e62dc3ff7d817d511035b" prot="private" virt="virtual"><scope>BQuery</scope><name>_QwertyQuery3</name></member>
+      <member refid="classBQuery_1ac871f8aabddc1d681b6254957a7a2c14" prot="private" virt="virtual"><scope>BQuery</scope><name>_QwertyQuery4</name></member>
+      <member refid="classBQuery_1afcd4004d9ccb75641d4f613df77c872e" prot="private" virt="virtual"><scope>BQuery</scope><name>_QwertyQuery5</name></member>
+      <member refid="classBQuery_1a81d99c19f0cdcf0c16c049f367ab8447" prot="private" virt="virtual"><scope>BQuery</scope><name>_QwertyQuery6</name></member>
+      <member refid="classBQuery_1adfeff6fe26092080f5432df24730350a" prot="private" virt="non-virtual"><scope>BQuery</scope><name>_reservedData</name></member>
+      <member refid="classBQuery_1af3280fc590b1cfeca391d90a01e97c50" prot="private" virt="non-virtual"><scope>BQuery</scope><name>_SetPredicate</name></member>
+      <member refid="classBEntryList_1adf5344c4229922691642b6e07c29bcaa" prot="public" virt="non-virtual"><scope>BQuery</scope><name>BEntryList</name></member>
+      <member refid="classBQuery_1a1314925aad6b0a1663e5c73196aac5f9" prot="public" virt="non-virtual"><scope>BQuery</scope><name>BQuery</name></member>
+      <member refid="classBQuery_1af6c12ffd1d1c74c451ae1a03ee33c7d0" prot="public" virt="non-virtual"><scope>BQuery</scope><name>Clear</name></member>
+      <member refid="classBQuery_1ab57f2b6d7a84c557f77a77d3baaca421" prot="public" virt="virtual"><scope>BQuery</scope><name>CountEntries</name></member>
+      <member refid="classBQuery_1aa0c001114a175e3c6d809397ee427bae" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fDevice</name></member>
+      <member refid="classBQuery_1aa2a6473e999bf602cb5684e1477ecc3b" prot="public" virt="non-virtual"><scope>BQuery</scope><name>Fetch</name></member>
+      <member refid="classBQuery_1a94ea691785940ef6455f70fabe71e65c" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fLive</name></member>
+      <member refid="classBQuery_1a0ea33a144cadea77daf21c648c9cfb77" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fPort</name></member>
+      <member refid="classBQuery_1aabebd12f7e7a7298edfb81ed5d1a71b0" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fPredicate</name></member>
+      <member refid="classBQuery_1a229e486cba98258aed240d812544210b" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fQueryFd</name></member>
+      <member refid="classBQuery_1a04ad2f901c17c34f8045c943608d5f4a" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fStack</name></member>
+      <member refid="classBQuery_1aef8229dcb1a8c1bfebf1e4d89f77b6e1" prot="private" virt="non-virtual"><scope>BQuery</scope><name>fToken</name></member>
+      <member refid="classBQuery_1af5a9ba3e24f68c59b1247b7181433d23" prot="public" virt="virtual"><scope>BQuery</scope><name>GetNextDirents</name></member>
+      <member refid="classBQuery_1ab30c05e8425a5c39dd35bd5fe5b05748" prot="public" virt="virtual"><scope>BQuery</scope><name>GetNextEntry</name></member>
+      <member refid="classBQuery_1a40b44c5c8e047d005572334dd681bd37" prot="public" virt="virtual"><scope>BQuery</scope><name>GetNextRef</name></member>
+      <member refid="classBQuery_1a0735d502fefe1bfa6b9fd514f584658c" prot="public" virt="non-virtual"><scope>BQuery</scope><name>GetPredicate</name></member>
+      <member refid="classBQuery_1a4964d96bf0349c95ff912c532f9326a8" prot="public" virt="non-virtual"><scope>BQuery</scope><name>GetPredicate</name></member>
+      <member refid="classBQuery_1a9a6755cdc56b04b07feceacdc1051b04" prot="public" virt="non-virtual"><scope>BQuery</scope><name>IsLive</name></member>
+      <member refid="classBQuery_1a0566fa5220d288eaf9aece48a0d0d5d9" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PredicateLength</name></member>
+      <member refid="classBQuery_1a486babcb3938a19035aa820c85c10088" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushAttr</name></member>
+      <member refid="classBQuery_1a0c01d4a0c19b3af80d1c861ca8ec3e6c" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushDate</name></member>
+      <member refid="classBQuery_1a7e654307d914dd003f7dc5dfe38af22f" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushDouble</name></member>
+      <member refid="classBQuery_1a67e418693af55811941975b4da275b1d" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushFloat</name></member>
+      <member refid="classBQuery_1a635dcf559feb1a07bb5910fab3a84b13" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushInt32</name></member>
+      <member refid="classBQuery_1a581f2eec46eb664088d76d027b510612" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushInt64</name></member>
+      <member refid="classBQuery_1a17f934eed4967e0df7a67a41336f88da" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushOp</name></member>
+      <member refid="classBQuery_1aa5c9d0d2558cda8b127d705f9abfde54" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushString</name></member>
+      <member refid="classBQuery_1a1cb827689d0485df5151661474f5c450" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushUInt32</name></member>
+      <member refid="classBQuery_1a21c56cfb7bbf927d702dab55ae333481" prot="public" virt="non-virtual"><scope>BQuery</scope><name>PushUInt64</name></member>
+      <member refid="classBQuery_1a42e73f8b1328e0a0bf42610a87a97e4a" prot="public" virt="virtual"><scope>BQuery</scope><name>Rewind</name></member>
+      <member refid="classBQuery_1a8dc3c9a0aa6fb7c991a88a5731fc6cae" prot="public" virt="non-virtual"><scope>BQuery</scope><name>SetPredicate</name></member>
+      <member refid="classBQuery_1aca4694dedfd74796a38992ca256bc260" prot="public" virt="non-virtual"><scope>BQuery</scope><name>SetTarget</name></member>
+      <member refid="classBQuery_1aa49ccd947942b5eca16c52a56a9a13db" prot="public" virt="non-virtual"><scope>BQuery</scope><name>SetVolume</name></member>
+      <member refid="classBQuery_1ab5d775120b8a329d94da275466c06880" prot="public" virt="non-virtual"><scope>BQuery</scope><name>TargetDevice</name></member>
+      <member refid="classBEntryList_1ac239f4229be2d0a1c9a58c83f503be4c" prot="public" virt="virtual"><scope>BQuery</scope><name>~BEntryList</name></member>
+      <member refid="classBQuery_1ac7d7b1e4fb011605eaa5ed2dfcc7165e" prot="public" virt="virtual"><scope>BQuery</scope><name>~BQuery</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

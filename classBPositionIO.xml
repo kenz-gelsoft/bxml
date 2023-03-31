@@ -1,0 +1,780 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBPositionIO" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BPositionIO</compoundname>
+    <basecompoundref refid="classBDataIO" prot="public" virt="non-virtual">BDataIO</basecompoundref>
+    <derivedcompoundref refid="classBBitmapStream" prot="public" virt="non-virtual">BBitmapStream</derivedcompoundref>
+    <derivedcompoundref refid="classBBufferIO" prot="public" virt="non-virtual">BBufferIO</derivedcompoundref>
+    <derivedcompoundref refid="classBFile" prot="public" virt="non-virtual">BFile</derivedcompoundref>
+    <derivedcompoundref refid="classBMallocIO" prot="public" virt="non-virtual">BMallocIO</derivedcompoundref>
+    <derivedcompoundref refid="classBMemoryIO" prot="public" virt="non-virtual">BMemoryIO</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBPositionIO_1a9eedc8987038217078d4115d4979bfe9" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BPositionIO::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BPositionIO::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="89" column="7" bodyfile="/boot/home/src/haiku/headers/os/support/DataIO.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBPositionIO_1a08051e865cd2623fab56c3733ecbf099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPositionIO::BPositionIO</definition>
+        <argsstring>()</argsstring>
+        <name>BPositionIO</name>
+        <qualifiedname>BPositionIO::BPositionIO</qualifiedname>
+        <briefdescription>
+<para>This constructor does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a505defae83a1a6937c77b9acac2aaafe" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BPositionIO::~BPositionIO</definition>
+        <argsstring>()</argsstring>
+        <name>~BPositionIO</name>
+        <qualifiedname>BPositionIO::~BPositionIO</qualifiedname>
+        <briefdescription>
+<para>This destructor does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="51" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a5be704340522f36f80697c6bc883a00d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPositionIO::GetSize</definition>
+        <argsstring>(off_t *size) const</argsstring>
+        <name>GetSize</name>
+        <qualifiedname>BPositionIO::GetSize</qualifiedname>
+        <reimplementedby refid="classBFile_1a9438a3e18c34008d98fbb56cae890645">GetSize</reimplementedby>
+        <param>
+          <type>off_t *</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Get the size of the object or data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default implementation uses <ref refid="classBPositionIO_1af8296875d9711dd498b0fbcace028abc" kindref="member">Seek()</ref> with the <computeroutput>SEEK_END</computeroutput> flag to determine the size of the buffer. If your data or object has a different way of determining size, reimplement this method.</para>
+<para>Please check that NULL is not passed into <computeroutput>size</computeroutput> if you reimplement it in your class.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the object is put into this parameter.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This method returns <computeroutput>B_OK</computeroutput> on success or an error code on error.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBPositionIO_1a35613c7ee06c7c9583ca2505e1fdff28" kindref="member">SetSize()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBPositionIO_1af8296875d9711dd498b0fbcace028abc" kindref="member">Seek()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="73" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>off_t</type>
+        <definition>off_t BPositionIO::Position</definition>
+        <argsstring>() const =0</argsstring>
+        <name>Position</name>
+        <qualifiedname>BPositionIO::Position</qualifiedname>
+        <reimplementedby refid="classBFile_1aef5499cdc105ac4817f669bad3ca05b8">Position</reimplementedby>
+        <reimplementedby refid="classBBufferIO_1a83acd23044df368781a9069191492cf7">Position</reimplementedby>
+        <reimplementedby refid="classBMemoryIO_1ac1dbae182c93e030cd9bf1cfc49596a5">Position</reimplementedby>
+        <reimplementedby refid="classBMallocIO_1af007bb9933ffa65b337ed49cdf5dd42e">Position</reimplementedby>
+        <reimplementedby refid="classBBitmapStream_1aa172a68e7325680c9d3210714e5330c4">Position</reimplementedby>
+        <briefdescription>
+<para>Pure virtual to return the current position of the cursor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Your implementation should return the current position of the cursor.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="70" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1abce66c314f7cbd5ab6de0e6480bd7a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BPositionIO::Read</definition>
+        <argsstring>(void *buffer, size_t size)</argsstring>
+        <name>Read</name>
+        <qualifiedname>BPositionIO::Read</qualifiedname>
+        <reimplements refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623">Read</reimplements>
+        <reimplementedby refid="classBFile_1a84879555b0c3bee54e36abdeeb2cb559">Read</reimplementedby>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Read data from current position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is derived from <ref refid="classBDataIO" kindref="compound">BDataIO</ref>. The default implementation reads data from the current position of the cursor, pointed at by <ref refid="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a" kindref="member">Position()</ref>. If you require different behaviour, please look at <ref refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" kindref="member">BDataIO::Read()</ref> for what is expected of this method.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="54" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BPositionIO::ReadAt</definition>
+        <argsstring>(off_t position, void *buffer, size_t size)=0</argsstring>
+        <name>ReadAt</name>
+        <qualifiedname>BPositionIO::ReadAt</qualifiedname>
+        <reimplementedby refid="classBFile_1aa66cbdba802924c4b5fbeac6a2765805">ReadAt</reimplementedby>
+        <reimplementedby refid="classBBitmapStream_1a22bc134d272bac2f1979951f6d00140a">ReadAt</reimplementedby>
+        <reimplementedby refid="classBBufferIO_1a7887fde998d8629c6a4063ba5c3e41aa">ReadAt</reimplementedby>
+        <reimplementedby refid="classBMemoryIO_1a48959adcf4da35b53b965dcae570e5b7">ReadAt</reimplementedby>
+        <reimplementedby refid="classBMallocIO_1ab32620f9be85989e04da5f77f93db604">ReadAt</reimplementedby>
+        <param>
+          <type>off_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual to read data from a certain position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Your implementation should copy data from the position indicated by <emphasis>position</emphasis> into the <emphasis>buffer</emphasis> with the maximum size of <emphasis>size</emphasis>.</para>
+<para><simplesect kind="return"><para>The amount of bytes actually read, or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="58" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a91bab7ae60926dbe3726bc73734318b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPositionIO::ReadAtExactly</definition>
+        <argsstring>(off_t position, void *buffer, size_t size, size_t *_bytesRead=NULL)</argsstring>
+        <name>ReadAtExactly</name>
+        <qualifiedname>BPositionIO::ReadAtExactly</qualifiedname>
+        <param>
+          <type>off_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_bytesRead</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Reads an exact amount of data from the object at the specified position into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a convenience wrapper method for <ref refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" kindref="member">ReadAt()</ref> for code that expects the exact number of bytes requested to be read. This method calls <ref refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" kindref="member">ReadAt()</ref> in a loop to read the data. It fails when <ref refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" kindref="member">ReadAt()</ref> returns an error or fails to read any more data (i.e. returns 0).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object position at which to read the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to pre-allocated storage of at least <emphasis>size</emphasis> bytes into which the data shall be read. Won&apos;t be dereferenced, when <emphasis>size</emphasis> is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_bytesRead</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional pointer to a pre-allocated size_t into which the number of bytes actually read will be written. When the method returns <computeroutput>B_OK</computeroutput> this will always be <emphasis>size</emphasis>. Can be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An error code indicating whether or not the method succeeded. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All data have been read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PARTIAL_READ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" kindref="member">ReadAt()</ref> didn&apos;t fail, but couldn&apos;t provide as many bytes as requested.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="63" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1af8296875d9711dd498b0fbcace028abc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>off_t</type>
+        <definition>off_t BPositionIO::Seek</definition>
+        <argsstring>(off_t position, uint32 seekMode)=0</argsstring>
+        <name>Seek</name>
+        <qualifiedname>BPositionIO::Seek</qualifiedname>
+        <reimplementedby refid="classBFile_1a396e6721a72e8fbed4056e37741dcb8a">Seek</reimplementedby>
+        <reimplementedby refid="classBBufferIO_1a7ba7f66e172e2d7ad87a114069028876">Seek</reimplementedby>
+        <reimplementedby refid="classBMemoryIO_1a49898b4f0b195b025c896e8163d625b7">Seek</reimplementedby>
+        <reimplementedby refid="classBMallocIO_1af15fd592a792fce67693c4181daf7a30">Seek</reimplementedby>
+        <reimplementedby refid="classBBitmapStream_1af17115c38e1f19e8bbfbba3880850223">Seek</reimplementedby>
+        <param>
+          <type>off_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>seekMode</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual to move the cursor to a certain position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Your implementation should move the position of the cursor to the provided point. What this actually means, depends on your object or data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An integer that defines a position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seekMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>You will get one of the following values:<itemizedlist>
+<listitem><para><computeroutput>SEEK_SET</computeroutput> Set the cursor to the position indicated by <computeroutput>position</computeroutput>.</para>
+</listitem><listitem><para><computeroutput>SEEK_END</computeroutput> Set the cursor to the end of the buffer, and go <computeroutput>position</computeroutput> beyond that.</para>
+</listitem><listitem><para><computeroutput>SEEK_CUR</computeroutput> Set the cursor the the current position plus <computeroutput>position</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new position.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="69" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a35613c7ee06c7c9583ca2505e1fdff28" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPositionIO::SetSize</definition>
+        <argsstring>(off_t size)</argsstring>
+        <name>SetSize</name>
+        <qualifiedname>BPositionIO::SetSize</qualifiedname>
+        <reimplementedby refid="classBFile_1a5b8f0932cff0d50b6e0c7aea169a74ef">SetSize</reimplementedby>
+        <reimplementedby refid="classBBufferIO_1aed5125f4b157b0e5208cd39aa0af0d77">SetSize</reimplementedby>
+        <reimplementedby refid="classBMemoryIO_1a422e492427167bc7d779d2a8fa92072b">SetSize</reimplementedby>
+        <reimplementedby refid="classBMallocIO_1ad0d175f05abea98db9fbf3754e7d5e51">SetSize</reimplementedby>
+        <reimplementedby refid="classBBitmapStream_1a47ce4b957cbde849427f8aa937d0f716">SetSize</reimplementedby>
+        <param>
+          <type>off_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Set the size of the object or data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default implementation returns <computeroutput>B_ERROR</computeroutput>. If your object or data allows the size to be changed, reimplement this method.</para>
+<para><simplesect kind="return"><para>Return <computeroutput>B_OK</computeroutput> if everything succeeded, else return the appropriate error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="72" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a50ec7f6b834893a153d46c0f3c0e09c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BPositionIO::Write</definition>
+        <argsstring>(const void *buffer, size_t size)</argsstring>
+        <name>Write</name>
+        <qualifiedname>BPositionIO::Write</qualifiedname>
+        <reimplements refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb">Write</reimplements>
+        <reimplementedby refid="classBFile_1afcf216fde234f4fd0754409617bedc55">Write</reimplementedby>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Write data to the current position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is derived from <ref refid="classBDataIO" kindref="compound">BDataIO</ref>. The default implementation writes data to the current position of the cursor, pointed at by <ref refid="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a" kindref="member">Position()</ref>. If you require different behaviour, please look at <ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">BDataIO::Write()</ref> for what is expected of this method.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="55" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BPositionIO::WriteAt</definition>
+        <argsstring>(off_t position, const void *buffer, size_t size)=0</argsstring>
+        <name>WriteAt</name>
+        <qualifiedname>BPositionIO::WriteAt</qualifiedname>
+        <reimplementedby refid="classBFile_1a43a09d7441f9fda29cc90c1f3612021c">WriteAt</reimplementedby>
+        <reimplementedby refid="classBBitmapStream_1af48762a7326aebc52aed25315e04ef6d">WriteAt</reimplementedby>
+        <reimplementedby refid="classBBufferIO_1a949b030b3fd3dc93be06d39f627f2bce">WriteAt</reimplementedby>
+        <reimplementedby refid="classBMemoryIO_1ace4180382856baecafa545fc92aabd85">WriteAt</reimplementedby>
+        <reimplementedby refid="classBMallocIO_1aa168631c8995ac5f325b2501e222fef8">WriteAt</reimplementedby>
+        <param>
+          <type>off_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual to write data to a certain position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Your implementation should copy data from <emphasis>buffer</emphasis> to the position indicated by <emphasis>buffer</emphasis> with the maximum size of <emphasis>size</emphasis>.</para>
+<para><simplesect kind="return"><para>The amount of bytes actually written, or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="60" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a18100db340087226321c332182816d27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPositionIO::WriteAtExactly</definition>
+        <argsstring>(off_t position, const void *buffer, size_t size, size_t *_bytesWritten=NULL)</argsstring>
+        <name>WriteAtExactly</name>
+        <qualifiedname>BPositionIO::WriteAtExactly</qualifiedname>
+        <param>
+          <type>off_t</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_bytesWritten</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Writes an exact amount of data from a buffer to the object at the specified position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a convenience wrapper method for <ref refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" kindref="member">WriteAt()</ref> for code that expects the exact number of bytes given to be written. This method calls <ref refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" kindref="member">WriteAt()</ref> in a loop to write the data. It fails when <ref refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" kindref="member">WriteAt()</ref> returns an error or fails to write any more data (i.e. returns 0).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object position at which to write the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a buffer of at least <emphasis>size</emphasis> bytes containing the data to be written. Won&apos;t be dereferenced, when <emphasis>size</emphasis> is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_bytesWritten</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional pointer to a pre-allocated size_t into which the number of bytes actually written will be written. When the method returns <computeroutput>B_OK</computeroutput> this will always be <emphasis>size</emphasis>. Can be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An error code indicated whether the method succeeded. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All data have been written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PARTIAL_READ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" kindref="member">WriteAt()</ref> didn&apos;t fail, but couldn&apos;t write as many bytes as provided.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="65" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBPositionIO_1a4439ef68fd913dcd363fb6221eb5f537" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO10</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO10</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO10</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="84" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a6c314b91cf99e2dbe894f576dbc78a43" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO11</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO11</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO11</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="85" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a2286b69dcf7f71819f90d9e11150c39a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO12</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO12</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO12</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="86" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a2bbe766d2829e0b29cfe340d7dec79a8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO2</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="76" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1ad6c5eada4a8e7c3f6f12fbfe8d137c54" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO3</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="77" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a22bb5a879a89e4bbfb564074f01fa508" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO4</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="78" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a3c002d5eb54fd9cb832fc48aa1dc7c18" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO5</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="79" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a960ae3636d21e3449fbfc72b2692815d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO6</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="80" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a582068225e0d3248583cadd22178f239" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO7</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="81" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a425b94bd32cf03b309317d01bef7eab3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO8</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="82" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPositionIO_1a2074c3c813213b9f3484e5ca778d4a47" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPositionIO::_ReservedPositionIO9</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPositionIO9</name>
+        <qualifiedname>BPositionIO::_ReservedPositionIO9</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="83" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract interface that provides advanced read, write and seek access to data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The interface of this object applies to objects or data that allows position-aware reading and writing of data. Classes that derive from this class should at least re-implement <ref refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" kindref="member">ReadAt()</ref>, <ref refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" kindref="member">WriteAt()</ref>, <ref refid="classBPositionIO_1af8296875d9711dd498b0fbcace028abc" kindref="member">Seek()</ref>, <ref refid="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a" kindref="member">Position()</ref>, <ref refid="classBPositionIO_1a35613c7ee06c7c9583ca2505e1fdff28" kindref="member">SetSize()</ref> and <ref refid="classBPositionIO_1a5be704340522f36f80697c6bc883a00d" kindref="member">GetSize()</ref> methods.</para>
+<para>A good example of a form of data that can derive from this object, are files. The <ref refid="classBFile" kindref="compound">BFile</ref> class derives from <ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> and provides this interface to files. If your object or data only supports linear reading and writing, consider deriving from the base-class <ref refid="classBDataIO" kindref="compound">BDataIO</ref>.</para>
+<para>A final note, from <ref refid="classBDataIO" kindref="compound">BDataIO</ref> this class inherits <ref refid="classBPositionIO_1abce66c314f7cbd5ab6de0e6480bd7a00" kindref="member">Read()</ref> and <ref refid="classBPositionIO_1a50ec7f6b834893a153d46c0f3c0e09c4" kindref="member">Write()</ref>. The default implementation is to read or write the data at the current position indicated by <ref refid="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a" kindref="member">Position()</ref>. Re-implement the methods if you require a different behavior.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BBitmapStream</label>
+        <link refid="classBBitmapStream"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BBufferIO</label>
+        <link refid="classBBufferIO"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="5">
+        <label>BFile</label>
+        <link refid="classBFile"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BMallocIO</label>
+        <link refid="classBMallocIO"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BMemoryIO</label>
+        <link refid="classBMemoryIO"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BPositionIO</label>
+        <link refid="classBPositionIO"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="1">
+        <label>BPositionIO</label>
+        <link refid="classBPositionIO"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="48" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/DataIO.h" bodystart="48" bodyend="90"/>
+    <listofallmembers>
+      <member refid="classBPositionIO_1a9eedc8987038217078d4115d4979bfe9" prot="private" virt="non-virtual"><scope>BPositionIO</scope><name>_reserved</name></member>
+      <member refid="classBPositionIO_1a4439ef68fd913dcd363fb6221eb5f537" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO10</name></member>
+      <member refid="classBPositionIO_1a6c314b91cf99e2dbe894f576dbc78a43" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO11</name></member>
+      <member refid="classBPositionIO_1a2286b69dcf7f71819f90d9e11150c39a" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO12</name></member>
+      <member refid="classBPositionIO_1a2bbe766d2829e0b29cfe340d7dec79a8" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO2</name></member>
+      <member refid="classBPositionIO_1ad6c5eada4a8e7c3f6f12fbfe8d137c54" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO3</name></member>
+      <member refid="classBPositionIO_1a22bb5a879a89e4bbfb564074f01fa508" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO4</name></member>
+      <member refid="classBPositionIO_1a3c002d5eb54fd9cb832fc48aa1dc7c18" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO5</name></member>
+      <member refid="classBPositionIO_1a960ae3636d21e3449fbfc72b2692815d" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO6</name></member>
+      <member refid="classBPositionIO_1a582068225e0d3248583cadd22178f239" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO7</name></member>
+      <member refid="classBPositionIO_1a425b94bd32cf03b309317d01bef7eab3" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO8</name></member>
+      <member refid="classBPositionIO_1a2074c3c813213b9f3484e5ca778d4a47" prot="private" virt="virtual"><scope>BPositionIO</scope><name>_ReservedPositionIO9</name></member>
+      <member refid="classBDataIO_1a67891b7afe78d6a77845dd0352218801" prot="public" virt="non-virtual"><scope>BPositionIO</scope><name>BDataIO</name></member>
+      <member refid="classBPositionIO_1a08051e865cd2623fab56c3733ecbf099" prot="public" virt="non-virtual"><scope>BPositionIO</scope><name>BPositionIO</name></member>
+      <member refid="classBDataIO_1a38a8df63b367585fe5e6b6a85c406d05" prot="public" virt="virtual"><scope>BPositionIO</scope><name>Flush</name></member>
+      <member refid="classBPositionIO_1a5be704340522f36f80697c6bc883a00d" prot="public" virt="virtual"><scope>BPositionIO</scope><name>GetSize</name></member>
+      <member refid="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a" prot="public" virt="pure-virtual"><scope>BPositionIO</scope><name>Position</name></member>
+      <member refid="classBPositionIO_1abce66c314f7cbd5ab6de0e6480bd7a00" prot="public" virt="virtual"><scope>BPositionIO</scope><name>Read</name></member>
+      <member refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f" prot="public" virt="pure-virtual"><scope>BPositionIO</scope><name>ReadAt</name></member>
+      <member refid="classBPositionIO_1a91bab7ae60926dbe3726bc73734318b6" prot="public" virt="non-virtual"><scope>BPositionIO</scope><name>ReadAtExactly</name></member>
+      <member refid="classBDataIO_1a3a0b0fc36232531a1d8c1144a7d75741" prot="public" virt="non-virtual"><scope>BPositionIO</scope><name>ReadExactly</name></member>
+      <member refid="classBPositionIO_1af8296875d9711dd498b0fbcace028abc" prot="public" virt="pure-virtual"><scope>BPositionIO</scope><name>Seek</name></member>
+      <member refid="classBPositionIO_1a35613c7ee06c7c9583ca2505e1fdff28" prot="public" virt="virtual"><scope>BPositionIO</scope><name>SetSize</name></member>
+      <member refid="classBPositionIO_1a50ec7f6b834893a153d46c0f3c0e09c4" prot="public" virt="virtual"><scope>BPositionIO</scope><name>Write</name></member>
+      <member refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1" prot="public" virt="pure-virtual"><scope>BPositionIO</scope><name>WriteAt</name></member>
+      <member refid="classBPositionIO_1a18100db340087226321c332182816d27" prot="public" virt="non-virtual"><scope>BPositionIO</scope><name>WriteAtExactly</name></member>
+      <member refid="classBDataIO_1a0095cfffa454a82eac3dedda2e187ab7" prot="public" virt="non-virtual"><scope>BPositionIO</scope><name>WriteExactly</name></member>
+      <member refid="classBDataIO_1a45daa9db670dd2e5b83efcefcf8dbaed" prot="public" virt="virtual"><scope>BPositionIO</scope><name>~BDataIO</name></member>
+      <member refid="classBPositionIO_1a505defae83a1a6937c77b9acac2aaafe" prot="public" virt="virtual"><scope>BPositionIO</scope><name>~BPositionIO</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

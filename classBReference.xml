@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBReference" kind="class" language="C++" prot="public">
+    <compoundname>BReference</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename Type</type>
+        <defval><ref refid="classBReferenceable" kindref="compound">BReferenceable</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBReference_1a360cb5a9cf9256d666030e85d0afa674" prot="private" static="no" mutable="no">
+        <type>Type *</type>
+        <definition>Type* BReference&lt; Type &gt;::fObject</definition>
+        <argsstring></argsstring>
+        <name>fObject</name>
+        <qualifiedname>BReference::fObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="166" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBReference_1a97124246c768e66fc49dc0c7357f4bc7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BReference&lt; Type &gt;::BReference</definition>
+        <argsstring>()</argsstring>
+        <name>BReference</name>
+        <qualifiedname>BReference::BReference</qualifiedname>
+        <briefdescription>
+<para>Creates a reference without initializing it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An uninitialized references behaves similarly to a NULL pointer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="43" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ad7922d0ffa852a95f5248b2eaede29e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename OtherType</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>BReference&lt; Type &gt;::BReference</definition>
+        <argsstring>(const BReference&lt; OtherType &gt; &amp;other)</argsstring>
+        <name>BReference</name>
+        <qualifiedname>BReference::BReference</qualifiedname>
+        <param>
+          <type>const <ref refid="classBReference" kindref="compound">BReference</ref>&lt; OtherType &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="64" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="64" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ad694af934be34d8be54c709c7f8351cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BReference&lt; Type &gt;::BReference</definition>
+        <argsstring>(const BReference&lt; Type &gt; &amp;other)</argsstring>
+        <name>BReference</name>
+        <qualifiedname>BReference::BReference</qualifiedname>
+        <param>
+          <type>const <ref refid="classBReference" kindref="compound">BReference</ref>&lt; Type &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The reference is set to the same object as the source. The reference count of the target object is incremented. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="56" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="56" bodyend="61"/>
+        <references refid="classBReference_1ab33183b2a96745b1395f8fdaf54012f6" compoundref="Referenceable_8h" startline="99" endline="102">BReference&lt; Type &gt;::Get</references>
+        <references refid="classBReference_1a1b58b8859fed0fe6553bef4127cf40c5" compoundref="Referenceable_8h" startline="76" endline="84">BReference&lt; Type &gt;::SetTo</references>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1aefbc75bee079adf7f1b160d6191dd684" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BReference&lt; Type &gt;::BReference</definition>
+        <argsstring>(Type *object, bool alreadyHasReference=false)</argsstring>
+        <name>BReference</name>
+        <qualifiedname>BReference::BReference</qualifiedname>
+        <param>
+          <type>Type *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>alreadyHasReference</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates and initialize a reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The reference is set to the pointed object. If the parameter is set to true, the reference count is not incremented, this should only be used when referencing a freshly constructed object. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="49" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="49" bodyend="54"/>
+        <references refid="classBReference_1a1b58b8859fed0fe6553bef4127cf40c5" compoundref="Referenceable_8h" startline="76" endline="84">BReference&lt; Type &gt;::SetTo</references>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a872adc6879d3a5b48b899c88f5409e79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BReference&lt; Type &gt;::~BReference</definition>
+        <argsstring>()</argsstring>
+        <name>~BReference</name>
+        <qualifiedname>BReference::~BReference</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The reference count of the target object is decremented. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="71" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="71" bodyend="74"/>
+        <references refid="classBReference_1ae38aa2951c99b148715fbbc0d4e7c81f" compoundref="Referenceable_8h" startline="86" endline="92">BReference&lt; Type &gt;::Unset</references>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ab865062e02bcb965de786bea7123c2ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Type *</type>
+        <definition>ConstType * BReference&lt; Type &gt;::Detach</definition>
+        <argsstring>()</argsstring>
+        <name>Detach</name>
+        <qualifiedname>BReference::Detach</qualifiedname>
+        <briefdescription>
+<para>Detach the pointed object from the reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a raw pointer to the target object.</para>
+</simplesect>
+This returns the pointed object and unsets the reference, without decrementing the object reference count. It is used to transfer ownership of the reference to something else. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="104" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="104" bodyend="109"/>
+        <references refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" compoundref="SupportDefs_8h" startline="226">NULL</references>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ab33183b2a96745b1395f8fdaf54012f6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Type *</type>
+        <definition>ConstType * BReference&lt; Type &gt;::Get</definition>
+        <argsstring>() const</argsstring>
+        <name>Get</name>
+        <qualifiedname>BReference::Get</qualifiedname>
+        <briefdescription>
+<para>Get the target object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>a raw pointer to the target object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="99" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="99" bodyend="102"/>
+        <referencedby refid="classBReference_1ad694af934be34d8be54c709c7f8351cf" compoundref="Referenceable_8h" startline="56" endline="61">BReference&lt; Type &gt;::BReference</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1af3a8055245e817dd923fc9da961727b3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BReference&lt; Type &gt;::IsSet</definition>
+        <argsstring>() const</argsstring>
+        <name>IsSet</name>
+        <qualifiedname>BReference::IsSet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="94" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a2eb76b915a1d242c72d659743cd97c55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BReference&lt; Type &gt;::operator Type *</definition>
+        <argsstring>() const</argsstring>
+        <name>operator Type *</name>
+        <qualifiedname>BReference::operator Type *</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="121" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a56b6983c50679146a27761acad3e8452" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BReference&lt; Type &gt;::operator!=</definition>
+        <argsstring>(const BReference&lt; Type &gt; &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>BReference::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBReference" kindref="compound">BReference</ref>&lt; Type &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="155" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="155" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1accf94f82ff0bd4f19238d09d81f01b47" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BReference&lt; Type &gt;::operator!=</definition>
+        <argsstring>(const Type *other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>BReference::operator!=</qualifiedname>
+        <param>
+          <type>const Type *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="160" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="160" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a04060c9b81580352b4131d3c8f414cb9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Type &amp;</type>
+        <definition>Type &amp; BReference&lt; Type &gt;::operator*</definition>
+        <argsstring>() const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>BReference::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="111" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="111" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ac2f646f45d30339f7bdb3ae0c0ea0f15" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Type *</type>
+        <definition>Type * BReference&lt; Type &gt;::operator-&gt;</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-&gt;</name>
+        <qualifiedname>BReference::operator-&gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="116" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ad0d91a627a12e1d0566fd730ed53f59a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename OtherType</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classBReference" kindref="compound">BReference</ref> &amp;</type>
+        <definition>BReference &amp; BReference&lt; Type &gt;::operator=</definition>
+        <argsstring>(const BReference&lt; OtherType &gt; &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BReference::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBReference" kindref="compound">BReference</ref>&lt; OtherType &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="139" column="12" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="139" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ae149e39477b36df08382b823bbd6a203" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classBReference" kindref="compound">BReference</ref> &amp;</type>
+        <definition>BReference &amp; BReference&lt; Type &gt;::operator=</definition>
+        <argsstring>(const BReference&lt; Type &gt; &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BReference::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBReference" kindref="compound">BReference</ref>&lt; Type &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="126" column="12" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="126" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a187c911878e1c935b16152bb071a00eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classBReference" kindref="compound">BReference</ref> &amp;</type>
+        <definition>BReference &amp; BReference&lt; Type &gt;::operator=</definition>
+        <argsstring>(Type *other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BReference::operator=</qualifiedname>
+        <param>
+          <type>Type *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="132" column="12" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="132" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1acc44c50a8bcc3a29658303f937e9ef4a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BReference&lt; Type &gt;::operator==</definition>
+        <argsstring>(const BReference&lt; Type &gt; &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>BReference::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classBReference" kindref="compound">BReference</ref>&lt; Type &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="145" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a39fa213238fc7206934e58fe6ba650ec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BReference&lt; Type &gt;::operator==</definition>
+        <argsstring>(const Type *other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>BReference::operator==</qualifiedname>
+        <param>
+          <type>const Type *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="150" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="150" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1a1b58b8859fed0fe6553bef4127cf40c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BReference&lt; Type &gt;::SetTo</definition>
+        <argsstring>(Type *object, bool alreadyHasReference=false)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BReference::SetTo</qualifiedname>
+        <param>
+          <type>Type *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>alreadyHasReference</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Sets a new target for the reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The reference to the previously targetted object is released. A reference to the new object is acquired only if <computeroutput>alreadyHasReference</computeroutput> is false. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="76" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="76" bodyend="84"/>
+        <references refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" compoundref="SupportDefs_8h" startline="226">NULL</references>
+        <references refid="classBReference_1ae38aa2951c99b148715fbbc0d4e7c81f" compoundref="Referenceable_8h" startline="86" endline="92">BReference&lt; Type &gt;::Unset</references>
+        <referencedby refid="classBReference_1aefbc75bee079adf7f1b160d6191dd684" compoundref="Referenceable_8h" startline="49" endline="54">BReference&lt; Type &gt;::BReference</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBReference_1ae38aa2951c99b148715fbbc0d4e7c81f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BReference&lt; Type &gt;::Unset</definition>
+        <argsstring>()</argsstring>
+        <name>Unset</name>
+        <qualifiedname>BReference::Unset</qualifiedname>
+        <briefdescription>
+<para>Unsets the reference. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The targetted object is released. The reference is unset and can&apos;t be used to access it anymore. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="86" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="86" bodyend="92"/>
+        <references refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" compoundref="SupportDefs_8h" startline="226">NULL</references>
+        <referencedby refid="classBReference_1a872adc6879d3a5b48b899c88f5409e79" compoundref="Referenceable_8h" startline="71" endline="74">BReference&lt; Type &gt;::~BReference</referencedby>
+        <referencedby refid="classBReference_1a1b58b8859fed0fe6553bef4127cf40c5" compoundref="Referenceable_8h" startline="76" endline="84">BReference&lt; Type &gt;::SetTo</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A reference to a <ref refid="classBReferenceable" kindref="compound">BReferenceable</ref> object. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBReference" kindref="compound">BReference</ref> simplifies the use of <ref refid="classBReferenceable" kindref="compound">BReferenceable</ref> and makes it more transparent. It automatically acquires and release references to the pointed objects. It provides an API similar to a standard C++ pointer, allowing use of assignment and comparison operators and direct access to the object with -&gt; and *. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BReference&lt; Type &gt;</label>
+        <link refid="classBReference"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; Type &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BReference&lt; const BNetworkAddressResolver &gt;</label>
+        <link refid="classBReference"/>
+        <childnode refid="1" relation="template-instance">
+          <edgelabel>&lt; const BNetworkAddressResolver &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="41" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="41" bodyend="167"/>
+    <listofallmembers>
+      <member refid="classBReference_1a97124246c768e66fc49dc0c7357f4bc7" prot="public" virt="non-virtual"><scope>BReference</scope><name>BReference</name></member>
+      <member refid="classBReference_1aefbc75bee079adf7f1b160d6191dd684" prot="public" virt="non-virtual"><scope>BReference</scope><name>BReference</name></member>
+      <member refid="classBReference_1ad694af934be34d8be54c709c7f8351cf" prot="public" virt="non-virtual"><scope>BReference</scope><name>BReference</name></member>
+      <member refid="classBReference_1ad7922d0ffa852a95f5248b2eaede29e6" prot="public" virt="non-virtual"><scope>BReference</scope><name>BReference</name></member>
+      <member refid="classBReference_1ab865062e02bcb965de786bea7123c2ce" prot="public" virt="non-virtual"><scope>BReference</scope><name>Detach</name></member>
+      <member refid="classBReference_1a360cb5a9cf9256d666030e85d0afa674" prot="private" virt="non-virtual"><scope>BReference</scope><name>fObject</name></member>
+      <member refid="classBReference_1ab33183b2a96745b1395f8fdaf54012f6" prot="public" virt="non-virtual"><scope>BReference</scope><name>Get</name></member>
+      <member refid="classBReference_1af3a8055245e817dd923fc9da961727b3" prot="public" virt="non-virtual"><scope>BReference</scope><name>IsSet</name></member>
+      <member refid="classBReference_1a2eb76b915a1d242c72d659743cd97c55" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator Type *</name></member>
+      <member refid="classBReference_1a56b6983c50679146a27761acad3e8452" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator!=</name></member>
+      <member refid="classBReference_1accf94f82ff0bd4f19238d09d81f01b47" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator!=</name></member>
+      <member refid="classBReference_1a04060c9b81580352b4131d3c8f414cb9" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator*</name></member>
+      <member refid="classBReference_1ac2f646f45d30339f7bdb3ae0c0ea0f15" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator-&gt;</name></member>
+      <member refid="classBReference_1ae149e39477b36df08382b823bbd6a203" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator=</name></member>
+      <member refid="classBReference_1a187c911878e1c935b16152bb071a00eb" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator=</name></member>
+      <member refid="classBReference_1ad0d91a627a12e1d0566fd730ed53f59a" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator=</name></member>
+      <member refid="classBReference_1acc44c50a8bcc3a29658303f937e9ef4a" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator==</name></member>
+      <member refid="classBReference_1a39fa213238fc7206934e58fe6ba650ec" prot="public" virt="non-virtual"><scope>BReference</scope><name>operator==</name></member>
+      <member refid="classBReference_1a1b58b8859fed0fe6553bef4127cf40c5" prot="public" virt="non-virtual"><scope>BReference</scope><name>SetTo</name></member>
+      <member refid="classBReference_1ae38aa2951c99b148715fbbc0d4e7c81f" prot="public" virt="non-virtual"><scope>BReference</scope><name>Unset</name></member>
+      <member refid="classBReference_1a872adc6879d3a5b48b899c88f5409e79" prot="public" virt="non-virtual"><scope>BReference</scope><name>~BReference</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

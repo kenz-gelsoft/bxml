@@ -1,0 +1,917 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBPicture" kind="class" language="C++" prot="public">
+    <compoundname>BPicture</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBPicture_1a9854a69b51d30728a20fd8688ce7a0f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BPicture::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the <ref refid="classBPicture" kindref="compound">BPicture</ref> object into the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> object to archive into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The parameter has no effect to this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if everything went well or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was archived successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while archiving the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44" kindref="member">BArchivable::Archive()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBPicture_1a5dddcb1b146250d2ca15da3d48c4d7dd" kindref="member">BPicture::Instantiate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="27" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a5dddcb1b146250d2ca15da3d48c4d7dd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BPicture::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BPicture::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Returns a pointer to a new <ref refid="classBPicture" kindref="compound">BPicture</ref> object created from the <ref refid="classBPicture" kindref="compound">BPicture</ref> data archived in <emphasis>data</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A newly created <ref refid="classBPicture" kindref="compound">BPicture</ref> object or <computeroutput>NULL</computeroutput> if the message doesn&apos;t contain an archived <ref refid="classBPicture" kindref="compound">BPicture</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBArchivable_1a04efcb17fa2a64a776923cc12303efcd" kindref="member">BArchivable::Instantiate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="26" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBPicture_1aefa3a9babff720db378fa181a222a56c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrintJob</definition>
+        <argsstring></argsstring>
+        <name>BPrintJob</name>
+        <qualifiedname>BPicture::BPrintJob</qualifiedname>
+        <param>
+          <type>BPrintJob</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="49" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBPicture_1a304c5edf0ab3769baf95966dda5800a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BView</definition>
+        <argsstring></argsstring>
+        <name>BView</name>
+        <qualifiedname>BPicture::BView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="48" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBPicture_1af159fae9bef1f9a91dcaa0b93fd5658d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BWindow</definition>
+        <argsstring></argsstring>
+        <name>BWindow</name>
+        <qualifiedname>BPicture::BWindow</qualifiedname>
+        <param>
+          <type><ref refid="classBWindow" kindref="compound">BWindow</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="47" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBPicture_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BPicture::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="50" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBPicture_1ad5d92d0ef8f95fffceb337084d869dbb" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BPicture::_reserved[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BPicture::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="80" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPicture_1a6195f733e1a53fa55d18da188205d029" prot="private" static="no" mutable="no">
+        <type>_BPictureExtent_ *</type>
+        <definition>_BPictureExtent_* BPicture::fExtent</definition>
+        <argsstring></argsstring>
+        <name>fExtent</name>
+        <qualifiedname>BPicture::fExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="77" column="17" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPicture_1a69fabcab15aba02854946892e64737b1" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BPicture::fToken</definition>
+        <argsstring></argsstring>
+        <name>fToken</name>
+        <qualifiedname>BPicture::fToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="76" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBPicture_1ae83af912ae34cf2d32afbebaee30ecbc" prot="private" static="no" mutable="no">
+        <type><ref refid="classBPicture" kindref="compound">BPicture</ref> *</type>
+        <definition>BPicture* BPicture::fUsurped</definition>
+        <argsstring></argsstring>
+        <name>fUsurped</name>
+        <qualifiedname>BPicture::fUsurped</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="78" column="9" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBPicture_1ad3e5dca72d104acdfeb0145f24bd634d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPicture::BPicture</definition>
+        <argsstring>()</argsstring>
+        <name>BPicture</name>
+        <qualifiedname>BPicture::BPicture</qualifiedname>
+        <briefdescription>
+<para>Initializes an empty <ref refid="classBPicture" kindref="compound">BPicture</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a8ec07c636d394d68bfba82706fb3231d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPicture::BPicture</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BPicture</name>
+        <qualifiedname>BPicture::BPicture</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Initializes an <ref refid="classBPicture" kindref="compound">BPicture</ref> object copying the data from from the passed in <emphasis>data</emphasis> archive. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a17506ec76a02406ae4c568bf0b07bae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPicture::BPicture</definition>
+        <argsstring>(const BPicture &amp;other)</argsstring>
+        <name>BPicture</name>
+        <qualifiedname>BPicture::BPicture</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPicture" kindref="compound">BPicture</ref> &amp;</type>
+          <declname>other</declname>
+          <defname>otherPicture</defname>
+        </param>
+        <briefdescription>
+<para>Initializes an <ref refid="classBPicture" kindref="compound">BPicture</ref> object copying the data from <emphasis>otherPicture</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a709258d8bf01b57f44bc0935dbf02e33" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BPicture::~BPicture</definition>
+        <argsstring>()</argsstring>
+        <name>~BPicture</name>
+        <qualifiedname>BPicture::~BPicture</qualifiedname>
+        <briefdescription>
+<para>Destroys the <ref refid="classBPicture" kindref="compound">BPicture</ref> object and deletes all associated data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="24" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1af773a67253f860f33f71e68289c45ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::Flatten</definition>
+        <argsstring>(BDataIO *stream)</argsstring>
+        <name>Flatten</name>
+        <qualifiedname>BPicture::Flatten</qualifiedname>
+        <param>
+          <type><ref refid="classBDataIO" kindref="compound">BDataIO</ref> *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Flattens the contents of the <ref refid="classBPicture" kindref="compound">BPicture</ref> object into <emphasis>stream</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream to write to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBPicture" kindref="compound">BPicture</ref> object was flattened successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>stream</emphasis> pointer was <computeroutput>NULL</computeroutput> or the data was invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes written does not equal the size of the contents of the <ref refid="classBPicture" kindref="compound">BPicture</ref> object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1acb9a2bdcbad655692e126a3dc2be3166" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::Perform</definition>
+        <argsstring>(perform_code code, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BPicture::Perform</qualifiedname>
+        <reimplements refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Perform some action (internal method defined for binary compatibility purposes). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="28" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a97a2ca69d6eb3902d66a2940fbcae9bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::Play</definition>
+        <argsstring>(void **callBackTable, int32 tableEntries, void *userData)</argsstring>
+        <name>Play</name>
+        <qualifiedname>BPicture::Play</qualifiedname>
+        <param>
+          <type>void **</type>
+          <declname>callBackTable</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>tableEntries</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>userData</declname>
+          <defname>user</defname>
+        </param>
+        <briefdescription>
+<para>Plays back a picture using the passed in call back functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ulink url="http://haiku-os.org/legacy-docs/bebook/BPicture.html#BPicture_Play">http://haiku-os.org/legacy-docs/bebook/BPicture.html#BPicture_Play</ulink> for details.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>callBackTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array of pointers to pointers of call back functions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tableEntries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the number of function pointers found in <emphasis>callBackTable</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hook to pass additional data to each call back function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBPicture" kindref="compound">BPicture</ref> object was played back successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBPicture" kindref="compound">BPicture</ref> data is <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="30" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a84f37addb7b9d536cdc5d0413646d5a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::Unflatten</definition>
+        <argsstring>(BDataIO *stream)</argsstring>
+        <name>Unflatten</name>
+        <qualifiedname>BPicture::Unflatten</qualifiedname>
+        <param>
+          <type><ref refid="classBDataIO" kindref="compound">BDataIO</ref> *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Unflattens the contents from the <emphasis>stream</emphasis> into the <ref refid="classBPicture" kindref="compound">BPicture</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream to read from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was unflattened successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>stream</emphasis> pointer was <computeroutput>NULL</computeroutput> or the data was invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes read does not equal the size of the contents of the <ref refid="classBPicture" kindref="compound">BPicture</ref> object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="35" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBPicture_1a84996b0617fa460d8369e8cd2b8ce02c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPicture::BPicture</definition>
+        <argsstring>(const void *data, int32 size)</argsstring>
+        <name>BPicture</name>
+        <qualifiedname>BPicture::BPicture</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="68" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1ac1a595aa5de2d1a317d20bf4c82482f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BPicture::_AssertLocalCopy</definition>
+        <argsstring>()</argsstring>
+        <name>_AssertLocalCopy</name>
+        <qualifiedname>BPicture::_AssertLocalCopy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="60" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a4b0b6eb6338e1d4469cfbfb69fa59fcf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BPicture::_AssertOldLocalCopy</definition>
+        <argsstring>()</argsstring>
+        <name>_AssertOldLocalCopy</name>
+        <qualifiedname>BPicture::_AssertOldLocalCopy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="61" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a8037248c6cdfc9082edab2255a62aab9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BPicture::_AssertServerCopy</definition>
+        <argsstring>()</argsstring>
+        <name>_AssertServerCopy</name>
+        <qualifiedname>BPicture::_AssertServerCopy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="62" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a320c1f045e776f193fccb3f57b5bf109" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPicture::_DisposeData</definition>
+        <argsstring>()</argsstring>
+        <name>_DisposeData</name>
+        <qualifiedname>BPicture::_DisposeData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="53" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a1a22ed5992257a5b61b99d8e86e29acd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::_Download</definition>
+        <argsstring>()</argsstring>
+        <name>_Download</name>
+        <qualifiedname>BPicture::_Download</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="65" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a92b1b39c9004e0eba6c87160af47e928" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPicture::_ImportOldData</definition>
+        <argsstring>(const void *data, int32 size)</argsstring>
+        <name>_ImportOldData</name>
+        <qualifiedname>BPicture::_ImportOldData</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="55" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a9400b53073624c086f0303db1313e25e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPicture::_InitData</definition>
+        <argsstring>()</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BPicture::_InitData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a67069910790067541c3117d6af8dd014" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPicture::_ReservedPicture1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPicture1</name>
+        <qualifiedname>BPicture::_ReservedPicture1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a753a2e701dd6b389170f2c0f72ef5fe2" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPicture::_ReservedPicture2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPicture2</name>
+        <qualifiedname>BPicture::_ReservedPicture2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1ac5d68987e710eb9d648bf09987dc5cbc" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BPicture::_ReservedPicture3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedPicture3</name>
+        <qualifiedname>BPicture::_ReservedPicture3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1aa02f5504983143c0c12469c3569037e7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BPicture::_Upload</definition>
+        <argsstring>()</argsstring>
+        <name>_Upload</name>
+        <qualifiedname>BPicture::_Upload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a061d5b0de1e29dad36f72587383492d2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const void *</type>
+        <definition>const void * BPicture::Data</definition>
+        <argsstring>() const</argsstring>
+        <name>Data</name>
+        <qualifiedname>BPicture::Data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="69" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1aa0a1211ec297758027348c6c867d3cd2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BPicture::DataSize</definition>
+        <argsstring>() const</argsstring>
+        <name>DataSize</name>
+        <qualifiedname>BPicture::DataSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="70" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a4ca3f005e4189b88d20c14eb176f61de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBPicture" kindref="compound">BPicture</ref> &amp;</type>
+        <definition>BPicture &amp; BPicture::operator=</definition>
+        <argsstring>(const BPicture &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BPicture::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPicture" kindref="compound">BPicture</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="44" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1aa3b71c4b2545fc92fda7ea1359c5a6b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPicture::SetToken</definition>
+        <argsstring>(int32 token)</argsstring>
+        <name>SetToken</name>
+        <qualifiedname>BPicture::SetToken</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1aaf0b295f2e646a42053a88912ef85289" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBPicture" kindref="compound">BPicture</ref> *</type>
+        <definition>BPicture * BPicture::StepDown</definition>
+        <argsstring>()</argsstring>
+        <name>StepDown</name>
+        <qualifiedname>BPicture::StepDown</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="73" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1a459b6e2f45c931bf9321b6b09639bf83" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BPicture::Token</definition>
+        <argsstring>() const</argsstring>
+        <name>Token</name>
+        <qualifiedname>BPicture::Token</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="58" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPicture_1ad67f4b5dcc71849534150b0224c77e59" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPicture::Usurp</definition>
+        <argsstring>(BPicture *lameDuck)</argsstring>
+        <name>Usurp</name>
+        <qualifiedname>BPicture::Usurp</qualifiedname>
+        <param>
+          <type><ref refid="classBPicture" kindref="compound">BPicture</ref> *</type>
+          <declname>lameDuck</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="72" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Records a series of drawing instructions that can be &quot;replayed&quot; later. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classBPicture" kindref="compound">BPicture</ref>, unlike a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>, is independent of the display resolution as it contains drawing instructions rather than image data.</para>
+<para>To begin drawing you first create a new <ref refid="classBPicture" kindref="compound">BPicture</ref> object and pass it to <ref refid="classBView_1a14155192773aad22ebe47a9975afac5f" kindref="member">BView::BeginPicture()</ref>. All subsequent drawing instructions are drawn into the <ref refid="classBPicture" kindref="compound">BPicture</ref> object instead of the <ref refid="classBView" kindref="compound">BView</ref>. When you are done recording call <ref refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" kindref="member">BView::EndPicture()</ref> which stops drawing into the <ref refid="classBPicture" kindref="compound">BPicture</ref> object and passes a pointer to it back to the caller.</para>
+<para>For example: <programlisting><codeline><highlight class="normal"><ref refid="classBPicture" kindref="compound">BPicture</ref>*<sp/>picture;</highlight></codeline>
+<codeline><highlight class="normal">view-&gt;BeginPicture(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBPicture" kindref="compound">BPicture</ref>);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>drawing<sp/>instructions<sp/>go<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">picture<sp/>=<sp/>view-&gt;EndPicture();</highlight></codeline>
+</programlisting></para>
+<para>Only drawing instructions performed directly on the view, not its child views are send to the <ref refid="classBPicture" kindref="compound">BPicture</ref> object and <ref refid="classBPicture" kindref="compound">BPicture</ref> captures only primitive graphics operations. The view must be attached to a window for the drawing instruction to be recorded. Drawing instructions are recorded even if the view is hidden or resides outside the clipping region or the window is off-screen.</para>
+<para>The <ref refid="classBPicture" kindref="compound">BPicture</ref> object data is erased when passed to <ref refid="classBView_1a14155192773aad22ebe47a9975afac5f" kindref="member">BView::BeginPicture()</ref>. If you&apos;d like to append data to a <ref refid="classBPicture" kindref="compound">BPicture</ref> object instead use <ref refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" kindref="member">BView::AppendToPicture()</ref>. Both <ref refid="classBView_1a14155192773aad22ebe47a9975afac5f" kindref="member">BView::BeginPicture()</ref> and <ref refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" kindref="member">BView::AppendToPicture()</ref> must be followed by a call to <ref refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" kindref="member">BView::EndPicture()</ref> to finish recording.</para>
+<para><simplesect kind="see"><para><ref refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" kindref="member">BView::AppendToPicture()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a14155192773aad22ebe47a9975afac5f" kindref="member">BView::BeginPicture()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" kindref="member">BView::EndPicture()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BPicture</label>
+        <link refid="classBPicture"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BPicture</label>
+        <link refid="classBPicture"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/Picture.h" line="19" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Picture.h" bodystart="19" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classBPicture_1ac1a595aa5de2d1a317d20bf4c82482f9" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_AssertLocalCopy</name></member>
+      <member refid="classBPicture_1a4b0b6eb6338e1d4469cfbfb69fa59fcf" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_AssertOldLocalCopy</name></member>
+      <member refid="classBPicture_1a8037248c6cdfc9082edab2255a62aab9" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_AssertServerCopy</name></member>
+      <member refid="classBPicture_1a320c1f045e776f193fccb3f57b5bf109" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_DisposeData</name></member>
+      <member refid="classBPicture_1a1a22ed5992257a5b61b99d8e86e29acd" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_Download</name></member>
+      <member refid="classBPicture_1a92b1b39c9004e0eba6c87160af47e928" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_ImportOldData</name></member>
+      <member refid="classBPicture_1a9400b53073624c086f0303db1313e25e" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_InitData</name></member>
+      <member refid="classBPicture_1ad5d92d0ef8f95fffceb337084d869dbb" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_reserved</name></member>
+      <member refid="classBPicture_1a67069910790067541c3117d6af8dd014" prot="private" virt="virtual"><scope>BPicture</scope><name>_ReservedPicture1</name></member>
+      <member refid="classBPicture_1a753a2e701dd6b389170f2c0f72ef5fe2" prot="private" virt="virtual"><scope>BPicture</scope><name>_ReservedPicture2</name></member>
+      <member refid="classBPicture_1ac5d68987e710eb9d648bf09987dc5cbc" prot="private" virt="virtual"><scope>BPicture</scope><name>_ReservedPicture3</name></member>
+      <member refid="classBPicture_1aa02f5504983143c0c12469c3569037e7" prot="private" virt="non-virtual"><scope>BPicture</scope><name>_Upload</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BPicture</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BPicture</scope><name>AllUnarchived</name></member>
+      <member refid="classBPicture_1a9854a69b51d30728a20fd8688ce7a0f0" prot="public" virt="virtual"><scope>BPicture</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BPicture</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BPicture</scope><name>BArchivable</name></member>
+      <member refid="classBPicture_1ad3e5dca72d104acdfeb0145f24bd634d" prot="public" virt="non-virtual"><scope>BPicture</scope><name>BPicture</name></member>
+      <member refid="classBPicture_1a17506ec76a02406ae4c568bf0b07bae6" prot="public" virt="non-virtual"><scope>BPicture</scope><name>BPicture</name></member>
+      <member refid="classBPicture_1a8ec07c636d394d68bfba82706fb3231d" prot="public" virt="non-virtual"><scope>BPicture</scope><name>BPicture</name></member>
+      <member refid="classBPicture_1a84996b0617fa460d8369e8cd2b8ce02c" prot="private" virt="non-virtual"><scope>BPicture</scope><name>BPicture</name></member>
+      <member refid="classBPicture_1a061d5b0de1e29dad36f72587383492d2" prot="private" virt="non-virtual"><scope>BPicture</scope><name>Data</name></member>
+      <member refid="classBPicture_1aa0a1211ec297758027348c6c867d3cd2" prot="private" virt="non-virtual"><scope>BPicture</scope><name>DataSize</name></member>
+      <member refid="classBPicture_1a6195f733e1a53fa55d18da188205d029" prot="private" virt="non-virtual"><scope>BPicture</scope><name>fExtent</name></member>
+      <member refid="classBPicture_1af773a67253f860f33f71e68289c45ab6" prot="public" virt="non-virtual"><scope>BPicture</scope><name>Flatten</name></member>
+      <member refid="classBPicture_1a69fabcab15aba02854946892e64737b1" prot="private" virt="non-virtual"><scope>BPicture</scope><name>fToken</name></member>
+      <member refid="classBPicture_1ae83af912ae34cf2d32afbebaee30ecbc" prot="private" virt="non-virtual"><scope>BPicture</scope><name>fUsurped</name></member>
+      <member refid="classBPicture_1a5dddcb1b146250d2ca15da3d48c4d7dd" prot="public" virt="non-virtual"><scope>BPicture</scope><name>Instantiate</name></member>
+      <member refid="classBPicture_1a4ca3f005e4189b88d20c14eb176f61de" prot="private" virt="non-virtual"><scope>BPicture</scope><name>operator=</name></member>
+      <member refid="classBPicture_1acb9a2bdcbad655692e126a3dc2be3166" prot="public" virt="virtual"><scope>BPicture</scope><name>Perform</name></member>
+      <member refid="classBPicture_1a97a2ca69d6eb3902d66a2940fbcae9bb" prot="public" virt="non-virtual"><scope>BPicture</scope><name>Play</name></member>
+      <member refid="classBPicture_1aa3b71c4b2545fc92fda7ea1359c5a6b8" prot="private" virt="non-virtual"><scope>BPicture</scope><name>SetToken</name></member>
+      <member refid="classBPicture_1aaf0b295f2e646a42053a88912ef85289" prot="private" virt="non-virtual"><scope>BPicture</scope><name>StepDown</name></member>
+      <member refid="classBPicture_1a459b6e2f45c931bf9321b6b09639bf83" prot="private" virt="non-virtual"><scope>BPicture</scope><name>Token</name></member>
+      <member refid="classBPicture_1a84f37addb7b9d536cdc5d0413646d5a5" prot="public" virt="non-virtual"><scope>BPicture</scope><name>Unflatten</name></member>
+      <member refid="classBPicture_1ad67f4b5dcc71849534150b0224c77e59" prot="private" virt="non-virtual"><scope>BPicture</scope><name>Usurp</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BPicture</scope><name>~BArchivable</name></member>
+      <member refid="classBPicture_1a709258d8bf01b57f44bc0935dbf02e33" prot="public" virt="virtual"><scope>BPicture</scope><name>~BPicture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

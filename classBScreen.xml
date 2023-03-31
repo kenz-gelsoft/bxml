@@ -1,0 +1,1711 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBScreen" kind="class" language="C++" prot="public">
+    <compoundname>BScreen</compoundname>
+      <sectiondef kind="user-defined">
+      <header>Utility Methods</header>
+      <memberdef kind="function" id="classBScreen_1a9e3b631d389bbcedc046d301e9de8d4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BScreen::IsValid</definition>
+        <argsstring>()</argsstring>
+        <name>IsValid</name>
+        <qualifiedname>BScreen::IsValid</qualifiedname>
+        <briefdescription>
+<para>Checks that the <ref refid="classBScreen" kindref="compound">BScreen</ref> object represents a real display that is connected to the computer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the <ref refid="classBScreen" kindref="compound">BScreen</ref> object is valid, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="29" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a666a5d576a26688d2c59c11f27e559e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::SetToNext</definition>
+        <argsstring>()</argsstring>
+        <name>SetToNext</name>
+        <qualifiedname>BScreen::SetToNext</qualifiedname>
+        <briefdescription>
+<para>Sets the <ref refid="classBScreen" kindref="compound">BScreen</ref> object to the next display in the screen list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if successful, otherwise <computeroutput>B_ERROR</computeroutput>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="30" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a56340c50b7488bd3bed1b44afa62ce4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>color_space</type>
+        <definition>color_space BScreen::ColorSpace</definition>
+        <argsstring>()</argsstring>
+        <name>ColorSpace</name>
+        <qualifiedname>BScreen::ColorSpace</qualifiedname>
+        <briefdescription>
+<para>Returns the color_space of the display. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_CMAP8</computeroutput>, <computeroutput>B_RGB15</computeroutput>, <computeroutput>B_RGB32</computeroutput>, or <computeroutput>B_NO_COLOR_SPACE</computeroutput> if the <ref refid="classBScreen" kindref="compound">BScreen</ref> object is invalid.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="32" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ad0846a4958e4287cdb891e2ca7f8cb98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BScreen::Frame</definition>
+        <argsstring>()</argsstring>
+        <name>Frame</name>
+        <qualifiedname>BScreen::Frame</qualifiedname>
+        <briefdescription>
+<para>Gets the frame of the screen in the screen&apos;s coordinate system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For example if the <ref refid="classBScreen" kindref="compound">BScreen</ref> object points to the main screen with a resolution of 1,366x768 then this method returns <ref refid="classBRect" kindref="compound">BRect</ref>(0.0, 0.0, 1365.0, 767.0). If the <ref refid="classBScreen" kindref="compound">BScreen</ref> object is invalid then this method returns an empty rectangle i.e. <ref refid="classBRect" kindref="compound">BRect</ref>(0.0, 0.0, 0.0, 0.0)</para>
+<para>You can set the frame programmatically by calling the <ref refid="classBScreen_1a7c22338581a5c5e75835d30de2019bfd" kindref="member">SetMode()</ref> method.</para>
+<para><simplesect kind="return"><para>a <ref refid="classBRect" kindref="compound">BRect</ref> frame of the screen in the screen&apos;s coordinate system.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="33" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ab67837ac2adc413602d326af8151f255" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>screen_id</type>
+        <definition>screen_id BScreen::ID</definition>
+        <argsstring>()</argsstring>
+        <name>ID</name>
+        <qualifiedname>BScreen::ID</qualifiedname>
+        <briefdescription>
+<para>Gets the identifier of the display. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In the current implementation this method returns <computeroutput>B_MAIN_SCREEN_ID</computeroutput> even if the object is invalid.</para>
+<para><simplesect kind="return"><para>A screen_id that identifies the screen.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="34" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a29a521bd71459cd20fec8287b9cf678f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::WaitForRetrace</definition>
+        <argsstring>()</argsstring>
+        <name>WaitForRetrace</name>
+        <qualifiedname>BScreen::WaitForRetrace</qualifiedname>
+        <briefdescription>
+<para>Blocks until the monitor has finished its current vertical retrace. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> or <computeroutput>B_ERROR</computeroutput> if the screen object is invalid.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="36" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ac47812cdef0f0b65b40b3b79af3db4b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::WaitForRetrace</definition>
+        <argsstring>(bigtime_t timeout)</argsstring>
+        <name>WaitForRetrace</name>
+        <qualifiedname>BScreen::WaitForRetrace</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+<para>Blocks until the monitor has finished its current vertical retrace or until <emphasis>timeout</emphasis> has expired. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of time to wait before returning.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the monitor has retraced in the given <emphasis>timeout</emphasis> duration, <computeroutput>B_ERROR</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="37" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Color</header>
+      <memberdef kind="function" id="classBScreen_1a4ceb2e5c169cc77e0aedaf4af14254d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>uint8 BScreen::IndexForColor</definition>
+        <argsstring>(rgb_color color)</argsstring>
+        <name>IndexForColor</name>
+        <qualifiedname>BScreen::IndexForColor</qualifiedname>
+        <param>
+          <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Returns the 8-bit color index that most closely matches a 32-bit <emphasis>color</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 32-bit <emphasis>color</emphasis> to get the 8-bit index of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An 8-bit color index in the screen&apos;s color_map.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="39" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Screen.h" bodystart="106" bodyend="109"/>
+        <references refid="structrgb__color_1a089265e492dbf6743a6eaaa23fa94699" compoundref="GraphicsDefs_8h" startline="46">rgb_color::alpha</references>
+        <references refid="structrgb__color_1adbc9af28f1ec74ac8e7cc8f7fc1e6ce3" compoundref="GraphicsDefs_8h" startline="45">rgb_color::blue</references>
+        <references refid="structrgb__color_1ac0259068653969121d72739ad8509979" compoundref="GraphicsDefs_8h" startline="44">rgb_color::green</references>
+        <references refid="classBScreen_1a4ceb2e5c169cc77e0aedaf4af14254d9" compoundref="Screen_8h" startline="106" endline="109">IndexForColor</references>
+        <references refid="structrgb__color_1ad8f118f509b77a245d9e38829336f0ec" compoundref="GraphicsDefs_8h" startline="43">rgb_color::red</references>
+        <referencedby refid="classBScreen_1a4ceb2e5c169cc77e0aedaf4af14254d9" compoundref="Screen_8h" startline="106" endline="109">IndexForColor</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a9235d186f8470fdc8e7b3e5edeb8cd18" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>uint8 BScreen::IndexForColor</definition>
+        <argsstring>(uint8 red, uint8 green, uint8 blue, uint8 alpha=255)</argsstring>
+        <name>IndexForColor</name>
+        <qualifiedname>BScreen::IndexForColor</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+          <declname>alpha</declname>
+          <defval>255</defval>
+        </param>
+        <briefdescription>
+<para>Returns the 8-bit color index that most closely matches a set of <emphasis>red</emphasis>, <emphasis>green</emphasis>, <emphasis>blue</emphasis>, and <emphasis>alpha</emphasis> values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>red</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>red</emphasis> value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>green</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>green</emphasis> value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>blue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>blue</emphasis> value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alpha</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>alpha</emphasis> value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An 8-bit color index in the screen&apos;s color_map.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="40" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ad3c982989b0668a024d22bb8488597d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+        <definition>rgb_color BScreen::ColorForIndex</definition>
+        <argsstring>(uint8 index)</argsstring>
+        <name>ColorForIndex</name>
+        <qualifiedname>BScreen::ColorForIndex</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Gets the 32-bit color representation of an 8-bit color <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 8-bit color <emphasis>index</emphasis> to convert to a 32-bit color.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A 32-bit <ref refid="structrgb__color" kindref="compound">rgb_color</ref> structure.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="42" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ad04dc4456c0544172a29647e35ed44aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>uint8 BScreen::InvertIndex</definition>
+        <argsstring>(uint8 index)</argsstring>
+        <name>InvertIndex</name>
+        <qualifiedname>BScreen::InvertIndex</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Gets the &quot;Inversion&quot; of an 8-bit color <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Inverted colors are useful for highlighting.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 8-bit color <emphasis>index</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An 8-bit color <emphasis>index</emphasis> that represents the &quot;Inversion&quot; of the given color in the screen&apos;s color_map.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="43" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1abb25fe0aabfc7505fd0265cff4044f90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const color_map *</type>
+        <definition>const color_map * BScreen::ColorMap</definition>
+        <argsstring>()</argsstring>
+        <name>ColorMap</name>
+        <qualifiedname>BScreen::ColorMap</qualifiedname>
+        <briefdescription>
+<para>Gets the color_map of the <ref refid="classBScreen" kindref="compound">BScreen</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the <ref refid="classBScreen" kindref="compound">BScreen</ref> object&apos;s color_map.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="45" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Bitmap</header>
+      <memberdef kind="function" id="classBScreen_1a103f21878d503134ca7b71c4e8db278b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetBitmap</definition>
+        <argsstring>(BBitmap **_bitmap, bool drawCursor=true, BRect *frame=NULL)</argsstring>
+        <name>GetBitmap</name>
+        <qualifiedname>BScreen::GetBitmap</qualifiedname>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> **</type>
+          <declname>_bitmap</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>drawCursor</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref> *</type>
+          <declname>frame</declname>
+          <defname>bounds</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Allocates a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> and copies the contents of the screen into it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><ref refid="classBScreen_1a103f21878d503134ca7b71c4e8db278b" kindref="member">GetBitmap()</ref> will allocate a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object for you while <ref refid="classBScreen_1a1f05b947376c3322f6dcf9fcfc18d02c" kindref="member">ReadBitmap()</ref> requires you to pre-allocate a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object first.</para>
+</simplesect>
+<simplesect kind="note"><para>The caller is responsible for freeing the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_bitmap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> pointer where this method will store the contents of the display. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>drawCursor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies whether or not to draw the cursor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bounds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the screen area that you want copied. If <emphasis>bounds</emphasis> is <computeroutput>NULL</computeroutput> then the entire screen is copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the operation was successful, <computeroutput>B_ERROR</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a1f05b947376c3322f6dcf9fcfc18d02c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::ReadBitmap</definition>
+        <argsstring>(BBitmap *bitmap, bool drawCursor=true, BRect *frame=NULL)</argsstring>
+        <name>ReadBitmap</name>
+        <qualifiedname>BScreen::ReadBitmap</qualifiedname>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>bitmap</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>drawCursor</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref> *</type>
+          <declname>frame</declname>
+          <defname>bounds</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Copies the contents of the screen into a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para><ref refid="classBScreen_1a1f05b947376c3322f6dcf9fcfc18d02c" kindref="member">ReadBitmap()</ref> requires you to pre-allocate a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object first, while <ref refid="classBScreen_1a103f21878d503134ca7b71c4e8db278b" kindref="member">GetBitmap()</ref> will allocate a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object for you.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bitmap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> where this method will store the contents of the display. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>drawCursor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies whether or not to draw the cursor. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bounds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the screen area that you want copied. If <emphasis>bounds</emphasis> is <computeroutput>NULL</computeroutput> then the entire screen is copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the operation was successful, <computeroutput>B_ERROR</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="50" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Desktop Color</header>
+      <memberdef kind="function" id="classBScreen_1ae6df75ca8af53688e88e195c6dafdadc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+        <definition>rgb_color BScreen::DesktopColor</definition>
+        <argsstring>()</argsstring>
+        <name>DesktopColor</name>
+        <qualifiedname>BScreen::DesktopColor</qualifiedname>
+        <briefdescription>
+<para>Gets the background color of the current workspace. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A 32-bit <ref refid="structrgb__color" kindref="compound">rgb_color</ref> structure containing the background color of the current workspace.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="54" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a1595a0dbc8f453892e7fd371470be4af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+        <definition>rgb_color BScreen::DesktopColor</definition>
+        <argsstring>(uint32 workspace)</argsstring>
+        <name>DesktopColor</name>
+        <qualifiedname>BScreen::DesktopColor</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>workspace</declname>
+        </param>
+        <briefdescription>
+<para>Gets the background color of the specified <emphasis>workspace</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workspace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>workspace</emphasis> index to get the desktop background color of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An 32-bit <ref refid="structrgb__color" kindref="compound">rgb_color</ref> structure containing the background color of the specified <emphasis>workspace</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="55" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a241bcdde894d7cb0255c5ec7dbb15043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScreen::SetDesktopColor</definition>
+        <argsstring>(rgb_color color, bool stick=true)</argsstring>
+        <name>SetDesktopColor</name>
+        <qualifiedname>BScreen::SetDesktopColor</qualifiedname>
+        <param>
+          <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>stick</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Set the background <emphasis>color</emphasis> of the current workspace. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 32-bit <emphasis>color</emphasis> to paint the desktop background. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the <emphasis>color</emphasis> will stay after a reboot.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="56" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a740c6dd4b7ec9e982624b86c73de7ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScreen::SetDesktopColor</definition>
+        <argsstring>(rgb_color color, uint32 workspace, bool stick=true)</argsstring>
+        <name>SetDesktopColor</name>
+        <qualifiedname>BScreen::SetDesktopColor</qualifiedname>
+        <param>
+          <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>workspace</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>stick</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Set the background <emphasis>color</emphasis> of the specified <emphasis>workspace</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The 32-bit <emphasis>color</emphasis> to paint the desktop background. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>workspace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>workspace</emphasis> index to update. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stick</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the <emphasis>color</emphasis> will stay after a reboot.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="58" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Display Mode</header>
+      <description><para>The following methods retrieve and alter the display_mode structure of a screen. The display_mode structure contains screen size, pixel depth, and display timings settings. </para>
+</description>
+      <memberdef kind="function" id="classBScreen_1ac23d8d6d04333b84ecacf47e0bb4a3b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::ProposeMode</definition>
+        <argsstring>(display_mode *target, const display_mode *low, const display_mode *high)</argsstring>
+        <name>ProposeMode</name>
+        <qualifiedname>BScreen::ProposeMode</qualifiedname>
+        <param>
+          <type>display_mode *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const display_mode *</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>const display_mode *</type>
+          <declname>high</declname>
+        </param>
+        <briefdescription>
+<para>Adjust the <emphasis>target</emphasis> mode to make it a supported mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The list of supported modes for the graphics card is supplied by the <ref refid="classBScreen_1a1d86da3d8a8ab2bcce1781a3b429252b" kindref="member">GetModeList()</ref> method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode you want adjust. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lower display mode limit. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>high</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The higher display mode limit.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>target</emphasis> is supported and falls within the <emphasis>low</emphasis> and <emphasis>high</emphasis> limits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>target</emphasis> is supported but does not fall within the <emphasis>low</emphasis> and <emphasis>high</emphasis> limits. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the target mode isn&apos;t supported.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="61" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a1d86da3d8a8ab2bcce1781a3b429252b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetModeList</definition>
+        <argsstring>(display_mode **_modeList, uint32 *_count)</argsstring>
+        <name>GetModeList</name>
+        <qualifiedname>BScreen::GetModeList</qualifiedname>
+        <param>
+          <type>display_mode **</type>
+          <declname>_modeList</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_count</declname>
+        </param>
+        <briefdescription>
+<para>Allocates and returns a list of the display modes supported by the graphics card into <emphasis>_modeList</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>The monitor may not be able to display all of the modes that <ref refid="classBScreen_1a1d86da3d8a8ab2bcce1781a3b429252b" kindref="member">GetModeList()</ref> retrieves.</para>
+</simplesect>
+<simplesect kind="note"><para>The caller is responsible for freeing the display_mode object.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_modeList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_mode pointer, where the function will allocate an array of display_mode structures. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to an integer used to store the count of available display modes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1afa032aafc0efa58e666bc673f3d3b0d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetMode</definition>
+        <argsstring>(display_mode *mode)</argsstring>
+        <name>GetMode</name>
+        <qualifiedname>BScreen::GetMode</qualifiedname>
+        <param>
+          <type>display_mode *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Fills out the display_mode struct from the current workspace. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_mode struct to copy into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>mode</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="66" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1adbaecd70d8b670d9de171f84da3a905b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetMode</definition>
+        <argsstring>(uint32 workspace, display_mode *mode)</argsstring>
+        <name>GetMode</name>
+        <qualifiedname>BScreen::GetMode</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>workspace</declname>
+        </param>
+        <param>
+          <type>display_mode *</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+<para>Fills out the display_mode struct from the specified <emphasis>workspace</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workspace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the <emphasis>workspace</emphasis> to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_mode structure to copy into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>mode</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a7c22338581a5c5e75835d30de2019bfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::SetMode</definition>
+        <argsstring>(display_mode *mode, bool makeDefault=false)</argsstring>
+        <name>SetMode</name>
+        <qualifiedname>BScreen::SetMode</qualifiedname>
+        <param>
+          <type>display_mode *</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>makeDefault</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Sets the screen in the current workspace to the given <emphasis>mode</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_mode struct. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>makeDefault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not <emphasis>mode</emphasis> is set as the default.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the operation was successful, <computeroutput>B_ERROR</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="69" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ae26f68f38d02e57825188a5336e2f759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::SetMode</definition>
+        <argsstring>(uint32 workspace, display_mode *mode, bool makeDefault=false)</argsstring>
+        <name>SetMode</name>
+        <qualifiedname>BScreen::SetMode</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>workspace</declname>
+        </param>
+        <param>
+          <type>display_mode *</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>makeDefault</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Set the screen in the specified <emphasis>workspace</emphasis> to the given <emphasis>mode</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workspace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the workspace to set the <emphasis>mode</emphasis> of. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_mode struct. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>makeDefault</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the <emphasis>mode</emphasis> is set as the default for the specified <emphasis>workspace</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the operation was successful, <computeroutput>B_ERROR</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="71" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Display and Graphics Card Info</header>
+      <memberdef kind="function" id="classBScreen_1a2b34d215fa6f9d98e6e04098cc30a7dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetDeviceInfo</definition>
+        <argsstring>(accelerant_device_info *info)</argsstring>
+        <name>GetDeviceInfo</name>
+        <qualifiedname>BScreen::GetDeviceInfo</qualifiedname>
+        <param>
+          <type>accelerant_device_info *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Fills out the <emphasis>info</emphasis> struct with information about a graphics card. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An accelerant_device_info struct to store the device <emphasis>info</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>info</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="74" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a399e41f3885803dcc7fa54d00c7f7561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetMonitorInfo</definition>
+        <argsstring>(monitor_info *info)</argsstring>
+        <name>GetMonitorInfo</name>
+        <qualifiedname>BScreen::GetMonitorInfo</qualifiedname>
+        <param>
+          <type>monitor_info *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Fills out the <emphasis>info</emphasis> struct with information about a monitor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A monitor_info struct to store the monitor <emphasis>info</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>info</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="75" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1afbb89f5b53c0fddccaaee09fe75b4cff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetPixelClockLimits</definition>
+        <argsstring>(display_mode *mode, uint32 *_low, uint32 *_high)</argsstring>
+        <name>GetPixelClockLimits</name>
+        <qualifiedname>BScreen::GetPixelClockLimits</qualifiedname>
+        <param>
+          <type>display_mode *</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_low</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_high</declname>
+        </param>
+        <briefdescription>
+<para>Gets the minimum and maximum pixel clock rates that are possible for the specified <emphasis>mode</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_mode structure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a uint32 where the method stores the lowest available pixel clock. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_high</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a uint32 where the method stores the highest available pixel clock.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>mode</emphasis>, <emphasis>low</emphasis>, or <emphasis>high</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="76" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a142936ded6c6c30e357b8f00ea8efd4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetTimingConstraints</definition>
+        <argsstring>(display_timing_constraints *timingConstraints)</argsstring>
+        <name>GetTimingConstraints</name>
+        <qualifiedname>BScreen::GetTimingConstraints</qualifiedname>
+        <param>
+          <type>display_timing_constraints *</type>
+          <declname>timingConstraints</declname>
+          <defname>constraints</defname>
+        </param>
+        <briefdescription>
+<para>Fills out the <emphasis>constraints</emphasis> structure with the timing constraints of the current display mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>constraints</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a display_timing_constraints structure to store the timing constraints.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <emphasis>constraints</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>for all other errors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="78" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>VESA Display Power Management Signaling Settings</header>
+      <description><para>VESA Display Power Management Signaling (or DPMS) is a standard from the VESA consortium for managing the power usage of displays through the graphics card. DPMS allows you to shut off the display after the computer has been unused for some time to save power.</para>
+<para>DPMS states include:<itemizedlist>
+<listitem><para><computeroutput>B_DPMS_ON</computeroutput> Normal display operation.</para>
+</listitem><listitem><para><computeroutput>B_DPMS_STAND_BY</computeroutput> Image not visible normal operation and returns to normal after ~1 second.</para>
+</listitem><listitem><para><computeroutput>B_DPMS_SUSPEND</computeroutput> Image not visible, returns to normal after ~5 seconds.</para>
+</listitem><listitem><para><computeroutput>B_DPMS_OFF</computeroutput> Image not visible, display is off except for power to monitoring circuitry. Returns to normal after ~8-20 seconds.</para>
+</listitem></itemizedlist>
+</para>
+<para>Power usage in each of the above states depends on the monitor used. CRT monitors typically receive larger power savings than LCD monitors in low-power states. </para>
+</description>
+      <memberdef kind="function" id="classBScreen_1a1af45eaea5ee9539ab481f9f68ad630c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::SetDPMS</definition>
+        <argsstring>(uint32 state)</argsstring>
+        <name>SetDPMS</name>
+        <qualifiedname>BScreen::SetDPMS</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>state</declname>
+          <defname>dpmsState</defname>
+        </param>
+        <briefdescription>
+<para>Sets the VESA Display Power Management Signaling (DPMS) state for the display. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dpmsState</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The DPMS state to set, valid values are:<itemizedlist>
+<listitem><para><computeroutput>B_DPMS_ON</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_DPMS_STAND_BY</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_DPMS_SUSPEND</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_DPMS_OFF</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the operation was successful, otherwise an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="81" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1aba78689135ae0af5cf9f4b07a8719833" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BScreen::DPMSState</definition>
+        <argsstring>()</argsstring>
+        <name>DPMSState</name>
+        <qualifiedname>BScreen::DPMSState</qualifiedname>
+        <briefdescription>
+<para>Gets the current VESA Display Power Management Signaling (DPMS) state of the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The current VESA Display Power Management Signaling (DPMS) state of the display or 0 in the case of an error.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="82" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a348ad8b92849ab8ea9c84d8f99118375" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BScreen::DPMSCapabilites</definition>
+        <argsstring>()</argsstring>
+        <name>DPMSCapabilites</name>
+        <qualifiedname>BScreen::DPMSCapabilites</qualifiedname>
+        <briefdescription>
+<para>Gets the VESA Display Power Management Signaling (DPMS) modes that the display supports as a bit mask. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para><computeroutput>B_DPMS_ON</computeroutput> is worth 1</para>
+</listitem><listitem><para><computeroutput>B_DPMS_STAND_BY</computeroutput> is worth 2</para>
+</listitem><listitem><para><computeroutput>B_DPMS_SUSPEND</computeroutput> is worth 4</para>
+</listitem><listitem><para><computeroutput>B_DPMS_OFF</computeroutput> is worth 8</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="return"><para>A bit mask of the VESA Display Power Management Signaling (DPMS) modes that the display supports or 0 in the case of an error.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="83" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Deprecated Methods</header>
+      <memberdef kind="function" id="classBScreen_1aee3f70304c5bcb423e2094d208693dbd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>BPrivate::BPrivateScreen *</type>
+        <definition>BPrivate::BPrivateScreen * BScreen::private_screen</definition>
+        <argsstring>()</argsstring>
+        <name>private_screen</name>
+        <qualifiedname>BScreen::private_screen</qualifiedname>
+        <briefdescription>
+<para>Returns the BPrivateScreen used by the <ref refid="classBScreen" kindref="compound">BScreen</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the BPrivateScreen class internally used by the <ref refid="classBScreen" kindref="compound">BScreen</ref> object.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="93" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a6a976c009512f943684c5002823c0e94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::ProposeDisplayMode</definition>
+        <argsstring>(display_mode *target, const display_mode *low, const display_mode *high)</argsstring>
+        <name>ProposeDisplayMode</name>
+        <qualifiedname>BScreen::ProposeDisplayMode</qualifiedname>
+        <param>
+          <type>display_mode *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const display_mode *</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>const display_mode *</type>
+          <declname>high</declname>
+        </param>
+        <briefdescription>
+<para>Deprecated, use <ref refid="classBScreen_1ac23d8d6d04333b84ecacf47e0bb4a3b2" kindref="member">ProposeMode()</ref> instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a9b952e4282c1ea1da5f6adbe464b24c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BScreen::BaseAddress</definition>
+        <argsstring>()</argsstring>
+        <name>BaseAddress</name>
+        <qualifiedname>BScreen::BaseAddress</qualifiedname>
+        <briefdescription>
+<para>Returns the base address of the frame buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="97" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a684bf177f99b9d9565baca9317ee9591" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BScreen::BytesPerRow</definition>
+        <argsstring>()</argsstring>
+        <name>BytesPerRow</name>
+        <qualifiedname>BScreen::BytesPerRow</qualifiedname>
+        <briefdescription>
+<para>Returns the bytes per row of the frame buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="98" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBScreen_1a67597585d675a770e4c2f784b086ac75" prot="private" static="no" mutable="no">
+        <type>BPrivate::BPrivateScreen *</type>
+        <definition>BPrivate::BPrivateScreen* BScreen::fScreen</definition>
+        <argsstring></argsstring>
+        <name>fScreen</name>
+        <qualifiedname>BScreen::fScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="101" column="26" bodyfile="/boot/home/src/haiku/headers/os/interface/Screen.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBScreen_1a98f6d2890b1f380d8e66b3ae33c34500" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScreen::BScreen</definition>
+        <argsstring>(BWindow *window)</argsstring>
+        <name>BScreen</name>
+        <qualifiedname>BScreen::BScreen</qualifiedname>
+        <param>
+          <type><ref refid="classBWindow" kindref="compound">BWindow</ref> *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBScreen" kindref="compound">BScreen</ref> object which represents the display that contains <emphasis>window</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In the current implementation, there is only one display (<computeroutput>B_MAIN_SCREEN_ID</computeroutput>). To be sure that the object was constructed correctly, call <ref refid="classBScreen_1a9e3b631d389bbcedc046d301e9de8d4a" kindref="member">IsValid()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>window</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classBWindow" kindref="compound">BWindow</ref> object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a855bab18a9fde11d87c3344611c4f2a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScreen::BScreen</definition>
+        <argsstring>(screen_id id=B_MAIN_SCREEN_ID)</argsstring>
+        <name>BScreen</name>
+        <qualifiedname>BScreen::BScreen</qualifiedname>
+        <param>
+          <type>screen_id</type>
+          <declname>id</declname>
+          <defval>B_MAIN_SCREEN_ID</defval>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBScreen" kindref="compound">BScreen</ref> object which represents the display connected to the computer with the given screen_id. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In the current implementation, there is only one display (<computeroutput>B_MAIN_SCREEN_ID</computeroutput>). To be sure that the object was constructed correctly, call <ref refid="classBScreen_1a9e3b631d389bbcedc046d301e9de8d4a" kindref="member">IsValid()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The screen_id of the screen to create a <ref refid="classBScreen" kindref="compound">BScreen</ref> object from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a3dec0c06b06665c37c5c493230823c7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScreen::~BScreen</definition>
+        <argsstring>()</argsstring>
+        <name>~BScreen</name>
+        <qualifiedname>BScreen::~BScreen</qualifiedname>
+        <briefdescription>
+<para>Frees the resources used by the <ref refid="classBScreen" kindref="compound">BScreen</ref> object and unlocks the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The main screen object will never go away, even if you disconnect all monitors.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1ab92c0b6a312192bb9dee75b6348bc997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::GetBrightness</definition>
+        <argsstring>(float *brightness)</argsstring>
+        <name>GetBrightness</name>
+        <qualifiedname>BScreen::GetBrightness</qualifiedname>
+        <param>
+          <type>float *</type>
+          <declname>brightness</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="85" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a41fb418c70bcb1673517cfcb1acc0f32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScreen::SetBrightness</definition>
+        <argsstring>(float brightness)</argsstring>
+        <name>SetBrightness</name>
+        <qualifiedname>BScreen::SetBrightness</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>brightness</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="86" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBScreen_1ada8029f5a75957c5a28606051134a69d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScreen::BScreen</definition>
+        <argsstring>(const BScreen &amp;other)</argsstring>
+        <name>BScreen</name>
+        <qualifiedname>BScreen::BScreen</qualifiedname>
+        <param>
+          <type>const <ref refid="classBScreen" kindref="compound">BScreen</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="90" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScreen_1a4aeeed84f10c7187280c18048805dbb2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBScreen" kindref="compound">BScreen</ref> &amp;</type>
+        <definition>BScreen &amp; BScreen::operator=</definition>
+        <argsstring>(const BScreen &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BScreen::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBScreen" kindref="compound">BScreen</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="91" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classBScreen" kindref="compound">BScreen</ref> class provides methods to retrieve and change display settings. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Each <ref refid="classBScreen" kindref="compound">BScreen</ref> object describes one display connected to the computer. Multiple <ref refid="classBScreen" kindref="compound">BScreen</ref> objects can represent the same physical display.</para>
+<para><simplesect kind="attention"><para>Haiku currently supports only a single display. The main screen with id <computeroutput>B_MAIN_SCREEN_ID</computeroutput> contains the origin in its top left corner. Additional displays, when they become supported, will extend the coordinates of the main screen.</para>
+</simplesect>
+Some utility methods provided by this class are <ref refid="classBScreen_1a56340c50b7488bd3bed1b44afa62ce4f" kindref="member">ColorSpace()</ref> to get the color space of the screen, <ref refid="classBScreen_1ad0846a4958e4287cdb891e2ca7f8cb98" kindref="member">Frame()</ref> to get the frame rectangle, and <ref refid="classBScreen_1ab67837ac2adc413602d326af8151f255" kindref="member">ID()</ref> to get the identifier of the screen.</para>
+<para>Methods to convert between 8-bit and 32-bit colors are provided by <ref refid="classBScreen_1a4ceb2e5c169cc77e0aedaf4af14254d9" kindref="member">IndexForColor()</ref> and <ref refid="classBScreen_1ad3c982989b0668a024d22bb8488597d7" kindref="member">ColorForIndex()</ref>.</para>
+<para>You can also use this class to take a screenshot of the entire screen or a particular portion of it. To take a screenshot use either the <ref refid="classBScreen_1a103f21878d503134ca7b71c4e8db278b" kindref="member">GetBitmap()</ref> or <ref refid="classBScreen_1a1f05b947376c3322f6dcf9fcfc18d02c" kindref="member">ReadBitmap()</ref> method.</para>
+<para>Furthermore, you can use this class get and set the background color of a workspace. To get the background color call <ref refid="classBScreen_1ae6df75ca8af53688e88e195c6dafdadc" kindref="member">DesktopColor()</ref> or to set the background color use <ref refid="classBScreen_1a241bcdde894d7cb0255c5ec7dbb15043" kindref="member">SetDesktopColor()</ref>.</para>
+<para>This class provides methods to get and set the resolution, pixel depth, and color map of a display. To get a list of the display modes supported by the graphics card use the <ref refid="classBScreen_1a1d86da3d8a8ab2bcce1781a3b429252b" kindref="member">GetModeList()</ref> method. You can get and set the screen resolution by calling the <ref refid="classBScreen_1afa032aafc0efa58e666bc673f3d3b0d3" kindref="member">GetMode()</ref> and <ref refid="classBScreen_1a7c22338581a5c5e75835d30de2019bfd" kindref="member">SetMode()</ref> methods. The color map of the display can be retrieved by calling the <ref refid="classBScreen_1abb25fe0aabfc7505fd0265cff4044f90" kindref="member">ColorMap()</ref> method.</para>
+<para>You can use this class to get information about the graphics card and monitor connected to the computer by calling the <ref refid="classBScreen_1a2b34d215fa6f9d98e6e04098cc30a7dd" kindref="member">GetDeviceInfo()</ref> and <ref refid="classBScreen_1a399e41f3885803dcc7fa54d00c7f7561" kindref="member">GetMonitorInfo()</ref> methods.</para>
+<para>VESA Display Power Management Signaling support allow you to put the monitor into a low-power mode. Call <ref refid="classBScreen_1a348ad8b92849ab8ea9c84d8f99118375" kindref="member">DPMSCapabilites()</ref> to check what modes are supported by your monitor. <ref refid="classBScreen_1aba78689135ae0af5cf9f4b07a8719833" kindref="member">DPMSState()</ref> tells you what state your monitor is currently in and <ref refid="classBScreen_1a1af45eaea5ee9539ab481f9f68ad630c" kindref="member">SetDPMS()</ref> allows you to change it.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/interface/Screen.h" line="23" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Screen.h" bodystart="23" bodyend="102"/>
+    <listofallmembers>
+      <member refid="classBScreen_1a9b952e4282c1ea1da5f6adbe464b24c0" prot="private" virt="non-virtual"><scope>BScreen</scope><name>BaseAddress</name></member>
+      <member refid="classBScreen_1a855bab18a9fde11d87c3344611c4f2a1" prot="public" virt="non-virtual"><scope>BScreen</scope><name>BScreen</name></member>
+      <member refid="classBScreen_1a98f6d2890b1f380d8e66b3ae33c34500" prot="public" virt="non-virtual"><scope>BScreen</scope><name>BScreen</name></member>
+      <member refid="classBScreen_1ada8029f5a75957c5a28606051134a69d" prot="private" virt="non-virtual"><scope>BScreen</scope><name>BScreen</name></member>
+      <member refid="classBScreen_1a684bf177f99b9d9565baca9317ee9591" prot="private" virt="non-virtual"><scope>BScreen</scope><name>BytesPerRow</name></member>
+      <member refid="classBScreen_1ad3c982989b0668a024d22bb8488597d7" prot="public" virt="non-virtual"><scope>BScreen</scope><name>ColorForIndex</name></member>
+      <member refid="classBScreen_1abb25fe0aabfc7505fd0265cff4044f90" prot="public" virt="non-virtual"><scope>BScreen</scope><name>ColorMap</name></member>
+      <member refid="classBScreen_1a56340c50b7488bd3bed1b44afa62ce4f" prot="public" virt="non-virtual"><scope>BScreen</scope><name>ColorSpace</name></member>
+      <member refid="classBScreen_1ae6df75ca8af53688e88e195c6dafdadc" prot="public" virt="non-virtual"><scope>BScreen</scope><name>DesktopColor</name></member>
+      <member refid="classBScreen_1a1595a0dbc8f453892e7fd371470be4af" prot="public" virt="non-virtual"><scope>BScreen</scope><name>DesktopColor</name></member>
+      <member refid="classBScreen_1a348ad8b92849ab8ea9c84d8f99118375" prot="public" virt="non-virtual"><scope>BScreen</scope><name>DPMSCapabilites</name></member>
+      <member refid="classBScreen_1aba78689135ae0af5cf9f4b07a8719833" prot="public" virt="non-virtual"><scope>BScreen</scope><name>DPMSState</name></member>
+      <member refid="classBScreen_1ad0846a4958e4287cdb891e2ca7f8cb98" prot="public" virt="non-virtual"><scope>BScreen</scope><name>Frame</name></member>
+      <member refid="classBScreen_1a67597585d675a770e4c2f784b086ac75" prot="private" virt="non-virtual"><scope>BScreen</scope><name>fScreen</name></member>
+      <member refid="classBScreen_1a103f21878d503134ca7b71c4e8db278b" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetBitmap</name></member>
+      <member refid="classBScreen_1ab92c0b6a312192bb9dee75b6348bc997" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetBrightness</name></member>
+      <member refid="classBScreen_1a2b34d215fa6f9d98e6e04098cc30a7dd" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetDeviceInfo</name></member>
+      <member refid="classBScreen_1afa032aafc0efa58e666bc673f3d3b0d3" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetMode</name></member>
+      <member refid="classBScreen_1adbaecd70d8b670d9de171f84da3a905b" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetMode</name></member>
+      <member refid="classBScreen_1a1d86da3d8a8ab2bcce1781a3b429252b" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetModeList</name></member>
+      <member refid="classBScreen_1a399e41f3885803dcc7fa54d00c7f7561" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetMonitorInfo</name></member>
+      <member refid="classBScreen_1afbb89f5b53c0fddccaaee09fe75b4cff" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetPixelClockLimits</name></member>
+      <member refid="classBScreen_1a142936ded6c6c30e357b8f00ea8efd4d" prot="public" virt="non-virtual"><scope>BScreen</scope><name>GetTimingConstraints</name></member>
+      <member refid="classBScreen_1ab67837ac2adc413602d326af8151f255" prot="public" virt="non-virtual"><scope>BScreen</scope><name>ID</name></member>
+      <member refid="classBScreen_1a4ceb2e5c169cc77e0aedaf4af14254d9" prot="public" virt="non-virtual"><scope>BScreen</scope><name>IndexForColor</name></member>
+      <member refid="classBScreen_1a9235d186f8470fdc8e7b3e5edeb8cd18" prot="public" virt="non-virtual"><scope>BScreen</scope><name>IndexForColor</name></member>
+      <member refid="classBScreen_1ad04dc4456c0544172a29647e35ed44aa" prot="public" virt="non-virtual"><scope>BScreen</scope><name>InvertIndex</name></member>
+      <member refid="classBScreen_1a9e3b631d389bbcedc046d301e9de8d4a" prot="public" virt="non-virtual"><scope>BScreen</scope><name>IsValid</name></member>
+      <member refid="classBScreen_1a4aeeed84f10c7187280c18048805dbb2" prot="private" virt="non-virtual"><scope>BScreen</scope><name>operator=</name></member>
+      <member refid="classBScreen_1aee3f70304c5bcb423e2094d208693dbd" prot="private" virt="non-virtual"><scope>BScreen</scope><name>private_screen</name></member>
+      <member refid="classBScreen_1a6a976c009512f943684c5002823c0e94" prot="private" virt="non-virtual"><scope>BScreen</scope><name>ProposeDisplayMode</name></member>
+      <member refid="classBScreen_1ac23d8d6d04333b84ecacf47e0bb4a3b2" prot="public" virt="non-virtual"><scope>BScreen</scope><name>ProposeMode</name></member>
+      <member refid="classBScreen_1a1f05b947376c3322f6dcf9fcfc18d02c" prot="public" virt="non-virtual"><scope>BScreen</scope><name>ReadBitmap</name></member>
+      <member refid="classBScreen_1a41fb418c70bcb1673517cfcb1acc0f32" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetBrightness</name></member>
+      <member refid="classBScreen_1a241bcdde894d7cb0255c5ec7dbb15043" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetDesktopColor</name></member>
+      <member refid="classBScreen_1a740c6dd4b7ec9e982624b86c73de7ee3" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetDesktopColor</name></member>
+      <member refid="classBScreen_1a1af45eaea5ee9539ab481f9f68ad630c" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetDPMS</name></member>
+      <member refid="classBScreen_1a7c22338581a5c5e75835d30de2019bfd" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetMode</name></member>
+      <member refid="classBScreen_1ae26f68f38d02e57825188a5336e2f759" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetMode</name></member>
+      <member refid="classBScreen_1a666a5d576a26688d2c59c11f27e559e9" prot="public" virt="non-virtual"><scope>BScreen</scope><name>SetToNext</name></member>
+      <member refid="classBScreen_1a29a521bd71459cd20fec8287b9cf678f" prot="public" virt="non-virtual"><scope>BScreen</scope><name>WaitForRetrace</name></member>
+      <member refid="classBScreen_1ac47812cdef0f0b65b40b3b79af3db4b5" prot="public" virt="non-virtual"><scope>BScreen</scope><name>WaitForRetrace</name></member>
+      <member refid="classBScreen_1a3dec0c06b06665c37c5c493230823c7f" prot="public" virt="non-virtual"><scope>BScreen</scope><name>~BScreen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

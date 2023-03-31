@@ -1,0 +1,1049 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBListItem" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BListItem</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+    <derivedcompoundref refid="classBStringItem" prot="public" virt="non-virtual">BStringItem</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBListItem_1a3fa7ca1250e123e3cf1488b1d88901d3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BListItem::Archive</definition>
+        <argsstring>(BMessage *archive, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BListItem::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <reimplementedby refid="classBStringItem_1acf33097176356dbfbe1229d40ca4453a">Archive</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archive the list item to a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to archive the list item to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput> also archive child views.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="27" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1ac63fc6a6467a7130a174c643adf53c52" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>void BListItem::DrawItem</definition>
+        <argsstring>(BView *owner, BRect frame, bool complete=false)=0</argsstring>
+        <name>DrawItem</name>
+        <qualifiedname>BListItem::DrawItem</qualifiedname>
+        <reimplementedby refid="classBStringItem_1a06cd7b53357037f2dd98bdac8f025ae0">DrawItem</reimplementedby>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>complete</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Hook method called when the item is drawn. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The view that the list item is a child of. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frame of the item. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>complete</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to draw the background in addition to the item&apos;s contents.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="41" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBListItem_1a224d69835a46ee1e21c156d520f1172f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BListView</definition>
+        <argsstring></argsstring>
+        <name>BListView</name>
+        <qualifiedname>BListItem::BListView</qualifiedname>
+        <param>
+          <type><ref refid="classBListView" kindref="compound">BListView</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="63" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBListItem_1a5d0239c69a1742e471de662140696e5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BOutlineListView</definition>
+        <argsstring></argsstring>
+        <name>BOutlineListView</name>
+        <qualifiedname>BListItem::BOutlineListView</qualifiedname>
+        <param>
+          <type><ref refid="classBOutlineListView" kindref="compound">BOutlineListView</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="62" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBListItem_1aa78bb276220b073008eab11962eb0fa6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BListItem::fEnabled</definition>
+        <argsstring></argsstring>
+        <name>fEnabled</name>
+        <qualifiedname>BListItem::fEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="80" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a9b3f2dda9193abdabf8fe8c7fccdd847" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BListItem::fExpanded</definition>
+        <argsstring></argsstring>
+        <name>fExpanded</name>
+        <qualifiedname>BListItem::fExpanded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="81" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1ad2d6983c80aed80a61388093a257a45b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BListItem::fHasSubitems</definition>
+        <argsstring></argsstring>
+        <name>fHasSubitems</name>
+        <qualifiedname>BListItem::fHasSubitems</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="82" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1af4e7b2fd6e72989e3ccdf5a39c6f1fa3" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BListItem::fHeight</definition>
+        <argsstring></argsstring>
+        <name>fHeight</name>
+        <qualifiedname>BListItem::fHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="77" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a57a143aba56f83d91dfb494586fa46bf" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BListItem::fLevel</definition>
+        <argsstring></argsstring>
+        <name>fLevel</name>
+        <qualifiedname>BListItem::fLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="78" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a461a6b1df0dd6f51c05e82f07df794eb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BListItem::fSelected</definition>
+        <argsstring></argsstring>
+        <name>fSelected</name>
+        <qualifiedname>BListItem::fSelected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="79" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a99b53068ff318ac1eef4b00228be806f" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList* BListItem::fTemporaryList</definition>
+        <argsstring></argsstring>
+        <name>fTemporaryList</name>
+        <qualifiedname>BListItem::fTemporaryList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="75" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a21439268f27e903cb785972b13f195c9" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BListItem::fTop</definition>
+        <argsstring></argsstring>
+        <name>fTop</name>
+        <qualifiedname>BListItem::fTop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="74" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a28925082891cba52094a203b14f66ef6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BListItem::fVisible</definition>
+        <argsstring></argsstring>
+        <name>fVisible</name>
+        <qualifiedname>BListItem::fVisible</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="83" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBListItem_1a50b9e6fbfe5f65625403a9b6b67ba2d5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BListItem::fWidth</definition>
+        <argsstring></argsstring>
+        <name>fWidth</name>
+        <qualifiedname>BListItem::fWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="76" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBListItem_1a73aeb0d40d0d41a8e3119d2aa9c81f76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BListItem::BListItem</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BListItem</name>
+        <qualifiedname>BListItem::BListItem</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+<para>Create a new list item from archived message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to create the list item from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1af5b74e8991410be39e7dfa6960e6bd3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BListItem::BListItem</definition>
+        <argsstring>(uint32 outlineLevel=0, bool expanded=true)</argsstring>
+        <name>BListItem</name>
+        <qualifiedname>BListItem::BListItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>outlineLevel</declname>
+          <defname>level</defname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>expanded</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Create a new list item with the specified <emphasis>level</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <emphasis>level</emphasis> and <emphasis>expanded</emphasis> arguments are only used if the item is added to a <ref refid="classBOutlineListView" kindref="compound">BOutlineListView</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The level to create the list item on, default level is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>expanded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the item is expanded.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBOutlineListView_1abc985b1be1870818dd6d1b243204b999" kindref="member">BOutlineListView::AddItem()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a21ea0c88196a4a383485e73787da1a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BListItem::~BListItem</definition>
+        <argsstring>()</argsstring>
+        <name>~BListItem</name>
+        <qualifiedname>BListItem::~BListItem</qualifiedname>
+        <briefdescription>
+<para>Destroy the list item freeing any memory used. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default destructor is empty.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="25" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1aebcef421495d32b4048a29ef92ae2fd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::Deselect</definition>
+        <argsstring>()</argsstring>
+        <name>Deselect</name>
+        <qualifiedname>BListItem::Deselect</qualifiedname>
+        <briefdescription>
+<para>Unselect the list item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1ac5ac9d274d9f8cacf7606e8c564299eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BListItem::Height</definition>
+        <argsstring>() const</argsstring>
+        <name>Height</name>
+        <qualifiedname>BListItem::Height</qualifiedname>
+        <briefdescription>
+<para>Return the height of the list item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The height of the list item as a float.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="30" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1aac7de254077fe53441c4a8e110aabfca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BListItem::IsEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>IsEnabled</name>
+        <qualifiedname>BListItem::IsEnabled</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the list item is currently enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the list item is enabled, <computeroutput>false</computeroutput> if it is disabled.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="37" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a6947bea2aff6fc64fceb6d724fd4e126" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BListItem::IsExpanded</definition>
+        <argsstring>() const</argsstring>
+        <name>IsExpanded</name>
+        <qualifiedname>BListItem::IsExpanded</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the list item is currently expanded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the list item is expanded, <computeroutput>false</computeroutput> if it is not expanded.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="45" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1aeb958ab6a26b936f4c0169c5ff7c40a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BListItem::IsSelected</definition>
+        <argsstring>() const</argsstring>
+        <name>IsSelected</name>
+        <qualifiedname>BListItem::IsSelected</qualifiedname>
+        <briefdescription>
+<para>Return whether or not the list item is currently selected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the list item is selected, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="32" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1aeeddbeae37ddef9b77c69a7a0f8d8b79" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BListItem::OutlineLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>OutlineLevel</name>
+        <qualifiedname>BListItem::OutlineLevel</qualifiedname>
+        <briefdescription>
+<para>Returns the current outline level of the list item. This only makes sense if the list item is part of a <ref refid="classBOutlineListView" kindref="compound">BOutlineListView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The current outline level of the list item.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="47" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a4b764176db576c63b8bedda260c76f91" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BListItem::Perform</definition>
+        <argsstring>(perform_code code, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BListItem::Perform</qualifiedname>
+        <reimplements refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de">Perform</reimplements>
+        <reimplementedby refid="classBStringItem_1a68a5af5b0d0c958fa9528090c1ec6bcf">Perform</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>code</declname>
+          <defname>d</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Performs an action give a perform_code and arg. (Internal Method) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The perform code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to some data to perform on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="50" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1ae15dad05ee58f72ba3334a72817103c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::Select</definition>
+        <argsstring>()</argsstring>
+        <name>Select</name>
+        <qualifiedname>BListItem::Select</qualifiedname>
+        <briefdescription>
+<para>Select the list item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="33" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a06b78f86ce25d6420f0459be9aed4125" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BListItem::SetEnabled</definition>
+        <argsstring>(bool enabled)</argsstring>
+        <name>SetEnabled</name>
+        <qualifiedname>BListItem::SetEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enabled</declname>
+          <defname>on</defname>
+        </param>
+        <briefdescription>
+<para>Enable or disable the list item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>on</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set <computeroutput>true</computeroutput> to enable, <computeroutput>false</computeroutput> to disable the list item.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a527cc7876a66ba4047bf916e80e62aa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::SetExpanded</definition>
+        <argsstring>(bool expanded)</argsstring>
+        <name>SetExpanded</name>
+        <qualifiedname>BListItem::SetExpanded</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>expanded</declname>
+        </param>
+        <briefdescription>
+<para>Set the expanded state of the list item. This only makes sense if the list item is part of a <ref refid="classBOutlineListView" kindref="compound">BOutlineListView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>expanded</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to expand the list item, <computeroutput>false</computeroutput> to un-expand the list item.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="46" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a637ad01974e7a9c44439fb88f2052f67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::SetHeight</definition>
+        <argsstring>(float height)</argsstring>
+        <name>SetHeight</name>
+        <qualifiedname>BListItem::SetHeight</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Set the height of the list item to <emphasis>height</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The height to set the list item to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Unlike BeOS, if you change the height then you need to force the <ref refid="classBListView" kindref="compound">BListView</ref> to recalculate the cached tops of the item selection boxes, otherwise selection highlights will be drawn in the wrong places and mouse clicks will be misinterpreted. You can do this by adding and removing a dummy <ref refid="classBListItem" kindref="compound">BListItem</ref> at the top of the list, or after hrev50780 by calling <ref refid="classBListView_1af4fdd5e524c68a7aa318179c8a5acadd" kindref="member">BListView::FrameResized()</ref> with the current Frame rectangle (though the FrameResized() method will additionally call <ref refid="classBListItem_1a81b5b7fa5cbd942917ce7d3b5d1fe1e0" kindref="member">BListItem::Update()</ref> for all items).</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="39" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a51af2b0dfc7694570de05f7aace2c474" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::SetOutlineLevel</definition>
+        <argsstring>(uint32 level)</argsstring>
+        <name>SetOutlineLevel</name>
+        <qualifiedname>BListItem::SetOutlineLevel</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Set the outline level of the list item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The outline level to set the list item to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="48" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a7c16ae3dff1e05749bd1fd5a2e2ca7d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::SetWidth</definition>
+        <argsstring>(float width)</argsstring>
+        <name>SetWidth</name>
+        <qualifiedname>BListItem::SetWidth</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+<para>Set the width of the list item to <emphasis>width</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width to set the list item to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="40" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a81b5b7fa5cbd942917ce7d3b5d1fe1e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BListItem::Update</definition>
+        <argsstring>(BView *owner, const BFont *font)</argsstring>
+        <name>Update</name>
+        <qualifiedname>BListItem::Update</qualifiedname>
+        <reimplementedby refid="classBStringItem_1aea6bc71b073a62c57f857c2b6d0bd9e3">Update</reimplementedby>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBFont" kindref="compound">BFont</ref> *</type>
+          <declname>font</declname>
+        </param>
+        <briefdescription>
+<para>Hook method that&apos;s called when the <emphasis>owner</emphasis> changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method gets called when the list item is added to the list view.</para>
+<para>The default implementation sets the width of the list item to the width of <emphasis>owner</emphasis> and sets the height to fit <emphasis>font</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>owner</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list item&apos;s new <emphasis>owner</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>font</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The font set to the list item&apos;s current <emphasis>owner</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="43" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a34b8798b40fb01aa1b45661f058123ef" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BListItem::Width</definition>
+        <argsstring>() const</argsstring>
+        <name>Width</name>
+        <qualifiedname>BListItem::Width</qualifiedname>
+        <briefdescription>
+<para>Return the width of the list item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The width of the list item as a float.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="31" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBListItem_1a085c826e2e082207946c28850bdbcdba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BListItem::BListItem</definition>
+        <argsstring>(const BListItem &amp;item)</argsstring>
+        <name>BListItem</name>
+        <qualifiedname>BListItem::BListItem</qualifiedname>
+        <param>
+          <type>const <ref refid="classBListItem" kindref="compound">BListItem</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a5059792fe2073239e94dca0d2486a19e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BListItem::_ReservedListItem1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedListItem1</name>
+        <qualifiedname>BListItem::_ReservedListItem1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="54" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a1fafa9d787d7b581d28fb4c42e0bba5b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BListItem::_ReservedListItem2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedListItem2</name>
+        <qualifiedname>BListItem::_ReservedListItem2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="55" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a542e69d121c98dfa444791671ea860cc" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float BListItem::Bottom</definition>
+        <argsstring>() const</argsstring>
+        <name>Bottom</name>
+        <qualifiedname>BListItem::Bottom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="70" column="12" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1af6a69c059782c390b3dccae460620a9b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BListItem::HasSubitems</definition>
+        <argsstring>() const</argsstring>
+        <name>HasSubitems</name>
+        <qualifiedname>BListItem::HasSubitems</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="65" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1afc36ef7d62dd63049faea7dc2b4abb30" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BListItem::IsItemVisible</definition>
+        <argsstring>() const</argsstring>
+        <name>IsItemVisible</name>
+        <qualifiedname>BListItem::IsItemVisible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1ae6810eef2cf8346c51fdbb35a717b835" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBListItem" kindref="compound">BListItem</ref> &amp;</type>
+        <definition>BListItem &amp; BListItem::operator=</definition>
+        <argsstring>(const BListItem &amp;item)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BListItem::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBListItem" kindref="compound">BListItem</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a52caf5a12d0672771a033a87c4378f37" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::SetItemVisible</definition>
+        <argsstring>(bool visible)</argsstring>
+        <name>SetItemVisible</name>
+        <qualifiedname>BListItem::SetItemVisible</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>visible</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="68" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1a50e4f9329abce9337de0e893e1e0d664" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BListItem::SetTop</definition>
+        <argsstring>(float top)</argsstring>
+        <name>SetTop</name>
+        <qualifiedname>BListItem::SetTop</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>top</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="71" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBListItem_1ae215ed5f7e828cb21c2ec293321431d1" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float BListItem::Top</definition>
+        <argsstring>() const</argsstring>
+        <name>Top</name>
+        <qualifiedname>BListItem::Top</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="69" column="12" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A list item, a member of a <ref refid="classBListView" kindref="compound">BListView</ref> or <ref refid="classBOutlineListView" kindref="compound">BOutlineListView</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BListItem</label>
+        <link refid="classBListItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BStringItem</label>
+        <link refid="classBStringItem"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BListItem</label>
+        <link refid="classBListItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/ListItem.h" line="20" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/ListItem.h" bodystart="20" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classBListItem_1a5059792fe2073239e94dca0d2486a19e" prot="private" virt="virtual"><scope>BListItem</scope><name>_ReservedListItem1</name></member>
+      <member refid="classBListItem_1a1fafa9d787d7b581d28fb4c42e0bba5b" prot="private" virt="virtual"><scope>BListItem</scope><name>_ReservedListItem2</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BListItem</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BListItem</scope><name>AllUnarchived</name></member>
+      <member refid="classBListItem_1a3fa7ca1250e123e3cf1488b1d88901d3" prot="public" virt="virtual"><scope>BListItem</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BListItem</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BListItem</scope><name>BArchivable</name></member>
+      <member refid="classBListItem_1af5b74e8991410be39e7dfa6960e6bd3a" prot="public" virt="non-virtual"><scope>BListItem</scope><name>BListItem</name></member>
+      <member refid="classBListItem_1a73aeb0d40d0d41a8e3119d2aa9c81f76" prot="public" virt="non-virtual"><scope>BListItem</scope><name>BListItem</name></member>
+      <member refid="classBListItem_1a085c826e2e082207946c28850bdbcdba" prot="private" virt="non-virtual"><scope>BListItem</scope><name>BListItem</name></member>
+      <member refid="classBListItem_1a542e69d121c98dfa444791671ea860cc" prot="private" virt="non-virtual"><scope>BListItem</scope><name>Bottom</name></member>
+      <member refid="classBListItem_1aebcef421495d32b4048a29ef92ae2fd3" prot="public" virt="non-virtual"><scope>BListItem</scope><name>Deselect</name></member>
+      <member refid="classBListItem_1ac63fc6a6467a7130a174c643adf53c52" prot="public" virt="pure-virtual"><scope>BListItem</scope><name>DrawItem</name></member>
+      <member refid="classBListItem_1aa78bb276220b073008eab11962eb0fa6" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fEnabled</name></member>
+      <member refid="classBListItem_1a9b3f2dda9193abdabf8fe8c7fccdd847" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fExpanded</name></member>
+      <member refid="classBListItem_1ad2d6983c80aed80a61388093a257a45b" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fHasSubitems</name></member>
+      <member refid="classBListItem_1af4e7b2fd6e72989e3ccdf5a39c6f1fa3" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fHeight</name></member>
+      <member refid="classBListItem_1a57a143aba56f83d91dfb494586fa46bf" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fLevel</name></member>
+      <member refid="classBListItem_1a461a6b1df0dd6f51c05e82f07df794eb" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fSelected</name></member>
+      <member refid="classBListItem_1a99b53068ff318ac1eef4b00228be806f" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fTemporaryList</name></member>
+      <member refid="classBListItem_1a21439268f27e903cb785972b13f195c9" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fTop</name></member>
+      <member refid="classBListItem_1a28925082891cba52094a203b14f66ef6" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fVisible</name></member>
+      <member refid="classBListItem_1a50b9e6fbfe5f65625403a9b6b67ba2d5" prot="private" virt="non-virtual"><scope>BListItem</scope><name>fWidth</name></member>
+      <member refid="classBListItem_1af6a69c059782c390b3dccae460620a9b" prot="private" virt="non-virtual"><scope>BListItem</scope><name>HasSubitems</name></member>
+      <member refid="classBListItem_1ac5ac9d274d9f8cacf7606e8c564299eb" prot="public" virt="non-virtual"><scope>BListItem</scope><name>Height</name></member>
+      <member refid="classBArchivable_1a04efcb17fa2a64a776923cc12303efcd" prot="public" virt="non-virtual"><scope>BListItem</scope><name>Instantiate</name></member>
+      <member refid="classBListItem_1aac7de254077fe53441c4a8e110aabfca" prot="public" virt="non-virtual"><scope>BListItem</scope><name>IsEnabled</name></member>
+      <member refid="classBListItem_1a6947bea2aff6fc64fceb6d724fd4e126" prot="public" virt="non-virtual"><scope>BListItem</scope><name>IsExpanded</name></member>
+      <member refid="classBListItem_1afc36ef7d62dd63049faea7dc2b4abb30" prot="private" virt="non-virtual"><scope>BListItem</scope><name>IsItemVisible</name></member>
+      <member refid="classBListItem_1aeb958ab6a26b936f4c0169c5ff7c40a9" prot="public" virt="non-virtual"><scope>BListItem</scope><name>IsSelected</name></member>
+      <member refid="classBListItem_1ae6810eef2cf8346c51fdbb35a717b835" prot="private" virt="non-virtual"><scope>BListItem</scope><name>operator=</name></member>
+      <member refid="classBListItem_1aeeddbeae37ddef9b77c69a7a0f8d8b79" prot="public" virt="non-virtual"><scope>BListItem</scope><name>OutlineLevel</name></member>
+      <member refid="classBListItem_1a4b764176db576c63b8bedda260c76f91" prot="public" virt="virtual"><scope>BListItem</scope><name>Perform</name></member>
+      <member refid="classBListItem_1ae15dad05ee58f72ba3334a72817103c1" prot="public" virt="non-virtual"><scope>BListItem</scope><name>Select</name></member>
+      <member refid="classBListItem_1a06b78f86ce25d6420f0459be9aed4125" prot="public" virt="virtual"><scope>BListItem</scope><name>SetEnabled</name></member>
+      <member refid="classBListItem_1a527cc7876a66ba4047bf916e80e62aa4" prot="public" virt="non-virtual"><scope>BListItem</scope><name>SetExpanded</name></member>
+      <member refid="classBListItem_1a637ad01974e7a9c44439fb88f2052f67" prot="public" virt="non-virtual"><scope>BListItem</scope><name>SetHeight</name></member>
+      <member refid="classBListItem_1a52caf5a12d0672771a033a87c4378f37" prot="private" virt="non-virtual"><scope>BListItem</scope><name>SetItemVisible</name></member>
+      <member refid="classBListItem_1a51af2b0dfc7694570de05f7aace2c474" prot="public" virt="non-virtual"><scope>BListItem</scope><name>SetOutlineLevel</name></member>
+      <member refid="classBListItem_1a50e4f9329abce9337de0e893e1e0d664" prot="private" virt="non-virtual"><scope>BListItem</scope><name>SetTop</name></member>
+      <member refid="classBListItem_1a7c16ae3dff1e05749bd1fd5a2e2ca7d9" prot="public" virt="non-virtual"><scope>BListItem</scope><name>SetWidth</name></member>
+      <member refid="classBListItem_1ae215ed5f7e828cb21c2ec293321431d1" prot="private" virt="non-virtual"><scope>BListItem</scope><name>Top</name></member>
+      <member refid="classBListItem_1a81b5b7fa5cbd942917ce7d3b5d1fe1e0" prot="public" virt="virtual"><scope>BListItem</scope><name>Update</name></member>
+      <member refid="classBListItem_1a34b8798b40fb01aa1b45661f058123ef" prot="public" virt="non-virtual"><scope>BListItem</scope><name>Width</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BListItem</scope><name>~BArchivable</name></member>
+      <member refid="classBListItem_1a21ea0c88196a4a383485e73787da1a74" prot="public" virt="virtual"><scope>BListItem</scope><name>~BListItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

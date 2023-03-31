@@ -1,0 +1,844 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structfs__volume__ops" kind="struct" language="C++" prot="public">
+    <compoundname>fs_volume_ops</compoundname>
+      <sectiondef kind="user-defined">
+      <header>General Operations</header>
+      <memberdef kind="variable" id="structfs__volume__ops_1a587e1b6ce260710cb2f0edaacade938b" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::unmount)(fs_volume *volume)</definition>
+        <argsstring>)(fs_volume *volume)</argsstring>
+        <name>unmount</name>
+        <qualifiedname>fs_volume_ops::unmount</qualifiedname>
+        <briefdescription>
+<para>Unmounts the given volume. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Invoked by the VFS when it is asked to unmount the volume. The function must free all resources associated with the mounted volume, including the volume handle. Before <ref refid="structfs__volume__ops_1a587e1b6ce260710cb2f0edaacade938b" kindref="member">unmount()</ref> is called, the VFS calls file_system_module_info::put_vnode() respectively file_system_module_info::remove_vnode() for each of the volume&apos;s nodes. That is although the mount() hook called <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref> for the volume&apos;s root node, <ref refid="structfs__volume__ops_1a587e1b6ce260710cb2f0edaacade938b" kindref="member">unmount()</ref> must not invoke <ref refid="fs__interface_8h_1aca3e130d24090e360ed261d7e189df37" kindref="member">put_vnode()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. The error code will be ignored, though. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="77" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a40451a3d0fb15d9c3f00dd5e64947b27" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::read_fs_info)(fs_volume *volume, struct fs_info *info)</definition>
+        <argsstring>)(fs_volume *volume, struct fs_info *info)</argsstring>
+        <name>read_fs_info</name>
+        <qualifiedname>fs_volume_ops::read_fs_info</qualifiedname>
+        <briefdescription>
+<para>Retrieves general information about the volume. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The following fields of the <computeroutput>fs_info</computeroutput> structure need to be filled in:<itemizedlist>
+<listitem><para><computeroutput>flags:</computeroutput> Flags applying to the volume, e.g. <computeroutput>B_FS_IS_READONLY</computeroutput>, <computeroutput>B_FS_HAS_ATTR</computeroutput>, etc.</para>
+</listitem><listitem><para><computeroutput>block_size:</computeroutput> The size of blocks the volume data are organized in. Meaningful mainly for disk-based FSs, other FSs should use some reasonable value for computing <computeroutput>total_blocks</computeroutput> and <computeroutput>free_blocks</computeroutput>.</para>
+</listitem><listitem><para><computeroutput>io_size:</computeroutput> Preferred size of the buffers passed to read() and write().</para>
+</listitem><listitem><para><computeroutput>total_blocks:</computeroutput> Total number of blocks the volume contains.</para>
+</listitem><listitem><para><computeroutput>free_blocks:</computeroutput> Number of free blocks on the volume.</para>
+</listitem><listitem><para><computeroutput>total_nodes:</computeroutput> Maximal number of nodes the volume can contain. If there is no such limitation use <computeroutput>LONGLONG_MAX</computeroutput>.</para>
+</listitem><listitem><para><computeroutput>free_nodes:</computeroutput> Number of additional nodes the volume could contain. If there is no such limitation use <computeroutput>LONGLONG_MAX</computeroutput>.</para>
+</listitem><listitem><para><computeroutput>volume_name:</computeroutput> The name of the volume.</para>
+</listitem></itemizedlist>
+</para>
+<para>The other values are filled in by the VFS.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable the FS info shall be written to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. The error code will be ignored, though. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="79" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1aeaf4ca430b58f32a0e4ba6843e7f3eef" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::write_fs_info)(fs_volume *volume, const struct fs_info *info, uint32 mask)</definition>
+        <argsstring>)(fs_volume *volume, const struct fs_info *info, uint32 mask)</argsstring>
+        <name>write_fs_info</name>
+        <qualifiedname>fs_volume_ops::write_fs_info</qualifiedname>
+        <briefdescription>
+<para>Update filesystem information on the volume. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You are requested to update certain information on the given volume. The supplied <emphasis>info</emphasis> contains the new values filled in for the <emphasis>mask</emphasis>. Currently, the only possible mask is solely the <computeroutput>FS_WRITE_FSINFO_NAME</computeroutput>, which asks you to update the volume name represented by the value <computeroutput>volume_name</computeroutput> in the <computeroutput>fs_info</computeroutput> struct.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The structure that contains the new data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The values of the <emphasis>info</emphasis> that need to be updated. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, if not, one of the error codes. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="80" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a739944633fdff677af986eff0c94cbad" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::sync)(fs_volume *volume)</definition>
+        <argsstring>)(fs_volume *volume)</argsstring>
+        <name>sync</name>
+        <qualifiedname>fs_volume_ops::sync</qualifiedname>
+        <briefdescription>
+<para>Synchronize the cached data with the contents of the disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The VFS layer sometimes wants you to synchronize any cached values with the data on the device.</para>
+<para>This currently only happens when the POSIX <ref refid="structfs__volume__ops_1a739944633fdff677af986eff0c94cbad" kindref="member">sync()</ref> function is invoked, for example via the &quot;sync&quot; command line tool.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="82" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1adc3a3f3ee1a553ed684dff2e25268485" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::get_vnode)(fs_volume *volume, ino_t id, fs_vnode *vnode, int *_type, uint32 *_flags, bool reenter)</definition>
+        <argsstring>)(fs_volume *volume, ino_t id, fs_vnode *vnode, int *_type, uint32 *_flags, bool reenter)</argsstring>
+        <name>get_vnode</name>
+        <qualifiedname>fs_volume_ops::get_vnode</qualifiedname>
+        <briefdescription>
+<para>Creates the private data handle to be associated with the node referred to by <emphasis>id</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Invoked by the VFS when it creates the vnode for the respective node. When the VFS no longer needs the vnode in memory (for example when memory is becoming tight), it will your file_system_module_info::put_vnode(), or file_system_module_info::remove_vnode() in case the vnode has been marked removed.</para>
+<para>The hook has to initialize <emphasis>vnode-&gt;private_node</emphasis> with its handle created for the node and <emphasis>vnode-&gt;ops</emphasis> with the operation vector for the node. It also has to set <computeroutput>*_type</computeroutput> to the type of the node <ndash/> as in <computeroutput>stat::st_mode</computeroutput> (the non-type bits can, but do not need to be cleared) <ndash/> and <computeroutput>*_flags</computeroutput> to a bitwise OR of vnode flags to apply (cf. <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref> for what flags bits are possible).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a node object to be initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable to be set to the node&apos;s type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a variable to be set to flags to apply to the vnode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>reenter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> if the hook invocation has been caused by the FS itself, e.g. by invoking <ref refid="structfs__volume__ops_1adc3a3f3ee1a553ed684dff2e25268485" kindref="member">get_vnode()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="84" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Index Directory and Operation</header>
+      <memberdef kind="variable" id="structfs__volume__ops_1a0f146925d6be9c99fbedf361ed7c3bc2" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::open_index_dir)(fs_volume *volume, void **_cookie)</definition>
+        <argsstring>)(fs_volume *volume, void **_cookie)</argsstring>
+        <name>open_index_dir</name>
+        <qualifiedname>fs_volume_ops::open_index_dir</qualifiedname>
+        <briefdescription>
+<para>Open the list of an indices as a directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="fs_modules_1concepts" kindref="member">Generic Concepts</ref> on directories and iterators. Basically, the VFS uses the same way of traversing through indeces as it traverses through a directory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer where the file system can store a directory cookie if the index directory is succesfully opened. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="88" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a46ceccd853a04bde4b0aecca13730ba2" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::close_index_dir)(fs_volume *volume, void *cookie)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie)</argsstring>
+        <name>close_index_dir</name>
+        <qualifiedname>fs_volume_ops::close_index_dir</qualifiedname>
+        <briefdescription>
+<para>Close a &apos;directory&apos; of indices. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that you should free the cookie in the <ref refid="structfs__volume__ops_1a00bb2483857d0d383e026c6c16709f65" kindref="member">free_index_dir_cookie()</ref> call.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie associated with this &apos;directory&apos;. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>B_OK if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="89" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a00bb2483857d0d383e026c6c16709f65" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::free_index_dir_cookie)(fs_volume *volume, void *cookie)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie)</argsstring>
+        <name>free_index_dir_cookie</name>
+        <qualifiedname>fs_volume_ops::free_index_dir_cookie</qualifiedname>
+        <briefdescription>
+<para>Free the <emphasis>cookie</emphasis> to the index &apos;directory&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie that should be freed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>B_OK if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="90" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a190d4d62473ea03d36d03d631befda2d" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::read_index_dir)(fs_volume *volume, void *cookie, struct dirent *buffer, size_t bufferSize, uint32 *_num)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie, struct dirent *buffer, size_t bufferSize, uint32 *_num)</argsstring>
+        <name>read_index_dir</name>
+        <qualifiedname>fs_volume_ops::read_index_dir</qualifiedname>
+        <briefdescription>
+<para>Read the next one or more index entries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method should perform the same task as <ref refid="structfs__vnode__ops_1a482878bf7588145c42d16c012a3de2e8" kindref="member">fs_vnode_ops::read_dir()</ref>, except that the &apos;.&apos; and the &apos;..&apos; entries don&apos;t have to be present. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="91" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a752d34cfa077bffe92abdfc2c6fd7fb5" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::rewind_index_dir)(fs_volume *volume, void *cookie)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie)</argsstring>
+        <name>rewind_index_dir</name>
+        <qualifiedname>fs_volume_ops::rewind_index_dir</qualifiedname>
+        <briefdescription>
+<para>Reset the index directory cookie to the first entry of the directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The directory cookie as returned by <ref refid="structfs__volume__ops_1a0f146925d6be9c99fbedf361ed7c3bc2" kindref="member">open_index_dir()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="93" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a6adc36796bf83cfa79c678094b646b4a" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::create_index)(fs_volume *volume, const char *name, uint32 type, uint32 flags)</definition>
+        <argsstring>)(fs_volume *volume, const char *name, uint32 type, uint32 flags)</argsstring>
+        <name>create_index</name>
+        <qualifiedname>fs_volume_ops::create_index</qualifiedname>
+        <briefdescription>
+<para>Create a new index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the new index. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of index. BFS implements the following types:<itemizedlist>
+<listitem><para><computeroutput>B_INT32_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_UINT32_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_INT64_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_UINT64_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_FLOAT_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_DOUBLE_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_STRING_TYPE</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_MIME_STRING_TYPE</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There are currently no extra flags specified. This parameter can be ignored. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> if the creation succeeded, or return an error otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="95" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a066875d7e19a43d59ebde417c5daf274" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::remove_index)(fs_volume *volume, const char *name)</definition>
+        <argsstring>)(fs_volume *volume, const char *name)</argsstring>
+        <name>remove_index</name>
+        <qualifiedname>fs_volume_ops::remove_index</qualifiedname>
+        <briefdescription>
+<para>Remove the index with <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the index to be removed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> if the creation succeeded, or return an error otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="97" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a51f58ae3d8122677d56739f4be1882a1" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::read_index_stat)(fs_volume *volume, const char *name, struct stat *stat)</definition>
+        <argsstring>)(fs_volume *volume, const char *name, struct stat *stat)</argsstring>
+        <name>read_index_stat</name>
+        <qualifiedname>fs_volume_ops::read_index_stat</qualifiedname>
+        <briefdescription>
+<para>Read the <emphasis>stat</emphasis> of the index with a name. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the index to be queried. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a structure where you should store the values. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> if the creation succeeded, or return an error otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="98" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Query Operations</header>
+      <memberdef kind="variable" id="structfs__volume__ops_1a9559149189805ace5bdd4706c7cd1702" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::open_query)(fs_volume *volume, const char *query, uint32 flags, port_id port, uint32 token, void **_cookie)</definition>
+        <argsstring>)(fs_volume *volume, const char *query, uint32 flags, port_id port, uint32 token, void **_cookie)</argsstring>
+        <name>open_query</name>
+        <qualifiedname>fs_volume_ops::open_query</qualifiedname>
+        <briefdescription>
+<para>Open a query as a &apos;directory&apos;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>TODO: query expressions should be documented and also the format for sending query updates over the port should be updated.</para>
+<para>See <ref refid="fs_modules_1concepts" kindref="member">Generic Concepts</ref> on directories and iterators. Basically, the VFS uses the same way of traversing through indices as it traverses through a directory.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>query</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string that represents a query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any combination of none or more of these flags:<itemizedlist>
+<listitem><para><computeroutput>B_LIVE_QUERY</computeroutput> The query is live. When a query is live, it is constantly updated using the <emphasis>port</emphasis>. The FS must invoke the functions <ref refid="fs__interface_8h_1a4a9de58136e078f3b99430a07b5e096e" kindref="member">notify_query_entry_created()</ref> and <ref refid="fs__interface_8h_1a65efb61891fd7f412b7a06401f0e8e1a" kindref="member">notify_query_entry_removed()</ref> whenever an entry starts respectively stops to match the query predicate.</para>
+</listitem><listitem><para><computeroutput>B_QUERY_NON_INDEXED</computeroutput> Normally at least one of the attributes used in the query string should be indexed. If none is, this hook is allowed to fail, unless this flag is specified. Usually an implementation will simply add a wildcard match for any complete index (&quot;name&quot;, &quot;last_modified&quot;, or &quot;size&quot;) to the query expression. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the port where updates need to be sent to in case the query is live. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>token</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A token that should be attached to the messages sent over the <emphasis>port</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie that will be used as &apos;directory&apos; to traverse through the results of the query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> if the creation succeeded, or return an error otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="102" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1abf8a359357dcbd232ef12fb7506923f2" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::close_query)(fs_volume *volume, void *cookie)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie)</argsstring>
+        <name>close_query</name>
+        <qualifiedname>fs_volume_ops::close_query</qualifiedname>
+        <briefdescription>
+<para>Close a &apos;directory&apos; of a query. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that you should free the cookie in the <ref refid="structfs__volume__ops_1a0c6ea9050642d1ced519fb91e2702dbd" kindref="member">free_query_cookie()</ref> call.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie that refers to this query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> if the creation succeeded, or return an error otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="104" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a0c6ea9050642d1ced519fb91e2702dbd" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::free_query_cookie)(fs_volume *volume, void *cookie)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie)</argsstring>
+        <name>free_query_cookie</name>
+        <qualifiedname>fs_volume_ops::free_query_cookie</qualifiedname>
+        <briefdescription>
+<para>Free a cookie of a query. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie that should be freed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> if the creation succeeded, or return an error otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="105" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a3517e1d8551f4fb847c0b95e4811ff80" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::read_query)(fs_volume *volume, void *cookie, struct dirent *buffer, size_t bufferSize, uint32 *_num)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie, struct dirent *buffer, size_t bufferSize, uint32 *_num)</argsstring>
+        <name>read_query</name>
+        <qualifiedname>fs_volume_ops::read_query</qualifiedname>
+        <briefdescription>
+<para>Read the next one or more entries matching the query. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This hook function works pretty much the same way as <ref refid="structfs__vnode__ops_1a482878bf7588145c42d16c012a3de2e8" kindref="member">fs_vnode_ops::read_dir()</ref>, with the difference that it doesn&apos;t read the entries of a directory, but the entries matching the given query. Unlike the <ref refid="structfs__vnode__ops_1a482878bf7588145c42d16c012a3de2e8" kindref="member">fs_vnode_ops::read_dir()</ref> hook, this hook also has to fill in the dirent::d_pino field.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The query cookie as returned by <ref refid="structfs__volume__ops_1a9559149189805ace5bdd4706c7cd1702" kindref="member">open_query()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the directory entries shall be written to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of <emphasis>buffer</emphasis> in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_num</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable, when invoked, containing the number of entries to be read, and into which the number of entries actually read shall be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="106" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1aa505ac6a75ad0a362a9fe95bcfe7a4a1" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::rewind_query)(fs_volume *volume, void *cookie)</definition>
+        <argsstring>)(fs_volume *volume, void *cookie)</argsstring>
+        <name>rewind_query</name>
+        <qualifiedname>fs_volume_ops::rewind_query</qualifiedname>
+        <briefdescription>
+<para>Reset the query cookie to the first entry of the results. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The query cookie as returned by <ref refid="structfs__volume__ops_1a9559149189805ace5bdd4706c7cd1702" kindref="member">open_query()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="108" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>FS Layer Operations</header>
+      <memberdef kind="variable" id="structfs__volume__ops_1a391f0be71f866b53ee3b7b7354546ffa" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::all_layers_mounted)(fs_volume *volume)</definition>
+        <argsstring>)(fs_volume *volume)</argsstring>
+        <name>all_layers_mounted</name>
+        <qualifiedname>fs_volume_ops::all_layers_mounted</qualifiedname>
+        <briefdescription>
+<para>TODO: Document! </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="111" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1a3b96918639fb885938a9e29c5b2acac8" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::create_sub_vnode)(fs_volume *volume, ino_t id, fs_vnode *vnode)</definition>
+        <argsstring>)(fs_volume *volume, ino_t id, fs_vnode *vnode)</argsstring>
+        <name>create_sub_vnode</name>
+        <qualifiedname>fs_volume_ops::create_sub_vnode</qualifiedname>
+        <briefdescription>
+<para>TODO: Document! </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="112" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structfs__volume__ops_1ab701a555ced5541795df4db69024d823" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* fs_volume_ops::delete_sub_vnode)(fs_volume *volume, fs_vnode *vnode)</definition>
+        <argsstring>)(fs_volume *volume, fs_vnode *vnode)</argsstring>
+        <name>delete_sub_vnode</name>
+        <qualifiedname>fs_volume_ops::delete_sub_vnode</qualifiedname>
+        <briefdescription>
+<para>TODO: Document! </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="113" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Operations vector for a volume. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>See the <ref refid="fs_modules" kindref="compound">introduction to file system modules</ref> for an introduction to writing file systems. </para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="76" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="76" bodyend="114"/>
+    <listofallmembers>
+      <member refid="structfs__volume__ops_1a391f0be71f866b53ee3b7b7354546ffa" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>all_layers_mounted</name></member>
+      <member refid="structfs__volume__ops_1a46ceccd853a04bde4b0aecca13730ba2" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>close_index_dir</name></member>
+      <member refid="structfs__volume__ops_1abf8a359357dcbd232ef12fb7506923f2" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>close_query</name></member>
+      <member refid="structfs__volume__ops_1a6adc36796bf83cfa79c678094b646b4a" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>create_index</name></member>
+      <member refid="structfs__volume__ops_1a3b96918639fb885938a9e29c5b2acac8" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>create_sub_vnode</name></member>
+      <member refid="structfs__volume__ops_1ab701a555ced5541795df4db69024d823" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>delete_sub_vnode</name></member>
+      <member refid="structfs__volume__ops_1a00bb2483857d0d383e026c6c16709f65" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>free_index_dir_cookie</name></member>
+      <member refid="structfs__volume__ops_1a0c6ea9050642d1ced519fb91e2702dbd" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>free_query_cookie</name></member>
+      <member refid="structfs__volume__ops_1adc3a3f3ee1a553ed684dff2e25268485" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>get_vnode</name></member>
+      <member refid="structfs__volume__ops_1a0f146925d6be9c99fbedf361ed7c3bc2" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>open_index_dir</name></member>
+      <member refid="structfs__volume__ops_1a9559149189805ace5bdd4706c7cd1702" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>open_query</name></member>
+      <member refid="structfs__volume__ops_1a40451a3d0fb15d9c3f00dd5e64947b27" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>read_fs_info</name></member>
+      <member refid="structfs__volume__ops_1a190d4d62473ea03d36d03d631befda2d" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>read_index_dir</name></member>
+      <member refid="structfs__volume__ops_1a51f58ae3d8122677d56739f4be1882a1" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>read_index_stat</name></member>
+      <member refid="structfs__volume__ops_1a3517e1d8551f4fb847c0b95e4811ff80" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>read_query</name></member>
+      <member refid="structfs__volume__ops_1a066875d7e19a43d59ebde417c5daf274" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>remove_index</name></member>
+      <member refid="structfs__volume__ops_1a752d34cfa077bffe92abdfc2c6fd7fb5" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>rewind_index_dir</name></member>
+      <member refid="structfs__volume__ops_1aa505ac6a75ad0a362a9fe95bcfe7a4a1" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>rewind_query</name></member>
+      <member refid="structfs__volume__ops_1a739944633fdff677af986eff0c94cbad" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>sync</name></member>
+      <member refid="structfs__volume__ops_1a587e1b6ce260710cb2f0edaacade938b" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>unmount</name></member>
+      <member refid="structfs__volume__ops_1aeaf4ca430b58f32a0e4ba6843e7f3eef" prot="public" virt="non-virtual"><scope>fs_volume_ops</scope><name>write_fs_info</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

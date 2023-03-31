@@ -1,0 +1,2529 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="FindDirectory_8h" kind="file" language="C++">
+    <compoundname>FindDirectory.h</compoundname>
+    <includes local="no">image.h</includes>
+    <includedby refid="PathFinder_8h" local="no">PathFinder.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>FindDirectory.h</label>
+        <link refid="FindDirectory_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>image.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>FindDirectory.h</label>
+        <link refid="FindDirectory_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PathFinder.h</label>
+        <link refid="PathFinder_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93" prot="public" static="no" strong="no">
+        <type></type>
+        <name>@92</name>
+        <enumvalue id="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93abd31e14f8c990b628ce24085b3dfa67b" prot="public">
+          <name>B_FIND_PATH_CREATE_DIRECTORY</name>
+          <initializer>= 0x0001</initializer>
+          <briefdescription>
+<para>Specifies that if the resulting path doesn&apos;t exist, it shall be created a directory, including all missing ancestors. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Failure to create the path will cause the respective function to fail.</para>
+<para>Flag for the <ref refid="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" kindref="member">find_path_etc()</ref>, <ref refid="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" kindref="member">find_path_for_path_etc()</ref>, <ref refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" kindref="member">find_paths_etc()</ref>, and <ref refid="classBPathFinder" kindref="compound">BPathFinder</ref> API.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93a5eac8c3a1fe2765f78b96c641e22e114" prot="public">
+          <name>B_FIND_PATH_CREATE_PARENT_DIRECTORY</name>
+          <initializer>= 0x0002</initializer>
+          <briefdescription>
+<para>Specifies that if the resulting path&apos;s parent doesn&apos;t exist, the parent shall be created as a directory, including all missing ancestors. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Failure to create the directory will cause the respective function to fail.</para>
+<para>Flag for the <ref refid="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" kindref="member">find_path_etc()</ref>, <ref refid="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" kindref="member">find_path_for_path_etc()</ref>, <ref refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" kindref="member">find_paths_etc()</ref>, and <ref refid="classBPathFinder" kindref="compound">BPathFinder</ref> API.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93a4bc3f618f6c7e6437e0a4212e4e7cc25" prot="public">
+          <name>B_FIND_PATH_EXISTING_ONLY</name>
+          <initializer>= 0x0004</initializer>
+          <briefdescription>
+<para>Specifies that if the resulting path doesn&apos;t exist, the respective function shall skip it. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>In case multiple paths shall be retrieved and none of the paths exists, the function shall fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>.</para>
+<para>Flag for the <ref refid="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" kindref="member">find_path_etc()</ref>, <ref refid="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" kindref="member">find_path_for_path_etc()</ref>, <ref refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" kindref="member">find_paths_etc()</ref>, and <ref refid="classBPathFinder" kindref="compound">BPathFinder</ref> API.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93aba38ded740ce4ab8bf6b0e5ef5d1918d" prot="public">
+          <name>B_FIND_PATHS_SYSTEM_ONLY</name>
+          <initializer>= 0x0010</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93aa46011a4ff8c328ca3cf905c5e2057f6" prot="public">
+          <name>B_FIND_PATHS_USER_ONLY</name>
+          <initializer>= 0x0020</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="124" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="enum" id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>directory_which</name>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4323308fc432ec7556118a9067000b45" prot="public">
+          <name>B_DESKTOP_DIRECTORY</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+<para>The desktop directory for a given volume. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa69451ad63cff207a58146fa78341d84" prot="public">
+          <name>B_TRASH_DIRECTORY</name>
+          <briefdescription>
+<para>The trash directory for a given volume. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa8395001afd1e5d4657faeac30d1e2e" prot="public">
+          <name>B_SYSTEM_DIRECTORY</name>
+          <initializer>= 1000</initializer>
+          <briefdescription>
+<para>The system directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0bb7fa266881aff59ee5e3b266965b47" prot="public">
+          <name>B_SYSTEM_ADDONS_DIRECTORY</name>
+          <initializer>= 1002</initializer>
+          <briefdescription>
+<para>The system add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1c16302c6a631c3d9bc54bb51b709b8a" prot="public">
+          <name>B_SYSTEM_BOOT_DIRECTORY</name>
+          <briefdescription>
+<para>The system boot directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains the minimal set of files required for booting Haiku.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5cb6d8d02a162f2b819a18e7e8d29ef7" prot="public">
+          <name>B_SYSTEM_FONTS_DIRECTORY</name>
+          <briefdescription>
+<para>The system fonts directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea87adaa55e8eaaf687f4d488337afb5c4" prot="public">
+          <name>B_SYSTEM_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The system lib directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac54d85804da742f27e1e876288b50030" prot="public">
+          <name>B_SYSTEM_SERVERS_DIRECTORY</name>
+          <briefdescription>
+<para>The system servers directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab058f51ee08804fe543d56b147dcd1e4" prot="public">
+          <name>B_SYSTEM_APPS_DIRECTORY</name>
+          <briefdescription>
+<para>The system applications directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains applications with graphical user interface.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaf2023a5b4dab0825ba2538104dbd47d4" prot="public">
+          <name>B_SYSTEM_BIN_DIRECTORY</name>
+          <briefdescription>
+<para>The system bin directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains command-line applications runnable from Terminal.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3a2afbe9a2481b8d5736b559c248f477" prot="public">
+          <name>B_SYSTEM_DOCUMENTATION_DIRECTORY</name>
+          <initializer>= 1010</initializer>
+          <briefdescription>
+<para>The system documentation directory, contains e.g. man pages. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea23d9cd6a95405c1544f7521095954168" prot="public">
+          <name>B_SYSTEM_PREFERENCES_DIRECTORY</name>
+          <briefdescription>
+<para>The system preferences directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27e9f095c817efa196fc2e9efe23fd70" prot="public">
+          <name>B_SYSTEM_TRANSLATORS_DIRECTORY</name>
+          <briefdescription>
+<para>The system translator directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea73ebdc32eb9b635c93b83cfdf53e3047" prot="public">
+          <name>B_SYSTEM_MEDIA_NODES_DIRECTORY</name>
+          <briefdescription>
+<para>The system media nodes directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa26723213874cfa78599c513cea3590" prot="public">
+          <name>B_SYSTEM_SOUNDS_DIRECTORY</name>
+          <briefdescription>
+<para>The system sounds directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5978830a3b9567330247a133aa6e0162" prot="public">
+          <name>B_SYSTEM_DATA_DIRECTORY</name>
+          <briefdescription>
+<para>The system data directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafd7e989f9b8ca5b2ef0c1c488425c251" prot="public">
+          <name>B_SYSTEM_DEVELOP_DIRECTORY</name>
+          <briefdescription>
+<para>The system directory containing development related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead987c6380229ac1ecabbd410d9ff7430" prot="public">
+          <name>B_SYSTEM_PACKAGES_DIRECTORY</name>
+          <briefdescription>
+<para>The system directory where activated packages live. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead362fe52aef8ac4b05b330d9a014b2a8" prot="public">
+          <name>B_SYSTEM_HEADERS_DIRECTORY</name>
+          <briefdescription>
+<para>The system directory for development header files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eabe509468b829edc422b26c9cd2f49395" prot="public">
+          <name>B_SYSTEM_ETC_DIRECTORY</name>
+          <initializer>= 2008</initializer>
+          <briefdescription>
+<para>The system directory used for Unix-like installation location-wide settings (Unix &quot;etc&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3d351384ccf338e6f9a25e517633b0df" prot="public">
+          <name>B_SYSTEM_SETTINGS_DIRECTORY</name>
+          <initializer>= 2010</initializer>
+          <briefdescription>
+<para>The system directory used for installation location-wide settings. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea8bec9609963b570466e77fb58d2afe93" prot="public">
+          <name>B_SYSTEM_LOG_DIRECTORY</name>
+          <initializer>= 2012</initializer>
+          <briefdescription>
+<para>The system directory where log files are put. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2310774e683566ec170f36c4cbcf9b75" prot="public">
+          <name>B_SYSTEM_SPOOL_DIRECTORY</name>
+          <briefdescription>
+<para>The system directory for spool data (e.g. pending printer jobs). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea7085c80deeb7597ae30768ffd3e03b7c" prot="public">
+          <name>B_SYSTEM_TEMP_DIRECTORY</name>
+          <briefdescription>
+<para>The global directory for temporary files (Unix &quot;tmp&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2c2177e71c9a5694bb807e3ed60b9b4b" prot="public">
+          <name>B_SYSTEM_VAR_DIRECTORY</name>
+          <briefdescription>
+<para>The system directory for variable data (Unix &quot;var&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6e11f54d828d77495526bc799545d70d" prot="public">
+          <name>B_SYSTEM_CACHE_DIRECTORY</name>
+          <initializer>= 2020</initializer>
+          <briefdescription>
+<para>The system directory used for cache files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea69cf5c3f780ad9f515ea686d4a1bcbf4" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_DIRECTORY</name>
+          <initializer>= 2023</initializer>
+          <briefdescription>
+<para>The system non-packaged installation location directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea20418728935d295ecbd80a079a21d97a" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_ADDONS_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadee3cb20aef0ffa4613197b6d483cfb3" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_TRANSLATORS_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged translator directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea009741438a238e191103701c0feaeedc" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_MEDIA_NODES_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged media nodes directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6a37efdfd1f0c3f0eaff84b409dc590b" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_BIN_DIRECTORY</name>
+          <briefdescription>
+<para>runnable from Terminal. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>The system non-packaged bin directory. Contains command-line applications </para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea20943b55bb7d5dc6525a701571793434" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_DATA_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged data directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1f79166beabc85b6c19d107010066bcc" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_FONTS_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged fonts directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaafac309c772d2a31e309151aa499f362" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_SOUNDS_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged sounds directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafd7b6f4299bfb58946953cbfd01a6ddb" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_DOCUMENTATION_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged documentation directory. Contains e.g. man pages. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea26e4b6b4358c09fc249435388c16acc6" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged lib directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea91625230df165126a454fd1f94916b52" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_HEADERS_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged directory for development header files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadbe79e24822b229342df1d50cece9818" prot="public">
+          <name>B_SYSTEM_NONPACKAGED_DEVELOP_DIRECTORY</name>
+          <briefdescription>
+<para>The system non-packaged directory containing development related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac884bd1aa309c4b25b4a308110558602" prot="public">
+          <name>B_USER_DIRECTORY</name>
+          <initializer>= 3000</initializer>
+          <briefdescription>
+<para>The user home directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Do NOT store application settings here as on unix, instead use <computeroutput>B_USER_SETTINGS_DIRECTORY</computeroutput>.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4d0991cec9a375febcf63c1fc3b9ffe0" prot="public">
+          <name>B_USER_CONFIG_DIRECTORY</name>
+          <briefdescription>
+<para>The user packaged installation location directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea41225a1785f4975ade2d4d6348b44da0" prot="public">
+          <name>B_USER_ADDONS_DIRECTORY</name>
+          <briefdescription>
+<para>The user add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3ae7fb6eda939eafba50d79658d264fb" prot="public">
+          <name>B_USER_BOOT_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory containing booting related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eacda0226d7e9df56c366755db91feada5" prot="public">
+          <name>B_USER_FONTS_DIRECTORY</name>
+          <briefdescription>
+<para>The user fonts directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead4c1f73c38c7946c7d4ffcc010f271a9" prot="public">
+          <name>B_USER_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The user lib directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea45391fd2c9fb9279f385ccf787d8a078" prot="public">
+          <name>B_USER_SETTINGS_DIRECTORY</name>
+          <briefdescription>
+<para>The user settings directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>You may store your application settings here. Create a subdirectory for your application if you have multiple files to store, else, put a single file. The file or directory should have the same name as your application, so the user knows what it&apos;s used for.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa4a31e3fb210b2c45251945dfe761f5" prot="public">
+          <name>B_USER_DESKBAR_DIRECTORY</name>
+          <briefdescription>
+<para>The user Deskbar directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>You may add a link to your application here, so it shows up in the user&apos;s Deskbar leaf menu.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac471043f79df4f3d389b5378e48e9e1a" prot="public">
+          <name>B_USER_PRINTERS_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory for printer settings. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4ebf21c9e1a986087df2bbf341e47b1a" prot="public">
+          <name>B_USER_TRANSLATORS_DIRECTORY</name>
+          <briefdescription>
+<para>The user translator directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea13616cacab753167d2822e0f0838d7a2" prot="public">
+          <name>B_USER_MEDIA_NODES_DIRECTORY</name>
+          <briefdescription>
+<para>The user media nodes directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadc6d304dc74e3ee6d0a1de06534ae531" prot="public">
+          <name>B_USER_SOUNDS_DIRECTORY</name>
+          <briefdescription>
+<para>The user sounds directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab5c00efccaf478fa27b3cf8ca42c3b00" prot="public">
+          <name>B_USER_DATA_DIRECTORY</name>
+          <briefdescription>
+<para>The user data directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27649d6ac09207d16564a96ccb3ebee4" prot="public">
+          <name>B_USER_CACHE_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory used for cache files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadd2e01eb6b4a0bea80c423079c148c03" prot="public">
+          <name>B_USER_PACKAGES_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory where activated packages live. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea15c5fc5b753d567912b0d1a54b496a46" prot="public">
+          <name>B_USER_HEADERS_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory for development header files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1fa9424d248ec248aa9e9f9f88596fea" prot="public">
+          <name>B_USER_NONPACKAGED_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged installation location directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea26af50bfed11067834623b6d7dead1dd" prot="public">
+          <name>B_USER_NONPACKAGED_ADDONS_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea7890fa6b824eab781efb02d10d3801f3" prot="public">
+          <name>B_USER_NONPACKAGED_TRANSLATORS_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged translator directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafcb50e2dbab619cfc09ad59c4e8e7114" prot="public">
+          <name>B_USER_NONPACKAGED_MEDIA_NODES_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged media nodes directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5f4c12966b857ccfc37d73f26ecefa10" prot="public">
+          <name>B_USER_NONPACKAGED_BIN_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged bin directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains command-line applications runnable from Terminal.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac86c4073dff717bf592695e88e9c8412" prot="public">
+          <name>B_USER_NONPACKAGED_DATA_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged data directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5a313167640730a1dca157c8d0a0c353" prot="public">
+          <name>B_USER_NONPACKAGED_FONTS_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged fonts directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea15be0a5b7acc20ee7bba7f1df1daa3dc" prot="public">
+          <name>B_USER_NONPACKAGED_SOUNDS_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged sounds directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead6ff479a61447c1b1a99f6904c6bb056" prot="public">
+          <name>B_USER_NONPACKAGED_DOCUMENTATION_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged documentation directory, contains e.g. man pages. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab004c4f035c1ae1677a27edf12abc4c3" prot="public">
+          <name>B_USER_NONPACKAGED_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged lib directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea366342d7490b522bd0e283bed819f0e4" prot="public">
+          <name>B_USER_NONPACKAGED_HEADERS_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged directory for development header files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27d6b542fb46ec41f59849212a64eefb" prot="public">
+          <name>B_USER_NONPACKAGED_DEVELOP_DIRECTORY</name>
+          <briefdescription>
+<para>The user non-packaged directory containing development related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab04d360e1c50128e8c79c63902f315ae" prot="public">
+          <name>B_USER_DEVELOP_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory containing development related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6ec0a4743678cc9fb2f852027808c300" prot="public">
+          <name>B_USER_DOCUMENTATION_DIRECTORY</name>
+          <briefdescription>
+<para>The user documentation directory, contains e.g. man pages. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead1c60c656b4b183dbce38cc40df80828" prot="public">
+          <name>B_USER_SERVERS_DIRECTORY</name>
+          <briefdescription>
+<para>The user servers directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaffa21b00a911637c1e2e83d65279b6e4" prot="public">
+          <name>B_USER_APPS_DIRECTORY</name>
+          <briefdescription>
+<para>The user applications directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains applications with graphical user interface.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea418e433d33ff810c30272b60a39ab974" prot="public">
+          <name>B_USER_BIN_DIRECTORY</name>
+          <briefdescription>
+<para>The user bin directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains command-line applications runnable from Terminal.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea63b3eb8c1f1eecaa505a0e293686ca26" prot="public">
+          <name>B_USER_PREFERENCES_DIRECTORY</name>
+          <briefdescription>
+<para>The user preference applications directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0fcaf0c3130446c2631a43626acc97f5" prot="public">
+          <name>B_USER_ETC_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory used for Unix-like installation location-wide settings (Unix &quot;etc&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1d4d975547a16c7804c28330654faf35" prot="public">
+          <name>B_USER_LOG_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory where log files are put. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaee3cca4808e3c5827e20f12806231a01" prot="public">
+          <name>B_USER_SPOOL_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory for spool data, e.g. pending printer jobs. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5bb456cbcd4abca4f2f02a41235c0a5a" prot="public">
+          <name>B_USER_VAR_DIRECTORY</name>
+          <briefdescription>
+<para>The user directory for variable data (Unix &quot;var&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea8ea7e8026d34a4ecec7e1dbf1b527d51" prot="public">
+          <name>B_APPS_DIRECTORY</name>
+          <initializer>= 4000</initializer>
+          <briefdescription>
+<para>The global applications directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Contains applications with graphical user interface.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa35f98b51d405282f5c848620a248a60" prot="public">
+          <name>B_PREFERENCES_DIRECTORY</name>
+          <briefdescription>
+<para>The global preference applications directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0d4a48d46cd4e8cedf85027840759948" prot="public">
+          <name>B_UTILITIES_DIRECTORY</name>
+          <briefdescription>
+<para>The global utility applications directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea99ca59bebb033a307e2621de7313cfde" prot="public">
+          <name>B_PACKAGE_LINKS_DIRECTORY</name>
+          <briefdescription>
+<para>The global package links directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>This is where symlink directories for all activated packages are exposed.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea76a43e84045989d62a989ce60d26bbae" prot="public">
+          <name>B_BEOS_DIRECTORY</name>
+          <initializer>= 1000</initializer>
+          <briefdescription>
+<para>The BeOS directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea44e314325597d56cb11c455bdee73c9e" prot="public">
+          <name>B_BEOS_SYSTEM_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS system directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea756695f397b8a735aaa4ee6057745d06" prot="public">
+          <name>B_BEOS_ADDONS_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS Add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab95c1b099dce82219b30602b7c429432" prot="public">
+          <name>B_BEOS_BOOT_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS boot directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2a00367126cc5948598ca46405bcff66" prot="public">
+          <name>B_BEOS_FONTS_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS fonts directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6482d54179fd456a3b77054823f87bec" prot="public">
+          <name>B_BEOS_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS lib directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea254ccb97b92d9535ac2ac151cedbc338" prot="public">
+          <name>B_BEOS_SERVERS_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS servers directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa0a16e12851eb3a232bb99822b346d56" prot="public">
+          <name>B_BEOS_APPS_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS apps directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eabf9bc44858b24ce7d9d48d890d4f3fbd" prot="public">
+          <name>B_BEOS_BIN_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS bin directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1a7e961d67ca94eac7f1264e5138bcb3" prot="public">
+          <name>B_BEOS_ETC_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS etc directory used for Unix-like installation location-wide settings (Unix &quot;etc&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea09758865c08a58346d78c195dab3f35c" prot="public">
+          <name>B_BEOS_DOCUMENTATION_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS documentation directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0231d3962cf0e3237fa184ae78d74020" prot="public">
+          <name>B_BEOS_PREFERENCES_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS preferences directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea413b66d1b0cb4b4f7fa237df62751e9f" prot="public">
+          <name>B_BEOS_TRANSLATORS_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS translators directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea46dcd353f9997eed2e2db82d865aefea" prot="public">
+          <name>B_BEOS_MEDIA_NODES_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS media nodes directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea68fcf8f9f6bd5d401bf7352bacae3fd7" prot="public">
+          <name>B_BEOS_SOUNDS_DIRECTORY</name>
+          <briefdescription>
+<para>The BeOS sounds directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" bodystart="12" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="enum" id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" prot="public" static="no" strong="no">
+        <type></type>
+        <name>path_base_directory</name>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a8d78c7857728d0d38a33281d7c0d3b40" prot="public">
+          <name>B_FIND_PATH_INSTALLATION_LOCATION_DIRECTORY</name>
+          <briefdescription>
+<para>The installation location base directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ac84db40026eafdae70bf0adeb8aa26c5" prot="public">
+          <name>B_FIND_PATH_ADD_ONS_DIRECTORY</name>
+          <briefdescription>
+<para>The add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a994224ea978030cb13d45c8228ee8dd0" prot="public">
+          <name>B_FIND_PATH_APPS_DIRECTORY</name>
+          <briefdescription>
+<para>The application directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a7aba06f92042e3569c20bbdb9352b311" prot="public">
+          <name>B_FIND_PATH_BIN_DIRECTORY</name>
+          <briefdescription>
+<para>The command line application directory (Unix &quot;bin&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232afc15927890acfd798db20bc2f30de840" prot="public">
+          <name>B_FIND_PATH_BOOT_DIRECTORY</name>
+          <briefdescription>
+<para>The directory containing booting related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ad9877d088fae2d4bfa2199ac53b79f37" prot="public">
+          <name>B_FIND_PATH_CACHE_DIRECTORY</name>
+          <briefdescription>
+<para>The directory used for cache files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a4bcfb136f6ddbc0447a4a61cf92656ab" prot="public">
+          <name>B_FIND_PATH_DATA_DIRECTORY</name>
+          <briefdescription>
+<para>The base directory used for read-only data. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ae8cb8a4552ec47e717b114b0412268df" prot="public">
+          <name>B_FIND_PATH_DEVELOP_DIRECTORY</name>
+          <briefdescription>
+<para>The directory containing development related files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a929d85819792666420dfd521e32093d0" prot="public">
+          <name>B_FIND_PATH_DEVELOP_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The the development library directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>This is the directory where the linker finds libraries.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a6291ee7cbb725f7ccc09c9e74ad9aee8" prot="public">
+          <name>B_FIND_PATH_DOCUMENTATION_DIRECTORY</name>
+          <briefdescription>
+<para>The base directory used for documentation. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a5d2f9361cf447bc57a960f9da647a923" prot="public">
+          <name>B_FIND_PATH_ETC_DIRECTORY</name>
+          <briefdescription>
+<para>The directory used for Unix-like installation location wide settings (Unix &quot;etc&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232af05efee95be134ed1184d5187321e1be" prot="public">
+          <name>B_FIND_PATH_FONTS_DIRECTORY</name>
+          <briefdescription>
+<para>The fonts directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a57b8ad3145c76f1e85be72ae918199d5" prot="public">
+          <name>B_FIND_PATH_HEADERS_DIRECTORY</name>
+          <briefdescription>
+<para>The development header files directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a4d608f0adbd4f147ef5a0ab979b0b3f1" prot="public">
+          <name>B_FIND_PATH_LIB_DIRECTORY</name>
+          <briefdescription>
+<para>The runtime library directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>This is where the runtime loader finds libraries.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a7d9fa375a6d8a0670384cc9fdf282638" prot="public">
+          <name>B_FIND_PATH_LOG_DIRECTORY</name>
+          <briefdescription>
+<para>The directory where log files are put. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a84a80ea93efa6bcaa1a11c2cbf103eed" prot="public">
+          <name>B_FIND_PATH_MEDIA_NODES_DIRECTORY</name>
+          <briefdescription>
+<para>The media node add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a36e6b3652d441f04e9a8dcdcd55fb2ae" prot="public">
+          <name>B_FIND_PATH_PACKAGES_DIRECTORY</name>
+          <briefdescription>
+<para>The directory where activated packages live. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a09ec9543ea7be0a91c858bda7f7a02b9" prot="public">
+          <name>B_FIND_PATH_PREFERENCES_DIRECTORY</name>
+          <briefdescription>
+<para>The preference application directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232af4d2a0b3f74bc469bc5c1cb0c8e74e1c" prot="public">
+          <name>B_FIND_PATH_SERVERS_DIRECTORY</name>
+          <briefdescription>
+<para>The server and daemon program directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a84f18ae1bbea9e1dfe4945a3988bb324" prot="public">
+          <name>B_FIND_PATH_SETTINGS_DIRECTORY</name>
+          <briefdescription>
+<para>The directory used for installation location wide settings. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>Note that for the user&apos;s home config installation location, this is not the same as the user&apos;s settings directory. Software installed in that installation location puts their global settings files here.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a9fbe5a21de7a7add0858edd068cb5f79" prot="public">
+          <name>B_FIND_PATH_SOUNDS_DIRECTORY</name>
+          <briefdescription>
+<para>The directory for sound files. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ac0eda7c7824366eb5162445caa9ded61" prot="public">
+          <name>B_FIND_PATH_SPOOL_DIRECTORY</name>
+          <briefdescription>
+<para>The directory for spool data, e.g. pending printer jobs. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232aca29175c778286a89e8c149150c7fcdb" prot="public">
+          <name>B_FIND_PATH_TRANSLATORS_DIRECTORY</name>
+          <briefdescription>
+<para>The translator add-ons directory. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a805fe5e7e7c5df2a3c2f99b7f3d62175" prot="public">
+          <name>B_FIND_PATH_VAR_DIRECTORY</name>
+          <briefdescription>
+<para>The directory for variable data (Unix &quot;var&quot; directory). </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a1a5d487dd8f435f65ea71851de7874f4" prot="public">
+          <name>B_FIND_PATH_IMAGE_PATH</name>
+          <initializer>= 1000</initializer>
+          <briefdescription>
+<para>The path of the image file that was identified by a pointer argument passed to the respective function. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a5641af9261285a6aae5867d1716f2a9b" prot="public">
+          <name>B_FIND_PATH_PACKAGE_PATH</name>
+          <briefdescription>
+<para>The path of the package the file referred to by the specified path belongs to. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="134" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" bodystart="134" bodyend="163"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="FindDirectory_8h_1a80ad2d286059c5acb77d7e1ab084666c" prot="public" static="no">
+        <type>enum <ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+        <definition>typedef enum path_base_directory path_base_directory</definition>
+        <argsstring></argsstring>
+        <name>path_base_directory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="163" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__libbe_1ga87ac32df2ed40b7991ade10a2fa375b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_directory</definition>
+        <argsstring>(directory_which which, BPath *path, bool createIt=false, BVolume *volume=NULL)</argsstring>
+        <name>find_directory</name>
+        <param>
+          <type><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" kindref="member">directory_which</ref></type>
+          <declname>which</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPath" kindref="compound">BPath</ref> *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>createIt</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type><ref refid="classBVolume" kindref="compound">BVolume</ref> *</type>
+          <declname>volume</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>C++ interface to find_directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set <emphasis>path</emphasis> to <emphasis>which</emphasis> on <emphasis>volume</emphasis>.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="206" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="206" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_directory</definition>
+        <argsstring>(directory_which which, dev_t volume, bool createIt, char *pathString, int32 length)</argsstring>
+        <name>find_directory</name>
+        <param>
+          <type><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" kindref="member">directory_which</ref></type>
+          <declname>which</declname>
+        </param>
+        <param>
+          <type>dev_t</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>createIt</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathString</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>C interface to find_directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Fills up to <emphasis>length</emphasis> characters of <emphasis>pathString</emphasis> with the path to <emphasis>which</emphasis> on <emphasis>volume</emphasis>. Creates the directory if it doesn&apos;t exists if <emphasis>createIt</emphasis> is set.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="172" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="172" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path</definition>
+        <argsstring>(const void *codePointer, path_base_directory baseDirectory, const char *subPath, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path</name>
+        <param>
+          <type>const void *</type>
+          <declname>codePointer</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a loaded image file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function determines the path of the image (i.e. executable, library, or add-on) file associated with <emphasis>codePointer</emphasis>, a pointer to a location in the code or static data of an image loaded in the caller&apos;s team. Based on that, path <emphasis>baseDirectory</emphasis> is evaluated. In most cases that means first determining the path of the installation location from the path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used for constructing the path.</para>
+<para>If <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> or <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> are specified, <emphasis>subPath</emphasis> is ignored. In the former case the path of the image file is returned. In the latter case the path of the package containing the image file, if any.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to code or static data belonging to the image based on which the path shall be computed. The special value <computeroutput>B_APP_IMAGE_SYMBOL</computeroutput> can be used to refer to the program image, and <computeroutput>B_CURRENT_IMAGE_SYMBOL</computeroutput> for the caller&apos;s image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and the image file doesn&apos;t belong to a package.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="175" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="175" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path_etc</definition>
+        <argsstring>(const void *codePointer, const char *dependency, const char *architecture, path_base_directory baseDirectory, const char *subPath, uint32 flags, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path_etc</name>
+        <param>
+          <type>const void *</type>
+          <declname>codePointer</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>dependency</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>architecture</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a loaded image file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function determines the path of the image (i.e. executable, library, or add-on) file associated with <emphasis>codePointer</emphasis>, a pointer to a location in the code or static data of an image loaded in the caller&apos;s team. Based on that, path <emphasis>baseDirectory</emphasis> is evaluated. In most cases that means first determining the path of the installation location from the path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>dependency</emphasis> is specified, instead of determining the installation location path from the image path, the installation location path of the dependency <emphasis>dependency</emphasis> of the package containing the image file is used.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, <emphasis>architecture</emphasis> is used for constructing the path. If <emphasis>architecture</emphasis> is <computeroutput>NULL</computeroutput>, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used.</para>
+<para>If <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> or <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> are specified, <emphasis>dependency</emphasis> and <emphasis>subPath</emphasis> are ignored. In the former case the path of the image file is returned. In the latter case the path of the package containing the image file, if any.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to code or static data belonging to the image based on which the path shall be computed. The special value <computeroutput>B_APP_IMAGE_SYMBOL</computeroutput> can be used to refer to the program image, and <computeroutput>B_CURRENT_IMAGE_SYMBOL</computeroutput> for the caller&apos;s image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dependency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the package&apos;s &quot;requires&quot; entry to be used for resolving the installation location. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>architecture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the architecture to be used for resolving architecture dependent paths. Can be <computeroutput>NULL</computeroutput>, in which case the caller&apos;s architecture is used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitwise OR of any of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_FIND_PATH_CREATE_DIRECTORY:</computeroutput> If the resulting path doesn&apos;t exist, create it as a directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_CREATE_PARENT_DIRECTORY:</computeroutput> If the resulting path&apos;s parent doesn&apos;t exist, create the parent directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_EXISTING_ONLY:</computeroutput> If the resulting path doesn&apos;t exist, fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and the image file doesn&apos;t belong to a package, or <computeroutput>dependency</computeroutput> was specified, but isn&apos;t a &quot;requires&quot; entry of the package, or <computeroutput>B_FIND_PATH_EXISTING_ONLY</computeroutput> was specified and the resulting path doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="178" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="178" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1ga34d11f1d45298f728d25eca82f78f98e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path_for_path</definition>
+        <argsstring>(const char *path, path_base_directory baseDirectory, const char *subPath, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path_for_path</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a given path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Based on the given path <emphasis>path</emphasis> the function evaluates <emphasis>baseDirectory</emphasis>. In most cases that means first determining the path of the installation location from the given path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, the architecture associated with the given path (as returned by <ref refid="Architecture_8h_1af6527c1353b821375656e9720d033a1e" kindref="member">guess_architecture_for_path()</ref>) is used for constructing the path.</para>
+<para>If <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> is specified, <emphasis>subPath</emphasis> is ignored. In this case the path of the package containing the file referred to by <emphasis>path</emphasis> is returned. <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> is not a valid argument for this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path based on which the path shall be computed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and <emphasis>path</emphasis> does refer to a file that belongs to a package.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="182" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="182" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path_for_path_etc</definition>
+        <argsstring>(const char *path, const char *dependency, const char *architecture, path_base_directory baseDirectory, const char *subPath, uint32 flags, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path_for_path_etc</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>dependency</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>architecture</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a given path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Based on the given path <emphasis>path</emphasis> the function evaluates <emphasis>baseDirectory</emphasis>. In most cases that means first determining the path of the installation location from the given path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>dependency</emphasis> is specified, instead of determining the installation location path from the given path, the installation location path of the dependency <emphasis>dependency</emphasis> of the package containing the file referred to by <emphasis>path</emphasis> is used.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, <emphasis>architecture</emphasis> is used for constructing the path. If <emphasis>architecture</emphasis> is <computeroutput>NULL</computeroutput>, the architecture associated with the given path (as returned by <ref refid="Architecture_8h_1af6527c1353b821375656e9720d033a1e" kindref="member">guess_architecture_for_path()</ref>) is used.</para>
+<para>If <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> is specified, <emphasis>dependency</emphasis> and <emphasis>subPath</emphasis> are ignored. In this case the path of the package containing the file referred to by <emphasis>path</emphasis> is returned. <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> is not a valid argument for this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path based on which the path shall be computed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dependency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the package&apos;s &quot;requires&quot; entry to be used for resolving the installation location. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>architecture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the architecture to be used for resolving architecture dependent paths. Can be <computeroutput>NULL</computeroutput>, in which case the architecture associated with <emphasis>path</emphasis> is used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitwise OR of any of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_FIND_PATH_CREATE_DIRECTORY:</computeroutput> If the resulting path doesn&apos;t exist, create it as a directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_CREATE_PARENT_DIRECTORY:</computeroutput> If the resulting path&apos;s parent doesn&apos;t exist, create the parent directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_EXISTING_ONLY:</computeroutput> If the resulting path doesn&apos;t exist, fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and <emphasis>path</emphasis> does refer to a file that belongs to a package, or <computeroutput>dependency</computeroutput> was specified, but isn&apos;t a &quot;requires&quot; entry of the package, or <computeroutput>B_FIND_PATH_EXISTING_ONLY</computeroutput> was specified and the resulting path doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="185" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="185" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gad96d494ae8950a8828043fd21db79231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_paths</definition>
+        <argsstring>(path_base_directory baseDirectory, const char *subPath, char ***_paths, size_t *_pathCount)</argsstring>
+        <name>find_paths</name>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>_paths</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_pathCount</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a list of paths in the file system layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For each installation location <ndash/> in the order most specific to most generic, non-packaged before packaged <ndash/> the function evaluates <emphasis>baseDirectory</emphasis> to a path and appends <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used for constructing each path.</para>
+<para><computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> and <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> are not valid arguments for this function.</para>
+<para>The array of paths retrieved is allocated on the heap and returned via <emphasis>_paths</emphasis>. The caller is responsible for calling free() for the returned pointer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which paths to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_paths</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the pointer to the allocated path array shall be stored on success. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_pathCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the number of paths in the path array shall be stored on success.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the paths doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="189" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="189" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_paths_etc</definition>
+        <argsstring>(const char *architecture, path_base_directory baseDirectory, const char *subPath, uint32 flags, char ***_paths, size_t *_pathCount)</argsstring>
+        <name>find_paths_etc</name>
+        <param>
+          <type>const char *</type>
+          <declname>architecture</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>_paths</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_pathCount</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a list of paths in the file system layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For each installation location <ndash/> in the order most specific to most generic, non-packaged before packaged <ndash/> the function evaluates <emphasis>baseDirectory</emphasis> to a path and appends <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, <emphasis>architecture</emphasis> is used for constructing each path. If <emphasis>architecture</emphasis> is <computeroutput>NULL</computeroutput>, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used.</para>
+<para><computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> and <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> are not valid arguments for this function.</para>
+<para>The array of paths retrieved is allocated on the heap and returned via <emphasis>_paths</emphasis>. The caller is responsible for calling free() for the returned pointer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>architecture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the architecture to be used for resolving architecture dependent paths. Can be <computeroutput>NULL</computeroutput>, in which case the caller&apos;s architecture is used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which paths to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitwise OR of any of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_FIND_PATH_CREATE_DIRECTORY:</computeroutput> If the resulting path doesn&apos;t exist, create it as a directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_CREATE_PARENT_DIRECTORY:</computeroutput> If the resulting path&apos;s parent doesn&apos;t exist, create the parent directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_EXISTING_ONLY:</computeroutput> If the resulting path doesn&apos;t exist, fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_paths</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the pointer to the allocated path array shall be stored on success. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_pathCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the number of paths in the path array shall be stored on success. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the paths doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_EXISTING_ONLY</computeroutput> was specified and none of the resulting paths do exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="192" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="192" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides the <ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory()</ref>, <ref refid="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" kindref="member">find_path()</ref>, <ref refid="group__libroot_1gad96d494ae8950a8828043fd21db79231" kindref="member">find_paths()</ref> functions as well as the <computeroutput>directory_which</computeroutput> constants. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Haiku provides a set of directories for applications to use. These can be accessed using the functions <ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory()</ref>, <ref refid="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" kindref="member">find_path()</ref>, <ref refid="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" kindref="member">find_path_etc()</ref>, <ref refid="group__libroot_1gad96d494ae8950a8828043fd21db79231" kindref="member">find_paths()</ref>, <ref refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" kindref="member">find_paths_etc()</ref>, <ref refid="group__libroot_1ga34d11f1d45298f728d25eca82f78f98e" kindref="member">find_path_for_path()</ref>, <ref refid="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" kindref="member">find_path_for_path_etc()</ref>. It is very important to use the functions at runtime and not hardcode the path, as it may change in future versions of Haiku, and already changed in past ones. Using these functions makes your application more future-proof, and makes sure everyone puts data in the same place, which makes the system cleaner and easier to manage.</para>
+<para>Note that while the <ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory()</ref> function is still needed for some, it is deprecated for many other use cases, like:<itemizedlist>
+<listitem><para>When collecting files from all installation locations, be it data files (like fonts) or add-ons your application/library supports, use <ref refid="group__libroot_1gad96d494ae8950a8828043fd21db79231" kindref="member">find_paths()</ref>, <ref refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" kindref="member">find_paths_etc()</ref>, or <ref refid="classBPathFinder_1a7e0b20cb3f8378a2a7d3763821eb2558" kindref="member">BPathFinder::FindPaths()</ref> instead. Formerly you had to use <ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory()</ref> and iterate through all possible constants manually. Not only is this less convenient, it also doesn&apos;t account for the possibility of installation locations being added or removed in a later Haiku release.</para>
+</listitem><listitem><para>If your code needs to access another file that also belongs to your software (i.e. if packaged it is included in the same package), use <ref refid="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" kindref="member">find_path()</ref> or <ref refid="classBPathFinder_1a6430c47700b38075404d427f48b37868" kindref="member">BPathFinder::FindPath()</ref> instead. Formerly this case could not really be handled properly. Either you had to hard-code the installation location by using the respective directory constant or you had to manually construct a path relative to your code&apos;s image file.</para>
+</listitem></itemizedlist>
+</para>
+<para>Cases for which <ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory()</ref> is still useful:<itemizedlist>
+<listitem><para>Getting per-volume paths like for the trash directory.</para>
+</listitem><listitem><para>Getting specific paths like for the user&apos;s home directory or the user&apos;s settings directory.</para>
+</listitem></itemizedlist>
+</para>
+<para>Note that these functions can be accessed from C code (they are implemented in libroot), to make it easy to use also in ported applications. However, there are also a C++ version of <ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory()</ref> and the <ref refid="classBPathFinder" kindref="compound">BPathFinder</ref> class (both implemented in libbe), which may be more convenient to use in C++ code. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2002-2015,<sp/>Haiku<sp/>Inc.<sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_FIND_DIRECTORY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_FIND_DIRECTORY_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;image.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Per<sp/>volume<sp/>directories<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4323308fc432ec7556118a9067000b45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4323308fc432ec7556118a9067000b45" kindref="member">B_DESKTOP_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="15" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa69451ad63cff207a58146fa78341d84" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa69451ad63cff207a58146fa78341d84" kindref="member">B_TRASH_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>System<sp/>directories<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa8395001afd1e5d4657faeac30d1e2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa8395001afd1e5d4657faeac30d1e2e" kindref="member">B_SYSTEM_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1000,</highlight></codeline>
+<codeline lineno="19" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0bb7fa266881aff59ee5e3b266965b47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0bb7fa266881aff59ee5e3b266965b47" kindref="member">B_SYSTEM_ADDONS_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1002,</highlight></codeline>
+<codeline lineno="20" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1c16302c6a631c3d9bc54bb51b709b8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1c16302c6a631c3d9bc54bb51b709b8a" kindref="member">B_SYSTEM_BOOT_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="21" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5cb6d8d02a162f2b819a18e7e8d29ef7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5cb6d8d02a162f2b819a18e7e8d29ef7" kindref="member">B_SYSTEM_FONTS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="22" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea87adaa55e8eaaf687f4d488337afb5c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea87adaa55e8eaaf687f4d488337afb5c4" kindref="member">B_SYSTEM_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="23" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac54d85804da742f27e1e876288b50030" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac54d85804da742f27e1e876288b50030" kindref="member">B_SYSTEM_SERVERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="24" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab058f51ee08804fe543d56b147dcd1e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab058f51ee08804fe543d56b147dcd1e4" kindref="member">B_SYSTEM_APPS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="25" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaf2023a5b4dab0825ba2538104dbd47d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaf2023a5b4dab0825ba2538104dbd47d4" kindref="member">B_SYSTEM_BIN_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="26" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3a2afbe9a2481b8d5736b559c248f477" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3a2afbe9a2481b8d5736b559c248f477" kindref="member">B_SYSTEM_DOCUMENTATION_DIRECTORY</ref><sp/><sp/><sp/><sp/>=<sp/>1010,</highlight></codeline>
+<codeline lineno="27" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea23d9cd6a95405c1544f7521095954168" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea23d9cd6a95405c1544f7521095954168" kindref="member">B_SYSTEM_PREFERENCES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="28" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27e9f095c817efa196fc2e9efe23fd70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27e9f095c817efa196fc2e9efe23fd70" kindref="member">B_SYSTEM_TRANSLATORS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="29" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea73ebdc32eb9b635c93b83cfdf53e3047" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea73ebdc32eb9b635c93b83cfdf53e3047" kindref="member">B_SYSTEM_MEDIA_NODES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="30" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa26723213874cfa78599c513cea3590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa26723213874cfa78599c513cea3590" kindref="member">B_SYSTEM_SOUNDS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="31" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5978830a3b9567330247a133aa6e0162" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5978830a3b9567330247a133aa6e0162" kindref="member">B_SYSTEM_DATA_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="32" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafd7e989f9b8ca5b2ef0c1c488425c251" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafd7e989f9b8ca5b2ef0c1c488425c251" kindref="member">B_SYSTEM_DEVELOP_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="33" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead987c6380229ac1ecabbd410d9ff7430" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead987c6380229ac1ecabbd410d9ff7430" kindref="member">B_SYSTEM_PACKAGES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="34" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead362fe52aef8ac4b05b330d9a014b2a8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead362fe52aef8ac4b05b330d9a014b2a8" kindref="member">B_SYSTEM_HEADERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eabe509468b829edc422b26c9cd2f49395" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eabe509468b829edc422b26c9cd2f49395" kindref="member">B_SYSTEM_ETC_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2008,</highlight></codeline>
+<codeline lineno="37" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3d351384ccf338e6f9a25e517633b0df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3d351384ccf338e6f9a25e517633b0df" kindref="member">B_SYSTEM_SETTINGS_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2010,</highlight></codeline>
+<codeline lineno="38" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea8bec9609963b570466e77fb58d2afe93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea8bec9609963b570466e77fb58d2afe93" kindref="member">B_SYSTEM_LOG_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2012,</highlight></codeline>
+<codeline lineno="39" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2310774e683566ec170f36c4cbcf9b75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2310774e683566ec170f36c4cbcf9b75" kindref="member">B_SYSTEM_SPOOL_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="40" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea7085c80deeb7597ae30768ffd3e03b7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea7085c80deeb7597ae30768ffd3e03b7c" kindref="member">B_SYSTEM_TEMP_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="41" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2c2177e71c9a5694bb807e3ed60b9b4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2c2177e71c9a5694bb807e3ed60b9b4b" kindref="member">B_SYSTEM_VAR_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="42" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6e11f54d828d77495526bc799545d70d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6e11f54d828d77495526bc799545d70d" kindref="member">B_SYSTEM_CACHE_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2020,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea69cf5c3f780ad9f515ea686d4a1bcbf4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea69cf5c3f780ad9f515ea686d4a1bcbf4" kindref="member">B_SYSTEM_NONPACKAGED_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>2023,</highlight></codeline>
+<codeline lineno="45" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea20418728935d295ecbd80a079a21d97a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea20418728935d295ecbd80a079a21d97a" kindref="member">B_SYSTEM_NONPACKAGED_ADDONS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="46" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadee3cb20aef0ffa4613197b6d483cfb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadee3cb20aef0ffa4613197b6d483cfb3" kindref="member">B_SYSTEM_NONPACKAGED_TRANSLATORS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="47" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea009741438a238e191103701c0feaeedc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea009741438a238e191103701c0feaeedc" kindref="member">B_SYSTEM_NONPACKAGED_MEDIA_NODES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="48" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6a37efdfd1f0c3f0eaff84b409dc590b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6a37efdfd1f0c3f0eaff84b409dc590b" kindref="member">B_SYSTEM_NONPACKAGED_BIN_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="49" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea20943b55bb7d5dc6525a701571793434" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea20943b55bb7d5dc6525a701571793434" kindref="member">B_SYSTEM_NONPACKAGED_DATA_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="50" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1f79166beabc85b6c19d107010066bcc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1f79166beabc85b6c19d107010066bcc" kindref="member">B_SYSTEM_NONPACKAGED_FONTS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="51" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaafac309c772d2a31e309151aa499f362" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaafac309c772d2a31e309151aa499f362" kindref="member">B_SYSTEM_NONPACKAGED_SOUNDS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="52" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafd7b6f4299bfb58946953cbfd01a6ddb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafd7b6f4299bfb58946953cbfd01a6ddb" kindref="member">B_SYSTEM_NONPACKAGED_DOCUMENTATION_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="53" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea26e4b6b4358c09fc249435388c16acc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea26e4b6b4358c09fc249435388c16acc6" kindref="member">B_SYSTEM_NONPACKAGED_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="54" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea91625230df165126a454fd1f94916b52" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea91625230df165126a454fd1f94916b52" kindref="member">B_SYSTEM_NONPACKAGED_HEADERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="55" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadbe79e24822b229342df1d50cece9818" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadbe79e24822b229342df1d50cece9818" kindref="member">B_SYSTEM_NONPACKAGED_DEVELOP_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>User<sp/>directories.<sp/>These<sp/>are<sp/>interpreted<sp/>in<sp/>the<sp/>context</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>of<sp/>the<sp/>user<sp/>making<sp/>the<sp/>find_directory<sp/>call.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac884bd1aa309c4b25b4a308110558602" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac884bd1aa309c4b25b4a308110558602" kindref="member">B_USER_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>3000,</highlight></codeline>
+<codeline lineno="60" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4d0991cec9a375febcf63c1fc3b9ffe0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4d0991cec9a375febcf63c1fc3b9ffe0" kindref="member">B_USER_CONFIG_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="61" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea41225a1785f4975ade2d4d6348b44da0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea41225a1785f4975ade2d4d6348b44da0" kindref="member">B_USER_ADDONS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="62" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3ae7fb6eda939eafba50d79658d264fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea3ae7fb6eda939eafba50d79658d264fb" kindref="member">B_USER_BOOT_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="63" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eacda0226d7e9df56c366755db91feada5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eacda0226d7e9df56c366755db91feada5" kindref="member">B_USER_FONTS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="64" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead4c1f73c38c7946c7d4ffcc010f271a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead4c1f73c38c7946c7d4ffcc010f271a9" kindref="member">B_USER_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="65" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea45391fd2c9fb9279f385ccf787d8a078" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea45391fd2c9fb9279f385ccf787d8a078" kindref="member">B_USER_SETTINGS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="66" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa4a31e3fb210b2c45251945dfe761f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaaa4a31e3fb210b2c45251945dfe761f5" kindref="member">B_USER_DESKBAR_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="67" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac471043f79df4f3d389b5378e48e9e1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac471043f79df4f3d389b5378e48e9e1a" kindref="member">B_USER_PRINTERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="68" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4ebf21c9e1a986087df2bbf341e47b1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea4ebf21c9e1a986087df2bbf341e47b1a" kindref="member">B_USER_TRANSLATORS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="69" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea13616cacab753167d2822e0f0838d7a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea13616cacab753167d2822e0f0838d7a2" kindref="member">B_USER_MEDIA_NODES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="70" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadc6d304dc74e3ee6d0a1de06534ae531" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadc6d304dc74e3ee6d0a1de06534ae531" kindref="member">B_USER_SOUNDS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="71" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab5c00efccaf478fa27b3cf8ca42c3b00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab5c00efccaf478fa27b3cf8ca42c3b00" kindref="member">B_USER_DATA_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="72" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27649d6ac09207d16564a96ccb3ebee4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27649d6ac09207d16564a96ccb3ebee4" kindref="member">B_USER_CACHE_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="73" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadd2e01eb6b4a0bea80c423079c148c03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eadd2e01eb6b4a0bea80c423079c148c03" kindref="member">B_USER_PACKAGES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="74" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea15c5fc5b753d567912b0d1a54b496a46" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea15c5fc5b753d567912b0d1a54b496a46" kindref="member">B_USER_HEADERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="75" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1fa9424d248ec248aa9e9f9f88596fea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1fa9424d248ec248aa9e9f9f88596fea" kindref="member">B_USER_NONPACKAGED_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="76" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea26af50bfed11067834623b6d7dead1dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea26af50bfed11067834623b6d7dead1dd" kindref="member">B_USER_NONPACKAGED_ADDONS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="77" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea7890fa6b824eab781efb02d10d3801f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea7890fa6b824eab781efb02d10d3801f3" kindref="member">B_USER_NONPACKAGED_TRANSLATORS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="78" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafcb50e2dbab619cfc09ad59c4e8e7114" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eafcb50e2dbab619cfc09ad59c4e8e7114" kindref="member">B_USER_NONPACKAGED_MEDIA_NODES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="79" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5f4c12966b857ccfc37d73f26ecefa10" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5f4c12966b857ccfc37d73f26ecefa10" kindref="member">B_USER_NONPACKAGED_BIN_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="80" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac86c4073dff717bf592695e88e9c8412" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eac86c4073dff717bf592695e88e9c8412" kindref="member">B_USER_NONPACKAGED_DATA_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="81" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5a313167640730a1dca157c8d0a0c353" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5a313167640730a1dca157c8d0a0c353" kindref="member">B_USER_NONPACKAGED_FONTS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="82" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea15be0a5b7acc20ee7bba7f1df1daa3dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea15be0a5b7acc20ee7bba7f1df1daa3dc" kindref="member">B_USER_NONPACKAGED_SOUNDS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="83" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead6ff479a61447c1b1a99f6904c6bb056" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead6ff479a61447c1b1a99f6904c6bb056" kindref="member">B_USER_NONPACKAGED_DOCUMENTATION_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="84" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab004c4f035c1ae1677a27edf12abc4c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab004c4f035c1ae1677a27edf12abc4c3" kindref="member">B_USER_NONPACKAGED_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="85" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea366342d7490b522bd0e283bed819f0e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea366342d7490b522bd0e283bed819f0e4" kindref="member">B_USER_NONPACKAGED_HEADERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="86" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27d6b542fb46ec41f59849212a64eefb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea27d6b542fb46ec41f59849212a64eefb" kindref="member">B_USER_NONPACKAGED_DEVELOP_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="87" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab04d360e1c50128e8c79c63902f315ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab04d360e1c50128e8c79c63902f315ae" kindref="member">B_USER_DEVELOP_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="88" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6ec0a4743678cc9fb2f852027808c300" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6ec0a4743678cc9fb2f852027808c300" kindref="member">B_USER_DOCUMENTATION_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="89" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead1c60c656b4b183dbce38cc40df80828" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ead1c60c656b4b183dbce38cc40df80828" kindref="member">B_USER_SERVERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="90" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaffa21b00a911637c1e2e83d65279b6e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaffa21b00a911637c1e2e83d65279b6e4" kindref="member">B_USER_APPS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="91" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea418e433d33ff810c30272b60a39ab974" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea418e433d33ff810c30272b60a39ab974" kindref="member">B_USER_BIN_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="92" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea63b3eb8c1f1eecaa505a0e293686ca26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea63b3eb8c1f1eecaa505a0e293686ca26" kindref="member">B_USER_PREFERENCES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="93" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0fcaf0c3130446c2631a43626acc97f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0fcaf0c3130446c2631a43626acc97f5" kindref="member">B_USER_ETC_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="94" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1d4d975547a16c7804c28330654faf35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1d4d975547a16c7804c28330654faf35" kindref="member">B_USER_LOG_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="95" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaee3cca4808e3c5827e20f12806231a01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaee3cca4808e3c5827e20f12806231a01" kindref="member">B_USER_SPOOL_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="96" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5bb456cbcd4abca4f2f02a41235c0a5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea5bb456cbcd4abca4f2f02a41235c0a5a" kindref="member">B_USER_VAR_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Global<sp/>directories.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea8ea7e8026d34a4ecec7e1dbf1b527d51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea8ea7e8026d34a4ecec7e1dbf1b527d51" kindref="member">B_APPS_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>4000,</highlight></codeline>
+<codeline lineno="100" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa35f98b51d405282f5c848620a248a60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa35f98b51d405282f5c848620a248a60" kindref="member">B_PREFERENCES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="101" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0d4a48d46cd4e8cedf85027840759948" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0d4a48d46cd4e8cedf85027840759948" kindref="member">B_UTILITIES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="102" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea99ca59bebb033a307e2621de7313cfde" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea99ca59bebb033a307e2621de7313cfde" kindref="member">B_PACKAGE_LINKS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Obsolete:<sp/>Legacy<sp/>BeOS<sp/>definition<sp/>to<sp/>be<sp/>phased<sp/>out<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea76a43e84045989d62a989ce60d26bbae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea76a43e84045989d62a989ce60d26bbae" kindref="member">B_BEOS_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1000,</highlight></codeline>
+<codeline lineno="106" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea44e314325597d56cb11c455bdee73c9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea44e314325597d56cb11c455bdee73c9e" kindref="member">B_BEOS_SYSTEM_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="107" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea756695f397b8a735aaa4ee6057745d06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea756695f397b8a735aaa4ee6057745d06" kindref="member">B_BEOS_ADDONS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="108" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab95c1b099dce82219b30602b7c429432" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eab95c1b099dce82219b30602b7c429432" kindref="member">B_BEOS_BOOT_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="109" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2a00367126cc5948598ca46405bcff66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea2a00367126cc5948598ca46405bcff66" kindref="member">B_BEOS_FONTS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="110" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6482d54179fd456a3b77054823f87bec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea6482d54179fd456a3b77054823f87bec" kindref="member">B_BEOS_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="111" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea254ccb97b92d9535ac2ac151cedbc338" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea254ccb97b92d9535ac2ac151cedbc338" kindref="member">B_BEOS_SERVERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="112" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa0a16e12851eb3a232bb99822b346d56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eaa0a16e12851eb3a232bb99822b346d56" kindref="member">B_BEOS_APPS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="113" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eabf9bc44858b24ce7d9d48d890d4f3fbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0eabf9bc44858b24ce7d9d48d890d4f3fbd" kindref="member">B_BEOS_BIN_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="114" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1a7e961d67ca94eac7f1264e5138bcb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea1a7e961d67ca94eac7f1264e5138bcb3" kindref="member">B_BEOS_ETC_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="115" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea09758865c08a58346d78c195dab3f35c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea09758865c08a58346d78c195dab3f35c" kindref="member">B_BEOS_DOCUMENTATION_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="116" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0231d3962cf0e3237fa184ae78d74020" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea0231d3962cf0e3237fa184ae78d74020" kindref="member">B_BEOS_PREFERENCES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="117" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea413b66d1b0cb4b4f7fa237df62751e9f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea413b66d1b0cb4b4f7fa237df62751e9f" kindref="member">B_BEOS_TRANSLATORS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="118" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea46dcd353f9997eed2e2db82d865aefea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea46dcd353f9997eed2e2db82d865aefea" kindref="member">B_BEOS_MEDIA_NODES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="119" refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea68fcf8f9f6bd5d401bf7352bacae3fd7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0ea68fcf8f9f6bd5d401bf7352bacae3fd7" kindref="member">B_BEOS_SOUNDS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}<sp/><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" kindref="member">directory_which</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>find_path[s]()<sp/>flags<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="125" refid="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93abd31e14f8c990b628ce24085b3dfa67b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93abd31e14f8c990b628ce24085b3dfa67b" kindref="member">B_FIND_PATH_CREATE_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0001,</highlight></codeline>
+<codeline lineno="126" refid="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93a5eac8c3a1fe2765f78b96c641e22e114" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93a5eac8c3a1fe2765f78b96c641e22e114" kindref="member">B_FIND_PATH_CREATE_PARENT_DIRECTORY</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0002,</highlight></codeline>
+<codeline lineno="127" refid="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93a4bc3f618f6c7e6437e0a4212e4e7cc25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a7495a48740c9d555f7fbcb48246dbd93a4bc3f618f6c7e6437e0a4212e4e7cc25" kindref="member">B_FIND_PATH_EXISTING_ONLY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0004,</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>B_FIND_PATHS_SYSTEM_ONLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0010,</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>B_FIND_PATHS_USER_ONLY<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0020,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>{</highlight></codeline>
+<codeline lineno="135" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a8d78c7857728d0d38a33281d7c0d3b40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a8d78c7857728d0d38a33281d7c0d3b40" kindref="member">B_FIND_PATH_INSTALLATION_LOCATION_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="136" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ac84db40026eafdae70bf0adeb8aa26c5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ac84db40026eafdae70bf0adeb8aa26c5" kindref="member">B_FIND_PATH_ADD_ONS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="137" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a994224ea978030cb13d45c8228ee8dd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a994224ea978030cb13d45c8228ee8dd0" kindref="member">B_FIND_PATH_APPS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="138" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a7aba06f92042e3569c20bbdb9352b311" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a7aba06f92042e3569c20bbdb9352b311" kindref="member">B_FIND_PATH_BIN_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="139" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232afc15927890acfd798db20bc2f30de840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232afc15927890acfd798db20bc2f30de840" kindref="member">B_FIND_PATH_BOOT_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="140" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ad9877d088fae2d4bfa2199ac53b79f37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ad9877d088fae2d4bfa2199ac53b79f37" kindref="member">B_FIND_PATH_CACHE_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="141" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a4bcfb136f6ddbc0447a4a61cf92656ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a4bcfb136f6ddbc0447a4a61cf92656ab" kindref="member">B_FIND_PATH_DATA_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="142" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ae8cb8a4552ec47e717b114b0412268df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ae8cb8a4552ec47e717b114b0412268df" kindref="member">B_FIND_PATH_DEVELOP_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="143" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a929d85819792666420dfd521e32093d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a929d85819792666420dfd521e32093d0" kindref="member">B_FIND_PATH_DEVELOP_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="144" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a6291ee7cbb725f7ccc09c9e74ad9aee8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a6291ee7cbb725f7ccc09c9e74ad9aee8" kindref="member">B_FIND_PATH_DOCUMENTATION_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="145" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a5d2f9361cf447bc57a960f9da647a923" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a5d2f9361cf447bc57a960f9da647a923" kindref="member">B_FIND_PATH_ETC_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="146" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232af05efee95be134ed1184d5187321e1be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232af05efee95be134ed1184d5187321e1be" kindref="member">B_FIND_PATH_FONTS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="147" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a57b8ad3145c76f1e85be72ae918199d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a57b8ad3145c76f1e85be72ae918199d5" kindref="member">B_FIND_PATH_HEADERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="148" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a4d608f0adbd4f147ef5a0ab979b0b3f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a4d608f0adbd4f147ef5a0ab979b0b3f1" kindref="member">B_FIND_PATH_LIB_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="149" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a7d9fa375a6d8a0670384cc9fdf282638" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a7d9fa375a6d8a0670384cc9fdf282638" kindref="member">B_FIND_PATH_LOG_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="150" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a84a80ea93efa6bcaa1a11c2cbf103eed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a84a80ea93efa6bcaa1a11c2cbf103eed" kindref="member">B_FIND_PATH_MEDIA_NODES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="151" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a36e6b3652d441f04e9a8dcdcd55fb2ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a36e6b3652d441f04e9a8dcdcd55fb2ae" kindref="member">B_FIND_PATH_PACKAGES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="152" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a09ec9543ea7be0a91c858bda7f7a02b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a09ec9543ea7be0a91c858bda7f7a02b9" kindref="member">B_FIND_PATH_PREFERENCES_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="153" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232af4d2a0b3f74bc469bc5c1cb0c8e74e1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232af4d2a0b3f74bc469bc5c1cb0c8e74e1c" kindref="member">B_FIND_PATH_SERVERS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="154" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a84f18ae1bbea9e1dfe4945a3988bb324" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a84f18ae1bbea9e1dfe4945a3988bb324" kindref="member">B_FIND_PATH_SETTINGS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="155" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a9fbe5a21de7a7add0858edd068cb5f79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a9fbe5a21de7a7add0858edd068cb5f79" kindref="member">B_FIND_PATH_SOUNDS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="156" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ac0eda7c7824366eb5162445caa9ded61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232ac0eda7c7824366eb5162445caa9ded61" kindref="member">B_FIND_PATH_SPOOL_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="157" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232aca29175c778286a89e8c149150c7fcdb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232aca29175c778286a89e8c149150c7fcdb" kindref="member">B_FIND_PATH_TRANSLATORS_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="158" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a805fe5e7e7c5df2a3c2f99b7f3d62175" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a805fe5e7e7c5df2a3c2f99b7f3d62175" kindref="member">B_FIND_PATH_VAR_DIRECTORY</ref>,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>find_path()<sp/>only<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a1a5d487dd8f435f65ea71851de7874f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a1a5d487dd8f435f65ea71851de7874f4" kindref="member">B_FIND_PATH_IMAGE_PATH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>1000,</highlight></codeline>
+<codeline lineno="162" refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a5641af9261285a6aae5867d1716f2a9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232a5641af9261285a6aae5867d1716f2a9b" kindref="member">B_FIND_PATH_PACKAGE_PATH</ref>,</highlight></codeline>
+<codeline lineno="163"><highlight class="normal">}<sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>C<sp/>interface<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory</ref>(<ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" kindref="member">directory_which</ref><sp/>which,<sp/>dev_t<sp/>volume,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>createIt,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pathString,<sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>length);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" kindref="member">find_path</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>codePointer,<sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>baseDirectory,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subPath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pathBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" kindref="member">find_path_etc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>codePointer,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>dependency,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>architecture,<sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>baseDirectory,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subPath,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pathBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="group__libroot_1ga34d11f1d45298f728d25eca82f78f98e" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1ga34d11f1d45298f728d25eca82f78f98e" kindref="member">find_path_for_path</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path,<sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>baseDirectory,</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subPath,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pathBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" kindref="member">find_path_for_path_etc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>dependency,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>architecture,<sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>baseDirectory,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subPath,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>pathBuffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="group__libroot_1gad96d494ae8950a8828043fd21db79231" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1gad96d494ae8950a8828043fd21db79231" kindref="member">find_paths</ref>(<ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>baseDirectory,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subPath,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">***<sp/>_paths,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_pathCount);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" kindref="member">find_paths_etc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>architecture,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref><sp/>baseDirectory,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subPath,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">***<sp/>_paths,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_pathCount);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>C++<sp/>interface<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBVolume" kindref="compound">BVolume</ref>;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBPath" kindref="compound">BPath</ref>;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="group__libbe_1ga87ac32df2ed40b7991ade10a2fa375b1" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" kindref="member">find_directory</ref>(<ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" kindref="member">directory_which</ref><sp/>which,<sp/><ref refid="classBPath" kindref="compound">BPath</ref>*<sp/>path,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>createIt<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/><ref refid="classBVolume" kindref="compound">BVolume</ref>*<sp/>volume<sp/>=<sp/><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_FIND_DIRECTORY_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,813 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBCollator" kind="class" language="C++" prot="public">
+    <compoundname>BCollator</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBCollator_1a28320d2444d4927ae627205ea1f2b6cd" prot="private" static="no" mutable="yes">
+        <type>U_ICU_NAMESPACE::Collator *</type>
+        <definition>U_ICU_NAMESPACE::Collator* BCollator::fICUCollator</definition>
+        <argsstring></argsstring>
+        <name>fICUCollator</name>
+        <qualifiedname>BCollator::fICUCollator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="75" column="34" bodyfile="/boot/home/src/haiku/headers/os/locale/Collator.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBCollator_1aa25d8acf7c722d59f4f2e562c2a2672f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BCollator::fIgnorePunctuation</definition>
+        <argsstring></argsstring>
+        <name>fIgnorePunctuation</name>
+        <qualifiedname>BCollator::fIgnorePunctuation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="76" column="5" bodyfile="/boot/home/src/haiku/headers/os/locale/Collator.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBCollator_1ae07621ec715d5376a93b2fa5c614246b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BCollator::BCollator</definition>
+        <argsstring>()</argsstring>
+        <name>BCollator</name>
+        <qualifiedname>BCollator::BCollator</qualifiedname>
+        <briefdescription>
+<para>Construct a collator with the default locale and strength. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>The default collator should be constructed by the <ref refid="classBLocale" kindref="compound">BLocale</ref> instead since it is aware of the currently defined locale.</para>
+</simplesect>
+This constructor uses <computeroutput>B_COLLATE_PRIMARY</computeroutput> strength.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1aeff16f67a2e8ac21ae710e6784295ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BCollator::BCollator</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BCollator</name>
+        <qualifiedname>BCollator::BCollator</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Unarchive a collator from a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to unarchive the <ref refid="classBCollator" kindref="compound">BCollator</ref> object from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a07418d21aace37e019ba08f4e1df41e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BCollator::BCollator</definition>
+        <argsstring>(const BCollator &amp;other)</argsstring>
+        <name>BCollator</name>
+        <qualifiedname>BCollator::BCollator</qualifiedname>
+        <param>
+          <type>const <ref refid="classBCollator" kindref="compound">BCollator</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Copies a <ref refid="classBCollator" kindref="compound">BCollator</ref> object from another <ref refid="classBCollator" kindref="compound">BCollator</ref> object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBCollator" kindref="compound">BCollator</ref> to copy from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="44" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1ab1ca4b563ded3abaa3a97e5c8d1bcdbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BCollator::BCollator</definition>
+        <argsstring>(const char *locale, int8 strength=B_COLLATE_PRIMARY, bool ignorePunctuation=false)</argsstring>
+        <name>BCollator</name>
+        <qualifiedname>BCollator::BCollator</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>locale</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac69a93dcc865c5e4aa2072cac9002aeb" kindref="member">int8</ref></type>
+          <declname>strength</declname>
+          <defval>B_COLLATE_PRIMARY</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>ignorePunctuation</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Construct a collator for the given <emphasis>locale</emphasis> and <emphasis>strength</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This constructor loads the data for the given locale. You can also set the <emphasis>strength</emphasis> and choose if the collator should take punctuation into account or not.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>locale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>locale</emphasis> to build the constructor for. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The collator class provide four level of <emphasis>strength</emphasis>. <itemizedlist>
+<listitem><para><computeroutput>B_COLLATE_PRIMARY</computeroutput> doesn&apos;t differentiate e from é, </para>
+</listitem>
+<listitem><para><computeroutput>B_COLLATE_SECONDARY</computeroutput> takes letter accents into account, </para>
+</listitem>
+<listitem><para><computeroutput>B_COLLATE_TERTIARY</computeroutput> is case sensitive, </para>
+</listitem>
+<listitem><para><computeroutput>B_COLLATE_QUATERNARY</computeroutput> is very strict. Most of the time you shouldn&apos;t need to go this far. </para>
+</listitem>
+</itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ignorePunctuation</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ignore punctuation during sorting.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1adf50b517d043af89cda41625c6f97538" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BCollator::~BCollator</definition>
+        <argsstring>()</argsstring>
+        <name>~BCollator</name>
+        <qualifiedname>BCollator::~BCollator</qualifiedname>
+        <briefdescription>
+<para>Destructor method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes the <ref refid="classBCollator" kindref="compound">BCollator</ref> object freeing the resources it consumes.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a6ad070bcec766bb2e4b3963f2af53e90" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BCollator::Archive</definition>
+        <argsstring>(BMessage *archive, bool deep) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BCollator::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>into</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+        </param>
+        <briefdescription>
+<para>Archive the object into a <ref refid="classBMessage" kindref="compound">BMessage</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You should call this method from your derived implementation as it adds the data needed to instantiate your object to the message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>into</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message you store your object in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, all children of this object should be archived as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>archive</emphasis> message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive operation failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="70" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a3af1c9ae97365dab40d0d43a4fd11d5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BCollator::Compare</definition>
+        <argsstring>(const char *s1, const char *s2) const</argsstring>
+        <name>Compare</name>
+        <qualifiedname>BCollator::Compare</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+<para>Returns the difference betweens the two strings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>const </para>
+<para>This method should be used in place of the strcmp() function to perform locale-aware comparisons.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An integer value representing how the strings compare to each other. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the strings are equal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if s1 is less than s2. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&gt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if s1 is greater than s2.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="60" column="4"/>
+        <referencedby refid="classBCollator_1a5fee4e2861f85e1a4a65625ed72ff08b" compoundref="Collator_8h" startline="81" endline="84">Equal</referencedby>
+        <referencedby refid="classBCollator_1a149a4ff29c1dd8aa118333168fc0a357" compoundref="Collator_8h" startline="88" endline="91">Greater</referencedby>
+        <referencedby refid="classBCollator_1a3460ddd8a21965501e73855a6be074bb" compoundref="Collator_8h" startline="95" endline="98">GreaterOrEqual</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a5fee4e2861f85e1a4a65625ed72ff08b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BCollator::Equal</definition>
+        <argsstring>(const char *s1, const char *s2) const</argsstring>
+        <name>Equal</name>
+        <qualifiedname>BCollator::Equal</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+<para>Compares two strings for equality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>const </para>
+<para>Note that strings that are not byte-by-byte identical may end up being treated as equal by this method. For example two strings may be considered equal if the only differences between them are in case and punctuation, depending on the <emphasis>strength</emphasis> used. Using <computeroutput>B_QUANTERNARY_STRENGTH</computeroutput> will force this method return <computeroutput>true</computeroutput> only if the strings are byte-for-byte identical.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the strings are identical, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="62" column="5" bodyfile="/boot/home/src/haiku/headers/os/locale/Collator.h" bodystart="81" bodyend="84"/>
+        <references refid="classBCollator_1a3af1c9ae97365dab40d0d43a4fd11d5c">Compare</references>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a7566b825b2d37eb54df9dee49ce991ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BCollator::GetSortKey</definition>
+        <argsstring>(const char *string, BString *key) const</argsstring>
+        <name>GetSortKey</name>
+        <qualifiedname>BCollator::GetSortKey</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Compute the sortkey of a <emphasis>string</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>const </para>
+<para>The sortkey is a modified version of the input <emphasis>string</emphasis> that you can use to perform faster comparisons with other sortkeys using strcmp() or a similar comparison function. If you need to compare one string with other many times, storing the sortkey will allow you to perform the comparisons faster.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>String from which to compute the sortkey. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resulting sortkey.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if everything went well. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if an error occurred generating the sortkey.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a149a4ff29c1dd8aa118333168fc0a357" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BCollator::Greater</definition>
+        <argsstring>(const char *s1, const char *s2) const</argsstring>
+        <name>Greater</name>
+        <qualifiedname>BCollator::Greater</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+<para>Determine if a string is greater than another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>const </para>
+<para><simplesect kind="note"><para>!Greater(s1, s2) is the same as GreaterOrEqual(s2, s1). This means there is no need for Lesser(s1, s2) and LesserOrEqual(s1, s2) methods.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if s1 is greater than, but not equal to, s2.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="64" column="5" bodyfile="/boot/home/src/haiku/headers/os/locale/Collator.h" bodystart="88" bodyend="91"/>
+        <references refid="classBCollator_1a3af1c9ae97365dab40d0d43a4fd11d5c">Compare</references>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a3460ddd8a21965501e73855a6be074bb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BCollator::GreaterOrEqual</definition>
+        <argsstring>(const char *s1, const char *s2) const</argsstring>
+        <name>GreaterOrEqual</name>
+        <qualifiedname>BCollator::GreaterOrEqual</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+<para>Determines if one string is greater than another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>const </para>
+<para><simplesect kind="note"><para>!GreaterOrEqual(s1, s2) is the same as Greater(s2, s1).</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if s1 is greater or equal than s2.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="66" column="5" bodyfile="/boot/home/src/haiku/headers/os/locale/Collator.h" bodystart="95" bodyend="98"/>
+        <references refid="classBCollator_1a3af1c9ae97365dab40d0d43a4fd11d5c">Compare</references>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a1a952b5156f2949d4fd5339c23b02969" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BCollator::IgnorePunctuation</definition>
+        <argsstring>() const</argsstring>
+        <name>IgnorePunctuation</name>
+        <qualifiedname>BCollator::IgnorePunctuation</qualifiedname>
+        <briefdescription>
+<para>Gets the behavior of the collator with regards to punctuation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the collator will take punctuation into account when sorting, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="53" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1ad9bf170ccbe66f710a7a0fdbb220d9b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBCollator" kindref="compound">BCollator</ref> &amp;</type>
+        <definition>Bcollator &amp; BCollator::operator=</definition>
+        <argsstring>(const BCollator &amp;source)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BCollator::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBCollator" kindref="compound">BCollator</ref> &amp;</type>
+          <declname>source</declname>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+<para>Assignment operator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classBCollator" kindref="compound">BCollator</ref> object to assign from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="48" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1a15c509d0aec3ba488b729b39126b51e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BCollator::SetIgnorePunctuation</definition>
+        <argsstring>(bool ignore)</argsstring>
+        <name>SetIgnorePunctuation</name>
+        <qualifiedname>BCollator::SetIgnorePunctuation</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>ignore</declname>
+        </param>
+        <briefdescription>
+<para>Enable or disable punctuation handling. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function enables or disables the handling of punctuation.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ignore</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not punctuation should be ignored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1aef84d3e2cce998b10c850526c772937d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>void BCollator::SetNumericSorting</definition>
+        <argsstring>(bool enable)</argsstring>
+        <name>SetNumericSorting</name>
+        <qualifiedname>BCollator::SetNumericSorting</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+          <defname>ignore</defname>
+        </param>
+        <briefdescription>
+<para>Enable or disable numeric order sorting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Numeric sorting enables the collator to identify strings of digits as numbers, and sort them in ascending number. For example, the string &quot;123&quot; is sorted after &quot;234&quot;. Numbers and other characters can be mixed in the same string.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="55" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBCollator_1afb899892efad8cfcc4c9e5847ba3827e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>void BCollator::SetStrength</definition>
+        <argsstring>(int8 strength) const</argsstring>
+        <name>SetStrength</name>
+        <qualifiedname>BCollator::SetStrength</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac69a93dcc865c5e4aa2072cac9002aeb" kindref="member">int8</ref></type>
+          <declname>strength</declname>
+        </param>
+        <briefdescription>
+<para>Set the <emphasis>strength</emphasis> of the collator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The collator class provide four level of <emphasis>strength</emphasis>. <itemizedlist>
+<listitem><para><computeroutput>B_COLLATE_PRIMARY</computeroutput> doesn&apos;t differentiate e from é, </para>
+</listitem>
+<listitem><para><computeroutput>B_COLLATE_SECONDARY</computeroutput> takes letter accents into account, </para>
+</listitem>
+<listitem><para><computeroutput>B_COLLATE_TERTIARY</computeroutput> is case sensitive, </para>
+</listitem>
+<listitem><para><computeroutput>B_COLLATE_QUATERNARY</computeroutput> is very strict. Most of the time you shouldn&apos;t need to go this far.</para>
+</listitem>
+</itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="50" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classBCollator_1af4c8d97e7647b25094c3fb370e6bab7e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>static BArchivable * BCollator::Instantiate</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BCollator::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Unarchive the collator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method allows you to restore a collator that you previously archived.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to restore the collator from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to a <ref refid="classBArchivable" kindref="compound">BArchivable</ref> object containing the <ref refid="classBCollator" kindref="compound">BCollator</ref> or <computeroutput>NULL</computeroutput> if an error occurred restoring the <emphasis>archive</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="71" column="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class for handling locale-aware collation (sorting) of strings. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBCollator" kindref="compound">BCollator</ref> is designed to handle collation (sorting) of strings. Unlike string sorting using strcmp() or similar functions that compare raw bytes the collation is done using a set of rules that changes from one locale to another. For example, in Spanish, &apos;ch&apos; is considered to be a letter and is sorted between &apos;c&apos; and &apos;d&apos;. This class is also able to perform natural number sorting so that 2 is sorted before 10 unlike byte-based sorting.</para>
+<para><simplesect kind="warning"><para>This class is not multithread-safe. So if you want to use a <ref refid="classBCollator" kindref="compound">BCollator</ref> from more than one thread you need to protect it with a lock.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BCollator</label>
+        <link refid="classBCollator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BCollator</label>
+        <link refid="classBCollator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/locale/Collator.h" line="36" column="1" bodyfile="/boot/home/src/haiku/headers/os/locale/Collator.h" bodystart="36" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BCollator</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BCollator</scope><name>AllUnarchived</name></member>
+      <member refid="classBCollator_1a6ad070bcec766bb2e4b3963f2af53e90" prot="public" virt="virtual"><scope>BCollator</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BCollator</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BCollator</scope><name>BArchivable</name></member>
+      <member refid="classBCollator_1ae07621ec715d5376a93b2fa5c614246b" prot="public" virt="non-virtual"><scope>BCollator</scope><name>BCollator</name></member>
+      <member refid="classBCollator_1ab1ca4b563ded3abaa3a97e5c8d1bcdbf" prot="public" virt="non-virtual"><scope>BCollator</scope><name>BCollator</name></member>
+      <member refid="classBCollator_1aeff16f67a2e8ac21ae710e6784295ec2" prot="public" virt="non-virtual"><scope>BCollator</scope><name>BCollator</name></member>
+      <member refid="classBCollator_1a07418d21aace37e019ba08f4e1df41e9" prot="public" virt="non-virtual"><scope>BCollator</scope><name>BCollator</name></member>
+      <member refid="classBCollator_1a3af1c9ae97365dab40d0d43a4fd11d5c" prot="public" virt="non-virtual"><scope>BCollator</scope><name>Compare</name></member>
+      <member refid="classBCollator_1a5fee4e2861f85e1a4a65625ed72ff08b" prot="public" virt="non-virtual"><scope>BCollator</scope><name>Equal</name></member>
+      <member refid="classBCollator_1a28320d2444d4927ae627205ea1f2b6cd" prot="private" virt="non-virtual"><scope>BCollator</scope><name>fICUCollator</name></member>
+      <member refid="classBCollator_1aa25d8acf7c722d59f4f2e562c2a2672f" prot="private" virt="non-virtual"><scope>BCollator</scope><name>fIgnorePunctuation</name></member>
+      <member refid="classBCollator_1a7566b825b2d37eb54df9dee49ce991ac" prot="public" virt="non-virtual"><scope>BCollator</scope><name>GetSortKey</name></member>
+      <member refid="classBCollator_1a149a4ff29c1dd8aa118333168fc0a357" prot="public" virt="non-virtual"><scope>BCollator</scope><name>Greater</name></member>
+      <member refid="classBCollator_1a3460ddd8a21965501e73855a6be074bb" prot="public" virt="non-virtual"><scope>BCollator</scope><name>GreaterOrEqual</name></member>
+      <member refid="classBCollator_1a1a952b5156f2949d4fd5339c23b02969" prot="public" virt="non-virtual"><scope>BCollator</scope><name>IgnorePunctuation</name></member>
+      <member refid="classBCollator_1af4c8d97e7647b25094c3fb370e6bab7e" prot="public" virt="non-virtual"><scope>BCollator</scope><name>Instantiate</name></member>
+      <member refid="classBCollator_1ad9bf170ccbe66f710a7a0fdbb220d9b6" prot="public" virt="non-virtual"><scope>BCollator</scope><name>operator=</name></member>
+      <member refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de" prot="public" virt="virtual"><scope>BCollator</scope><name>Perform</name></member>
+      <member refid="classBCollator_1a15c509d0aec3ba488b729b39126b51e0" prot="public" virt="non-virtual"><scope>BCollator</scope><name>SetIgnorePunctuation</name></member>
+      <member refid="classBCollator_1aef84d3e2cce998b10c850526c772937d" prot="public" virt="non-virtual"><scope>BCollator</scope><name>SetNumericSorting</name></member>
+      <member refid="classBCollator_1afb899892efad8cfcc4c9e5847ba3827e" prot="public" virt="non-virtual"><scope>BCollator</scope><name>SetStrength</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BCollator</scope><name>~BArchivable</name></member>
+      <member refid="classBCollator_1adf50b517d043af89cda41625c6f97538" prot="public" virt="non-virtual"><scope>BCollator</scope><name>~BCollator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

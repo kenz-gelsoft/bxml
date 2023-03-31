@@ -1,0 +1,736 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMediaDecoder" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BMediaDecoder</compoundname>
+    <derivedcompoundref refid="classBMediaBufferDecoder" prot="public" virt="non-virtual">BMediaBufferDecoder</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMediaDecoder_1a18aed02e16eb1e86e58bf001250df01e" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMediaDecoder::_reserved_BMediaDecoder_[33]</definition>
+        <argsstring>[33]</argsstring>
+        <name>_reserved_BMediaDecoder_</name>
+        <qualifiedname>BMediaDecoder::_reserved_BMediaDecoder_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="55" column="8" bodyfile="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaDecoder_1aedfc582b7703a8c84914c072c9332e3e" prot="private" static="no" mutable="no">
+        <type>BPrivate::media::Decoder *</type>
+        <definition>BPrivate::media::Decoder* BMediaDecoder::fDecoder</definition>
+        <argsstring></argsstring>
+        <name>fDecoder</name>
+        <qualifiedname>BMediaDecoder::fDecoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="50" column="25" bodyfile="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaDecoder_1a1cbdfeccf2ee358a0ea5263c350f34e0" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::fInitStatus</definition>
+        <argsstring></argsstring>
+        <name>fInitStatus</name>
+        <qualifiedname>BMediaDecoder::fInitStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="51" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMediaDecoder_1abf6cfb0f0c4ba637127a6627201e1082" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaDecoder::BMediaDecoder</definition>
+        <argsstring>()</argsstring>
+        <name>BMediaDecoder</name>
+        <qualifiedname>BMediaDecoder::BMediaDecoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a6f413427b0cda2e6ed7d4da7334da2d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaDecoder::BMediaDecoder</definition>
+        <argsstring>(const media_codec_info *mci)</argsstring>
+        <name>BMediaDecoder</name>
+        <qualifiedname>BMediaDecoder::BMediaDecoder</qualifiedname>
+        <param>
+          <type>const media_codec_info *</type>
+          <declname>mci</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1ad70bfe95a2f8a4cf6849d89f5d21f165" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaDecoder::BMediaDecoder</definition>
+        <argsstring>(const media_format *in_format, const void *info=NULL, size_t info_size=0)</argsstring>
+        <name>BMediaDecoder</name>
+        <qualifiedname>BMediaDecoder::BMediaDecoder</qualifiedname>
+        <param>
+          <type>const media_format *</type>
+          <declname>in_format</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>info</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>info_size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a11e1a63813c3e35b0710b692ff988d5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BMediaDecoder::~BMediaDecoder</definition>
+        <argsstring>()</argsstring>
+        <name>~BMediaDecoder</name>
+        <qualifiedname>BMediaDecoder::~BMediaDecoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a299bbe8593703f023d5c86c8b1096b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::Decode</definition>
+        <argsstring>(void *out_buffer, int64 *out_frameCount, media_header *out_mh, media_decode_info *info)</argsstring>
+        <name>Decode</name>
+        <qualifiedname>BMediaDecoder::Decode</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>out_buffer</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>out_frameCount</declname>
+        </param>
+        <param>
+          <type>media_header *</type>
+          <declname>out_mh</declname>
+        </param>
+        <param>
+          <type>media_decode_info *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="34" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a15fd7584169a415357ba8fb35b194d20" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::GetDecoderInfo</definition>
+        <argsstring>(media_codec_info *out_info) const</argsstring>
+        <name>GetDecoderInfo</name>
+        <qualifiedname>BMediaDecoder::GetDecoderInfo</qualifiedname>
+        <param>
+          <type>media_codec_info *</type>
+          <declname>out_info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a97df04860bf5f41ba73e1ca190e87b61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BMediaDecoder::InitCheck</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="24" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a0ffdb3fbcea875d7f94128d39a6fa663" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::SetInputFormat</definition>
+        <argsstring>(const media_format *in_format, const void *in_info=NULL, size_t in_size=0)</argsstring>
+        <name>SetInputFormat</name>
+        <qualifiedname>BMediaDecoder::SetInputFormat</qualifiedname>
+        <param>
+          <type>const media_format *</type>
+          <declname>in_format</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>in_info</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>in_size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="29" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a717a63a9b53847062c3b44a10ec9d2c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::SetOutputFormat</definition>
+        <argsstring>(media_format *output_format)</argsstring>
+        <name>SetOutputFormat</name>
+        <qualifiedname>BMediaDecoder::SetOutputFormat</qualifiedname>
+        <param>
+          <type>media_format *</type>
+          <declname>output_format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1ade3c12e9416dcb0d1016fd4f253e0291" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::SetTo</definition>
+        <argsstring>(const media_codec_info *mci)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BMediaDecoder::SetTo</qualifiedname>
+        <param>
+          <type>const media_codec_info *</type>
+          <declname>mci</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="28" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1aa4d12844d91eabcc5e24e5815ae8fc93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::SetTo</definition>
+        <argsstring>(const media_format *in_format, const void *info=NULL, size_t info_size=0)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BMediaDecoder::SetTo</qualifiedname>
+        <param>
+          <type>const media_format *</type>
+          <declname>in_format</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>info</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>info_size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="26" column="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBMediaDecoder_1a4427f510ddd981a3b1c8f03af0275f7f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::GetNextChunk</definition>
+        <argsstring>(const void **chunkData, size_t *chunkLen, media_header *mh)=0</argsstring>
+        <name>GetNextChunk</name>
+        <qualifiedname>BMediaDecoder::GetNextChunk</qualifiedname>
+        <param>
+          <type>const void **</type>
+          <declname>chunkData</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>chunkLen</declname>
+        </param>
+        <param>
+          <type>media_header *</type>
+          <declname>mh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="39" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMediaDecoder_1a9a98f8e90ce62c7e5b0151a12df23574" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaDecoder::BMediaDecoder</definition>
+        <argsstring>(const BMediaDecoder &amp;)</argsstring>
+        <name>BMediaDecoder</name>
+        <qualifiedname>BMediaDecoder::BMediaDecoder</qualifiedname>
+        <param>
+          <type>const BMediaDecoder &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="45" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a9f3ea7da24aa6d14426f36b1481f3534" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_0</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_0</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_0</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="57" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a13ebc8885f5d192a41002ec2906f33e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_1</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_1</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_1</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="58" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a27d0b9b3231504f8fbf6368415858168" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_10</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_10</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_10</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="67" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1aca961be957b589d22e38ca81d9672863" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_11</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_11</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_11</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="68" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a2e144fc49b536abfb9012991260ddb45" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_12</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_12</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_12</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="69" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a2841b3343961fc5cf8901afd3b4ad3e7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_13</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_13</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_13</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="70" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a96736e561ba10a564c2405317194d0ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_14</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_14</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_14</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="71" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a0b359179f1f9aa42eb9cbcc58ede4bf4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_15</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_15</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_15</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="72" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1ae35ffeb2826fa16f1e85b6ea510f3b9c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_2</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_2</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_2</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="59" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1af6214549dcb52f956e9c77dcc74ddbc6" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_3</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_3</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_3</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="60" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a89263a8f0d28ef7caf6ed868c3e727c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_4</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_4</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_4</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="61" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a8dcda74596172a0386540e0b5e388135" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_5</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_5</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_5</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="62" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a25eed17c9060581018090cbba481d4fd" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_6</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_6</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_6</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="63" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a0fe513206a702f5ff91c555046a12a5b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_7</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_7</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_7</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="64" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a7eac1bb170bc0df98dc63c4a171a3292" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_8</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_8</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_8</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="65" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1af89c8f3c2ddc73b5cb16980fc0e05d53" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaDecoder::_Reserved_BMediaDecoder_9</definition>
+        <argsstring>(int32 arg,...)</argsstring>
+        <name>_Reserved_BMediaDecoder_9</name>
+        <qualifiedname>BMediaDecoder::_Reserved_BMediaDecoder_9</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="66" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a6683ef725eb99a8108c59f657bc4793f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaDecoder::AttachToDecoder</definition>
+        <argsstring>()</argsstring>
+        <name>AttachToDecoder</name>
+        <qualifiedname>BMediaDecoder::AttachToDecoder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="48" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaDecoder_1a590b6f3b6149a83590231d2bc4cd1eaa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>BMediaDecoder &amp;</type>
+        <definition>BMediaDecoder &amp; BMediaDecoder::operator=</definition>
+        <argsstring>(const BMediaDecoder &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BMediaDecoder::operator=</qualifiedname>
+        <param>
+          <type>const BMediaDecoder &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="46" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" line="17" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/MediaDecoder.h" bodystart="17" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classBMediaDecoder_1a18aed02e16eb1e86e58bf001250df01e" prot="private" virt="non-virtual"><scope>BMediaDecoder</scope><name>_reserved_BMediaDecoder_</name></member>
+      <member refid="classBMediaDecoder_1a9f3ea7da24aa6d14426f36b1481f3534" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_0</name></member>
+      <member refid="classBMediaDecoder_1a13ebc8885f5d192a41002ec2906f33e5" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_1</name></member>
+      <member refid="classBMediaDecoder_1a27d0b9b3231504f8fbf6368415858168" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_10</name></member>
+      <member refid="classBMediaDecoder_1aca961be957b589d22e38ca81d9672863" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_11</name></member>
+      <member refid="classBMediaDecoder_1a2e144fc49b536abfb9012991260ddb45" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_12</name></member>
+      <member refid="classBMediaDecoder_1a2841b3343961fc5cf8901afd3b4ad3e7" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_13</name></member>
+      <member refid="classBMediaDecoder_1a96736e561ba10a564c2405317194d0ab" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_14</name></member>
+      <member refid="classBMediaDecoder_1a0b359179f1f9aa42eb9cbcc58ede4bf4" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_15</name></member>
+      <member refid="classBMediaDecoder_1ae35ffeb2826fa16f1e85b6ea510f3b9c" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_2</name></member>
+      <member refid="classBMediaDecoder_1af6214549dcb52f956e9c77dcc74ddbc6" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_3</name></member>
+      <member refid="classBMediaDecoder_1a89263a8f0d28ef7caf6ed868c3e727c1" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_4</name></member>
+      <member refid="classBMediaDecoder_1a8dcda74596172a0386540e0b5e388135" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_5</name></member>
+      <member refid="classBMediaDecoder_1a25eed17c9060581018090cbba481d4fd" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_6</name></member>
+      <member refid="classBMediaDecoder_1a0fe513206a702f5ff91c555046a12a5b" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_7</name></member>
+      <member refid="classBMediaDecoder_1a7eac1bb170bc0df98dc63c4a171a3292" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_8</name></member>
+      <member refid="classBMediaDecoder_1af89c8f3c2ddc73b5cb16980fc0e05d53" prot="private" virt="virtual"><scope>BMediaDecoder</scope><name>_Reserved_BMediaDecoder_9</name></member>
+      <member refid="classBMediaDecoder_1a6683ef725eb99a8108c59f657bc4793f" prot="private" virt="non-virtual"><scope>BMediaDecoder</scope><name>AttachToDecoder</name></member>
+      <member refid="classBMediaDecoder_1abf6cfb0f0c4ba637127a6627201e1082" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>BMediaDecoder</name></member>
+      <member refid="classBMediaDecoder_1ad70bfe95a2f8a4cf6849d89f5d21f165" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>BMediaDecoder</name></member>
+      <member refid="classBMediaDecoder_1a6f413427b0cda2e6ed7d4da7334da2d4" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>BMediaDecoder</name></member>
+      <member refid="classBMediaDecoder_1a9a98f8e90ce62c7e5b0151a12df23574" prot="private" virt="non-virtual"><scope>BMediaDecoder</scope><name>BMediaDecoder</name></member>
+      <member refid="classBMediaDecoder_1a299bbe8593703f023d5c86c8b1096b5a" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>Decode</name></member>
+      <member refid="classBMediaDecoder_1aedfc582b7703a8c84914c072c9332e3e" prot="private" virt="non-virtual"><scope>BMediaDecoder</scope><name>fDecoder</name></member>
+      <member refid="classBMediaDecoder_1a1cbdfeccf2ee358a0ea5263c350f34e0" prot="private" virt="non-virtual"><scope>BMediaDecoder</scope><name>fInitStatus</name></member>
+      <member refid="classBMediaDecoder_1a15fd7584169a415357ba8fb35b194d20" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>GetDecoderInfo</name></member>
+      <member refid="classBMediaDecoder_1a4427f510ddd981a3b1c8f03af0275f7f" prot="protected" virt="pure-virtual"><scope>BMediaDecoder</scope><name>GetNextChunk</name></member>
+      <member refid="classBMediaDecoder_1a97df04860bf5f41ba73e1ca190e87b61" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>InitCheck</name></member>
+      <member refid="classBMediaDecoder_1a590b6f3b6149a83590231d2bc4cd1eaa" prot="private" virt="non-virtual"><scope>BMediaDecoder</scope><name>operator=</name></member>
+      <member refid="classBMediaDecoder_1a0ffdb3fbcea875d7f94128d39a6fa663" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>SetInputFormat</name></member>
+      <member refid="classBMediaDecoder_1a717a63a9b53847062c3b44a10ec9d2c5" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>SetOutputFormat</name></member>
+      <member refid="classBMediaDecoder_1aa4d12844d91eabcc5e24e5815ae8fc93" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>SetTo</name></member>
+      <member refid="classBMediaDecoder_1ade3c12e9416dcb0d1016fd4f253e0291" prot="public" virt="non-virtual"><scope>BMediaDecoder</scope><name>SetTo</name></member>
+      <member refid="classBMediaDecoder_1a11e1a63813c3e35b0710b692ff988d5e" prot="public" virt="virtual"><scope>BMediaDecoder</scope><name>~BMediaDecoder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

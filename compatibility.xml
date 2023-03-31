@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="compatibility" kind="page">
+    <compoundname>compatibility</compoundname>
+    <title>Application Level API Incompatibilities with BeOS</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Haiku R1 (x86) was designed and is being implemented to be binary and source compatible with applications written for BeOS R5 (x86) to a large extent, but not the other way around. In some cases we deliberately broke source compatibility while at the same time maintaining binary compatibility. Here are some specific examples:</para>
+<para><itemizedlist>
+<listitem><para>The <computeroutput>&quot;be&quot;</computeroutput> header path is gone - it&apos;s called <computeroutput>&quot;os&quot;</computeroutput> in Haiku; since it is always part of the default header search path anyway, you can always just remove it to let your software compile on both platforms, ie. replace: <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;be/interface/View.h&gt;</highlight></codeline>
+</programlisting> with: <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;<ref refid="View_8h" kindref="compound">interface/View.h</ref>&gt;</highlight></codeline>
+</programlisting> or rather use the preferred method of omitting the first part and use: <programlisting><codeline><highlight class="preprocessor">#include<sp/>&lt;<ref refid="View_8h" kindref="compound">View.h</ref>&gt;</highlight></codeline>
+</programlisting></para>
+</listitem><listitem><para>BeOS contains a deprecated <computeroutput>add-ons/TrackerAddons.h</computeroutput> header, and a header called <computeroutput>add-ons/TrackerAddOns.h</computeroutput> - Haiku only contains the latter.</para>
+</listitem><listitem><para>Likewise, you&apos;ll find <computeroutput>support/byteorder.h</computeroutput> and <computeroutput>support/ByteOrder.h</computeroutput> in BeOS; Haiku only has ByteOrder.h.</para>
+</listitem><listitem><para>If you have subclassed <ref refid="classBString" kindref="compound">BString</ref> and if you are using its <computeroutput>_privateData</computeroutput> member, you might notice that it is no longer mentioned in the documentation. This is because it has been marked as private.</para>
+</listitem><listitem><para>The undocumented functions defined in Alias.h from the storage kit are not implemented.</para>
+</listitem><listitem><para>The private Device Map API (used by OpenTracker) has been replaced by a different API (Disk Device API).</para>
+</listitem><listitem><para>The application debugging interface is conceptually similar, but nevertheless source and binary incompatible.</para>
+</listitem><listitem><para>The file system API has changed; file systems that worked on BeOS will no longer work on Haiku.</para>
+</listitem><listitem><para>Haiku is binary compatible with the Network Kit in BeOS R5 as well as BONE, ie. the BSD socket API as well as Be&apos;s proprietary C++ API. However, the ioctl() interface is not compatible with BONE (BeOS R5 did not have such an interface in the first place).</para>
+</listitem><listitem><para>In several places we also dropped compatibility support for older BeOS versions (PR2, R3, R4), which BeOS R5 still featured.</para>
+</listitem><listitem><para>The <ref refid="classBArchivable" kindref="compound">BArchivable</ref> class has been updated, and for some classes, unarchiving is slightly different. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="compatibility.dox"/>
+  </compounddef>
+</doxygen>

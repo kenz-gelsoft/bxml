@@ -1,0 +1,712 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBPrivate_1_1Network_1_1BHttpFields" kind="class" language="C++" prot="public">
+    <compoundname>BPrivate::Network::BHttpFields</compoundname>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" prot="public">BPrivate::Network::BHttpFields::Field</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields_1_1FieldName" prot="public">BPrivate::Network::BHttpFields::FieldName</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields_1_1InvalidInput" prot="public">BPrivate::Network::BHttpFields::InvalidInput</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Constructors &amp; Destructor</header>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a97dab78d985884bf1a98cbb99b0e9eaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpFields::BHttpFields</definition>
+        <argsstring>()</argsstring>
+        <name>BHttpFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::BHttpFields</qualifiedname>
+        <briefdescription>
+<para>Construct an empty list of HTTP header fields. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a87984a2703edbe514ac18162800f6e95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpFields::BHttpFields</definition>
+        <argsstring>(std::initializer_list&lt; Field &gt; fields)</argsstring>
+        <name>BHttpFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::BHttpFields</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">Field</ref> &gt;</type>
+          <declname>fields</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the object with a list of fields. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This enables you to initialize the fields with a list of <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">BHttpFields::Field</ref> objects. Any empty fields will be skipped. Like <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1af5d450e33dba0b759f27ac61624575d2" kindref="member">AddField()</ref>, this constructor keeps the fields in the original order.</para>
+<para>The example below will create an object with four fields, even though five fields have been passed in the initializer. The two <computeroutput>Accept-Encoding</computeroutput> will be added in this order, even though the HTTP specification does not explicitly allow this.</para>
+<para><programlisting><codeline><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1a97dab78d985884bf1a98cbb99b0e9eaa" kindref="member">BHttpFields</ref><sp/>defaultFields<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Host&quot;</highlight><highlight class="normal">sv,<sp/></highlight><highlight class="stringliteral">&quot;haiku-os.org&quot;</highlight><highlight class="normal">sv},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Accept-Encoding&quot;</highlight><highlight class="normal">sv,<sp/></highlight><highlight class="stringliteral">&quot;gzip&quot;</highlight><highlight class="normal">sv}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Accept&quot;</highlight><highlight class="normal">sv,<sp/></highlight><highlight class="stringliteral">&quot;*\/*&quot;</highlight><highlight class="normal">sv},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{},</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;Accept-Encoding&quot;</highlight><highlight class="normal">sv,<sp/></highlight><highlight class="stringliteral">&quot;bzip2&quot;</highlight><highlight class="normal">sv}</highlight></codeline>
+<codeline><highlight class="normal">};</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1InvalidInput" kindref="compound">BHttpFields::InvalidInput</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This error indicates that some of the names or values in the list do not adhere to the HTTP specification.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a8c22cef3f56f8e86d94d84f8930efd92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpFields::BHttpFields</definition>
+        <argsstring>(const BHttpFields &amp;other)</argsstring>
+        <name>BHttpFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::BHttpFields</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a042678f30d9ebd62b0d8886658a2596a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpFields::BHttpFields</definition>
+        <argsstring>(BHttpFields &amp;&amp;other)</argsstring>
+        <name>BHttpFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::BHttpFields</qualifiedname>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Move constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The name and value from the <emphasis>other</emphasis> fields object will be moved to this object. The <emphasis>other</emphasis> object will be empty, meaning it no longer has any fields.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="41" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a84d6349162ab618171094fc6c8ce95ce" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpFields::~BHttpFields</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~BHttpFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::~BHttpFields</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="42" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Assignment operators</header>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a102e16df1dbd3e2a354cb80d83a1d12b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref> &amp;</type>
+        <definition>BHttpFields &amp; BPrivate::Network::BHttpFields::operator=</definition>
+        <argsstring>(const BHttpFields &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref> &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+<para>Copy assignment operator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Make a new fields object with a copy of the fields of the <emphasis>other</emphasis> header.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="45" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a8a6da5ad61f5b2da5c913a85a3b2768f" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref> &amp;</type>
+        <definition>BHttpFields &amp; BPrivate::Network::BHttpFields::operator=</definition>
+        <argsstring>(BHttpFields &amp;&amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref> &amp;&amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+<para>Move assignment operator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The name and value from the <emphasis>other</emphasis> fields object will be moved to this object. The <emphasis>other</emphasis> object will be empty, meaning it no longer has any fields.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="46" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>List Access</header>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a7db3f3143adc608e1aa32496837d9a23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">Field</ref> &amp;</type>
+        <definition>const Field &amp; BPrivate::Network::BHttpFields::operator[]</definition>
+        <argsstring>(size_t index) const</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::operator[]</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get the item at an <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The zero-based index of the item in the list of fields.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A const reference to the the field.</para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BRuntimeError" kindref="compound">BRuntimeError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case the index is out of bounds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="49" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Modifying the list</header>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1af5d450e33dba0b759f27ac61624575d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpFields::AddField</definition>
+        <argsstring>(const std::string_view &amp;name, const std::string_view &amp;value)</argsstring>
+        <name>AddField</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::AddField</qualifiedname>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Append a field with <emphasis>name</emphasis> and a <emphasis>value</emphasis> to the list of headers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The parameters are checked whether they only contain characters that are allowed by the HTTP specification.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the header field. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the header field.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1InvalidInput" kindref="compound">BHttpFields::InvalidInput</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This error indicates that the <emphasis>name</emphasis> or the <emphasis>value</emphasis> contains invalid characters.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a907539c02ecf4fd477cd452b131e2f20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpFields::AddField</definition>
+        <argsstring>(BString &amp;field)</argsstring>
+        <name>AddField</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::AddField</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>field</declname>
+        </param>
+        <briefdescription>
+<para>Append a field from the raw <emphasis>field</emphasis> line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The raw header field is checked to determine whether it corresponds to the the HTTP specification. Note that the raw field should not include any newline characters at the end of the string.</para>
+<para>If succesful, the string is moved into the fields object, and the original input value will be empty.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>field</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The raw header field to move into the list of headers.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1InvalidInput" kindref="compound">BHttpFields::InvalidInput</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This error indicates that the <emphasis>name</emphasis> or the <emphasis>value</emphasis> is empty or contains invalid characters.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="54" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a074c575ebfa84c49b19140605346932d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpFields::AddFields</definition>
+        <argsstring>(std::initializer_list&lt; Field &gt; fields)</argsstring>
+        <name>AddFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::AddFields</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">Field</ref> &gt;</type>
+          <declname>fields</declname>
+        </param>
+        <briefdescription>
+<para>Add a list of fields. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This enables you to add a list of <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">BHttpFields::Field</ref> objects. Like <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1af5d450e33dba0b759f27ac61624575d2" kindref="member">AddField()</ref>, the fields are added in the the original order.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1InvalidInput" kindref="compound">BHttpFields::InvalidInput</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This error indicates that some of the names or values in the list do not adhere to the HTTP specification.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="55" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a1dde58dbec6a291046ea3329960378fb" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpFields::RemoveField</definition>
+        <argsstring>(const std::string_view &amp;name) noexcept</argsstring>
+        <name>RemoveField</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::RemoveField</qualifiedname>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Remove all fields with the <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If there are no fields with this name, this method does nothing. Like all operations that involve a field name, the name matching is case insensitive.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the field to remove.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="56" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1ace0b24d647ff93ac673c3351bcf742ec" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpFields::RemoveField</definition>
+        <argsstring>(ConstIterator it) noexcept</argsstring>
+        <name>RemoveField</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::RemoveField</qualifiedname>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1aace9e798caa59506b3fa1f763c055a8f" kindref="member">ConstIterator</ref></type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+<para>Remove the specific field at the location of an iterator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>it</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A valid iterator to the item that must be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a98e63d61dd4fd26b452101dafb90bffd" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpFields::MakeEmpty</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>MakeEmpty</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::MakeEmpty</qualifiedname>
+        <briefdescription>
+<para>Clear all fields from this header. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes all fields from the container.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="58" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Querying</header>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a6dc1750db7e303f87d025812920541bd" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1aace9e798caa59506b3fa1f763c055a8f" kindref="member">ConstIterator</ref></type>
+        <definition>ConstIterator BPrivate::Network::BHttpFields::FindField</definition>
+        <argsstring>(const std::string_view &amp;name) const noexcept</argsstring>
+        <name>FindField</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::FindField</qualifiedname>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Find a field with <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In case there are more than one fields with the same name, you cannot use this method to find all instances, and you should iterate through the fields instead.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the field to be found.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Returns a valid iterator to the first field with <emphasis>name</emphasis> in this container, or <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1a763fea9be7bdc49f11cc045aaafbeee9" kindref="member">BHttpFields::end()</ref> in case the name is not found.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="61" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a43e0109e4958caec53aea425625f4d70" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t BPrivate::Network::BHttpFields::CountFields</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>CountFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::CountFields</qualifiedname>
+        <briefdescription>
+<para>Get the number of fields. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of fields in this container. If multiple fields have the same name, they will be counted individually.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="62" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a2943b6398fe8a80d2172a9eadca9dd9e" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t BPrivate::Network::BHttpFields::CountFields</definition>
+        <argsstring>(const std::string_view &amp;name) const noexcept</argsstring>
+        <name>CountFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::CountFields</qualifiedname>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Cound the number of fields that have this <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the field you are looking for. Name matching will be done case insensitively.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of field with the <emphasis>name</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="63" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Range-based iteration.</header>
+      <description><para>Allows the usage of this object in a for loop. </para>
+</description>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1aea54668280d09020d17d8f1dbbba1047" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1aace9e798caa59506b3fa1f763c055a8f" kindref="member">ConstIterator</ref></type>
+        <definition>ConstIterator BPrivate::Network::BHttpFields::begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>begin</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::begin</qualifiedname>
+        <briefdescription>
+<para>Return an iterator to the first field. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="66" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpFields_1a763fea9be7bdc49f11cc045aaafbeee9" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpFields_1aace9e798caa59506b3fa1f763c055a8f" kindref="member">ConstIterator</ref></type>
+        <definition>ConstIterator BPrivate::Network::BHttpFields::end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>end</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::end</qualifiedname>
+        <briefdescription>
+<para>Return an iterator to the end of the fields. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="67" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classBPrivate_1_1Network_1_1BHttpFields_1aace9e798caa59506b3fa1f763c055a8f" prot="public" static="no">
+        <type>std::list&lt; <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">Field</ref> &gt;::const_iterator</type>
+        <definition>BPrivate::Network::BHttpFields::ConstIterator</definition>
+        <argsstring></argsstring>
+        <name>ConstIterator</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::ConstIterator</qualifiedname>
+        <briefdescription>
+<para>Define a constant iterator to iterate through the list of header fields. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This iterator has the same semantics as other constant iterators in the C++ standard library.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="35" column="1" bodyfile="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBPrivate_1_1Network_1_1BHttpFields_1a4f32a2c485648febca36b0b2894a79a7" prot="private" static="no" mutable="no">
+        <type>std::list&lt; <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" kindref="compound">Field</ref> &gt;</type>
+        <definition>std::list&lt;Field&gt; BPrivate::Network::BHttpFields::fFields</definition>
+        <argsstring></argsstring>
+        <name>fFields</name>
+        <qualifiedname>BPrivate::Network::BHttpFields::fFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="70" column="10" bodyfile="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents the field section of a HTTP header. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The HTTP protocol (RFC 7230) specifies that each HTTP request and response has a header. Part of that header is a list of fields, which are name and value pairs. The high level protocol defines what valid field names and field values look like. When adding or modifying field data, the members of this class enforce those constraints.</para>
+<para>When you are processing a HTTP response, this object gives you the methods to query the headers in that response. When you are creating a HTTP request, this object gives you methods to add and modify header fields on your request. When retrieving data from the header fields, this data is often returned as an <computeroutput>std::string_view</computeroutput>. Please note that this object will only point to valid data for the lifetime of this object, which in case of a HTTP response, will be bound to the lifetime of the object that contains the HTTP response.</para>
+<para>When adding headers, the fields are stored in the order in which they were added. You can use <ref refid="classBPrivate_1_1Network_1_1BHttpFields_1af5d450e33dba0b759f27ac61624575d2" kindref="member">AddField()</ref> to add more than one field with the same key.</para>
+<para>The HTTP protocol does not prohibit multiple fields with the same name, but it does note that semantically this is only allowed for a limited set of explicitly named headers, like the &apos;Set-Cookie&apos; field (see RFC 7230 section 3.2.2). Because most header fields will only exist once, the interface of this class is optimized for each header field existing only once. The onus is on the user to take additional steps when dealing with header fields that they know can occur more than once.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" line="24" column="1" bodyfile="/boot/home/src/haiku/headers/private/netservices2/HttpFields.h" bodystart="25" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1af5d450e33dba0b759f27ac61624575d2" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>AddField</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a907539c02ecf4fd477cd452b131e2f20" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>AddField</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a074c575ebfa84c49b19140605346932d" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>AddFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1aea54668280d09020d17d8f1dbbba1047" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>begin</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a97dab78d985884bf1a98cbb99b0e9eaa" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>BHttpFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a87984a2703edbe514ac18162800f6e95" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>BHttpFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a8c22cef3f56f8e86d94d84f8930efd92" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>BHttpFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a042678f30d9ebd62b0d8886658a2596a" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>BHttpFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1aace9e798caa59506b3fa1f763c055a8f" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>ConstIterator</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a43e0109e4958caec53aea425625f4d70" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>CountFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a2943b6398fe8a80d2172a9eadca9dd9e" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>CountFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a763fea9be7bdc49f11cc045aaafbeee9" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>end</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a4f32a2c485648febca36b0b2894a79a7" prot="private" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>fFields</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a6dc1750db7e303f87d025812920541bd" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>FindField</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a98e63d61dd4fd26b452101dafb90bffd" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>MakeEmpty</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a102e16df1dbd3e2a354cb80d83a1d12b" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>operator=</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a8a6da5ad61f5b2da5c913a85a3b2768f" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>operator=</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a7db3f3143adc608e1aa32496837d9a23" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>operator[]</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a1dde58dbec6a291046ea3329960378fb" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>RemoveField</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1ace0b24d647ff93ac673c3351bcf742ec" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>RemoveField</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpFields_1a84d6349162ab618171094fc6c8ce95ce" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpFields</scope><name>~BHttpFields</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

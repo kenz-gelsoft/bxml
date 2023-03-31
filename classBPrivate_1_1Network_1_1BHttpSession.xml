@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBPrivate_1_1Network_1_1BHttpSession" kind="class" language="C++" prot="public">
+    <compoundname>BPrivate::Network::BHttpSession</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBPrivate_1_1Network_1_1BHttpSession_1a8bbc67399714efc8e343f1e7fd991b67" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; Impl &gt;</type>
+        <definition>std::shared_ptr&lt;Impl&gt; BPrivate::Network::BHttpSession::fImpl</definition>
+        <argsstring></argsstring>
+        <name>fImpl</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::fImpl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="52" column="17" bodyfile="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpSession::BHttpSession</definition>
+        <argsstring>()</argsstring>
+        <name>BHttpSession</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::BHttpSession</qualifiedname>
+        <briefdescription>
+<para>Construct a new object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each newly constructed object will have their own queue for HTTP requests, as well as their own cookies and certificate store.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to allocate resources for the object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BRuntimeError" kindref="compound">BRuntimeError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to create semaphores or threads.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="29" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1afefa20d6a6b0ef89dc9bd091ad3c02c8" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpSession::BHttpSession</definition>
+        <argsstring>(BHttpSession &amp;&amp;) noexcept=delete</argsstring>
+        <name>BHttpSession</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::BHttpSession</qualifiedname>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Move is disabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> objects cannot be moved. Because it has a shared internal state, making copies is cheap and it is the only supported method of creating multiple scoped objects with a shared lifetime.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1ac0e71239d098a1088b7362b705918f81" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpSession::BHttpSession</definition>
+        <argsstring>(const BHttpSession &amp;) noexcept</argsstring>
+        <name>BHttpSession</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::BHttpSession</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Create a new <ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> object that shares a state with another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The internal HTTP queue and context can be shared among multiple objects. You can use the copy constructor to create a new object.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a7b11bb0aa92564bdea568757395ccbbf" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>BPrivate::Network::BHttpSession::~BHttpSession</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>~BHttpSession</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::~BHttpSession</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The destructor releases the shared internal state of the session object. If there are no more sessions using the shared state, the state is cleaned up.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a4eff1630ceb2d7f22654dd8bbe9a5c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpSession::Cancel</definition>
+        <argsstring>(const BHttpResult &amp;request)</argsstring>
+        <name>Cancel</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::Cancel</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Cancel a running <emphasis>request</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See the <ref refid="classBPrivate_1_1Network_1_1BHttpSession_1accde0fa55308b63b41e661df47b423da" kindref="member">BHttpSession::Cancel(int32 identifier)</ref> method for more details on how this method works.</para>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="42" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1accde0fa55308b63b41e661df47b423da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpSession::Cancel</definition>
+        <argsstring>(int32 identifier)</argsstring>
+        <name>Cancel</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::Cancel</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>identifier</declname>
+        </param>
+        <briefdescription>
+<para>Cancel a running request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When a request that is scheduled or running is cancelled, its <ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref> object will be set to the <ref refid="classBPrivate_1_1Network_1_1BNetworkRequestError" kindref="compound">BNetworkRequestError</ref> exception with the <computeroutput>Cancelled</computeroutput> type.</para>
+<para>There are three possible outcomes: 1. If the request is not yet scheduled, then it will never start. The result will be set to the cancelled error state. 2. If the request was started, then processing it will be terminated. The result will be set to the cancelled error state. 3. If the request was already finished, then nothing happens. The result will keep the value it had assigned. The same if the request identifier is invalid.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>identifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The identifier for the request to cancel.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error in case memory cannot be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="41" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1ae14a7c52aaddfd69e22be4a8aeff727f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref></type>
+        <definition>BHttpResult BPrivate::Network::BHttpSession::Execute</definition>
+        <argsstring>(BHttpRequest &amp;&amp;request, BBorrow&lt; BDataIO &gt; target=nullptr, BMessenger observer=BMessenger())</argsstring>
+        <name>Execute</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::Execute</qualifiedname>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref> &amp;&amp;</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BBorrow" kindref="compound">BBorrow</ref>&lt; <ref refid="classBDataIO" kindref="compound">BDataIO</ref> &gt;</type>
+          <declname>target</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>observer</declname>
+          <defval><ref refid="classBMessenger" kindref="compound">BMessenger</ref>()</defval>
+        </param>
+        <briefdescription>
+<para>Schedule and execute a <emphasis>request</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The (valid) request to move from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional data buffer to write the incoming body of the request to. This can be <computeroutput>nullptr</computeroutput> if you want to use the default internal storage. If you provide a buffer, it must be wrapped in a <ref refid="classBPrivate_1_1Network_1_1BBorrow" kindref="compound">BBorrow</ref> object. This means that you exclusively borrow the target to this session object. After the request is finished, you can regain usage of the object through the matching <ref refid="classBPrivate_1_1Network_1_1BExclusiveBorrow" kindref="compound">BExclusiveBorrow</ref> object. Use the <ref refid="classBPrivate_1_1Network_1_1BHttpResult_1adeef8669a4d6f0fcbbbc2766072a8519" kindref="member">BHttpResult::Body()</ref> method to synchronize when the target is available again. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>observer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An optional observer that will receive the progress and status messages for this request.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref> object that corresponds to this request, and that can be used to monitor the progress.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="39" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a9b44dbc7966ed58ad903768e13b37c55" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> &amp;</type>
+        <definition>BHttpSession &amp; BPrivate::Network::BHttpSession::operator=</definition>
+        <argsstring>(BHttpSession &amp;&amp;) noexcept=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+<para>Move is disabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> objects cannot be moved. Because it has a shared internal state, making copies is cheap and it is the only supported method of creating multiple scoped objects with a shared lifetime.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="36" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a096712cf5ee1b7b4f3d752030d9bfd42" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> &amp;</type>
+        <definition>BHttpSession &amp; BPrivate::Network::BHttpSession::operator=</definition>
+        <argsstring>(const BHttpSession &amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy and use the shared state from another session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The internal HTTP queue and context can be shared among multiple objects. You can use the copy constructor to create a new copy.</para>
+<para>This copy assignment operator should be used in very specific instances only, where there is a particular reason to replace an existing session internal session with another. It should not be used in the following case:</para>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Bad<sp/>example</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref><sp/>session1<sp/>=<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Creates<sp/>a<sp/>new<sp/>session,<sp/>including<sp/>an<sp/>entirely<sp/>new<sp/>(expensive)<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref><sp/>session2<sp/>=<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Creates<sp/>another<sp/>new<sp/>session,<sp/>including<sp/>internal<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">session2<sp/>=<sp/>session1;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>At<sp/>this<sp/>stage,<sp/>the<sp/>internal<sp/>state<sp/>of<sp/>session2<sp/>would</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>have<sp/>to<sp/>be<sp/>cleaned<sp/>up<sp/>just<sp/>after<sp/>it<sp/>was<sp/>created.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Instead<sp/>do<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref><sp/>session1<sp/>=<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref><sp/>session2(session1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>session2<sp/>directly<sp/>shares<sp/>the<sp/>state<sp/>with<sp/>session<sp/>1</highlight></codeline>
+</programlisting></para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a24751671e7b5665d62241d3f968f9098" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpSession::SetMaxConnectionsPerHost</definition>
+        <argsstring>(size_t maxConnections)</argsstring>
+        <name>SetMaxConnectionsPerHost</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::SetMaxConnectionsPerHost</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>maxConnections</declname>
+        </param>
+        <briefdescription>
+<para>Set the maximum number of connections per host. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A host is identified by the domain name and the port. You can limit the number of concurrent connections to a host by tweaking this value.</para>
+<para>The default value is 2 connections per host.</para>
+<para>If the value is decreased, any requests that already started will not be affected. The new value will only be applied when any new requests are added.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxConnections</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of connections per host. This value must between 1 and <computeroutput>INT32_MAX</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BRuntimeError" kindref="compound">BRuntimeError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In case the <emphasis>maxConnections</emphasis> is invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="45" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBPrivate_1_1Network_1_1BHttpSession_1a46fbd98c452c1d3b97db93b8ddff81f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BPrivate::Network::BHttpSession::SetMaxHosts</definition>
+        <argsstring>(size_t maxConnections)</argsstring>
+        <name>SetMaxHosts</name>
+        <qualifiedname>BPrivate::Network::BHttpSession::SetMaxHosts</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>maxConnections</declname>
+        </param>
+        <briefdescription>
+<para>Set the maximum number of concurrent hosts that can be connected to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A host is identified by the domain name and the port. You can limit the number of concurrent hosts by tweaking this value.</para>
+<para>The default value is 10 concurrent hosts.</para>
+<para>If the value is decreased, any requests that already started will not be affected. The new value will only be applied when any new requests are added.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxConnections</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of hosts. The value must be at least 1.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="classBPrivate_1_1Network_1_1BRuntimeError" kindref="compound">BRuntimeError</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In case the <emphasis>maxConnections</emphasis> is 0.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="46" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Schedule, execute and manage HTTP requests. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>All requests start from a `BHttpSession`. This class has the following jobs:<itemizedlist>
+<listitem><para>Store data used between various HTTP calls<itemizedlist>
+<listitem><para>Proxies</para>
+</listitem><listitem><para>Cookies</para>
+</listitem><listitem><para>Additional SSL certificates</para>
+</listitem><listitem><para>Authentication Data</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Manage the scheduling and execution of HTTP requests.</para>
+</listitem></itemizedlist>
+</para>
+<para>Objects of the `BHttpSession` class can be shared between different parts of the application. They should be copied, rather than shared using pointers. This is because they have an inner state that is shared between the various objects.</para>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Creating<sp/>and<sp/>sharing<sp/>a<sp/>session</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>session<sp/>=<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" kindref="member">BHttpSession</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>copy<sp/>is<sp/>passed<sp/>to<sp/>window1<sp/>and<sp/>window2,<sp/>which<sp/>share<sp/>the<sp/>same<sp/>session<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>window1<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>WindowWithSession(session);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>window2<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>WindowWithSession(session);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>Add<sp/>a<sp/>cookie<sp/>to<sp/>the<sp/>session,<sp/>this<sp/>cookie<sp/>will<sp/>be<sp/>used<sp/>in<sp/>window1<sp/>and<sp/>window2</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">BNetworkCookie<sp/>cookie(</highlight><highlight class="stringliteral">&quot;key&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;value&quot;</highlight><highlight class="normal">,<sp/><ref refid="classBUrl" kindref="compound">BUrl</ref>(</highlight><highlight class="stringliteral">&quot;https://example.com/&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline><highlight class="normal">session.AddCookie(std::move(cookie));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>session<sp/>data<sp/>persists,<sp/>even<sp/>if<sp/>the<sp/>original<sp/>session<sp/>goes<sp/>out<sp/>of<sp/>scope</highlight></codeline>
+</programlisting></para>
+<para>There are specific scenarios for having more than one session, most notably if an application provides services over HTTP whereby a user is identified by cookies, and the application wants to support more than one user account. But in most cases, there will be one instance of the <ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref> that is shared between various segments of the application.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" line="25" column="1" bodyfile="/boot/home/src/haiku/headers/private/netservices2/HttpSession.h" bodystart="26" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a3985a2419f61d848d76cc091414f72da" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>BHttpSession</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1ac0e71239d098a1088b7362b705918f81" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>BHttpSession</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1afefa20d6a6b0ef89dc9bd091ad3c02c8" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>BHttpSession</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1accde0fa55308b63b41e661df47b423da" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>Cancel</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a4eff1630ceb2d7f22654dd8bbe9a5c10" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>Cancel</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1ae14a7c52aaddfd69e22be4a8aeff727f" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>Execute</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a8bbc67399714efc8e343f1e7fd991b67" prot="private" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>fImpl</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a096712cf5ee1b7b4f3d752030d9bfd42" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>operator=</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a9b44dbc7966ed58ad903768e13b37c55" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>operator=</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a24751671e7b5665d62241d3f968f9098" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>SetMaxConnectionsPerHost</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a46fbd98c452c1d3b97db93b8ddff81f6" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>SetMaxHosts</name></member>
+      <member refid="classBPrivate_1_1Network_1_1BHttpSession_1a7b11bb0aa92564bdea568757395ccbbf" prot="public" virt="non-virtual"><scope>BPrivate::Network::BHttpSession</scope><name>~BHttpSession</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

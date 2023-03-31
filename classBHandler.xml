@@ -1,0 +1,1817 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBHandler" kind="class" language="C++" prot="public">
+    <compoundname>BHandler</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+    <derivedcompoundref refid="classBLooper" prot="public" virt="non-virtual">BLooper</derivedcompoundref>
+    <derivedcompoundref refid="classBShelf" prot="public" virt="non-virtual">BShelf</derivedcompoundref>
+    <derivedcompoundref refid="classBView" prot="public" virt="non-virtual">BView</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <description><para><ref refid="classBHandler" kindref="compound">BHandler</ref> inherits the <ref refid="classBArchivable" kindref="compound">BArchivable</ref> class, and as such implements support for archiving and unarchiving handlers. </para>
+</description>
+      <memberdef kind="function" id="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BHandler::BHandler</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BHandler</name>
+        <qualifiedname>BHandler::BHandler</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Construct a handler from an archived message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This <emphasis>data</emphasis> has to be created using the <ref refid="classBHandler_1ac2711ccff5e7f711244c88a5642c83db" kindref="member">BHandler::Archive()</ref> method. Note that only the name is stored. The filters, the associated looper and the observers are not stored, and should be manually added when you are using this object.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1ac2711ccff5e7f711244c88a5642c83db" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BHandler::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <reimplementedby refid="classBBox_1abd1a762e132a6196076617cee1eb81ac">Archive</reimplementedby>
+        <reimplementedby refid="classBMenu_1a71bed24f541bdfb690863118ce3f716b">Archive</reimplementedby>
+        <reimplementedby refid="classBMenuBar_1af4ae9bcc3c1cbe560e745c9868fb9c5f">Archive</reimplementedby>
+        <reimplementedby refid="classBMenuField_1ada677e4339d5a5eca5c945c4165b6a3e">Archive</reimplementedby>
+        <reimplementedby refid="classBOutlineListView_1af590f60f193f47989f63c34dda0e6916">Archive</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1ab476f82e9d75a3b4a9b54ca35d1ad036">Archive</reimplementedby>
+        <reimplementedby refid="classBPopUpMenu_1af81e6dc2ddcc3063eb33a1a5cf3b9088">Archive</reimplementedby>
+        <reimplementedby refid="classBScrollBar_1a2d8cea93fe440bbed02685c135b0f802">Archive</reimplementedby>
+        <reimplementedby refid="classBScrollView_1a7858c5f97152c910831db817b80f5f95">Archive</reimplementedby>
+        <reimplementedby refid="classBStatusBar_1a05e0e95a3cee49d1fa7f1a48e26ae20b">Archive</reimplementedby>
+        <reimplementedby refid="classBStringView_1adbafb44b6614c69a645d3e2de818c5f5">Archive</reimplementedby>
+        <reimplementedby refid="classBTextControl_1af68449ec551e8a089a441fd270954b99">Archive</reimplementedby>
+        <reimplementedby refid="classBTextView_1a0f3fb624378a2d13617773713efedd98">Archive</reimplementedby>
+        <reimplementedby refid="classBView_1ab6de1b48cbc3ef15a0d02113036f002d">Archive</reimplementedby>
+        <reimplementedby refid="classBWindow_1a69163d40d8f1eda77c9134ad4ab745a2">Archive</reimplementedby>
+        <reimplementedby refid="classBApplication_1aa36536582835264341376064cbc96a27">Archive</reimplementedby>
+        <reimplementedby refid="classBLooper_1a791ef8664f674b6683d551762888f1c2">Archive</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a39e69ba4bba5221b3099cf34129862c8">Archive</reimplementedby>
+        <reimplementedby refid="classBAlert_1aba312ca5f7e668bf4d96efc7f41625a3">Archive</reimplementedby>
+        <reimplementedby refid="classBButton_1adce5e4839a58c3bb85965398a490d720">Archive</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1aa71189c8b008cb3329c17b58f786617e">Archive</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a75511a8252ef3ffa1177f57af97b67ca">Archive</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a6437907efd1d39a492db1f55b5f4dc36">Archive</reimplementedby>
+        <reimplementedby refid="classBControl_1a2581a447a34eef102c62d0e998155290">Archive</reimplementedby>
+        <reimplementedby refid="classBDragger_1aece5cd86ccd46a23f1188697f4bffa55">Archive</reimplementedby>
+        <reimplementedby refid="classBListView_1a89277e72296cc9ec516777e000f100e3">Archive</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1aeed1a7a2142b1ac7b1499234f884caae">Archive</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1ac216b412d86275115516b886c4f9b578">Archive</reimplementedby>
+        <reimplementedby refid="classBSeparatorView_1a41d7d43196ee70cc26986f95b5c3e262">Archive</reimplementedby>
+        <reimplementedby refid="classBSplitView_1a2c4ab843dd62815ebeb7201e21d3199b">Archive</reimplementedby>
+        <reimplementedby refid="classBTabView_1a3354f9343238295b7ed0a24339106cd5">Archive</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archive a handler to a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Currently, only the name is archived. The filters, the associated looper and the observers are not stored.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to archive the object in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This parameter is ignored, as <ref refid="classBHandler" kindref="compound">BHandler</ref> does not have children.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Archiving succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>data</emphasis> parameter is not a valid message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBHandler_1a0c23aeb48d578525f81ba6d47f968528" kindref="member">BHandler::Instantiate(BMessage* data)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="37" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Core Handler Functionality</header>
+      <memberdef kind="function" id="classBHandler_1aeecda5017e0081db617f23bbff71fb53" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BHandler::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BHandler::MessageReceived</qualifiedname>
+        <reimplementedby refid="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBLooper_1a89303d11c987dae76cdfc38ad5d3c4c2">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a1eb5e6dfeee341e9baf3d688ff66194a">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBAlert_1a1300fdf51e73dd4f8a24b908d6fc2e1e">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBBox_1a30d9348112e19b908181b037edc291de">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBButton_1a9954aa8549ffb7cddd1a401997fd07a7">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1a7c3c5174a2f31f0a24c3fe4258d372da">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1aa60391cfc92b6c1a59ae7e92aa1f5bae">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a668832dfbcab06cad06d0fb7d9a6244a">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a9cf939fb5e7ef82a70e0792ccc0cfc1f">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBControl_1a19960b4d0a96144f73065a6ea1f2f8e2">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBDragger_1acdf8b8402a8e253ca24ab01ba63b914c">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBListView_1ac00efce3ca37ce6e89c3f3fb5717311c">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBMenu_1aca12e6b863279cc62772ac13ef286d31">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBMenuBar_1a7d7c1d1674e059b56c82c81e381d4455">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBMenuField_1ab73739dc3316044b9269718bd0852d39">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBOptionControl_1a6bff9c89ab78d899edfb88d3f9e2300c">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBOptionPopUp_1a05b397e2521fe0b10ae3a2b05e78acae">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBOutlineListView_1aad47f3bf68a98024413aa06a45b0bdad">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a7b6a5dc266664f155b6191d101ce48cd">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBPopUpMenu_1a4b5937dbd7baa9d98b5368d6de9ca23c">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a2f07af2fe9eedce7ffecd2b29a4b5d6a">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBScrollBar_1a8d578e9e134aeaafdc6dc542e2d214f7">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBScrollView_1ad06771333c1897571f984ca9e533b69d">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBSplitView_1ad4737f5224faa2d34c84299750ab92ec">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBStatusBar_1aee4044255aaae32db5a0d8bc2046840d">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBStringView_1a03521ef18f82081e3a54f404217c2c6c">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBTabView_1a5827436caab3b27791f2280d2d151624">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBTextControl_1afad72eca02699a6577c4bc0949e1c9ae">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBTextView_1a4d7d7990e57ce7286f78698f27c89e60">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBView_1aca0a16b0e04288e1fdc0b63690ea7a6d">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBWindow_1a1ce544ea7d9adcc6941759817a42affe">MessageReceived</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handle <emphasis>message</emphasis> that has been received by the associated looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is reimplemented by subclasses. If the messages that have been received by a looper pass through the filters, then they end up in the <ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">MessageReceived()</ref> methods.</para>
+<para>The example below shows a very common way to handle <emphasis>message</emphasis>. Usually, this involves parsing the <ref refid="classBMessage_1ad074faab0857f51fba778f0d8558df1e" kindref="member">BMessage::what</ref> constant and then perform an action based on that.</para>
+<para><programlisting><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">ShowImageApp::MessageReceived(<ref refid="classBMessage" kindref="compound">BMessage</ref><sp/>*message)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(message-&gt;<ref refid="classBMessage_1ad074faab0857f51fba778f0d8558df1e" kindref="member">what</ref>)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>MSG_FILE_OPEN:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fOpenPanel-&gt;Show();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>B_CANCEL:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>File<sp/>open<sp/>panel<sp/>was<sp/>closed,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>start<sp/>checking<sp/>count<sp/>of<sp/>open<sp/>windows.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StartPulse();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>do<sp/>not<sp/>handle<sp/>this<sp/>message,<sp/>pass<sp/>it<sp/>on<sp/>to<sp/>the<sp/>base<sp/>class.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03" kindref="member">BApplication::MessageReceived</ref>(message);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>If your handler cannot process this <emphasis>message</emphasis>, you should pass it on to the base class. Eventually, it will reach the base implementation, which will reply with <computeroutput>B_MESSAGE_NOT_UNDERSTOOD</computeroutput>.</para>
+<para><simplesect kind="attention"><para>If you want to keep or manipulate the <emphasis>message</emphasis>, have a look at <ref refid="classBLooper_1a7c8f05bcc354bc1d53026417417120e3" kindref="member">BLooper::DetachCurrentMessage()</ref> to receive ownership of the <emphasis>message</emphasis>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message that needs to be handled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+        <definition>BLooper * BHandler::Looper</definition>
+        <argsstring>() const</argsstring>
+        <name>Looper</name>
+        <qualifiedname>BHandler::Looper</qualifiedname>
+        <briefdescription>
+<para>Return a pointer to the looper that this handler is associated with. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>If the handler is not yet associated with a looper, it will return <computeroutput>NULL</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a484be74814014e3c48c1a16f44e34074" kindref="member">BLooper::AddHandler()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" kindref="member">LockLooper()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="41" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BHandler::SetName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>SetName</name>
+        <qualifiedname>BHandler::SetName</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Set or change the name of this handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" kindref="member">Name()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="42" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * BHandler::Name</definition>
+        <argsstring>() const</argsstring>
+        <name>Name</name>
+        <qualifiedname>BHandler::Name</qualifiedname>
+        <briefdescription>
+<para>Return the name of this handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" kindref="member">SetName()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="43" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BHandler::SetNextHandler</definition>
+        <argsstring>(BHandler *handler)</argsstring>
+        <name>SetNextHandler</name>
+        <qualifiedname>BHandler::SetNextHandler</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Set the next handler in the chain that the message is passed on to if this <emphasis>handler</emphasis> cannot process it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method has three requirements:<orderedlist>
+<listitem><para>This <emphasis>handler</emphasis> should belong to a looper.</para>
+</listitem><listitem><para>The looper needs to be locked. See <ref refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" kindref="member">LockLooper()</ref>.</para>
+</listitem><listitem><para>The <emphasis>handler</emphasis> that you pass must be associated with the same looper.</para>
+</listitem></orderedlist>
+</para>
+<para>Failure to meet any of these requirements will result in your application crashing.</para>
+<para>By default, the handlers are chained in order that they were associated to a looper with BLooper::AddHander().</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" kindref="member">NextHandler()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="44" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BHandler::NextHandler</definition>
+        <argsstring>() const</argsstring>
+        <name>NextHandler</name>
+        <qualifiedname>BHandler::NextHandler</qualifiedname>
+        <briefdescription>
+<para>Return the next hander in the chain to which the message is passed on. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" kindref="member">SetNextHandler()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="45" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Message Filtering</header>
+      <memberdef kind="function" id="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BHandler::AddFilter</definition>
+        <argsstring>(BMessageFilter *filter)</argsstring>
+        <name>AddFilter</name>
+        <qualifiedname>BHandler::AddFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> *</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Add <emphasis>filter</emphasis> as a prerequisite to this handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the handler is associated with a looper, this looper needs to be locked in order for this operation to succeed.</para>
+<para>Note that the filter is not copied, rather a pointer to the <emphasis>filter</emphasis> is stored. As such, you need to make sure that the <emphasis>filter</emphasis> object exists as long as it is added to this handler.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" kindref="member">RemoveFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" kindref="member">SetFilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="48" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BHandler::RemoveFilter</definition>
+        <argsstring>(BMessageFilter *filter)</argsstring>
+        <name>RemoveFilter</name>
+        <qualifiedname>BHandler::RemoveFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> *</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Remove <emphasis>filter</emphasis> from the filter list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the handler is associated with a looper, this looper needs to be locked in order for this operation to succeed.</para>
+<para>Note that the <emphasis>filter</emphasis> is not deleted, merely removed from the list. You need to take care of the memory yourself.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the <emphasis>filter</emphasis> was in the filter list and is removed, <computeroutput>false</computeroutput> if the <emphasis>filter</emphasis> was not found in the filter list.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a862bea548363faac6f883b348cbed838" kindref="member">AddFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a909662a049856f6863a934cf18161554" kindref="member">FilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="49" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BHandler::SetFilterList</definition>
+        <argsstring>(BList *filters)</argsstring>
+        <name>SetFilterList</name>
+        <qualifiedname>BHandler::SetFilterList</qualifiedname>
+        <param>
+          <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>Set the internal list of filters to <emphasis>filters</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the handler is associated with a looper, this looper needs to be locked in order for this operation to succeed.</para>
+<para>The internal list will be replaced with the new list of <emphasis>filters</emphasis>. All the existing filters will be <bold>deleted</bold>.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a862bea548363faac6f883b348cbed838" kindref="member">AddFilter()</ref>, <ref refid="classBHandler_1a909662a049856f6863a934cf18161554" kindref="member">FilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="50" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList * BHandler::FilterList</definition>
+        <argsstring>()</argsstring>
+        <name>FilterList</name>
+        <qualifiedname>BHandler::FilterList</qualifiedname>
+        <briefdescription>
+<para>Return a pointer to the list of filters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the list of filters. Do not manipulate the list of filters directly, but use the methods provided by this class, in order to maintain internal consistency.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a862bea548363faac6f883b348cbed838" kindref="member">AddFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" kindref="member">RemoveFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" kindref="member">SetFilterList()</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="51" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Locking</header>
+      <description><para>This class provides some utility functions to lock the looper associated with this handler. </para>
+</description>
+      <memberdef kind="function" id="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BHandler::LockLooper</definition>
+        <argsstring>()</argsstring>
+        <name>LockLooper</name>
+        <qualifiedname>BHandler::LockLooper</qualifiedname>
+        <briefdescription>
+<para>Lock the looper associated with this handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the looper is locked, <computeroutput>false</computeroutput> if there was an error acquiring the lock.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" kindref="member">LockLooperWithTimeout()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" kindref="member">UnlockLooper()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="53" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::LockLooperWithTimeout</definition>
+        <argsstring>(bigtime_t timeout)</argsstring>
+        <name>LockLooperWithTimeout</name>
+        <qualifiedname>BHandler::LockLooperWithTimeout</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+<para>Lock the looper associated with this handler, with a time out value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time to wait for acquiring the lock in microseconds. You may also use <computeroutput>B_INFINITE_TIMEOUT</computeroutput>, in which this method will wait as long as it takes to acquire the lock.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Locking succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This handler is not associated with a looper (anymore). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_TIMED_OUT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The time specified in <emphasis>timeout</emphasis> has passed without locking the looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" kindref="member">LockLooper()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" kindref="member">UnlockLooper()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BHandler::UnlockLooper</definition>
+        <argsstring>()</argsstring>
+        <name>UnlockLooper</name>
+        <qualifiedname>BHandler::UnlockLooper</qualifiedname>
+        <briefdescription>
+<para>Unlock the looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="55" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Scripting</header>
+      <memberdef kind="function" id="classBHandler_1a76439ffaf84e65232698d2a4a3317d22" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BHandler::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 what, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BHandler::ResolveSpecifier</qualifiedname>
+        <reimplementedby refid="classBApplication_1a044d40580b05617288c91748cbd30513">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBAlert_1a22285daeb96ea0936faab97b077115e6">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1ab95b5eebb6adcc7502c856789f08b6d2">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBDragger_1ad21b28192fb7b7005129b5f517209e99">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBMenu_1adfd2e1d211f34a8ac748abb989adac48">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBMenuBar_1ab8e2eb06afc52455be926b3cde21f935">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBMenuField_1a8af84b2aecbc3e6b3041e3ef70b36cfd">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBPopUpMenu_1acefc54d0514f6efbe059d9a36b837fe1">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBStringView_1af7522569583e8aea625adea9fc2471fc">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBTextView_1a3e0e67bcd942c0b738043235e56fdf29">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBView_1a4c0c6d3b21ae92056e5e40fe4d3ec175">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBLooper_1a16b494160d9b37d4dbbc0d426a22c946">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1aee5db7142cabc984cb16e61eaa7baa36">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBBox_1aa171ac58aa5857a404f9431e63ad6792">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBButton_1a16b56f270bcba826cd8a1eb043adb474">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1af12f883b6e60f2ea071bb18724593350">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1ae860f1cfc296c79754697d95fc289a9e">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a2bc94c2bffc9dec2b1a844c21833cb93">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBControl_1a084be37bbc0c49627c42a078c4b4dac8">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBListView_1a2c6144558d144fd5b134021de4c01183">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBOutlineListView_1a835a18d28691bdc9daad7cf0598e8a5f">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a8553ac7d4f76b03d53dce14073cb50de">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a767171da7c902ec3e06d19951f8b1404">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBScrollBar_1abcf203657944c36c94a4a55e59338c8a">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBScrollView_1a6565e85e02890afd9e37f22935bf01b1">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBStatusBar_1a930eda32bb19c6fb583a95947bc4eec9">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBTabView_1a2d18bd3eeb63be72e3954b6d58cf3809">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a666a6fd256b57c98f9e75b3c19a03a89">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBWindow_1aaf328e28799cf868ec31df2847a4ed37">ResolveSpecifier</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+<para>Determine the proper handler for a scripting message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="58" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1acf34435dada239f411e8e034e0ea36b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::GetSupportedSuites</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BHandler::GetSupportedSuites</qualifiedname>
+        <reimplementedby refid="classBApplication_1a0fb9cc161a785cad42925075a087fc16">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBLooper_1a915a50de7d5b6263f0fd1a349a9a6d92">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a55e920fcba8972f5173bd3714f416c13">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBAlert_1a9e658b2f7dc50b2c5da3191d77a22594">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBChannelControl_1abfb5744f9faf08ed02d22a33ae9e9ab8">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBChannelSlider_1affd29de4f880e122c72d4d3b25b7ed9d">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a5f10efed53781673b0f5a3f40b7d527d">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBDragger_1a9d014b5632dfd7c4dbb43f45ea2175ef">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBListView_1acc1fa37e73b342b27d16e13aa3d3024a">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBMenu_1a2aa0277374bacf3b7644f738bc064637">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBMenuBar_1ad635f7e68997f901cbd4b15491b5f2a3">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBMenuField_1ad765cb012c296a6f676e070c80c929e3">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBOutlineListView_1a293dd0ed9a59c56ddd2738981c6c48b6">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a08e86268e927d332501bee63892fb2bd">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBPopUpMenu_1aab6d894d982b8841569be6d5766b88e2">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBStatusBar_1afd6b9bb4d38d8c418d3f0aa65a84aea3">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBStringView_1ab294fcbe6b75394cb2cd4d6db1a908c4">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBTextControl_1a9281b5fa852c3fe841bc7f102a96078a">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBTextView_1a9cb6a32b918a5c90489b6fb7e27fcb6a">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBView_1a772462d751d457f63ee0fc56d8ba02d1">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBWindow_1a8c2f3013601609b54778af99fa6a25ca">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBBox_1ab1ff66b8efec609137264522016f09c6">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBButton_1af912fac07ee02f90a12a4011e5a493cb">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1a6075229f070c3723a0fc102e7984e8f2">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBControl_1a3b545ffe2ee04f62eaa567582225adba">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a513f368c4eb7c7d1aa81da79bee492ea">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBScrollBar_1a543695199844d6b485ab0cb43c65a950">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBScrollView_1ae23327464d7c7db975defe845c4cfdf9">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBTabView_1aed45f36a1cdcc1bb23fc964714cbe20d">GetSupportedSuites</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Reports the suites of messages and specifiers that derived classes understand. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="61" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Observing</header>
+      <description><para>Handlers can function as state machines, which emit messages to observers when the state changes. Use the following methods to subscribe to these notifications.</para>
+<para>Note that there is a semantic difference between the two <ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching()</ref> methods. The overloaded method that accepts a <ref refid="classBHandler" kindref="compound">BHandler</ref>, expects as argument an <emphasis>observer</emphasis> that watches this handler. The method that accepts a <ref refid="classBMessenger" kindref="compound">BMessenger</ref>, expects a <emphasis>target</emphasis> that emits the state changes to this handler. </para>
+</description>
+      <memberdef kind="function" id="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StartWatching</definition>
+        <argsstring>(BMessenger target, uint32 what)</argsstring>
+        <name>StartWatching</name>
+        <qualifiedname>BHandler::StartWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+<para>Subscribe this handler to watch a specific state change of a <emphasis>target</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this method to subscribe messengers to watch state changes in this handler, this also means that observers from other teams can be subscribed.</para>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Handler<sp/>B<sp/>watches<sp/>Handler<sp/>A</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBHandler" kindref="compound">BHandler</ref><sp/>A,<sp/>B;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBMessenger" kindref="compound">BMessenger</ref><sp/>messengerA(&amp;A)</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">B.<ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching</ref>(messengerA,<sp/>kNetworkConnection);</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The messenger from which the notifications would be received. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state that needs to be watched.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>During the call of this method, a notification will be transmitted using the <emphasis>target</emphasis>. If this works, then this method will return <computeroutput>B_OK</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" kindref="member">StartWatchingAll(BMessenger)</ref>, <ref refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" kindref="member">StopWatching(BMessenger, uint32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StartWatchingAll</definition>
+        <argsstring>(BMessenger target)</argsstring>
+        <name>StartWatchingAll</name>
+        <qualifiedname>BHandler::StartWatchingAll</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Subscribe this handler to watch a <emphasis>target</emphasis> for all events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method performs the same task as <ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching(BMessenger, uint32)</ref>, but it will subscribe to all the state changes the <emphasis>target</emphasis> knows.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching(BMessenger, uint32)</ref>, <ref refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" kindref="member">StopWatchingAll(BMessenger)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="65" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StopWatching</definition>
+        <argsstring>(BMessenger target, uint32 what)</argsstring>
+        <name>StopWatching</name>
+        <qualifiedname>BHandler::StopWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+<para>Unsubscribe this handler from watching a specific state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will unsubscribe this handler from watching a specific event in a <emphasis>target</emphasis>.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching(BMessenger, uint32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="66" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StopWatchingAll</definition>
+        <argsstring>(BMessenger target)</argsstring>
+        <name>StopWatchingAll</name>
+        <qualifiedname>BHandler::StopWatchingAll</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Unsubscribe this handler from watching all states. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will unsubscribe the <emphasis>target</emphasis> from watching all state changes.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" kindref="member">StartWatchingAll(BMessenger)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StartWatching</definition>
+        <argsstring>(BHandler *observer, uint32 what)</argsstring>
+        <name>StartWatching</name>
+        <qualifiedname>BHandler::StartWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>observer</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+<para>Subscribe an <emphasis>observer</emphasis> for a specific state change of this handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this method to subscribe observers to watch this handler. State changes of this handler that match the <emphasis>what</emphasis> argument, will be sent.</para>
+<para><programlisting><codeline><highlight class="comment">//<sp/>Handler<sp/>B<sp/>wants<sp/>to<sp/>observe<sp/>Handler<sp/>A</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBHandler" kindref="compound">BHandler</ref><sp/>A,<sp/>B;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">A.<ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching</ref>(&amp;B,<sp/>kNetworkConnection);</highlight></codeline>
+</programlisting></para>
+<para>Since pointers to handlers can only exist in the local namespace, have a look at <ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching(BMessenger, uint32)</ref> for inter-team watching.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>observer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The observer for this handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The state that needs to be watched. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>During the call of this method, a notification will be transmitted using the <emphasis>observer</emphasis>. If this works, then this method will return <computeroutput>B_OK</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" kindref="member">StartWatchingAll(BHandler*)</ref>, <ref refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" kindref="member">StopWatching(BHandler*, uint32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="70" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StartWatchingAll</definition>
+        <argsstring>(BHandler *observer)</argsstring>
+        <name>StartWatchingAll</name>
+        <qualifiedname>BHandler::StartWatchingAll</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>observer</declname>
+        </param>
+        <briefdescription>
+<para>Subscribe an <emphasis>observer</emphasis> for a all state changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method performs the same task as StartWatching(BHandler, uint32), but it will subscribe the <emphasis>observer</emphasis> to all the state changes this handler tracks.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" kindref="member">StartWatching(BHandler*, uint32)</ref>, <ref refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" kindref="member">StopWatchingAll(BHandler*)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StopWatching</definition>
+        <argsstring>(BHandler *observer, uint32 what)</argsstring>
+        <name>StopWatching</name>
+        <qualifiedname>BHandler::StopWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>observer</declname>
+          <defname>handler</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>what</declname>
+        </param>
+        <briefdescription>
+<para>Unsubscribe an observer from watching a specific state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will unsubscribe the <emphasis>handler</emphasis> from watching a specific event.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" kindref="member">StartWatching(BHandler*, uint32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="72" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BHandler::StopWatchingAll</definition>
+        <argsstring>(BHandler *observer)</argsstring>
+        <name>StopWatchingAll</name>
+        <qualifiedname>BHandler::StopWatchingAll</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>observer</declname>
+          <defname>handler</defname>
+        </param>
+        <briefdescription>
+<para>Unsubscribe an observer from watching all states. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will unsubscribe the <emphasis>handler</emphasis> from watching all state changes.</para>
+<para><simplesect kind="see"><para><ref refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" kindref="member">StartWatchingAll(BHandler*)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="73" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Emitting State Changes</header>
+      <description><para>If your handler functions as a state machine, and it has observers (which subscribed using the <ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching()</ref> method), you can emit these state changes. </para>
+</description>
+      <memberdef kind="function" id="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BHandler::SendNotices</definition>
+        <argsstring>(uint32 what, const BMessage *notice=NULL)</argsstring>
+        <name>SendNotices</name>
+        <qualifiedname>BHandler::SendNotices</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>notice</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Emit a state change to the observers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The actual state (specified by <emphasis>what</emphasis>) will not be transmitted. This is merely for internal bookkeeping. It is not entirely unimaginable that you still want to inform the observers of what actually took place. You can use the <emphasis>msg</emphasis> to transmit this, and any other data you want. Note that the message will be copied and slightly altered: the <computeroutput>what</computeroutput> member of the message will be <computeroutput>B_OBSERVER_NOTICE_CHANGE</computeroutput>, and the <computeroutput>what</computeroutput> constant you specified will be stored in the <ref refid="Handler_8h_1a9a087275b074ec202d3fc0352862956a" kindref="member">B_OBSERVE_ORIGINAL_WHAT</ref> label.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The identifier of the state. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>notice</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any data associated with the state change. You retain ownership of this data, so make sure you dispose it when you are done.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="80" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BHandler::IsWatched</definition>
+        <argsstring>() const</argsstring>
+        <name>IsWatched</name>
+        <qualifiedname>BHandler::IsWatched</qualifiedname>
+        <briefdescription>
+<para>Check if there are any observers watching this handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="82" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classBHandler_1aedf318d72f6b703b51987ed6c41ea847" prot="private" static="no">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref></type>
+        <definition>typedef BArchivable BHandler::_inherited</definition>
+        <argsstring></argsstring>
+        <name>_inherited</name>
+        <qualifiedname>BHandler::_inherited</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="85" column="20" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBHandler_1aefb96ac67819fff3502d58c718bb8b25" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 _get_object_token_</definition>
+        <argsstring>(const BHandler *)</argsstring>
+        <name>_get_object_token_</name>
+        <qualifiedname>BHandler::_get_object_token_</qualifiedname>
+        <param>
+          <type>const <ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="86" column="20"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBHandler_1a8593052564979388dbc606faa8cd7692" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BLooper</definition>
+        <argsstring></argsstring>
+        <name>BLooper</name>
+        <qualifiedname>BHandler::BLooper</qualifiedname>
+        <param>
+          <type><ref refid="classBLooper" kindref="compound">BLooper</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="87" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBHandler_1aea3b4a6b0763fb316b3b5a122ad55048" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMessageFilter</definition>
+        <argsstring></argsstring>
+        <name>BMessageFilter</name>
+        <qualifiedname>BHandler::BMessageFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="88" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBHandler_1ad0781c4943a100e245bc3eb5f993237e" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BHandler::_reserved[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BHandler::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="107" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBHandler_1a5f76694c08d67df1de93affc8b9b96fc" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList* BHandler::fFilters</definition>
+        <argsstring></argsstring>
+        <name>fFilters</name>
+        <qualifiedname>BHandler::fFilters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="105" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBHandler_1a16551dca3b15aaef13fbffe8634b14b2" prot="private" static="no" mutable="no">
+        <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+        <definition>BLooper* BHandler::fLooper</definition>
+        <argsstring></argsstring>
+        <name>fLooper</name>
+        <qualifiedname>BHandler::fLooper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="103" column="8" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBHandler_1a88bb928fb176ef93bd1c3b3e5e15870f" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* BHandler::fName</definition>
+        <argsstring></argsstring>
+        <name>fName</name>
+        <qualifiedname>BHandler::fName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="102" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBHandler_1a7263cf1e2dc56d2d0f15ca77556ab13d" prot="private" static="no" mutable="no">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler* BHandler::fNextHandler</definition>
+        <argsstring></argsstring>
+        <name>fNextHandler</name>
+        <qualifiedname>BHandler::fNextHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="104" column="9" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBHandler_1a40f48b104e4ec97cdd2184be83318dbc" prot="private" static="no" mutable="no">
+        <type>BPrivate::ObserverList *</type>
+        <definition>BPrivate::ObserverList* BHandler::fObserverList</definition>
+        <argsstring></argsstring>
+        <name>fObserverList</name>
+        <qualifiedname>BHandler::fObserverList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="106" column="23" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBHandler_1ace52d4eaf55f98bff788b55fa6ab0015" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BHandler::fToken</definition>
+        <argsstring></argsstring>
+        <name>fToken</name>
+        <qualifiedname>BHandler::fToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="101" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BHandler::BHandler</definition>
+        <argsstring>(const char *name=NULL)</argsstring>
+        <name>BHandler</name>
+        <qualifiedname>BHandler::BHandler</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Construct a new handler with a <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The newly constructed handler is not associated with a looper until you explicitly request this to happen. To associate this handler with a looper, use <ref refid="classBLooper_1a484be74814014e3c48c1a16f44e34074" kindref="member">BLooper::AddHandler()</ref>.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BHandler::~BHandler</definition>
+        <argsstring>()</argsstring>
+        <name>~BHandler</name>
+        <qualifiedname>BHandler::~BHandler</qualifiedname>
+        <briefdescription>
+<para>Free the filters of this handler, as well as the list of observers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does not remove the handler from the looper to which this handler is associated. You should do this yourself, using <ref refid="classBLooper_1a5af57140bf018388a2e64343f46ac330" kindref="member">BLooper::RemoveHandler()</ref>.</para>
+<para><simplesect kind="warning"><para>This constructor does no type check whatsoever. Since you can pass any <ref refid="classBMessage" kindref="compound">BMessage</ref>, you should - if you are not sure about the exact type - use the <ref refid="classBHandler_1a0c23aeb48d578525f81ba6d47f968528" kindref="member">Instantiate()</ref> method, which does check the type.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="32" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a4e6ebc7ebcb72855a1f0fee7bde99766" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BHandler::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BHandler::Perform</qualifiedname>
+        <reimplements refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de">Perform</reimplements>
+        <reimplementedby refid="classBPopUpMenu_1a8f92a8866c4ffd63cdfcf07957f5ba22">Perform</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a113afd3534fca8b81bcc86f8e55738be">Perform</reimplementedby>
+        <reimplementedby refid="classBListView_1aa0afeb194104738a01c7e60195fe50d0">Perform</reimplementedby>
+        <reimplementedby refid="classBCheckBox_1abcac265789890adbf485f42d34d8c8e3">Perform</reimplementedby>
+        <reimplementedby refid="classBDragger_1ad47a007f4126b9847a315263aa64ad93">Perform</reimplementedby>
+        <reimplementedby refid="classBMenuBar_1a4b8a4e16ace175bc3bad9d6ef6b42daf">Perform</reimplementedby>
+        <reimplementedby refid="classBOutlineListView_1acb2775731d5da2cf52995e4d0b75c1d6">Perform</reimplementedby>
+        <reimplementedby refid="classBPictureButton_1a57e7eef2e379994c13b8c93eeb5cf3c5">Perform</reimplementedby>
+        <reimplementedby refid="classBSeparatorView_1af56310d344ae63781e6b299d56c34e99">Perform</reimplementedby>
+        <reimplementedby refid="classBStringView_1a57a75da20cef1ba402df82def803b1d4">Perform</reimplementedby>
+        <reimplementedby refid="classBTextView_1a6519856e1dbf6e021911529b8a0a15c6">Perform</reimplementedby>
+        <reimplementedby refid="classBView_1a512a6c8dca1a62b14cdcb1c22070129b">Perform</reimplementedby>
+        <reimplementedby refid="classBWindow_1afde7d74e5526f740dedb82a1d10faa7a">Perform</reimplementedby>
+        <reimplementedby refid="classBApplication_1ab8fea9f4a96bdee62ce77a089d472973">Perform</reimplementedby>
+        <reimplementedby refid="classBLooper_1adfc642544ce22888d412e6a4be25fa72">Perform</reimplementedby>
+        <reimplementedby refid="classBAlert_1a3d2769c5bf9b9822f21770e38e561fd6">Perform</reimplementedby>
+        <reimplementedby refid="classBBox_1adcd9b77028e7c820ce29a8a9db950adb">Perform</reimplementedby>
+        <reimplementedby refid="classBButton_1aee74330d076b7b8487fe21443118b03d">Perform</reimplementedby>
+        <reimplementedby refid="classBCardView_1aa784b33c5b2c62791cf86fa38d1704ba">Perform</reimplementedby>
+        <reimplementedby refid="classBColorControl_1a8ec5063623c0c27052af71be1a4eafca">Perform</reimplementedby>
+        <reimplementedby refid="classBControl_1a0b32524cd2abfb7ea37b9988b180c733">Perform</reimplementedby>
+        <reimplementedby refid="classBGridView_1a1409f66c0dfe65882e3bfa3b0fe000dc">Perform</reimplementedby>
+        <reimplementedby refid="classBGroupView_1ad8e96a8f8d76e75b5bb6815866529112">Perform</reimplementedby>
+        <reimplementedby refid="classBMenu_1a6dedb98c6ba5ffbc44893ff43785c93c">Perform</reimplementedby>
+        <reimplementedby refid="classBMenuField_1a78923e5f07ff7c288980a72f6a953001">Perform</reimplementedby>
+        <reimplementedby refid="classBScrollBar_1adfb4e4e74d00970fd154c652e467b66e">Perform</reimplementedby>
+        <reimplementedby refid="classBScrollView_1a1bd8a27f2883ca0e6b5b9dde0e9e638a">Perform</reimplementedby>
+        <reimplementedby refid="classBSplitView_1a9aaf09f717a61303d5aca6e92d96b103">Perform</reimplementedby>
+        <reimplementedby refid="classBStatusBar_1a4b9eb3ec267be64d9293af3b920c48de">Perform</reimplementedby>
+        <reimplementedby refid="classBTabView_1a708fd8766fddb7b0cd72566c57c2977a">Perform</reimplementedby>
+        <reimplementedby refid="classBTextControl_1af07cb4cc28a119fd6080d416632f6395">Perform</reimplementedby>
+        <reimplementedby refid="classBRadioButton_1a44c726ed88d3a132e9d3055ebf98f3e6">Perform</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Perform some action (Internal method defined for binary compatibility purposes). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="77" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classBHandler_1a0c23aeb48d578525f81ba6d47f968528" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BHandler::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BHandler::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Static method to instantiate a handler from an archived message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the instantiated handler, or <computeroutput>NULL</computeroutput> if the <emphasis>data</emphasis> is not a valid archived <ref refid="classBHandler" kindref="compound">BHandler</ref> object.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" kindref="member">BHandler(BMessage* data)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="36" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBHandler_1aa86429c6f680e2daacbe88d8d2bfa024" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BHandler::BHandler</definition>
+        <argsstring>(const BHandler &amp;)</argsstring>
+        <name>BHandler</name>
+        <qualifiedname>BHandler::BHandler</qualifiedname>
+        <param>
+          <type>const <ref refid="classBHandler" kindref="compound">BHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="97" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a0916a4dd51ad975cd2fda7a72dce53f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BHandler::_InitData</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BHandler::_InitData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="94" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1af725587385fe152b9f68856d298588dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>BPrivate::ObserverList *</type>
+        <definition>BPrivate::ObserverList * BHandler::_ObserverList</definition>
+        <argsstring>()</argsstring>
+        <name>_ObserverList</name>
+        <qualifiedname>BHandler::_ObserverList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="95" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a335e32eac789210b515fa2d9b98b8010" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BHandler::_ReservedHandler2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedHandler2</name>
+        <qualifiedname>BHandler::_ReservedHandler2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="90" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a3a92cdcb7835c598f7ea1b2590da159a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BHandler::_ReservedHandler3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedHandler3</name>
+        <qualifiedname>BHandler::_ReservedHandler3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="91" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a30c4f5350040424395eac98ae4cd1b2f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BHandler::_ReservedHandler4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedHandler4</name>
+        <qualifiedname>BHandler::_ReservedHandler4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="92" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1aa85dede8d28050d92862ca46f10aa970" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> &amp;</type>
+        <definition>BHandler &amp; BHandler::operator=</definition>
+        <argsstring>(const BHandler &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BHandler::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBHandler" kindref="compound">BHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="98" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBHandler_1a8ea9221173603133f8ebaf317c067b85" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BHandler::SetLooper</definition>
+        <argsstring>(BLooper *looper)</argsstring>
+        <name>SetLooper</name>
+        <qualifiedname>BHandler::SetLooper</qualifiedname>
+        <param>
+          <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+          <declname>looper</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="99" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Handles messages that are passed on by a <ref refid="classBLooper" kindref="compound">BLooper</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classBHandler" kindref="compound">BHandler</ref> class implements two important pieces of functionality. It provides the foundations for <bold>handling messages</bold>, and it serves as a <bold>state machine</bold> that sends out notifications of the state changes.</para>
+<para>The most common use of this class is to <bold>handle messages</bold>. Handlers can be tied to loopers, which are the objects that send and receive messages. As soon as a message is received, the looper passes through its list of associated handlers and tries them in a certain order until the message is handled, or the options are exhausted.</para>
+<para>You should know that a looper is a subclass of a handler, and as such, loopers can be self-contained and do not need additional handlers. In many cases, this construction will suffice. You will simply subclass the looper, override its <ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">MessageReceived()</ref> hook and handle the messages you receive. In some cases, you might opt in for a more ingenious construction. A real-world example is the interface kit. Within that kit, the windows are represented by a <ref refid="classBLooper" kindref="compound">BLooper</ref>, and all the views and controls in that kit are derived from <ref refid="classBHandler" kindref="compound">BHandler</ref>. If you put a control in a window, then whenever messages such as clicks are received, the window loops the handlers until there is a handler that is at the screen position the click was in. It is not unlikely that you will some day want to use this functionality of the API.</para>
+<para>If your handler is limited to a certain type of messages, you can set a filter that the looper will apply to your message before passing it on to your overridden <ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">MessageReceived()</ref> method. The <ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> class provides the framework for the flexible filtering options, and using <ref refid="classBHandler_1a862bea548363faac6f883b348cbed838" kindref="member">AddFilter()</ref> you can apply filters to this handler. Note that a filter object should only be applied to one handler. They cannot be shared.</para>
+<para>For more information on the handling chain, have a look at the documentation of the <ref refid="classBLooper" kindref="compound">BLooper</ref> class.</para>
+<para>Using <ref refid="classBHandler" kindref="compound">BHandler</ref> as a <bold>state machine</bold> is a second area of functionality. Since handlers process messages, and perform actions associated with those, they are the center of keeping track on the current state of things within an application. If you want to synchronize these states between different parts of your application, you could perform this manually by sending messages to the interested components, or you can use the more flexible approach with observers.</para>
+<para>Observers watch a certain state. A handler can track one or more different states. Each state is represented by a four byte constant - just like the <computeroutput>what</computeroutput> property of a message. Using the <ref refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" kindref="member">StartWatching()</ref> methods, you can register observers both within your team, and in other applications. As an argument of that method, you can supply the state you want to watch, or you can register an observer using <ref refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" kindref="member">StartWatchingAll()</ref> to watch all the states the handler tracks. When the handler needs to emit a state change, you can use <ref refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" kindref="member">SendNotices()</ref>. You can specify the exact state change, and some data that you want to be send to the observers. This data is in the form of the very flexible <ref refid="classBMessage" kindref="compound">BMessage</ref>, as such you are almost free to pass anything you want.</para>
+<para>Whenever <ref refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" kindref="member">SendNotices()</ref> is called, all interested observers will receive a message of the <emphasis>B_OBSERVER_NOTICE_CHANGE</emphasis> type. Please note that the constant that is associated with the state itself is not transmitted. If you require this information, consider using the message that is passed on to describe the state change.</para>
+<para><ref refid="classBHandler" kindref="compound">BHandler</ref> is a part of the chain in the eloquent messaging structure. For a proper understanding of all its facets, have a look at the <ref refid="app_messaging" kindref="compound">messaging overview</ref>.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>BAlert</label>
+        <link refid="classBAlert"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BApplication</label>
+        <link refid="classBApplication"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="9">
+        <label>BBox</label>
+        <link refid="classBBox"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>BButton</label>
+        <link refid="classBButton"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>BCardView</label>
+        <link refid="classBCardView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>BChannelControl</label>
+        <link refid="classBChannelControl"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>BChannelSlider</label>
+        <link refid="classBChannelSlider"/>
+        <childnode refid="13" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>BCheckBox</label>
+        <link refid="classBCheckBox"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>BColorControl</label>
+        <link refid="classBColorControl"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>BControl</label>
+        <link refid="classBControl"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BDirectWindow</label>
+        <link refid="classBDirectWindow"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>BDragger</label>
+        <link refid="classBDragger"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>BGridView</label>
+        <link refid="classBGridView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>BGroupView</label>
+        <link refid="classBGroupView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>BListView</label>
+        <link refid="classBListView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BLooper</label>
+        <link refid="classBLooper"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>BMenu</label>
+        <link refid="classBMenu"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>BMenuBar</label>
+        <link refid="classBMenuBar"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>BMenuField</label>
+        <link refid="classBMenuField"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>BOptionControl</label>
+        <link refid="classBOptionControl"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>BOptionPopUp</label>
+        <link refid="classBOptionPopUp"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>BOutlineListView</label>
+        <link refid="classBOutlineListView"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>BPictureButton</label>
+        <link refid="classBPictureButton"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>BPopUpMenu</label>
+        <link refid="classBPopUpMenu"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>BRadioButton</label>
+        <link refid="classBRadioButton"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>BScrollBar</label>
+        <link refid="classBScrollBar"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>BScrollView</label>
+        <link refid="classBScrollView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>BSeparatorView</label>
+        <link refid="classBSeparatorView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>BSplitView</label>
+        <link refid="classBSplitView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>BStatusBar</label>
+        <link refid="classBStatusBar"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>BStringView</label>
+        <link refid="classBStringView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>BTabView</label>
+        <link refid="classBTabView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>BTextControl</label>
+        <link refid="classBTextControl"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>BTextView</label>
+        <link refid="classBTextView"/>
+        <childnode refid="8" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BWindow</label>
+        <link refid="classBWindow"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/app/Handler.h" line="29" column="1" bodyfile="/boot/home/src/haiku/headers/os/app/Handler.h" bodystart="29" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classBHandler_1aefb96ac67819fff3502d58c718bb8b25" prot="private" virt="non-virtual"><scope>BHandler</scope><name>_get_object_token_</name></member>
+      <member refid="classBHandler_1aedf318d72f6b703b51987ed6c41ea847" prot="private" virt="non-virtual"><scope>BHandler</scope><name>_inherited</name></member>
+      <member refid="classBHandler_1a0916a4dd51ad975cd2fda7a72dce53f2" prot="private" virt="non-virtual"><scope>BHandler</scope><name>_InitData</name></member>
+      <member refid="classBHandler_1af725587385fe152b9f68856d298588dc" prot="private" virt="non-virtual"><scope>BHandler</scope><name>_ObserverList</name></member>
+      <member refid="classBHandler_1ad0781c4943a100e245bc3eb5f993237e" prot="private" virt="non-virtual"><scope>BHandler</scope><name>_reserved</name></member>
+      <member refid="classBHandler_1a335e32eac789210b515fa2d9b98b8010" prot="private" virt="virtual"><scope>BHandler</scope><name>_ReservedHandler2</name></member>
+      <member refid="classBHandler_1a3a92cdcb7835c598f7ea1b2590da159a" prot="private" virt="virtual"><scope>BHandler</scope><name>_ReservedHandler3</name></member>
+      <member refid="classBHandler_1a30c4f5350040424395eac98ae4cd1b2f" prot="private" virt="virtual"><scope>BHandler</scope><name>_ReservedHandler4</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BHandler</scope><name>AddFilter</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BHandler</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BHandler</scope><name>AllUnarchived</name></member>
+      <member refid="classBHandler_1ac2711ccff5e7f711244c88a5642c83db" prot="public" virt="virtual"><scope>BHandler</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BHandler</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BHandler</scope><name>BArchivable</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BHandler</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BHandler</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1aa86429c6f680e2daacbe88d8d2bfa024" prot="private" virt="non-virtual"><scope>BHandler</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1a5f76694c08d67df1de93affc8b9b96fc" prot="private" virt="non-virtual"><scope>BHandler</scope><name>fFilters</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BHandler</scope><name>FilterList</name></member>
+      <member refid="classBHandler_1a16551dca3b15aaef13fbffe8634b14b2" prot="private" virt="non-virtual"><scope>BHandler</scope><name>fLooper</name></member>
+      <member refid="classBHandler_1a88bb928fb176ef93bd1c3b3e5e15870f" prot="private" virt="non-virtual"><scope>BHandler</scope><name>fName</name></member>
+      <member refid="classBHandler_1a7263cf1e2dc56d2d0f15ca77556ab13d" prot="private" virt="non-virtual"><scope>BHandler</scope><name>fNextHandler</name></member>
+      <member refid="classBHandler_1a40f48b104e4ec97cdd2184be83318dbc" prot="private" virt="non-virtual"><scope>BHandler</scope><name>fObserverList</name></member>
+      <member refid="classBHandler_1ace52d4eaf55f98bff788b55fa6ab0015" prot="private" virt="non-virtual"><scope>BHandler</scope><name>fToken</name></member>
+      <member refid="classBHandler_1acf34435dada239f411e8e034e0ea36b5" prot="public" virt="virtual"><scope>BHandler</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBHandler_1a0c23aeb48d578525f81ba6d47f968528" prot="public" virt="non-virtual"><scope>BHandler</scope><name>Instantiate</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BHandler</scope><name>IsWatched</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BHandler</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BHandler</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BHandler</scope><name>Looper</name></member>
+      <member refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" prot="public" virt="virtual"><scope>BHandler</scope><name>MessageReceived</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BHandler</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BHandler</scope><name>NextHandler</name></member>
+      <member refid="classBHandler_1aa85dede8d28050d92862ca46f10aa970" prot="private" virt="non-virtual"><scope>BHandler</scope><name>operator=</name></member>
+      <member refid="classBHandler_1a4e6ebc7ebcb72855a1f0fee7bde99766" prot="public" virt="virtual"><scope>BHandler</scope><name>Perform</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BHandler</scope><name>RemoveFilter</name></member>
+      <member refid="classBHandler_1a76439ffaf84e65232698d2a4a3317d22" prot="public" virt="virtual"><scope>BHandler</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BHandler</scope><name>SendNotices</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BHandler</scope><name>SetFilterList</name></member>
+      <member refid="classBHandler_1a8ea9221173603133f8ebaf317c067b85" prot="private" virt="non-virtual"><scope>BHandler</scope><name>SetLooper</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BHandler</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BHandler</scope><name>SetNextHandler</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BHandler</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BHandler</scope><name>UnlockLooper</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BHandler</scope><name>~BArchivable</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BHandler</scope><name>~BHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

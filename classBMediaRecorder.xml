@@ -1,0 +1,795 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMediaRecorder" kind="class" language="C++" prot="public">
+    <compoundname>BMediaRecorder</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBMediaRecorder_1a93093d562fa858e720ff86e878161373" prot="public" static="no" strong="no">
+        <type></type>
+        <name>notification</name>
+        <qualifiedname>BMediaRecorder::notification</qualifiedname>
+        <enumvalue id="classBMediaRecorder_1a93093d562fa858e720ff86e878161373a86974e5f68786ae591be6533a5516948" prot="public">
+          <name>B_WILL_START</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaRecorder_1a93093d562fa858e720ff86e878161373a0f8c129a9af10ed1550a59e7757209cc" prot="public">
+          <name>B_WILL_STOP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaRecorder_1a93093d562fa858e720ff86e878161373aaa440eb08f9419e45a6a6cafba63d983" prot="public">
+          <name>B_WILL_SEEK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaRecorder_1a93093d562fa858e720ff86e878161373ad2525552cb4962adca89c0508c492cfe" prot="public">
+          <name>B_WILL_TIMEWARP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="21" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="21" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBMediaRecorder_1a873234db2544357f8de7dfd4ca5cdd0a" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* BMediaRecorder::NotifyFunc) (void *cookie, notification what,...)</definition>
+        <argsstring>)(void *cookie, notification what,...)</argsstring>
+        <name>NotifyFunc</name>
+        <qualifiedname>BMediaRecorder::NotifyFunc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="32" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classBMediaRecorder_1afeccd2f9d561b57b3ea1dbbf3d0be2bd" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* BMediaRecorder::ProcessFunc) (void *cookie, bigtime_t timestamp, void *data, size_t size, const media_format &amp;format)</definition>
+        <argsstring>)(void *cookie, bigtime_t timestamp, void *data, size_t size, const media_format &amp;format)</argsstring>
+        <name>ProcessFunc</name>
+        <qualifiedname>BMediaRecorder::ProcessFunc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="28" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMediaRecorder_1ae9401f1c1e586279ead42edcb792620d" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* BMediaRecorder::fBufferCookie</definition>
+        <argsstring></argsstring>
+        <name>fBufferCookie</name>
+        <qualifiedname>BMediaRecorder::fBufferCookie</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="111" column="5" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a97d1e7fe30bb65631f6b5877005e6fac" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMediaRecorder::fConnected</definition>
+        <argsstring></argsstring>
+        <name>fConnected</name>
+        <qualifiedname>BMediaRecorder::fConnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="99" column="5" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a4fe3fa44e0ca4475d97c610e0a12a420" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaRecorder::fInitErr</definition>
+        <argsstring></argsstring>
+        <name>fInitErr</name>
+        <qualifiedname>BMediaRecorder::fInitErr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="97" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a9a75377b7152f93dbd444212244808e9" prot="private" static="no" mutable="no">
+        <type>BPrivate::media::BMediaRecorderNode *</type>
+        <definition>BPrivate::media::BMediaRecorderNode* BMediaRecorder::fNode</definition>
+        <argsstring></argsstring>
+        <name>fNode</name>
+        <qualifiedname>BMediaRecorder::fNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="109" column="37" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1afe0c5f650c9a684069423e561f035184" prot="private" static="no" mutable="no">
+        <type>NotifyFunc</type>
+        <definition>NotifyFunc BMediaRecorder::fNotifyHook</definition>
+        <argsstring></argsstring>
+        <name>fNotifyHook</name>
+        <qualifiedname>BMediaRecorder::fNotifyHook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="104" column="11" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a8a3b79d37537f930282d6900e4869684" prot="private" static="no" mutable="no">
+        <type>media_node</type>
+        <definition>media_node BMediaRecorder::fOutputNode</definition>
+        <argsstring></argsstring>
+        <name>fOutputNode</name>
+        <qualifiedname>BMediaRecorder::fOutputNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="106" column="11" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1aa614116d9f7f8155b92aa6c2d5651dc4" prot="private" static="no" mutable="no">
+        <type>media_source</type>
+        <definition>media_source BMediaRecorder::fOutputSource</definition>
+        <argsstring></argsstring>
+        <name>fOutputSource</name>
+        <qualifiedname>BMediaRecorder::fOutputSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="107" column="13" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a818e9eb657b032265d5fd72b4eac0f8e" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMediaRecorder::fPadding[32]</definition>
+        <argsstring>[32]</argsstring>
+        <name>fPadding</name>
+        <qualifiedname>BMediaRecorder::fPadding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="112" column="7" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a5c1a133e48f40d72f4a71241135312ab" prot="private" static="no" mutable="no">
+        <type>ProcessFunc</type>
+        <definition>ProcessFunc BMediaRecorder::fRecordHook</definition>
+        <argsstring></argsstring>
+        <name>fRecordHook</name>
+        <qualifiedname>BMediaRecorder::fRecordHook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="103" column="12" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1a6cba0e8966ee326f800debe34c711f78" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMediaRecorder::fReleaseOutputNode</definition>
+        <argsstring></argsstring>
+        <name>fReleaseOutputNode</name>
+        <qualifiedname>BMediaRecorder::fReleaseOutputNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="101" column="5" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaRecorder_1ae1bc2d6b1158933422913ad50ee61b1d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMediaRecorder::fRunning</definition>
+        <argsstring></argsstring>
+        <name>fRunning</name>
+        <qualifiedname>BMediaRecorder::fRunning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="100" column="5" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBMediaRecorder_1aaa67316a37c6aae343a9c54faa79aed7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrivate::media::BMediaRecorderNode</definition>
+        <argsstring></argsstring>
+        <name>BPrivate::media::BMediaRecorderNode</name>
+        <qualifiedname>BMediaRecorder::BMediaRecorderNode</qualifiedname>
+        <param>
+          <type>BPrivate::media::BMediaRecorderNode</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="114" column="13" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMediaRecorder_1a10cddfda8906f17cc406a5d1212006e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaRecorder::BMediaRecorder</definition>
+        <argsstring>(const char *name, media_type type=B_MEDIA_UNKNOWN_TYPE)</argsstring>
+        <name>BMediaRecorder</name>
+        <qualifiedname>BMediaRecorder::BMediaRecorder</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>media_type</type>
+          <declname>type</declname>
+          <defval>B_MEDIA_UNKNOWN_TYPE</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a5594369714f0e1b65781edd931f62924" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BMediaRecorder::~BMediaRecorder</definition>
+        <argsstring>()</argsstring>
+        <name>~BMediaRecorder</name>
+        <qualifiedname>BMediaRecorder::~BMediaRecorder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="40" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1ab27f761a09e284702b024ea5347c627a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_format &amp;</type>
+        <definition>const media_format &amp; BMediaRecorder::AcceptedFormat</definition>
+        <argsstring>() const</argsstring>
+        <name>AcceptedFormat</name>
+        <qualifiedname>BMediaRecorder::AcceptedFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="50" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a8e4ea56e91511bb02ac198e7f2ebe4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaRecorder::Connect</definition>
+        <argsstring>(const dormant_node_info &amp;dormantInfo, const media_format &amp;format)</argsstring>
+        <name>Connect</name>
+        <qualifiedname>BMediaRecorder::Connect</qualifiedname>
+        <param>
+          <type>const dormant_node_info &amp;</type>
+          <declname>dormantInfo</declname>
+        </param>
+        <param>
+          <type>const media_format &amp;</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="57" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1ac36d7e099ca309c51c9c494ecf1d3b2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaRecorder::Connect</definition>
+        <argsstring>(const media_format &amp;format)</argsstring>
+        <name>Connect</name>
+        <qualifiedname>BMediaRecorder::Connect</qualifiedname>
+        <param>
+          <type>const media_format &amp;</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="55" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1af1292ee699662663fa58dde5bf5b25a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaRecorder::Connect</definition>
+        <argsstring>(const media_node &amp;node, const media_output *output=NULL, const media_format *format=NULL)</argsstring>
+        <name>Connect</name>
+        <qualifiedname>BMediaRecorder::Connect</qualifiedname>
+        <param>
+          <type>const media_node &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const media_output *</type>
+          <declname>output</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>const media_format *</type>
+          <declname>format</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="60" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a031f22fca379604ee4f4c31049246397" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaRecorder::Disconnect</definition>
+        <argsstring>()</argsstring>
+        <name>Disconnect</name>
+        <qualifiedname>BMediaRecorder::Disconnect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="64" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a3c6549815f40c05ab345821acd11d8a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_format &amp;</type>
+        <definition>const media_format &amp; BMediaRecorder::Format</definition>
+        <argsstring>() const</argsstring>
+        <name>Format</name>
+        <qualifiedname>BMediaRecorder::Format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="69" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a1e6bdf0d6f754af037ff376b3e82f9de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaRecorder::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BMediaRecorder::InitCheck</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1abdc739052fcf8b144905d6741866aba9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMediaRecorder::IsConnected</definition>
+        <argsstring>() const</argsstring>
+        <name>IsConnected</name>
+        <qualifiedname>BMediaRecorder::IsConnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="66" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a4e81d1d750e8633ae6872b3c3e0aaca7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMediaRecorder::IsRunning</definition>
+        <argsstring>() const</argsstring>
+        <name>IsRunning</name>
+        <qualifiedname>BMediaRecorder::IsRunning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1ae673de003f06a491919337d27955bbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaRecorder::SetAcceptedFormat</definition>
+        <argsstring>(const media_format &amp;format)</argsstring>
+        <name>SetAcceptedFormat</name>
+        <qualifiedname>BMediaRecorder::SetAcceptedFormat</qualifiedname>
+        <param>
+          <type>const media_format &amp;</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="48" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1aa664f20a488a51de9592ca2b5e633723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaRecorder::SetHooks</definition>
+        <argsstring>(ProcessFunc recordFunc=NULL, NotifyFunc notifyFunc=NULL, void *cookie=NULL)</argsstring>
+        <name>SetHooks</name>
+        <qualifiedname>BMediaRecorder::SetHooks</qualifiedname>
+        <param>
+          <type>ProcessFunc</type>
+          <declname>recordFunc</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>NotifyFunc</type>
+          <declname>notifyFunc</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>cookie</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="44" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1aaf6aa44e1065e0127f41b12d1040c862" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaRecorder::Start</definition>
+        <argsstring>(bool force=false)</argsstring>
+        <name>Start</name>
+        <qualifiedname>BMediaRecorder::Start</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="52" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a70046eedfc94d04f02fc6b238542e6c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaRecorder::Stop</definition>
+        <argsstring>(bool force=false)</argsstring>
+        <name>Stop</name>
+        <qualifiedname>BMediaRecorder::Stop</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="53" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBMediaRecorder_1aaa3fc3083395058e87254712b0709110" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::BufferReceived</definition>
+        <argsstring>(void *buffer, size_t size, const media_header &amp;header)</argsstring>
+        <name>BufferReceived</name>
+        <qualifiedname>BMediaRecorder::BufferReceived</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const media_header &amp;</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="77" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1aa206a865f4be8f1fb1f4ebdef3c1124f" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_input</type>
+        <definition>const media_input BMediaRecorder::MediaInput</definition>
+        <argsstring>() const</argsstring>
+        <name>MediaInput</name>
+        <qualifiedname>BMediaRecorder::MediaInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="75" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a8f40016cea64fc25b4b46ff973edcb35" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const media_source &amp;</type>
+        <definition>const media_source &amp; BMediaRecorder::MediaSource</definition>
+        <argsstring>() const</argsstring>
+        <name>MediaSource</name>
+        <qualifiedname>BMediaRecorder::MediaSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="73" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a815246f2ea2b9fa15583a72889124656" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaRecorder::SetUpConnection</definition>
+        <argsstring>(media_source outputSource)</argsstring>
+        <name>SetUpConnection</name>
+        <qualifiedname>BMediaRecorder::SetUpConnection</qualifiedname>
+        <param>
+          <type>media_source</type>
+          <declname>outputSource</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="80" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMediaRecorder_1a127da3e89587c7cc95b68a39bd8c1729" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaRecorder::_Connect</definition>
+        <argsstring>(const media_node &amp;mediaNode, const media_output *output, const media_format &amp;format)</argsstring>
+        <name>_Connect</name>
+        <qualifiedname>BMediaRecorder::_Connect</qualifiedname>
+        <param>
+          <type>const media_node &amp;</type>
+          <declname>mediaNode</declname>
+        </param>
+        <param>
+          <type>const media_output *</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const media_format &amp;</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="84" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a9c9f85b2eb240949d3ff1fb86fd10e57" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder0</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder0</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="88" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a6d92490ed6fc92efaa9fd421dbf3b09c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder1</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="89" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a96e27fcbda00e15058beeb276f653107" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder2</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="90" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1aebfec2d7a5deb51934946802b0ecfb9f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder3</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="91" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a231a7ca94f4cf0a6c34418755883ea08" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder4</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="92" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a99c062ba3f54026bdf3082b2c0bfe695" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder5</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="93" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1ac60fbb8ac49be76885839839a0738fd3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder6</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="94" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaRecorder_1a7955d263c3d5d6a079a6ca701fb9758b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaRecorder::_ReservedMediaRecorder7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMediaRecorder7</name>
+        <qualifiedname>BMediaRecorder::_ReservedMediaRecorder7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="95" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" line="19" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/MediaRecorder.h" bodystart="19" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classBMediaRecorder_1a127da3e89587c7cc95b68a39bd8c1729" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>_Connect</name></member>
+      <member refid="classBMediaRecorder_1a9c9f85b2eb240949d3ff1fb86fd10e57" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder0</name></member>
+      <member refid="classBMediaRecorder_1a6d92490ed6fc92efaa9fd421dbf3b09c" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder1</name></member>
+      <member refid="classBMediaRecorder_1a96e27fcbda00e15058beeb276f653107" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder2</name></member>
+      <member refid="classBMediaRecorder_1aebfec2d7a5deb51934946802b0ecfb9f" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder3</name></member>
+      <member refid="classBMediaRecorder_1a231a7ca94f4cf0a6c34418755883ea08" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder4</name></member>
+      <member refid="classBMediaRecorder_1a99c062ba3f54026bdf3082b2c0bfe695" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder5</name></member>
+      <member refid="classBMediaRecorder_1ac60fbb8ac49be76885839839a0738fd3" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder6</name></member>
+      <member refid="classBMediaRecorder_1a7955d263c3d5d6a079a6ca701fb9758b" prot="private" virt="virtual"><scope>BMediaRecorder</scope><name>_ReservedMediaRecorder7</name></member>
+      <member refid="classBMediaRecorder_1ab27f761a09e284702b024ea5347c627a" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>AcceptedFormat</name></member>
+      <member refid="classBMediaRecorder_1a93093d562fa858e720ff86e878161373aaa440eb08f9419e45a6a6cafba63d983" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>B_WILL_SEEK</name></member>
+      <member refid="classBMediaRecorder_1a93093d562fa858e720ff86e878161373a86974e5f68786ae591be6533a5516948" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>B_WILL_START</name></member>
+      <member refid="classBMediaRecorder_1a93093d562fa858e720ff86e878161373a0f8c129a9af10ed1550a59e7757209cc" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>B_WILL_STOP</name></member>
+      <member refid="classBMediaRecorder_1a93093d562fa858e720ff86e878161373ad2525552cb4962adca89c0508c492cfe" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>B_WILL_TIMEWARP</name></member>
+      <member refid="classBMediaRecorder_1a10cddfda8906f17cc406a5d1212006e1" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>BMediaRecorder</name></member>
+      <member refid="classBMediaRecorder_1aaa3fc3083395058e87254712b0709110" prot="protected" virt="virtual"><scope>BMediaRecorder</scope><name>BufferReceived</name></member>
+      <member refid="classBMediaRecorder_1ac36d7e099ca309c51c9c494ecf1d3b2c" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>Connect</name></member>
+      <member refid="classBMediaRecorder_1a8e4ea56e91511bb02ac198e7f2ebe4c6" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>Connect</name></member>
+      <member refid="classBMediaRecorder_1af1292ee699662663fa58dde5bf5b25a2" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>Connect</name></member>
+      <member refid="classBMediaRecorder_1a031f22fca379604ee4f4c31049246397" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>Disconnect</name></member>
+      <member refid="classBMediaRecorder_1ae9401f1c1e586279ead42edcb792620d" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fBufferCookie</name></member>
+      <member refid="classBMediaRecorder_1a97d1e7fe30bb65631f6b5877005e6fac" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fConnected</name></member>
+      <member refid="classBMediaRecorder_1a4fe3fa44e0ca4475d97c610e0a12a420" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fInitErr</name></member>
+      <member refid="classBMediaRecorder_1a9a75377b7152f93dbd444212244808e9" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fNode</name></member>
+      <member refid="classBMediaRecorder_1afe0c5f650c9a684069423e561f035184" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fNotifyHook</name></member>
+      <member refid="classBMediaRecorder_1a3c6549815f40c05ab345821acd11d8a8" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>Format</name></member>
+      <member refid="classBMediaRecorder_1a8a3b79d37537f930282d6900e4869684" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fOutputNode</name></member>
+      <member refid="classBMediaRecorder_1aa614116d9f7f8155b92aa6c2d5651dc4" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fOutputSource</name></member>
+      <member refid="classBMediaRecorder_1a818e9eb657b032265d5fd72b4eac0f8e" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fPadding</name></member>
+      <member refid="classBMediaRecorder_1a5c1a133e48f40d72f4a71241135312ab" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fRecordHook</name></member>
+      <member refid="classBMediaRecorder_1a6cba0e8966ee326f800debe34c711f78" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fReleaseOutputNode</name></member>
+      <member refid="classBMediaRecorder_1ae1bc2d6b1158933422913ad50ee61b1d" prot="private" virt="non-virtual"><scope>BMediaRecorder</scope><name>fRunning</name></member>
+      <member refid="classBMediaRecorder_1a1e6bdf0d6f754af037ff376b3e82f9de" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>InitCheck</name></member>
+      <member refid="classBMediaRecorder_1abdc739052fcf8b144905d6741866aba9" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>IsConnected</name></member>
+      <member refid="classBMediaRecorder_1a4e81d1d750e8633ae6872b3c3e0aaca7" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>IsRunning</name></member>
+      <member refid="classBMediaRecorder_1aa206a865f4be8f1fb1f4ebdef3c1124f" prot="protected" virt="non-virtual"><scope>BMediaRecorder</scope><name>MediaInput</name></member>
+      <member refid="classBMediaRecorder_1a8f40016cea64fc25b4b46ff973edcb35" prot="protected" virt="non-virtual"><scope>BMediaRecorder</scope><name>MediaSource</name></member>
+      <member refid="classBMediaRecorder_1a93093d562fa858e720ff86e878161373" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>notification</name></member>
+      <member refid="classBMediaRecorder_1a873234db2544357f8de7dfd4ca5cdd0a" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>NotifyFunc</name></member>
+      <member refid="classBMediaRecorder_1afeccd2f9d561b57b3ea1dbbf3d0be2bd" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>ProcessFunc</name></member>
+      <member refid="classBMediaRecorder_1ae673de003f06a491919337d27955bbe3" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>SetAcceptedFormat</name></member>
+      <member refid="classBMediaRecorder_1aa664f20a488a51de9592ca2b5e633723" prot="public" virt="non-virtual"><scope>BMediaRecorder</scope><name>SetHooks</name></member>
+      <member refid="classBMediaRecorder_1a815246f2ea2b9fa15583a72889124656" prot="protected" virt="non-virtual"><scope>BMediaRecorder</scope><name>SetUpConnection</name></member>
+      <member refid="classBMediaRecorder_1aaf6aa44e1065e0127f41b12d1040c862" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>Start</name></member>
+      <member refid="classBMediaRecorder_1a70046eedfc94d04f02fc6b238542e6c3" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>Stop</name></member>
+      <member refid="classBMediaRecorder_1a5594369714f0e1b65781edd931f62924" prot="public" virt="virtual"><scope>BMediaRecorder</scope><name>~BMediaRecorder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

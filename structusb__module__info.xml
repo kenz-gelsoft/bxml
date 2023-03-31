@@ -1,0 +1,1180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structusb__module__info" kind="struct" language="C++" prot="public">
+    <compoundname>usb_module_info</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structusb__module__info_1ab629f658d9ea6598e41c7b3e3fa78833" prot="public" static="no" mutable="no">
+        <type>bus_manager_info</type>
+        <definition>usb_module_info::binfo</definition>
+        <argsstring></argsstring>
+        <name>binfo</name>
+        <qualifiedname>usb_module_info::binfo</qualifiedname>
+        <briefdescription>
+<para>Instance of the bus_manager_info object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="86" column="17" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a3c5f4fcdb5cd5952f707428705fbe4d7" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::cancel_queued_requests) (usb_device device)</definition>
+        <argsstring>)(usb_device device)</argsstring>
+        <name>cancel_queued_requests</name>
+        <qualifiedname>usb_module_info::cancel_queued_requests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="252" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1addadab9d5c4fbb672b563197bc6cfc3c" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::cancel_queued_transfers)(usb_pipe pipe)</definition>
+        <argsstring>)(usb_pipe pipe)</argsstring>
+        <name>cancel_queued_transfers</name>
+        <qualifiedname>usb_module_info::cancel_queued_transfers</qualifiedname>
+        <briefdescription>
+<para>Cancel pending transfers on a pipe. All the pending transfers will be cancelled. The stack will perform the callback on all of them that are cancelled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>There might be transfers that are being executed the moment you call this method. These will be executed, and their callbacks will be performed. Make sure you don&apos;t delete any buffers that could still be used by these transfers.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pipe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the pipe to clear.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All the pending transfers on this pipe are deleted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied usb_id is not a valid pipe. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>other errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was an error clearing the pipe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="207" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::clear_feature)(usb_id handle, uint16 selector)</definition>
+        <argsstring>)(usb_id handle, uint16 selector)</argsstring>
+        <name>clear_feature</name>
+        <qualifiedname>usb_module_info::clear_feature</qualifiedname>
+        <briefdescription>
+<para>Convenience function for standard control pipe clear feature requests. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" kindref="member">set_feature()</ref> to see how this method works. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="144" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a553d927e8f1ebf86f6fd4865add81b91" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::disable_port) (usb_device hub, uint8 portIndex)</definition>
+        <argsstring>)(usb_device hub, uint8 portIndex)</argsstring>
+        <name>disable_port</name>
+        <qualifiedname>usb_module_info::disable_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="248" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1ab99f30d408ccce88e584c8ccc3a7d1b8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref> *(*</type>
+        <definition>const usb_configuration_info *(* usb_module_info::get_configuration)(usb_device device)</definition>
+        <argsstring>)(usb_device device)</argsstring>
+        <name>get_configuration</name>
+        <qualifiedname>usb_module_info::get_configuration</qualifiedname>
+        <briefdescription>
+<para>Get the current configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the device you want to query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>This</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>will return <ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref> with the standard usb configuration descriptor, or it will return<computeroutput>NULL</computeroutput> if the <emphasis>id</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="130" column="7" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a8643ea1daa67bcbaa5dd5b0d7b79f4e4" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::get_descriptor)(usb_device device, uint8 descriptorType, uint8 index, uint16 languageID, void *data, size_t dataLength, size_t *actualLength)</definition>
+        <argsstring>)(usb_device device, uint8 descriptorType, uint8 index, uint16 languageID, void *data, size_t dataLength, size_t *actualLength)</argsstring>
+        <name>get_descriptor</name>
+        <qualifiedname>usb_module_info::get_descriptor</qualifiedname>
+        <briefdescription>
+<para>Convenience function to get a descriptor from a device. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The device you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">descriptorType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of descriptor you are requesting. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In case there are multiple descriptors of this type, you select which one you want. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">languageID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The language you want the descriptor in (if applicable, as with string_descriptors). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer in which the descriptor can be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">dataLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the buffer (in bytes). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">actualLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable in which the actual number of bytes written can be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request succeeded, and the descriptor is written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid <emphasis>device</emphasis> parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>other errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Request failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="147" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a52aad2b91cf3472c80ad32ffe3e6a008" prot="public" static="no" mutable="no">
+        <type>const usb_device_descriptor *(*</type>
+        <definition>const usb_device_descriptor *(* usb_module_info::get_device_descriptor)(usb_device device)</definition>
+        <argsstring>)(usb_device device)</argsstring>
+        <name>get_device_descriptor</name>
+        <qualifiedname>usb_module_info::get_device_descriptor</qualifiedname>
+        <briefdescription>
+<para>Get the device descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the device you want to query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The standard usb_device_descriptor, or <computeroutput>NULL</computeroutput> in case of an error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="123" column="7" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a138561a37cb8d50baec6d407c7e6f892" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::get_device_parent) (usb_device device, usb_device *parentHub, uint8 *portIndex)</definition>
+        <argsstring>)(usb_device device, usb_device *parentHub, uint8 *portIndex)</argsstring>
+        <name>get_device_parent</name>
+        <qualifiedname>usb_module_info::get_device_parent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="234" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a54d5eeeab4c5d89a0442cbad50b18218" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::get_nth_child) (usb_device hub, uint8 index, usb_device *childDevice)</definition>
+        <argsstring>)(usb_device hub, uint8 index, usb_device *childDevice)</argsstring>
+        <name>get_nth_child</name>
+        <qualifiedname>usb_module_info::get_nth_child</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="232" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a5d8882493d8803f3237b1808dda3a1a7" prot="public" static="no" mutable="no">
+        <type>const <ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref> *(*</type>
+        <definition>const usb_configuration_info *(* usb_module_info::get_nth_configuration)(usb_device device, uint index)</definition>
+        <argsstring>)(usb_device device, uint32 index)</argsstring>
+        <name>get_nth_configuration</name>
+        <qualifiedname>usb_module_info::get_nth_configuration</qualifiedname>
+        <briefdescription>
+<para>Get a configuration descriptor by index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the device you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The (zero based) offset of the list of configurations. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This will normally return the <ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref> with the standard usb configuration descriptor. <computeroutput>NULL</computeroutput> will be returned if the <emphasis>id</emphasis> is invalid or the <emphasis>index</emphasis> is out of bounds. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="126" column="7" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1acffb1f29e41999ff6c00d5bb74341f62" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::get_nth_roothub) (uint32 index, usb_device *rootHub)</definition>
+        <argsstring>)(uint32 index, usb_device *rootHub)</argsstring>
+        <name>get_nth_roothub</name>
+        <qualifiedname>usb_module_info::get_nth_roothub</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="230" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a2d342f1553fb3a4b5ea61eb6d7db27a0" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::get_status)(usb_id handle, uint16 *status)</definition>
+        <argsstring>)(usb_id handle, uint16 *status)</argsstring>
+        <name>get_status</name>
+        <qualifiedname>usb_module_info::get_status</qualifiedname>
+        <briefdescription>
+<para>Convenience function for standard usb status requests. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A variable in which the device can store its status. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> is returned in case the request succeeded and the device responded positively, or an error code is returned in case it failed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="145" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::install_notify)(const char *driverName, const usb_notify_hooks *hooks)</definition>
+        <argsstring>)(const char *driverName, const usb_notify_hooks *hooks)</argsstring>
+        <name>install_notify</name>
+        <qualifiedname>usb_module_info::install_notify</qualifiedname>
+        <briefdescription>
+<para>Install notify hooks for your driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After your driver is registered, you need to pass hooks to your driver that are called whenever a device that matches your <ref refid="structusb__support__descriptor" kindref="compound">support descriptor </ref> .</para>
+<para>As soon as the hooks are installed, you&apos;ll receive callbacks for devices that are already attached; so make sure your driver is initialized properly when calling this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>driverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name you passed in <ref refid="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" kindref="member">register_driver()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hooks</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hooks the stack should call in case the status of devices that match your support descriptor changes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hooks are installed succesfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NAME_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid <emphasis>driverName</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref> for information on how your hooks should behave. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structusb__module__info_1a09965c1a72c449d6d866ef33b31fa1dd" kindref="member">uninstall_notify()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="118" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1aaf2e5f284d228b5264827d98ffac7ef4" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::queue_bulk)(usb_pipe pipe, void *data, size_t dataLength, usb_callback_func callback, void *callbackCookie)</definition>
+        <argsstring>)(usb_pipe pipe, void *data, size_t dataLength, usb_callback_func callback, void *callbackCookie)</argsstring>
+        <name>queue_bulk</name>
+        <qualifiedname>usb_module_info::queue_bulk</qualifiedname>
+        <briefdescription>
+<para>Asynchronously queue a bulk transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method behaves like the <ref refid="structusb__module__info_1af46188738f7e77b713f5925f949ce613" kindref="member">queue_interrupt()</ref> method, except that it queues a bulk transfer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="175" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1ab1ad7ea7155b166ffd4423a26b2fdf6d" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::queue_bulk_v)(usb_pipe pipe, iovec *vector, size_t vectorCount, usb_callback_func callback, void *callbackCookie)</definition>
+        <argsstring>)(usb_pipe pipe, iovec *vector, size_t vectorCount, usb_callback_func callback, void *callbackCookie)</argsstring>
+        <name>queue_bulk_v</name>
+        <qualifiedname>usb_module_info::queue_bulk_v</qualifiedname>
+        <briefdescription>
+<para>Asynchronously queue a bulk vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method behaves like the <ref refid="structusb__module__info_1af46188738f7e77b713f5925f949ce613" kindref="member">queue_interrupt()</ref> method, except that it queues bulk transfers and that it is based on an (array of) io vectors.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One or more io vectors. IO vectors are standard POSIX entities. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vectorCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of elements in the <emphasis>vector</emphasis> array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="180" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1af46188738f7e77b713f5925f949ce613" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::queue_interrupt)(usb_pipe pipe, void *data, size_t dataLength, usb_callback_func callback, void *callbackCookie)</definition>
+        <argsstring>)(usb_pipe pipe, void *data, size_t dataLength, usb_callback_func callback, void *callbackCookie)</argsstring>
+        <name>queue_interrupt</name>
+        <qualifiedname>usb_module_info::queue_interrupt</qualifiedname>
+        <briefdescription>
+<para>Asynchronously queue an interrupt transfer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pipe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the pipe you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data buffer you want to pass. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dataLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callback function the stack should call after finishing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callbackCookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A cookie that will be supplied to your callback function when the transfer is finished.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>This will return a value indicating whether or not the queueing of the transfer went well. The return value won&apos;t tell you if the transfer actually succeeded. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The interrupt transfer is queued. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error allocating objects. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>pipe</emphasis> is not a valid interrupt pipe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="170" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a51bd569f73c289254aae0a09d88f2910" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::queue_isochronous)(usb_pipe pipe, void *data, size_t dataLength, usb_iso_packet_descriptor *packetDesc, uint32 packetCount, uint32 *startingFrameNumber, uint32 flags, usb_callback_func callback, void *callbackCookie)</definition>
+        <argsstring>)(usb_pipe pipe, void *data, size_t dataLength, usb_iso_packet_descriptor *packetDesc, uint32 packetCount, uint32 *startingFrameNumber, uint32 flags, usb_callback_func callback, void *callbackCookie)</argsstring>
+        <name>queue_isochronous</name>
+        <qualifiedname>usb_module_info::queue_isochronous</qualifiedname>
+        <briefdescription>
+<para>Asynchronously queue a isochronous transfer. Not implemented. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is not implemented in the current Haiku USB Stack. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="185" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::queue_request)(usb_device device, uint8 requestType, uint8 request, uint16 value, uint16 index, uint16 length, void *data, usb_callback_func callback, void *callbackCookie)</definition>
+        <argsstring>)(usb_device device, uint8 requestType, uint8 request, uint16 value, uint16 index, uint16 length, void *data, usb_callback_func callback, void *callbackCookie)</argsstring>
+        <name>queue_request</name>
+        <qualifiedname>usb_module_info::queue_request</qualifiedname>
+        <briefdescription>
+<para>Asynchronously queue a control pipe request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does roughly the same as <ref refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" kindref="member">send_request()</ref>, however, it works asynchronously. This means that the method will return as soon as the transfer is queued.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>callback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callback function for when the transfer is done. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>callbackCookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie that the stack should pass to your callback function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the queueing of the transfer went well. The return value won&apos;t tell you if the transfer actually succeeded. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The control transfer is queued. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error allocating objects. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>device</emphasis> argument is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="194" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::register_driver)(const char *driverName, const usb_support_descriptor *supportDescriptors, size_t supportDescriptorCount, const char *optionalRepublishDriverName)</definition>
+        <argsstring>)(const char *driverName, const usb_support_descriptor *supportDescriptors, size_t supportDescriptorCount, const char *optionalRepublishDriverName)</argsstring>
+        <name>register_driver</name>
+        <qualifiedname>usb_module_info::register_driver</qualifiedname>
+        <briefdescription>
+<para>Register your driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>To let the USB stack know that a driver is available to support devices, a driver needs to register itself first. To let the stack know about devices it needs to notify the driver of, have a look at <ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref>.</para>
+<para>It is possible to supply a list of support constructors. You should allocate an array of support constructors and give the amount of constructors in the array using the <emphasis>supportDescriptorCount</emphasis> parameter.</para>
+<para>In case your driver supports all devices or, more likely, you want to monitor all devices plugged in and removed, it is safe to pass <computeroutput>NULL</computeroutput> to the <emphasis>supportDescriptors</emphasis> paramater and zero (0) to <emphasis>supportDescriptorCount</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>driverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A unique name that identifies your driver. Avoid names like <computeroutput>webcam</computeroutput> or <computeroutput>mouse</computeroutput>, instead use vendor names and device types to avoid nameclashes. The <ref refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" kindref="member">install_notify()</ref> and <ref refid="structusb__module__info_1a09965c1a72c449d6d866ef33b31fa1dd" kindref="member">uninstall_notify()</ref> functions use the driver name as an identifier.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>supportDescriptors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array of the type <ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref>. Pass the amount of objects in the next parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>supportDescriptorCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of objects in the array supplied in the previous parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>optionalRepublishDriverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unused parameter. You should pass <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The driver is registered. You can now call <ref refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" kindref="member">install_notify()</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>You passed <computeroutput>NULL</computeroutput> as <emphasis>driverName</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>General internal error in the USB stack. You may retry the request in this case. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error allocating some internal objects. The system is out of memory. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="102" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a05c5497a06d241390e294c7a6997ecdd" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::reset_port) (usb_device hub, uint8 portIndex)</definition>
+        <argsstring>)(usb_device hub, uint8 portIndex)</argsstring>
+        <name>reset_port</name>
+        <qualifiedname>usb_module_info::reset_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="246" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::send_request)(usb_device device, uint8 requestType, uint8 request, uint16 value, uint16 index, uint16 length, void *data, size_t *actualLength)</definition>
+        <argsstring>)(usb_device device, uint8 requestType, uint8 request, uint16 value, uint16 index, uint16 length, void *data, size_t *actualLength)</argsstring>
+        <name>send_request</name>
+        <qualifiedname>usb_module_info::send_request</qualifiedname>
+        <briefdescription>
+<para>Send a generic, synchronous request over the default control pipe. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>See <ref refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" kindref="member">queue_request()</ref> for an asynchronous version of this method.</para>
+<para>Most of the standard values of a request are defined in <ref refid="USB__spec_8h" kindref="compound">USB_spec.h</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The device you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">requestType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request you want to perform. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value of the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index for the request. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the buffer pointed by <emphasis>data</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer where to put the result in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">actualLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The actual numbers of bytes written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid <emphasis>device</emphasis> parameter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>other errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Request failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="154" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a5e5e6b6008e3f38575b10d372eec6a5a" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::set_alt_interface)(usb_device device, const usb_interface_info *interface)</definition>
+        <argsstring>)(usb_device device, const usb_interface_info *interface)</argsstring>
+        <name>set_alt_interface</name>
+        <qualifiedname>usb_module_info::set_alt_interface</qualifiedname>
+        <briefdescription>
+<para>Set an alternative interface. Not implemented. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method currently always returns <computeroutput>B_ERROR</computeroutput>. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="136" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a3acc17927855d50cedb3a99eca964b93" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::set_configuration)(usb_device device, const usb_configuration_info *configuration)</definition>
+        <argsstring>)(usb_device device, const usb_configuration_info *configuration)</argsstring>
+        <name>set_configuration</name>
+        <qualifiedname>usb_module_info::set_configuration</qualifiedname>
+        <briefdescription>
+<para>Change the current configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Changing the configuration will destroy all the current endpoints. If the <emphasis>configuration</emphasis> points to the current configuration, the request will be ignored and <computeroutput>B_OK</computeroutput> will be returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the device you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>configuration</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the new configuration you want to set. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new configuration is set succesfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>device</emphasis> parameter is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration does not exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>This method also allows you to completely unconfigure the device, which means that all the current endpoints, pipes and transfers will be freed. Pass <computeroutput>NULL</computeroutput> to the parameter <emphasis>configuration</emphasis> if you want to do that. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="133" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::set_feature)(usb_id handle, uint16 selector)</definition>
+        <argsstring>)(usb_id handle, uint16 selector)</argsstring>
+        <name>set_feature</name>
+        <qualifiedname>usb_module_info::set_feature</qualifiedname>
+        <briefdescription>
+<para>Convenience function for standard control pipe set feature requests. Both the <ref refid="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" kindref="member">set_feature()</ref> and <ref refid="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" kindref="member">clear_feature()</ref> requests work on all the Stack&apos;s objects: devices, interfaces and pipes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object you want to query. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>selector</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value you want to pass in the feature request. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> in case the request succeeded and the device responded positively, or an error code in case it failed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="143" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a5f4a673416744b496b8ea049a31e4447" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::set_pipe_policy)(usb_pipe pipe, uint8 maxNumQueuedPackets, uint16 maxBufferDurationMS, uint16 sampleSize)</definition>
+        <argsstring>)(usb_pipe pipe, uint8 maxNumQueuedPackets, uint16 maxBufferDurationMS, uint16 sampleSize)</argsstring>
+        <name>set_pipe_policy</name>
+        <qualifiedname>usb_module_info::set_pipe_policy</qualifiedname>
+        <briefdescription>
+<para>Set some pipe features. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The USB standard specifies some properties that should be able to be set on isochronous pipes. If your driver requires the properties to be changed, you should use this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pipe</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The id of the isochronous pipe you want to alter. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxNumQueuedPackets</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of queued packets allowed on this pipe. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxBufferDurationMS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum time in ms that the buffers are valid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sampleSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the samples through this pipe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pipe policy changed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEV_INVALID_PIPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>pipe</emphasis> argument is invalid or not an isochronous pipe. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="201" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1a09965c1a72c449d6d866ef33b31fa1dd" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::uninstall_notify)(const char *driverName)</definition>
+        <argsstring>)(const char *driverName)</argsstring>
+        <name>uninstall_notify</name>
+        <qualifiedname>usb_module_info::uninstall_notify</qualifiedname>
+        <briefdescription>
+<para>Uninstall notify hooks for your driver. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If your driver needs to stop, you can uninstall the notifier hooks. This will clear the stored hooks in the driver, and you will not receive any notifications when new devices are attached. This method will also call <ref refid="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" kindref="member">usb_notify_hooks::device_removed()</ref> for all the devices that you are using and all the stack&apos;s resources that are allocated to your driver are cleared.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>driverName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name you passed in <ref refid="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" kindref="member">register_driver()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hooks are uninstalled. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NAME_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Invalid <emphasis>driverName</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="120" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__module__info_1aaf861275d26378593d11907468a62200" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_module_info::usb_ioctl)(uint32 opcode, void *buffer, size_t bufferSize)</definition>
+        <argsstring>)(uint32 opcode, void *buffer, size_t bufferSize)</argsstring>
+        <name>usb_ioctl</name>
+        <qualifiedname>usb_module_info::usb_ioctl</qualifiedname>
+        <briefdescription>
+<para>Low level commands to the USB stack. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is used to give lowlevel commands to the Stack. There are currently no uses documented. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="210" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for drivers to interact with Haiku&apos;s USB stack. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>usb_configuration_info</label>
+        <link refid="structusb__configuration__info"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>interface</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>usb_endpoint_info</label>
+        <link refid="structusb__endpoint__info"/>
+      </node>
+      <node id="4">
+        <label>usb_interface_info</label>
+        <link refid="structusb__interface__info"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>endpoint</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>usb_interface_list</label>
+        <link refid="structusb__interface__list"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>active</edgelabel>
+          <edgelabel>alt</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>usb_module_info</label>
+        <link refid="structusb__module__info"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>get_configuration</edgelabel>
+          <edgelabel>get_nth_configuration</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="85" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="85" bodyend="254"/>
+    <listofallmembers>
+      <member refid="structusb__module__info_1ab629f658d9ea6598e41c7b3e3fa78833" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>binfo</name></member>
+      <member refid="structusb__module__info_1a3c5f4fcdb5cd5952f707428705fbe4d7" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>cancel_queued_requests</name></member>
+      <member refid="structusb__module__info_1addadab9d5c4fbb672b563197bc6cfc3c" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>cancel_queued_transfers</name></member>
+      <member refid="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>clear_feature</name></member>
+      <member refid="structusb__module__info_1a553d927e8f1ebf86f6fd4865add81b91" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>disable_port</name></member>
+      <member refid="structusb__module__info_1ab99f30d408ccce88e584c8ccc3a7d1b8" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_configuration</name></member>
+      <member refid="structusb__module__info_1a8643ea1daa67bcbaa5dd5b0d7b79f4e4" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_descriptor</name></member>
+      <member refid="structusb__module__info_1a52aad2b91cf3472c80ad32ffe3e6a008" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_device_descriptor</name></member>
+      <member refid="structusb__module__info_1a138561a37cb8d50baec6d407c7e6f892" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_device_parent</name></member>
+      <member refid="structusb__module__info_1a54d5eeeab4c5d89a0442cbad50b18218" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_nth_child</name></member>
+      <member refid="structusb__module__info_1a5d8882493d8803f3237b1808dda3a1a7" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_nth_configuration</name></member>
+      <member refid="structusb__module__info_1acffb1f29e41999ff6c00d5bb74341f62" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_nth_roothub</name></member>
+      <member refid="structusb__module__info_1a2d342f1553fb3a4b5ea61eb6d7db27a0" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>get_status</name></member>
+      <member refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>install_notify</name></member>
+      <member refid="structusb__module__info_1aaf2e5f284d228b5264827d98ffac7ef4" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>queue_bulk</name></member>
+      <member refid="structusb__module__info_1ab1ad7ea7155b166ffd4423a26b2fdf6d" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>queue_bulk_v</name></member>
+      <member refid="structusb__module__info_1af46188738f7e77b713f5925f949ce613" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>queue_interrupt</name></member>
+      <member refid="structusb__module__info_1a51bd569f73c289254aae0a09d88f2910" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>queue_isochronous</name></member>
+      <member refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>queue_request</name></member>
+      <member refid="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>register_driver</name></member>
+      <member refid="structusb__module__info_1a05c5497a06d241390e294c7a6997ecdd" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>reset_port</name></member>
+      <member refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>send_request</name></member>
+      <member refid="structusb__module__info_1a5e5e6b6008e3f38575b10d372eec6a5a" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>set_alt_interface</name></member>
+      <member refid="structusb__module__info_1a3acc17927855d50cedb3a99eca964b93" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>set_configuration</name></member>
+      <member refid="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>set_feature</name></member>
+      <member refid="structusb__module__info_1a5f4a673416744b496b8ea049a31e4447" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>set_pipe_policy</name></member>
+      <member refid="structusb__module__info_1a09965c1a72c449d6d866ef33b31fa1dd" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>uninstall_notify</name></member>
+      <member refid="structusb__module__info_1aaf861275d26378593d11907468a62200" prot="public" virt="non-virtual"><scope>usb_module_info</scope><name>usb_ioctl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

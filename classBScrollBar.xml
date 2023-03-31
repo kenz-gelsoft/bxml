@@ -1,0 +1,2327 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBScrollBar" kind="class" language="C++" prot="public">
+    <compoundname>BScrollBar</compoundname>
+    <basecompoundref refid="classBView" prot="public" virt="non-virtual">BView</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBScrollBar_1a2d8cea93fe440bbed02685c135b0f802" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScrollBar::Archive</definition>
+        <argsstring>(BMessage *archive, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BScrollBar::Archive</qualifiedname>
+        <reimplements refid="classBView_1ab6de1b48cbc3ef15a0d02113036f002d">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the object into the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> object to archive the object into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to archive child views as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if everything went well or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="27" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aa029ecb9e0c6cf3d47227f8dd364818b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BScrollBar::Instantiate</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BScrollBar::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> object from the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A newly created scroll bar or <computeroutput>NULL</computeroutput> if the message doesn&apos;t contain an archived <ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> object.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="26" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Hook Methods</header>
+      <memberdef kind="function" id="classBScrollBar_1a36e2edccc25e4aa196ae7e940b4f072b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::AllAttached</definition>
+        <argsstring>()</argsstring>
+        <name>AllAttached</name>
+        <qualifiedname>BScrollBar::AllAttached</qualifiedname>
+        <reimplements refid="classBView_1a6d6379e0993bd525f2cac5f848718870">AllAttached</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar to <ref refid="classBScrollBar_1a0b4d0fc3f451b05a0598a4e3f4adce9b" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been attached to a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="30" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a707a012fa7d5c7f66cd54f31f0d42175" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::AllDetached</definition>
+        <argsstring>()</argsstring>
+        <name>AllDetached</name>
+        <qualifiedname>BScrollBar::AllDetached</qualifiedname>
+        <reimplements refid="classBView_1a19dd2213f4b953b54524d7f523d9b406">AllDetached</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar to <ref refid="classBScrollBar_1a0b4d0fc3f451b05a0598a4e3f4adce9b" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been detached from a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="31" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a0b4d0fc3f451b05a0598a4e3f4adce9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::AttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>AttachedToWindow</name>
+        <qualifiedname>BScrollBar::AttachedToWindow</qualifiedname>
+        <reimplements refid="classBView_1ae8117cb4634f4a4413988eea07cf75a0">AttachedToWindow</reimplements>
+        <briefdescription>
+<para>Hook method called when the scroll bar is attached to a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing, unlike in BeOS R5. In BeOS scroll bars were implemented directly in the App Server, the client <ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> was just a proxy which needed to be synced up on <ref refid="classBScrollBar_1a0b4d0fc3f451b05a0598a4e3f4adce9b" kindref="member">AttachedToWindow()</ref>. On Haiku, scroll bars are implemented more sanely and thus don&apos;t need to do this.</para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="33" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a844007152b75523f25890ce70c123254" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::DetachedFromWindow</definition>
+        <argsstring>()</argsstring>
+        <name>DetachedFromWindow</name>
+        <qualifiedname>BScrollBar::DetachedFromWindow</qualifiedname>
+        <reimplements refid="classBView_1a8abc2ea500951a0a22cf018e958ba791">DetachedFromWindow</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the object is detached from a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="34" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1adc34c89c750a72fa6d09b61262cba5e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::Draw</definition>
+        <argsstring>(BRect updateRect)</argsstring>
+        <name>Draw</name>
+        <qualifiedname>BScrollBar::Draw</qualifiedname>
+        <reimplements refid="classBView_1aa55014241fc2f5556415850692b52db2">Draw</reimplements>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>updateRect</declname>
+        </param>
+        <briefdescription>
+<para>Draws the area of the scroll bar that intersects <emphasis>updateRect</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>updateRect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The rectangular area to be drawn.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a8df64f7d9446f0e16c262d85391ce3dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::FrameMoved</definition>
+        <argsstring>(BPoint new_position)</argsstring>
+        <name>FrameMoved</name>
+        <qualifiedname>BScrollBar::FrameMoved</qualifiedname>
+        <reimplements refid="classBView_1a551c22b45301e13a3ba959eece3cec7f">FrameMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>new_position</declname>
+          <defname>newPosition</defname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the scroll bar is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point of the top left corner of the frame that the view has been moved to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="37" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1ae3bc89d135f860a79da0850ca84a77f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::FrameResized</definition>
+        <argsstring>(float newWidth, float newHeight)</argsstring>
+        <name>FrameResized</name>
+        <qualifiedname>BScrollBar::FrameResized</qualifiedname>
+        <reimplements refid="classBView_1a85d88f9c2bb6800560874b2061378fa0">FrameResized</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newWidth</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>newHeight</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the scroll bar is resized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="38" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a8d578e9e134aeaafdc6dc542e2d214f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BScrollBar::MessageReceived</qualifiedname>
+        <reimplements refid="classBView_1aca0a16b0e04288e1fdc0b63690ea7a6d">MessageReceived</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handle <emphasis>message</emphasis> received by the associated looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls <ref refid="classBScrollBar_1a308b6aeee100a0317e364efb4aefdb44" kindref="member">ValueChanged()</ref> in response to <computeroutput>B_VALUE_CHANGED</computeroutput>. Scrolls the view in response to <computeroutput>B_MOUSE_WHEEL_CHANGED</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> received by the associated looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">BHandler::MessageReceived()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="40" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a20e8f54dd49d2bd67f0415c9233dbc24" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::MouseDown</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseDown</name>
+        <qualifiedname>BScrollBar::MouseDown</qualifiedname>
+        <reimplements refid="classBView_1a5f5bd975d15df94f2ebbc80eb79cc3f6">MouseDown</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is pressed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Begins scrolling the target view in response to a mouse click. If the user clicked the scroll bar thumb this begins scrolling and continues in <ref refid="classBScrollBar_1aadee76484a35dd25468d2d9a47ee84e8" kindref="member">MouseMoved()</ref> ending on <ref refid="classBScrollBar_1ac726ce78354c6c85dbe7c64f6db46e1d" kindref="member">MouseUp()</ref>. If the user clicked on one of the scroll arrows the view is scrolled a small amount, if the user clicks on an area of the scroll view outside the arrows and thumb the view is scrolled by a larger amount.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is pressed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1ac726ce78354c6c85dbe7c64f6db46e1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::MouseUp</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseUp</name>
+        <qualifiedname>BScrollBar::MouseUp</qualifiedname>
+        <reimplements refid="classBView_1acdb92b30069157b2e3c522a3ef9d6ae4">MouseUp</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is released. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Finishes scrolling and redraws the scroll bar if necessary.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is released.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="43" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aadee76484a35dd25468d2d9a47ee84e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::MouseMoved</definition>
+        <argsstring>(BPoint where, uint32 code, const BMessage *dragMessage)</argsstring>
+        <name>MouseMoved</name>
+        <qualifiedname>BScrollBar::MouseMoved</qualifiedname>
+        <reimplements refid="classBView_1ac8b20516e42bab2f1eeb130e2432bde0">MouseMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>dragMessage</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the mouse is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the user clicked on the scroll bar thumb the view is scrolled as the user moves the mouse up and down or left and right.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new location of the mouse in the view&apos;s coordinate system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the following:<itemizedlist>
+<listitem><para><computeroutput>B_ENTERED_VIEW</computeroutput> The cursor has just entered the view.</para>
+</listitem><listitem><para><computeroutput>B_INSIDE_VIEW</computeroutput> The cursor is inside the view.</para>
+</listitem><listitem><para><computeroutput>B_EXITED_VIEW</computeroutput> The cursor has left the view&apos;s bounds. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>.</para>
+</listitem><listitem><para><computeroutput>B_OUTSIDE_VIEW</computeroutput> The cursor is outside the view. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dragMessage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If a drag-and-drop operation is taking place this is a pointer to a <ref refid="classBMessage" kindref="compound">BMessage</ref> that holds the drag information, otherwise the pointer is <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref>, <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" kindref="member">DragMessage()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="44" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1ad44b780f97678d78d96c2b1c2eff2389" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::WindowActivated</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>WindowActivated</name>
+        <qualifiedname>BScrollBar::WindowActivated</qualifiedname>
+        <reimplements refid="classBView_1a5b7aeff0b2608ec63e2c01153a7717f6">WindowActivated</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the attached window is activated or deactivated.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> when the window becomes activated, <computeroutput>false</computeroutput> when the window becomes deactivated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="47" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a308b6aeee100a0317e364efb4aefdb44" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::ValueChanged</definition>
+        <argsstring>(float newValue)</argsstring>
+        <name>ValueChanged</name>
+        <qualifiedname>BScrollBar::ValueChanged</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the value of the scroll bar changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new scroll bar value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="55" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Scripting</header>
+      <memberdef kind="function" id="classBScrollBar_1a543695199844d6b485ab0cb43c65a950" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScrollBar::GetSupportedSuites</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BScrollBar::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBView_1a772462d751d457f63ee0fc56d8ba02d1">GetSupportedSuites</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Reports the suites of messages and specifiers understood by the scroll bar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports the suites of messages and specifiers that derived classes understand.  </para>
+<para><simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="86" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1abcf203657944c36c94a4a55e59338c8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BScrollBar::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 what, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BScrollBar::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBView_1a4c0c6d3b21ae92056e5e40fe4d3ec175">ResolveSpecifier</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+<para>Determine the proper handler for a scripting message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the proper handler for a scripting message.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="87" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBScrollBar_1a103549dce3d49af8cf955663a4e21f30" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t control_scrollbar</definition>
+        <argsstring>(scroll_bar_info *info, BScrollBar *bar)</argsstring>
+        <name>control_scrollbar</name>
+        <qualifiedname>BScrollBar::control_scrollbar</qualifiedname>
+        <param>
+          <type>scroll_bar_info *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type><ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> *</type>
+          <declname>bar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="97" column="17"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBScrollBar_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BScrollBar::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="95" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBScrollBar_1a6b5834cbee6455b2e96decdb5cbf484c" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BScrollBar::_reserved[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BScrollBar::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="131" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1acd072c7d0cb6427305ca350da41ceb0d" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BScrollBar::fLargeStep</definition>
+        <argsstring></argsstring>
+        <name>fLargeStep</name>
+        <qualifiedname>BScrollBar::fLargeStep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="123" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1acd119499a673cc7df82d1ff4049f46f7" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BScrollBar::fMax</definition>
+        <argsstring></argsstring>
+        <name>fMax</name>
+        <qualifiedname>BScrollBar::fMax</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="121" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1a9bdd20b99f3f6da4b91b95c89a54b246" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BScrollBar::fMin</definition>
+        <argsstring></argsstring>
+        <name>fMin</name>
+        <qualifiedname>BScrollBar::fMin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="120" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1aaf9a130aca14c76128f844780c7d50d2" prot="private" static="no" mutable="no">
+        <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+        <definition>orientation BScrollBar::fOrientation</definition>
+        <argsstring></argsstring>
+        <name>fOrientation</name>
+        <qualifiedname>BScrollBar::fOrientation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="127" column="12" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1aed23b5d7e22cc651e665ca2e61b400dc" prot="private" static="no" mutable="no">
+        <type>Private *</type>
+        <definition>Private* BScrollBar::fPrivateData</definition>
+        <argsstring></argsstring>
+        <name>fPrivateData</name>
+        <qualifiedname>BScrollBar::fPrivateData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="129" column="8" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1a14959f7a81d0fa3b14c6a2e8a60760aa" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BScrollBar::fProportion</definition>
+        <argsstring></argsstring>
+        <name>fProportion</name>
+        <qualifiedname>BScrollBar::fProportion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="125" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1ab85badb3d5bd8461b66f5954e22c499e" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BScrollBar::fSmallStep</definition>
+        <argsstring></argsstring>
+        <name>fSmallStep</name>
+        <qualifiedname>BScrollBar::fSmallStep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="122" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1a15b6d477ffa81d6720d6099997366ad4" prot="private" static="no" mutable="no">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView* BScrollBar::fTarget</definition>
+        <argsstring></argsstring>
+        <name>fTarget</name>
+        <qualifiedname>BScrollBar::fTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="126" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBScrollBar_1a224f67dbf03d37e1d511684ad75c31cd" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BScrollBar::fValue</definition>
+        <argsstring></argsstring>
+        <name>fValue</name>
+        <qualifiedname>BScrollBar::fValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="124" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBScrollBar_1ad5b0557863f54ee5e81ab6f620985517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScrollBar::BScrollBar</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BScrollBar</name>
+        <qualifiedname>BScrollBar::BScrollBar</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+<para>Archive constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message <emphasis>data</emphasis> to construct the scroll bar from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aba44d2dad9c1ba0f78f24e33cf560452" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScrollBar::BScrollBar</definition>
+        <argsstring>(BRect frame, const char *name, BView *target, float min, float max, orientation direction)</argsstring>
+        <name>BScrollBar</name>
+        <qualifiedname>BScrollBar::BScrollBar</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max</declname>
+        </param>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Instantiates a new scroll bar and connects it to the <emphasis>target</emphasis> view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <emphasis>frame</emphasis> rectangle defines the location and size of the scroll bar within its parent view. A horizontal scroll bar should be <computeroutput>B_H_SCROLL_BAR_HEIGHT</computeroutput> pixels high, and a vertical scroll bar should be <computeroutput>B_V_SCROLL_BAR_WIDTH</computeroutput> pixels wide.</para>
+<para>Unlike most <ref refid="classBView" kindref="compound">BView</ref> derived constructors in the Interface Kit this method doesn&apos;t provide a resizing mode. Scroll bars are assigned a resizing behavior based on their <emphasis>direction</emphasis>. Horizontal scroll bars resize themselves horizontally (<computeroutput>B_FOLLOW_LEFT_RIGHT</computeroutput> | <computeroutput>B_FOLLOW_BOTTOM</computeroutput>) and vertical scroll bars resize themselves vertically (<computeroutput>B_FOLLOW_TOP_BOTTOM</computeroutput> | <computeroutput>B_FOLLOW_RIGHT</computeroutput>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>frame</emphasis> rectangle of the scroll bar. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the scroll bar, can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>target</emphasis> view to scroll, can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>min</emphasis> scroll value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>max</emphasis> scroll value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scroll <emphasis>direction</emphasis>. Either <computeroutput>B_HORIZONTAL</computeroutput> or <computeroutput>B_VERTICAL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1ade9625dc766b03f674b02116286d8bd8" kindref="member">SetTarget()</ref> to set the <emphasis>target</emphasis>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1aecd580735c156aafc99f2971c506968c" kindref="member">SetRange()</ref> to set the <emphasis>min</emphasis> and <emphasis>max</emphasis> values. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1a53f74df44f93ad68327c5e6b1b1c06d4" kindref="member">SetOrientation()</ref> to set the scroll bar <emphasis>direction</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1adb6ea79ff8a6cb82fd46e98b86dd05f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BScrollBar::BScrollBar</definition>
+        <argsstring>(const char *name, BView *target, float min, float max, orientation orientation)</argsstring>
+        <name>BScrollBar</name>
+        <qualifiedname>BScrollBar::BScrollBar</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max</declname>
+        </param>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+          <declname>orientation</declname>
+          <defname>direction</defname>
+        </param>
+        <briefdescription>
+<para>Instantiates a new scroll bar to be used as part of a layout and connects it to the <emphasis>target</emphasis> view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the scroll bar, can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>target</emphasis> view to scroll, can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>min</emphasis> scroll value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>max</emphasis> scroll value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scroll <emphasis>direction</emphasis>. Either <computeroutput>B_HORIZONTAL</computeroutput> or <computeroutput>B_VERTICAL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1ade9625dc766b03f674b02116286d8bd8" kindref="member">SetTarget()</ref> to set the <emphasis>target</emphasis>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1aecd580735c156aafc99f2971c506968c" kindref="member">SetRange()</ref> to set the <emphasis>min</emphasis> and <emphasis>max</emphasis> values. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1a53f74df44f93ad68327c5e6b1b1c06d4" kindref="member">SetOrientation()</ref> to set the scroll bar <emphasis>direction</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a24e9aa1fad9a6d476bfeb4c23ee42181" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BScrollBar::~BScrollBar</definition>
+        <argsstring>()</argsstring>
+        <name>~BScrollBar</name>
+        <qualifiedname>BScrollBar::~BScrollBar</qualifiedname>
+        <briefdescription>
+<para>Destructor method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Deletes the scroll bar, sets the target to <computeroutput>NULL</computeroutput> and frees any memory used.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="25" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1ab5249d91d4f028b5a84a8074b0af2d0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::GetPreferredSize</definition>
+        <argsstring>(float *_width, float *_height)</argsstring>
+        <name>GetPreferredSize</name>
+        <qualifiedname>BScrollBar::GetPreferredSize</qualifiedname>
+        <reimplements refid="classBView_1a089c3ff794c454388a9388c7b6568478">GetPreferredSize</reimplements>
+        <param>
+          <type>float *</type>
+          <declname>_width</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_height</declname>
+        </param>
+        <briefdescription>
+<para>Fill out the preferred width and height of the scroll bar into the <emphasis>_width</emphasis> and <emphasis>_height</emphasis> parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Derived classes should override this method to set the preferred size of object.</para>
+<para><simplesect kind="remark"><para>Either the <emphasis>_width</emphasis> or <emphasis>_height</emphasis> parameter may be set to <computeroutput>NULL</computeroutput> if you only want to get the other one.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a float to store the width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a float to store the height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="77" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a59312d292cafe262766231b0bc642b0e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::GetRange</definition>
+        <argsstring>(float *_min, float *_max) const</argsstring>
+        <name>GetRange</name>
+        <qualifiedname>BScrollBar::GetRange</qualifiedname>
+        <param>
+          <type>float *</type>
+          <declname>_min</declname>
+          <defname>min</defname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_max</declname>
+          <defname>max</defname>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>min</emphasis> and <emphasis>max</emphasis> with the minimum and maximum range values. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Either <emphasis>min</emphasis> or <emphasis>max</emphasis> may be set to <computeroutput>NULL</computeroutput> if you only want to get the other one.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a float to be filled out with the <emphasis>min</emphasis> value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a float to be filled out with the <emphasis>max</emphasis> value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="58" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a66afbfa5c1307b6aadc48183f7763d07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::GetSteps</definition>
+        <argsstring>(float *_smallStep, float *_largeStep) const</argsstring>
+        <name>GetSteps</name>
+        <qualifiedname>BScrollBar::GetSteps</qualifiedname>
+        <param>
+          <type>float *</type>
+          <declname>_smallStep</declname>
+          <defname>smallStep</defname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_largeStep</declname>
+          <defname>largeStep</defname>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>smallStop</emphasis> and <emphasis>largeStep</emphasis> with the small and large step values respectively. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>Either <emphasis>smallStep</emphasis> or <emphasis>largeStep</emphasis> may be set to <computeroutput>NULL</computeroutput> if you only want to get the other one.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>smallStep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a float to be filled out with the small step value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>largeStep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a float to be filled out with the large step value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="60" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aa0a296f1afc18513b90a7c098871a39d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::MakeFocus</definition>
+        <argsstring>(bool focus=true)</argsstring>
+        <name>MakeFocus</name>
+        <qualifiedname>BScrollBar::MakeFocus</qualifiedname>
+        <reimplements refid="classBView_1a266a368d81c6e1668b2b9b22b5016853">MakeFocus</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>focus</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Makes the scroll bar the current focus view of the window or gives up being the window&apos;s focus view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The focus view handles selections and KeyDown events when the the attached window is active. There can be only one focus view at a time per window.</para>
+<para>When called with <emphasis>focus</emphasis> set to <computeroutput>true</computeroutput> this method first calls <ref refid="classBScrollBar_1aa0a296f1afc18513b90a7c098871a39d" kindref="member">MakeFocus()</ref> on the previously focused view with <emphasis>focus</emphasis> set to <computeroutput>false</computeroutput>.</para>
+<para>The focus doesn&apos;t automatically change when <ref refid="classBScrollBar_1a20e8f54dd49d2bd67f0415c9233dbc24" kindref="member">MouseDown()</ref> is called so calling <ref refid="classBScrollBar_1aa0a296f1afc18513b90a7c098871a39d" kindref="member">MakeFocus()</ref> is the only way to make a view the focus view of a window. Classes derived from <ref refid="classBView" kindref="compound">BView</ref> that can display the current selection, or that can accept pasted data should call <ref refid="classBScrollBar_1aa0a296f1afc18513b90a7c098871a39d" kindref="member">MakeFocus()</ref> in their <ref refid="classBScrollBar_1a20e8f54dd49d2bd67f0415c9233dbc24" kindref="member">MouseDown()</ref> method to update the focus view of the window on click.</para>
+<para>If the view isn&apos;t attached to a window this method has no effect.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>focus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>true</emphasis> to set focus, <emphasis>false</emphasis> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="80" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1abba5a7c71ab0802984e2d566861ebcac" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BScrollBar::MaxSize</definition>
+        <argsstring>()</argsstring>
+        <name>MaxSize</name>
+        <qualifiedname>BScrollBar::MaxSize</qualifiedname>
+        <reimplements refid="classBView_1ad1f1843a380e850948cf7e4ed2d5f1ba">MaxSize</reimplements>
+        <briefdescription>
+<para>Return the scroll bar&apos;s maximum size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The maximum size of the scroll bar as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBAbstractLayout_1ad1ea5d04a5c8028f8295efde7106a66c" kindref="member">BAbstractLayout::MaxSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="83" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aa647bf7a279bccf66a3ed3dcd1a619dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BScrollBar::MinSize</definition>
+        <argsstring>()</argsstring>
+        <name>MinSize</name>
+        <qualifiedname>BScrollBar::MinSize</qualifiedname>
+        <reimplements refid="classBView_1acfb0cffde35b853dab6bc5d1bb03265f">MinSize</reimplements>
+        <briefdescription>
+<para>Return the scroll bar&apos;s minimum size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The minimum size of the scroll bar as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBAbstractLayout_1a3f692cb3306ce726e3cc6d2771824cd5" kindref="member">BAbstractLayout::MinSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="82" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a4dd53946256f3a0b69be2ae4040715cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+        <definition>orientation BScrollBar::Orientation</definition>
+        <argsstring>() const</argsstring>
+        <name>Orientation</name>
+        <qualifiedname>BScrollBar::Orientation</qualifiedname>
+        <briefdescription>
+<para>Returns the direction of the scroll bar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Either <emphasis>B_HORIZONTAL</emphasis> or <emphasis>B_VERTICAL</emphasis>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="68" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1adfb4e4e74d00970fd154c652e467b66e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScrollBar::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BScrollBar::Perform</qualifiedname>
+        <reimplements refid="classBView_1a512a6c8dca1a62b14cdcb1c22070129b">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+          <defname>code</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+          <defname>_data</defname>
+        </param>
+        <briefdescription>
+<para>Perform some action. (Internal Method) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="91" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a6b402fb319ad6d0ebf457d0940e6d7bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BScrollBar::PreferredSize</definition>
+        <argsstring>()</argsstring>
+        <name>PreferredSize</name>
+        <qualifiedname>BScrollBar::PreferredSize</qualifiedname>
+        <reimplements refid="classBView_1a7f51d63e71b60a2721d04436ffbcfe36">PreferredSize</reimplements>
+        <briefdescription>
+<para>Return the scroll bar&apos;s preferred size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The preferred size of the scroll bar as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBAbstractLayout_1af5f21d9900c85ca053dba3938bef3fd3" kindref="member">BAbstractLayout::PreferredSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="84" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aece5b42c1b1ad0db7462b0995d620583" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BScrollBar::Proportion</definition>
+        <argsstring>() const</argsstring>
+        <name>Proportion</name>
+        <qualifiedname>BScrollBar::Proportion</qualifiedname>
+        <briefdescription>
+<para>Returns the ratio of the size of a scroll knob to the scroll bar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A value between 0.0 and 1.0 as a float.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="53" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1adb49da3971427af671953b4b751ab97a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BScrollBar::ResizeToPreferred</definition>
+        <argsstring>()</argsstring>
+        <name>ResizeToPreferred</name>
+        <qualifiedname>BScrollBar::ResizeToPreferred</qualifiedname>
+        <reimplements refid="classBView_1abe8c63c85555e800e063388e7cf3e1a7">ResizeToPreferred</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resizes the view to its preferred size keeping the position of the left top corner constant.  </para>
+<para><simplesect kind="warning"><para>It is not recommended to use this method for views that are part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="79" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a992822e61375e63fa8dbbedfacf7a925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BScrollBar::SetBorderHighlighted</definition>
+        <argsstring>(bool highlight)</argsstring>
+        <name>SetBorderHighlighted</name>
+        <qualifiedname>BScrollBar::SetBorderHighlighted</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>highlight</declname>
+        </param>
+        <briefdescription>
+<para>Highlights or unhighlights the border of the scroll bar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>highlight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to turn highlighting on, <computeroutput>false</computeroutput> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If successful returns <computeroutput>B_OK</computeroutput>, otherwise, returns <computeroutput>B_ERROR</computeroutput>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="75" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a53f74df44f93ad68327c5e6b1b1c06d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetOrientation</definition>
+        <argsstring>(orientation direction)</argsstring>
+        <name>SetOrientation</name>
+        <qualifiedname>BScrollBar::SetOrientation</qualifiedname>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref></type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>direction</emphasis> of the scroll view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Either <emphasis>B_HORIZONTAL</emphasis> or <emphasis>B_VERTICAL</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a3b66fb3b19b725318c8c55782400b2bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetProportion</definition>
+        <argsstring>(float)</argsstring>
+        <name>SetProportion</name>
+        <qualifiedname>BScrollBar::SetProportion</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>value</defname>
+        </param>
+        <briefdescription>
+<para>Set the ratio of the size of a scroll knob to the scroll bar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>value</emphasis> is outside the range 0.0 to 1.0 it is clipped to that range.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a number between 0.0 and 1.0 that represents the proportion of the document that can be displayed within the target view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aecd580735c156aafc99f2971c506968c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetRange</definition>
+        <argsstring>(float min, float max)</argsstring>
+        <name>SetRange</name>
+        <qualifiedname>BScrollBar::SetRange</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Set the range of values that the scroll bar represents from <emphasis>min</emphasis> to <emphasis>max</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>These values should be calculated from the enclosing bounds of the target view. If <emphasis>min</emphasis> and <emphasis>max</emphasis> are both 0 the scroll bar is disabled and the knob is not drawn.</para>
+<para>If the range changes such that the value is clipped <ref refid="classBScrollBar_1a4f4ee82af953a8de9a52af1c14e83d9a" kindref="member">SetValue()</ref> is called which triggers <ref refid="classBScrollBar_1a308b6aeee100a0317e364efb4aefdb44" kindref="member">ValueChanged()</ref> to be triggered.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>min</emphasis> value of the range, rounded to the nearest integer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>max</emphasis> value of the range, rounded to the nearest integer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a906e9412f3c2536d3dce562335e36319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetSteps</definition>
+        <argsstring>(float smallStep, float largeStep)</argsstring>
+        <name>SetSteps</name>
+        <qualifiedname>BScrollBar::SetSteps</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>smallStep</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>largeStep</declname>
+        </param>
+        <briefdescription>
+<para>Sets how far the scroll bar moves when it is scrolled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>In BeOS R5, steps can be set only after the scroll bar is attached to a window, probably because the data is kept server-side, in Haiku this limitation has been removed.</para>
+</simplesect>
+<simplesect kind="note"><para>The BeBook also says that we need to specify an integral value even though the step values are floats, in Haiku we round the values instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>smallStep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to move the scroll bar under normal conditions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>largeStep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to move the scroll bar taking a large step, this is usually triggered by holding down the Shift key while scrolling.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="59" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1ade9625dc766b03f674b02116286d8bd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetTarget</definition>
+        <argsstring>(BView *target)</argsstring>
+        <name>SetTarget</name>
+        <qualifiedname>BScrollBar::SetTarget</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>target</emphasis> view that the scroll bar operates on unsetting the previous target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>target</emphasis> view to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="63" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a3055a6dc22853813d5d0cadbc6105fa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetTarget</definition>
+        <argsstring>(const char *targetName)</argsstring>
+        <name>SetTarget</name>
+        <qualifiedname>BScrollBar::SetTarget</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>targetName</declname>
+        </param>
+        <briefdescription>
+<para>Sets the target view to the view identified by <emphasis>targetName</emphasis> unsetting the previous target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The BeOS R5 implementation crashes for <emphasis>targetName</emphasis> == <computeroutput>NULL</computeroutput> and also does not modify the target if it can&apos;t be found.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>targetName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the view to target.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="64" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a4f4ee82af953a8de9a52af1c14e83d9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::SetValue</definition>
+        <argsstring>(float value)</argsstring>
+        <name>SetValue</name>
+        <qualifiedname>BScrollBar::SetValue</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the value of the scroll bar scrolling the scroll thumb and target view accordingly. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting the <emphasis>value</emphasis> programmatically using this method causes the <ref refid="classBScrollBar_1a308b6aeee100a0317e364efb4aefdb44" kindref="member">ValueChanged()</ref> method to be called.</para>
+<para>Derived classes can override this method to do something different than scrolling the target view.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to set the scroll bar value to, rounded to the nearest integer.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBScrollBar_1a308b6aeee100a0317e364efb4aefdb44" kindref="member">ValueChanged()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="49" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a660496f3dc3819761d794ee3d0e669d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BScrollBar::Target</definition>
+        <argsstring>() const</argsstring>
+        <name>Target</name>
+        <qualifiedname>BScrollBar::Target</qualifiedname>
+        <briefdescription>
+<para>Returns a pointer to the target view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to a <ref refid="classBView" kindref="compound">BView</ref> object that represents the target view or <computeroutput>NULL</computeroutput> if the target is not set.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="65" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a1c4a299416b74100ea0e75172d252d1e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BScrollBar::Value</definition>
+        <argsstring>() const</argsstring>
+        <name>Value</name>
+        <qualifiedname>BScrollBar::Value</qualifiedname>
+        <briefdescription>
+<para>Returns the scroll bar&apos;s value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The scroll bar&apos;s value as a float.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="50" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBScrollBar_1a4aa4ef6488428316993d3cb55c5ce745" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BScrollBar::_ButtonFor</definition>
+        <argsstring>(BPoint where) const</argsstring>
+        <name>_ButtonFor</name>
+        <qualifiedname>BScrollBar::_ButtonFor</qualifiedname>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="112" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a87840291c1f9e045ade645225311809d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BScrollBar::_ButtonRectFor</definition>
+        <argsstring>(int32 button) const</argsstring>
+        <name>_ButtonRectFor</name>
+        <qualifiedname>BScrollBar::_ButtonRectFor</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="113" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1aa26e842f276483e9363536b59d3f04d5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BScrollBar::_DoubleArrows</definition>
+        <argsstring>() const</argsstring>
+        <name>_DoubleArrows</name>
+        <qualifiedname>BScrollBar::_DoubleArrows</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="109" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a22452a03c94302c38e19806c39b61eb6" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BScrollBar::_MinSize</definition>
+        <argsstring>() const</argsstring>
+        <name>_MinSize</name>
+        <qualifiedname>BScrollBar::_MinSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="117" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1af0a99e42c56e05f397f04f6b2d6d414c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BScrollBar::_ReservedScrollBar1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedScrollBar1</name>
+        <qualifiedname>BScrollBar::_ReservedScrollBar1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="101" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a3b7fcf95ee51cadf95f6c6d2b7eb2059" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BScrollBar::_ReservedScrollBar2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedScrollBar2</name>
+        <qualifiedname>BScrollBar::_ReservedScrollBar2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="102" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a983395a6adf1908036b4a5230843f322" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BScrollBar::_ReservedScrollBar3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedScrollBar3</name>
+        <qualifiedname>BScrollBar::_ReservedScrollBar3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="103" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a3be3646bc2c74d5a9654ec6ee6cb1319" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BScrollBar::_ReservedScrollBar4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedScrollBar4</name>
+        <qualifiedname>BScrollBar::_ReservedScrollBar4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="104" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a46aa25bef0b7a363d85714caa03a2ac1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::_UpdateArrowButtons</definition>
+        <argsstring>()</argsstring>
+        <name>_UpdateArrowButtons</name>
+        <qualifiedname>BScrollBar::_UpdateArrowButtons</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="115" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a544ba7c13207d31b381ddaa16fee76e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::_UpdateTargetValue</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>_UpdateTargetValue</name>
+        <qualifiedname>BScrollBar::_UpdateTargetValue</qualifiedname>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="114" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a8ee23d81200a9ba6845c3ceffe0260eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BScrollBar::_UpdateThumbFrame</definition>
+        <argsstring>()</argsstring>
+        <name>_UpdateThumbFrame</name>
+        <qualifiedname>BScrollBar::_UpdateThumbFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="110" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1a72774f70d67141453d8ea4dc41860396" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BScrollBar::_ValueFor</definition>
+        <argsstring>(BPoint where) const</argsstring>
+        <name>_ValueFor</name>
+        <qualifiedname>BScrollBar::_ValueFor</qualifiedname>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="111" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBScrollBar_1ac11423e90f449d60eda34d230910c664" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> &amp;</type>
+        <definition>BScrollBar &amp; BScrollBar::operator=</definition>
+        <argsstring>(const BScrollBar &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BScrollBar::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="107" column="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>User interface element used to scroll a target view vertically or horizontally. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Scroll bars are usually added as siblings of the target view, that way when the parent is resized the target view and scroll bars can be resized as well. The <ref refid="classBScrollView" kindref="compound">BScrollView</ref> class conveniently provides such a container view adding the scroll bars and target view making itself the parent.</para>
+<para>Scroll bars control the target view, but a target can also be scrolled independently by calling <ref refid="classBView_1a33ed2a9eeff474a756b548996a82b964" kindref="member">BView::ScrollTo()</ref> or <ref refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" kindref="member">BView::ScrollBy()</ref>. When a target view is set to a <ref refid="classBScrollBar" kindref="compound">BScrollBar</ref>, the view is notified and stores a pointer to the <ref refid="classBScrollBar" kindref="compound">BScrollBar</ref> object so that it can communicate its scroll information back to the scroll bar.</para>
+<para><simplesect kind="see"><para><ref refid="classBView_1a33ed2a9eeff474a756b548996a82b964" kindref="member">BView::ScrollTo()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" kindref="member">BView::ScrollBy()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a0878bc7981ba814190b822349599a120" kindref="member">BView::ScrollBar()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BScrollBar</label>
+        <link refid="classBScrollBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BScrollBar</label>
+        <link refid="classBScrollBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" line="16" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/ScrollBar.h" bodystart="16" bodyend="132"/>
+    <listofallmembers>
+      <member refid="classBScrollBar_1a4aa4ef6488428316993d3cb55c5ce745" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_ButtonFor</name></member>
+      <member refid="classBScrollBar_1a87840291c1f9e045ade645225311809d" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_ButtonRectFor</name></member>
+      <member refid="classBScrollBar_1aa26e842f276483e9363536b59d3f04d5" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_DoubleArrows</name></member>
+      <member refid="classBScrollBar_1a22452a03c94302c38e19806c39b61eb6" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_MinSize</name></member>
+      <member refid="classBScrollBar_1a6b5834cbee6455b2e96decdb5cbf484c" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_reserved</name></member>
+      <member refid="classBScrollBar_1af0a99e42c56e05f397f04f6b2d6d414c" prot="private" virt="virtual"><scope>BScrollBar</scope><name>_ReservedScrollBar1</name></member>
+      <member refid="classBScrollBar_1a3b7fcf95ee51cadf95f6c6d2b7eb2059" prot="private" virt="virtual"><scope>BScrollBar</scope><name>_ReservedScrollBar2</name></member>
+      <member refid="classBScrollBar_1a983395a6adf1908036b4a5230843f322" prot="private" virt="virtual"><scope>BScrollBar</scope><name>_ReservedScrollBar3</name></member>
+      <member refid="classBScrollBar_1a3be3646bc2c74d5a9654ec6ee6cb1319" prot="private" virt="virtual"><scope>BScrollBar</scope><name>_ReservedScrollBar4</name></member>
+      <member refid="classBScrollBar_1a46aa25bef0b7a363d85714caa03a2ac1" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_UpdateArrowButtons</name></member>
+      <member refid="classBScrollBar_1a544ba7c13207d31b381ddaa16fee76e5" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_UpdateTargetValue</name></member>
+      <member refid="classBScrollBar_1a8ee23d81200a9ba6845c3ceffe0260eb" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_UpdateThumbFrame</name></member>
+      <member refid="classBScrollBar_1a72774f70d67141453d8ea4dc41860396" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>_ValueFor</name></member>
+      <member refid="classBView_1ab6382c582e5e1be527d3199459d05e8f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AddChild</name></member>
+      <member refid="classBView_1a5d30ae4fa0119bf5286f52f83c2f351c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AddChild</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BScrollBar</scope><name>AddFilter</name></member>
+      <member refid="classBView_1a88440336a66ee9b1a4b1661e9ba9e59c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AddLine</name></member>
+      <member refid="classBView_1ac780f029d415ee0a915792b4e756fa77" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AdoptParentColors</name></member>
+      <member refid="classBView_1a0e429a82fe06e9ab390b06d993ee31be" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AdoptSystemColors</name></member>
+      <member refid="classBView_1ab68ad7103708884f9e6fd84e8a579746" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AdoptViewColors</name></member>
+      <member refid="classBView_1a561e82ed41cbb93d3bacf371787497bf" prot="public" virt="virtual"><scope>BScrollBar</scope><name>AllArchived</name></member>
+      <member refid="classBScrollBar_1a36e2edccc25e4aa196ae7e940b4f072b" prot="public" virt="virtual"><scope>BScrollBar</scope><name>AllAttached</name></member>
+      <member refid="classBScrollBar_1a707a012fa7d5c7f66cd54f31f0d42175" prot="public" virt="virtual"><scope>BScrollBar</scope><name>AllDetached</name></member>
+      <member refid="classBView_1ab7bd04272afed8b28bf57d1de33cbe05" prot="public" virt="virtual"><scope>BScrollBar</scope><name>AllUnarchived</name></member>
+      <member refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>AppendToPicture</name></member>
+      <member refid="classBScrollBar_1a2d8cea93fe440bbed02685c135b0f802" prot="public" virt="virtual"><scope>BScrollBar</scope><name>Archive</name></member>
+      <member refid="classBScrollBar_1a0b4d0fc3f451b05a0598a4e3f4adce9b" prot="public" virt="virtual"><scope>BScrollBar</scope><name>AttachedToWindow</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BArchivable</name></member>
+      <member refid="classBView_1abe65757b7c83c8db390bf0c87457a343" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BeginLayer</name></member>
+      <member refid="classBView_1ab3f2e9f54d2b93952b27e182ac552983" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BeginLineArray</name></member>
+      <member refid="classBView_1a14155192773aad22ebe47a9975afac5f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BeginPicture</name></member>
+      <member refid="classBView_1ac1eb1eeee67ec97205a4acc6955185bd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BeginRectTracking</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BHandler</name></member>
+      <member refid="classBView_1acbb8ea442346e91428689163db9d633e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Bounds</name></member>
+      <member refid="classBScrollBar_1aba44d2dad9c1ba0f78f24e33cf560452" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BScrollBar</name></member>
+      <member refid="classBScrollBar_1adb6ea79ff8a6cb82fd46e98b86dd05f0" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BScrollBar</name></member>
+      <member refid="classBScrollBar_1ad5b0557863f54ee5e81ab6f620985517" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BScrollBar</name></member>
+      <member refid="classBView_1ab148f59c41c9a22ced87bf7a0221ed62" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BView</name></member>
+      <member refid="classBView_1ae3a1b2a66dc19690e766623be65c37e2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BView</name></member>
+      <member refid="classBView_1ae982fac35c278cc64990c506efe3965e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>BView</name></member>
+      <member refid="classBView_1aaf91592f50f2f44d16f23e7504f494cb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ChildAt</name></member>
+      <member refid="classBView_1ae7582b9a2b0b446a1de16c681f23baf9" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClearViewBitmap</name></member>
+      <member refid="classBView_1a0ae48f37c3f56b422841638971488cc0" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClearViewOverlay</name></member>
+      <member refid="classBView_1a18d61bcae2a7ca8a1a0977ac23d15171" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClipToInversePicture</name></member>
+      <member refid="classBView_1ad1762d160500ec3ce90c7bd73944d8a7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClipToInverseRect</name></member>
+      <member refid="classBView_1a17dcb4f2e92994cde9a9ece9caa619c2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClipToInverseShape</name></member>
+      <member refid="classBView_1a9c92c9e8e306d00dbfef81f2b0282339" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClipToPicture</name></member>
+      <member refid="classBView_1a22ff147a2f0a0bd65de494c9a039acee" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClipToRect</name></member>
+      <member refid="classBView_1ac0884c62949361a7eb6a4834f46b902c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ClipToShape</name></member>
+      <member refid="classBView_1a656b8d82a6a7c7c6ab33c3dd08aad6ec" prot="public" virt="virtual"><scope>BScrollBar</scope><name>ConstrainClippingRegion</name></member>
+      <member refid="classBScrollBar_1a103549dce3d49af8cf955663a4e21f30" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>control_scrollbar</name></member>
+      <member refid="classBView_1a43c16140dd4491a6a6f7bad11bbea1f9" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1aa3201bdf5c489fbab7d67afe3453466d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1ab2aeeb14409a18f950173e7cb22e147c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a45b405f10c29442aea8b70161410565f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a4b794ccd899dc6a0cafd886169122df5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a75f1d68cf77bccc03930eb8e273f2967" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a3fbc496f437925cb02ccf9e817406e4e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a44c3b5174e4ccfa4c123e0d5d54e9408" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1ab20700567eabd5f8135be179b4232e2c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1a91e6a7edab78547be47cb8dc84cfdecf" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ac7bd2e0e7aac40d1be9a47999b5701a9" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ae3b385e4d1b9f70bc848bf2fd0b7753c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1aefefb1242613b869feb6b8e0cc119518" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1af90cdeb62cc60adf64eb9a669c37c153" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ad99f5af006f28c485f02484752a2ac5d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ae60c56c306d0cf3f504d710fac8b9bed" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1a8ace5c5cc811c4ad16acf281ffd1a48d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>CopyBits</name></member>
+      <member refid="classBView_1ae30d094a1cb1f3357c4aa7caa4b0e29d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>CountChildren</name></member>
+      <member refid="classBView_1ae2a9da1ca04489dd60ef8aefa86331ed" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBView_1a6389a46cf1842eb0d412b44958955e61" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBScrollBar_1a844007152b75523f25890ce70c123254" prot="public" virt="virtual"><scope>BScrollBar</scope><name>DetachedFromWindow</name></member>
+      <member refid="classBView_1aa165cbaac7d6915feaae6048c4378c85" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DisableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9d766a06d0885200c6ababba4c87808b" prot="protected" virt="virtual"><scope>BScrollBar</scope><name>DoLayout</name></member>
+      <member refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DragMessage</name></member>
+      <member refid="classBView_1a466287a3d939759cc09e4a6d1c9982cd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DragMessage</name></member>
+      <member refid="classBView_1ae1caa1d0bef9452db00c2adc8e3280b4" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DragMessage</name></member>
+      <member refid="classBScrollBar_1adc34c89c750a72fa6d09b61262cba5e4" prot="public" virt="virtual"><scope>BScrollBar</scope><name>Draw</name></member>
+      <member refid="classBView_1abb50623b4236926b068fc5a2264f6a48" prot="public" virt="virtual"><scope>BScrollBar</scope><name>DrawAfterChildren</name></member>
+      <member refid="classBView_1a6171150993fbf7c73966c7c302a95573" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a63db7245fd9b9fefd461d7596c15f9cc" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1abce81666128d183d59b5cf2ed75c7f07" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a1c8b6e3e9218388a68ae43dd408a187c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a769c3e3dee7d86ed50308f7a3f46ef91" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1ae66727344d35f05c56b6163ad70e360c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a0ef432afa41aefcb3fdd537e2d290001" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1aa3275b791787a66f3638611cd6a5ae09" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a6931c5fe803eb5fa9e66438d347c4b6d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1ab50fba0500357abebb9f3ef3832f2e68" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a02ba5c68f21d4345ec3ee683496ce851" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawChar</name></member>
+      <member refid="classBView_1a2ed7c3628692426116fc0bb450c0f0c7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawChar</name></member>
+      <member refid="classBView_1ae7953a2e451fb6e5a439df9e9dc8451a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawingMode</name></member>
+      <member refid="classBView_1ae4b252943befd9f0b62e30517b3ecec2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a2fdf36421cccce9136cdd9966a971955" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a9f5781a2b37113c55950c93b621984a7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a65498927c21d6681a0e77c4e3d29efba" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a05881f8b07989e1e9db0bd41f8181341" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a7f2fde4e7719bded5af33805b8242b06" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a5c261dbbb4e8157799e85d6ad1530920" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a83d77965bd9cda6212189d92b97d8198" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1ad3830d09ed0300a1144d47ac78cd2dde" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a4e1f1c59352a1373ccace7255a0ccf23" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a5dacf5d193a0c492f296bc1e402e6370" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a135868eb5cd1b35ee1c2d03517b9a33f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a8848d931fd0354860a0e71934e66cb03" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawTiledBitmap</name></member>
+      <member refid="classBView_1ad281a4e40f212e3cb56c23fa6e574a84" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>DrawTiledBitmapAsync</name></member>
+      <member refid="classBView_1ad43cc5c22f83d95632d3d81eff73f425" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>EnableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9f54d4478a12823f116168a45af30898" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>EndLayer</name></member>
+      <member refid="classBView_1a24ba922f9698936bc27f48b3c51349a1" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>EndLineArray</name></member>
+      <member refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>EndPicture</name></member>
+      <member refid="classBView_1a7bcc3532c03eeeb929278de8fcc1fd25" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>EndRectTracking</name></member>
+      <member refid="classBView_1a8851d500773c732ddbb1a4b31f0ad664" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>EventMask</name></member>
+      <member refid="classBView_1a1f078f5c987061c5cf3059f7091bcb1a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ExplicitAlignment</name></member>
+      <member refid="classBView_1a4e63cc8ca1f604ccb20f5891adade70f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ExplicitMaxSize</name></member>
+      <member refid="classBView_1a1b24db754473008766cdd0fd9c4ee3b7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ExplicitMinSize</name></member>
+      <member refid="classBView_1a218cd0d238104a6ff31c1d72ae2d9e6e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ExplicitPreferredSize</name></member>
+      <member refid="classBView_1af0e5d362474d39199116045aa9621aa5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1ac216c652253a21f0f28a7caef07deb77" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1a49017edefe45ca5c74954e1227e673bb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1a4304fe45708f72d0ba20b579870c24ce" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1a531ad43e129d810ee64208123b550193" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a7cf8a5eaa5451b2c7df0d6fa392012bd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a06942f0dd4c13175bcfff6a88eae7cc0" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a98a73cbccb42edfc61b93f9aa6f4a13b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a2738cf2f3d39f560d0cff90543f45afa" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a86de91f260577187eaf22ba0fdf32fba" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1ae72733cae8a1fc2da8feb47c0c2149fa" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1adc7d96f2d60a819f03685eb11b6945e2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a1bdc02a311b2a051ad7fbdbf1789e958" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a96cdb60a8c87e4958380a3077a2197a5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a22a5ce1f024e622b6eade6a9176ff1f7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a57b0870cd6a0109c347d80c34ca2f34a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a4d074663998c7ba922a9d981d0cfe086" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRect</name></member>
+      <member refid="classBView_1aae6a3ff6683bb15ac8c647c946475e8f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRect</name></member>
+      <member refid="classBView_1a4810086c415d90bffa25ab2963716936" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a56828d13947717462b661e1645305509" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a38d7e7b15a13591c20020599886402b5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a73956d28b356b2eee83ebc19bd6e398b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a3a2fd2d7313a9bb7dff359a4f4362a5f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillRule</name></member>
+      <member refid="classBView_1a91b9ce4b8b8ee13ff5f1071e1fb0d829" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillShape</name></member>
+      <member refid="classBView_1a9a82da733397e97b985875be941f77a6" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillShape</name></member>
+      <member refid="classBView_1a46ec16609a402d03baa322a04d8c50e2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1af512b76752705cba87f89c8dac313005" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a5dd1c64839c11a79e80581e37656cc26" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a0878dea14a61d58c951bd8e11c0a2ef6" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FillTriangle</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FilterList</name></member>
+      <member refid="classBView_1ab83ef89f1876913174c825ff7cd02c4a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>FindView</name></member>
+      <member refid="classBView_1a561b10abf94dd65a26b02253af667508" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Flags</name></member>
+      <member refid="classBScrollBar_1acd072c7d0cb6427305ca350da41ceb0d" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fLargeStep</name></member>
+      <member refid="classBView_1a15465930f84d2d01f7818bd79bc91c3e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Flush</name></member>
+      <member refid="classBScrollBar_1acd119499a673cc7df82d1ff4049f46f7" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fMax</name></member>
+      <member refid="classBScrollBar_1a9bdd20b99f3f6da4b91b95c89a54b246" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fMin</name></member>
+      <member refid="classBView_1a424161ccf6f52a354fdd67ed1376d196" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ForceFontAliasing</name></member>
+      <member refid="classBScrollBar_1aaf9a130aca14c76128f844780c7d50d2" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fOrientation</name></member>
+      <member refid="classBScrollBar_1aed23b5d7e22cc651e665ca2e61b400dc" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fPrivateData</name></member>
+      <member refid="classBScrollBar_1a14959f7a81d0fa3b14c6a2e8a60760aa" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fProportion</name></member>
+      <member refid="classBView_1a487b04a3aaffdd1a1afb730dca36a7e2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Frame</name></member>
+      <member refid="classBScrollBar_1a8df64f7d9446f0e16c262d85391ce3dc" prot="public" virt="virtual"><scope>BScrollBar</scope><name>FrameMoved</name></member>
+      <member refid="classBScrollBar_1ae3bc89d135f860a79da0850ca84a77f5" prot="public" virt="virtual"><scope>BScrollBar</scope><name>FrameResized</name></member>
+      <member refid="classBScrollBar_1ab85badb3d5bd8461b66f5954e22c499e" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fSmallStep</name></member>
+      <member refid="classBScrollBar_1a15b6d477ffa81d6720d6099997366ad4" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fTarget</name></member>
+      <member refid="classBScrollBar_1a224f67dbf03d37e1d511684ad75c31cd" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>fValue</name></member>
+      <member refid="classBView_1ad50d5ba2249fdf3dd8640b3573c2a2e8" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetBlendingMode</name></member>
+      <member refid="classBView_1acf50a063c9621f35a84b1d0245b12d69" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetClippingRegion</name></member>
+      <member refid="classBView_1af244d01f85e6d9ae7f5fcca4637dc78c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetFont</name></member>
+      <member refid="classBView_1a5bf95d66754634c647b2ddf7d39b4dfb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetFontHeight</name></member>
+      <member refid="classBView_1ad34bee968b1ec98a0bf89343340b6b07" prot="public" virt="virtual"><scope>BScrollBar</scope><name>GetHeightForWidth</name></member>
+      <member refid="classBView_1aec2975b51966c397aa52b9e3eebd2c85" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetLayout</name></member>
+      <member refid="classBView_1a830ce9cf2ac2ffb5f73f526ee5d6e53d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetMouse</name></member>
+      <member refid="classBScrollBar_1ab5249d91d4f028b5a84a8074b0af2d0f" prot="public" virt="virtual"><scope>BScrollBar</scope><name>GetPreferredSize</name></member>
+      <member refid="classBScrollBar_1a59312d292cafe262766231b0bc642b0e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetRange</name></member>
+      <member refid="classBScrollBar_1a66afbfa5c1307b6aadc48183f7763d07" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetSteps</name></member>
+      <member refid="classBView_1aaae0dc93bc61d7f221465fbe0aecd30a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>GetStringWidths</name></member>
+      <member refid="classBScrollBar_1a543695199844d6b485ab0cb43c65a950" prot="public" virt="virtual"><scope>BScrollBar</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBView_1afb826fe9b8964e4d843cae190170badf" prot="protected" virt="virtual"><scope>BScrollBar</scope><name>GetToolTipAt</name></member>
+      <member refid="classBView_1a606e0e7e03516dccb53bf073827460a8" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>HasDefaultColors</name></member>
+      <member refid="classBView_1abd411461b7e23ad17e7294f8f5e1cbeb" prot="public" virt="virtual"><scope>BScrollBar</scope><name>HasHeightForWidth</name></member>
+      <member refid="classBView_1aa9aacc95606b650e6a8d776b51cb902b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>HasSystemColors</name></member>
+      <member refid="classBView_1a7688dc04178a2955950154ee3670d029" prot="public" virt="virtual"><scope>BScrollBar</scope><name>Hide</name></member>
+      <member refid="classBView_1af75bbc1131ad6a90e299c6cbcf623fa7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>HideToolTip</name></member>
+      <member refid="classBView_1abda3583967fba9f6ed9524058d00a6e9" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>HighColor</name></member>
+      <member refid="classBView_1aa86f548fba2e82d022066198be6d5af6" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>HighUIColor</name></member>
+      <member refid="classBScrollBar_1aa029ecb9e0c6cf3d47227f8dd364818b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Instantiate</name></member>
+      <member refid="classBView_1a8c767d948dc9435c006cabdcab1cd08e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Invalidate</name></member>
+      <member refid="classBView_1ac70b682819c0f9b008c428e02015b19b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Invalidate</name></member>
+      <member refid="classBView_1adfced0dcb244e199f872fdbd48349a05" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Invalidate</name></member>
+      <member refid="classBView_1a4a711316094e43076a3f5478d937accf" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>InvalidateLayout</name></member>
+      <member refid="classBView_1af7e5ebc41cd5a471dcdcfa1f3db801a5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>InvertRect</name></member>
+      <member refid="classBView_1a165719de682845f80735042a499692ff" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsFocus</name></member>
+      <member refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a95cfa8ee585230ea8fb224e88eddc503" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a4e86b719129a12afbda7c10371eeca47" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsLayoutInvalidationDisabled</name></member>
+      <member refid="classBView_1a00a5d5d6edee7d488d77df03945b3e94" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsLayoutValid</name></member>
+      <member refid="classBView_1a8e3f1722e40fdf01c5131e49199ec3ff" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsPrinting</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>IsWatched</name></member>
+      <member refid="classBView_1abea50ea665ce5fcb76b32f1302a6852d" prot="public" virt="virtual"><scope>BScrollBar</scope><name>KeyDown</name></member>
+      <member refid="classBView_1acbc528bb70be49993bd99aa136dbb089" prot="public" virt="virtual"><scope>BScrollBar</scope><name>KeyUp</name></member>
+      <member refid="classBView_1a854b6ca54eeca610db9eab8b58d68a8b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Layout</name></member>
+      <member refid="classBView_1a2f74b3e7c602045d8c927f923f45eefa" prot="public" virt="virtual"><scope>BScrollBar</scope><name>LayoutAlignment</name></member>
+      <member refid="classBView_1ada521f848e4c800cd02eb4fe529e7ea0" prot="protected" virt="virtual"><scope>BScrollBar</scope><name>LayoutChanged</name></member>
+      <member refid="classBView_1ae066513c0a788a9544744d409f28cada" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LayoutContext</name></member>
+      <member refid="classBView_1a0a552cc0d8678939c619f98dcc80d254" prot="protected" virt="virtual"><scope>BScrollBar</scope><name>LayoutInvalidated</name></member>
+      <member refid="classBView_1a5d252dfe28eee049be2192d1a01ed6e3" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LeftTop</name></member>
+      <member refid="classBView_1a551f5961188e4f26ef310eb5eea7c926" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LineCapMode</name></member>
+      <member refid="classBView_1a0aa47adb29d91b4cc6c4924b7f436012" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LineJoinMode</name></member>
+      <member refid="classBView_1ab1cd7cf77a4fa01755d186a05163cfbe" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LineMiterLimit</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Looper</name></member>
+      <member refid="classBView_1a423c54f22ab95745b28b583af999e554" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LowColor</name></member>
+      <member refid="classBView_1ae32ca6d8f106d44b5b51df82a7eb64c5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>LowUIColor</name></member>
+      <member refid="classBScrollBar_1aa0a296f1afc18513b90a7c098871a39d" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MakeFocus</name></member>
+      <member refid="classBScrollBar_1abba5a7c71ab0802984e2d566861ebcac" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MaxSize</name></member>
+      <member refid="classBScrollBar_1a8d578e9e134aeaafdc6dc542e2d214f7" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MessageReceived</name></member>
+      <member refid="classBScrollBar_1aa647bf7a279bccf66a3ed3dcd1a619dd" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MinSize</name></member>
+      <member refid="classBScrollBar_1a20e8f54dd49d2bd67f0415c9233dbc24" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MouseDown</name></member>
+      <member refid="classBScrollBar_1aadee76484a35dd25468d2d9a47ee84e8" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MouseMoved</name></member>
+      <member refid="classBScrollBar_1ac726ce78354c6c85dbe7c64f6db46e1d" prot="public" virt="virtual"><scope>BScrollBar</scope><name>MouseUp</name></member>
+      <member refid="classBView_1a6e122baca4494f6ce739a507054fa81f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>MoveBy</name></member>
+      <member refid="classBView_1a979f8f0090284919b6e7c6c04d91cbde" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>MovePenBy</name></member>
+      <member refid="classBView_1acb61254a2121f569f6223a95cd835abd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1ae32d7951a4ce9cff6b81899f5208a25f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1acce9c93118a3db24078f16bdabc6fbec" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>MoveTo</name></member>
+      <member refid="classBView_1a1c9b2df47ba1b9f3a1ce3286995fb8bd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>MoveTo</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>NextHandler</name></member>
+      <member refid="classBView_1a76e7d862fe78e4d2766573bf073b9d30" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>NextSibling</name></member>
+      <member refid="classBScrollBar_1ac11423e90f449d60eda34d230910c664" prot="private" virt="non-virtual"><scope>BScrollBar</scope><name>operator=</name></member>
+      <member refid="classBScrollBar_1a4dd53946256f3a0b69be2ae4040715cb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Orientation</name></member>
+      <member refid="classBView_1aefbf71a7a403900e960ffa3943dc9901" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Origin</name></member>
+      <member refid="classBView_1a332f34d9862000dbc859fd4e308839dd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Parent</name></member>
+      <member refid="classBView_1a2774e13c2b12c6a5fee333e95b76b07d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>PenLocation</name></member>
+      <member refid="classBView_1a69d8657d26b49773fa2de914f263b204" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>PenSize</name></member>
+      <member refid="classBScrollBar_1adfb4e4e74d00970fd154c652e467b66e" prot="public" virt="virtual"><scope>BScrollBar</scope><name>Perform</name></member>
+      <member refid="classBView_1abc0d202fe13366b80703afbdb3832951" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>PopState</name></member>
+      <member refid="classBScrollBar_1a6b402fb319ad6d0ebf457d0940e6d7bf" prot="public" virt="virtual"><scope>BScrollBar</scope><name>PreferredSize</name></member>
+      <member refid="classBView_1a2a46f78756eacca3f3d4c90d31c758b1" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>PreviousSibling</name></member>
+      <member refid="classBScrollBar_1aece5b42c1b1ad0db7462b0995d620583" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Proportion</name></member>
+      <member refid="classBView_1a0ae8ec3e94ee3d41cb329e3df6966566" prot="public" virt="virtual"><scope>BScrollBar</scope><name>Pulse</name></member>
+      <member refid="classBView_1a1dcb914cd0c6ef8d1291aa8492968d40" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>PushState</name></member>
+      <member refid="classBView_1a2cf4e698a4322ecfb946e440e0f7ac62" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Relayout</name></member>
+      <member refid="classBView_1a5f93a23d06267da83c128bce222ceb17" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>RemoveChild</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BScrollBar</scope><name>RemoveFilter</name></member>
+      <member refid="classBView_1a87e0848b1760a9f28aad4516467a03ed" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>RemoveSelf</name></member>
+      <member refid="classBView_1a127933a3820f0bfe0497b5e7ddfa191f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ResetLayoutInvalidation</name></member>
+      <member refid="classBView_1ace23acc948bbc9b9272da8dc7f01d3ce" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ResizeBy</name></member>
+      <member refid="classBView_1a742bccd6034ef9ade65b0e596fba55f2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ResizeTo</name></member>
+      <member refid="classBView_1a6134097569f75679616257a361086d7a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ResizeTo</name></member>
+      <member refid="classBScrollBar_1adb49da3971427af671953b4b751ab97a" prot="public" virt="virtual"><scope>BScrollBar</scope><name>ResizeToPreferred</name></member>
+      <member refid="classBView_1a1e93df523fc9edc807274ac6cfd2dc8d" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ResizingMode</name></member>
+      <member refid="classBScrollBar_1abcf203657944c36c94a4a55e59338c8a" prot="public" virt="virtual"><scope>BScrollBar</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBView_1a02ab6b6196b140b20ae516a55680e30b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>RotateBy</name></member>
+      <member refid="classBView_1a50e12d6b8080b3bc6bc617d31d1ab200" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Scale</name></member>
+      <member refid="classBView_1ac83f9fdfb882f849e3ac79bfb06a0fd6" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ScaleBy</name></member>
+      <member refid="classBView_1a0878bc7981ba814190b822349599a120" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ScrollBar</name></member>
+      <member refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ScrollBy</name></member>
+      <member refid="classBView_1a33ed2a9eeff474a756b548996a82b964" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a2b76ddc60289ce92e1fb706332edbafc" prot="public" virt="virtual"><scope>BScrollBar</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a54991372110199183fed775598ae1912" prot="protected" virt="non-virtual"><scope>BScrollBar</scope><name>ScrollWithMouseWheelDelta</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SendNotices</name></member>
+      <member refid="classBView_1ad01fc0fd68e4683af9b9386bf33abf63" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetBlendingMode</name></member>
+      <member refid="classBScrollBar_1a992822e61375e63fa8dbbedfacf7a925" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetBorderHighlighted</name></member>
+      <member refid="classBView_1a8ba0fe3a3dbeec1b7fd8c9655070ef64" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetDiskMode</name></member>
+      <member refid="classBView_1a0c392ed0e36213e1007322a9cbca71c0" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetDrawingMode</name></member>
+      <member refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetEventMask</name></member>
+      <member refid="classBView_1a6906e47d4fdd6923dd51edb60a83ccea" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetExplicitAlignment</name></member>
+      <member refid="classBView_1acd759dd7505050f9cbd8213c71991b8b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetExplicitMaxSize</name></member>
+      <member refid="classBView_1abfcb5c761f9b06da3b4a6788aad5d0ee" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetExplicitMinSize</name></member>
+      <member refid="classBView_1a98b7d450210099ed59b7cd34f2575e20" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetExplicitPreferredSize</name></member>
+      <member refid="classBView_1aeef8a27a5577db87251412ce44421494" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetExplicitSize</name></member>
+      <member refid="classBView_1a2019def93337069c0b7d416e103522e9" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetFillRule</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetFilterList</name></member>
+      <member refid="classBView_1a4740f9a1e1163073b042102a421a2e33" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetFlags</name></member>
+      <member refid="classBView_1a9247127c151153542a3e6bc1f3904433" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetFont</name></member>
+      <member refid="classBView_1a443e4d9ff182f85a6b1c8478ef22ffe8" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetFontSize</name></member>
+      <member refid="classBView_1ab5482f91a642d545bc3fcefe199f95e9" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1aff9e1ab5e88f33027e72b39874868e9b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1a54eefc28bf7a4bc30612cf83aff2963b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetHighUIColor</name></member>
+      <member refid="classBView_1acac1ebbba8c76e543e1b06e84dffab02" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetLayout</name></member>
+      <member refid="classBView_1ae97bfe6c0c93fce98bc7bbd93761dbfb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetLineMode</name></member>
+      <member refid="classBView_1af0426243110fb150ad7ef0705209a12c" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a929fb1ca47a00220c355ae55a0ea6077" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a879ab88d4e64345069f1041d3a7b652f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetLowUIColor</name></member>
+      <member refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetMouseEventMask</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetNextHandler</name></member>
+      <member refid="classBScrollBar_1a53f74df44f93ad68327c5e6b1b1c06d4" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetOrientation</name></member>
+      <member refid="classBView_1a769e5fa6486adf12e7a3511ed372a06c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a7cf4e3ac5b0759b9c38d7b36517f2337" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a80ea4cb97d2e6e2c3088e610a9e157e6" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetPenSize</name></member>
+      <member refid="classBScrollBar_1a3b66fb3b19b725318c8c55782400b2bb" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetProportion</name></member>
+      <member refid="classBScrollBar_1aecd580735c156aafc99f2971c506968c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetRange</name></member>
+      <member refid="classBView_1a38d29ea581880c3978d7e50dcc851696" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetResizingMode</name></member>
+      <member refid="classBView_1a077136ea06f0a6b39aa0b8b24311cce8" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetScale</name></member>
+      <member refid="classBScrollBar_1a906e9412f3c2536d3dce562335e36319" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetSteps</name></member>
+      <member refid="classBScrollBar_1ade9625dc766b03f674b02116286d8bd8" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetTarget</name></member>
+      <member refid="classBScrollBar_1a3055a6dc22853813d5d0cadbc6105fa2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetTarget</name></member>
+      <member refid="classBView_1a75fb825a3ef69c1c6fbf3535ee2260ab" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1aa377bad64048a2d3cd1c2b272ae3079b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1afbd9b8f35226ba89980c450f7626fc85" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetTransform</name></member>
+      <member refid="classBScrollBar_1a4f4ee82af953a8de9a52af1c14e83d9a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetValue</name></member>
+      <member refid="classBView_1ac247ddc58f1cb719d60e354a77c51c1e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1a046a9c1656823db5401e530cf8121734" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1ae8dde0e0330b394db016f3e609e7fb6a" prot="public" virt="virtual"><scope>BScrollBar</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a7dace2963c85b5ce55b7d8e96946625c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a39b4878773b4436e3c76aee51c4fbc09" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewCursor</name></member>
+      <member refid="classBView_1a576100502a8c6dfb46ff36b08cbe9405" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a9770c1bb97d7ffd797f7c40ca1339f98" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a34f020c4bb1008cef972cf1eec7dba0f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>SetViewUIColor</name></member>
+      <member refid="classBView_1a06e0584057d6c7a7c7e048b6272b7016" prot="public" virt="virtual"><scope>BScrollBar</scope><name>Show</name></member>
+      <member refid="classBView_1a61d28f55d6fdc55b59c38c44b9788205" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ShowToolTip</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StopWatchingAll</name></member>
+      <member refid="classBView_1adef480de8a8bcd2fff3129660501616e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StringWidth</name></member>
+      <member refid="classBView_1aef3638cf597407e6a9f31bc75cd42097" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StringWidth</name></member>
+      <member refid="classBView_1a57222cd40096dfe23e1df86a01277041" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a9c958b9399925a8a0ea333afd337ebfd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a64ea2ad06018b0b3b156113d201c7ad7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeBezier</name></member>
+      <member refid="classBView_1a042703445263f1d9a9213757fcf27414" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1ae7727ca808873634363e5306fdbcc09a" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1a909ee03901fac4ae5504f7faf5e41a7c" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ab713fc42e330d0a091a9774edfb9626f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ae871d03592c1bba5d6be3d5d982ea747" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1638c58553467f3ebe5ee2b3683d4905" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1482fddababe3dd1377f86a038f7119b" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1ad3893af66d3891855f9db7072bfb4de7" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeRect</name></member>
+      <member refid="classBView_1acf743b2ba22b82c8bc38eb514513df55" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeRoundRect</name></member>
+      <member refid="classBView_1a507e9b732e880ac8e6379e19e74d5757" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeShape</name></member>
+      <member refid="classBView_1a8221cce8942e590c2fea954f57933e78" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1ae59fc9e9cfaba5e2d6e79a90723a3330" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1a27e217abb3fefa45b6e4ceb7a54cb362" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Sync</name></member>
+      <member refid="classBScrollBar_1a660496f3dc3819761d794ee3d0e669d5" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Target</name></member>
+      <member refid="classBView_1a668a4ed5419c86a7f2696ca7ece28df7" prot="public" virt="virtual"><scope>BScrollBar</scope><name>TargetedByScrollView</name></member>
+      <member refid="classBView_1a127ceec2101b12c0fbe1e0e66a7b9dc1" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ToolTip</name></member>
+      <member refid="classBView_1ab16cc72cf8ae3b40abcf1f714e7e9b74" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Transform</name></member>
+      <member refid="classBView_1a98597d70ae48b2576683f25078135534" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>TransformTo</name></member>
+      <member refid="classBView_1a8ae6d4e1cdfeeee33b753d56bee6ae7f" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>TranslateBy</name></member>
+      <member refid="classBView_1ac2e293fbdd999e4857b44b6e4d4c3820" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>TruncateString</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>UnlockLooper</name></member>
+      <member refid="classBScrollBar_1a1c4a299416b74100ea0e75172d252d1e" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Value</name></member>
+      <member refid="classBScrollBar_1a308b6aeee100a0317e364efb4aefdb44" prot="public" virt="virtual"><scope>BScrollBar</scope><name>ValueChanged</name></member>
+      <member refid="classBView_1a8b2b1d9e08ce0c1763dd6a077ed02fdd" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ViewColor</name></member>
+      <member refid="classBView_1aec6c89446eb4f5ded151adced9126df8" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>ViewUIColor</name></member>
+      <member refid="classBView_1a32733d357b76bc3504cae326d174f4a2" prot="public" virt="non-virtual"><scope>BScrollBar</scope><name>Window</name></member>
+      <member refid="classBScrollBar_1ad44b780f97678d78d96c2b1c2eff2389" prot="public" virt="virtual"><scope>BScrollBar</scope><name>WindowActivated</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BScrollBar</scope><name>~BArchivable</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BScrollBar</scope><name>~BHandler</name></member>
+      <member refid="classBScrollBar_1a24e9aa1fad9a6d476bfeb4c23ee42181" prot="public" virt="virtual"><scope>BScrollBar</scope><name>~BScrollBar</name></member>
+      <member refid="classBView_1a7df0d7eaeb97a3c8a800f9e321f23f67" prot="public" virt="virtual"><scope>BScrollBar</scope><name>~BView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,629 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBLocker" kind="class" language="C++" prot="public">
+    <compoundname>BLocker</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBLocker_1ab8a5d67e08cb95fa24bad5b126ecb8e0" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLocker::_reserved[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BLocker::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="46" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Locker.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLocker_1a926245b37c07c34325ef665429c2e542" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLocker::fBenaphoreCount</definition>
+        <argsstring></argsstring>
+        <name>fBenaphoreCount</name>
+        <qualifiedname>BLocker::fBenaphoreCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="41" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Locker.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLocker_1a1f8bfe8fe84f4e38bff0bc62272ab086" prot="private" static="no" mutable="no">
+        <type>thread_id</type>
+        <definition>thread_id BLocker::fLockOwner</definition>
+        <argsstring></argsstring>
+        <name>fLockOwner</name>
+        <qualifiedname>BLocker::fLockOwner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="43" column="10" bodyfile="/boot/home/src/haiku/headers/os/support/Locker.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLocker_1a4028d74ac10f7675ef7cd74d0dc599e3" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLocker::fRecursiveCount</definition>
+        <argsstring></argsstring>
+        <name>fRecursiveCount</name>
+        <qualifiedname>BLocker::fRecursiveCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="44" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Locker.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLocker_1af9dbfd219a6308a1f02ee383f20636e7" prot="private" static="no" mutable="no">
+        <type>sem_id</type>
+        <definition>sem_id BLocker::fSemaphoreID</definition>
+        <argsstring></argsstring>
+        <name>fSemaphoreID</name>
+        <qualifiedname>BLocker::fSemaphoreID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="42" column="7" bodyfile="/boot/home/src/haiku/headers/os/support/Locker.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBLocker_1ad63fe8ee004e52497dfd0b75a57c0e69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLocker::BLocker</definition>
+        <argsstring>()</argsstring>
+        <name>BLocker</name>
+        <qualifiedname>BLocker::BLocker</qualifiedname>
+        <briefdescription>
+<para>Create a new <ref refid="classBLocker" kindref="compound">BLocker</ref> with the default name &quot;some BLocker&quot; and benaphore-style locking. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This <ref refid="classBLocker" kindref="compound">BLocker</ref> will use the benaphore-style locking.</para>
+<para><simplesect kind="note"><para>For debugging purposes, it&apos;s extremely convenient to actually give a name to the object. In case of a deadlock, it&apos;s easier to track down which <ref refid="classBLocker" kindref="compound">BLocker</ref> object might have caused the problems.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLocker_1a94ccf392b8571f70827134ea007b1385" kindref="member">BLocker(const char*, bool)</ref> for all the options.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a47a9333ac5c2b773b459cfab055ad793" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLocker::BLocker</definition>
+        <argsstring>(bool benaphoreStyle)</argsstring>
+        <name>BLocker</name>
+        <qualifiedname>BLocker::BLocker</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>benaphoreStyle</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBLocker" kindref="compound">BLocker</ref> with the default name &quot;some BLocker&quot; and the given locking style. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>For debugging purposes, it&apos;s extremely convenient to actually give a name to the object. In case of a deadlock, it&apos;s easier to track down which <ref refid="classBLocker" kindref="compound">BLocker</ref> object might have caused the problems.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>benaphoreStyle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If you pass <computeroutput>true</computeroutput>, the locker will be in benaphore style (which is the default option for other constructors). If you pass <computeroutput>false</computeroutput>, the object will completely rely on semaphores for its functioning.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLocker_1a94ccf392b8571f70827134ea007b1385" kindref="member">BLocker(const char* name, bool benaphoreStyle)</ref> if you also want to set a name.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1ab347e240218606aced8e3ca8778e4465" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLocker::BLocker</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>BLocker</name>
+        <qualifiedname>BLocker::BLocker</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBLocker" kindref="compound">BLocker</ref> with the given <emphasis>name</emphasis> and benaphore-style locking. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A NULL-terminated string that contains the name of the semaphore. Note that the length of the names are limited to <computeroutput>B_OS_NAME_LENGTH</computeroutput> constant, which includes the <computeroutput>\0</computeroutput> character.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLocker_1a94ccf392b8571f70827134ea007b1385" kindref="member">BLocker(const char* name, bool benaphoreStyle)</ref> for all the options.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a94ccf392b8571f70827134ea007b1385" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLocker::BLocker</definition>
+        <argsstring>(const char *name, bool benaphoreStyle)</argsstring>
+        <name>BLocker</name>
+        <qualifiedname>BLocker::BLocker</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>benaphoreStyle</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBLocker" kindref="compound">BLocker</ref> with the given <emphasis>name</emphasis> and locking style. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A NULL-terminated string that contains the name of the semaphore. Note that the length of the names are limited to <computeroutput>B_OS_NAME_LENGTH</computeroutput> constant, which includes the <computeroutput>\0</computeroutput> character. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>benaphoreStyle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If you pass <computeroutput>true</computeroutput>, the locker will be in benaphore style (which is the default option for other constructors). If you pass <computeroutput>false</computeroutput>, the object will completely rely on semaphores for its functioning.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a9926584a2ceb1fef875042f849d0d7f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BLocker::~BLocker</definition>
+        <argsstring>()</argsstring>
+        <name>~BLocker</name>
+        <qualifiedname>BLocker::~BLocker</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Release the internal semaphore. Because of this, any pending <ref refid="classBLocker_1a42596788c0e5dca043987b2efad244bd" kindref="member">Lock()</ref> calls from other threads be cancelled. The return code will be <computeroutput>false</computeroutput> for those calls.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="18" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a2919e1b6bdd50acb4318eed4b96026c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLocker::CountLockRequests</definition>
+        <argsstring>() const</argsstring>
+        <name>CountLockRequests</name>
+        <qualifiedname>BLocker::CountLockRequests</qualifiedname>
+        <briefdescription>
+<para>Return the number of threads with a pending lock request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of threads with a pending lock request as an int32.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="29" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1ac2d2a9a6f1a33aafdf1014adf0e3767e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLocker::CountLocks</definition>
+        <argsstring>() const</argsstring>
+        <name>CountLocks</name>
+        <qualifiedname>BLocker::CountLocks</qualifiedname>
+        <briefdescription>
+<para>Return the number of recursive locks that are currently held. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of currently held recursive locks as an int32.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="28" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a14f387a1cbd1849238cef0c33ee26617" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLocker::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BLocker::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Check whether the locker has properly initialized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if the semaphore has been properly initialized or any other error (negative) value related to semaphore initialization.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a0a2e0aff83a6d31c0b0f2a228ccc9bec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLocker::IsLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLocked</name>
+        <qualifiedname>BLocker::IsLocked</qualifiedname>
+        <briefdescription>
+<para>Check if the calling thread is actually holding the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Whether or not the calling thread is holding the lock. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The thread from which this method is called from is currently holding the lock. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is unlocked or the lock is held by another thread.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="27" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a42596788c0e5dca043987b2efad244bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLocker::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <qualifiedname>BLocker::Lock</qualifiedname>
+        <briefdescription>
+<para>Add a lock request and block on it until we get it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lock acquired successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to acquire the lock. Most probable cause is that the object is deleted. This frees the semaphore and releases the pending <ref refid="classBLocker_1a42596788c0e5dca043987b2efad244bd" kindref="member">Lock()</ref> requests.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLocker_1a6da24e86f4acab13f674889b7bf8226e" kindref="member">LockWithTimeout(bigtime_t timeout)</ref>, <ref refid="classBLocker_1a0ebddc8ec0db8f51e57d6bff0f5ac2bf" kindref="member">Unlock()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="22" column="5"/>
+        <referencedby refid="classBAutolock_1a5808a41f3c76294ed35deef3864c9a7c" compoundref="Autolock_8h" startline="77" endline="88">BAutolock::Lock</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a5c586d25058fa71c5f279532e5401109" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>thread_id</type>
+        <definition>thread_id BLocker::LockingThread</definition>
+        <argsstring>() const</argsstring>
+        <name>LockingThread</name>
+        <qualifiedname>BLocker::LockingThread</qualifiedname>
+        <briefdescription>
+<para>Return the <computeroutput>thread_id</computeroutput> of the thread that&apos;s currently holding the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="26" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a6da24e86f4acab13f674889b7bf8226e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLocker::LockWithTimeout</definition>
+        <argsstring>(bigtime_t timeout)</argsstring>
+        <name>LockWithTimeout</name>
+        <qualifiedname>BLocker::LockWithTimeout</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+<para>Add a lock request and block until we get it or until it times out. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This is a timeout in microseconds (one millionth of a second) relative to now.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLocker_1a42596788c0e5dca043987b2efad244bd" kindref="member">Lock()</ref>, <ref refid="classBLocker_1a0ebddc8ec0db8f51e57d6bff0f5ac2bf" kindref="member">Unlock()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a4ed8883d53e7888cabb01eda8065b1c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sem_id</type>
+        <definition>sem_id BLocker::Sem</definition>
+        <argsstring>() const</argsstring>
+        <name>Sem</name>
+        <qualifiedname>BLocker::Sem</qualifiedname>
+        <briefdescription>
+<para>Return the sem_id of the semaphore this object holds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Like any other internal objects that the Haiku API might expose, this semaphore id should in general be left alone. You should not use any of the public low-level semaphore functions on this semaphore, because it will harm the internal consistency of the object.</para>
+</simplesect>
+<simplesect kind="return"><para>The sem_id of the semaphore this object holds.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="30" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a0ebddc8ec0db8f51e57d6bff0f5ac2bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLocker::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <qualifiedname>BLocker::Unlock</qualifiedname>
+        <briefdescription>
+<para>Release the lock that&apos;s currently held. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="24" column="5"/>
+        <referencedby refid="classBAutolock_1a62e220b72b39ffa459b51dae1ca50332" compoundref="Autolock_8h" startline="92" endline="102">BAutolock::Unlock</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBLocker_1a31ece2d6300f6325a8789e9dd768d277" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLocker::BLocker</definition>
+        <argsstring>(const BLocker &amp;)</argsstring>
+        <name>BLocker</name>
+        <qualifiedname>BLocker::BLocker</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLocker" kindref="compound">BLocker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a67d7f6dab6efa7aa6828d74ecafff91a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLocker::BLocker</definition>
+        <argsstring>(const char *name, bool benaphoreStyle, bool _ignored)</argsstring>
+        <name>BLocker</name>
+        <qualifiedname>BLocker::BLocker</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>benaphoreStyle</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>_ignored</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a3d2ba09137541ec6cdd4255dd11dff36" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLocker::AcquireLock</definition>
+        <argsstring>(bigtime_t timeout, status_t *error)</argsstring>
+        <name>AcquireLock</name>
+        <qualifiedname>BLocker::AcquireLock</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref> *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="39" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1a9d9fa7df5f54d4f6f0935c6afd708067" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLocker::InitLocker</definition>
+        <argsstring>(const char *name, bool benaphoreStyle)</argsstring>
+        <name>InitLocker</name>
+        <qualifiedname>BLocker::InitLocker</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>benaphoreStyle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="37" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLocker_1aa41d897d8e5fa7fd53a771bdb931bf73" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBLocker" kindref="compound">BLocker</ref> &amp;</type>
+        <definition>BLocker &amp; BLocker::operator=</definition>
+        <argsstring>(const BLocker &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BLocker::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLocker" kindref="compound">BLocker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="36" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Semaphore-type class for thread safety. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classBLocker" kindref="compound">BLocker</ref> interface is not merely a wrapper around a semaphore, but it also has two advantages. First of all, it implements a benaphore. A benaphore is in some ways more speed efficient, because before it uses the internal semaphore, it first checks against a variable that is only operated on with atomic operations. Setting a variable is a lot more efficient than acquiring a semaphore, thus this type of locking is much preferred.</para>
+<para>It basically works as follows. Whenever you newly created <ref refid="classBLocker" kindref="compound">BLocker</ref> object receives a locking request, it atomically sets the benaphore variable to <computeroutput>1</computeroutput>. Then only additional calls from different threads will utilize the semaphore. You can imagine that in many cases where you protect of data that <emphasis>might</emphasis> be accessed by two or more concurrent threads, but the chances of it happening being very small, the benaphore benefits the most from its speed.</para>
+<para>The other feature of <ref refid="classBLocker" kindref="compound">BLocker</ref> that improves basic semaphore handling is that it allows for recursive locks. The following piece of code works with a <ref refid="classBLocker" kindref="compound">BLocker</ref>, but block inevitably with a semaphore. Let&apos;s pretend I call <computeroutput>Water()</computeroutput>:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></highlight></codeline>
+<codeline><highlight class="normal">Flower::Grow(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fLock-&gt;Lock())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fLength<sp/>+=<sp/>length;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fLock-&gt;Unlock();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_OK;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_ERROR;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></highlight></codeline>
+<codeline><highlight class="normal">Flower::Water(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>amount)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(fLock-&gt;Lock())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>status<sp/>=<sp/>Grow(amount<sp/>*<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fLock-&gt;Unlock();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>B_ERROR;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>This code would work because <ref refid="classBLocker" kindref="compound">BLocker</ref> keeps track of the amount of lock requests from the same thread. A normal semaphore would block in <computeroutput>Grow()</computeroutput> because the semaphore would be acquired already. Please do make sure you pair every <ref refid="classBLocker_1a42596788c0e5dca043987b2efad244bd" kindref="member">Lock()</ref> with an <ref refid="classBLocker_1a0ebddc8ec0db8f51e57d6bff0f5ac2bf" kindref="member">Unlock()</ref> though, or you&apos;ll create a deadlock.</para>
+<para><simplesect kind="see"><para><ref refid="classBAutolock" kindref="compound">BAutolock</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/support/Locker.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Locker.h" bodystart="12" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classBLocker_1ab8a5d67e08cb95fa24bad5b126ecb8e0" prot="private" virt="non-virtual"><scope>BLocker</scope><name>_reserved</name></member>
+      <member refid="classBLocker_1a3d2ba09137541ec6cdd4255dd11dff36" prot="private" virt="non-virtual"><scope>BLocker</scope><name>AcquireLock</name></member>
+      <member refid="classBLocker_1ad63fe8ee004e52497dfd0b75a57c0e69" prot="public" virt="non-virtual"><scope>BLocker</scope><name>BLocker</name></member>
+      <member refid="classBLocker_1ab347e240218606aced8e3ca8778e4465" prot="public" virt="non-virtual"><scope>BLocker</scope><name>BLocker</name></member>
+      <member refid="classBLocker_1a47a9333ac5c2b773b459cfab055ad793" prot="public" virt="non-virtual"><scope>BLocker</scope><name>BLocker</name></member>
+      <member refid="classBLocker_1a94ccf392b8571f70827134ea007b1385" prot="public" virt="non-virtual"><scope>BLocker</scope><name>BLocker</name></member>
+      <member refid="classBLocker_1a67d7f6dab6efa7aa6828d74ecafff91a" prot="private" virt="non-virtual"><scope>BLocker</scope><name>BLocker</name></member>
+      <member refid="classBLocker_1a31ece2d6300f6325a8789e9dd768d277" prot="private" virt="non-virtual"><scope>BLocker</scope><name>BLocker</name></member>
+      <member refid="classBLocker_1a2919e1b6bdd50acb4318eed4b96026c3" prot="public" virt="non-virtual"><scope>BLocker</scope><name>CountLockRequests</name></member>
+      <member refid="classBLocker_1ac2d2a9a6f1a33aafdf1014adf0e3767e" prot="public" virt="non-virtual"><scope>BLocker</scope><name>CountLocks</name></member>
+      <member refid="classBLocker_1a926245b37c07c34325ef665429c2e542" prot="private" virt="non-virtual"><scope>BLocker</scope><name>fBenaphoreCount</name></member>
+      <member refid="classBLocker_1a1f8bfe8fe84f4e38bff0bc62272ab086" prot="private" virt="non-virtual"><scope>BLocker</scope><name>fLockOwner</name></member>
+      <member refid="classBLocker_1a4028d74ac10f7675ef7cd74d0dc599e3" prot="private" virt="non-virtual"><scope>BLocker</scope><name>fRecursiveCount</name></member>
+      <member refid="classBLocker_1af9dbfd219a6308a1f02ee383f20636e7" prot="private" virt="non-virtual"><scope>BLocker</scope><name>fSemaphoreID</name></member>
+      <member refid="classBLocker_1a14f387a1cbd1849238cef0c33ee26617" prot="public" virt="non-virtual"><scope>BLocker</scope><name>InitCheck</name></member>
+      <member refid="classBLocker_1a9d9fa7df5f54d4f6f0935c6afd708067" prot="private" virt="non-virtual"><scope>BLocker</scope><name>InitLocker</name></member>
+      <member refid="classBLocker_1a0a2e0aff83a6d31c0b0f2a228ccc9bec" prot="public" virt="non-virtual"><scope>BLocker</scope><name>IsLocked</name></member>
+      <member refid="classBLocker_1a42596788c0e5dca043987b2efad244bd" prot="public" virt="non-virtual"><scope>BLocker</scope><name>Lock</name></member>
+      <member refid="classBLocker_1a5c586d25058fa71c5f279532e5401109" prot="public" virt="non-virtual"><scope>BLocker</scope><name>LockingThread</name></member>
+      <member refid="classBLocker_1a6da24e86f4acab13f674889b7bf8226e" prot="public" virt="non-virtual"><scope>BLocker</scope><name>LockWithTimeout</name></member>
+      <member refid="classBLocker_1aa41d897d8e5fa7fd53a771bdb931bf73" prot="private" virt="non-virtual"><scope>BLocker</scope><name>operator=</name></member>
+      <member refid="classBLocker_1a4ed8883d53e7888cabb01eda8065b1c0" prot="public" virt="non-virtual"><scope>BLocker</scope><name>Sem</name></member>
+      <member refid="classBLocker_1a0ebddc8ec0db8f51e57d6bff0f5ac2bf" prot="public" virt="non-virtual"><scope>BLocker</scope><name>Unlock</name></member>
+      <member refid="classBLocker_1a9926584a2ceb1fef875042f849d0d7f6" prot="public" virt="virtual"><scope>BLocker</scope><name>~BLocker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

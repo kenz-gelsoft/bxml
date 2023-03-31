@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="HttpResult_8h" kind="file" language="C++">
+    <compoundname>HttpResult.h</compoundname>
+    <includes local="no">memory</includes>
+    <includes local="no">optional</includes>
+    <includes refid="String_8h" local="no">String.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>String.h</label>
+        <link refid="String_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>HttpResult.h</label>
+        <link refid="HttpResult_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="9">
+        <label>inttypes.h</label>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
+      <node id="5">
+        <label>stdarg.h</label>
+      </node>
+      <node id="6">
+        <label>string.h</label>
+      </node>
+      <node id="10">
+        <label>sys/types.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpBody" prot="public">BPrivate::Network::BHttpBody</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpResult" prot="public">BPrivate::Network::BHttpResult</innerclass>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpStatus" prot="public">BPrivate::Network::BHttpStatus</innerclass>
+    <innernamespace refid="namespaceBPrivate">BPrivate</innernamespace>
+    <innernamespace refid="namespaceBPrivate_1_1Network">BPrivate::Network</innernamespace>
+    <briefdescription>
+<para>Provides classes and tools to handle HTTP responses. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2022<sp/>Haiku<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_B_HTTP_RESULT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_B_HTTP_RESULT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="String_8h" kindref="compound">String.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBDataIO" kindref="compound">BDataIO</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceBPrivate" kindref="compound">BPrivate</ref><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Network<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">BHttpFields;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">HttpResultPrivate;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="structBPrivate_1_1Network_1_1BHttpBody" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBPrivate_1_1Network_1_1BHttpBody" kindref="compound">BHttpBody</ref><sp/>{</highlight></codeline>
+<codeline lineno="26" refid="structBPrivate_1_1Network_1_1BHttpBody_1a2c22caaff871835ac25ecafe3789c4d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;BString&gt;<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpBody_1a2c22caaff871835ac25ecafe3789c4d3" kindref="member">text</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="namespaceBPrivate_1_1Network_1a10223862da6f30a38b3fccf10054ccf9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceBPrivate_1_1Network_1a10223862da6f30a38b3fccf10054ccf9" kindref="member">BHttpStatusClass</ref><sp/>:<sp/><ref refid="SupportDefs_8h_1acadaa1c2888dd031d14fed9b272333a7" kindref="member">int16</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>Invalid<sp/>=<sp/>000,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>Informational<sp/>=<sp/>100,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>Success<sp/>=<sp/>200,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>Redirection<sp/>=<sp/>300,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>ClientError<sp/>=<sp/>400,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>ServerError<sp/>=<sp/>500</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="namespaceBPrivate_1_1Network_1a7fc5fcbcd12571685bad319d48fef5ce" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceBPrivate_1_1Network_1a7fc5fcbcd12571685bad319d48fef5ce" kindref="member">BHttpStatusCode</ref><sp/>:<sp/><ref refid="SupportDefs_8h_1acadaa1c2888dd031d14fed9b272333a7" kindref="member">int16</ref><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>Unknown<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Informational<sp/>status<sp/>codes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>Continue<sp/>=<sp/>100,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>SwitchingProtocols,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Success<sp/>status<sp/>codes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>Ok<sp/>=<sp/>200,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>Created,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>Accepted,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>NonAuthoritativeInformation,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>NoContent,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>ResetContent,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>PartialContent,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Redirection<sp/>status<sp/>codes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>MultipleChoice<sp/>=<sp/>300,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>MovedPermanently,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>Found,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>SeeOther,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>NotModified,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>UseProxy,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>TemporaryRedirect<sp/>=<sp/>307,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>PermanentRedirect,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Client<sp/>error<sp/>status<sp/>codes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>BadRequest<sp/>=<sp/>400,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>Unauthorized,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>PaymentRequired,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>Forbidden,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>NotFound,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>MethodNotAllowed,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>NotAcceptable,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>ProxyAuthenticationRequired,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>RequestTimeout,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>Conflict,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>Gone,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>LengthRequired,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>PreconditionFailed,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>RequestEntityTooLarge,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>RequestUriTooLarge,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>UnsupportedMediaType,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>RequestedRangeNotSatisfiable,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>ExpectationFailed,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Server<sp/>error<sp/>status<sp/>codes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>InternalServerError<sp/>=<sp/>500,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>NotImplemented,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>BadGateway,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>ServiceUnavailable,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>GatewayTimeout,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="structBPrivate_1_1Network_1_1BHttpStatus" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBPrivate_1_1Network_1_1BHttpStatus" kindref="compound">BHttpStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="96" refid="structBPrivate_1_1Network_1_1BHttpStatus_1a1607a1c572652414b8bc51e521b3745e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1acadaa1c2888dd031d14fed9b272333a7" kindref="member">int16</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpStatus_1a1607a1c572652414b8bc51e521b3745e" kindref="member">code</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97" refid="structBPrivate_1_1Network_1_1BHttpStatus_1a470208315b4ea46b23ebe708db235c2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpStatus_1a470208315b4ea46b23ebe708db235c2d" kindref="member">text</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Helpers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="structBPrivate_1_1Network_1_1BHttpStatus_1aee040081cc92117a553cef8b4a399334" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceBPrivate_1_1Network_1a10223862da6f30a38b3fccf10054ccf9" kindref="member">BHttpStatusClass</ref><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpStatus_1aee040081cc92117a553cef8b4a399334" kindref="member">StatusClass</ref>()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="101" refid="structBPrivate_1_1Network_1_1BHttpStatus_1af2897a3a9446c64935e1263a598aad4b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceBPrivate_1_1Network_1a7fc5fcbcd12571685bad319d48fef5ce" kindref="member">BHttpStatusCode</ref><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpStatus_1af2897a3a9446c64935e1263a598aad4b" kindref="member">StatusCode</ref>()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="classBPrivate_1_1Network_1_1BHttpResult" refkind="compound"><highlight class="normal">class<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref></highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructors<sp/>and<sp/>destructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classBPrivate_1_1Network_1_1BHttpResult_1ae7511645ad5e24dd69a857a95305d0a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1ae7511645ad5e24dd69a857a95305d0a1" kindref="member">BHttpResult</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>&amp;<sp/>other)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110" refid="classBPrivate_1_1Network_1_1BHttpResult_1abd0f5b0598998a80adb51a8b1a75699a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1abd0f5b0598998a80adb51a8b1a75699a" kindref="member">BHttpResult</ref>(<ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111" refid="classBPrivate_1_1Network_1_1BHttpResult_1a872c3098ebe80c9e8f9f14bae954d840" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a872c3098ebe80c9e8f9f14bae954d840" kindref="member">~BHttpResult</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Assignment<sp/>operators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="classBPrivate_1_1Network_1_1BHttpResult_1a86e358e0586bab389c5bf1558a508b68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a86e358e0586bab389c5bf1558a508b68" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>&amp;<sp/>other)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115" refid="classBPrivate_1_1Network_1_1BHttpResult_1ab7e4087ac2ff36f9d805e10bb1da51fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1ab7e4087ac2ff36f9d805e10bb1da51fd" kindref="member">operator=</ref>(<ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Blocking<sp/>Access<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="classBPrivate_1_1Network_1_1BHttpResult_1a67e061b8e1c60b6b195c8a24f728c392" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpStatus" kindref="compound">BHttpStatus</ref>&amp;<sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a67e061b8e1c60b6b195c8a24f728c392" kindref="member">Status</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119" refid="classBPrivate_1_1Network_1_1BHttpResult_1a0193d68aed1470532a62d63476477972" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref>&amp;<sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a0193d68aed1470532a62d63476477972" kindref="member">Fields</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120" refid="classBPrivate_1_1Network_1_1BHttpResult_1adeef8669a4d6f0fcbbbc2766072a8519" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpBody" kindref="compound">BHttpBody</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1adeef8669a4d6f0fcbbbc2766072a8519" kindref="member">Body</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>if<sp/>data<sp/>is<sp/>available<sp/>yet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classBPrivate_1_1Network_1_1BHttpResult_1ae31cede2d4456b59a826d34960a6c536" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1ae31cede2d4456b59a826d34960a6c536" kindref="member">HasStatus</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124" refid="classBPrivate_1_1Network_1_1BHttpResult_1ab5714b0675051500751ed2edad4445d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1ab5714b0675051500751ed2edad4445d6" kindref="member">HasFields</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125" refid="classBPrivate_1_1Network_1_1BHttpResult_1a7a12921bb7c5f99de05e7d3819fcd05a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a7a12921bb7c5f99de05e7d3819fcd05a" kindref="member">HasBody</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126" refid="classBPrivate_1_1Network_1_1BHttpResult_1a258156ef5ffab1367eb616b2438c470d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a258156ef5ffab1367eb616b2438c470d" kindref="member">IsCompleted</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Identity</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="classBPrivate_1_1Network_1_1BHttpResult_1a2136f32fa9d3efdd78ff6cc40e8c5821" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a2136f32fa9d3efdd78ff6cc40e8c5821" kindref="member">Identity</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpResult" kindref="compound">BHttpResult</ref>(std::shared_ptr&lt;HttpResultPrivate&gt;<sp/>data);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;HttpResultPrivate&gt;<sp/>fData;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Network</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>BPrivate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_B_HTTP_RESPONSE_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/private/netservices2/HttpResult.h"/>
+  </compounddef>
+</doxygen>

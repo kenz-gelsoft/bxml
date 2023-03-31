@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="libroot" kind="page">
+    <compoundname>libroot</compoundname>
+    <title>C, POSIX, GNU and BSD functions</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Haiku implements a standard library containing the standard functions from C (<ulink url="https://www.iso.org/standard/29237.html">https://www.iso.org/standard/29237.html</ulink>) and POSIX (<ulink url="https://pubs.opengroup.org/onlinepubs/9699919799/">https://pubs.opengroup.org/onlinepubs/9699919799/</ulink>). These functions are available in libroot, which is linked in by default.</para>
+<para>For convenience and POSIX compatibility, empty &quot;m&quot; and &quot;pthread&quot; libraries are also provided, but the math and thread functions are also defined in libroot.</para>
+<para>The C library also contains a number of GNU and BSD extensions to the C and POSIX standards. The BSD extensions are enabled by default unless a specific version of the C standard is requested from the compiler command line (for example by using the <ndash/>std=c99 switch). In case you want to set the compiler to strict C99 but still use these extensions, you need to define _DEFAULT_SOURCE (with a #define preprocessor directive, or from the command line).</para>
+<para>The GNU extensions are not enabled by default, but can be enabled by defining _GNU_SOURCE.</para>
+<para>The GNU and BSD extensions are in a separate library, so the -lbsd linker flag may be needed to use them. </para>
+    </detaileddescription>
+    <location file="posix/_libroot.dox"/>
+  </compounddef>
+</doxygen>

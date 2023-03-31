@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="json" kind="page">
+    <compoundname>json</compoundname>
+    <title>Json Handling</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ulink url="http://www.json.org/">JSON</ulink> is a simple textual description of a data structure. An example of some JSON would be;</para>
+<para><programlisting><codeline><highlight class="normal">[<sp/></highlight><highlight class="stringliteral">&quot;apple&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;orange&quot;</highlight><highlight class="normal">,<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;drink&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;tonic<sp/>water&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;count&quot;</highlight><highlight class="normal"><sp/>:<sp/>123<sp/>}<sp/>]</highlight></codeline>
+</programlisting></para>
+<para>This example is a list that contains two strings followed by an &quot;object&quot;. The term object refers to a construct akin to a &quot;dictionary&quot; or a &quot;map&quot;. It is also possible for top-level objects to be non-collection types such as strings. The following is also valid JSON;</para>
+<para><programlisting><codeline><highlight class="stringliteral">&quot;fijoa&quot;</highlight></codeline>
+</programlisting></para>
+<para>This page details how Haiku provides facilities for both parsing as well as writing data encoded as Json.</para>
+<sect1 id="json_1parsing-in-memory-model">
+<title>Parsing with Generic In-Memory Model</title>
+<para>For some applications, parsing to an in-memory data structure is ideal. In such cases, the <computeroutput>BJson</computeroutput> class provides static methods for parsing a block of JSON data into a <computeroutput><ref refid="classBMessage" kindref="compound">BMessage</ref></computeroutput> object. The application logic is then able to introspect the <computeroutput><ref refid="classBMessage" kindref="compound">BMessage</ref></computeroutput> to obtain values.</para>
+<sect2 id="json_1bmessage-structure">
+<title>BMessage Structure</title>
+<para>The <computeroutput><ref refid="classBMessage" kindref="compound">BMessage</ref></computeroutput> class has the ability to carry a collection of key-value pairs. In the case of a Json object type, the key-value pairs correlate to a JSON object or array. In the case of a JSON array type, the key-value pairs are the index of the elements in the JSON array represented as strings.</para>
+<para>For example, the following JSON array...</para>
+<para><programlisting><codeline><highlight class="normal">[<sp/></highlight><highlight class="stringliteral">&quot;a&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;b&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;c&quot;</highlight><highlight class="normal"><sp/>]</highlight></codeline>
+</programlisting></para>
+<para>...would be represented by the following <computeroutput><ref refid="classBMessage" kindref="compound">BMessage</ref></computeroutput> ;</para>
+<para><table rows="4" cols="2"><row>
+<entry thead="yes"><para>Key </para>
+</entry><entry thead="yes"><para>Value  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>&quot;0&quot;</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>&quot;a&quot;</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>&quot;1&quot;</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>&quot;b&quot;</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>&quot;2&quot;</computeroutput>  </para>
+</entry><entry thead="no"><para><computeroutput>&quot;c&quot;</computeroutput>   </para>
+</entry></row>
+</table>
+</para>
+<para>A Json object that, in its entirety, consists of a non-collection type such as a simple string or a boolean is not able to be represented by a <computeroutput><ref refid="classBMessage" kindref="compound">BMessage</ref></computeroutput> ; at the top level there must be an array or an object for the parse to be successful.</para>
+</sect2>
+</sect1>
+<sect1 id="json_1parsing-streaming">
+<title>Stream-based Parsing</title>
+<para>Streaming is useful in many situations;</para>
+<para><itemizedlist>
+<listitem><para>where handling the parsed data is easier to undertake as a stream of events</para>
+</listitem><listitem><para>where the quantity of input or output data could be non-trivial and holding that quantity of material in memory is undesirable</para>
+</listitem><listitem><para>where being able to start processing a stream of data before the entire payload has arrived is desirable</para>
+</listitem></itemizedlist>
+</para>
+<para>This architecture is sometimes known as an event-based parser or a &quot;SAX&quot; parser.</para>
+<para>The <computeroutput>BJson</computeroutput> class provides a static method that accepts a stream of Json data in the form of a <computeroutput><ref refid="classBDataIO" kindref="compound">BDataIO</ref></computeroutput>. A <computeroutput>BJsonEventListener</computeroutput> sub-class is also supplied and as each Json token is read-in from the stream, it will be provided to the listener. The listener must implement three callback methods to handle the Json tokens;</para>
+<para><table rows="4" cols="2"><row>
+<entry thead="yes"><para>Method </para>
+</entry><entry thead="yes"><para>Description  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Handle</computeroutput>(..) </para>
+</entry><entry thead="no"><para>Provides JSON events to the listener  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>HandleError</computeroutput>(..) </para>
+</entry><entry thead="no"><para>Signals parse or processing errors to the listener  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>Complete</computeroutput>(..) </para>
+</entry><entry thead="no"><para>Informs the listener that parsing has completed  </para>
+</entry></row>
+</table>
+</para>
+<para>Events are embodied in instances of the <computeroutput>BJsonEvent</computeroutput> class and each of these has a type. Example types are;</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>B_JSON_STRING</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_JSON_OBJECT_START</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_JSON_TRUE</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para>In this way, the listener is able to interpret the incoming stream of data as Json and handle it in some way.</para>
+<para>The following Json...</para>
+<para><programlisting><codeline><highlight class="normal">{</highlight><highlight class="stringliteral">&quot;color&quot;</highlight><highlight class="normal">:<sp/></highlight><highlight class="stringliteral">&quot;red&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;alpha&quot;</highlight><highlight class="normal">:<sp/>0.6}</highlight></codeline>
+</programlisting></para>
+<para>Would yield the following stream of events;</para>
+<para><table rows="7" cols="2"><row>
+<entry thead="yes"><para>Event Type </para>
+</entry><entry thead="yes"><para>Event Data  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_JSON_OBJECT_START</computeroutput>  </para>
+</entry><entry thead="no"><para>-  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_JSON_OBJECT_NAME</computeroutput>  </para>
+</entry><entry thead="no"><para>&quot;color&quot;  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_JSON_STRING</computeroutput>  </para>
+</entry><entry thead="no"><para>&quot;red&quot;  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_JSON_OBJECT_NAME</computeroutput>  </para>
+</entry><entry thead="no"><para>&quot;alpha&quot;  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_JSON_NUMBER</computeroutput>  </para>
+</entry><entry thead="no"><para>0.6  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>B_JSON_OBJECT_END</computeroutput>  </para>
+</entry><entry thead="no"><para>-  </para>
+</entry></row>
+</table>
+</para>
+<sect2 id="json_1parsing-streaming-numbers">
+<title>Number Handling</title>
+<para>The Json number literal format does not specify a numeric type such as <computeroutput>int32</computeroutput> or <computeroutput>double</computeroutput>. To cope with the widest range of possibilities, the <computeroutput>B_JSON_NUMBER</computeroutput> event type captures the content as a string and then the <computeroutput>BJsonEvent</computeroutput> object is able to provide the original string for specific handling as well as convenient accessors for parsing to <computeroutput>double</computeroutput> or <computeroutput>int64</computeroutput> types. This provides a high level of flexibility for the client.</para>
+</sect2>
+<sect2 id="json_1parsing-streaming-stacked-listeners">
+<title>Stacked Listeners</title>
+<para>One implementation approach for a listener implement that might be used to read a data-transfer-object (DTO) is to create &quot;sub-listeners&quot; that mirror the structure of the Json data.</para>
+<para>In the following example, a nested data structure is being parsed.</para>
+<para><image type="html" name="stacked-listeners.svg"></image>
+</para>
+<para>A primary-listener is employed called <computeroutput>ColorGradientsListener</computeroutput>. The primary-listener accepts Json parse events and will relay them to a sub-listener. The sub-listener is implemented to specifically deal with one tier of the inbound data. The sub-listeners are structured in a stack where the sub-listener at the head of the stack has a pointer to its parent. The primary-listener maintains a pointer to the current head of the stack and will direct events to that sub-listener.</para>
+<para>In response to events, the sub-listener can take-up the data, pop itself from the stack or push additional sub-listeners from the stack.</para>
+<para>The same approach has been used in the following classes in a more generic manner;</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>BJsonTextWriter</computeroutput> </para>
+</listitem><listitem><para><computeroutput>BJsonMessageWriter</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para>The intention with this approach is that the structure of the event handling code in the sub-listeners mirrors that of the data-structure being parsed. Hopefully this makes creating the filling of a specific data-model easier even when very specific behaviours are required.</para>
+<para>From a schema of the data structure it is probably also possible to create these sub-listeners and in this way automatically generate the C++ parse code as event listeners.</para>
+</sect2>
+</sect1>
+<sect1 id="json_1writing">
+<title>Writing</title>
+<para>In order to render a data-structure as textual Json data, the opposite flow occurs; events are emitted by the client software into a class <computeroutput>BJsonTextWriter</computeroutput>. This class supports public methods such as <computeroutput>WriteFalse()</computeroutput> , <computeroutput>WriteObjectStart()</computeroutput> and <computeroutput>WriteString(...)</computeroutput> that control the outbound Json stream.</para>
+</sect1>
+<sect1 id="json_1end-to-end">
+<title>End to End</title>
+<para>Because <computeroutput>BJsonTextWriter</computeroutput> is accepting JSON parse events, it is also a <computeroutput>JsonEventListener</computeroutput> and so can be used as a listener with the stream parsing; producing Json output from Json input. The output will however not include inbound whitespace because whitespace is not grammatically significant in Json. </para>
+</sect1>
+    </detaileddescription>
+    <location file="shared/json.dox"/>
+  </compounddef>
+</doxygen>

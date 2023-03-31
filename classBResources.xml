@@ -1,0 +1,2356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBResources" kind="class" language="C++" prot="public">
+    <compoundname>BResources</compoundname>
+      <sectiondef kind="user-defined">
+      <header>SetTo</header>
+      <description><para>What happens, if <emphasis>clobber</emphasis> is <computeroutput>true</computeroutput>, depends on the type of the file. If the file is capable of containing resources, that is, is a resource file or an executable (ELF or PEF), its resources are removed. Otherwise the file&apos;s data are erased and it is turned into an empty resource file. If <emphasis>clobber</emphasis> is <computeroutput>false</computeroutput>, <emphasis>file</emphasis> must refer to a file that is capable of containing resources.</para>
+<para>If the file has been opened <computeroutput>B_READ_ONLY</computeroutput>, only read access to its resources is possible.</para>
+<para>The <ref refid="classBResources" kindref="compound">BResources</ref> object makes a copy of <emphasis>file</emphasis>, that is the caller remains owner of the <ref refid="classBFile" kindref="compound">BFile</ref> object. </para>
+</description>
+      <memberdef kind="function" id="classBResources_1a7c59913cefb4f22ac9ae6f2976b21d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::SetTo</definition>
+        <argsstring>(const BFile *file, bool clobber=false)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BResources::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Initializes the <ref refid="classBResources" kindref="compound">BResources</ref> object to represent the resources of the supplied file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file to initialize the <ref refid="classBResources" kindref="compound">BResources</ref> object from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>file</emphasis> was <computeroutput>NULL</computeroutput> or uninitialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to initialize the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="36" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1af5871eccccce9020623345cf145f298e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::SetTo</definition>
+        <argsstring>(const char *path, bool clobber=false)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BResources::SetTo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Initialized the <ref refid="classBResources" kindref="compound">BResources</ref> object to represent the resources of the file referred to by the supplied <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path referring to the file to create a BResource object from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>path</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file referenced by <emphasis>path</emphasis> couldn&apos;t be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to initialize the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="39" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a4bc5dcfcb1b0058db9552a320daf5e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::SetTo</definition>
+        <argsstring>(const entry_ref *ref, bool clobber=false)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BResources::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Initialized the <ref refid="classBResources" kindref="compound">BResources</ref> object to represent the resources of the file referenced by the supplied <emphasis>ref</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file to create a BResource object from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ref</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file referenced by <emphasis>ref</emphasis> couldn&apos;t be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to initialize the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a7134ad1f4514b6b5546957aade7ca77a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::SetToImage</definition>
+        <argsstring>(image_id image, bool clobber=false)</argsstring>
+        <name>SetToImage</name>
+        <qualifiedname>BResources::SetToImage</qualifiedname>
+        <param>
+          <type>image_id</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Initialized the <ref refid="classBResources" kindref="compound">BResources</ref> object to represent the resources of the file from which the specified <emphasis>image</emphasis> has been loaded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>clobber</emphasis> is <computeroutput>true</computeroutput>, the file&apos;s resources are removed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>image</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ID of a loaded image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file referenced by <emphasis>image</emphasis> couldn&apos;t be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to initialize the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="46" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1aaa710351d1391401e946877f579167b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::SetToImage</definition>
+        <argsstring>(const void *codeOrDataPointer, bool clobber=false)</argsstring>
+        <name>SetToImage</name>
+        <qualifiedname>BResources::SetToImage</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>codeOrDataPointer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Initialized the <ref refid="classBResources" kindref="compound">BResources</ref> object to represent the resources of the file from which the specified pointer has been loaded. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The image belongs to the current team and is identified by a pointer into it&apos;s code (aka text) or data segment, i.e. any pointer to a function or a static (or global) variable will do.</para>
+<para>If <emphasis>clobber</emphasis> is <computeroutput>true</computeroutput>, the file&apos;s resources are removed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codeOrDataPointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the text or data segment of the image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>codeOrDataPointer</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image or the file couldn&apos;t be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to initialize the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="48" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Constructor Helpers</header>
+      <memberdef kind="function" id="classBResources_1a4c840520fffd3c019ee6e910fb1088d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BResources::Unset</definition>
+        <argsstring>()</argsstring>
+        <name>Unset</name>
+        <qualifiedname>BResources::Unset</qualifiedname>
+        <briefdescription>
+<para>Returns the <ref refid="classBResources" kindref="compound">BResources</ref> object to an uninitialized state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the object represented resources that had been modified, the data are written back to the file.</para>
+<para><simplesect kind="note"><para>This method is not found in BeOS R5.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="51" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1aea04304030d7b1996a37a3a00c3aa977" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BResources::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Gets the initialization status of the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Unlike other Storage Kit classes a <ref refid="classBResources" kindref="compound">BResources</ref> object is always properly initialized, unless it couldn&apos;t allocate memory for some important internal structures. Thus even after a call to <ref refid="classBResources_1a7c59913cefb4f22ac9ae6f2976b21d57" kindref="member">SetTo()</ref> that reported an error, <ref refid="classBResources_1aea04304030d7b1996a37a3a00c3aa977" kindref="member">InitCheck()</ref> is likely to return <computeroutput>B_OK</computeroutput>.</para>
+<para><simplesect kind="note"><para>This method is not found in BeOS R5.</para>
+</simplesect>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the objects is properly initialized, <computeroutput>B_NO_MEMORY</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="52" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>LoadResources</header>
+      <description><para>A resource is loaded into memory only once. A second call with the same parameters will result in the same pointer. The <ref refid="classBResources" kindref="compound">BResources</ref> object is the owner of the allocated memory and the pointer to it will be valid until the object is destroyed or the resource is removed or modified. </para>
+</description>
+      <memberdef kind="function" id="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const void *</type>
+        <definition>const void * BResources::LoadResource</definition>
+        <argsstring>(type_code type, int32 id, size_t *_size)</argsstring>
+        <name>LoadResource</name>
+        <qualifiedname>BResources::LoadResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_size</declname>
+        </param>
+        <briefdescription>
+<para>Loads a resource identified by <emphasis>type</emphasis> and <emphasis>id</emphasis> into memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to be loaded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource to be loaded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable into which the size of the resource shall be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the resource data if everything went fine, or <computeroutput>NULL</computeroutput> if the file does not have a resource that matches the parameters or an error occurred.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a311ef2ea74c914403316dca0477b90c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const void *</type>
+        <definition>const void * BResources::LoadResource</definition>
+        <argsstring>(type_code type, const char *name, size_t *_size)</argsstring>
+        <name>LoadResource</name>
+        <qualifiedname>BResources::LoadResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_size</declname>
+        </param>
+        <briefdescription>
+<para>Loads a resource identified by <emphasis>type</emphasis> and <emphasis>name</emphasis> into memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>Since a type and name pair may not identify a resource uniquely, this method always returns the first resource that matches the parameters, that is the one with the smallest index.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to be loaded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the resource to be loaded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable into which the size of the resource shall be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the resource data if everything went fine, or <computeroutput>NULL</computeroutput> if the file does not have a resource that matches the parameters or an error occurred.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1ad9ba84db4f28b6e32a155e1713ecc1ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::PreloadResourceType</definition>
+        <argsstring>(type_code type=0)</argsstring>
+        <name>PreloadResourceType</name>
+        <qualifiedname>BResources::PreloadResourceType</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Loads all resources of the specified <emphasis>type</emphasis> into memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>type</emphasis> is 0, all resources are loaded. This might be useful for performance reasons.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of resources to be loaded.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>One of the following status codes or the negation of the number of errors that occurred. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_FILE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource map is empty???</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="61" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Deprecated Methods</header>
+      <description><para>These methods are deprecated and should not be used as there is a better method. See the method description for the replacement method to use. </para>
+</description>
+      <memberdef kind="function" id="classBResources_1af7fa89cbbe207c71659114f89ac07251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::WriteResource</definition>
+        <argsstring>(type_code type, int32 id, const void *data, off_t offset, size_t length)</argsstring>
+        <name>WriteResource</name>
+        <qualifiedname>BResources::WriteResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Writes data into an existing resource. (deprecated, use <ref refid="classBResources_1a4a470900257d43bc3c110c2b58e87bc4" kindref="member">AddResource()</ref> instead) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If writing the data would exceed the bounds of the resource, it is enlarged respectively. If <emphasis>offset</emphasis> is past the end of the resource, padding with unspecified data is inserted.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to write data to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource to write data to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The byte offset relative to the beginning of the resource at which the data shall be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data to be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>data</emphasis> was <computeroutput>NULL</computeroutput> or <emphasis>type</emphasis> and <emphasis>id</emphasis> did not identify an existing resource. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error writing data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory for this operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="97" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1af289d9518f781ffd6526f39278baf868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::ReadResource</definition>
+        <argsstring>(type_code type, int32 id, void *data, off_t offset, size_t length)</argsstring>
+        <name>ReadResource</name>
+        <qualifiedname>BResources::ReadResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>Reads data from an existing resource. (deprecated, use <ref refid="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" kindref="member">LoadResource()</ref> instead) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If more data than existing are requested, this method does not fail. It will then read only the existing data. As a consequence an offset past the end of the resource will not cause the method to fail, but no data will be read at all.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a buffer into which the data shall be read </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The byte offset relative to the beginning of the resource from which the data shall be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>data</emphasis> was <computeroutput>NULL</computeroutput> or <emphasis>type</emphasis> and <emphasis>id</emphasis> did not identify an existing resource. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Error reading data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory for this operation.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="101" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a2ef4bab24bad4020a23bd81d37c264eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BResources::FindResource</definition>
+        <argsstring>(type_code type, int32 id, size_t *lengthFound)</argsstring>
+        <name>FindResource</name>
+        <qualifiedname>BResources::FindResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <briefdescription>
+<para>Finds a resource by <emphasis>type</emphasis> and <emphasis>id</emphasis> and returns a pointer to a copy of its data. (deprecated, use <ref refid="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" kindref="member">LoadResource()</ref> instead) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>The caller is responsible for calling free() to release the memory used by the returned data.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable into which the size of the resource data shall be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the resource data if everything went fine or <computeroutput>NULL</computeroutput> if an error occurred.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="105" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a6fe4878176c69c0fd411f35f0be2d65e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BResources::FindResource</definition>
+        <argsstring>(type_code type, const char *name, size_t *lengthFound)</argsstring>
+        <name>FindResource</name>
+        <qualifiedname>BResources::FindResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <briefdescription>
+<para>Finds a resource by <emphasis>type</emphasis> and <emphasis>name</emphasis> and returns a pointer to a copy of its data. (deprecated, use <ref refid="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" kindref="member">LoadResource()</ref> instead) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>The caller is responsible for calling free() to release the memory used by the returned data.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the resource to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable into which the size of the resource data shall be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the resource data if everything went fine or <computeroutput>NULL</computeroutput> if an error occurred.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="107" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBResources_1ad46345e416520838ea972afd885ddcc6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BResources::_pad[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>_pad</name>
+        <qualifiedname>BResources::_pad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="126" column="5" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBResources_1a27892cdac9f94b31437fd06849b53dc6" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BResources::_reserved[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BResources::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="128" column="7" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBResources_1acd670365b33476fa512da0e5678953a6" prot="private" static="no" mutable="no">
+        <type>BPrivate::Storage::ResourcesContainer *</type>
+        <definition>BPrivate::Storage::ResourcesContainer* BResources::fContainer</definition>
+        <argsstring></argsstring>
+        <name>fContainer</name>
+        <qualifiedname>BResources::fContainer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="123" column="38" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBResources_1a6d849811549741664ebb2613c82c3196" prot="private" static="no" mutable="no">
+        <type><ref refid="classBFile" kindref="compound">BFile</ref></type>
+        <definition>BFile BResources::fFile</definition>
+        <argsstring></argsstring>
+        <name>fFile</name>
+        <qualifiedname>BResources::fFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="122" column="6" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBResources_1addfaca4a34f05872ae4d3631b6412303" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BResources::fReadOnly</definition>
+        <argsstring></argsstring>
+        <name>fReadOnly</name>
+        <qualifiedname>BResources::fReadOnly</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="125" column="5" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBResources_1a6c7658418c728d3529365d4d30067e56" prot="private" static="no" mutable="no">
+        <type>BPrivate::Storage::ResourceFile *</type>
+        <definition>BPrivate::Storage::ResourceFile* BResources::fResourceFile</definition>
+        <argsstring></argsstring>
+        <name>fResourceFile</name>
+        <qualifiedname>BResources::fResourceFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="124" column="32" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBResources_1ad1e463f5bdc164e205a882b872cf58ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BResources::BResources</definition>
+        <argsstring>()</argsstring>
+        <name>BResources</name>
+        <qualifiedname>BResources::BResources</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBResources" kindref="compound">BResources</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBResources_1a7c59913cefb4f22ac9ae6f2976b21d57" kindref="member">SetTo()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a5d744f91e84857bd91ba54a21c082653" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BResources::BResources</definition>
+        <argsstring>(const BFile *file, bool clobber=false)</argsstring>
+        <name>BResources</name>
+        <qualifiedname>BResources::BResources</qualifiedname>
+        <param>
+          <type>const <ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBResources" kindref="compound">BResources</ref> object that represents the resources of the supplied <emphasis>file</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>clobber</emphasis> argument is <computeroutput>true</computeroutput>, the data of the file are erased and it is turned into an empty resource file. Otherwise <emphasis>file</emphasis> must refer either to a resource file or to an executable (ELF or PEF binary). If the file has been opened <computeroutput>B_READ_ONLY</computeroutput>, only read access to its resources is possible.</para>
+<para>The <ref refid="classBResources" kindref="compound">BResources</ref> object makes a copy of <emphasis>file</emphasis>, that is the caller remains owner of the <ref refid="classBFile" kindref="compound">BFile</ref> object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file to create a BResource object from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a09b282c868b7e9bdf339bece74c1bceb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BResources::BResources</definition>
+        <argsstring>(const char *path, bool clobber=false)</argsstring>
+        <name>BResources</name>
+        <qualifiedname>BResources::BResources</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBResources" kindref="compound">BResources</ref> object that represents the resources of the file referenced by the supplied <emphasis>path</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>clobber</emphasis> argument is <computeroutput>true</computeroutput>, the data of the file are erased and it is turned into an empty resource file. Otherwise <emphasis>path</emphasis> must refer either to a resource file or to an executable (ELF or PEF binary).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path referring to the file to create a BResource object from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1ace28cb708db56d032ae51fc3b7eac41f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BResources::BResources</definition>
+        <argsstring>(const entry_ref *ref, bool clobber=false)</argsstring>
+        <name>BResources</name>
+        <qualifiedname>BResources::BResources</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>clobber</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBResources" kindref="compound">BResources</ref> object that represents the resources of the file referenced by the supplied <emphasis>ref</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>clobber</emphasis> argument is <computeroutput>true</computeroutput>, the data of the file are erased and it is turned into an empty resource file. Otherwise <emphasis>ref</emphasis> must refer either to a resource file or to an executable (ELF or PEF binary).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file to create a BResource object from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clobber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, the data of the file are erased.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a0b612db75a3c10ecc6f17fd27c1432f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BResources::~BResources</definition>
+        <argsstring>()</argsstring>
+        <name>~BResources</name>
+        <qualifiedname>BResources::~BResources</qualifiedname>
+        <briefdescription>
+<para>Destroys the <ref refid="classBResources" kindref="compound">BResources</ref> object and frees any associated resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBResources_1a040b5cfd22da43472571bcf5c2f99fd4" kindref="member">Sync()</ref> is first called to make sure that the changes are written back to the file.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="34" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a4a470900257d43bc3c110c2b58e87bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::AddResource</definition>
+        <argsstring>(type_code type, int32 id, const void *data, size_t length, const char *name=NULL)</argsstring>
+        <name>AddResource</name>
+        <qualifiedname>BResources::AddResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Adds a new resource to the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a resource already exists with the same <emphasis>type</emphasis> and <emphasis>id</emphasis> it is replaced. The caller keeps the ownership of the supplied chunk of memory containing the resource data.</para>
+<para>Supplying an empty <emphasis>name</emphasis> (<computeroutput>&quot;&quot;</computeroutput>) is equivalent to supplying a <computeroutput>NULL</computeroutput> <emphasis>name</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the data in bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the resource (may be empty or <computeroutput>NULL</computeroutput>).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>data</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Not enough memory for the operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file was opened read only.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1aa3bfbfac9750deeccbdeb0c0e2f01013" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBFile" kindref="compound">BFile</ref> &amp;</type>
+        <definition>const BFile &amp; BResources::File</definition>
+        <argsstring>() const</argsstring>
+        <name>File</name>
+        <qualifiedname>BResources::File</qualifiedname>
+        <briefdescription>
+<para>Gets a reference to the internal <ref refid="classBFile" kindref="compound">BFile</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A reference to the internal <ref refid="classBFile" kindref="compound">BFile</ref> object.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="54" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a4d5e969ae90214873d6ada21ac3715e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::GetResourceInfo</definition>
+        <argsstring>(const void *byPointer, type_code *typeFound, int32 *idFound, size_t *lengthFound, const char **nameFound)</argsstring>
+        <name>GetResourceInfo</name>
+        <qualifiedname>BResources::GetResourceInfo</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>byPointer</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref> *</type>
+          <declname>typeFound</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>idFound</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>nameFound</declname>
+        </param>
+        <briefdescription>
+<para>Gets information about a resource identified by <emphasis>byPointer</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byPointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the resource data (formerly returned by <ref refid="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" kindref="member">LoadResource()</ref>). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typeFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the type of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the ID of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the data size of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nameFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the name pointer of the found resource shall be written into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if a matching resource could be found, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="88" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1abe6ff3ccaf5f71d229f765c934362ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::GetResourceInfo</definition>
+        <argsstring>(int32 byIndex, type_code *typeFound, int32 *idFound, const char **nameFound, size_t *lengthFound)</argsstring>
+        <name>GetResourceInfo</name>
+        <qualifiedname>BResources::GetResourceInfo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>byIndex</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref> *</type>
+          <declname>typeFound</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>idFound</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>nameFound</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <briefdescription>
+<para>Gets information about a resource identified by <emphasis>byindex</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the resource in the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typeFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the type of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the ID of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nameFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the name pointer of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the data size of the found resource shall be written into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if a matching resource could be found, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="74" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a234d4ab82091cb9637c3f94b8e2c0e45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::GetResourceInfo</definition>
+        <argsstring>(type_code byType, const char *andName, int32 *idFound, size_t *lengthFound)</argsstring>
+        <name>GetResourceInfo</name>
+        <qualifiedname>BResources::GetResourceInfo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>byType</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>andName</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>idFound</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <briefdescription>
+<para>Gets information about a resource identified by <emphasis>byType</emphasis> and <emphasis>andName</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>andName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the ID of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the data size of the found resource shall be written into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if a matching resource could be found, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="85" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a099ed545021dc84983657347245e5ee5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::GetResourceInfo</definition>
+        <argsstring>(type_code byType, int32 andID, const char **nameFound, size_t *lengthFound)</argsstring>
+        <name>GetResourceInfo</name>
+        <qualifiedname>BResources::GetResourceInfo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>byType</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>andID</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>nameFound</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <briefdescription>
+<para>Gets information about a resource identified by <emphasis>byType</emphasis> and <emphasis>andID</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>andID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nameFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the name pointer of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the data size of the found resource shall be written into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if a matching resource could be found, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="82" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a66efbde2f4656ecd88cba77acbf8293a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::GetResourceInfo</definition>
+        <argsstring>(type_code byType, int32 andIndex, int32 *idFound, const char **nameFound, size_t *lengthFound)</argsstring>
+        <name>GetResourceInfo</name>
+        <qualifiedname>BResources::GetResourceInfo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>byType</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>andIndex</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>idFound</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>nameFound</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>lengthFound</declname>
+        </param>
+        <briefdescription>
+<para>Gets information about a resource identified by <emphasis>byType</emphasis> and <emphasis>andIndex</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>andIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index into a array of resources of type <emphasis>byType</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the ID of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nameFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the name pointer of the found resource shall be written into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lengthFound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a variable the data size of the found resource shall be written into.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if a matching resource could be found, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="78" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a64280e5289fcf1f9308f1f962c6fb56b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::HasResource</definition>
+        <argsstring>(type_code type, const char *name)</argsstring>
+        <name>HasResource</name>
+        <qualifiedname>BResources::HasResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the file contains a resource with the specified <emphasis>type</emphasis> and <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource type to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the resource to check.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if the file contains a matching resource, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="72" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a38d2f0f9fb67f2633c43730d05d541d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BResources::HasResource</definition>
+        <argsstring>(type_code type, int32 id)</argsstring>
+        <name>HasResource</name>
+        <qualifiedname>BResources::HasResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the file contains a resource with the specified <emphasis>type</emphasis> and <emphasis>id</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource type to check. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource to check.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if the file contains a matching resource, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="71" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a81e0bb83cae30eed1f9657a982fc02aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::MergeFrom</definition>
+        <argsstring>(BFile *fromFile)</argsstring>
+        <name>MergeFrom</name>
+        <qualifiedname>BResources::MergeFrom</qualifiedname>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>fromFile</declname>
+        </param>
+        <briefdescription>
+<para>Adds the resources of <emphasis>fromFile</emphasis> to the internal file of the <ref refid="classBResources" kindref="compound">BResources</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file whose resources are to be be copied from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_FILE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource map is empty??? </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>fromFile</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred while writing the resources.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a2c4b0aa9e7e0cad840af9f47f7c452ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::RemoveResource</definition>
+        <argsstring>(const void *resource)</argsstring>
+        <name>RemoveResource</name>
+        <qualifiedname>BResources::RemoveResource</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>resource</declname>
+        </param>
+        <briefdescription>
+<para>Removes a resource identified by <emphasis>resource</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>resource</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer to the resource data (formerly returned by <ref refid="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" kindref="member">LoadResource()</ref>).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>resource</emphasis> was <computeroutput>NULL</computeroutput> or invalid (didn&apos;t point to any resource data of this file). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred while removing the resource. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file was opened read only.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="93" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a810e6f6ed02581763e887cbf83592cc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::RemoveResource</definition>
+        <argsstring>(type_code type, int32 id)</argsstring>
+        <name>RemoveResource</name>
+        <qualifiedname>BResources::RemoveResource</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Removes a resource identified by <emphasis>type</emphasis> and <emphasis>id</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the resource to remove. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the resource to remove.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No such resource was found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred while removing the resource. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file was opened read only.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a040b5cfd22da43472571bcf5c2f99fd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::Sync</definition>
+        <argsstring>()</argsstring>
+        <name>Sync</name>
+        <qualifiedname>BResources::Sync</qualifiedname>
+        <briefdescription>
+<para>Writes all changes to the resources to the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Since <ref refid="classBResources_1a4a470900257d43bc3c110c2b58e87bc4" kindref="member">AddResource()</ref> and <ref refid="classBResources_1a2c4b0aa9e7e0cad840af9f47f7c452ae" kindref="member">RemoveResource()</ref> may change the resources only in memory, this method can be used to make sure, that all changes are actually written to the file.</para>
+<para>The <ref refid="classBResources" kindref="compound">BResources</ref> object&apos;s destructor calls <ref refid="classBResources_1a040b5cfd22da43472571bcf5c2f99fd4" kindref="member">Sync()</ref> before cleaning up.</para>
+<para><simplesect kind="note"><para>When a resource is written to the file its data is converted to the endianness of the file. When reading a resource the data is converted to the endianness of the host. This of course only works for known types, i.e. those that swap_data() is able to understand.</para>
+</simplesect>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_FILE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resource map is empty??? </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred while writing the resources. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file was opened read only.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="63" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a01aafeeadafe79f583fe7e83df3d063c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BResources::WriteTo</definition>
+        <argsstring>(BFile *file)</argsstring>
+        <name>WriteTo</name>
+        <qualifiedname>BResources::WriteTo</qualifiedname>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Writes the resources to a new file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The resources formerly contained in the target file (if any) are erased. When the method returns, the <ref refid="classBResources" kindref="compound">BResources</ref> object refers to the new file.</para>
+<para><simplesect kind="warning"><para>If the resources have been modified, but <ref refid="classBResources_1a040b5cfd22da43472571bcf5c2f99fd4" kindref="member">Sync()</ref> has not been called, the old file remains unmodified.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file that the resources shall be written to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="65" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBResources_1a3bc5c76299b9e51a7048186f827fa4d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources1</name>
+        <qualifiedname>BResources::_ReservedResources1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="112" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1ab6e7ff00506c8e4292dc30b5b8e91e50" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources2</name>
+        <qualifiedname>BResources::_ReservedResources2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="113" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a9914880d555c88b6c7676d245e9ebd7b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources3</name>
+        <qualifiedname>BResources::_ReservedResources3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="114" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a7969520e34b360ebdd68718ef50f0500" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources4</name>
+        <qualifiedname>BResources::_ReservedResources4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="115" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1aeb03147ec699b5982c94c819d4455ece" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources5</name>
+        <qualifiedname>BResources::_ReservedResources5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="116" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a655f5ef2e28a1eefa2223f1cc3f3a4d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources6</name>
+        <qualifiedname>BResources::_ReservedResources6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="117" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1ab1565a9648d660aca5457e2016712edf" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources7</name>
+        <qualifiedname>BResources::_ReservedResources7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="118" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBResources_1a9536dfeb4cbd28569295395223c1824a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BResources::_ReservedResources8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedResources8</name>
+        <qualifiedname>BResources::_ReservedResources8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="119" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides an interface for accessing and manipulating file resources. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBResources" kindref="compound">BResources</ref> delegates most of the work to ResourcesContainer and ResourceFile. The former manages a collections of ResourceItem objects&apos;s (the actual resources) whereas the latter provides the file I/O functionality.</para>
+<para>An <ref refid="classBResources_1aea04304030d7b1996a37a3a00c3aa977" kindref="member">InitCheck()</ref> method is not needed, since a <ref refid="classBResources" kindref="compound">BResources</ref> object will never be invalid. It always serves as a resources container, even if it is not associated with a file. It is always possible to <ref refid="classBResources_1a01aafeeadafe79f583fe7e83df3d063c" kindref="member">WriteTo()</ref> the resources <ref refid="classBResources" kindref="compound">BResources</ref> contains to a file (a valid one of course).</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/storage/Resources.h" line="22" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/Resources.h" bodystart="22" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classBResources_1ad46345e416520838ea972afd885ddcc6" prot="private" virt="non-virtual"><scope>BResources</scope><name>_pad</name></member>
+      <member refid="classBResources_1a27892cdac9f94b31437fd06849b53dc6" prot="private" virt="non-virtual"><scope>BResources</scope><name>_reserved</name></member>
+      <member refid="classBResources_1a3bc5c76299b9e51a7048186f827fa4d8" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources1</name></member>
+      <member refid="classBResources_1ab6e7ff00506c8e4292dc30b5b8e91e50" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources2</name></member>
+      <member refid="classBResources_1a9914880d555c88b6c7676d245e9ebd7b" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources3</name></member>
+      <member refid="classBResources_1a7969520e34b360ebdd68718ef50f0500" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources4</name></member>
+      <member refid="classBResources_1aeb03147ec699b5982c94c819d4455ece" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources5</name></member>
+      <member refid="classBResources_1a655f5ef2e28a1eefa2223f1cc3f3a4d1" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources6</name></member>
+      <member refid="classBResources_1ab1565a9648d660aca5457e2016712edf" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources7</name></member>
+      <member refid="classBResources_1a9536dfeb4cbd28569295395223c1824a" prot="private" virt="virtual"><scope>BResources</scope><name>_ReservedResources8</name></member>
+      <member refid="classBResources_1a4a470900257d43bc3c110c2b58e87bc4" prot="public" virt="non-virtual"><scope>BResources</scope><name>AddResource</name></member>
+      <member refid="classBResources_1ad1e463f5bdc164e205a882b872cf58ef" prot="public" virt="non-virtual"><scope>BResources</scope><name>BResources</name></member>
+      <member refid="classBResources_1a5d744f91e84857bd91ba54a21c082653" prot="public" virt="non-virtual"><scope>BResources</scope><name>BResources</name></member>
+      <member refid="classBResources_1a09b282c868b7e9bdf339bece74c1bceb" prot="public" virt="non-virtual"><scope>BResources</scope><name>BResources</name></member>
+      <member refid="classBResources_1ace28cb708db56d032ae51fc3b7eac41f" prot="public" virt="non-virtual"><scope>BResources</scope><name>BResources</name></member>
+      <member refid="classBResources_1acd670365b33476fa512da0e5678953a6" prot="private" virt="non-virtual"><scope>BResources</scope><name>fContainer</name></member>
+      <member refid="classBResources_1a6d849811549741664ebb2613c82c3196" prot="private" virt="non-virtual"><scope>BResources</scope><name>fFile</name></member>
+      <member refid="classBResources_1aa3bfbfac9750deeccbdeb0c0e2f01013" prot="public" virt="non-virtual"><scope>BResources</scope><name>File</name></member>
+      <member refid="classBResources_1a2ef4bab24bad4020a23bd81d37c264eb" prot="public" virt="non-virtual"><scope>BResources</scope><name>FindResource</name></member>
+      <member refid="classBResources_1a6fe4878176c69c0fd411f35f0be2d65e" prot="public" virt="non-virtual"><scope>BResources</scope><name>FindResource</name></member>
+      <member refid="classBResources_1addfaca4a34f05872ae4d3631b6412303" prot="private" virt="non-virtual"><scope>BResources</scope><name>fReadOnly</name></member>
+      <member refid="classBResources_1a6c7658418c728d3529365d4d30067e56" prot="private" virt="non-virtual"><scope>BResources</scope><name>fResourceFile</name></member>
+      <member refid="classBResources_1abe6ff3ccaf5f71d229f765c934362ec2" prot="public" virt="non-virtual"><scope>BResources</scope><name>GetResourceInfo</name></member>
+      <member refid="classBResources_1a66efbde2f4656ecd88cba77acbf8293a" prot="public" virt="non-virtual"><scope>BResources</scope><name>GetResourceInfo</name></member>
+      <member refid="classBResources_1a099ed545021dc84983657347245e5ee5" prot="public" virt="non-virtual"><scope>BResources</scope><name>GetResourceInfo</name></member>
+      <member refid="classBResources_1a234d4ab82091cb9637c3f94b8e2c0e45" prot="public" virt="non-virtual"><scope>BResources</scope><name>GetResourceInfo</name></member>
+      <member refid="classBResources_1a4d5e969ae90214873d6ada21ac3715e3" prot="public" virt="non-virtual"><scope>BResources</scope><name>GetResourceInfo</name></member>
+      <member refid="classBResources_1a38d2f0f9fb67f2633c43730d05d541d6" prot="public" virt="non-virtual"><scope>BResources</scope><name>HasResource</name></member>
+      <member refid="classBResources_1a64280e5289fcf1f9308f1f962c6fb56b" prot="public" virt="non-virtual"><scope>BResources</scope><name>HasResource</name></member>
+      <member refid="classBResources_1aea04304030d7b1996a37a3a00c3aa977" prot="public" virt="non-virtual"><scope>BResources</scope><name>InitCheck</name></member>
+      <member refid="classBResources_1aa215bc39f8373df2aa9c12aaf55c760c" prot="public" virt="non-virtual"><scope>BResources</scope><name>LoadResource</name></member>
+      <member refid="classBResources_1a311ef2ea74c914403316dca0477b90c3" prot="public" virt="non-virtual"><scope>BResources</scope><name>LoadResource</name></member>
+      <member refid="classBResources_1a81e0bb83cae30eed1f9657a982fc02aa" prot="public" virt="non-virtual"><scope>BResources</scope><name>MergeFrom</name></member>
+      <member refid="classBResources_1ad9ba84db4f28b6e32a155e1713ecc1ac" prot="public" virt="non-virtual"><scope>BResources</scope><name>PreloadResourceType</name></member>
+      <member refid="classBResources_1af289d9518f781ffd6526f39278baf868" prot="public" virt="non-virtual"><scope>BResources</scope><name>ReadResource</name></member>
+      <member refid="classBResources_1a2c4b0aa9e7e0cad840af9f47f7c452ae" prot="public" virt="non-virtual"><scope>BResources</scope><name>RemoveResource</name></member>
+      <member refid="classBResources_1a810e6f6ed02581763e887cbf83592cc3" prot="public" virt="non-virtual"><scope>BResources</scope><name>RemoveResource</name></member>
+      <member refid="classBResources_1a7c59913cefb4f22ac9ae6f2976b21d57" prot="public" virt="non-virtual"><scope>BResources</scope><name>SetTo</name></member>
+      <member refid="classBResources_1af5871eccccce9020623345cf145f298e" prot="public" virt="non-virtual"><scope>BResources</scope><name>SetTo</name></member>
+      <member refid="classBResources_1a4bc5dcfcb1b0058db9552a320daf5e7d" prot="public" virt="non-virtual"><scope>BResources</scope><name>SetTo</name></member>
+      <member refid="classBResources_1a7134ad1f4514b6b5546957aade7ca77a" prot="public" virt="non-virtual"><scope>BResources</scope><name>SetToImage</name></member>
+      <member refid="classBResources_1aaa710351d1391401e946877f579167b6" prot="public" virt="non-virtual"><scope>BResources</scope><name>SetToImage</name></member>
+      <member refid="classBResources_1a040b5cfd22da43472571bcf5c2f99fd4" prot="public" virt="non-virtual"><scope>BResources</scope><name>Sync</name></member>
+      <member refid="classBResources_1a4c840520fffd3c019ee6e910fb1088d9" prot="public" virt="non-virtual"><scope>BResources</scope><name>Unset</name></member>
+      <member refid="classBResources_1af7fa89cbbe207c71659114f89ac07251" prot="public" virt="non-virtual"><scope>BResources</scope><name>WriteResource</name></member>
+      <member refid="classBResources_1a01aafeeadafe79f583fe7e83df3d063c" prot="public" virt="non-virtual"><scope>BResources</scope><name>WriteTo</name></member>
+      <member refid="classBResources_1a0b612db75a3c10ecc6f17fd27c1432f8" prot="public" virt="virtual"><scope>BResources</scope><name>~BResources</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

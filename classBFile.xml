@@ -1,0 +1,1607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBFile" kind="class" language="C++" prot="public">
+    <compoundname>BFile</compoundname>
+    <basecompoundref refid="classBNode" prot="public" virt="non-virtual">BNode</basecompoundref>
+    <basecompoundref refid="classBPositionIO" prot="public" virt="non-virtual">BPositionIO</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBFile_1a0e488731ad4aad30210e4a0556aa5d5a" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BFile::_reservedData[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>_reservedData</name>
+        <qualifiedname>BFile::_reservedData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="56" column="8" bodyfile="/boot/home/src/haiku/headers/os/storage/File.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBFile_1a72ea2ee33b9468c8b65f9cce9a54a405" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BFile::fMode</definition>
+        <argsstring></argsstring>
+        <name>fMode</name>
+        <qualifiedname>BFile::fMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="64" column="8" bodyfile="/boot/home/src/haiku/headers/os/storage/File.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBFile_1acc17c5761f831ff59ed1d2dddadbf283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BFile::BFile</definition>
+        <argsstring>()</argsstring>
+        <name>BFile</name>
+        <qualifiedname>BFile::BFile</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBFile" kindref="compound">BFile</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Should be followed by a call to one of the <ref refid="classBFile_1a2897b1f33eea3c75f16311b37e6ee57a" kindref="member">SetTo()</ref> methods, or an assignment:<itemizedlist>
+<listitem><para><ref refid="classBFile_1a2897b1f33eea3c75f16311b37e6ee57a" kindref="member">SetTo(const entry_ref* ref, uint32 openMode)</ref></para>
+</listitem><listitem><para><ref refid="classBFile_1a35748205cd1aa8e18402c4ae6be2113d" kindref="member">SetTo(const BEntry* entry, uint32 openMode)</ref></para>
+</listitem><listitem><para><ref refid="classBFile_1ad706418be512a2aa27db95a738933b0c" kindref="member">SetTo(const char* path, uint32 openMode)</ref></para>
+</listitem><listitem><para><ref refid="classBFile_1abef98fdf0011118625928c8efcaea8b6" kindref="member">SetTo(const BDirectory* dir, const char* path, uint32 openMode)</ref></para>
+</listitem><listitem><para><ref refid="classBFile_1aa7034cc7cc2eea72f33d2c390f29362c" kindref="member">operator=(const BFile &amp;file)</ref></para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a120ba3f6f81f2f4131e8dcd32d0224ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BFile::BFile</definition>
+        <argsstring>(const BDirectory *dir, const char *path, uint32 openMode)</argsstring>
+        <name>BFile</name>
+        <qualifiedname>BFile::BFile</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDirectory" kindref="compound">BDirectory</ref> *</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBFile" kindref="compound">BFile</ref> and initializes it to the file referred to by the supplied path name relative to the specified <ref refid="classBDirectory" kindref="compound">BDirectory</ref> and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBDirectory" kindref="compound">BDirectory</ref>, relative to which the file&apos;s path name is given. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file&apos;s path name relative to <emphasis>dir</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBFile_1abef98fdf0011118625928c8efcaea8b6" kindref="member">SetTo(const BDirectory* dir, const char* path, uint32 openMode)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1acebf09ac918ffe81c881e378a9615b08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BFile::BFile</definition>
+        <argsstring>(const BEntry *entry, uint32 openMode)</argsstring>
+        <name>BFile</name>
+        <qualifiedname>BFile::BFile</qualifiedname>
+        <param>
+          <type>const <ref refid="classBEntry" kindref="compound">BEntry</ref> *</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBFile" kindref="compound">BFile</ref> and initializes it to the file referred to by the supplied <ref refid="classBEntry" kindref="compound">BEntry</ref> and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBEntry" kindref="compound">BEntry</ref> referring to the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBFile_1a35748205cd1aa8e18402c4ae6be2113d" kindref="member">SetTo(const BEntry* entry, uint32 openMode)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1ab62773e8f0dd1d26d3d02adf802f68f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BFile::BFile</definition>
+        <argsstring>(const BFile &amp;file)</argsstring>
+        <name>BFile</name>
+        <qualifiedname>BFile::BFile</qualifiedname>
+        <param>
+          <type>const <ref refid="classBFile" kindref="compound">BFile</ref> &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Creates a copy of the supplied <ref refid="classBFile" kindref="compound">BFile</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>file</emphasis> is uninitialized, the newly constructed <ref refid="classBFile" kindref="compound">BFile</ref> will be too.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBFile" kindref="compound">BFile</ref> object to be copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a5cb98566815e053433ea2d92e0ff40fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BFile::BFile</definition>
+        <argsstring>(const char *path, uint32 openMode)</argsstring>
+        <name>BFile</name>
+        <qualifiedname>BFile::BFile</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBFile" kindref="compound">BFile</ref> and initializes it to the file referred to by the supplied path name and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file&apos;s path name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBFile_1ad706418be512a2aa27db95a738933b0c" kindref="member">SetTo(const char* path, uint32 openMode)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a9c0e05772cf7e28eeeddb4f620d95766" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BFile::BFile</definition>
+        <argsstring>(const entry_ref *ref, uint32 openMode)</argsstring>
+        <name>BFile</name>
+        <qualifiedname>BFile::BFile</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBFile" kindref="compound">BFile</ref> and initializes it to the file referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref> and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBFile_1a2897b1f33eea3c75f16311b37e6ee57a" kindref="member">SetTo(const entry_ref* ref, uint32 openMode)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a0f221ac5358eadc498b3563e415a5823" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BFile::~BFile</definition>
+        <argsstring>()</argsstring>
+        <name>~BFile</name>
+        <qualifiedname>BFile::~BFile</qualifiedname>
+        <briefdescription>
+<para>Destroys the <ref refid="classBFile" kindref="compound">BFile</ref> object and frees all allocated resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the file is properly initialized, the file descriptor is closed.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="25" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a9438a3e18c34008d98fbb56cae890645" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFile::GetSize</definition>
+        <argsstring>(off_t *size) const</argsstring>
+        <name>GetSize</name>
+        <qualifiedname>BFile::GetSize</qualifiedname>
+        <reimplements refid="classBPositionIO_1a5be704340522f36f80697c6bc883a00d">GetSize</reimplements>
+        <param>
+          <type>off_t *</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Gets the size of the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file size to fill out.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBStatable_1a52975e361937ae26f7c854da34e6e51a" kindref="member">BStatable::GetSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="44" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a103056399a92d41a8fba6de47668826a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BFile::IsReadable</definition>
+        <argsstring>() const</argsstring>
+        <name>IsReadable</name>
+        <qualifiedname>BFile::IsReadable</qualifiedname>
+        <briefdescription>
+<para>Reports whether or not the file is readable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><itemizedlist>
+<listitem><para><computeroutput>true</computeroutput>, if the <ref refid="classBFile" kindref="compound">BFile</ref> has been initialized properly and the file has been been opened for reading,</para>
+</listitem><listitem><para><computeroutput>false</computeroutput>, otherwise.</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a504077adeb53381ebdb796532da8a005" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BFile::IsWritable</definition>
+        <argsstring>() const</argsstring>
+        <name>IsWritable</name>
+        <qualifiedname>BFile::IsWritable</qualifiedname>
+        <briefdescription>
+<para>Reports whether or not the file is writable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><itemizedlist>
+<listitem><para><computeroutput>true</computeroutput>, if the <ref refid="classBFile" kindref="compound">BFile</ref> has been initialized properly and the file has been opened for writing,</para>
+</listitem><listitem><para><computeroutput>false</computeroutput>, otherwise.</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="33" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1aa7034cc7cc2eea72f33d2c390f29362c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBFile" kindref="compound">BFile</ref> &amp;</type>
+        <definition>BFile &amp; BFile::operator=</definition>
+        <argsstring>(const BFile &amp;file)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BFile::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBFile" kindref="compound">BFile</ref> &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Assigns another <ref refid="classBFile" kindref="compound">BFile</ref> to this <ref refid="classBFile" kindref="compound">BFile</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the other <ref refid="classBFile" kindref="compound">BFile</ref> is uninitialized, this one will be too. Otherwise it will refer to the same file using the same mode, unless an error occurs.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The original <ref refid="classBFile" kindref="compound">BFile</ref> to assign from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the assigned <ref refid="classBFile" kindref="compound">BFile</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="46" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1aef5499cdc105ac4817f669bad3ca05b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>off_t</type>
+        <definition>off_t BFile::Position</definition>
+        <argsstring>() const</argsstring>
+        <name>Position</name>
+        <qualifiedname>BFile::Position</qualifiedname>
+        <reimplements refid="classBPositionIO_1a4ebc2cd7a7493767e79fa6d88657a84a">Position</reimplements>
+        <briefdescription>
+<para>Gets the current read/write position within the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The current read/write position relative to the beginning of the file or an error code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>After a <ref refid="classBFile_1a396e6721a72e8fbed4056e37741dcb8a" kindref="member">Seek()</ref> before the beginning of the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file has not been initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="41" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a84879555b0c3bee54e36abdeeb2cb559" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BFile::Read</definition>
+        <argsstring>(void *buffer, size_t size)</argsstring>
+        <name>Read</name>
+        <qualifiedname>BFile::Read</qualifiedname>
+        <reimplements refid="classBPositionIO_1abce66c314f7cbd5ab6de0e6480bd7a00">Read</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Reads a number of bytes from the file into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer the data from the file shall be written to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that shall be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes read or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="35" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1aa66cbdba802924c4b5fbeac6a2765805" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BFile::ReadAt</definition>
+        <argsstring>(off_t location, void *buffer, size_t size)</argsstring>
+        <name>ReadAt</name>
+        <qualifiedname>BFile::ReadAt</qualifiedname>
+        <reimplements refid="classBPositionIO_1a6eb7aff1d69bf3049b2b421da52fdf8f">ReadAt</reimplements>
+        <param>
+          <type>off_t</type>
+          <declname>location</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Reads a number of bytes from a certain position within the file into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position (in bytes) within the file from which the data shall be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer the data from the file shall be written to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that shall be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes read or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="36" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a396e6721a72e8fbed4056e37741dcb8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>off_t</type>
+        <definition>off_t BFile::Seek</definition>
+        <argsstring>(off_t offset, uint32 seekMode)</argsstring>
+        <name>Seek</name>
+        <qualifiedname>BFile::Seek</qualifiedname>
+        <reimplements refid="classBPositionIO_1af8296875d9711dd498b0fbcace028abc">Seek</reimplements>
+        <param>
+          <type>off_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>seekMode</declname>
+        </param>
+        <briefdescription>
+<para>Seeks to another read/write position within the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It is allowed to seek past the end of the file. A subsequent call to <ref refid="classBFile_1afcf216fde234f4fd0754409617bedc55" kindref="member">Write()</ref> will pad the file with undefined data. Seeking before the beginning of the file will fail and the behavior of subsequent <ref refid="classBFile_1a84879555b0c3bee54e36abdeeb2cb559" kindref="member">Read()</ref> or <ref refid="classBFile_1afcf216fde234f4fd0754409617bedc55" kindref="member">Write()</ref> invocations will be undefined.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New read/write position, depending on <emphasis>seekMode</emphasis> relative to the beginning or the end of the file or the current position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seekMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><itemizedlist>
+<listitem><para><computeroutput>SEEK_SET:</computeroutput> move relative to the beginning of the file.</para>
+</listitem><listitem><para><computeroutput>SEEK_CUR:</computeroutput> move relative to the current position.</para>
+</listitem><listitem><para><computeroutput>SEEK_END:</computeroutput> move relative to the end of the file.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new read/write position relative to the beginning of the file or an error code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Trying to seek before the beginning of the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file is not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="40" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a5b8f0932cff0d50b6e0c7aea169a74ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFile::SetSize</definition>
+        <argsstring>(off_t size)</argsstring>
+        <name>SetSize</name>
+        <qualifiedname>BFile::SetSize</qualifiedname>
+        <reimplements refid="classBPositionIO_1a35613c7ee06c7c9583ca2505e1fdff28">SetSize</reimplements>
+        <param>
+          <type>off_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the size of the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the file is shorter than <emphasis>size</emphasis> bytes it will be padded with unspecified data to the requested size. If it is larger, it will be truncated.</para>
+<para><simplesect kind="note"><para>There&apos;s no problem with setting the size of a <ref refid="classBFile" kindref="compound">BFile</ref> opened in <computeroutput>B_READ_ONLY</computeroutput> mode, unless the file resides on a read only volume.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new file size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Trying to set the size of a file on a read only volume. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_DEVICE_FULL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There&apos;s not enough space left on the volume.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="43" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1abef98fdf0011118625928c8efcaea8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFile::SetTo</definition>
+        <argsstring>(const BDirectory *dir, const char *path, uint32 openMode)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BFile::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDirectory" kindref="compound">BDirectory</ref> *</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Re-initializes the <ref refid="classBFile" kindref="compound">BFile</ref> to the file referred to by the supplied path name relative to the specified <ref refid="classBDirectory" kindref="compound">BDirectory</ref> and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dir</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBDirectory" kindref="compound">BDirectory</ref>, relative to which the file&apos;s path name is given. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file&apos;s path name relative to <emphasis>dir</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>dir</emphasis> or <emphasis>path</emphasis> or bad <emphasis>openMode</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File not found or failed to create file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_EXISTS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File exists and <computeroutput>B_FAIL_IF_EXISTS</computeroutput> was passed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PERMISSION_DENIED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File permissions didn&apos;t allow operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Insufficient memory for operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LINK_LIMIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates a cyclic loop within the file system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A node was busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A general file error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MORE_FDS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application has run out of file descriptors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="30" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a35748205cd1aa8e18402c4ae6be2113d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFile::SetTo</definition>
+        <argsstring>(const BEntry *entry, uint32 openMode)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BFile::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBEntry" kindref="compound">BEntry</ref> *</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Re-initializes the <ref refid="classBFile" kindref="compound">BFile</ref> to the file referred to by the supplied <ref refid="classBEntry" kindref="compound">BEntry</ref> and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the <ref refid="classBEntry" kindref="compound">BEntry</ref> referring to the file </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the mode in which the file should be opened</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>entry</emphasis> or bad <emphasis>openMode</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File not found or failed to create file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_EXISTS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File exists and <computeroutput>B_FAIL_IF_EXISTS</computeroutput> was passed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PERMISSION_DENIED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File permissions didn&apos;t allow operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Insufficient memory for operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LINK_LIMIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates a cyclic loop within the file system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A node was busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A general file error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MORE_FDS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application has run out of file descriptors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="28" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1ad706418be512a2aa27db95a738933b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFile::SetTo</definition>
+        <argsstring>(const char *path, uint32 openMode)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BFile::SetTo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Re-initializes the <ref refid="classBFile" kindref="compound">BFile</ref> to the file referred to by the supplied path name and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file&apos;s path name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>path</emphasis> or bad <emphasis>openMode</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File not found or failed to create file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_EXISTS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File exists and <computeroutput>B_FAIL_IF_EXISTS</computeroutput> was passed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PERMISSION_DENIED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File permissions didn&apos;t allow operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Insufficient memory for operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LINK_LIMIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates a cyclic loop within the file system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A node was busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A general file error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MORE_FDS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application has run out of file descriptors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="29" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a2897b1f33eea3c75f16311b37e6ee57a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BFile::SetTo</definition>
+        <argsstring>(const entry_ref *ref, uint32 openMode)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BFile::SetTo</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>openMode</declname>
+        </param>
+        <briefdescription>
+<para>Re-initializes the <ref refid="classBFile" kindref="compound">BFile</ref> to the file referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref> and according to the specified open mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>openMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode in which the file should be opened <emphasis>openMode</emphasis> must be a bitwise or of exactly one of the flags.<itemizedlist>
+<listitem><para><computeroutput>B_READ_ONLY:</computeroutput> The file is opened read only.</para>
+</listitem><listitem><para><computeroutput>B_WRITE_ONLY:</computeroutput> The file is opened write only.</para>
+</listitem><listitem><para><computeroutput>B_READ_WRITE:</computeroutput> The file is opened for random read/write access. and any number of the flags</para>
+</listitem><listitem><para><computeroutput>B_CREATE_FILE:</computeroutput> A new file will be created, if it does not already exist.</para>
+</listitem><listitem><para><computeroutput>B_FAIL_IF_EXISTS:</computeroutput> If the file does already exist and <computeroutput>B_CREATE_FILE</computeroutput> is set, <ref refid="classBFile_1a2897b1f33eea3c75f16311b37e6ee57a" kindref="member">SetTo()</ref> fails.</para>
+</listitem><listitem><para><computeroutput>B_ERASE_FILE:</computeroutput> An already existing file is truncated to zero size.</para>
+</listitem><listitem><para><computeroutput>B_OPEN_AT_END:</computeroutput> <ref refid="classBFile_1a396e6721a72e8fbed4056e37741dcb8a" kindref="member">Seek()</ref> to the end of the file after opening.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>ref</emphasis> or bad <emphasis>openMode</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File not found or failed to create file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_EXISTS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File exists and <computeroutput>B_FAIL_IF_EXISTS</computeroutput> was passed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PERMISSION_DENIED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File permissions didn&apos;t allow operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Insufficient memory for operation. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LINK_LIMIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indicates a cyclic loop within the file system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUSY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A node was busy. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_FILE_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A general file error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MORE_FDS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application has run out of file descriptors.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="27" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1afcf216fde234f4fd0754409617bedc55" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BFile::Write</definition>
+        <argsstring>(const void *buffer, size_t size)</argsstring>
+        <name>Write</name>
+        <qualifiedname>BFile::Write</qualifiedname>
+        <reimplements refid="classBPositionIO_1a50ec7f6b834893a153d46c0f3c0e09c4">Write</reimplements>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes a number of bytes from a buffer into the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer containing the data to be written to the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that shall be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually written or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="37" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a43a09d7441f9fda29cc90c1f3612021c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BFile::WriteAt</definition>
+        <argsstring>(off_t location, const void *buffer, size_t size)</argsstring>
+        <name>WriteAt</name>
+        <qualifiedname>BFile::WriteAt</qualifiedname>
+        <reimplements refid="classBPositionIO_1a0efce1a07d1d6509e8ec00598244ace1">WriteAt</reimplements>
+        <param>
+          <type>off_t</type>
+          <declname>location</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes a number of bytes from a buffer at a certain position into the file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position (in bytes) within the file at which the data shall be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer containing the data to be written to the file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes that shall be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes actually written or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="38" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBFile_1a97b9a8074c78f6992fc19bdba0275dce" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::_PhiloFile1</definition>
+        <argsstring>()</argsstring>
+        <name>_PhiloFile1</name>
+        <qualifiedname>BFile::_PhiloFile1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="49" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1aa946fd9b77aea39c6a5c6e787d373c41" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::_PhiloFile2</definition>
+        <argsstring>()</argsstring>
+        <name>_PhiloFile2</name>
+        <qualifiedname>BFile::_PhiloFile2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="50" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a7bc4b1563758827738f25710ee107692" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::_PhiloFile3</definition>
+        <argsstring>()</argsstring>
+        <name>_PhiloFile3</name>
+        <qualifiedname>BFile::_PhiloFile3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="51" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a95aadb31c4085a231d76269746cc4575" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::_PhiloFile4</definition>
+        <argsstring>()</argsstring>
+        <name>_PhiloFile4</name>
+        <qualifiedname>BFile::_PhiloFile4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="52" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1a3edb9756d211f9b8d54990fad91d1554" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::_PhiloFile5</definition>
+        <argsstring>()</argsstring>
+        <name>_PhiloFile5</name>
+        <qualifiedname>BFile::_PhiloFile5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="53" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1ac6b5831daf90cd1e9c379e4ad4a4cb99" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::_PhiloFile6</definition>
+        <argsstring>()</argsstring>
+        <name>_PhiloFile6</name>
+        <qualifiedname>BFile::_PhiloFile6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="54" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1abb060811f1e0c99f35a2ca7dcb3c5bd7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BFile::close_fd</definition>
+        <argsstring>()</argsstring>
+        <name>close_fd</name>
+        <qualifiedname>BFile::close_fd</qualifiedname>
+        <reimplements refid="classBNode_1a41fec1b8b693a7a8d835909ae50e163f">close_fd</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="60" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBFile_1adab690286f84f614f98f0fb87f1ebb37" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BFile::get_fd</definition>
+        <argsstring>() const</argsstring>
+        <name>get_fd</name>
+        <qualifiedname>BFile::get_fd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="59" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides the ability to read and write the data of a file. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The file is automatically opened when you initialize a <ref refid="classBFile" kindref="compound">BFile</ref> and is automatically closed when you re-initialize or destroy the object.</para>
+<para>Symbolic links are automatically transversed by opening a <ref refid="classBFile" kindref="compound">BFile</ref>. The node that the <ref refid="classBFile" kindref="compound">BFile</ref> ends up opening will be the file or directory that the link points to, not the symbolic link file itself.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="1">
+        <label>BFile</label>
+        <link refid="classBFile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BNode</label>
+        <link refid="classBNode"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BPositionIO</label>
+        <link refid="classBPositionIO"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BStatable</label>
+        <link refid="classBStatable"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="1">
+        <label>BFile</label>
+        <link refid="classBFile"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BNode</label>
+        <link refid="classBNode"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BPositionIO</label>
+        <link refid="classBPositionIO"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BStatable</label>
+        <link refid="classBStatable"/>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/storage/File.h" line="17" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/File.h" bodystart="17" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classBFile_1a97b9a8074c78f6992fc19bdba0275dce" prot="private" virt="virtual"><scope>BFile</scope><name>_PhiloFile1</name></member>
+      <member refid="classBFile_1aa946fd9b77aea39c6a5c6e787d373c41" prot="private" virt="virtual"><scope>BFile</scope><name>_PhiloFile2</name></member>
+      <member refid="classBFile_1a7bc4b1563758827738f25710ee107692" prot="private" virt="virtual"><scope>BFile</scope><name>_PhiloFile3</name></member>
+      <member refid="classBFile_1a95aadb31c4085a231d76269746cc4575" prot="private" virt="virtual"><scope>BFile</scope><name>_PhiloFile4</name></member>
+      <member refid="classBFile_1a3edb9756d211f9b8d54990fad91d1554" prot="private" virt="virtual"><scope>BFile</scope><name>_PhiloFile5</name></member>
+      <member refid="classBFile_1ac6b5831daf90cd1e9c379e4ad4a4cb99" prot="private" virt="virtual"><scope>BFile</scope><name>_PhiloFile6</name></member>
+      <member refid="classBFile_1a0e488731ad4aad30210e4a0556aa5d5a" prot="private" virt="non-virtual"><scope>BFile</scope><name>_reservedData</name></member>
+      <member refid="classBDataIO_1a67891b7afe78d6a77845dd0352218801" prot="public" virt="non-virtual"><scope>BFile</scope><name>BDataIO</name></member>
+      <member refid="classBFile_1acc17c5761f831ff59ed1d2dddadbf283" prot="public" virt="non-virtual"><scope>BFile</scope><name>BFile</name></member>
+      <member refid="classBFile_1ab62773e8f0dd1d26d3d02adf802f68f6" prot="public" virt="non-virtual"><scope>BFile</scope><name>BFile</name></member>
+      <member refid="classBFile_1a9c0e05772cf7e28eeeddb4f620d95766" prot="public" virt="non-virtual"><scope>BFile</scope><name>BFile</name></member>
+      <member refid="classBFile_1acebf09ac918ffe81c881e378a9615b08" prot="public" virt="non-virtual"><scope>BFile</scope><name>BFile</name></member>
+      <member refid="classBFile_1a5cb98566815e053433ea2d92e0ff40fb" prot="public" virt="non-virtual"><scope>BFile</scope><name>BFile</name></member>
+      <member refid="classBFile_1a120ba3f6f81f2f4131e8dcd32d0224ba" prot="public" virt="non-virtual"><scope>BFile</scope><name>BFile</name></member>
+      <member refid="classBNode_1a4c41333d8fc73a6c9f37f77ae7418528" prot="public" virt="non-virtual"><scope>BFile</scope><name>BNode</name></member>
+      <member refid="classBNode_1a3ba1cd7e2d530124350485de1ccffbf6" prot="public" virt="non-virtual"><scope>BFile</scope><name>BNode</name></member>
+      <member refid="classBNode_1a2c8fd63c3e0e0d6d7596c1ca9c02cfc7" prot="public" virt="non-virtual"><scope>BFile</scope><name>BNode</name></member>
+      <member refid="classBNode_1acfd887aa410f42347482347672de19c0" prot="public" virt="non-virtual"><scope>BFile</scope><name>BNode</name></member>
+      <member refid="classBNode_1a959e6d749cdd455524fec3a5feca6008" prot="public" virt="non-virtual"><scope>BFile</scope><name>BNode</name></member>
+      <member refid="classBNode_1a4cb06c36614e334a2ce3f132188f0b33" prot="public" virt="non-virtual"><scope>BFile</scope><name>BNode</name></member>
+      <member refid="classBPositionIO_1a08051e865cd2623fab56c3733ecbf099" prot="public" virt="non-virtual"><scope>BFile</scope><name>BPositionIO</name></member>
+      <member refid="classBFile_1abb060811f1e0c99f35a2ca7dcb3c5bd7" prot="private" virt="virtual"><scope>BFile</scope><name>close_fd</name></member>
+      <member refid="classBNode_1a74637e73a9f75f68eb8455ad2b1d920a" prot="public" virt="non-virtual"><scope>BFile</scope><name>Dup</name></member>
+      <member refid="classBDataIO_1a38a8df63b367585fe5e6b6a85c406d05" prot="public" virt="virtual"><scope>BFile</scope><name>Flush</name></member>
+      <member refid="classBFile_1a72ea2ee33b9468c8b65f9cce9a54a405" prot="private" virt="non-virtual"><scope>BFile</scope><name>fMode</name></member>
+      <member refid="classBFile_1adab690286f84f614f98f0fb87f1ebb37" prot="private" virt="non-virtual"><scope>BFile</scope><name>get_fd</name></member>
+      <member refid="classBStatable_1a55dea9fb7be6e844b6515f73ee0a929a" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetAccessTime</name></member>
+      <member refid="classBNode_1a57b7c93cbf40df5b76b3c1aae2ad0201" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetAttrInfo</name></member>
+      <member refid="classBStatable_1ac80b82a49b8c757d4bf0034d70c33eb1" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetCreationTime</name></member>
+      <member refid="classBStatable_1ab27d67f089c0c4bd14cdc48f57c51a17" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetGroup</name></member>
+      <member refid="classBStatable_1a5571998c1d3ca9a59ad521556b3dee63" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetModificationTime</name></member>
+      <member refid="classBNode_1a7ce18e673746f0f2c385ec533f10a015" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetNextAttrName</name></member>
+      <member refid="classBStatable_1ad22f2b8b8b11b151bc94d63caeb16c95" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetNodeRef</name></member>
+      <member refid="classBStatable_1ae8cb57200fbeac9941622a33705d64a4" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetOwner</name></member>
+      <member refid="classBStatable_1a6a8b0225646734f4528858c72a5f9073" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetPermissions</name></member>
+      <member refid="classBFile_1a9438a3e18c34008d98fbb56cae890645" prot="public" virt="virtual"><scope>BFile</scope><name>GetSize</name></member>
+      <member refid="classBNode_1aa8c7b4e488e8077aabc8f5fbe4504189" prot="public" virt="virtual"><scope>BFile</scope><name>GetStat</name></member>
+      <member refid="classBStatable_1a2488e774eaa96bf07ae6156ea320fc0a" prot="public" virt="non-virtual"><scope>BFile</scope><name>GetVolume</name></member>
+      <member refid="classBNode_1a8d1e28412f778e344e539946268fd03a" prot="public" virt="non-virtual"><scope>BFile</scope><name>InitCheck</name></member>
+      <member refid="classBStatable_1a853345d2d3673b47f59dd655b6a3adca" prot="public" virt="non-virtual"><scope>BFile</scope><name>IsDirectory</name></member>
+      <member refid="classBStatable_1acaa5a30c8a6ee1f8854a787958d13eaf" prot="public" virt="non-virtual"><scope>BFile</scope><name>IsFile</name></member>
+      <member refid="classBFile_1a103056399a92d41a8fba6de47668826a" prot="public" virt="non-virtual"><scope>BFile</scope><name>IsReadable</name></member>
+      <member refid="classBStatable_1aa07af7f2d36c453d00e101bc6c6a487e" prot="public" virt="non-virtual"><scope>BFile</scope><name>IsSymLink</name></member>
+      <member refid="classBFile_1a504077adeb53381ebdb796532da8a005" prot="public" virt="non-virtual"><scope>BFile</scope><name>IsWritable</name></member>
+      <member refid="classBNode_1ac323c1303a20a0eb21c11185bfc18039" prot="public" virt="non-virtual"><scope>BFile</scope><name>Lock</name></member>
+      <member refid="classBNode_1a9fd78c56dd4a25fffc5d9f8f4ce7a594" prot="public" virt="non-virtual"><scope>BFile</scope><name>operator!=</name></member>
+      <member refid="classBFile_1aa7034cc7cc2eea72f33d2c390f29362c" prot="public" virt="non-virtual"><scope>BFile</scope><name>operator=</name></member>
+      <member refid="classBNode_1a690260cffeb7310ecb0461ecc118e402" prot="public" virt="non-virtual" ambiguityscope="BNode::"><scope>BFile</scope><name>operator=</name></member>
+      <member refid="classBNode_1a19e5f2559d1a8649ad103cb559150897" prot="public" virt="non-virtual"><scope>BFile</scope><name>operator==</name></member>
+      <member refid="classBFile_1aef5499cdc105ac4817f669bad3ca05b8" prot="public" virt="virtual"><scope>BFile</scope><name>Position</name></member>
+      <member refid="classBFile_1a84879555b0c3bee54e36abdeeb2cb559" prot="public" virt="virtual"><scope>BFile</scope><name>Read</name></member>
+      <member refid="classBFile_1aa66cbdba802924c4b5fbeac6a2765805" prot="public" virt="virtual"><scope>BFile</scope><name>ReadAt</name></member>
+      <member refid="classBPositionIO_1a91bab7ae60926dbe3726bc73734318b6" prot="public" virt="non-virtual"><scope>BFile</scope><name>ReadAtExactly</name></member>
+      <member refid="classBNode_1a6ae0c729e21a32902b13d0c00b53abc2" prot="public" virt="non-virtual"><scope>BFile</scope><name>ReadAttr</name></member>
+      <member refid="classBNode_1a92f9e44a87a4c5b2f20d8f6a2be89d5b" prot="public" virt="non-virtual"><scope>BFile</scope><name>ReadAttrString</name></member>
+      <member refid="classBDataIO_1a3a0b0fc36232531a1d8c1144a7d75741" prot="public" virt="non-virtual"><scope>BFile</scope><name>ReadExactly</name></member>
+      <member refid="classBNode_1a29fec4dac3d10f0459f7d3eb333aaf76" prot="public" virt="non-virtual"><scope>BFile</scope><name>RemoveAttr</name></member>
+      <member refid="classBNode_1adacbbc1aef867abbf05c1f64941561bb" prot="public" virt="non-virtual"><scope>BFile</scope><name>RenameAttr</name></member>
+      <member refid="classBNode_1a8848d2958c140f67e616415836835260" prot="public" virt="non-virtual"><scope>BFile</scope><name>RewindAttrs</name></member>
+      <member refid="classBFile_1a396e6721a72e8fbed4056e37741dcb8a" prot="public" virt="virtual"><scope>BFile</scope><name>Seek</name></member>
+      <member refid="classBStatable_1aab2c65df1f1459d014a0a2ba9638411e" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetAccessTime</name></member>
+      <member refid="classBStatable_1a6a92b04cda608babf49f70ef4e3a2f36" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetCreationTime</name></member>
+      <member refid="classBStatable_1af6e5ac17688536b3de2940a82349d043" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetGroup</name></member>
+      <member refid="classBStatable_1a1f2b84cea7b32a238b41f97e0264a048" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetModificationTime</name></member>
+      <member refid="classBStatable_1a640ef9862775efaa6720691ed4b58256" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetOwner</name></member>
+      <member refid="classBStatable_1aaf215f1b31486d4fd65dd96229b26f97" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetPermissions</name></member>
+      <member refid="classBFile_1a5b8f0932cff0d50b6e0c7aea169a74ef" prot="public" virt="virtual"><scope>BFile</scope><name>SetSize</name></member>
+      <member refid="classBFile_1a2897b1f33eea3c75f16311b37e6ee57a" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBFile_1a35748205cd1aa8e18402c4ae6be2113d" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBFile_1ad706418be512a2aa27db95a738933b0c" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBFile_1abef98fdf0011118625928c8efcaea8b6" prot="public" virt="non-virtual"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBNode_1aa19fa8eac744cbbe8ef0cd67842fb350" prot="public" virt="non-virtual" ambiguityscope="BNode::"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBNode_1a6a9ed4db588ce169e9d5f464e0db43c4" prot="public" virt="non-virtual" ambiguityscope="BNode::"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBNode_1a11cc1bc7f4765f2ec5665f4d6f8c68fb" prot="public" virt="non-virtual" ambiguityscope="BNode::"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBNode_1aab2e862a78de7dac70ce8d6139b4e2a0" prot="public" virt="non-virtual" ambiguityscope="BNode::"><scope>BFile</scope><name>SetTo</name></member>
+      <member refid="classBNode_1a14e67d77c99a4ede2a0bc2fe2bc46da5" prot="public" virt="non-virtual"><scope>BFile</scope><name>Sync</name></member>
+      <member refid="classBNode_1af1aed40f239513e1001af2ee543dd9ec" prot="public" virt="non-virtual"><scope>BFile</scope><name>Unlock</name></member>
+      <member refid="classBNode_1a53045ffc7e7c8bf97487d0de2e925cc2" prot="public" virt="non-virtual"><scope>BFile</scope><name>Unset</name></member>
+      <member refid="classBFile_1afcf216fde234f4fd0754409617bedc55" prot="public" virt="virtual"><scope>BFile</scope><name>Write</name></member>
+      <member refid="classBFile_1a43a09d7441f9fda29cc90c1f3612021c" prot="public" virt="virtual"><scope>BFile</scope><name>WriteAt</name></member>
+      <member refid="classBPositionIO_1a18100db340087226321c332182816d27" prot="public" virt="non-virtual"><scope>BFile</scope><name>WriteAtExactly</name></member>
+      <member refid="classBNode_1a48b845ef1eafdc729ca672bb112bf873" prot="public" virt="non-virtual"><scope>BFile</scope><name>WriteAttr</name></member>
+      <member refid="classBNode_1aae3517eb2583c13ccf60e9488d5a198d" prot="public" virt="non-virtual"><scope>BFile</scope><name>WriteAttrString</name></member>
+      <member refid="classBDataIO_1a0095cfffa454a82eac3dedda2e187ab7" prot="public" virt="non-virtual"><scope>BFile</scope><name>WriteExactly</name></member>
+      <member refid="classBDataIO_1a45daa9db670dd2e5b83efcefcf8dbaed" prot="public" virt="virtual"><scope>BFile</scope><name>~BDataIO</name></member>
+      <member refid="classBFile_1a0f221ac5358eadc498b3563e415a5823" prot="public" virt="virtual"><scope>BFile</scope><name>~BFile</name></member>
+      <member refid="classBNode_1a2be9ef05bc8dc34f17982736a38e1adf" prot="public" virt="virtual"><scope>BFile</scope><name>~BNode</name></member>
+      <member refid="classBPositionIO_1a505defae83a1a6937c77b9acac2aaafe" prot="public" virt="virtual"><scope>BFile</scope><name>~BPositionIO</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

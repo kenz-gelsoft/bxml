@@ -1,0 +1,777 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__libroot" kind="group">
+    <compoundname>libroot</compoundname>
+    <title>(libroot.so)</title>
+    <innerfile refid="parsedate_8h">parsedate.h</innerfile>
+    <innerfile refid="syslog_8h">syslog.h</innerfile>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__libroot_1gaf95c55d472448ab7af9f32c33aeea71e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_directory</definition>
+        <argsstring>(directory_which which, dev_t volume, bool createIt, char *pathString, int32 length)</argsstring>
+        <name>find_directory</name>
+        <param>
+          <type><ref refid="FindDirectory_8h_1aa10135f62098fc92d18c653a1fff9c0e" kindref="member">directory_which</ref></type>
+          <declname>which</declname>
+        </param>
+        <param>
+          <type>dev_t</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>createIt</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathString</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+<para>C interface to find_directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Fills up to <emphasis>length</emphasis> characters of <emphasis>pathString</emphasis> with the path to <emphasis>which</emphasis> on <emphasis>volume</emphasis>. Creates the directory if it doesn&apos;t exists if <emphasis>createIt</emphasis> is set.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="172" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="172" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gad7aea8c7f59a75196467df38f9c5635a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path</definition>
+        <argsstring>(const void *codePointer, path_base_directory baseDirectory, const char *subPath, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path</name>
+        <param>
+          <type>const void *</type>
+          <declname>codePointer</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a loaded image file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function determines the path of the image (i.e. executable, library, or add-on) file associated with <emphasis>codePointer</emphasis>, a pointer to a location in the code or static data of an image loaded in the caller&apos;s team. Based on that, path <emphasis>baseDirectory</emphasis> is evaluated. In most cases that means first determining the path of the installation location from the path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used for constructing the path.</para>
+<para>If <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> or <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> are specified, <emphasis>subPath</emphasis> is ignored. In the former case the path of the image file is returned. In the latter case the path of the package containing the image file, if any.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to code or static data belonging to the image based on which the path shall be computed. The special value <computeroutput>B_APP_IMAGE_SYMBOL</computeroutput> can be used to refer to the program image, and <computeroutput>B_CURRENT_IMAGE_SYMBOL</computeroutput> for the caller&apos;s image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and the image file doesn&apos;t belong to a package.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="175" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="175" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1ga0b5f63b9f76a486bd6887feb566ebd86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path_etc</definition>
+        <argsstring>(const void *codePointer, const char *dependency, const char *architecture, path_base_directory baseDirectory, const char *subPath, uint32 flags, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path_etc</name>
+        <param>
+          <type>const void *</type>
+          <declname>codePointer</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>dependency</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>architecture</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a loaded image file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function determines the path of the image (i.e. executable, library, or add-on) file associated with <emphasis>codePointer</emphasis>, a pointer to a location in the code or static data of an image loaded in the caller&apos;s team. Based on that, path <emphasis>baseDirectory</emphasis> is evaluated. In most cases that means first determining the path of the installation location from the path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>dependency</emphasis> is specified, instead of determining the installation location path from the image path, the installation location path of the dependency <emphasis>dependency</emphasis> of the package containing the image file is used.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, <emphasis>architecture</emphasis> is used for constructing the path. If <emphasis>architecture</emphasis> is <computeroutput>NULL</computeroutput>, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used.</para>
+<para>If <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> or <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> are specified, <emphasis>dependency</emphasis> and <emphasis>subPath</emphasis> are ignored. In the former case the path of the image file is returned. In the latter case the path of the package containing the image file, if any.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>codePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to code or static data belonging to the image based on which the path shall be computed. The special value <computeroutput>B_APP_IMAGE_SYMBOL</computeroutput> can be used to refer to the program image, and <computeroutput>B_CURRENT_IMAGE_SYMBOL</computeroutput> for the caller&apos;s image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dependency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the package&apos;s &quot;requires&quot; entry to be used for resolving the installation location. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>architecture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the architecture to be used for resolving architecture dependent paths. Can be <computeroutput>NULL</computeroutput>, in which case the caller&apos;s architecture is used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitwise OR of any of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_FIND_PATH_CREATE_DIRECTORY:</computeroutput> If the resulting path doesn&apos;t exist, create it as a directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_CREATE_PARENT_DIRECTORY:</computeroutput> If the resulting path&apos;s parent doesn&apos;t exist, create the parent directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_EXISTING_ONLY:</computeroutput> If the resulting path doesn&apos;t exist, fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and the image file doesn&apos;t belong to a package, or <computeroutput>dependency</computeroutput> was specified, but isn&apos;t a &quot;requires&quot; entry of the package, or <computeroutput>B_FIND_PATH_EXISTING_ONLY</computeroutput> was specified and the resulting path doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="178" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="178" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1ga34d11f1d45298f728d25eca82f78f98e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path_for_path</definition>
+        <argsstring>(const char *path, path_base_directory baseDirectory, const char *subPath, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path_for_path</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a given path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Based on the given path <emphasis>path</emphasis> the function evaluates <emphasis>baseDirectory</emphasis>. In most cases that means first determining the path of the installation location from the given path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, the architecture associated with the given path (as returned by <ref refid="Architecture_8h_1af6527c1353b821375656e9720d033a1e" kindref="member">guess_architecture_for_path()</ref>) is used for constructing the path.</para>
+<para>If <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> is specified, <emphasis>subPath</emphasis> is ignored. In this case the path of the package containing the file referred to by <emphasis>path</emphasis> is returned. <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> is not a valid argument for this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path based on which the path shall be computed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and <emphasis>path</emphasis> does refer to a file that belongs to a package.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="182" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="182" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gafb94d3fc99119fcd16d356dbeae179c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_path_for_path_etc</definition>
+        <argsstring>(const char *path, const char *dependency, const char *architecture, path_base_directory baseDirectory, const char *subPath, uint32 flags, char *pathBuffer, size_t bufferSize)</argsstring>
+        <name>find_path_for_path_etc</name>
+        <param>
+          <type>const char *</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>dependency</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>architecture</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>pathBuffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a path in the file system layout based on a given path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Based on the given path <emphasis>path</emphasis> the function evaluates <emphasis>baseDirectory</emphasis>. In most cases that means first determining the path of the installation location from the given path, then appending the relative path corresponding to the given <emphasis>baseDirectory</emphasis> constant, and finally appending <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>dependency</emphasis> is specified, instead of determining the installation location path from the given path, the installation location path of the dependency <emphasis>dependency</emphasis> of the package containing the file referred to by <emphasis>path</emphasis> is used.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, <emphasis>architecture</emphasis> is used for constructing the path. If <emphasis>architecture</emphasis> is <computeroutput>NULL</computeroutput>, the architecture associated with the given path (as returned by <ref refid="Architecture_8h_1af6527c1353b821375656e9720d033a1e" kindref="member">guess_architecture_for_path()</ref>) is used.</para>
+<para>If <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> is specified, <emphasis>dependency</emphasis> and <emphasis>subPath</emphasis> are ignored. In this case the path of the package containing the file referred to by <emphasis>path</emphasis> is returned. <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> is not a valid argument for this function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path based on which the path shall be computed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dependency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the package&apos;s &quot;requires&quot; entry to be used for resolving the installation location. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>architecture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the architecture to be used for resolving architecture dependent paths. Can be <computeroutput>NULL</computeroutput>, in which case the architecture associated with <emphasis>path</emphasis> is used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which path to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitwise OR of any of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_FIND_PATH_CREATE_DIRECTORY:</computeroutput> If the resulting path doesn&apos;t exist, create it as a directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_CREATE_PARENT_DIRECTORY:</computeroutput> If the resulting path&apos;s parent doesn&apos;t exist, create the parent directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_EXISTING_ONLY:</computeroutput> If the resulting path doesn&apos;t exist, fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pathBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated buffer the retrieved path shall be stored in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the <emphasis>pathBuffer</emphasis> buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BUFFER_OVERFLOW</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>pathBuffer</emphasis> wasn&apos;t large enough. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the path doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> was specified and <emphasis>path</emphasis> does refer to a file that belongs to a package, or <computeroutput>dependency</computeroutput> was specified, but isn&apos;t a &quot;requires&quot; entry of the package, or <computeroutput>B_FIND_PATH_EXISTING_ONLY</computeroutput> was specified and the resulting path doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="185" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="185" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1gad96d494ae8950a8828043fd21db79231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_paths</definition>
+        <argsstring>(path_base_directory baseDirectory, const char *subPath, char ***_paths, size_t *_pathCount)</argsstring>
+        <name>find_paths</name>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>_paths</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_pathCount</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a list of paths in the file system layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For each installation location <ndash/> in the order most specific to most generic, non-packaged before packaged <ndash/> the function evaluates <emphasis>baseDirectory</emphasis> to a path and appends <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used for constructing each path.</para>
+<para><computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> and <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> are not valid arguments for this function.</para>
+<para>The array of paths retrieved is allocated on the heap and returned via <emphasis>_paths</emphasis>. The caller is responsible for calling free() for the returned pointer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which paths to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_paths</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the pointer to the allocated path array shall be stored on success. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_pathCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the number of paths in the path array shall be stored on success.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the paths doesn&apos;t exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="189" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="189" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__libroot_1ga16532d8117c4a255b84e1bc106d16ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t find_paths_etc</definition>
+        <argsstring>(const char *architecture, path_base_directory baseDirectory, const char *subPath, uint32 flags, char ***_paths, size_t *_pathCount)</argsstring>
+        <name>find_paths_etc</name>
+        <param>
+          <type>const char *</type>
+          <declname>architecture</declname>
+        </param>
+        <param>
+          <type><ref refid="FindDirectory_8h_1a8497db5ef25d4ff28530546cefd13232" kindref="member">path_base_directory</ref></type>
+          <declname>baseDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>subPath</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char ***</type>
+          <declname>_paths</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_pathCount</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a list of paths in the file system layout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For each installation location <ndash/> in the order most specific to most generic, non-packaged before packaged <ndash/> the function evaluates <emphasis>baseDirectory</emphasis> to a path and appends <emphasis>subPath</emphasis>, if given.</para>
+<para>If <emphasis>baseDirectory</emphasis> specifies a path that is architecture dependent, <emphasis>architecture</emphasis> is used for constructing each path. If <emphasis>architecture</emphasis> is <computeroutput>NULL</computeroutput>, the caller&apos;s architecture (as returned by <ref refid="Architecture_8h_1a9d717f29f2e0b8d913b8d5be020a8bb3" kindref="member">get_architecture()</ref>) is used.</para>
+<para><computeroutput>B_FIND_PATH_PACKAGE_PATH</computeroutput> and <computeroutput>B_FIND_PATH_IMAGE_PATH</computeroutput> are not valid arguments for this function.</para>
+<para>The array of paths retrieved is allocated on the heap and returned via <emphasis>_paths</emphasis>. The caller is responsible for calling free() for the returned pointer.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>architecture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the architecture to be used for resolving architecture dependent paths. Can be <computeroutput>NULL</computeroutput>, in which case the caller&apos;s architecture is used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>baseDirectory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constant indicating which paths to retrieve. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>subPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Relative subpath that shall be appended. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Bitwise OR of any of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_FIND_PATH_CREATE_DIRECTORY:</computeroutput> If the resulting path doesn&apos;t exist, create it as a directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_CREATE_PARENT_DIRECTORY:</computeroutput> If the resulting path&apos;s parent doesn&apos;t exist, create the parent directory (including all missing ancestors).</para>
+</listitem><listitem><para><computeroutput>B_FIND_PATH_EXISTING_ONLY:</computeroutput> If the resulting path doesn&apos;t exist, fail with <computeroutput>B_ENTRY_NOT_FOUND</computeroutput>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_paths</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the pointer to the allocated path array shall be stored on success. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_pathCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable where the number of paths in the path array shall be stored on success. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A file system entry required for retrieving the paths doesn&apos;t exist. E.g. <computeroutput>B_FIND_PATH_EXISTING_ONLY</computeroutput> was specified and none of the resulting paths do exist.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" line="192" column="10" declfile="/boot/home/src/haiku/headers/os/storage/FindDirectory.h" declline="192" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implements the C and POSIX standard libraries. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

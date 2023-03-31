@@ -1,0 +1,3027 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBRoster" kind="class" language="C++" prot="public">
+    <compoundname>BRoster</compoundname>
+      <sectiondef kind="user-defined">
+      <header>Querying</header>
+      <memberdef kind="function" id="classBRoster_1ad503f418df5b24b049029394a67750a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BRoster::IsRunning</definition>
+        <argsstring>(const char *signature) const</argsstring>
+        <name>IsRunning</name>
+        <qualifiedname>BRoster::IsRunning</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether or not an application with the supplied signature is currently running. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app <emphasis>signature</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if the supplied <emphasis>signature</emphasis> is not <computeroutput>NULL</computeroutput> and an application with this <emphasis>signature</emphasis> is running, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="62" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a8b83d4e28852d4743e1ddbe260fe079e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BRoster::IsRunning</definition>
+        <argsstring>(entry_ref *ref) const</argsstring>
+        <name>IsRunning</name>
+        <qualifiedname>BRoster::IsRunning</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether or not an application ran from an executable referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref> is currently running. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app&apos;s <ref refid="structentry__ref" kindref="compound">entry_ref</ref> </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref> is not <computeroutput>NULL</computeroutput> and an application executing this file is running, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="63" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a51a41674f9598fb5185b83bcdc617b76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>team_id</type>
+        <definition>team_id BRoster::TeamFor</definition>
+        <argsstring>(const char *signature) const</argsstring>
+        <name>TeamFor</name>
+        <qualifiedname>BRoster::TeamFor</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Returns the team ID of a currently running application with the supplied <emphasis>signature</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app <emphasis>signature</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The team ID of a running application with the supplied <emphasis>signature</emphasis>. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>signature</emphasis> is <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application with the supplied <emphasis>signature</emphasis> is currently running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="65" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a147169f7ed1642f88913ba9d1be80554" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>team_id</type>
+        <definition>team_id BRoster::TeamFor</definition>
+        <argsstring>(entry_ref *ref) const</argsstring>
+        <name>TeamFor</name>
+        <qualifiedname>BRoster::TeamFor</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Returns the team ID of a currently running application executing the executable referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app&apos;s <ref refid="structentry__ref" kindref="compound">entry_ref</ref></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The team ID of a running application executing the file referred to by <emphasis>ref</emphasis>. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ref</emphasis> is <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application executing the file referred to by <emphasis>ref</emphasis> is currently running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="66" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a50a074cf5199fdba4c53555e2d6f60e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::GetAppList</definition>
+        <argsstring>(BList *teamIDList) const</argsstring>
+        <name>GetAppList</name>
+        <qualifiedname>BRoster::GetAppList</qualifiedname>
+        <param>
+          <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>teamIDList</declname>
+        </param>
+        <briefdescription>
+<para>Returns a list of all currently running applications. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplied list is not emptied before adding the team IDs of the running applications. The list elements are team_id&apos;s, not pointers.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>teamIDList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBList" kindref="compound">BList</ref> to be filled with the team IDs.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="68" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a00df68600d9ea16a0c6984641e3047df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::GetAppList</definition>
+        <argsstring>(const char *signature, BList *teamIDList) const</argsstring>
+        <name>GetAppList</name>
+        <qualifiedname>BRoster::GetAppList</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>teamIDList</declname>
+        </param>
+        <briefdescription>
+<para>Returns a list of all currently running applications with the specified <emphasis>signature</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplied list is not emptied before adding the team IDs of the running applications. The list elements are team_id&apos;s, not pointers. If <emphasis>sig</emphasis> is <computeroutput>NULL</computeroutput> or invalid, no team IDs are added to the list.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application <emphasis>signature</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>teamIDList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBList" kindref="compound">BList</ref> to be filled with the team IDs.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="69" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1ae0083d735bb8ebb40e66218b95693ab7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::GetAppInfo</definition>
+        <argsstring>(const char *signature, app_info *info) const</argsstring>
+        <name>GetAppInfo</name>
+        <qualifiedname>BRoster::GetAppInfo</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="structapp__info" kindref="compound">app_info</ref> of a currently running application with the supplied <emphasis>signature</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application <emphasis>signature</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structapp__info" kindref="compound">app_info</ref> structure to be filled by this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>sig</emphasis> is <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application with the supplied signature is currently running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="73" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a6c8eff6e1213c9cd6bd0ffa62a11db42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::GetAppInfo</definition>
+        <argsstring>(entry_ref *ref, app_info *info) const</argsstring>
+        <name>GetAppInfo</name>
+        <qualifiedname>BRoster::GetAppInfo</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="structapp__info" kindref="compound">app_info</ref> of a currently running application executing the executable referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app&apos;s <ref refid="structentry__ref" kindref="compound">entry_ref</ref> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structapp__info" kindref="compound">app_info</ref> structure to be filled in by this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ref</emphasis> is <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application executing the file referred to by <emphasis>ref</emphasis> was currently running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="75" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a119e6efd032a83f32cd76c327785cc22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::GetRunningAppInfo</definition>
+        <argsstring>(team_id team, app_info *info) const</argsstring>
+        <name>GetRunningAppInfo</name>
+        <qualifiedname>BRoster::GetRunningAppInfo</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="structapp__info" kindref="compound">app_info</ref> of a currently running application identified by the supplied team ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>team</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app&apos;s team ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structapp__info" kindref="compound">app_info</ref> structure to be filled in by this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>info</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TEAM_ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>team</emphasis> did not identify a running application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="78" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a0c144191815ffac1c18b04fe659ff82b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::GetActiveAppInfo</definition>
+        <argsstring>(app_info *info) const</argsstring>
+        <name>GetActiveAppInfo</name>
+        <qualifiedname>BRoster::GetActiveAppInfo</qualifiedname>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="structapp__info" kindref="compound">app_info</ref> of a currently active application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structapp__info" kindref="compound">app_info</ref> structure to be filled in by this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>info</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application was currently active.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3</para>
+</simplesect>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structapp__info" kindref="compound">app_info</ref> structure to be filled in by this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>info</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application was currently active.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a04481f026126b69901a9e55bbf1c665a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::FindApp</definition>
+        <argsstring>(const char *mimeType, entry_ref *app) const</argsstring>
+        <name>FindApp</name>
+        <qualifiedname>BRoster::FindApp</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+<para>Finds an application associated with a MIME type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The method gets the signature of the supplied type&apos;s preferred application and the signature of the super type&apos;s preferred application. It will also get all supporting applications for the type and super type and build a list of candiate handlers. In the case that a preferred handler is configured for the sub-type, other supporting apps will be inserted in the candidate list before the super-type preferred and supporting handlers, since it is assumed that the super type handlers are not well suited for the sub-type. The following resolving algorithm is performed on each signature of the resulting list: The MIME database is asked which executable is associated with the signature. If the database doesn&apos;t have a reference to an exectuable, the boot volume is queried for a file with the signature. If more than one file has been found, the one with the greatest version is picked, or if no file has a version info, the one with the most recent modification date. The first application from the signature list which can be successfully resolved by this algorithm is returned. Contrary to BeOS behavior, this means that if the preferred application of the provided MIME type cannot be resolved, or if it does not have a preferred application associated, the method will return other applications with direct support for the MIME type before it resorts to the preferred application or supporting applications of the super type.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mimeType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type for which an application shall be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>app</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structentry__ref" kindref="compound">entry_ref</ref> to be filled with a reference to the found application&apos;s executable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> or <emphasis>app</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated and no other supporting applications could be identified. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type was not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s only supporting application was in the trash.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="83" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a0eec22b3e46838bddbe899b0efd671c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::FindApp</definition>
+        <argsstring>(entry_ref *ref, entry_ref *app) const</argsstring>
+        <name>FindApp</name>
+        <qualifiedname>BRoster::FindApp</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>app</declname>
+        </param>
+        <briefdescription>
+<para>Finds an application associated with a file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The method first checks, if the file has a preferred application associated with it (see <ref refid="classBNodeInfo_1a7efa86ade48aec51d4a4b7ff4762c163" kindref="member">BNodeInfo::GetPreferredApp()</ref>) and if so, tries to find the executable the same way FindApp(const char*, entry_ref*) does. If not, it gets the MIME type of the file and searches an application for it exactly like the first <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> method.</para>
+<para>The type of the file is defined in a file attribute (<ref refid="classBNodeInfo_1a9bfd75065d98e817d078c968d02228e4" kindref="member">BNodeInfo::GetType()</ref>), but if it is not set yet, the method tries to guess it via <ref refid="classBMimeType_1a014ae51a0763796a1c9ed57c942fd46e" kindref="member">BMimeType::GuessMimeType()</ref>.</para>
+<para>As a special case the file may have execute permission. Then preferred application and type are ignored and an <ref refid="structentry__ref" kindref="compound">entry_ref</ref> to the file itself is returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file for which an application shall be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>app</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="structentry__ref" kindref="compound">entry_ref</ref> to be filled with a reference to the found application&apos;s executable. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para></para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> or <emphasis>app</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type was not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="85" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Launching, Activating, and Broadcasting</header>
+      <memberdef kind="function" id="classBRoster_1a272a11486eba4683a8adb06f3a1c8493" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Broadcast</definition>
+        <argsstring>(BMessage *message) const</argsstring>
+        <name>Broadcast</name>
+        <qualifiedname>BRoster::Broadcast</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Sends a message to all running applications. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The methods doesn&apos;t broadcast the message itself, but it asks the roster to do so. It immediatly returns after sending the request. The return value only tells about whether the request has successfully been sent.</para>
+<para>The message is sent asynchronously. Replies to it go to the application. (<computeroutput>be_app_messenger</computeroutput>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be broadcast.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>message</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="88" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a3d7db167d728e879dd4ee9437d217563" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Broadcast</definition>
+        <argsstring>(BMessage *message, BMessenger replyTo) const</argsstring>
+        <name>Broadcast</name>
+        <qualifiedname>BRoster::Broadcast</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>replyTo</declname>
+        </param>
+        <briefdescription>
+<para>Sends a message to all running applications. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The methods doesn&apos;t broadcast the message itself, but it asks the roster to do so. It immediatly returns after sending the request. The return value only tells about whether the request has successfully been sent.</para>
+<para>The message is sent asynchronously. Replies to it go to the specified target (<emphasis>replyTo</emphasis>).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be broadcast. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>replyTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reply target for the message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>message</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="89" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a2cd20378ab189c4df1eba833f1079dae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::StartWatching</definition>
+        <argsstring>(BMessenger target, uint32 eventMask=B_REQUEST_LAUNCHED|B_REQUEST_QUIT) const</argsstring>
+        <name>StartWatching</name>
+        <qualifiedname>BRoster::StartWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>eventMask</declname>
+          <defval><ref refid="Roster_8h_1a61dadd085c1777f559549e05962b2c9ea0976692a18b51a5c2e5e6c1e2bafe28f" kindref="member">B_REQUEST_LAUNCHED</ref>|<ref refid="Roster_8h_1a61dadd085c1777f559549e05962b2c9ea9860bd11f21c581638f6b058e5e4a3b0" kindref="member">B_REQUEST_QUIT</ref></defval>
+        </param>
+        <briefdescription>
+<para>Adds a new roster application monitor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After <ref refid="classBRoster_1a2cd20378ab189c4df1eba833f1079dae" kindref="member">StartWatching()</ref> event messages will be sent to the supplied target according to the specified flags until a respective <ref refid="classBRoster_1a5a792a6d4af01978a6c1d55222c70c73" kindref="member">StopWatching()</ref> call.</para>
+<para><emphasis>eventMask</emphasis> must be a bitwise OR of one or more of the following flags:<itemizedlist>
+<listitem><para><computeroutput>B_REQUEST_LAUNCHED:</computeroutput> A <computeroutput>B_SOME_APP_LAUNCHED</computeroutput> is sent, whenever an application has been launched.</para>
+</listitem><listitem><para><computeroutput>B_REQUEST_QUIT:</computeroutput> A <computeroutput>B_SOME_APP_QUIT</computeroutput> is sent, whenever an application has quit.</para>
+</listitem><listitem><para><computeroutput>B_REQUEST_ACTIVATED:</computeroutput> A <computeroutput>B_SOME_APP_ACTIVATED</computeroutput> is sent, whenever an application has been activated.</para>
+</listitem></itemizedlist>
+</para>
+<para>All event messages contain the following fields supplying more information about the concerned application:<itemizedlist>
+<listitem><para><computeroutput>&quot;be:signature&quot;</computeroutput>, <computeroutput>B_STRING_TYPE:</computeroutput> The signature of the application.</para>
+</listitem><listitem><para><computeroutput>&quot;be:team&quot;</computeroutput>, <computeroutput>B_INT32_TYPE:</computeroutput> The team ID of the application (<computeroutput>team_id</computeroutput>).</para>
+</listitem><listitem><para><computeroutput>&quot;be:thread&quot;</computeroutput>, <computeroutput>B_INT32_TYPE:</computeroutput> The ID of the application&apos;s main thread (<computeroutput>thread_id</computeroutput>).</para>
+</listitem><listitem><para><computeroutput>&quot;be:flags&quot;</computeroutput>, <computeroutput>B_INT32_TYPE:</computeroutput> The application flags (<computeroutput>uint32</computeroutput>).</para>
+</listitem><listitem><para><computeroutput>&quot;be:ref&quot;</computeroutput>, <computeroutput>B_REF_TYPE:</computeroutput> An <ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the application&apos;s executable.</para>
+</listitem></itemizedlist>
+</para>
+<para>A second call to <ref refid="classBRoster_1a2cd20378ab189c4df1eba833f1079dae" kindref="member">StartWatching()</ref> with the same <emphasis>target</emphasis> simply sets the new <emphasis>eventMask</emphasis>. The messages won&apos;t be sent twice to the target.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target the event messages shall be sent to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>eventMask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the events the caller is interested in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine or an error code, if some error occurred.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="93" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a5a792a6d4af01978a6c1d55222c70c73" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::StopWatching</definition>
+        <argsstring>(BMessenger target) const</argsstring>
+        <name>StopWatching</name>
+        <qualifiedname>BRoster::StopWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Removes a roster application monitor added with <ref refid="classBRoster_1a2cd20378ab189c4df1eba833f1079dae" kindref="member">StartWatching()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target that shall not longer receive any event messages.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application monitor has been associated with the specified <emphasis>target</emphasis> before.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="97" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a29069168723243621a07f0c818201e77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::ActivateApp</definition>
+        <argsstring>(team_id team) const</argsstring>
+        <name>ActivateApp</name>
+        <qualifiedname>BRoster::ActivateApp</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <briefdescription>
+<para>Activates the application identified by the supplied team ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>team</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The app&apos;s team ID</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TEAM_ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>team</emphasis> does not identify a running application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="99" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a7336c58b9bea76b181c83c0d6e635360" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Launch</definition>
+        <argsstring>(const char *mimeType, BMessage *initialMessage=NULL, team_id *_appTeam=NULL) const</argsstring>
+        <name>Launch</name>
+        <qualifiedname>BRoster::Launch</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>initialMessage</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+          <defname>appTeam</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Launches the application associated with the supplied MIME type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application to be started is searched the same way <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> does it.</para>
+<para><emphasis>initialMessage</emphasis> is a message to be sent to the application &quot;on launch&quot;, i.e. before ReadyToRun() is invoked on the <ref refid="classBApplication" kindref="compound">BApplication</ref> object. The caller retains ownership of the supplied <ref refid="classBMessage" kindref="compound">BMessage</ref>. In case the method fails with <computeroutput>B_ALREADY_RUNNING</computeroutput> the message is delivered to the already running instance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mimeType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MIME type for which the application shall be launched. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initialMessage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional message to be sent to the application &quot;on launch&quot;. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appTeam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated team_id variable to be set to the team ID of the launched application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type is not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_EXECUTABLE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The found application was not executable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ALREADY_RUNNING</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application&apos;s app flags specify </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_SINGLE_LAUNCH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>or <computeroutput>B_EXCLUSIVE_LAUNCH</computeroutput> and the application (the very same (single) or at least one with the same signature (exclusive)) is already running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="102" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1af6944dafa4a8bebbd3ffeff0e3d54ec8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Launch</definition>
+        <argsstring>(const char *mimeType, BList *messageList, team_id *_appTeam=NULL) const</argsstring>
+        <name>Launch</name>
+        <qualifiedname>BRoster::Launch</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>messageList</declname>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+          <defname>appTeam</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Launches the application associated with the supplied MIME type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application to be started is searched the same way <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> does it.</para>
+<para><emphasis>messageList</emphasis> contains messages to be sent to the application &quot;on launch&quot;, i.e. before ReadyToRun() is invoked on the <ref refid="classBApplication" kindref="compound">BApplication</ref> object. The caller retains ownership of the supplied <ref refid="classBList" kindref="compound">BList</ref> and the contained BMessages. In case the method fails with <computeroutput>B_ALREADY_RUNNING</computeroutput> the messages are delivered to the already running instance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mimeType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MIME type for which the application shall be launched. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>messageList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional list of messages to be sent to the application &quot;on launch&quot;. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appTeam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated team_id variable to be set to the team ID of the launched application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type is not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_EXECUTABLE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The found application was not executable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="105" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a368caecd9e793e22fe8000c308c1a4f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Launch</definition>
+        <argsstring>(const char *mimeType, int argc, const char *const *args, team_id *_appTeam=NULL) const</argsstring>
+        <name>Launch</name>
+        <qualifiedname>BRoster::Launch</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>const char *const *</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+          <defname>appTeam</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Launches the application associated with the supplied MIME type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application to be started is searched the same way <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> does it.</para>
+<para>The supplied <emphasis>argc</emphasis> and <emphasis>args</emphasis> are (if containing at least one argument) put into a <computeroutput>B_ARGV_RECEIVED</computeroutput> message and sent to the launched application &quot;on launch&quot;. The caller retains ownership of the supplied <emphasis>args</emphasis>. In case the method fails with <computeroutput>B_ALREADY_RUNNING</computeroutput> the message is delivered to the already running instance.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mimeType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>MIME type for which the application shall be launched. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the number of elements in <emphasis>args</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array of C-strings to be sent as B_ARGV_RECEIVED messaged to the launched application. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appTeam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated team_id variable to be set to the team ID of the launched application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type is not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_EXECUTABLE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The found application was not executable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="107" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1adb2e6bbbb2e7b0c7491156ba7530a39f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Launch</definition>
+        <argsstring>(const entry_ref *ref, const BMessage *initialMessage=NULL, team_id *_appTeam=NULL) const</argsstring>
+        <name>Launch</name>
+        <qualifiedname>BRoster::Launch</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>initialMessage</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+          <defname>appTeam</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Launches the application associated with the entry referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application to be started is searched the same way <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> does it.</para>
+<para>If <emphasis>ref</emphasis> does refer to an application executable, that application is launched. Otherwise the respective application is searched and launched, and <emphasis>ref</emphasis> is sent to it in a <computeroutput>B_REFS_RECEIVED</computeroutput> message.</para>
+<para><emphasis>initialMessage</emphasis> is a message to be sent to the application &quot;on launch&quot;, i.e. before ReadyToRun() is invoked on the <ref refid="classBApplication" kindref="compound">BApplication</ref> object. The caller retains ownership of the supplied <ref refid="classBMessage" kindref="compound">BMessage</ref>. In case the method fails with <computeroutput>B_ALREADY_RUNNING</computeroutput> the message is delivered to the already running instance. The same applies to the <computeroutput>B_REFS_RECEIVED</computeroutput> message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file for which an application shall be launched. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>initialMessage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional message to be sent to the application &quot;on launch&quot;. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appTeam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated team_id variable to be set to the team ID of the launched application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type is not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_EXECUTABLE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The found application was not executable. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ALREADY_RUNNING</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application&apos;s app flags specify <computeroutput>B_SINGLE_LAUNCH</computeroutput> or <computeroutput>B_EXCLUSIVE_LAUNCH</computeroutput> and the application (the very same (single) or at least one with the same signature (exclusive)) was already running.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="110" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1abb7825d52e76d9e2bc036d6b9920b315" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Launch</definition>
+        <argsstring>(const entry_ref *ref, const BList *messageList, team_id *_appTeam=NULL) const</argsstring>
+        <name>Launch</name>
+        <qualifiedname>BRoster::Launch</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>messageList</declname>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+          <defname>appTeam</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Launches the application associated with the entry referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application to be started is searched the same way <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> does it.</para>
+<para>If <emphasis>ref</emphasis> does refer to an application executable, that application is launched. Otherwise the respective application is searched and launched, and <emphasis>ref</emphasis> is sent to it in a <computeroutput>B_REFS_RECEIVED</computeroutput> message.</para>
+<para><emphasis>messageList</emphasis> contains messages to be sent to the application &quot;on launch&quot;, i.e. before ReadyToRun() is invoked on the <ref refid="classBApplication" kindref="compound">BApplication</ref> object. The caller retains ownership of the supplied <ref refid="classBList" kindref="compound">BList</ref> and the contained BMessages. In case the method fails with <computeroutput>B_ALREADY_RUNNING</computeroutput> the messages are delivered to the already running instance. The same applies to the <computeroutput>B_REFS_RECEIVED</computeroutput> message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file for which an application shall be launched. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>messageList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional list of messages to be sent to the application &quot;on launch&quot;. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appTeam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated team_id variable to be set to the team ID of the launched application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type is not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_EXECUTABLE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The found application was not executable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="113" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a9c340c91a997d96072e118ec472e7b91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::Launch</definition>
+        <argsstring>(const entry_ref *ref, int argc, const char *const *args, team_id *_appTeam=NULL) const</argsstring>
+        <name>Launch</name>
+        <qualifiedname>BRoster::Launch</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>const char *const *</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+          <defname>appTeam</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Launches the application associated with the entry referred to by the supplied <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The application to be started is searched the same way <ref refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" kindref="member">FindApp()</ref> does it.</para>
+<para>If <emphasis>ref</emphasis> does refer to an application executable, that application is launched. Otherwise the respective application is searched and launched, and <emphasis>ref</emphasis> is sent to it in a <computeroutput>B_REFS_RECEIVED</computeroutput> message, unless other arguments are passed via <emphasis>argc</emphasis> and <emphasis>args</emphasis> <ndash/> then the <ref refid="structentry__ref" kindref="compound">entry_ref</ref> is converted into a path (C-string) and added to the argument vector.</para>
+<para>The supplied <emphasis>argc</emphasis> and <emphasis>args</emphasis> are (if containing at least one argument) put into a <computeroutput>B_ARGV_RECEIVED</computeroutput> message and sent to the launched application &quot;on launch&quot;. The caller retains ownership of the supplied <emphasis>args</emphasis>. In case the method fails with <computeroutput>B_ALREADY_RUNNING</computeroutput> the message is delivered to the already running instance. The same applies to the <computeroutput>B_REFS_RECEIVED</computeroutput> message, if no arguments are supplied via <emphasis>argc</emphasis> and <emphasis>args</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structentry__ref" kindref="compound">entry_ref</ref> referring to the file for which an application shall be launched. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>argc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the number of elements in <emphasis>args</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An array of C-strings to be sent as B_ARGV_RECEIVED messaged to the launched application. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>appTeam</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated team_id variable to be set to the team ID of the launched application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>mimeType</emphasis> </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_NO_PREFERRED_APP</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Neither with the supplied type nor with its supertype (if the supplied isn&apos;t a supertype itself) a preferred application is associated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type is not installed or its preferred application could not be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_APP_IN_TRASH</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supplied type&apos;s preferred application was in the trash. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_LAUNCH_FAILED_EXECUTABLE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The found application was not executable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="116" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Recent Information</header>
+      <memberdef kind="function" id="classBRoster_1a6ea514268be5a0fc822b635c5e6da03a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::GetRecentDocuments</definition>
+        <argsstring>(BMessage *refList, int32 maxCount, const char *fileType=NULL, const char *signature=NULL) const</argsstring>
+        <name>GetRecentDocuments</name>
+        <qualifiedname>BRoster::GetRecentDocuments</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>refList</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>maxCount</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fileType</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns a list of the most recently used documents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>refList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled out with information about recently used documents. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of documents to get information on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filter documents by MIME-type string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Get info only on documents that were used by a specific application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="121" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a6076e34c87fd63cc69725773b7a0be59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::GetRecentDocuments</definition>
+        <argsstring>(BMessage *refList, int32 maxCount, const char *fileTypes[], int32 fileTypesCount, const char *signature=NULL) const</argsstring>
+        <name>GetRecentDocuments</name>
+        <qualifiedname>BRoster::GetRecentDocuments</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>refList</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>maxCount</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fileTypes</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>fileTypesCount</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns a list of the most recently used documents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>refList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled out with information about recently used documents. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of documents to get information on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileTypes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filter documents by and array of MIME-type string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileTypesCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of MIME-types in <emphasis>fileType</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Get info only on documents that were used by a specific application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="124" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a9b435176e4c956e94d61467b0a03b06f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::GetRecentFolders</definition>
+        <argsstring>(BMessage *refList, int32 maxCount, const char *signature=NULL) const</argsstring>
+        <name>GetRecentFolders</name>
+        <qualifiedname>BRoster::GetRecentFolders</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>refList</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>maxCount</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns a list of recently accessed folders. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>refList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled out with information about recently used folders. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of folders to get information on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Get info only on folders that were used by a specific application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="129" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1abdb0b9a9974ef3475249a225f296a810" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::GetRecentApps</definition>
+        <argsstring>(BMessage *refList, int32 maxCount) const</argsstring>
+        <name>GetRecentApps</name>
+        <qualifiedname>BRoster::GetRecentApps</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>refList</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>maxCount</declname>
+        </param>
+        <briefdescription>
+<para>Returns a list of the most recently launched applications. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>refList</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled out with information about recently used apps. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of apps to get information on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="133" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a87bfbcc4065029bb146685c811530426" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::AddToRecentDocuments</definition>
+        <argsstring>(const entry_ref *document, const char *signature=NULL) const</argsstring>
+        <name>AddToRecentDocuments</name>
+        <qualifiedname>BRoster::AddToRecentDocuments</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>document</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Adds the <emphasis>document</emphasis> to the list of recent documents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>document</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>document</emphasis> to add. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>To record that a specific application used the document.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="136" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a656310d69bc34979dec2e712373076f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::AddToRecentFolders</definition>
+        <argsstring>(const entry_ref *folder, const char *signature=NULL) const</argsstring>
+        <name>AddToRecentFolders</name>
+        <qualifiedname>BRoster::AddToRecentFolders</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>folder</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Adds <emphasis>folder</emphasis> to the list of recent folders. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>folder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>folder</emphasis> to add. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>To record that a specific application used the folder.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="138" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBRoster_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BRoster::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="146" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBRoster_1a0fdb1a6e70120b3303ea88d0a0b8f204" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BRoster::_reserved[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BRoster::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="240" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBRoster_1abbec0fedcb7debb4bfcaebf102df9850" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+        <definition>BMessenger BRoster::fMessenger</definition>
+        <argsstring></argsstring>
+        <name>fMessenger</name>
+        <qualifiedname>BRoster::fMessenger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="236" column="11" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBRoster_1a713e36763caaea79f6b442fab5430341" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+        <definition>BMessenger BRoster::fMimeMessenger</definition>
+        <argsstring></argsstring>
+        <name>fMimeMessenger</name>
+        <qualifiedname>BRoster::fMimeMessenger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="237" column="11" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBRoster_1a8a42d084ac3c75e96968156f4b0f1d79" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BRoster::fMimeMessengerInitOnce</definition>
+        <argsstring></argsstring>
+        <name>fMimeMessengerInitOnce</name>
+        <qualifiedname>BRoster::fMimeMessengerInitOnce</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="238" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBRoster_1abf56d3b6296a6272ff6118361d9dd9eb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BRoster::fNoRegistrar</definition>
+        <argsstring></argsstring>
+        <name>fNoRegistrar</name>
+        <qualifiedname>BRoster::fNoRegistrar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="239" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBRoster_1a8988d01f8ea090047c37562e5e7f2d24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BRoster::BRoster</definition>
+        <argsstring>()</argsstring>
+        <name>BRoster</name>
+        <qualifiedname>BRoster::BRoster</qualifiedname>
+        <briefdescription>
+<para>Creates a new <ref refid="classBRoster" kindref="compound">BRoster</ref> and sets up the connection to the roster service. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You should not need to call this, use the <ref refid="Roster_8h_1a47f4c3d7d062ea2e32ba2790a3fb75f8" kindref="member">be_roster</ref> global instead.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a74187ff803039d8b7b4ea5f735068305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BRoster::~BRoster</definition>
+        <argsstring>()</argsstring>
+        <name>~BRoster</name>
+        <qualifiedname>BRoster::~BRoster</qualifiedname>
+        <briefdescription>
+<para>Does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="59" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBRoster_1ab034c54a7805a5f23f5439879ecc0720" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_AddApplication</definition>
+        <argsstring>(const char *signature, const entry_ref *ref, uint32 flags, team_id team, thread_id thread, port_id port, bool fullRegistration, uint32 *pToken, team_id *otherTeam) const</argsstring>
+        <name>_AddApplication</name>
+        <qualifiedname>BRoster::_AddApplication</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type>thread_id</type>
+          <declname>thread</declname>
+        </param>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fullRegistration</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>pToken</declname>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>otherTeam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="152" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a10b91593d0fffbadfe16ccdc07165ba5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_AddToRecentApps</definition>
+        <argsstring>(const char *signature) const</argsstring>
+        <name>_AddToRecentApps</name>
+        <qualifiedname>BRoster::_AddToRecentApps</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="228" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a326f3ca0eb5a7f7e54a170c5693950f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_ApplicationCrashed</definition>
+        <argsstring>(team_id team)</argsstring>
+        <name>_ApplicationCrashed</name>
+        <qualifiedname>BRoster::_ApplicationCrashed</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="181" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a94a01ebfb4cecc0bcb6ee854700b8bf5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_ClearRecentApps</definition>
+        <argsstring>() const</argsstring>
+        <name>_ClearRecentApps</name>
+        <qualifiedname>BRoster::_ClearRecentApps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="232" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a98a45ab3b1e47f76f7812885a216aa36" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_ClearRecentDocuments</definition>
+        <argsstring>() const</argsstring>
+        <name>_ClearRecentDocuments</name>
+        <qualifiedname>BRoster::_ClearRecentDocuments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="230" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a2f3fd06054b016eae1fdb9095358012a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_ClearRecentFolders</definition>
+        <argsstring>() const</argsstring>
+        <name>_ClearRecentFolders</name>
+        <qualifiedname>BRoster::_ClearRecentFolders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="231" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1ac133a8a7083665b64b30b0523cc14248" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_CompleteRegistration</definition>
+        <argsstring>(team_id team, thread_id thread, port_id port) const</argsstring>
+        <name>_CompleteRegistration</name>
+        <qualifiedname>BRoster::_CompleteRegistration</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type>thread_id</type>
+          <declname>thread</declname>
+        </param>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="168" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a80bf6fde37e0e081ebd3a135b9c73862" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_DumpRoster</definition>
+        <argsstring>() const</argsstring>
+        <name>_DumpRoster</name>
+        <qualifiedname>BRoster::_DumpRoster</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="196" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1af9d0588ba57de2ff2f0214e641db1b11" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_GetFileType</definition>
+        <argsstring>(const entry_ref *file, BNodeInfo *nodeInfo, char *mimeType) const</argsstring>
+        <name>_GetFileType</name>
+        <qualifiedname>BRoster::_GetFileType</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type><ref refid="classBNodeInfo" kindref="compound">BNodeInfo</ref> *</type>
+          <declname>nodeInfo</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="212" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a6d973a767579751b367620040205fe19" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_InitMessenger</definition>
+        <argsstring>()</argsstring>
+        <name>_InitMessenger</name>
+        <qualifiedname>BRoster::_InitMessenger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="222" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1ada7947a152d1655a90971b16ae637a4c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BRoster::_IsAppPreRegistered</definition>
+        <argsstring>(const entry_ref *ref, team_id team, app_info *info) const</argsstring>
+        <name>_IsAppPreRegistered</name>
+        <qualifiedname>BRoster::_IsAppPreRegistered</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="171" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a2e9f6acc5742bd9a56e1edba1b163431" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_IsAppRegistered</definition>
+        <argsstring>(const entry_ref *ref, team_id team, uint32 token, bool *preRegistered, app_info *info) const</argsstring>
+        <name>_IsAppRegistered</name>
+        <qualifiedname>BRoster::_IsAppRegistered</qualifiedname>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>preRegistered</declname>
+        </param>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="174" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1aa004d984b865f17c8250252104e9788f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_IsShutDownInProgress</definition>
+        <argsstring>(bool *inProgress)</argsstring>
+        <name>_IsShutDownInProgress</name>
+        <qualifiedname>BRoster::_IsShutDownInProgress</qualifiedname>
+        <param>
+          <type>bool *</type>
+          <declname>inProgress</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="150" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1afd3dc14117fbb4f43346ef0c04270e29" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_LaunchApp</definition>
+        <argsstring>(const char *mimeType, const entry_ref *ref, const BList *messageList, int argc, const char *const *args, const char **environment, team_id *_appTeam, thread_id *_appThread, port_id *_appPort, uint32 *_appToken, bool launchSuspended) const</argsstring>
+        <name>_LaunchApp</name>
+        <qualifiedname>BRoster::_LaunchApp</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>messageList</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>const char *const *</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>environment</declname>
+        </param>
+        <param>
+          <type>team_id *</type>
+          <declname>_appTeam</declname>
+        </param>
+        <param>
+          <type>thread_id *</type>
+          <declname>_appThread</declname>
+        </param>
+        <param>
+          <type>port_id *</type>
+          <declname>_appPort</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_appToken</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>launchSuspended</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="183" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a54da1813c7cfced9591bc0e2add3f8c6" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_LoadRecentLists</definition>
+        <argsstring>(const char *filename) const</argsstring>
+        <name>_LoadRecentLists</name>
+        <qualifiedname>BRoster::_LoadRecentLists</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="233" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a788910c8b9df8df94bc2aeb0003b52c2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref> &amp;</type>
+        <definition>BMessenger &amp; BRoster::_MimeMessenger</definition>
+        <argsstring>()</argsstring>
+        <name>_MimeMessenger</name>
+        <qualifiedname>BRoster::_MimeMessenger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="226" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a590166b653aac33ccfbf4710518ff463" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_RemoveApp</definition>
+        <argsstring>(team_id team) const</argsstring>
+        <name>_RemoveApp</name>
+        <qualifiedname>BRoster::_RemoveApp</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="179" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1abcd81f8ddc3f420649444b3edee097a3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_RemovePreRegApp</definition>
+        <argsstring>(uint32 entryToken) const</argsstring>
+        <name>_RemovePreRegApp</name>
+        <qualifiedname>BRoster::_RemovePreRegApp</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>entryToken</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="178" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1ad51bd4f37ad7cafda3a8d5728d6e95fc" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_ResolveApp</definition>
+        <argsstring>(const char *inType, entry_ref *ref, entry_ref *appRef, char *signature, uint32 *appFlags, bool *wasDocument) const</argsstring>
+        <name>_ResolveApp</name>
+        <qualifiedname>BRoster::_ResolveApp</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>inType</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>appRef</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>appFlags</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>wasDocument</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="198" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a816e003dfcd7632c21cac255acb7d7a5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_SaveRecentLists</definition>
+        <argsstring>(const char *filename) const</argsstring>
+        <name>_SaveRecentLists</name>
+        <qualifiedname>BRoster::_SaveRecentLists</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="234" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a358cf55a9bdd2c160aa4d23fad98ed62" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_SendToRunning</definition>
+        <argsstring>(team_id team, int argc, const char *const *args, const BList *messageList, const entry_ref *ref, bool readyToRun) const</argsstring>
+        <name>_SendToRunning</name>
+        <qualifiedname>BRoster::_SendToRunning</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>const char *const *</type>
+          <declname>args</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>messageList</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>readyToRun</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="214" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a0eff29b1ddff8a7773febb11268abf04" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_SetAppFlags</definition>
+        <argsstring>(team_id team, uint32 flags) const</argsstring>
+        <name>_SetAppFlags</name>
+        <qualifiedname>BRoster::_SetAppFlags</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="194" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a8695adddfdaf26825bf143639d5c27e9" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_SetSignature</definition>
+        <argsstring>(team_id team, const char *signature) const</argsstring>
+        <name>_SetSignature</name>
+        <qualifiedname>BRoster::_SetSignature</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="158" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1ae8151fe7079deeb108e146d45df3aee2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_SetThread</definition>
+        <argsstring>(team_id team, thread_id thread) const</argsstring>
+        <name>_SetThread</name>
+        <qualifiedname>BRoster::_SetThread</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type>thread_id</type>
+          <declname>thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="161" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a646fe06e937a0f53b5f683eb21f7852a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_SetThreadAndTeam</definition>
+        <argsstring>(uint32 entryToken, thread_id thread, team_id team, port_id *_port) const</argsstring>
+        <name>_SetThreadAndTeam</name>
+        <qualifiedname>BRoster::_SetThreadAndTeam</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>entryToken</declname>
+        </param>
+        <param>
+          <type>thread_id</type>
+          <declname>thread</declname>
+        </param>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <param>
+          <type>port_id *</type>
+          <declname>_port</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="164" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a2eec0bfab7f1772b05e69f284f69e7c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BRoster::_SetWithoutRegistrar</definition>
+        <argsstring>(bool noRegistrar)</argsstring>
+        <name>_SetWithoutRegistrar</name>
+        <qualifiedname>BRoster::_SetWithoutRegistrar</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>noRegistrar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="220" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a60d94f74708b566af3a81d1edf72372d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_ShutDown</definition>
+        <argsstring>(bool reboot, bool confirm, bool synchronous)</argsstring>
+        <name>_ShutDown</name>
+        <qualifiedname>BRoster::_ShutDown</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>reboot</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>confirm</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>synchronous</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="148" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a9f1b983475126fb24139bb8e2ee7e761" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_TranslateRef</definition>
+        <argsstring>(entry_ref *ref, BMimeType *appMeta, entry_ref *appRef, BFile *appFile, bool *wasDocument) const</argsstring>
+        <name>_TranslateRef</name>
+        <qualifiedname>BRoster::_TranslateRef</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMimeType" kindref="compound">BMimeType</ref> *</type>
+          <declname>appMeta</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>appRef</declname>
+        </param>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>appFile</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>wasDocument</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="204" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1a8be186d1c2a7ff6627f04476b977fb80" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_TranslateType</definition>
+        <argsstring>(const char *mimeType, BMimeType *appMeta, entry_ref *appRef, BFile *appFile) const</argsstring>
+        <name>_TranslateType</name>
+        <qualifiedname>BRoster::_TranslateType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>mimeType</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMimeType" kindref="compound">BMimeType</ref> *</type>
+          <declname>appMeta</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>appRef</declname>
+        </param>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>appFile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="208" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBRoster_1ac04cf77605d096742d8c07482d38a0d2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BRoster::_UpdateActiveApp</definition>
+        <argsstring>(team_id team) const</argsstring>
+        <name>_UpdateActiveApp</name>
+        <qualifiedname>BRoster::_UpdateActiveApp</qualifiedname>
+        <param>
+          <type>team_id</type>
+          <declname>team</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="192" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBRoster_1a3d1b38a3a08b60abce07522bc4dcbc6a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>static status_t BRoster::_InitMimeMessenger</definition>
+        <argsstring>(void *data)</argsstring>
+        <name>_InitMimeMessenger</name>
+        <qualifiedname>BRoster::_InitMimeMessenger</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="224" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The <ref refid="classBRoster" kindref="compound">BRoster</ref> class lets you launch apps and keeps track of apps that are running. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The global <ref refid="Roster_8h_1a47f4c3d7d062ea2e32ba2790a3fb75f8" kindref="member">be_roster</ref> object represents the default <ref refid="classBRoster" kindref="compound">BRoster</ref>, while the <ref refid="structapp__info" kindref="compound">app_info</ref> structure provides info for a running app.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/app/Roster.h" line="56" column="1" bodyfile="/boot/home/src/haiku/headers/os/app/Roster.h" bodystart="56" bodyend="241"/>
+    <listofallmembers>
+      <member refid="classBRoster_1ab034c54a7805a5f23f5439879ecc0720" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_AddApplication</name></member>
+      <member refid="classBRoster_1a10b91593d0fffbadfe16ccdc07165ba5" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_AddToRecentApps</name></member>
+      <member refid="classBRoster_1a326f3ca0eb5a7f7e54a170c5693950f5" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_ApplicationCrashed</name></member>
+      <member refid="classBRoster_1a94a01ebfb4cecc0bcb6ee854700b8bf5" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_ClearRecentApps</name></member>
+      <member refid="classBRoster_1a98a45ab3b1e47f76f7812885a216aa36" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_ClearRecentDocuments</name></member>
+      <member refid="classBRoster_1a2f3fd06054b016eae1fdb9095358012a" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_ClearRecentFolders</name></member>
+      <member refid="classBRoster_1ac133a8a7083665b64b30b0523cc14248" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_CompleteRegistration</name></member>
+      <member refid="classBRoster_1a80bf6fde37e0e081ebd3a135b9c73862" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_DumpRoster</name></member>
+      <member refid="classBRoster_1af9d0588ba57de2ff2f0214e641db1b11" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_GetFileType</name></member>
+      <member refid="classBRoster_1a6d973a767579751b367620040205fe19" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_InitMessenger</name></member>
+      <member refid="classBRoster_1a3d1b38a3a08b60abce07522bc4dcbc6a" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_InitMimeMessenger</name></member>
+      <member refid="classBRoster_1ada7947a152d1655a90971b16ae637a4c" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_IsAppPreRegistered</name></member>
+      <member refid="classBRoster_1a2e9f6acc5742bd9a56e1edba1b163431" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_IsAppRegistered</name></member>
+      <member refid="classBRoster_1aa004d984b865f17c8250252104e9788f" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_IsShutDownInProgress</name></member>
+      <member refid="classBRoster_1afd3dc14117fbb4f43346ef0c04270e29" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_LaunchApp</name></member>
+      <member refid="classBRoster_1a54da1813c7cfced9591bc0e2add3f8c6" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_LoadRecentLists</name></member>
+      <member refid="classBRoster_1a788910c8b9df8df94bc2aeb0003b52c2" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_MimeMessenger</name></member>
+      <member refid="classBRoster_1a590166b653aac33ccfbf4710518ff463" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_RemoveApp</name></member>
+      <member refid="classBRoster_1abcd81f8ddc3f420649444b3edee097a3" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_RemovePreRegApp</name></member>
+      <member refid="classBRoster_1a0fdb1a6e70120b3303ea88d0a0b8f204" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_reserved</name></member>
+      <member refid="classBRoster_1ad51bd4f37ad7cafda3a8d5728d6e95fc" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_ResolveApp</name></member>
+      <member refid="classBRoster_1a816e003dfcd7632c21cac255acb7d7a5" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SaveRecentLists</name></member>
+      <member refid="classBRoster_1a358cf55a9bdd2c160aa4d23fad98ed62" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SendToRunning</name></member>
+      <member refid="classBRoster_1a0eff29b1ddff8a7773febb11268abf04" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SetAppFlags</name></member>
+      <member refid="classBRoster_1a8695adddfdaf26825bf143639d5c27e9" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SetSignature</name></member>
+      <member refid="classBRoster_1ae8151fe7079deeb108e146d45df3aee2" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SetThread</name></member>
+      <member refid="classBRoster_1a646fe06e937a0f53b5f683eb21f7852a" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SetThreadAndTeam</name></member>
+      <member refid="classBRoster_1a2eec0bfab7f1772b05e69f284f69e7c3" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_SetWithoutRegistrar</name></member>
+      <member refid="classBRoster_1a60d94f74708b566af3a81d1edf72372d" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_ShutDown</name></member>
+      <member refid="classBRoster_1a9f1b983475126fb24139bb8e2ee7e761" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_TranslateRef</name></member>
+      <member refid="classBRoster_1a8be186d1c2a7ff6627f04476b977fb80" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_TranslateType</name></member>
+      <member refid="classBRoster_1ac04cf77605d096742d8c07482d38a0d2" prot="private" virt="non-virtual"><scope>BRoster</scope><name>_UpdateActiveApp</name></member>
+      <member refid="classBRoster_1a29069168723243621a07f0c818201e77" prot="public" virt="non-virtual"><scope>BRoster</scope><name>ActivateApp</name></member>
+      <member refid="classBRoster_1a87bfbcc4065029bb146685c811530426" prot="public" virt="non-virtual"><scope>BRoster</scope><name>AddToRecentDocuments</name></member>
+      <member refid="classBRoster_1a656310d69bc34979dec2e712373076f9" prot="public" virt="non-virtual"><scope>BRoster</scope><name>AddToRecentFolders</name></member>
+      <member refid="classBRoster_1a272a11486eba4683a8adb06f3a1c8493" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Broadcast</name></member>
+      <member refid="classBRoster_1a3d7db167d728e879dd4ee9437d217563" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Broadcast</name></member>
+      <member refid="classBRoster_1a8988d01f8ea090047c37562e5e7f2d24" prot="public" virt="non-virtual"><scope>BRoster</scope><name>BRoster</name></member>
+      <member refid="classBRoster_1a04481f026126b69901a9e55bbf1c665a" prot="public" virt="non-virtual"><scope>BRoster</scope><name>FindApp</name></member>
+      <member refid="classBRoster_1a0eec22b3e46838bddbe899b0efd671c0" prot="public" virt="non-virtual"><scope>BRoster</scope><name>FindApp</name></member>
+      <member refid="classBRoster_1abbec0fedcb7debb4bfcaebf102df9850" prot="private" virt="non-virtual"><scope>BRoster</scope><name>fMessenger</name></member>
+      <member refid="classBRoster_1a713e36763caaea79f6b442fab5430341" prot="private" virt="non-virtual"><scope>BRoster</scope><name>fMimeMessenger</name></member>
+      <member refid="classBRoster_1a8a42d084ac3c75e96968156f4b0f1d79" prot="private" virt="non-virtual"><scope>BRoster</scope><name>fMimeMessengerInitOnce</name></member>
+      <member refid="classBRoster_1abf56d3b6296a6272ff6118361d9dd9eb" prot="private" virt="non-virtual"><scope>BRoster</scope><name>fNoRegistrar</name></member>
+      <member refid="classBRoster_1a0c144191815ffac1c18b04fe659ff82b" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetActiveAppInfo</name></member>
+      <member refid="classBRoster_1ae0083d735bb8ebb40e66218b95693ab7" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetAppInfo</name></member>
+      <member refid="classBRoster_1a6c8eff6e1213c9cd6bd0ffa62a11db42" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetAppInfo</name></member>
+      <member refid="classBRoster_1a50a074cf5199fdba4c53555e2d6f60e8" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetAppList</name></member>
+      <member refid="classBRoster_1a00df68600d9ea16a0c6984641e3047df" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetAppList</name></member>
+      <member refid="classBRoster_1abdb0b9a9974ef3475249a225f296a810" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetRecentApps</name></member>
+      <member refid="classBRoster_1a6ea514268be5a0fc822b635c5e6da03a" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetRecentDocuments</name></member>
+      <member refid="classBRoster_1a6076e34c87fd63cc69725773b7a0be59" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetRecentDocuments</name></member>
+      <member refid="classBRoster_1a9b435176e4c956e94d61467b0a03b06f" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetRecentFolders</name></member>
+      <member refid="classBRoster_1a119e6efd032a83f32cd76c327785cc22" prot="public" virt="non-virtual"><scope>BRoster</scope><name>GetRunningAppInfo</name></member>
+      <member refid="classBRoster_1ad503f418df5b24b049029394a67750a9" prot="public" virt="non-virtual"><scope>BRoster</scope><name>IsRunning</name></member>
+      <member refid="classBRoster_1a8b83d4e28852d4743e1ddbe260fe079e" prot="public" virt="non-virtual"><scope>BRoster</scope><name>IsRunning</name></member>
+      <member refid="classBRoster_1a7336c58b9bea76b181c83c0d6e635360" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Launch</name></member>
+      <member refid="classBRoster_1af6944dafa4a8bebbd3ffeff0e3d54ec8" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Launch</name></member>
+      <member refid="classBRoster_1a368caecd9e793e22fe8000c308c1a4f5" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Launch</name></member>
+      <member refid="classBRoster_1adb2e6bbbb2e7b0c7491156ba7530a39f" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Launch</name></member>
+      <member refid="classBRoster_1abb7825d52e76d9e2bc036d6b9920b315" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Launch</name></member>
+      <member refid="classBRoster_1a9c340c91a997d96072e118ec472e7b91" prot="public" virt="non-virtual"><scope>BRoster</scope><name>Launch</name></member>
+      <member refid="classBRoster_1a2cd20378ab189c4df1eba833f1079dae" prot="public" virt="non-virtual"><scope>BRoster</scope><name>StartWatching</name></member>
+      <member refid="classBRoster_1a5a792a6d4af01978a6c1d55222c70c73" prot="public" virt="non-virtual"><scope>BRoster</scope><name>StopWatching</name></member>
+      <member refid="classBRoster_1a51a41674f9598fb5185b83bcdc617b76" prot="public" virt="non-virtual"><scope>BRoster</scope><name>TeamFor</name></member>
+      <member refid="classBRoster_1a147169f7ed1642f88913ba9d1be80554" prot="public" virt="non-virtual"><scope>BRoster</scope><name>TeamFor</name></member>
+      <member refid="classBRoster_1a74187ff803039d8b7b4ea5f735068305" prot="public" virt="non-virtual"><scope>BRoster</scope><name>~BRoster</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

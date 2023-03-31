@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__netservices" kind="group">
+    <compoundname>netservices</compoundname>
+    <title>Experimental Network Services Support</title>
+    <innerfile refid="ErrorsExt_8h">ErrorsExt.h</innerfile>
+    <innerfile refid="ExclusiveBorrow_8h">ExclusiveBorrow.h</innerfile>
+    <innerfile refid="HttpFields_8h">HttpFields.h</innerfile>
+    <innerfile refid="HttpRequest_8h">HttpRequest.h</innerfile>
+    <innerfile refid="HttpResult_8h">HttpResult.h</innerfile>
+    <innerfile refid="HttpSession_8h">HttpSession.h</innerfile>
+    <innerfile refid="HttpTime_8h">HttpTime.h</innerfile>
+    <innerfile refid="NetServicesDefs_8h">NetServicesDefs.h</innerfile>
+    <innerclass refid="classBPrivate_1_1Network_1_1BBorrow" prot="public">BPrivate::Network::BBorrow</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BBorrowError" prot="public">BPrivate::Network::BBorrowError</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BError" prot="public">BPrivate::Network::BError</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BExclusiveBorrow" prot="public">BPrivate::Network::BExclusiveBorrow</innerclass>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpAuthentication" prot="public">BPrivate::Network::BHttpAuthentication</innerclass>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpBody" prot="public">BPrivate::Network::BHttpBody</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields" prot="public">BPrivate::Network::BHttpFields</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpMethod" prot="public">BPrivate::Network::BHttpMethod</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpRequest" prot="public">BPrivate::Network::BHttpRequest</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpResult" prot="public">BPrivate::Network::BHttpResult</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpSession" prot="public">BPrivate::Network::BHttpSession</innerclass>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpStatus" prot="public">BPrivate::Network::BHttpStatus</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpTime" prot="public">BPrivate::Network::BHttpTime</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BInvalidUrl" prot="public">BPrivate::Network::BInvalidUrl</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BNetworkRequestError" prot="public">BPrivate::Network::BNetworkRequestError</innerclass>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body" prot="public">BPrivate::Network::BHttpRequest::Body</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BRuntimeError" prot="public">BPrivate::Network::BRuntimeError</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BSystemError" prot="public">BPrivate::Network::BSystemError</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BUnsupportedProtocol" prot="public">BPrivate::Network::BUnsupportedProtocol</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields_1_1Field" prot="public">BPrivate::Network::BHttpFields::Field</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields_1_1FieldName" prot="public">BPrivate::Network::BHttpFields::FieldName</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput" prot="public">BPrivate::Network::BHttpTime::InvalidInput</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpFields_1_1InvalidInput" prot="public">BPrivate::Network::BHttpFields::InvalidInput</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod" prot="public">BPrivate::Network::BHttpMethod::InvalidMethod</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__netservices_1ga03cb239064102cab8aaecb6a730ff736" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ErrorType</name>
+        <qualifiedname>BPrivate::Network::BNetworkRequestError::ErrorType</qualifiedname>
+        <enumvalue id="group__netservices_1ga03cb239064102cab8aaecb6a730ff736a3787e9cb68d992b37d4aeb04b2b476ea" prot="public">
+          <name>HostnameError</name>
+          <briefdescription>
+<para>Error resolving the hostname. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><ref refid="classBPrivate_1_1Network_1_1BNetworkRequestError_1ab16d8aa51743e78602ff42f37149d94b" kindref="member">ErrorCode()</ref> will be set to contain the underlying error code.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga03cb239064102cab8aaecb6a730ff736aa9fe0e62779d786b8aefe38387ec82b9" prot="public">
+          <name>NetworkError</name>
+          <briefdescription>
+<para>The request was interrupted due to a network error. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>This may occur when reading or writing fails due to an underlying network error, like an unexpected closed connection.</para>
+<para><ref refid="classBPrivate_1_1Network_1_1BNetworkRequestError_1ab16d8aa51743e78602ff42f37149d94b" kindref="member">ErrorCode()</ref> will be set to contain the underlying error code.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga03cb239064102cab8aaecb6a730ff736afb028d61508f4535d8cbc05b47519750" prot="public">
+          <name>ProtocolError</name>
+          <briefdescription>
+<para>The request did not complete because the response did not conform to the protocol. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>The server gave an unexpected or incorrect response. The network request could not complete because of this.</para>
+<para>There will not be any <ref refid="classBPrivate_1_1Network_1_1BNetworkRequestError_1ab16d8aa51743e78602ff42f37149d94b" kindref="member">ErrorCode()</ref> set.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga03cb239064102cab8aaecb6a730ff736a01827aa7fdb3d63955725ee85aaaf652" prot="public">
+          <name>SystemError</name>
+          <briefdescription>
+<para>Other internal error while handling the request. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>There could have been issues initializing buffers or decompression engines.</para>
+<para><ref refid="classBPrivate_1_1Network_1_1BNetworkRequestError_1ab16d8aa51743e78602ff42f37149d94b" kindref="member">ErrorCode()</ref> will be set to contain the underlying error code.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga03cb239064102cab8aaecb6a730ff736a6598e147fd8932546944adc78feb1200" prot="public">
+          <name>Canceled</name>
+          <briefdescription>
+<para>The request was canceled before it was completed. </para>
+          </briefdescription>
+          <detaileddescription>
+<para>This could either have been done through the API, or because the session that schedules and executes the requests was destroyed.</para>
+<para>There will not be any <ref refid="classBPrivate_1_1Network_1_1BNetworkRequestError_1ab16d8aa51743e78602ff42f37149d94b" kindref="member">ErrorCode()</ref> set.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>A list of errors that can occur while executing a network request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/NetServicesDefs.h" line="58" column="1" bodyfile="/boot/home/src/haiku/headers/private/netservices2/NetServicesDefs.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="enum" id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Verb</name>
+        <qualifiedname>BPrivate::Network::BHttpMethod::Verb</qualifiedname>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55eae16d94bfc1bdba38523d7d09648f314f" prot="public">
+          <name>Get</name>
+          <briefdescription>
+<para>Represents the <computeroutput>GET</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55ea41984f3842879643666cf3f3b1d3e456" prot="public">
+          <name>Head</name>
+          <briefdescription>
+<para>Represents the <computeroutput>HEAD</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55ea55be2f2974c6f903a1b0d1c30ca46b5b" prot="public">
+          <name>Post</name>
+          <briefdescription>
+<para>Represents the <computeroutput>POST</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55eae0137507cae043e027cdad7ebe2cea24" prot="public">
+          <name>Put</name>
+          <briefdescription>
+<para>Represents the <computeroutput>PUT</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55ead0cb22b2ff63a668a766616e9a673db2" prot="public">
+          <name>Delete</name>
+          <briefdescription>
+<para>Represents the <computeroutput>DELETE</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55eaf14bc741c0fd31f10ce0ca5d6d9bd9fb" prot="public">
+          <name>Connect</name>
+          <briefdescription>
+<para>Represents the <computeroutput>CONNECT</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55ea2bb635871c8cdf7dc4ca44366ceee71d" prot="public">
+          <name>Options</name>
+          <briefdescription>
+<para>Represents the <computeroutput>OPTIONS</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55ead5fe555fa7ad65b5e951a63e2c45acbd" prot="public">
+          <name>Trace</name>
+          <briefdescription>
+<para>Represents the <computeroutput>TRACE</computeroutput> method. </para>
+          </briefdescription>
+          <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>A list of standard HTTP methods. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/HttpRequest.h" line="36" column="1" bodyfile="/boot/home/src/haiku/headers/private/netservices2/HttpRequest.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__netservices_1ga9d2f443c775ed1dff92d0cd6196adf93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>class...</type>
+            <declname>_Args</declname>
+            <defname>_Args</defname>
+          </param>
+        </templateparamlist>
+        <type>BExclusiveBorrow&lt; T &gt;</type>
+        <definition>BExclusiveBorrow&lt; T &gt; BPrivate::Network::make_exclusive_borrow</definition>
+        <argsstring>(_Args &amp;&amp;... __args)</argsstring>
+        <name>make_exclusive_borrow</name>
+        <qualifiedname>BPrivate::Network::make_exclusive_borrow</qualifiedname>
+        <param>
+          <type>_Args &amp;&amp;...</type>
+          <declname>__args</declname>
+        </param>
+        <briefdescription>
+<para>Create a new object that is managed by a <ref refid="classBPrivate_1_1Network_1_1BExclusiveBorrow" kindref="compound">BExclusiveBorrow</ref> smart pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a convenience template function to the likes of <computeroutput>std::make_unique()</computeroutput>. It allows you to directly create the <ref refid="classBPrivate_1_1Network_1_1BExclusiveBorrow" kindref="compound">BExclusiveBorrow</ref> smart pointer around a newly allocated object.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the object that will be created. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_Args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Arguments to be passed to the constructor of T.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::bad_alloc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>In case there are issues allocating the new object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Any other exception that is thrown by the constructor of the object T.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/private/netservices2/ExclusiveBorrow.h" line="284" column="1" bodyfile="/boot/home/src/haiku/headers/private/netservices2/ExclusiveBorrow.h" bodystart="284" bodyend="290"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Experimental API to do higher level network requests. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This API currently is marked as experimental. It is part of the <computeroutput><ref refid="namespaceBPrivate_1_1Network" kindref="compound">BPrivate::Network</ref></computeroutput> namespace, the header files are found at <computeroutput>headers\private\netservices2</computeroutput>, and you have to link your application to <computeroutput>libnetservices2.a</computeroutput>. The new API is only available for modern platforms (x86 and x86_64), and not for the legacy platform (x86_gcc2). The compiler needs to support C++17 or higher.</para>
+<para><heading level="3">Asynchronous handling of the result.</heading>
+</para>
+<para>In GUI applications, networking operations are often triggered by a user action. For example, downloading a file will be initiated by the user clicking a button. When you initiate that action in the window&apos;s thread, and you block the message loop until the request is finished, the user will be left with a non-responsive UI. That is why one would usually run a network request asynchronously. And instead of checking the status every few CPU cycles, you&apos;d want to be proactively informed when something important happens, like the progress of the download or a signal when the request is finished.</para>
+<para>The Network Services kit support using the Haiku API&apos;s Looper and Handler system to keep you up to date about relevant events that happen to the requests.</para>
+<para>The following messages are available for all requests (HTTP and other). The messages below are in the order that they will arrive (when applicable).</para>
+<para><table rows="12" cols="4"><row>
+<entry thead="yes"><para>Message Constant </para>
+</entry><entry thead="yes"><para>Description </para>
+</entry><entry thead="yes"><para>Applies to </para>
+</entry><entry thead="yes"><para>Additional Data  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116dad840d4332e7546b4377765b8e8bff985" kindref="member">UrlEvent::HostNameResolved</ref> </para>
+</entry><entry thead="no"><para>The hostname has been resolved. This message is even sent when you set an IP-address in the URL object  </para>
+</entry><entry thead="no"><para>All protocols that use network connections. </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a6ded0672de68241ffcdd36b1a09622f8" kindref="member">UrlEventData::HostName</ref> <ref refid="classBString" kindref="compound">BString</ref>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116da388af6cf61562333b4c5bfdc446c9673" kindref="member">UrlEvent::ConnectionOpened</ref> </para>
+</entry><entry thead="no"><para>The connection to the remote server is opened. After this event, data will be written.  </para>
+</entry><entry thead="no"><para>All protocols that use network connections. </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116da7aec3a4dcb1db45da4c4d0249c644b1a" kindref="member">UrlEvent::UploadProgress</ref> </para>
+</entry><entry thead="no"><para>If there is a request body to be sent, this informs you of the progress. When the total size of the request body is known, this will be part of the message.  </para>
+</entry><entry thead="no"><para>All protocols that use network connections and support writing data to the server (like HTTP(S)).  </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a641eea32c12796cdec3b273add343e49" kindref="member">UrlEventData::NumBytes</ref> <computeroutput>int64</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a6db238b886e43d75d84dffe283aa96aa" kindref="member">UrlEventData::TotalBytes</ref> <computeroutput>int64</computeroutput> (optional)   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116dad4763416d83a03f45ddd50954cddc82d" kindref="member">UrlEvent::ResponseStarted</ref> </para>
+</entry><entry thead="no"><para>The server has started transmitting the response. </para>
+</entry><entry thead="no"><para>All Protocols </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1af2f1cbc42b321497503c905b231c714ba9a669aef8268ef80b1e6a5d3f59791f4" kindref="member">UrlEvent::HttpRedirect</ref> </para>
+</entry><entry thead="no"><para>The network services kit is handling a HTTP redirect. The request will be repeated for a new URL.  </para>
+</entry><entry thead="no"><para>HTTP/HTTPS </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a0828f7c51998f13220c3bd8410cb7ee1" kindref="member">UrlEventData::HttpRedirectUrl</ref> <ref refid="classBString" kindref="compound">BString</ref>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1af2f1cbc42b321497503c905b231c714baf16f5f01cda0bd0caa41004531e6007f" kindref="member">UrlEvent::HttpStatus</ref> </para>
+</entry><entry thead="no"><para>The response status is available. This means it can also be accessed through <ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a67e061b8e1c60b6b195c8a24f728c392" kindref="member">BHttpResult::Status()</ref> without blocking the system.  </para>
+</entry><entry thead="no"><para>HTTP/HTTPS </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a2c28033f0873b0429c8a159b430203ee" kindref="member">UrlEventData::HttpStatusCode</ref> <computeroutput>int16</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1af2f1cbc42b321497503c905b231c714ba1c48aac1a3fd40a66d8f5f426f9e8a90" kindref="member">UrlEvent::HttpFields</ref> </para>
+</entry><entry thead="no"><para>The HTTP header block has been fully received, and the HTTP fields can be accessed using <ref refid="classBPrivate_1_1Network_1_1BHttpResult_1a0193d68aed1470532a62d63476477972" kindref="member">BHttpResult::Fields()</ref> without blocking the system.  </para>
+</entry><entry thead="no"><para>HTTP/HTTPS </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116da90d2e126f8ef0b2f69509693de21925c" kindref="member">UrlEvent::DownloadProgress</ref> </para>
+</entry><entry thead="no"><para>If there is a response body to be received, this informs you of the progress. If the total size of the body is known, this will be included in the message as well.  </para>
+</entry><entry thead="no"><para>All protocols that use network connections. </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a641eea32c12796cdec3b273add343e49" kindref="member">UrlEventData::NumBytes</ref> <computeroutput>int64</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a6db238b886e43d75d84dffe283aa96aa" kindref="member">UrlEventData::TotalBytes</ref> <computeroutput>int64</computeroutput> (optional)   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116da9baa7c994d459c2243fd1373c70e68cc" kindref="member">UrlEvent::BytesWritten</ref> </para>
+</entry><entry thead="no"><para>An interim update on how many bytes have been written to the target. This message is only sent when you supplied a custom target to store the body of the request in. Note that the number of bytes written to the target may differ from the network transfer size, due to compression in the protocol.  </para>
+</entry><entry thead="no"><para>All protocols. </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a641eea32c12796cdec3b273add343e49" kindref="member">UrlEventData::NumBytes</ref> <computeroutput>int64</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116dad32a4ca09f4ba6a78016d1a874cfd554" kindref="member">UrlEvent::RequestCompleted</ref> </para>
+</entry><entry thead="no"><para>The request is completed and all the data is written to the target, or there was an error.  </para>
+</entry><entry thead="no"><para>All protocols. </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1acc1a82dfa1a0742b17d31df97a9bd2c2" kindref="member">UrlEventData::Success</ref> <computeroutput>bool</computeroutput>   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEvent_1a0088d8acc5014ea121bee5828fb1116daa77b604369ec5693cc5e89e62838da34" kindref="member">UrlEvent::DebugMessage</ref> </para>
+</entry><entry thead="no"><para>Additional debug information on the request. This is enabled or disabled per request. See the details in the protocol description.  </para>
+</entry><entry thead="no"><para>All protocols. </para>
+</entry><entry thead="no"><para><ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ad1dd6ac2082b7e2731d3aef01940c198" kindref="member">UrlEventData::Id</ref> <computeroutput>int32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1ae07544941f94fafdb2e6bf7d98935fa4" kindref="member">UrlEventData::DebugType</ref> <computeroutput>uint32</computeroutput> <linebreak/>
+ <ref refid="namespaceBPrivate_1_1Network_1_1UrlEventData_1a1b7a7639af67c3f51e1c7c1518e42932" kindref="member">UrlEventData::DebugMessage</ref> <ref refid="classBString" kindref="compound">BString</ref>   </para>
+</entry></row>
+</table>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

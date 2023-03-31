@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="parsedate_8h" kind="file" language="C++">
+    <compoundname>parsedate.h</compoundname>
+    <includes local="no">time.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>parsedate.h</label>
+        <link refid="parsedate_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>time.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="parsedate_8h_1adeb0c6955f5febe59ac743f59592d7a4" prot="public" static="no">
+        <name>PARSEDATE_DAY_RELATIVE_TIME</name>
+        <initializer><ref refid="parsedate_8h_1a059b54df3d6cc3b97fea12bd42a048c8" kindref="member">PARSEDATE_RELATIVE_TIME</ref></initializer>
+        <briefdescription>
+<para>day relative time </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The time value was computed relative to the specified time, and it would vary with every day passed in the specified time. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="15" column="9" bodyfile="/boot/home/src/haiku/headers/os/support/parsedate.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="parsedate_8h_1a9cf62b96c7777dea22e96819c48ad4eb" prot="public" static="no">
+        <name>PARSEDATE_INVALID_DATE</name>
+        <initializer>0x0100</initializer>
+        <briefdescription>
+<para>invalid date string </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag will be set if the specified date string could not be parsed correctly. For example, this may happen if there are some unknown words in that string. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="17" column="9" bodyfile="/boot/home/src/haiku/headers/os/support/parsedate.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="parsedate_8h_1a8d887716b330075f7224bc4d0f91d10e" prot="public" static="no">
+        <name>PARSEDATE_MINUTE_RELATIVE_TIME</name>
+        <initializer>0x0002</initializer>
+        <briefdescription>
+<para>minute relative time </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The time value was computed relative to the specified time, and it would vary with every minute passed in the specified time. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="16" column="9" bodyfile="/boot/home/src/haiku/headers/os/support/parsedate.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="parsedate_8h_1a059b54df3d6cc3b97fea12bd42a048c8" prot="public" static="no">
+        <name>PARSEDATE_RELATIVE_TIME</name>
+        <initializer>0x0001</initializer>
+        <briefdescription>
+<para>relative time </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The time value was computed relative to the specified time. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="13" column="9" bodyfile="/boot/home/src/haiku/headers/os/support/parsedate.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="parsedate_8h_1aae8fe1bbba9c6e5bfe17b530621cd705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char **</type>
+        <definition>const char ** get_dateformats</definition>
+        <argsstring>(void)</argsstring>
+        <name>get_dateformats</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>returns the internal format table currently used by <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the internal format table currently used by <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> - this is either a pointer to the built-in one, or one that you have previously set using <ref refid="parsedate_8h_1ad619829654f182f1ad280fa1c9d30092" kindref="member">set_dateformats()</ref>.</para>
+<para><simplesect kind="see"><para><ref refid="parsedate_8h_1ad619829654f182f1ad280fa1c9d30092" kindref="member">set_dateformats()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="28" column="19" declfile="/boot/home/src/haiku/headers/os/support/parsedate.h" declline="28" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>time_t</type>
+        <definition>time_t parsedate</definition>
+        <argsstring>(const char *dateString, time_t now)</argsstring>
+        <name>parsedate</name>
+        <param>
+          <type>const char *</type>
+          <declname>dateString</declname>
+        </param>
+        <param>
+          <type>time_t</type>
+          <declname>now</declname>
+          <defname>relativeTo</defname>
+        </param>
+        <briefdescription>
+<para>Parses <emphasis>dateString</emphasis> relative to <emphasis>relativeTo</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses the given <emphasis>dateString</emphasis> relative to the time specified by <emphasis>relativeTo</emphasis> using the internal formats table.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dateString</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the date that should be parsed, i.e. &quot;next thursday&quot;. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>relativeTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>all relative dates will be relative to this time, if -1 is passed, the current time will be used.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The parsed time value or -1 if the <emphasis>dateString</emphasis> could not be parsed. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="24" column="15" declfile="/boot/home/src/haiku/headers/os/support/parsedate.h" declline="24" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="parsedate_8h_1a1370c07d60da3d351ae0098b4dcba93d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>time_t</type>
+        <definition>time_t parsedate_etc</definition>
+        <argsstring>(const char *dateString, time_t now, int *_storedFlags)</argsstring>
+        <name>parsedate_etc</name>
+        <param>
+          <type>const char *</type>
+          <declname>dateString</declname>
+        </param>
+        <param>
+          <type>time_t</type>
+          <declname>now</declname>
+          <defname>relativeTo</defname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>_storedFlags</declname>
+        </param>
+        <briefdescription>
+<para>Parses dateString relative to relativeTo </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This does basically the same as <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref>, but will set the following flags in _storedFlags: <htmlonly> 
+&lt;table border=1&gt;
+    &lt;!-- ToDo: this certainly is a hack --&gt;
+    &lt;tr&gt;&lt;th bgcolor=&quot;#eeeeee&quot;&gt;Constant&lt;/th&gt;&lt;th bgcolor=&quot;#eeeeee&quot;&gt;Meaning&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&quot;mdname1&quot;&gt;PARSEDATE_RELATIVE_TIME&lt;/td&gt;
+        &lt;td&gt;</htmlonly>  relative time   <htmlonly> \copydetails PARSEDATE_RELATIVE_TIME \htmlonly
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&quot;mdname1&quot;&gt;PARSEDATE_DAY_RELATIVE_TIME&lt;/td&gt;
+        &lt;td&gt;</htmlonly>  day relative time   <htmlonly> \copydetails PARSEDATE_DAY_RELATIVE_TIME \htmlonly
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&quot;mdname1&quot;&gt;PARSEDATE_MINUTE_RELATIVE_TIME&lt;/td&gt;
+        &lt;td&gt;</htmlonly>  minute relative time   <htmlonly> \copydetails PARSEDATE_MINUTE_RELATIVE_TIME \htmlonly
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td class=&quot;mdname1&quot;&gt;PARSEDATE_INVALID_DATE&lt;/td&gt;
+    &lt;td&gt;
+    </htmlonly>  invalid date string   <htmlonly> \copydetails PARSEDATE_INVALID_DATE \htmlonly
+        This flag will only be set if the function returns -1.
+    &lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</htmlonly> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="25" column="15" declfile="/boot/home/src/haiku/headers/os/support/parsedate.h" declline="25" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="parsedate_8h_1ad619829654f182f1ad280fa1c9d30092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_dateformats</definition>
+        <argsstring>(const char *table[])</argsstring>
+        <name>set_dateformats</name>
+        <param>
+          <type>const char *</type>
+          <declname>table</declname>
+          <defname>formatTable</defname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>sets the internal format table for <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function let you set the format table which is used by <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref>. When formatTable is NULL, the standard built-in format table will be set again.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>formatTable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the NULL terminated formats list. This list must stay valid when using <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> - it is not copied, but directly used.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="parsedate_8h_1parsedateFormats" kindref="member">parsedateFormats</ref> Format! </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/parsedate.h" line="27" column="13" declfile="/boot/home/src/haiku/headers/os/support/parsedate.h" declline="27" declcolumn="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Date parsing functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This is a set a functions for parsing date strings in various formats. It&apos;s mostly tailored for parsing user given data, although originally, it was developed to parse the date strings found in usenet messages.</para>
+<para>The given date will be parsed relative to the specified time, and using a predefined set of time/date formats.</para>
+<para><simplesect kind="par"><title>Valid Input Strings</title><para></para>
+</simplesect>
+The internal formats allow <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> to understand a wide range of input strings. The format list is ought to be compiled from the Date: line of 80.000 usenet messages.</para>
+<para>But since this function is also used in end-user applications like the Tracker&apos;s find panel, it&apos;s helpful to know what this function accepts and what not.</para>
+<para>Here are some examples of input strings that <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> will be able to convert along with some notes:<itemizedlist>
+<listitem><para>&quot;last friday&quot;, &quot;this wednesday&quot;, &quot;next July&quot; &quot;last&quot;, &quot;next&quot;, and &quot;this&quot; refer to the week or year (depending on the context). So &quot;last friday&quot; means last week&apos;s friday. &quot;This wednesday&quot; is referring to this week&apos;s wednesday, no matter if it has already passed or not. &quot;Next July&quot; refers to next year&apos;s July. All of these dates are parsed relative to the specified time (usually &quot;now&quot;), and will be set to the first moment of that time span: &quot;next monday&quot; is monday, 0:00:00, midnight.</para>
+</listitem><listitem><para>&quot;now&quot; just returns the time all calculations are relative to.</para>
+</listitem><listitem><para>&quot;next 5 minutes&quot;, &quot;5 minutes&quot;, &quot;+5 mins&quot; all mean the same thing, that is, current time plus exactly 5 minutes.</para>
+</listitem><listitem><para>&quot;5 weeks&quot; means in 5 weeks from now on.</para>
+</listitem><listitem><para>&quot;8/5/2003&quot;, &quot;5.8.2003&quot;, &quot;2003-08-05&quot; are all referring to August 5th, 2003, again at 0:00 midnight.</para>
+</listitem><listitem><para>&quot;Thursday 3:00&quot; means this week&apos;s thursday, at 3 o&apos;clock.</para>
+</listitem></itemizedlist>
+</para>
+<para><anchor id="parsedate_8h_1parsedateFormats"/> <simplesect kind="par"><title>Format Specifier</title><para></para>
+</simplesect>
+While the <ref refid="parsedate_8h_1aae8fe1bbba9c6e5bfe17b530621cd705" kindref="member">get_dateformats()</ref> function allow you to retrieve the built-in formats, you can also define your own and use <ref refid="parsedate_8h_1ad619829654f182f1ad280fa1c9d30092" kindref="member">set_dateformats()</ref> to let <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> use them in all subsequent calls.</para>
+<para>The following is a list valid format specifiers and their meanings:<itemizedlist>
+<listitem><para><bold>a/A</bold> weekday (Sunday, Monday, ...)</para>
+</listitem><listitem><para><bold>d</bold> day of month (1-31)</para>
+</listitem><listitem><para><bold>b/B</bold> month name (January, February, ...)</para>
+</listitem><listitem><para><bold>month</bold> (1-12)</para>
+</listitem><listitem><para><bold>y/Y</bold> year</para>
+</listitem><listitem><para><bold>H/I</bold> hours (1-24)</para>
+</listitem><listitem><para><bold>M</bold> minutes (0-60)</para>
+</listitem><listitem><para><bold>S</bold> seconds (0-60)</para>
+</listitem><listitem><para><bold>p</bold> meridian (am/pm)</para>
+</listitem><listitem><para><bold>z/Z</bold> time zone (i.e. GMT)</para>
+</listitem><listitem><para><bold>T</bold> time unit, like &quot;last friday&quot;, &quot;next 5 minutes&quot;, &quot;-15 hours&quot;, etc.</para>
+</listitem><listitem><para><bold>-</bold> dash or slash</para>
+</listitem></itemizedlist>
+</para>
+<para>Any of &quot;,.:&quot; is allowed and will be expected in the input string as is. You can enclose a <bold>single</bold> field with &quot;[]&quot; to mark it as being optional. A blank stands for white space. No other character is allowed. An invalid format string won&apos;t do any harm, but of course, no input string will ever match that format.</para>
+<para>For example, &quot;H:M [p]&quot; will match against &quot;21:33&quot;, &quot;4:12 am&quot;, but not &quot;30:30 pm&quot; (hours out of range), &quot;15:16 GMT&quot; (this time zone is certainly not a valid meridian specifier), or &quot;4:66&quot; (minutes out of range).</para>
+<para><simplesect kind="note"><para>At the time of this writing, the <ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate()</ref> functions are not localized and will only recognize English time specifications following the examples above. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2003-2007<sp/>Haiku,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_PARSEDATE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_PARSEDATE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>flags<sp/>that<sp/>will<sp/>be<sp/>set<sp/>in<sp/>the<sp/>flags<sp/>field<sp/>by<sp/>parsedate_etc()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="parsedate_8h_1a059b54df3d6cc3b97fea12bd42a048c8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARSEDATE_RELATIVE_TIME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ToDo:<sp/>the<sp/>following<sp/>flags<sp/>are<sp/>not<sp/>part<sp/>of<sp/>the<sp/>R5<sp/>implementation<sp/>and<sp/>preliminary<sp/>only</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="parsedate_8h_1adeb0c6955f5febe59ac743f59592d7a4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARSEDATE_DAY_RELATIVE_TIME<sp/><sp/><sp/><sp/><sp/>PARSEDATE_RELATIVE_TIME</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="parsedate_8h_1a8d887716b330075f7224bc4d0f91d10e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARSEDATE_MINUTE_RELATIVE_TIME<sp/><sp/>0x0002</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="parsedate_8h_1a9cf62b96c7777dea22e96819c48ad4eb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PARSEDATE_INVALID_DATE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>time_t<sp/><ref refid="parsedate_8h_1ac9c3a59c9a7eb77650ef5ae5838cdd0b" kindref="member">parsedate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*dateString,<sp/>time_t<sp/>now);</highlight></codeline>
+<codeline lineno="25" refid="parsedate_8h_1a1370c07d60da3d351ae0098b4dcba93d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>time_t<sp/><ref refid="parsedate_8h_1a1370c07d60da3d351ae0098b4dcba93d" kindref="member">parsedate_etc</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*dateString,<sp/>time_t<sp/>now,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*_storedFlags);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="parsedate_8h_1ad619829654f182f1ad280fa1c9d30092" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="parsedate_8h_1ad619829654f182f1ad280fa1c9d30092" kindref="member">set_dateformats</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*table[]);</highlight></codeline>
+<codeline lineno="28" refid="parsedate_8h_1aae8fe1bbba9c6e5bfe17b530621cd705" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>**<ref refid="parsedate_8h_1aae8fe1bbba9c6e5bfe17b530621cd705" kindref="member">get_dateformats</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_PARSEDATE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/support/parsedate.h"/>
+  </compounddef>
+</doxygen>

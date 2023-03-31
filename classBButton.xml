@@ -1,0 +1,2243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBButton" kind="class" language="C++" prot="public">
+    <compoundname>BButton</compoundname>
+    <basecompoundref refid="classBControl" prot="public" virt="non-virtual">BControl</basecompoundref>
+    <includes local="no">Button.h</includes>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBButton_1adce5e4839a58c3bb85965398a490d720" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BButton::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BButton::Archive</qualifiedname>
+        <reimplements refid="classBControl_1a2581a447a34eef102c62d0e998155290">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the object into the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> object to archive the object into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to archive child views as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if everything went well or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1a2581a447a34eef102c62d0e998155290" kindref="member">BControl::Archive()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="37" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a578835166502d128d1e038602f5f9c6d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BButton::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BButton::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+          <defname>archive</defname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBButton" kindref="compound">BButton</ref> object from the <emphasis>archive</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>archive</emphasis> message to restore from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A newly created check box or <computeroutput>NULL</computeroutput> if the message doesn&apos;t contain an archived <ref refid="classBButton" kindref="compound">BButton</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="36" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Hook Methods</header>
+      <memberdef kind="function" id="classBButton_1adc0ec950461375f62cf5da3355aebf53" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::Draw</definition>
+        <argsstring>(BRect updateRect)</argsstring>
+        <name>Draw</name>
+        <qualifiedname>BButton::Draw</qualifiedname>
+        <reimplements refid="classBView_1aa55014241fc2f5556415850692b52db2">Draw</reimplements>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>updateRect</declname>
+        </param>
+        <briefdescription>
+<para>Draws the area of the button that intersects <emphasis>updateRect</emphasis> and sets the label. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This is an hook method called by the Interface Kit, you don&apos;t have to call it yourself. If you need to forcefully redraw the button consider calling <ref refid="classBView_1adfced0dcb244e199f872fdbd48349a05" kindref="member">Invalidate()</ref> instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>updateRect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The rectangular area to be drawn.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1aa55014241fc2f5556415850692b52db2" kindref="member">BView::Draw()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="39" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a479d27a48b957709b47159360c04157f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::MouseDown</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseDown</name>
+        <qualifiedname>BButton::MouseDown</qualifiedname>
+        <reimplements refid="classBControl_1aae264c07bf8006acf1fa96ceedc5f74d">MouseDown</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is pressed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Begins tracking the mouse cursor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is pressed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a8514d1d173d5a852f52354107dedce7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::AttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>AttachedToWindow</name>
+        <qualifiedname>BButton::AttachedToWindow</qualifiedname>
+        <reimplements refid="classBControl_1a460fa93bcdd5309d8d86f8bfcd53b584">AttachedToWindow</reimplements>
+        <briefdescription>
+<para>Hook method called when the button is attached to a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The view color is set to <computeroutput>B_TRANSPARENT_COLOR</computeroutput>. If the button is the default button the window&apos;s default button is updated.</para>
+<para><simplesect kind="see"><para><ref refid="classBControl_1a460fa93bcdd5309d8d86f8bfcd53b584" kindref="member">BControl::AttachedToWindow()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a1946a6658404aef5e374bf37e0d276ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::KeyDown</definition>
+        <argsstring>(const char *bytes, int32 numBytes)</argsstring>
+        <name>KeyDown</name>
+        <qualifiedname>BButton::KeyDown</qualifiedname>
+        <reimplements refid="classBControl_1ade80a87b7da08e9b84b188c629ec36c8">KeyDown</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>numBytes</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a keyboard key is pressed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Invokes the button on <emphasis>B_ENTER</emphasis> or <emphasis>B_SPACE</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bytes of the key combination pressed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numBytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes in <emphasis>bytes</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a9954aa8549ffb7cddd1a401997fd07a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BButton::MessageReceived</qualifiedname>
+        <reimplements refid="classBControl_1a19960b4d0a96144f73065a6ea1f2f8e2">MessageReceived</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handle <emphasis>message</emphasis> received by the associated looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> received by the associated looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">BHandler::MessageReceived()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="56" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1ace1f01da01eef93adbecd91ce2d49ac1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::WindowActivated</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>WindowActivated</name>
+        <qualifiedname>BButton::WindowActivated</qualifiedname>
+        <reimplements refid="classBControl_1ab665fb93df191662a1757f78555a5b21">WindowActivated</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the attached window is activated or deactivated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Redraws the focus ring around the control when the window is activated or deactivated if it is the window&apos;s current focus view.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> if the window becomes activated, <computeroutput>false</computeroutput> if the window becomes deactivated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a5b7aeff0b2608ec63e2c01153a7717f6" kindref="member">BView::WindowActivated()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="57" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a8ba8b18062ea15ecd55d83458885adf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::MouseMoved</definition>
+        <argsstring>(BPoint where, uint32 code, const BMessage *dragMessage)</argsstring>
+        <name>MouseMoved</name>
+        <qualifiedname>BButton::MouseMoved</qualifiedname>
+        <reimplements refid="classBControl_1aafa3507bfcf6f058d269a6e3bd6d30be">MouseMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>dragMessage</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the mouse is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Once <ref refid="classBButton_1a479d27a48b957709b47159360c04157f" kindref="member">MouseDown()</ref> has been called this method updates the button&apos;s value if the mouse cursor is inside the button. The value that is set depends on if the button is using <computeroutput>B_TOGGLE_BEHAVIOR</computeroutput> or not.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new location of the mouse in the view&apos;s coordinate system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the following:<itemizedlist>
+<listitem><para><computeroutput>B_ENTERED_VIEW</computeroutput> The cursor has just entered the view.</para>
+</listitem><listitem><para><computeroutput>B_INSIDE_VIEW</computeroutput> The cursor is inside the view.</para>
+</listitem><listitem><para><computeroutput>B_EXITED_VIEW</computeroutput> The cursor has left the view&apos;s bounds. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>.</para>
+</listitem><listitem><para><computeroutput>B_OUTSIDE_VIEW</computeroutput> The cursor is outside the view. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dragMessage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If a drag-and-drop operation is taking place this is a pointer to a <ref refid="classBMessage" kindref="compound">BMessage</ref> that holds the drag information, otherwise the pointer is <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref>, <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" kindref="member">DragMessage()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="58" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1abdf9eedcccc9bbf8edce48b32361a749" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::MouseUp</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseUp</name>
+        <qualifiedname>BButton::MouseUp</qualifiedname>
+        <reimplements refid="classBControl_1aeef31f13aee4d5d0b3dbb0f7e12beb39">MouseUp</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is released. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the value of the button if <ref refid="classBButton_1a479d27a48b957709b47159360c04157f" kindref="member">MouseDown()</ref> was previously called on the button. The value that is set depends on if the button is using <computeroutput>B_TOGGLE_BEHAVIOR</computeroutput> or not.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is released.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="60" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a2324e5b37fa2c3c4e8d2c63763172d12" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::DetachedFromWindow</definition>
+        <argsstring>()</argsstring>
+        <name>DetachedFromWindow</name>
+        <qualifiedname>BButton::DetachedFromWindow</qualifiedname>
+        <reimplements refid="classBControl_1a588fea0ded4cdc4c1b4fb5d1f5565f27">DetachedFromWindow</reimplements>
+        <briefdescription>
+<para>Hook method called when the button is detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="61" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1ac37b4c9e5a10b431ac7f31127c9829b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::FrameMoved</definition>
+        <argsstring>(BPoint newPosition)</argsstring>
+        <name>FrameMoved</name>
+        <qualifiedname>BButton::FrameMoved</qualifiedname>
+        <reimplements refid="classBView_1a551c22b45301e13a3ba959eece3cec7f">FrameMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>newPosition</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the button is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point of the top left corner of the frame that the view has been moved to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="67" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a5f2aca854bb9226c6c1dd37e693d89b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::FrameResized</definition>
+        <argsstring>(float newWidth, float newHeight)</argsstring>
+        <name>FrameResized</name>
+        <qualifiedname>BButton::FrameResized</qualifiedname>
+        <reimplements refid="classBView_1a85d88f9c2bb6800560874b2061378fa0">FrameResized</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newWidth</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>newHeight</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the button is resized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="68" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a9a888bcbcdcf8a924b6010ef6e7f46a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::AllAttached</definition>
+        <argsstring>()</argsstring>
+        <name>AllAttached</name>
+        <qualifiedname>BButton::AllAttached</qualifiedname>
+        <reimplements refid="classBControl_1a2abeec720f873da7c4bc3a2709ff8be0">AllAttached</reimplements>
+        <briefdescription>
+<para>Similar to <ref refid="classBButton_1a8514d1d173d5a852f52354107dedce7f" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been attached to a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="71" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a4c8d87c3ceb9b867dae9adc68526cb0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::AllDetached</definition>
+        <argsstring>()</argsstring>
+        <name>AllDetached</name>
+        <qualifiedname>BButton::AllDetached</qualifiedname>
+        <reimplements refid="classBControl_1a991c0eecd0279cbc27c5f9a0fbc37920">AllDetached</reimplements>
+        <briefdescription>
+<para>Similar to <ref refid="classBButton_1a8514d1d173d5a852f52354107dedce7f" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="72" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a88a1584e52ce63d14ceb4e234ca38a5b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::LayoutInvalidated</definition>
+        <argsstring>(bool descendants=false)</argsstring>
+        <name>LayoutInvalidated</name>
+        <qualifiedname>BButton::LayoutInvalidated</qualifiedname>
+        <reimplements refid="classBView_1a0a552cc0d8678939c619f98dcc80d254">LayoutInvalidated</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>descendants</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Hook method called when the layout is invalidated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Invalidate cached preferred size.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>descendants</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not child views have also been invalidated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="87" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655" prot="public" static="no" strong="no">
+        <type></type>
+        <name>BBehavior</name>
+        <qualifiedname>BButton::BBehavior</qualifiedname>
+        <enumvalue id="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655a9000242cb191e7f5af078b5b118fb1d9" prot="public">
+          <name>B_BUTTON_BEHAVIOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655af507e914526b55033b408b66e90811d2" prot="public">
+          <name>B_TOGGLE_BEHAVIOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655aaa66473e80ad3df522b0718208935568" prot="public">
+          <name>B_POP_UP_BEHAVIOR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="14" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Button.h" bodystart="14" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBButton_1a343e4ae15ac452b16f218e3487cbf28b" prot="private" static="no" mutable="no">
+        <type>BBehavior</type>
+        <definition>BBehavior BButton::fBehavior</definition>
+        <argsstring></argsstring>
+        <name>fBehavior</name>
+        <qualifiedname>BButton::fBehavior</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="106" column="10" bodyfile="/boot/home/src/haiku/headers/os/interface/Button.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBButton_1aaaccadeebf379c80a41744daed16ed8f" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BButton::fFlags</definition>
+        <argsstring></argsstring>
+        <name>fFlags</name>
+        <qualifiedname>BButton::fFlags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="105" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Button.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBButton_1a0178854d59fb932e325456dfa2a681a4" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage* BButton::fPopUpMessage</definition>
+        <argsstring></argsstring>
+        <name>fPopUpMessage</name>
+        <qualifiedname>BButton::fPopUpMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="107" column="9" bodyfile="/boot/home/src/haiku/headers/os/interface/Button.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBButton_1abb63de92123c289a0e4c8f0bc5f93319" prot="private" static="no" mutable="no">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BButton::fPreferredSize</definition>
+        <argsstring></argsstring>
+        <name>fPreferredSize</name>
+        <qualifiedname>BButton::fPreferredSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="104" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Button.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBButton_1a1e4e191108e817e0c4f666e8c06b5460" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BButton::BButton</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BButton</name>
+        <qualifiedname>BButton::BButton</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="classBButton" kindref="compound">BButton</ref> object from an <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is usually not called directly. If you want to build a button from a message you should call <ref refid="classBButton_1a578835166502d128d1e038602f5f9c6d" kindref="member">Instantiate()</ref> which can handle errors properly.</para>
+<para>If the <emphasis>data</emphasis> deep, the <ref refid="classBButton" kindref="compound">BButton</ref> object will also unarchive each of its child views recursively.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>data</emphasis> message to restore from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="32" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1abc54e951f00a41e93c68487808f1605c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BButton::BButton</definition>
+        <argsstring>(BRect frame, const char *name, const char *label, BMessage *message, uint32 resizingMode=B_FOLLOW_LEFT_TOP, uint32 flags=B_WILL_DRAW|B_NAVIGABLE|B_FULL_UPDATE_ON_RESIZE)</argsstring>
+        <name>BButton</name>
+        <qualifiedname>BButton::BButton</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>resizingMode</declname>
+          <defval><ref refid="View_8h_1a8a6df90f52ddaede7f1aaf43339638e5" kindref="member">B_FOLLOW_LEFT_TOP</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval><ref refid="View_8h_1a59354fa34a5663d714649927705fd4bf" kindref="member">B_WILL_DRAW</ref>|<ref refid="View_8h_1aa81b14ef09870d992f97f6f1163dc0a9" kindref="member">B_NAVIGABLE</ref>|<ref refid="View_8h_1ab6f1dd49aa7b471c09594a11e5503b42" kindref="member">B_FULL_UPDATE_ON_RESIZE</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a <ref refid="classBButton" kindref="compound">BButton</ref> control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>A <ref refid="classBButton" kindref="compound">BButton</ref> created with a constructor that includes a frame parameter does <bold>not</bold> utilize the Layout Kit to position and size the control.</para>
+</simplesect>
+<ref refid="classBControl" kindref="compound">BControl</ref> initializes the button&apos;s label and assigns it a message that identifies the action that should be carried out when the button is pressed. When the button is attached to a window it is resizes to the height of the button&apos;s frame rectangle to fit the button&apos;s border and label in the button&apos;s font.</para>
+<para>The <emphasis>frame</emphasis>, <emphasis>name</emphasis>, <emphasis>resizingMode</emphasis>, and <emphasis>flags</emphasis> parameters are passed up the inheritance chain to the <ref refid="classBView" kindref="compound">BView</ref> class.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frame rectangle that the button is draw into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the button. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The button label text. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The BButtons&apos;s action message. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resizingMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mask sets the parameters by which the <ref refid="classBButton" kindref="compound">BButton</ref> can be resized. See <ref refid="classBView" kindref="compound">BView</ref> for more information on resizing options. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>flags</emphasis> mask sets what notifications the <ref refid="classBButton" kindref="compound">BButton</ref> can receive. See <ref refid="classBView" kindref="compound">BView</ref> for more information on <emphasis>flags</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a8fd8464e0b2288e0e5451bc683d7d5b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BButton::BButton</definition>
+        <argsstring>(const char *label, BMessage *message=NULL)</argsstring>
+        <name>BButton</name>
+        <qualifiedname>BButton::BButton</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a <ref refid="classBButton" kindref="compound">BButton</ref> control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates the button with the specified <emphasis>label</emphasis>. The action carried out by the button is specified by the <emphasis>message</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The button&apos;s <emphasis>label</emphasis> text. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buttons action <emphasis>message</emphasis>. Can be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="30" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a454f793b3e781dbc681add9d35e29705" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BButton::BButton</definition>
+        <argsstring>(const char *name, const char *label, BMessage *message, uint32 flags=B_WILL_DRAW|B_NAVIGABLE|B_FULL_UPDATE_ON_RESIZE)</argsstring>
+        <name>BButton</name>
+        <qualifiedname>BButton::BButton</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval><ref refid="View_8h_1a59354fa34a5663d714649927705fd4bf" kindref="member">B_WILL_DRAW</ref>|<ref refid="View_8h_1aa81b14ef09870d992f97f6f1163dc0a9" kindref="member">B_NAVIGABLE</ref>|<ref refid="View_8h_1ab6f1dd49aa7b471c09594a11e5503b42" kindref="member">B_FULL_UPDATE_ON_RESIZE</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a <ref refid="classBButton" kindref="compound">BButton</ref> control. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBControl" kindref="compound">BControl</ref> initializes the button&apos;s label and assigns it a message that identifies the action that should be carried out when the button is pressed. When the button is attached to a window it is resizes to the height of the button&apos;s frame rectange to fit the button&apos;s border and label in the button&apos;s font.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>name</emphasis> of the button. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The button&apos;s <emphasis>label</emphasis> text. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The button&apos;s action <emphasis>message</emphasis>. Can be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>flags</emphasis> mask sets what notifications the button can receive. See <ref refid="classBView" kindref="compound">BView</ref> for more information on <emphasis>flags</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a4b4da0f3dcc211f99a8d011f5cab28ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BButton::~BButton</definition>
+        <argsstring>()</argsstring>
+        <name>~BButton</name>
+        <qualifiedname>BButton::~BButton</qualifiedname>
+        <briefdescription>
+<para>Destructor, does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="34" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a5cab9e41370245c86343daa8433f2415" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>BBehavior</type>
+        <definition>BButton::BBehavior BButton::Behavior</definition>
+        <argsstring>() const</argsstring>
+        <name>Behavior</name>
+        <qualifiedname>BButton::Behavior</qualifiedname>
+        <briefdescription>
+<para>Returns the buttons behavior. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The button behavior flag.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="50" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1adba3ed10370f960a0a408413569adf30" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::GetPreferredSize</definition>
+        <argsstring>(float *_width, float *_height)</argsstring>
+        <name>GetPreferredSize</name>
+        <qualifiedname>BButton::GetPreferredSize</qualifiedname>
+        <reimplements refid="classBControl_1a22455c705a4ed0fd09908b36a8dda3ae">GetPreferredSize</reimplements>
+        <param>
+          <type>float *</type>
+          <declname>_width</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_height</declname>
+        </param>
+        <briefdescription>
+<para>Fill out the preferred width and height of the button into the <emphasis>_width</emphasis> and <emphasis>_height</emphasis> parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Derived classes can override this method to set the preferred width and height of the control.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a <computeroutput>float</computeroutput> to hold the width of the control. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a <computeroutput>float</computeroutput> to hold the height of the control.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a089c3ff794c454388a9388c7b6568478" kindref="member">BView::GetPreferredSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="63" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1af912fac07ee02f90a12a4011e5a493cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BButton::GetSupportedSuites</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BButton::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBControl_1a3b545ffe2ee04f62eaa567582225adba">GetSupportedSuites</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Report the suites of messages this control understands. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the string &quot;suite/vnd.Be-control&quot; to the message.</para>
+<para><simplesect kind="since"><para>BeOS R3     </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="77" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1ad9942f380f9e8337147f307972e02a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BButton::Invoke</definition>
+        <argsstring>(BMessage *message=NULL)</argsstring>
+        <name>Invoke</name>
+        <qualifiedname>BButton::Invoke</qualifiedname>
+        <reimplements refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e">Invoke</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sends a copy of the model <emphasis>message</emphasis> to the designated target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBControl_1afa04e938d3c42b1de43baa48edb8fd3e" kindref="member">BControl::Invoke()</ref> overrides <ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref>. Derived classes should use this method in their <ref refid="classBButton_1a479d27a48b957709b47159360c04157f" kindref="member">MouseDown()</ref> and <ref refid="classBButton_1a1946a6658404aef5e374bf37e0d276ad" kindref="member">KeyDown()</ref> methods and should call <ref refid="classBControl_1a179de32505328b72911cd85bf2c3cfe8" kindref="member">IsEnabled()</ref> to check if the control is enabled before calling <ref refid="classBButton_1ad9942f380f9e8337147f307972e02a9b" kindref="member">Invoke()</ref>.</para>
+<para>The following fields added to the <ref refid="classBMessage" kindref="compound">BMessage</ref>:<itemizedlist>
+<listitem><para>&quot;when&quot; <computeroutput>B_INT64_TYPE</computeroutput> system_time()</para>
+</listitem><listitem><para>&quot;source&quot; <computeroutput>B_POINTER_TYPE</computeroutput> A pointer to the <ref refid="classBControl" kindref="compound">BControl</ref> object.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> to send.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the control was invoked, otherwise an error code is returned.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1a179de32505328b72911cd85bf2c3cfe8" kindref="member">IsEnabled()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="66" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1ab8a01256f309f3e75fd6c7d0564d233e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BButton::IsDefault</definition>
+        <argsstring>() const</argsstring>
+        <name>IsDefault</name>
+        <qualifiedname>BButton::IsDefault</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the button is the default button on the window, i.e. whether or not it responds to the Enter key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the button is the default button, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="45" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1ae38d8f3e62901af40b18f1574d60346c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BButton::IsFlat</definition>
+        <argsstring>() const</argsstring>
+        <name>IsFlat</name>
+        <qualifiedname>BButton::IsFlat</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the button is flat or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the button is flat, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="47" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a42436301d7a3e6b5e07bc1608463ac47" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::MakeDefault</definition>
+        <argsstring>(bool flag)</argsstring>
+        <name>MakeDefault</name>
+        <qualifiedname>BButton::MakeDefault</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+<para>Make the <ref refid="classBButton" kindref="compound">BButton</ref> the default button i.e. it will be activated when the user pushes the Enter key. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A window can have only one default button at a time.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to make the button the default button, <computeroutput>false</computeroutput> to remove the default button status.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBWindow_1ab6c969b403bd24dc8b1e9d846a4ae414" kindref="member">BWindow::SetDefaultButton()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="43" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1abc826951b0a87f2ce4cf6cc10eb792d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::MakeFocus</definition>
+        <argsstring>(bool focus=true)</argsstring>
+        <name>MakeFocus</name>
+        <qualifiedname>BButton::MakeFocus</qualifiedname>
+        <reimplements refid="classBControl_1aaeeae39969b598868ad0e8d3298efb00">MakeFocus</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>focus</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Makes the button the current focus view of the window or gives up being the window&apos;s focus view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBControl_1aaeeae39969b598868ad0e8d3298efb00" kindref="member">BControl::MakeFocus()</ref> overrides <ref refid="classBView_1a266a368d81c6e1668b2b9b22b5016853" kindref="member">BView::MakeFocus()</ref> to call <ref refid="classBButton_1adc0ec950461375f62cf5da3355aebf53" kindref="member">Draw()</ref> when the focus changes. Derived classes generally don&apos;t have to re-implement <ref refid="classBButton_1abc826951b0a87f2ce4cf6cc10eb792d6" kindref="member">MakeFocus()</ref>.</para>
+<para><ref refid="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" kindref="member">IsFocusChanging()</ref> returns <computeroutput>true</computeroutput> when <ref refid="classBButton_1adc0ec950461375f62cf5da3355aebf53" kindref="member">Draw()</ref> is called from this method.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>focus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>true</emphasis> to set focus, <emphasis>false</emphasis> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a266a368d81c6e1668b2b9b22b5016853" kindref="member">BView::MakeFocus()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" kindref="member">IsFocusChanging()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="70" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1adeda5a0a1e19c006c422690d7bcdbd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BButton::MaxSize</definition>
+        <argsstring>()</argsstring>
+        <name>MaxSize</name>
+        <qualifiedname>BButton::MaxSize</qualifiedname>
+        <reimplements refid="classBView_1ad1f1843a380e850948cf7e4ed2d5f1ba">MaxSize</reimplements>
+        <briefdescription>
+<para>Returns the button&apos;s maximum size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The button&apos;s maximum size as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="81" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a44d82f5e5ec77df79ab955d48eb2f6cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BButton::MinSize</definition>
+        <argsstring>()</argsstring>
+        <name>MinSize</name>
+        <qualifiedname>BButton::MinSize</qualifiedname>
+        <reimplements refid="classBView_1acfb0cffde35b853dab6bc5d1bb03265f">MinSize</reimplements>
+        <briefdescription>
+<para>Returns the button&apos;s minimum size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The button&apos;s minimum size as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="80" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1aee74330d076b7b8487fe21443118b03d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BButton::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BButton::Perform</qualifiedname>
+        <reimplements refid="classBControl_1a0b32524cd2abfb7ea37b9988b180c733">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+          <defname>code</defname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+          <defname>_data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Perform some action. (Internal Method)  </para>
+<para>This method is available to allow classes to be extended while maintaining binary compatibility.</para>
+<para>The following perform codes are recognized:<itemizedlist>
+<listitem><para><computeroutput>PERFORM_CODE_MIN_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_MAX_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_PREFERRED_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_LAYOUT_ALIGNMENT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_HAS_HEIGHT_FOR_WIDTH:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_GET_HEIGHT_FOR_WIDTH:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_SET_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_INVALIDATE_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_DO_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_GET_TOOL_TIP_AT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_ALL_UNARCHIVED:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_ALL_ARCHIVED:</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The perform code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to store some data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="78" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a7ee68788feb529301ea9ccacd30fa8f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage * BButton::PopUpMessage</definition>
+        <argsstring>() const</argsstring>
+        <name>PopUpMessage</name>
+        <qualifiedname>BButton::PopUpMessage</qualifiedname>
+        <briefdescription>
+<para>Returns the message sent to the button&apos;s target when the pop-up marker is selected using <computeroutput>B_POP_UP_BEHAVIOR</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The message sent to the button&apos;s target.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1abe79a7ea1bff9983c64108da1c065599" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BButton::PreferredSize</definition>
+        <argsstring>()</argsstring>
+        <name>PreferredSize</name>
+        <qualifiedname>BButton::PreferredSize</qualifiedname>
+        <reimplements refid="classBView_1a7f51d63e71b60a2721d04436ffbcfe36">PreferredSize</reimplements>
+        <briefdescription>
+<para>Returns the button&apos;s preferred size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The button&apos;s preferred size as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="82" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a6468013205fd98f26440cd63911b9b34" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::ResizeToPreferred</definition>
+        <argsstring>()</argsstring>
+        <name>ResizeToPreferred</name>
+        <qualifiedname>BButton::ResizeToPreferred</qualifiedname>
+        <reimplements refid="classBControl_1ad25f5ce6f17b5fe6fd6347021e9222e4">ResizeToPreferred</reimplements>
+        <briefdescription>
+<para>Resize the button to its preferred size. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>It is not recommended to use this method for views that are part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="65" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a16b56f270bcba826cd8a1eb043adb474" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BButton::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 what, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BButton::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBControl_1a084be37bbc0c49627c42a078c4b4dac8">ResolveSpecifier</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the proper handler for a scripting message.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="74" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a6287fe4898e16049f42e373af26e09f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BButton::SetBehavior</definition>
+        <argsstring>(BBehavior behavior)</argsstring>
+        <name>SetBehavior</name>
+        <qualifiedname>BButton::SetBehavior</qualifiedname>
+        <param>
+          <type>BBehavior</type>
+          <declname>behavior</declname>
+        </param>
+        <briefdescription>
+<para>Sets the button behavior. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>behavior</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the following:<itemizedlist>
+<listitem><para><computeroutput>B_BUTTON_BEHAVIOR</computeroutput> Normal behavior,</para>
+</listitem><listitem><para><computeroutput>B_TOGGLE_BEHAVIOR</computeroutput> Acts like a check box,</para>
+</listitem><listitem><para><computeroutput>B_POP_UP_BEHAVIOR</computeroutput> Adds a pop-up marker to the button (similar to that of <ref refid="classBMenuField" kindref="compound">BMenuField</ref>).</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="51" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a9f9ead66b7c99f1dbf96bc275a6f4290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BButton::SetFlat</definition>
+        <argsstring>(bool flat)</argsstring>
+        <name>SetFlat</name>
+        <qualifiedname>BButton::SetFlat</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>flat</declname>
+        </param>
+        <briefdescription>
+<para>Sets or unsets the button to be flat. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to make the button flat, <computeroutput>false</computeroutput> to make the button not flat.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="48" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1ad167627166b5988a41c90bfa95ece336" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BButton::SetIcon</definition>
+        <argsstring>(const BBitmap *icon, uint32 flags=0)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BButton::SetIcon</qualifiedname>
+        <reimplements refid="classBControl_1acf788aa66dd061c78256f357df691765">SetIcon</reimplements>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>This convenience method is used to set the bitmaps for the standard states from a single bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>icon</emphasis> to set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Modify how the icon is set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the icon was set or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBControl_1acf788aa66dd061c78256f357df691765" kindref="member">BControl::SetIcon()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="84" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1addc58de70c9b2acff2c1e407696f772f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::SetLabel</definition>
+        <argsstring>(const char *string)</argsstring>
+        <name>SetLabel</name>
+        <qualifiedname>BButton::SetLabel</qualifiedname>
+        <reimplements refid="classBControl_1a2894bf781c41b3ab8a99417f098e71dc">SetLabel</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+          <defname>label</defname>
+        </param>
+        <briefdescription>
+<para>Sets the button&apos;s label. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to set the label to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="44" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a42f542a5b3b6d9a2a7d740d468cee0eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BButton::SetPopUpMessage</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>SetPopUpMessage</name>
+        <qualifiedname>BButton::SetPopUpMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Sets the message sent to the button&apos;s target when the pop-up marker is selected using <computeroutput>B_POP_UP_BEHAVIOR</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> sent to the button&apos;s target.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="54" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a2944b5facaa051c2e2f20b2f9874b494" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BButton::SetValue</definition>
+        <argsstring>(int32 value)</argsstring>
+        <name>SetValue</name>
+        <qualifiedname>BButton::SetValue</qualifiedname>
+        <reimplements refid="classBControl_1a7841a122e7fa9ab5efb5217c562e763d">SetValue</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the value of the button. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method can be overridden in order to take a different action when the value changes.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to set to the <ref refid="classBButton" kindref="compound">BButton</ref> to. Options include:<itemizedlist>
+<listitem><para><computeroutput>0</computeroutput> (<computeroutput>B_CONTROL_OFF</computeroutput>)</para>
+</listitem><listitem><para><computeroutput>1</computeroutput> (<computeroutput>B_CONTROL_ON</computeroutput>)</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBControl_1a7841a122e7fa9ab5efb5217c562e763d" kindref="member">BControl::SetValue()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="62" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBButton_1a93cc0d74a846b8154bdae9c57df87567" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BButton::_Flag</definition>
+        <argsstring>(uint32 flag) const</argsstring>
+        <name>_Flag</name>
+        <qualifiedname>BButton::_Flag</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="100" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a897c752bc678058d7d92851711c683f3" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BButton::_PopUpRect</definition>
+        <argsstring>() const</argsstring>
+        <name>_PopUpRect</name>
+        <qualifiedname>BButton::_PopUpRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="98" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a02957334f970e472b3f74450f26092b4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BButton::_ReservedButton1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedButton1</name>
+        <qualifiedname>BButton::_ReservedButton1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="90" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1aa7835d675fde08270803897839f172c8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BButton::_ReservedButton2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedButton2</name>
+        <qualifiedname>BButton::_ReservedButton2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="91" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a86bae6390d3ed61f290106ad3c703c48" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BButton::_ReservedButton3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedButton3</name>
+        <qualifiedname>BButton::_ReservedButton3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="92" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a9c2b1439313188a5435be696ef82f040" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BButton::_SetFlag</definition>
+        <argsstring>(uint32 flag, bool set)</argsstring>
+        <name>_SetFlag</name>
+        <qualifiedname>BButton::_SetFlag</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flag</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>set</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="101" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a7147e3f59143f7c67e5b9a78583be898" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BButton::_ValidatePreferredSize</definition>
+        <argsstring>()</argsstring>
+        <name>_ValidatePreferredSize</name>
+        <qualifiedname>BButton::_ValidatePreferredSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="96" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBButton_1a2a6bc375ba4cdc3c605ef13427e79568" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBButton" kindref="compound">BButton</ref> &amp;</type>
+        <definition>BButton &amp; BButton::operator=</definition>
+        <argsstring>(const BButton &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BButton::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBButton" kindref="compound">BButton</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="94" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A control used to initiate an action. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>An action is activated by clicking on the button with the mouse or by a keyboard button. If the button is the default button for the active window then you can activate it by pushing the Enter key.</para>
+<para><image type="html" name="BButton_example.png"></image>
+</para>
+<para>The behavior of a button depends on its behavior. The normal behavior of a button is to set the value to 1 (<computeroutput>B_CONTROL_ON</computeroutput>) only when the button is activated, otherwise the value is 0 (<computeroutput>B_CONTROL_OFF</computeroutput>). Setting a button to use <computeroutput>B_TOGGLE_BEHAVIOR</computeroutput> makes the button behave like a checkbox so that each time the button is activate the value toggles between <computeroutput>B_CONTROL_OFF</computeroutput> and <computeroutput>B_CONTROL_ON</computeroutput>. The third behavior to use is <computeroutput>B_POP_UP_BEHAVIOR</computeroutput> which adds a pop-up marker to the button similar to that of <ref refid="classBMenuField" kindref="compound">BMenuField</ref>.</para>
+<para>A button may have either a text label, an icon, or both. The button&apos;s label is set in the constructor or by the <ref refid="classBButton_1addc58de70c9b2acff2c1e407696f772f" kindref="member">SetLabel()</ref> method. To set the icon for a button use the <ref refid="classBButton_1ad167627166b5988a41c90bfa95ece336" kindref="member">SetIcon()</ref> method. The text label will draw to the right of the icon.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BButton</label>
+        <link refid="classBButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BControl</label>
+        <link refid="classBControl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BInvoker</label>
+        <link refid="classBInvoker"/>
+      </node>
+      <node id="3">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BButton</label>
+        <link refid="classBButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BControl</label>
+        <link refid="classBControl"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BInvoker</label>
+        <link refid="classBInvoker"/>
+      </node>
+      <node id="3">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/Button.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Button.h" bodystart="12" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classBButton_1a93cc0d74a846b8154bdae9c57df87567" prot="private" virt="non-virtual"><scope>BButton</scope><name>_Flag</name></member>
+      <member refid="classBButton_1a897c752bc678058d7d92851711c683f3" prot="private" virt="non-virtual"><scope>BButton</scope><name>_PopUpRect</name></member>
+      <member refid="classBButton_1a02957334f970e472b3f74450f26092b4" prot="private" virt="virtual"><scope>BButton</scope><name>_ReservedButton1</name></member>
+      <member refid="classBButton_1aa7835d675fde08270803897839f172c8" prot="private" virt="virtual"><scope>BButton</scope><name>_ReservedButton2</name></member>
+      <member refid="classBButton_1a86bae6390d3ed61f290106ad3c703c48" prot="private" virt="virtual"><scope>BButton</scope><name>_ReservedButton3</name></member>
+      <member refid="classBButton_1a9c2b1439313188a5435be696ef82f040" prot="private" virt="non-virtual"><scope>BButton</scope><name>_SetFlag</name></member>
+      <member refid="classBButton_1a7147e3f59143f7c67e5b9a78583be898" prot="private" virt="non-virtual"><scope>BButton</scope><name>_ValidatePreferredSize</name></member>
+      <member refid="classBView_1ab6382c582e5e1be527d3199459d05e8f" prot="public" virt="non-virtual"><scope>BButton</scope><name>AddChild</name></member>
+      <member refid="classBView_1a5d30ae4fa0119bf5286f52f83c2f351c" prot="public" virt="non-virtual"><scope>BButton</scope><name>AddChild</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BButton</scope><name>AddFilter</name></member>
+      <member refid="classBView_1a88440336a66ee9b1a4b1661e9ba9e59c" prot="public" virt="non-virtual"><scope>BButton</scope><name>AddLine</name></member>
+      <member refid="classBView_1ac780f029d415ee0a915792b4e756fa77" prot="public" virt="non-virtual"><scope>BButton</scope><name>AdoptParentColors</name></member>
+      <member refid="classBView_1a0e429a82fe06e9ab390b06d993ee31be" prot="public" virt="non-virtual"><scope>BButton</scope><name>AdoptSystemColors</name></member>
+      <member refid="classBView_1ab68ad7103708884f9e6fd84e8a579746" prot="public" virt="non-virtual"><scope>BButton</scope><name>AdoptViewColors</name></member>
+      <member refid="classBView_1a561e82ed41cbb93d3bacf371787497bf" prot="public" virt="virtual"><scope>BButton</scope><name>AllArchived</name></member>
+      <member refid="classBButton_1a9a888bcbcdcf8a924b6010ef6e7f46a9" prot="public" virt="virtual"><scope>BButton</scope><name>AllAttached</name></member>
+      <member refid="classBButton_1a4c8d87c3ceb9b867dae9adc68526cb0b" prot="public" virt="virtual"><scope>BButton</scope><name>AllDetached</name></member>
+      <member refid="classBView_1ab7bd04272afed8b28bf57d1de33cbe05" prot="public" virt="virtual"><scope>BButton</scope><name>AllUnarchived</name></member>
+      <member refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" prot="public" virt="non-virtual"><scope>BButton</scope><name>AppendToPicture</name></member>
+      <member refid="classBButton_1adce5e4839a58c3bb85965398a490d720" prot="public" virt="virtual"><scope>BButton</scope><name>Archive</name></member>
+      <member refid="classBButton_1a8514d1d173d5a852f52354107dedce7f" prot="public" virt="virtual"><scope>BButton</scope><name>AttachedToWindow</name></member>
+      <member refid="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655a9000242cb191e7f5af078b5b118fb1d9" prot="public" virt="non-virtual"><scope>BButton</scope><name>B_BUTTON_BEHAVIOR</name></member>
+      <member refid="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655aaa66473e80ad3df522b0718208935568" prot="public" virt="non-virtual"><scope>BButton</scope><name>B_POP_UP_BEHAVIOR</name></member>
+      <member refid="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655af507e914526b55033b408b66e90811d2" prot="public" virt="non-virtual"><scope>BButton</scope><name>B_TOGGLE_BEHAVIOR</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BButton</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BButton</scope><name>BArchivable</name></member>
+      <member refid="classBButton_1a97a9c30f5d56cdbee38fb0fb21224655" prot="public" virt="non-virtual"><scope>BButton</scope><name>BBehavior</name></member>
+      <member refid="classBButton_1abc54e951f00a41e93c68487808f1605c" prot="public" virt="non-virtual"><scope>BButton</scope><name>BButton</name></member>
+      <member refid="classBButton_1a454f793b3e781dbc681add9d35e29705" prot="public" virt="non-virtual"><scope>BButton</scope><name>BButton</name></member>
+      <member refid="classBButton_1a8fd8464e0b2288e0e5451bc683d7d5b0" prot="public" virt="non-virtual"><scope>BButton</scope><name>BButton</name></member>
+      <member refid="classBButton_1a1e4e191108e817e0c4f666e8c06b5460" prot="public" virt="non-virtual"><scope>BButton</scope><name>BButton</name></member>
+      <member refid="classBControl_1ae2bd77f0349ca0197b7599393a6ae3ca" prot="public" virt="non-virtual"><scope>BButton</scope><name>BControl</name></member>
+      <member refid="classBControl_1a6243ab82eecb7ac3a5c35592a057845d" prot="public" virt="non-virtual"><scope>BButton</scope><name>BControl</name></member>
+      <member refid="classBControl_1a1224f952eb63f1b0d338720b88fdf220" prot="public" virt="non-virtual"><scope>BButton</scope><name>BControl</name></member>
+      <member refid="classBInvoker_1ada272cb8671448d7f7efd607791f31a7" prot="protected" virt="non-virtual"><scope>BButton</scope><name>BeginInvokeNotify</name></member>
+      <member refid="classBView_1abe65757b7c83c8db390bf0c87457a343" prot="public" virt="non-virtual"><scope>BButton</scope><name>BeginLayer</name></member>
+      <member refid="classBView_1ab3f2e9f54d2b93952b27e182ac552983" prot="public" virt="non-virtual"><scope>BButton</scope><name>BeginLineArray</name></member>
+      <member refid="classBView_1a14155192773aad22ebe47a9975afac5f" prot="public" virt="non-virtual"><scope>BButton</scope><name>BeginPicture</name></member>
+      <member refid="classBView_1ac1eb1eeee67ec97205a4acc6955185bd" prot="public" virt="non-virtual"><scope>BButton</scope><name>BeginRectTracking</name></member>
+      <member refid="classBButton_1a5cab9e41370245c86343daa8433f2415" prot="public" virt="non-virtual"><scope>BButton</scope><name>Behavior</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BButton</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BButton</scope><name>BHandler</name></member>
+      <member refid="classBInvoker_1ad03149db91cd6460f12adb72780a7080" prot="public" virt="non-virtual"><scope>BButton</scope><name>BInvoker</name></member>
+      <member refid="classBInvoker_1a6405334f1589c7a9fc3604ff8a4c8c83" prot="public" virt="non-virtual"><scope>BButton</scope><name>BInvoker</name></member>
+      <member refid="classBInvoker_1adaf9b3df1b4a318e10df04a5eb9f59ee" prot="public" virt="non-virtual"><scope>BButton</scope><name>BInvoker</name></member>
+      <member refid="classBView_1acbb8ea442346e91428689163db9d633e" prot="public" virt="non-virtual"><scope>BButton</scope><name>Bounds</name></member>
+      <member refid="classBView_1ab148f59c41c9a22ced87bf7a0221ed62" prot="public" virt="non-virtual"><scope>BButton</scope><name>BView</name></member>
+      <member refid="classBView_1ae3a1b2a66dc19690e766623be65c37e2" prot="public" virt="non-virtual"><scope>BButton</scope><name>BView</name></member>
+      <member refid="classBView_1ae982fac35c278cc64990c506efe3965e" prot="public" virt="non-virtual"><scope>BButton</scope><name>BView</name></member>
+      <member refid="classBView_1aaf91592f50f2f44d16f23e7504f494cb" prot="public" virt="non-virtual"><scope>BButton</scope><name>ChildAt</name></member>
+      <member refid="classBView_1ae7582b9a2b0b446a1de16c681f23baf9" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClearViewBitmap</name></member>
+      <member refid="classBView_1a0ae48f37c3f56b422841638971488cc0" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClearViewOverlay</name></member>
+      <member refid="classBView_1a18d61bcae2a7ca8a1a0977ac23d15171" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClipToInversePicture</name></member>
+      <member refid="classBView_1ad1762d160500ec3ce90c7bd73944d8a7" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClipToInverseRect</name></member>
+      <member refid="classBView_1a17dcb4f2e92994cde9a9ece9caa619c2" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClipToInverseShape</name></member>
+      <member refid="classBView_1a9c92c9e8e306d00dbfef81f2b0282339" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClipToPicture</name></member>
+      <member refid="classBView_1a22ff147a2f0a0bd65de494c9a039acee" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClipToRect</name></member>
+      <member refid="classBView_1ac0884c62949361a7eb6a4834f46b902c" prot="public" virt="non-virtual"><scope>BButton</scope><name>ClipToShape</name></member>
+      <member refid="classBInvoker_1a6eb323ab957a5ee99e8db2b2fb0e9800" prot="public" virt="non-virtual"><scope>BButton</scope><name>Command</name></member>
+      <member refid="classBView_1a656b8d82a6a7c7c6ab33c3dd08aad6ec" prot="public" virt="virtual"><scope>BButton</scope><name>ConstrainClippingRegion</name></member>
+      <member refid="classBView_1a43c16140dd4491a6a6f7bad11bbea1f9" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1aa3201bdf5c489fbab7d67afe3453466d" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1ab2aeeb14409a18f950173e7cb22e147c" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a45b405f10c29442aea8b70161410565f" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a4b794ccd899dc6a0cafd886169122df5" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a75f1d68cf77bccc03930eb8e273f2967" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a3fbc496f437925cb02ccf9e817406e4e" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a44c3b5174e4ccfa4c123e0d5d54e9408" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1ab20700567eabd5f8135be179b4232e2c" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1a91e6a7edab78547be47cb8dc84cfdecf" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ac7bd2e0e7aac40d1be9a47999b5701a9" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ae3b385e4d1b9f70bc848bf2fd0b7753c" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1aefefb1242613b869feb6b8e0cc119518" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1af90cdeb62cc60adf64eb9a669c37c153" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ad99f5af006f28c485f02484752a2ac5d" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ae60c56c306d0cf3f504d710fac8b9bed" prot="public" virt="non-virtual"><scope>BButton</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1a8ace5c5cc811c4ad16acf281ffd1a48d" prot="public" virt="non-virtual"><scope>BButton</scope><name>CopyBits</name></member>
+      <member refid="classBView_1ae30d094a1cb1f3357c4aa7caa4b0e29d" prot="public" virt="non-virtual"><scope>BButton</scope><name>CountChildren</name></member>
+      <member refid="classBView_1ae2a9da1ca04489dd60ef8aefa86331ed" prot="public" virt="non-virtual"><scope>BButton</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBView_1a6389a46cf1842eb0d412b44958955e61" prot="public" virt="non-virtual"><scope>BButton</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBButton_1a2324e5b37fa2c3c4e8d2c63763172d12" prot="public" virt="virtual"><scope>BButton</scope><name>DetachedFromWindow</name></member>
+      <member refid="classBView_1aa165cbaac7d6915feaae6048c4378c85" prot="public" virt="non-virtual"><scope>BButton</scope><name>DisableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9d766a06d0885200c6ababba4c87808b" prot="protected" virt="virtual"><scope>BButton</scope><name>DoLayout</name></member>
+      <member refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" prot="public" virt="non-virtual"><scope>BButton</scope><name>DragMessage</name></member>
+      <member refid="classBView_1a466287a3d939759cc09e4a6d1c9982cd" prot="public" virt="non-virtual"><scope>BButton</scope><name>DragMessage</name></member>
+      <member refid="classBView_1ae1caa1d0bef9452db00c2adc8e3280b4" prot="public" virt="non-virtual"><scope>BButton</scope><name>DragMessage</name></member>
+      <member refid="classBButton_1adc0ec950461375f62cf5da3355aebf53" prot="public" virt="virtual"><scope>BButton</scope><name>Draw</name></member>
+      <member refid="classBView_1abb50623b4236926b068fc5a2264f6a48" prot="public" virt="virtual"><scope>BButton</scope><name>DrawAfterChildren</name></member>
+      <member refid="classBView_1a6171150993fbf7c73966c7c302a95573" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a63db7245fd9b9fefd461d7596c15f9cc" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1abce81666128d183d59b5cf2ed75c7f07" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a1c8b6e3e9218388a68ae43dd408a187c" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a769c3e3dee7d86ed50308f7a3f46ef91" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1ae66727344d35f05c56b6163ad70e360c" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a0ef432afa41aefcb3fdd537e2d290001" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1aa3275b791787a66f3638611cd6a5ae09" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a6931c5fe803eb5fa9e66438d347c4b6d" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1ab50fba0500357abebb9f3ef3832f2e68" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a02ba5c68f21d4345ec3ee683496ce851" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawChar</name></member>
+      <member refid="classBView_1a2ed7c3628692426116fc0bb450c0f0c7" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawChar</name></member>
+      <member refid="classBView_1ae7953a2e451fb6e5a439df9e9dc8451a" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawingMode</name></member>
+      <member refid="classBView_1ae4b252943befd9f0b62e30517b3ecec2" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a2fdf36421cccce9136cdd9966a971955" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a9f5781a2b37113c55950c93b621984a7" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a65498927c21d6681a0e77c4e3d29efba" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a05881f8b07989e1e9db0bd41f8181341" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a7f2fde4e7719bded5af33805b8242b06" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a5c261dbbb4e8157799e85d6ad1530920" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawString</name></member>
+      <member refid="classBView_1a83d77965bd9cda6212189d92b97d8198" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawString</name></member>
+      <member refid="classBView_1ad3830d09ed0300a1144d47ac78cd2dde" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawString</name></member>
+      <member refid="classBView_1a4e1f1c59352a1373ccace7255a0ccf23" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawString</name></member>
+      <member refid="classBView_1a5dacf5d193a0c492f296bc1e402e6370" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawString</name></member>
+      <member refid="classBView_1a135868eb5cd1b35ee1c2d03517b9a33f" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawString</name></member>
+      <member refid="classBView_1a8848d931fd0354860a0e71934e66cb03" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawTiledBitmap</name></member>
+      <member refid="classBView_1ad281a4e40f212e3cb56c23fa6e574a84" prot="public" virt="non-virtual"><scope>BButton</scope><name>DrawTiledBitmapAsync</name></member>
+      <member refid="classBView_1ad43cc5c22f83d95632d3d81eff73f425" prot="public" virt="non-virtual"><scope>BButton</scope><name>EnableLayoutInvalidation</name></member>
+      <member refid="classBInvoker_1a2169cfbba1c3da1921baa9a550581b54" prot="protected" virt="non-virtual"><scope>BButton</scope><name>EndInvokeNotify</name></member>
+      <member refid="classBView_1a9f54d4478a12823f116168a45af30898" prot="public" virt="non-virtual"><scope>BButton</scope><name>EndLayer</name></member>
+      <member refid="classBView_1a24ba922f9698936bc27f48b3c51349a1" prot="public" virt="non-virtual"><scope>BButton</scope><name>EndLineArray</name></member>
+      <member refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" prot="public" virt="non-virtual"><scope>BButton</scope><name>EndPicture</name></member>
+      <member refid="classBView_1a7bcc3532c03eeeb929278de8fcc1fd25" prot="public" virt="non-virtual"><scope>BButton</scope><name>EndRectTracking</name></member>
+      <member refid="classBView_1a8851d500773c732ddbb1a4b31f0ad664" prot="public" virt="non-virtual"><scope>BButton</scope><name>EventMask</name></member>
+      <member refid="classBView_1a1f078f5c987061c5cf3059f7091bcb1a" prot="public" virt="non-virtual"><scope>BButton</scope><name>ExplicitAlignment</name></member>
+      <member refid="classBView_1a4e63cc8ca1f604ccb20f5891adade70f" prot="public" virt="non-virtual"><scope>BButton</scope><name>ExplicitMaxSize</name></member>
+      <member refid="classBView_1a1b24db754473008766cdd0fd9c4ee3b7" prot="public" virt="non-virtual"><scope>BButton</scope><name>ExplicitMinSize</name></member>
+      <member refid="classBView_1a218cd0d238104a6ff31c1d72ae2d9e6e" prot="public" virt="non-virtual"><scope>BButton</scope><name>ExplicitPreferredSize</name></member>
+      <member refid="classBButton_1a343e4ae15ac452b16f218e3487cbf28b" prot="private" virt="non-virtual"><scope>BButton</scope><name>fBehavior</name></member>
+      <member refid="classBButton_1aaaccadeebf379c80a41744daed16ed8f" prot="private" virt="non-virtual"><scope>BButton</scope><name>fFlags</name></member>
+      <member refid="classBView_1af0e5d362474d39199116045aa9621aa5" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillArc</name></member>
+      <member refid="classBView_1ac216c652253a21f0f28a7caef07deb77" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillArc</name></member>
+      <member refid="classBView_1a49017edefe45ca5c74954e1227e673bb" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillArc</name></member>
+      <member refid="classBView_1a4304fe45708f72d0ba20b579870c24ce" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillArc</name></member>
+      <member refid="classBView_1a531ad43e129d810ee64208123b550193" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a7cf8a5eaa5451b2c7df0d6fa392012bd" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a06942f0dd4c13175bcfff6a88eae7cc0" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a98a73cbccb42edfc61b93f9aa6f4a13b" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a2738cf2f3d39f560d0cff90543f45afa" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a86de91f260577187eaf22ba0fdf32fba" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1ae72733cae8a1fc2da8feb47c0c2149fa" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1adc7d96f2d60a819f03685eb11b6945e2" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a1bdc02a311b2a051ad7fbdbf1789e958" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a96cdb60a8c87e4958380a3077a2197a5" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a22a5ce1f024e622b6eade6a9176ff1f7" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a57b0870cd6a0109c347d80c34ca2f34a" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a4d074663998c7ba922a9d981d0cfe086" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRect</name></member>
+      <member refid="classBView_1aae6a3ff6683bb15ac8c647c946475e8f" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRect</name></member>
+      <member refid="classBView_1a4810086c415d90bffa25ab2963716936" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a56828d13947717462b661e1645305509" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a38d7e7b15a13591c20020599886402b5" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a73956d28b356b2eee83ebc19bd6e398b" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a3a2fd2d7313a9bb7dff359a4f4362a5f" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillRule</name></member>
+      <member refid="classBView_1a91b9ce4b8b8ee13ff5f1071e1fb0d829" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillShape</name></member>
+      <member refid="classBView_1a9a82da733397e97b985875be941f77a6" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillShape</name></member>
+      <member refid="classBView_1a46ec16609a402d03baa322a04d8c50e2" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1af512b76752705cba87f89c8dac313005" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a5dd1c64839c11a79e80581e37656cc26" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a0878dea14a61d58c951bd8e11c0a2ef6" prot="public" virt="non-virtual"><scope>BButton</scope><name>FillTriangle</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BButton</scope><name>FilterList</name></member>
+      <member refid="classBView_1ab83ef89f1876913174c825ff7cd02c4a" prot="public" virt="non-virtual"><scope>BButton</scope><name>FindView</name></member>
+      <member refid="classBView_1a561b10abf94dd65a26b02253af667508" prot="public" virt="non-virtual"><scope>BButton</scope><name>Flags</name></member>
+      <member refid="classBView_1a15465930f84d2d01f7818bd79bc91c3e" prot="public" virt="non-virtual"><scope>BButton</scope><name>Flush</name></member>
+      <member refid="classBView_1a424161ccf6f52a354fdd67ed1376d196" prot="public" virt="non-virtual"><scope>BButton</scope><name>ForceFontAliasing</name></member>
+      <member refid="classBButton_1a0178854d59fb932e325456dfa2a681a4" prot="private" virt="non-virtual"><scope>BButton</scope><name>fPopUpMessage</name></member>
+      <member refid="classBButton_1abb63de92123c289a0e4c8f0bc5f93319" prot="private" virt="non-virtual"><scope>BButton</scope><name>fPreferredSize</name></member>
+      <member refid="classBView_1a487b04a3aaffdd1a1afb730dca36a7e2" prot="public" virt="non-virtual"><scope>BButton</scope><name>Frame</name></member>
+      <member refid="classBButton_1ac37b4c9e5a10b431ac7f31127c9829b5" prot="public" virt="virtual"><scope>BButton</scope><name>FrameMoved</name></member>
+      <member refid="classBButton_1a5f2aca854bb9226c6c1dd37e693d89b4" prot="public" virt="virtual"><scope>BButton</scope><name>FrameResized</name></member>
+      <member refid="classBView_1ad50d5ba2249fdf3dd8640b3573c2a2e8" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetBlendingMode</name></member>
+      <member refid="classBView_1acf50a063c9621f35a84b1d0245b12d69" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetClippingRegion</name></member>
+      <member refid="classBView_1af244d01f85e6d9ae7f5fcca4637dc78c" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetFont</name></member>
+      <member refid="classBView_1a5bf95d66754634c647b2ddf7d39b4dfb" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetFontHeight</name></member>
+      <member refid="classBView_1ad34bee968b1ec98a0bf89343340b6b07" prot="public" virt="virtual"><scope>BButton</scope><name>GetHeightForWidth</name></member>
+      <member refid="classBView_1aec2975b51966c397aa52b9e3eebd2c85" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetLayout</name></member>
+      <member refid="classBView_1a830ce9cf2ac2ffb5f73f526ee5d6e53d" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetMouse</name></member>
+      <member refid="classBButton_1adba3ed10370f960a0a408413569adf30" prot="public" virt="virtual"><scope>BButton</scope><name>GetPreferredSize</name></member>
+      <member refid="classBView_1aaae0dc93bc61d7f221465fbe0aecd30a" prot="public" virt="non-virtual"><scope>BButton</scope><name>GetStringWidths</name></member>
+      <member refid="classBButton_1af912fac07ee02f90a12a4011e5a493cb" prot="public" virt="virtual"><scope>BButton</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBView_1afb826fe9b8964e4d843cae190170badf" prot="protected" virt="virtual"><scope>BButton</scope><name>GetToolTipAt</name></member>
+      <member refid="classBInvoker_1a710e78abc03eb29e9e25d11d34c874cc" prot="public" virt="non-virtual"><scope>BButton</scope><name>HandlerForReply</name></member>
+      <member refid="classBView_1a606e0e7e03516dccb53bf073827460a8" prot="public" virt="non-virtual"><scope>BButton</scope><name>HasDefaultColors</name></member>
+      <member refid="classBView_1abd411461b7e23ad17e7294f8f5e1cbeb" prot="public" virt="virtual"><scope>BButton</scope><name>HasHeightForWidth</name></member>
+      <member refid="classBView_1aa9aacc95606b650e6a8d776b51cb902b" prot="public" virt="non-virtual"><scope>BButton</scope><name>HasSystemColors</name></member>
+      <member refid="classBView_1a7688dc04178a2955950154ee3670d029" prot="public" virt="virtual"><scope>BButton</scope><name>Hide</name></member>
+      <member refid="classBView_1af75bbc1131ad6a90e299c6cbcf623fa7" prot="public" virt="non-virtual"><scope>BButton</scope><name>HideToolTip</name></member>
+      <member refid="classBView_1abda3583967fba9f6ed9524058d00a6e9" prot="public" virt="non-virtual"><scope>BButton</scope><name>HighColor</name></member>
+      <member refid="classBView_1aa86f548fba2e82d022066198be6d5af6" prot="public" virt="non-virtual"><scope>BButton</scope><name>HighUIColor</name></member>
+      <member refid="classBControl_1a186746c30c79d2645fb94301ef05dfff" prot="public" virt="non-virtual"><scope>BButton</scope><name>IconBitmap</name></member>
+      <member refid="classBButton_1a578835166502d128d1e038602f5f9c6d" prot="public" virt="non-virtual"><scope>BButton</scope><name>Instantiate</name></member>
+      <member refid="classBView_1a8c767d948dc9435c006cabdcab1cd08e" prot="public" virt="non-virtual"><scope>BButton</scope><name>Invalidate</name></member>
+      <member refid="classBView_1ac70b682819c0f9b008c428e02015b19b" prot="public" virt="non-virtual"><scope>BButton</scope><name>Invalidate</name></member>
+      <member refid="classBView_1adfced0dcb244e199f872fdbd48349a05" prot="public" virt="non-virtual"><scope>BButton</scope><name>Invalidate</name></member>
+      <member refid="classBView_1a4a711316094e43076a3f5478d937accf" prot="public" virt="non-virtual"><scope>BButton</scope><name>InvalidateLayout</name></member>
+      <member refid="classBView_1af7e5ebc41cd5a471dcdcfa1f3db801a5" prot="public" virt="non-virtual"><scope>BButton</scope><name>InvertRect</name></member>
+      <member refid="classBButton_1ad9942f380f9e8337147f307972e02a9b" prot="public" virt="virtual"><scope>BButton</scope><name>Invoke</name></member>
+      <member refid="classBInvoker_1a6e33e81c7ee307621295e8da6181d3f8" prot="protected" virt="non-virtual"><scope>BButton</scope><name>InvokeKind</name></member>
+      <member refid="classBInvoker_1ab009fe9c6a1f64798c614612e8c3db20" prot="public" virt="non-virtual"><scope>BButton</scope><name>InvokeNotify</name></member>
+      <member refid="classBButton_1ab8a01256f309f3e75fd6c7d0564d233e" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsDefault</name></member>
+      <member refid="classBControl_1a179de32505328b72911cd85bf2c3cfe8" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsEnabled</name></member>
+      <member refid="classBButton_1ae38d8f3e62901af40b18f1574d60346c" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsFlat</name></member>
+      <member refid="classBView_1a165719de682845f80735042a499692ff" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsFocus</name></member>
+      <member refid="classBControl_1aac106958d27f3e56b2d5ddd3eca5117a" prot="protected" virt="non-virtual"><scope>BButton</scope><name>IsFocusChanging</name></member>
+      <member refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a95cfa8ee585230ea8fb224e88eddc503" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a4e86b719129a12afbda7c10371eeca47" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsLayoutInvalidationDisabled</name></member>
+      <member refid="classBView_1a00a5d5d6edee7d488d77df03945b3e94" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsLayoutValid</name></member>
+      <member refid="classBView_1a8e3f1722e40fdf01c5131e49199ec3ff" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsPrinting</name></member>
+      <member refid="classBInvoker_1a17470932a103267815f01d0df9e891e9" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsTargetLocal</name></member>
+      <member refid="classBControl_1a253dcd4904a221e750c58ce41cea6c8c" prot="protected" virt="non-virtual"><scope>BButton</scope><name>IsTracking</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BButton</scope><name>IsWatched</name></member>
+      <member refid="classBButton_1a1946a6658404aef5e374bf37e0d276ad" prot="public" virt="virtual"><scope>BButton</scope><name>KeyDown</name></member>
+      <member refid="classBView_1acbc528bb70be49993bd99aa136dbb089" prot="public" virt="virtual"><scope>BButton</scope><name>KeyUp</name></member>
+      <member refid="classBControl_1a0c345befac88d6af592ce2b3e7d7214e" prot="public" virt="non-virtual"><scope>BButton</scope><name>Label</name></member>
+      <member refid="classBView_1a854b6ca54eeca610db9eab8b58d68a8b" prot="public" virt="non-virtual"><scope>BButton</scope><name>Layout</name></member>
+      <member refid="classBView_1a2f74b3e7c602045d8c927f923f45eefa" prot="public" virt="virtual"><scope>BButton</scope><name>LayoutAlignment</name></member>
+      <member refid="classBView_1ada521f848e4c800cd02eb4fe529e7ea0" prot="protected" virt="virtual"><scope>BButton</scope><name>LayoutChanged</name></member>
+      <member refid="classBView_1ae066513c0a788a9544744d409f28cada" prot="public" virt="non-virtual"><scope>BButton</scope><name>LayoutContext</name></member>
+      <member refid="classBButton_1a88a1584e52ce63d14ceb4e234ca38a5b" prot="protected" virt="virtual"><scope>BButton</scope><name>LayoutInvalidated</name></member>
+      <member refid="classBView_1a5d252dfe28eee049be2192d1a01ed6e3" prot="public" virt="non-virtual"><scope>BButton</scope><name>LeftTop</name></member>
+      <member refid="classBView_1a551f5961188e4f26ef310eb5eea7c926" prot="public" virt="non-virtual"><scope>BButton</scope><name>LineCapMode</name></member>
+      <member refid="classBView_1a0aa47adb29d91b4cc6c4924b7f436012" prot="public" virt="non-virtual"><scope>BButton</scope><name>LineJoinMode</name></member>
+      <member refid="classBView_1ab1cd7cf77a4fa01755d186a05163cfbe" prot="public" virt="non-virtual"><scope>BButton</scope><name>LineMiterLimit</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BButton</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BButton</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BButton</scope><name>Looper</name></member>
+      <member refid="classBView_1a423c54f22ab95745b28b583af999e554" prot="public" virt="non-virtual"><scope>BButton</scope><name>LowColor</name></member>
+      <member refid="classBView_1ae32ca6d8f106d44b5b51df82a7eb64c5" prot="public" virt="non-virtual"><scope>BButton</scope><name>LowUIColor</name></member>
+      <member refid="classBButton_1a42436301d7a3e6b5e07bc1608463ac47" prot="public" virt="virtual"><scope>BButton</scope><name>MakeDefault</name></member>
+      <member refid="classBButton_1abc826951b0a87f2ce4cf6cc10eb792d6" prot="public" virt="virtual"><scope>BButton</scope><name>MakeFocus</name></member>
+      <member refid="classBButton_1adeda5a0a1e19c006c422690d7bcdbd8f" prot="public" virt="virtual"><scope>BButton</scope><name>MaxSize</name></member>
+      <member refid="classBInvoker_1ab0b73729de282c93b4da51e6b9dbc170" prot="public" virt="non-virtual"><scope>BButton</scope><name>Message</name></member>
+      <member refid="classBButton_1a9954aa8549ffb7cddd1a401997fd07a7" prot="public" virt="virtual"><scope>BButton</scope><name>MessageReceived</name></member>
+      <member refid="classBInvoker_1aac0992846032f0caaed3d968cd9a1fca" prot="public" virt="non-virtual"><scope>BButton</scope><name>Messenger</name></member>
+      <member refid="classBButton_1a44d82f5e5ec77df79ab955d48eb2f6cd" prot="public" virt="virtual"><scope>BButton</scope><name>MinSize</name></member>
+      <member refid="classBButton_1a479d27a48b957709b47159360c04157f" prot="public" virt="virtual"><scope>BButton</scope><name>MouseDown</name></member>
+      <member refid="classBButton_1a8ba8b18062ea15ecd55d83458885adf1" prot="public" virt="virtual"><scope>BButton</scope><name>MouseMoved</name></member>
+      <member refid="classBButton_1abdf9eedcccc9bbf8edce48b32361a749" prot="public" virt="virtual"><scope>BButton</scope><name>MouseUp</name></member>
+      <member refid="classBView_1a6e122baca4494f6ce739a507054fa81f" prot="public" virt="non-virtual"><scope>BButton</scope><name>MoveBy</name></member>
+      <member refid="classBView_1a979f8f0090284919b6e7c6c04d91cbde" prot="public" virt="non-virtual"><scope>BButton</scope><name>MovePenBy</name></member>
+      <member refid="classBView_1acb61254a2121f569f6223a95cd835abd" prot="public" virt="non-virtual"><scope>BButton</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1ae32d7951a4ce9cff6b81899f5208a25f" prot="public" virt="non-virtual"><scope>BButton</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1acce9c93118a3db24078f16bdabc6fbec" prot="public" virt="non-virtual"><scope>BButton</scope><name>MoveTo</name></member>
+      <member refid="classBView_1a1c9b2df47ba1b9f3a1ce3286995fb8bd" prot="public" virt="non-virtual"><scope>BButton</scope><name>MoveTo</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BButton</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BButton</scope><name>NextHandler</name></member>
+      <member refid="classBView_1a76e7d862fe78e4d2766573bf073b9d30" prot="public" virt="non-virtual"><scope>BButton</scope><name>NextSibling</name></member>
+      <member refid="classBButton_1a2a6bc375ba4cdc3c605ef13427e79568" prot="private" virt="non-virtual"><scope>BButton</scope><name>operator=</name></member>
+      <member refid="classBView_1aefbf71a7a403900e960ffa3943dc9901" prot="public" virt="non-virtual"><scope>BButton</scope><name>Origin</name></member>
+      <member refid="classBView_1a332f34d9862000dbc859fd4e308839dd" prot="public" virt="non-virtual"><scope>BButton</scope><name>Parent</name></member>
+      <member refid="classBView_1a2774e13c2b12c6a5fee333e95b76b07d" prot="public" virt="non-virtual"><scope>BButton</scope><name>PenLocation</name></member>
+      <member refid="classBView_1a69d8657d26b49773fa2de914f263b204" prot="public" virt="non-virtual"><scope>BButton</scope><name>PenSize</name></member>
+      <member refid="classBButton_1aee74330d076b7b8487fe21443118b03d" prot="public" virt="virtual"><scope>BButton</scope><name>Perform</name></member>
+      <member refid="classBView_1abc0d202fe13366b80703afbdb3832951" prot="public" virt="non-virtual"><scope>BButton</scope><name>PopState</name></member>
+      <member refid="classBButton_1a7ee68788feb529301ea9ccacd30fa8f1" prot="public" virt="non-virtual"><scope>BButton</scope><name>PopUpMessage</name></member>
+      <member refid="classBButton_1abe79a7ea1bff9983c64108da1c065599" prot="public" virt="virtual"><scope>BButton</scope><name>PreferredSize</name></member>
+      <member refid="classBView_1a2a46f78756eacca3f3d4c90d31c758b1" prot="public" virt="non-virtual"><scope>BButton</scope><name>PreviousSibling</name></member>
+      <member refid="classBView_1a0ae8ec3e94ee3d41cb329e3df6966566" prot="public" virt="virtual"><scope>BButton</scope><name>Pulse</name></member>
+      <member refid="classBView_1a1dcb914cd0c6ef8d1291aa8492968d40" prot="public" virt="non-virtual"><scope>BButton</scope><name>PushState</name></member>
+      <member refid="classBView_1a2cf4e698a4322ecfb946e440e0f7ac62" prot="public" virt="non-virtual"><scope>BButton</scope><name>Relayout</name></member>
+      <member refid="classBView_1a5f93a23d06267da83c128bce222ceb17" prot="public" virt="non-virtual"><scope>BButton</scope><name>RemoveChild</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BButton</scope><name>RemoveFilter</name></member>
+      <member refid="classBView_1a87e0848b1760a9f28aad4516467a03ed" prot="public" virt="non-virtual"><scope>BButton</scope><name>RemoveSelf</name></member>
+      <member refid="classBView_1a127933a3820f0bfe0497b5e7ddfa191f" prot="public" virt="non-virtual"><scope>BButton</scope><name>ResetLayoutInvalidation</name></member>
+      <member refid="classBView_1ace23acc948bbc9b9272da8dc7f01d3ce" prot="public" virt="non-virtual"><scope>BButton</scope><name>ResizeBy</name></member>
+      <member refid="classBView_1a742bccd6034ef9ade65b0e596fba55f2" prot="public" virt="non-virtual"><scope>BButton</scope><name>ResizeTo</name></member>
+      <member refid="classBView_1a6134097569f75679616257a361086d7a" prot="public" virt="non-virtual"><scope>BButton</scope><name>ResizeTo</name></member>
+      <member refid="classBButton_1a6468013205fd98f26440cd63911b9b34" prot="public" virt="virtual"><scope>BButton</scope><name>ResizeToPreferred</name></member>
+      <member refid="classBView_1a1e93df523fc9edc807274ac6cfd2dc8d" prot="public" virt="non-virtual"><scope>BButton</scope><name>ResizingMode</name></member>
+      <member refid="classBButton_1a16b56f270bcba826cd8a1eb043adb474" prot="public" virt="virtual"><scope>BButton</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBView_1a02ab6b6196b140b20ae516a55680e30b" prot="public" virt="non-virtual"><scope>BButton</scope><name>RotateBy</name></member>
+      <member refid="classBView_1a50e12d6b8080b3bc6bc617d31d1ab200" prot="public" virt="non-virtual"><scope>BButton</scope><name>Scale</name></member>
+      <member refid="classBView_1ac83f9fdfb882f849e3ac79bfb06a0fd6" prot="public" virt="non-virtual"><scope>BButton</scope><name>ScaleBy</name></member>
+      <member refid="classBView_1a0878bc7981ba814190b822349599a120" prot="public" virt="non-virtual"><scope>BButton</scope><name>ScrollBar</name></member>
+      <member refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" prot="public" virt="non-virtual"><scope>BButton</scope><name>ScrollBy</name></member>
+      <member refid="classBView_1a33ed2a9eeff474a756b548996a82b964" prot="public" virt="non-virtual"><scope>BButton</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a2b76ddc60289ce92e1fb706332edbafc" prot="public" virt="virtual"><scope>BButton</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a54991372110199183fed775598ae1912" prot="protected" virt="non-virtual"><scope>BButton</scope><name>ScrollWithMouseWheelDelta</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BButton</scope><name>SendNotices</name></member>
+      <member refid="classBButton_1a6287fe4898e16049f42e373af26e09f6" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetBehavior</name></member>
+      <member refid="classBView_1ad01fc0fd68e4683af9b9386bf33abf63" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetBlendingMode</name></member>
+      <member refid="classBView_1a8ba0fe3a3dbeec1b7fd8c9655070ef64" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetDiskMode</name></member>
+      <member refid="classBView_1a0c392ed0e36213e1007322a9cbca71c0" prot="public" virt="virtual"><scope>BButton</scope><name>SetDrawingMode</name></member>
+      <member refid="classBControl_1a54529bfa2d272ef17f1b790d27c7ff17" prot="public" virt="virtual"><scope>BButton</scope><name>SetEnabled</name></member>
+      <member refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetEventMask</name></member>
+      <member refid="classBView_1a6906e47d4fdd6923dd51edb60a83ccea" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetExplicitAlignment</name></member>
+      <member refid="classBView_1acd759dd7505050f9cbd8213c71991b8b" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetExplicitMaxSize</name></member>
+      <member refid="classBView_1abfcb5c761f9b06da3b4a6788aad5d0ee" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetExplicitMinSize</name></member>
+      <member refid="classBView_1a98b7d450210099ed59b7cd34f2575e20" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetExplicitPreferredSize</name></member>
+      <member refid="classBView_1aeef8a27a5577db87251412ce44421494" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetExplicitSize</name></member>
+      <member refid="classBView_1a2019def93337069c0b7d416e103522e9" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetFillRule</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BButton</scope><name>SetFilterList</name></member>
+      <member refid="classBView_1a4740f9a1e1163073b042102a421a2e33" prot="public" virt="virtual"><scope>BButton</scope><name>SetFlags</name></member>
+      <member refid="classBButton_1a9f9ead66b7c99f1dbf96bc275a6f4290" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetFlat</name></member>
+      <member refid="classBView_1a9247127c151153542a3e6bc1f3904433" prot="public" virt="virtual"><scope>BButton</scope><name>SetFont</name></member>
+      <member refid="classBView_1a443e4d9ff182f85a6b1c8478ef22ffe8" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetFontSize</name></member>
+      <member refid="classBInvoker_1a9983897bef828eea70f574f9571b8e85" prot="public" virt="virtual"><scope>BButton</scope><name>SetHandlerForReply</name></member>
+      <member refid="classBView_1ab5482f91a642d545bc3fcefe199f95e9" prot="public" virt="virtual"><scope>BButton</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1aff9e1ab5e88f33027e72b39874868e9b" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1a54eefc28bf7a4bc30612cf83aff2963b" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetHighUIColor</name></member>
+      <member refid="classBButton_1ad167627166b5988a41c90bfa95ece336" prot="public" virt="virtual"><scope>BButton</scope><name>SetIcon</name></member>
+      <member refid="classBControl_1a1017ff0cf130fa1246291a016b2a7f2b" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetIconBitmap</name></member>
+      <member refid="classBButton_1addc58de70c9b2acff2c1e407696f772f" prot="public" virt="virtual"><scope>BButton</scope><name>SetLabel</name></member>
+      <member refid="classBView_1acac1ebbba8c76e543e1b06e84dffab02" prot="public" virt="virtual"><scope>BButton</scope><name>SetLayout</name></member>
+      <member refid="classBView_1ae97bfe6c0c93fce98bc7bbd93761dbfb" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetLineMode</name></member>
+      <member refid="classBView_1af0426243110fb150ad7ef0705209a12c" prot="public" virt="virtual"><scope>BButton</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a929fb1ca47a00220c355ae55a0ea6077" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a879ab88d4e64345069f1041d3a7b652f" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetLowUIColor</name></member>
+      <member refid="classBInvoker_1a42fae8f984af3765c1a6af404dc36816" prot="public" virt="virtual"><scope>BButton</scope><name>SetMessage</name></member>
+      <member refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetMouseEventMask</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BButton</scope><name>SetNextHandler</name></member>
+      <member refid="classBView_1a769e5fa6486adf12e7a3511ed372a06c" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a7cf4e3ac5b0759b9c38d7b36517f2337" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a80ea4cb97d2e6e2c3088e610a9e157e6" prot="public" virt="virtual"><scope>BButton</scope><name>SetPenSize</name></member>
+      <member refid="classBButton_1a42f542a5b3b6d9a2a7d740d468cee0eb" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetPopUpMessage</name></member>
+      <member refid="classBView_1a38d29ea581880c3978d7e50dcc851696" prot="public" virt="virtual"><scope>BButton</scope><name>SetResizingMode</name></member>
+      <member refid="classBView_1a077136ea06f0a6b39aa0b8b24311cce8" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetScale</name></member>
+      <member refid="classBInvoker_1ac857ceb882d95a5826447dc12dd06c74" prot="public" virt="virtual"><scope>BButton</scope><name>SetTarget</name></member>
+      <member refid="classBInvoker_1a17e8040bfd829b6b084c2f6234776e11" prot="public" virt="virtual"><scope>BButton</scope><name>SetTarget</name></member>
+      <member refid="classBInvoker_1ab3c4f55b01f3775832871944b5c943de" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetTimeout</name></member>
+      <member refid="classBView_1a75fb825a3ef69c1c6fbf3535ee2260ab" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1aa377bad64048a2d3cd1c2b272ae3079b" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetToolTip</name></member>
+      <member refid="classBControl_1a28daada6c5a36e5fd8445d1b5580b6c2" prot="protected" virt="non-virtual"><scope>BButton</scope><name>SetTracking</name></member>
+      <member refid="classBView_1afbd9b8f35226ba89980c450f7626fc85" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetTransform</name></member>
+      <member refid="classBButton_1a2944b5facaa051c2e2f20b2f9874b494" prot="public" virt="virtual"><scope>BButton</scope><name>SetValue</name></member>
+      <member refid="classBControl_1a367df71f0b9b64905f3acb98cd111cda" prot="protected" virt="non-virtual"><scope>BButton</scope><name>SetValueNoUpdate</name></member>
+      <member refid="classBView_1ac247ddc58f1cb719d60e354a77c51c1e" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1a046a9c1656823db5401e530cf8121734" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1ae8dde0e0330b394db016f3e609e7fb6a" prot="public" virt="virtual"><scope>BButton</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a7dace2963c85b5ce55b7d8e96946625c" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a39b4878773b4436e3c76aee51c4fbc09" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewCursor</name></member>
+      <member refid="classBView_1a576100502a8c6dfb46ff36b08cbe9405" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a9770c1bb97d7ffd797f7c40ca1339f98" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a34f020c4bb1008cef972cf1eec7dba0f" prot="public" virt="non-virtual"><scope>BButton</scope><name>SetViewUIColor</name></member>
+      <member refid="classBView_1a06e0584057d6c7a7c7e048b6272b7016" prot="public" virt="virtual"><scope>BButton</scope><name>Show</name></member>
+      <member refid="classBView_1a61d28f55d6fdc55b59c38c44b9788205" prot="public" virt="non-virtual"><scope>BButton</scope><name>ShowToolTip</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BButton</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BButton</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BButton</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BButton</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BButton</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BButton</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BButton</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BButton</scope><name>StopWatchingAll</name></member>
+      <member refid="classBView_1adef480de8a8bcd2fff3129660501616e" prot="public" virt="non-virtual"><scope>BButton</scope><name>StringWidth</name></member>
+      <member refid="classBView_1aef3638cf597407e6a9f31bc75cd42097" prot="public" virt="non-virtual"><scope>BButton</scope><name>StringWidth</name></member>
+      <member refid="classBView_1a57222cd40096dfe23e1df86a01277041" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a9c958b9399925a8a0ea333afd337ebfd" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a64ea2ad06018b0b3b156113d201c7ad7" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeBezier</name></member>
+      <member refid="classBView_1a042703445263f1d9a9213757fcf27414" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1ae7727ca808873634363e5306fdbcc09a" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1a909ee03901fac4ae5504f7faf5e41a7c" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ab713fc42e330d0a091a9774edfb9626f" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ae871d03592c1bba5d6be3d5d982ea747" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1638c58553467f3ebe5ee2b3683d4905" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1482fddababe3dd1377f86a038f7119b" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1ad3893af66d3891855f9db7072bfb4de7" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeRect</name></member>
+      <member refid="classBView_1acf743b2ba22b82c8bc38eb514513df55" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeRoundRect</name></member>
+      <member refid="classBView_1a507e9b732e880ac8e6379e19e74d5757" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeShape</name></member>
+      <member refid="classBView_1a8221cce8942e590c2fea954f57933e78" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1ae59fc9e9cfaba5e2d6e79a90723a3330" prot="public" virt="non-virtual"><scope>BButton</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1a27e217abb3fefa45b6e4ceb7a54cb362" prot="public" virt="non-virtual"><scope>BButton</scope><name>Sync</name></member>
+      <member refid="classBInvoker_1aba5a469f2e0c94c08553ebe59c238cc8" prot="public" virt="non-virtual"><scope>BButton</scope><name>Target</name></member>
+      <member refid="classBView_1a668a4ed5419c86a7f2696ca7ece28df7" prot="public" virt="virtual"><scope>BButton</scope><name>TargetedByScrollView</name></member>
+      <member refid="classBInvoker_1af2632aee4882b11ed1bc34ce55ef4bbe" prot="public" virt="non-virtual"><scope>BButton</scope><name>Timeout</name></member>
+      <member refid="classBView_1a127ceec2101b12c0fbe1e0e66a7b9dc1" prot="public" virt="non-virtual"><scope>BButton</scope><name>ToolTip</name></member>
+      <member refid="classBView_1ab16cc72cf8ae3b40abcf1f714e7e9b74" prot="public" virt="non-virtual"><scope>BButton</scope><name>Transform</name></member>
+      <member refid="classBView_1a98597d70ae48b2576683f25078135534" prot="public" virt="non-virtual"><scope>BButton</scope><name>TransformTo</name></member>
+      <member refid="classBView_1a8ae6d4e1cdfeeee33b753d56bee6ae7f" prot="public" virt="non-virtual"><scope>BButton</scope><name>TranslateBy</name></member>
+      <member refid="classBView_1ac2e293fbdd999e4857b44b6e4d4c3820" prot="public" virt="non-virtual"><scope>BButton</scope><name>TruncateString</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BButton</scope><name>UnlockLooper</name></member>
+      <member refid="classBControl_1a759e9aebe200495c3773d2920e19e91f" prot="public" virt="non-virtual"><scope>BButton</scope><name>Value</name></member>
+      <member refid="classBView_1a8b2b1d9e08ce0c1763dd6a077ed02fdd" prot="public" virt="non-virtual"><scope>BButton</scope><name>ViewColor</name></member>
+      <member refid="classBView_1aec6c89446eb4f5ded151adced9126df8" prot="public" virt="non-virtual"><scope>BButton</scope><name>ViewUIColor</name></member>
+      <member refid="classBView_1a32733d357b76bc3504cae326d174f4a2" prot="public" virt="non-virtual"><scope>BButton</scope><name>Window</name></member>
+      <member refid="classBButton_1ace1f01da01eef93adbecd91ce2d49ac1" prot="public" virt="virtual"><scope>BButton</scope><name>WindowActivated</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BButton</scope><name>~BArchivable</name></member>
+      <member refid="classBButton_1a4b4da0f3dcc211f99a8d011f5cab28ee" prot="public" virt="virtual"><scope>BButton</scope><name>~BButton</name></member>
+      <member refid="classBControl_1a82c073b898fb760954b80ada2c731962" prot="public" virt="virtual"><scope>BButton</scope><name>~BControl</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BButton</scope><name>~BHandler</name></member>
+      <member refid="classBInvoker_1a68714c3b78a2cf2931daf54f5dc94dca" prot="public" virt="virtual"><scope>BButton</scope><name>~BInvoker</name></member>
+      <member refid="classBView_1a7df0d7eaeb97a3c8a800f9e321f23f67" prot="public" virt="virtual"><scope>BButton</scope><name>~BView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

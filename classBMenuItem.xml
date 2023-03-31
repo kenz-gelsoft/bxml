@@ -1,0 +1,1669 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMenuItem" kind="class" language="C++" prot="public">
+    <compoundname>BMenuItem</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+    <basecompoundref refid="classBInvoker" prot="public" virt="non-virtual">BInvoker</basecompoundref>
+    <derivedcompoundref refid="classBSeparatorItem" prot="public" virt="non-virtual">BSeparatorItem</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBMenuItem_1a0e31758c36db589a4549549ead272f6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMenuItem::Archive</definition>
+        <argsstring>(BMessage *archive, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BMenuItem::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <reimplementedby refid="classBSeparatorItem_1a37151f2e9c361bb173e016bca536dd9e">Archive</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the the <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> object into the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds the label and current state of the <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> to the archive.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> to archive the object into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to archive attached menus as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if everything went well or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was archived successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while archiving the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="32" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1adbc431076e81504889553ed348c55b94" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BMenuItem::Instantiate</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BMenuItem::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> object from an <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A newly created <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> object or <computeroutput>NULL</computeroutput> if the message doesn&apos;t contain an archived <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="31" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBMenuItem_1a646ee4a58fbdc0ea2c195836efa5ce69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMenu</definition>
+        <argsstring></argsstring>
+        <name>BMenu</name>
+        <qualifiedname>BMenuItem::BMenu</qualifiedname>
+        <param>
+          <type><ref refid="classBMenu" kindref="compound">BMenu</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="61" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMenuItem_1ae17ce55a82dbd8f404ae1c4b9186f5b6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMenuBar</definition>
+        <argsstring></argsstring>
+        <name>BMenuBar</name>
+        <qualifiedname>BMenuItem::BMenuBar</qualifiedname>
+        <param>
+          <type><ref refid="classBMenuBar" kindref="compound">BMenuBar</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="63" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMenuItem_1ab696763f2a14a2d17a039fa92870de1f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPopUpMenu</definition>
+        <argsstring></argsstring>
+        <name>BPopUpMenu</name>
+        <qualifiedname>BMenuItem::BPopUpMenu</qualifiedname>
+        <param>
+          <type><ref refid="classBPopUpMenu" kindref="compound">BPopUpMenu</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="62" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMenuItem_1a682e43b583b6f1c560865ca425bd2b05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrivate::MenuItemPrivate</definition>
+        <argsstring></argsstring>
+        <name>BPrivate::MenuItemPrivate</name>
+        <qualifiedname>BMenuItem::MenuItemPrivate</qualifiedname>
+        <param>
+          <type>BPrivate::MenuItemPrivate</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="64" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMenuItem_1abbfb217d0fb5cc6108026123e53663ef" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMenuItem::_reserved[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BMenuItem::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="114" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a87454e132ee19014aafb7604dcb4237c" prot="private" static="no" mutable="no">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BMenuItem::fBounds</definition>
+        <argsstring></argsstring>
+        <name>fBounds</name>
+        <qualifiedname>BMenuItem::fBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="103" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a0c2d866d6851e25434d1ddd55fca5e76" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BMenuItem::fCachedWidth</definition>
+        <argsstring></argsstring>
+        <name>fCachedWidth</name>
+        <qualifiedname>BMenuItem::fCachedWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="105" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1ac60f9bb32d539880a8af7e42268d0c32" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMenuItem::fEnabled</definition>
+        <argsstring></argsstring>
+        <name>fEnabled</name>
+        <qualifiedname>BMenuItem::fEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="110" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1aa63a372244552ff599ea862947435389" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* BMenuItem::fLabel</definition>
+        <argsstring></argsstring>
+        <name>fLabel</name>
+        <qualifiedname>BMenuItem::fLabel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="99" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a5eb1bf40dd8918557e0066b12a67f61f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMenuItem::fMark</definition>
+        <argsstring></argsstring>
+        <name>fMark</name>
+        <qualifiedname>BMenuItem::fMark</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="109" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1ad382d8d7e314af18d60ada4df6e806cc" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMenuItem::fModifiers</definition>
+        <argsstring></argsstring>
+        <name>fModifiers</name>
+        <qualifiedname>BMenuItem::fModifiers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="104" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1ae9a0b58ba33339d465dcb9cda78a72fc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMenuItem::fSelected</definition>
+        <argsstring></argsstring>
+        <name>fSelected</name>
+        <qualifiedname>BMenuItem::fSelected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="111" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a39c38eebd4a444d6ec4f2cbd12907fa7" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char BMenuItem::fShortcutChar</definition>
+        <argsstring></argsstring>
+        <name>fShortcutChar</name>
+        <qualifiedname>BMenuItem::fShortcutChar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="108" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a945fc7eb098d242b96758ac026151411" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+        <definition>BMenu* BMenuItem::fSubmenu</definition>
+        <argsstring></argsstring>
+        <name>fSubmenu</name>
+        <qualifiedname>BMenuItem::fSubmenu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="100" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a11ff75af882460e57f84b066e1cc10ab" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+        <definition>BMenu* BMenuItem::fSuper</definition>
+        <argsstring></argsstring>
+        <name>fSuper</name>
+        <qualifiedname>BMenuItem::fSuper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="102" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a8c6eb2a998fc4592bc528c9584e078be" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMenuItem::fTrigger</definition>
+        <argsstring></argsstring>
+        <name>fTrigger</name>
+        <qualifiedname>BMenuItem::fTrigger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="112" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1a5278526759324fcd35bbcaf6c82f024d" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1acadaa1c2888dd031d14fed9b272333a7" kindref="member">int16</ref></type>
+        <definition>int16 BMenuItem::fTriggerIndex</definition>
+        <argsstring></argsstring>
+        <name>fTriggerIndex</name>
+        <qualifiedname>BMenuItem::fTriggerIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="106" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1adf348e92b218877c3546f1cbe56345ed" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char BMenuItem::fUserTrigger</definition>
+        <argsstring></argsstring>
+        <name>fUserTrigger</name>
+        <qualifiedname>BMenuItem::fUserTrigger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="107" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuItem_1aee0f98566a1a7e88702b32a46cd4adbe" prot="private" static="no" mutable="no">
+        <type><ref refid="classBWindow" kindref="compound">BWindow</ref> *</type>
+        <definition>BWindow* BMenuItem::fWindow</definition>
+        <argsstring></argsstring>
+        <name>fWindow</name>
+        <qualifiedname>BMenuItem::fWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="101" column="8" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMenuItem_1ac9f0315f4285fa9e29c1b4e043f67a4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuItem::BMenuItem</definition>
+        <argsstring>(BMenu *menu, BMessage *message=NULL)</argsstring>
+        <name>BMenuItem</name>
+        <qualifiedname>BMenuItem::BMenuItem</qualifiedname>
+        <param>
+          <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+          <declname>menu</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> object with the specified <emphasis>menu</emphasis> and <emphasis>message</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The menu item&apos;s label is derived from the <emphasis>menu</emphasis> name. This method makes the menu item a submenu.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>menu</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>menu</emphasis> to assign to the item. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBMessage" kindref="compound">BMessage</ref> that is sent when the item is selected.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="26" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a8056c978d88925e2dc379c2b576838a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuItem::BMenuItem</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BMenuItem</name>
+        <qualifiedname>BMenuItem::BMenuItem</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Archive constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message <emphasis>data</emphasis> to construct the menu item from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1aa36818438ad07752252f6aa6640d5d8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuItem::BMenuItem</definition>
+        <argsstring>(const char *label, BMessage *message, char shortcut=0, uint32 modifiers=0)</argsstring>
+        <name>BMenuItem</name>
+        <qualifiedname>BMenuItem::BMenuItem</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>shortcut</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>modifiers</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> object with the specified <emphasis>label</emphasis> and <emphasis>message</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>label</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The text <emphasis>label</emphasis> that is displayed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBMessage" kindref="compound">BMessage</ref> that is sent when the item is selected. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shortcut</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>shortcut</emphasis> characters to activate the menu item. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>modifiers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The modifier keys to active the menu item, <computeroutput>B_COMMAND_KEY</computeroutput> is assumed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a4581d0d7f2ca677157bb60d59bdbd58a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BMenuItem::~BMenuItem</definition>
+        <argsstring>()</argsstring>
+        <name>~BMenuItem</name>
+        <qualifiedname>BMenuItem::~BMenuItem</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this item is attached to a menu, it will be removed from it.</para>
+<para>Also destroys the label and submenu.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="29" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a13749743bcc7f435d074bf57297a7860" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BMenuItem::Frame</definition>
+        <argsstring>() const</argsstring>
+        <name>Frame</name>
+        <qualifiedname>BMenuItem::Frame</qualifiedname>
+        <briefdescription>
+<para>Returns the bounds rectangle of the menu item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The bounds rectangle of the menu item in the coordinate system of the menu that the item is attached to.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="49" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a5b4747f5ff345a8068257697f083fc6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMenuItem::IsEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>IsEnabled</name>
+        <qualifiedname>BMenuItem::IsEnabled</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the item is enabled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the item is enabled, <computeroutput>false</computeroutput> if disabled.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="42" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a9492b89007241180fe84058000adf121" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMenuItem::IsMarked</definition>
+        <argsstring>() const</argsstring>
+        <name>IsMarked</name>
+        <qualifiedname>BMenuItem::IsMarked</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the item is marked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the item is marked, <computeroutput>false</computeroutput> if unmarked.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="43" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1ab0e1137c2da0aebcb42c5e07d73e2043" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * BMenuItem::Label</definition>
+        <argsstring>() const</argsstring>
+        <name>Label</name>
+        <qualifiedname>BMenuItem::Label</qualifiedname>
+        <briefdescription>
+<para>Returns the item&apos;s label. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The item&apos;s label as a const char array.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="41" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1ab6abecc541115fb6dd61cf16c25636c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+        <definition>BMenu * BMenuItem::Menu</definition>
+        <argsstring>() const</argsstring>
+        <name>Menu</name>
+        <qualifiedname>BMenuItem::Menu</qualifiedname>
+        <briefdescription>
+<para>Returns a pointer to the menu that the item is attached to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the menu that the item is attached to.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="48" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a1179e9734ed7b84d4f1ba829ed721e22" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetEnabled</definition>
+        <argsstring>(bool enable)</argsstring>
+        <name>SetEnabled</name>
+        <qualifiedname>BMenuItem::SetEnabled</qualifiedname>
+        <reimplementedby refid="classBSeparatorItem_1a5fe4819a9a7dfefa298aa7943c45d1b0">SetEnabled</reimplementedby>
+        <param>
+          <type>bool</type>
+          <declname>enable</declname>
+        </param>
+        <briefdescription>
+<para>Enables or disables the menu item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Enabling or disabling the menu item invalidates the attached menu.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>enable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to enable the menu item, <computeroutput>false</computeroutput> to disable it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a83c794e5d75b300a51e8bb70c5255677" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetLabel</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>SetLabel</name>
+        <qualifiedname>BMenuItem::SetLabel</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defname>string</defname>
+        </param>
+        <briefdescription>
+<para>Sets the menu item label to <emphasis>string</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The memory used by the label is copied so you may free the original. Setting the label invalidates the attached menu.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>string</emphasis> to set the label to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="35" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a0b896795700a46215ee7884940b39119" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetMarked</definition>
+        <argsstring>(bool mark)</argsstring>
+        <name>SetMarked</name>
+        <qualifiedname>BMenuItem::SetMarked</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>mark</declname>
+        </param>
+        <briefdescription>
+<para>Marks or unmarks the menu item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Marking or unmarking the menu item invalidates the attached menu.</para>
+<para>Marking a menu item attached to a menu in radio mode causes the currently marked item to be unmarked.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mark</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to mark the menu item, <computeroutput>false</computeroutput> to unmark it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBMenu_1a71036007fd11439ac43bccc05e833938" kindref="member">BMenu::SetRadioMode()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="37" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1aec7480dc85b1f62ff9678a22ba2b6ff3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetShortcut</definition>
+        <argsstring>(char shortcut, uint32 modifiers)</argsstring>
+        <name>SetShortcut</name>
+        <qualifiedname>BMenuItem::SetShortcut</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>shortcut</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>modifiers</declname>
+        </param>
+        <briefdescription>
+<para>Set the keyboard shortcut of the menu item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Setting a shortcut invalidates the attached menu.</para>
+<para>This method will override the existing shortcut set to the window.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>shortcut</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ASCII shortcut character to set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>modifiers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bitmap mask of modifier keys used to activate the shortcut.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="39" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a559d29474bdd2608ab263f831a1a9ac4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetTrigger</definition>
+        <argsstring>(char trigger)</argsstring>
+        <name>SetTrigger</name>
+        <qualifiedname>BMenuItem::SetTrigger</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>trigger</declname>
+        </param>
+        <briefdescription>
+<para>Set the character that activates this menu item. The triggered character is drawn underlined in the menu. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Triggers are currently disabled.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>trigger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The trigger character to set on this menu item.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="38" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a0a27adb900a9a831a7ff4a72685a2fe0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char BMenuItem::Shortcut</definition>
+        <argsstring>(uint32 *_modifiers=NULL) const</argsstring>
+        <name>Shortcut</name>
+        <qualifiedname>BMenuItem::Shortcut</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_modifiers</declname>
+          <defname>modifiers</defname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Returns the currently set shortcut and fills out <emphasis>modifiers</emphasis> with a bitmap of the modifier keys required to invoke the item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>modifiers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a uint32 to fill out.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The shortcut character assigned to the menu item as a char.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="45" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a143dcb6b5906e6598f8fb594b7f36757" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+        <definition>BMenu * BMenuItem::Submenu</definition>
+        <argsstring>() const</argsstring>
+        <name>Submenu</name>
+        <qualifiedname>BMenuItem::Submenu</qualifiedname>
+        <briefdescription>
+<para>Returns a pointer to the attached menu. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the attached menu.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="47" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1aeebb4d9309ca000aafda565e40e8561e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char BMenuItem::Trigger</definition>
+        <argsstring>() const</argsstring>
+        <name>Trigger</name>
+        <qualifiedname>BMenuItem::Trigger</qualifiedname>
+        <briefdescription>
+<para>Returns the item&apos;s trigger character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The current trigger character as a char or 0 if unset.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="44" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBMenuItem_1af3f9cdc6f9be160df96682820c143298" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+        <definition>BPoint BMenuItem::ContentLocation</definition>
+        <argsstring>() const</argsstring>
+        <name>ContentLocation</name>
+        <qualifiedname>BMenuItem::ContentLocation</qualifiedname>
+        <briefdescription>
+<para>Returns the top-left point of the content rectangle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You only need to call this method if you&apos;re implementing your own <ref refid="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" kindref="member">DrawContent()</ref> method to override how the contents of the menu item are drawn.</para>
+<para>The content rectangle can be calculated using this method as well as <ref refid="classBMenuItem_1a8e567edeb0be62c013dec07e2943629d" kindref="member">GetContentSize()</ref> to get the width and height.</para>
+<para><simplesect kind="return"><para>The top-left point of the content rectangle as a <ref refid="classBPoint" kindref="compound">BPoint</ref> in the coordinate system of the attached <ref refid="classBMenu" kindref="compound">BMenu</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMenuItem_1a8e567edeb0be62c013dec07e2943629d" kindref="member">GetContentSize()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" kindref="member">DrawContent()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="58" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a357779f4b5add35e0e9307b206614d0e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::Draw</definition>
+        <argsstring>()</argsstring>
+        <name>Draw</name>
+        <qualifiedname>BMenuItem::Draw</qualifiedname>
+        <reimplementedby refid="classBSeparatorItem_1a25d7ee3298d7550a78244ccdf84eed2c">Draw</reimplementedby>
+        <briefdescription>
+<para>Hook method used to draw the menu items. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called by automatically by <ref refid="classBMenu_1a239982fa92e2f5a9c2ed0c267b7470b3" kindref="member">BMenu::Draw()</ref>. You should not need to call this method yourself but you may want to override it in a derived class to do something other than the default. The default draws the mark, shortcut and possibly a right arrow to indicate there is submenu and then calls <ref refid="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" kindref="member">DrawContent()</ref> to fill in the label. Lastly <ref refid="classBMenuItem_1a56b0f747a556427aa296193fe115a74e" kindref="member">Highlight()</ref> is called if the item is selected.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="55" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::DrawContent</definition>
+        <argsstring>()</argsstring>
+        <name>DrawContent</name>
+        <qualifiedname>BMenuItem::DrawContent</qualifiedname>
+        <briefdescription>
+<para>Hook method used to draw the menu items contents. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called automatically by <ref refid="classBMenu_1a239982fa92e2f5a9c2ed0c267b7470b3" kindref="member">BMenu::Draw()</ref>, you need not call it yourself. You may want to override this method in derived classes to do something different than drawing a text label.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="54" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a8e567edeb0be62c013dec07e2943629d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::GetContentSize</definition>
+        <argsstring>(float *_width, float *_height)</argsstring>
+        <name>GetContentSize</name>
+        <qualifiedname>BMenuItem::GetContentSize</qualifiedname>
+        <reimplementedby refid="classBSeparatorItem_1a52e1802108ed4e78b61b51f5ac4a241e">GetContentSize</reimplementedby>
+        <param>
+          <type>float *</type>
+          <declname>_width</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_height</declname>
+        </param>
+        <briefdescription>
+<para>Fills out <emphasis>_width</emphasis> and <emphasis>_height</emphasis> with the content rectangle dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You only need to call this method if you&apos;re implementing your own <ref refid="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" kindref="member">DrawContent()</ref> method to override how the contents of the menu item are drawn.</para>
+<para>The content rectangle excludes the item margins and the area that contains the checkmark, shortcut, and submenu arrow.</para>
+<para>The content rectangle can be calculated using this method as well as <ref refid="classBMenuItem_1af3f9cdc6f9be160df96682820c143298" kindref="member">ContentLocation()</ref> to get location of the top left corner.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled out with the width of the content rectangle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled out with the height of the content rectangle.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBMenuItem_1af3f9cdc6f9be160df96682820c143298" kindref="member">ContentLocation()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" kindref="member">DrawContent()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="52" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a56b0f747a556427aa296193fe115a74e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::Highlight</definition>
+        <argsstring>(bool highlight)</argsstring>
+        <name>Highlight</name>
+        <qualifiedname>BMenuItem::Highlight</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>highlight</declname>
+        </param>
+        <briefdescription>
+<para>Highlights or unhighlights the menu item. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called by <ref refid="classBMenuItem_1a357779f4b5add35e0e9307b206614d0e" kindref="member">Draw()</ref> when the item is selected or unselected.</para>
+<para>You shouldn&apos;t need to call this method unless you override the <ref refid="classBMenuItem_1a357779f4b5add35e0e9307b206614d0e" kindref="member">Draw()</ref> method in a derived class and you want to highlight differently.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>highlight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Highlights if <emphasis>highlight</emphasis> is <computeroutput>true</computeroutput>, unhighlights if <computeroutput>false</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="56" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1ae51fbc9628a915b133b5862e436314a4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMenuItem::Invoke</definition>
+        <argsstring>(BMessage *message=NULL)</argsstring>
+        <name>Invoke</name>
+        <qualifiedname>BMenuItem::Invoke</qualifiedname>
+        <reimplements refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c">Invoke</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sends a copy of the model <emphasis>message</emphasis> to the target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method extends <ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref> to guarantee that only enabled items attached to the menu can be invoked and automatically marks the item.</para>
+<para>The following fields added to the <emphasis>message:</emphasis> <itemizedlist>
+<listitem><para>&quot;when&quot; <computeroutput>B_INT64_TYPE</computeroutput> system_time()</para>
+</listitem><listitem><para>&quot;source&quot; <computeroutput>B_POINTER_TYPE</computeroutput> A pointer to the menu item object.</para>
+</listitem><listitem><para>&quot;index&quot; <computeroutput>B_INT32_TYPE</computeroutput> The index of the menu item.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to send or <computeroutput>NULL</computeroutput> to send the message set in the constructor.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error code on error. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message was sent successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message was <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="79" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a7f9bb278f056c48b2615b7c87de6a791" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMenuItem::IsSelected</definition>
+        <argsstring>() const</argsstring>
+        <name>IsSelected</name>
+        <qualifiedname>BMenuItem::IsSelected</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the item is selected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if selected, <computeroutput>false</computeroutput> if not selected.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1af8af2c4606e2cee362e3238d9220bd2e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuItem::TruncateLabel</definition>
+        <argsstring>(float maxWidth, char *newLabel)</argsstring>
+        <name>TruncateLabel</name>
+        <qualifiedname>BMenuItem::TruncateLabel</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>maxWidth</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>newLabel</declname>
+        </param>
+        <briefdescription>
+<para>Truncates the label and stashes it into <emphasis>newLabel</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You are responsible for allocating <emphasis>newLabel</emphasis> with enough space to fit the label including the trailing <computeroutput>NUL</computeroutput>. The method will <computeroutput>NUL</computeroutput> terminate the string for you.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>maxWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of bytes to truncate the label to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newLabel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to store the truncated label in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="53" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMenuItem_1a3d8f6000530d7e2cb1501143e2513498" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuItem::BMenuItem</definition>
+        <argsstring>(const BMenuItem &amp;other)</argsstring>
+        <name>BMenuItem</name>
+        <qualifiedname>BMenuItem::BMenuItem</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="82" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1ac5025771f8b7a2ead542c2f7d8f793d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::_DrawControlChar</definition>
+        <argsstring>(char shortcut, BPoint where)</argsstring>
+        <name>_DrawControlChar</name>
+        <qualifiedname>BMenuItem::_DrawControlChar</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>shortcut</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="96" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1afe777873be824c99e890a277221573fa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::_DrawMarkSymbol</definition>
+        <argsstring>()</argsstring>
+        <name>_DrawMarkSymbol</name>
+        <qualifiedname>BMenuItem::_DrawMarkSymbol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="93" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a3ece7532c7fc0bea02371ab12fc22366" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::_DrawShortcutSymbol</definition>
+        <argsstring>(bool)</argsstring>
+        <name>_DrawShortcutSymbol</name>
+        <qualifiedname>BMenuItem::_DrawShortcutSymbol</qualifiedname>
+        <param>
+          <type>bool</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="94" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a1d24d081d5100795491578118dc45b2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::_DrawSubmenuSymbol</definition>
+        <argsstring>()</argsstring>
+        <name>_DrawSubmenuSymbol</name>
+        <qualifiedname>BMenuItem::_DrawSubmenuSymbol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="95" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a76e738bf6b102867a300a8afa2203137" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+        <definition>rgb_color BMenuItem::_HighColor</definition>
+        <argsstring>()</argsstring>
+        <name>_HighColor</name>
+        <qualifiedname>BMenuItem::_HighColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="91" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a4b624bf3432e6dcdc1a552c1f208eb49" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::_InitData</definition>
+        <argsstring>()</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BMenuItem::_InitData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="86" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a93f236b1b8c7425d46e366202cc2dfff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::_InitMenuData</definition>
+        <argsstring>(BMenu *menu)</argsstring>
+        <name>_InitMenuData</name>
+        <qualifiedname>BMenuItem::_InitMenuData</qualifiedname>
+        <param>
+          <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+          <declname>menu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="87" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1ac93070082381f4af56d76f3b6f6c47f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BMenuItem::_IsActivated</definition>
+        <argsstring>()</argsstring>
+        <name>_IsActivated</name>
+        <qualifiedname>BMenuItem::_IsActivated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="89" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a5b8927d60e72c7b8434b8b5e56e1fbd5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structrgb__color" kindref="compound">rgb_color</ref></type>
+        <definition>rgb_color BMenuItem::_LowColor</definition>
+        <argsstring>()</argsstring>
+        <name>_LowColor</name>
+        <qualifiedname>BMenuItem::_LowColor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="90" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a97e4caddc36808523b56244588c756cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuItem::_ReservedMenuItem1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuItem1</name>
+        <qualifiedname>BMenuItem::_ReservedMenuItem1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="66" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a9a36f924e7533ccec3684aa977486f81" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuItem::_ReservedMenuItem2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuItem2</name>
+        <qualifiedname>BMenuItem::_ReservedMenuItem2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="67" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a7c5f063f79116bcfb9668aef227e65c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuItem::_ReservedMenuItem3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuItem3</name>
+        <qualifiedname>BMenuItem::_ReservedMenuItem3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="68" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1afd1c623f712ebf7135f827037729fbce" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuItem::_ReservedMenuItem4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuItem4</name>
+        <qualifiedname>BMenuItem::_ReservedMenuItem4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="69" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1af5b05c216c22fe85bd91d6f8589d8c62" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::Install</definition>
+        <argsstring>(BWindow *window)</argsstring>
+        <name>Install</name>
+        <qualifiedname>BMenuItem::Install</qualifiedname>
+        <param>
+          <type><ref refid="classBWindow" kindref="compound">BWindow</ref> *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="71" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a929f403e8d2b4b683ada51ade0ae17c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> &amp;</type>
+        <definition>BMenuItem &amp; BMenuItem::operator=</definition>
+        <argsstring>(const BMenuItem &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BMenuItem::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="83" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a4e019bc9465375fd1a548d8079e29c59" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::Select</definition>
+        <argsstring>(bool select)</argsstring>
+        <name>Select</name>
+        <qualifiedname>BMenuItem::Select</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>select</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="74" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1a9048b21433ecd0c1da5de6717d38c71d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetAutomaticTrigger</definition>
+        <argsstring>(int32 index, uint32 trigger)</argsstring>
+        <name>SetAutomaticTrigger</name>
+        <qualifiedname>BMenuItem::SetAutomaticTrigger</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>trigger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="75" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1ad17bdcb06574d7b300f791a71b76e173" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::SetSuper</definition>
+        <argsstring>(BMenu *superMenu)</argsstring>
+        <name>SetSuper</name>
+        <qualifiedname>BMenuItem::SetSuper</qualifiedname>
+        <param>
+          <type><ref refid="classBMenu" kindref="compound">BMenu</ref> *</type>
+          <declname>superMenu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="73" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuItem_1af8735b1aef2a64e661957d1fc729eba9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuItem::Uninstall</definition>
+        <argsstring>()</argsstring>
+        <name>Uninstall</name>
+        <qualifiedname>BMenuItem::Uninstall</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="72" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Display item for the <ref refid="classBMenu" kindref="compound">BMenu</ref> class. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> either consists of a label or a submenu and message that is sent to the attached menu&apos;s target when the item is selected. <ref refid="classBMenu" kindref="compound">BMenu</ref> and <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> work in concert with each other in order to create a menu tree hierarchy. <ref refid="classBMenuItem" kindref="compound">BMenuItem</ref>&apos;s serve as nodes in the tree while <ref refid="classBMenu" kindref="compound">BMenu</ref>&apos;s serve as branches.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuItem_1a83c794e5d75b300a51e8bb70c5255677" kindref="member">SetLabel()</ref></para>
+</simplesect>
+A menu item, unless it represents a submenu, can have a keyboard shortcut which is a printable character used in combination with the Command key and possibly other modifiers to invoke the item. The shortcut is displayed right of the item&apos;s label.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuItem_1aec7480dc85b1f62ff9678a22ba2b6ff3" kindref="member">SetShortcut()</ref></para>
+</simplesect>
+A menu item may also have a trigger character assigned to it that invokes the item without using the Command key. The trigger characters is drawn underlined in the menu item&apos;s label. Unlike shortcuts, triggers are automatically assigned to a menu item. You can set the trigger character explicitly by calling <ref refid="classBMenuItem_1a559d29474bdd2608ab263f831a1a9ac4" kindref="member">SetTrigger()</ref>.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuItem_1a559d29474bdd2608ab263f831a1a9ac4" kindref="member">SetTrigger()</ref></para>
+</simplesect>
+<simplesect kind="attention"><para>Triggers are currently disabled.</para>
+</simplesect>
+Both the shortcut character and trigger character are case-insensitive.</para>
+<para>A menu item may be marked, which draws a checkmark on the left side of the item. only one menu items may be marked at a time if attached to a menu in radio mode.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuItem_1a0b896795700a46215ee7884940b39119" kindref="member">SetMarked()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMenu_1a71036007fd11439ac43bccc05e833938" kindref="member">BMenu::SetRadioMode()</ref></para>
+</simplesect>
+Menu items can also be enabled or disabled. A disabled item&apos;s label is drawn in a lighter color to indicate that it may not be used. A disabled menu item may not be selected or invoked. If the menu item controls a submenu the submenu may still be opened but each of the items will be disabled.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuItem_1a1179e9734ed7b84d4f1ba829ed721e22" kindref="member">SetEnabled()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BInvoker</label>
+        <link refid="classBInvoker"/>
+      </node>
+      <node id="1">
+        <label>BMenuItem</label>
+        <link refid="classBMenuItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BSeparatorItem</label>
+        <link refid="classBSeparatorItem"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BInvoker</label>
+        <link refid="classBInvoker"/>
+      </node>
+      <node id="1">
+        <label>BMenuItem</label>
+        <link refid="classBMenuItem"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/MenuItem.h" line="22" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuItem.h" bodystart="22" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classBMenuItem_1ac5025771f8b7a2ead542c2f7d8f793d6" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_DrawControlChar</name></member>
+      <member refid="classBMenuItem_1afe777873be824c99e890a277221573fa" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_DrawMarkSymbol</name></member>
+      <member refid="classBMenuItem_1a3ece7532c7fc0bea02371ab12fc22366" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_DrawShortcutSymbol</name></member>
+      <member refid="classBMenuItem_1a1d24d081d5100795491578118dc45b2a" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_DrawSubmenuSymbol</name></member>
+      <member refid="classBMenuItem_1a76e738bf6b102867a300a8afa2203137" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_HighColor</name></member>
+      <member refid="classBMenuItem_1a4b624bf3432e6dcdc1a552c1f208eb49" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_InitData</name></member>
+      <member refid="classBMenuItem_1a93f236b1b8c7425d46e366202cc2dfff" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_InitMenuData</name></member>
+      <member refid="classBMenuItem_1ac93070082381f4af56d76f3b6f6c47f4" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_IsActivated</name></member>
+      <member refid="classBMenuItem_1a5b8927d60e72c7b8434b8b5e56e1fbd5" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_LowColor</name></member>
+      <member refid="classBMenuItem_1abbfb217d0fb5cc6108026123e53663ef" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>_reserved</name></member>
+      <member refid="classBMenuItem_1a97e4caddc36808523b56244588c756cb" prot="private" virt="virtual"><scope>BMenuItem</scope><name>_ReservedMenuItem1</name></member>
+      <member refid="classBMenuItem_1a9a36f924e7533ccec3684aa977486f81" prot="private" virt="virtual"><scope>BMenuItem</scope><name>_ReservedMenuItem2</name></member>
+      <member refid="classBMenuItem_1a7c5f063f79116bcfb9668aef227e65c3" prot="private" virt="virtual"><scope>BMenuItem</scope><name>_ReservedMenuItem3</name></member>
+      <member refid="classBMenuItem_1afd1c623f712ebf7135f827037729fbce" prot="private" virt="virtual"><scope>BMenuItem</scope><name>_ReservedMenuItem4</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BMenuItem</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BMenuItem</scope><name>AllUnarchived</name></member>
+      <member refid="classBMenuItem_1a0e31758c36db589a4549549ead272f6b" prot="public" virt="virtual"><scope>BMenuItem</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BArchivable</name></member>
+      <member refid="classBInvoker_1ada272cb8671448d7f7efd607791f31a7" prot="protected" virt="non-virtual"><scope>BMenuItem</scope><name>BeginInvokeNotify</name></member>
+      <member refid="classBInvoker_1ad03149db91cd6460f12adb72780a7080" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BInvoker</name></member>
+      <member refid="classBInvoker_1a6405334f1589c7a9fc3604ff8a4c8c83" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BInvoker</name></member>
+      <member refid="classBInvoker_1adaf9b3df1b4a318e10df04a5eb9f59ee" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BInvoker</name></member>
+      <member refid="classBMenuItem_1aa36818438ad07752252f6aa6640d5d8c" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BMenuItem</name></member>
+      <member refid="classBMenuItem_1ac9f0315f4285fa9e29c1b4e043f67a4a" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BMenuItem</name></member>
+      <member refid="classBMenuItem_1a8056c978d88925e2dc379c2b576838a4" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>BMenuItem</name></member>
+      <member refid="classBMenuItem_1a3d8f6000530d7e2cb1501143e2513498" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>BMenuItem</name></member>
+      <member refid="classBInvoker_1a6eb323ab957a5ee99e8db2b2fb0e9800" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Command</name></member>
+      <member refid="classBMenuItem_1af3f9cdc6f9be160df96682820c143298" prot="protected" virt="non-virtual"><scope>BMenuItem</scope><name>ContentLocation</name></member>
+      <member refid="classBMenuItem_1a357779f4b5add35e0e9307b206614d0e" prot="protected" virt="virtual"><scope>BMenuItem</scope><name>Draw</name></member>
+      <member refid="classBMenuItem_1a2db4048523e94676b1cd6338a2c27ab9" prot="protected" virt="virtual"><scope>BMenuItem</scope><name>DrawContent</name></member>
+      <member refid="classBInvoker_1a2169cfbba1c3da1921baa9a550581b54" prot="protected" virt="non-virtual"><scope>BMenuItem</scope><name>EndInvokeNotify</name></member>
+      <member refid="classBMenuItem_1a87454e132ee19014aafb7604dcb4237c" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fBounds</name></member>
+      <member refid="classBMenuItem_1a0c2d866d6851e25434d1ddd55fca5e76" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fCachedWidth</name></member>
+      <member refid="classBMenuItem_1ac60f9bb32d539880a8af7e42268d0c32" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fEnabled</name></member>
+      <member refid="classBMenuItem_1aa63a372244552ff599ea862947435389" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fLabel</name></member>
+      <member refid="classBMenuItem_1a5eb1bf40dd8918557e0066b12a67f61f" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fMark</name></member>
+      <member refid="classBMenuItem_1ad382d8d7e314af18d60ada4df6e806cc" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fModifiers</name></member>
+      <member refid="classBMenuItem_1a13749743bcc7f435d074bf57297a7860" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Frame</name></member>
+      <member refid="classBMenuItem_1ae9a0b58ba33339d465dcb9cda78a72fc" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fSelected</name></member>
+      <member refid="classBMenuItem_1a39c38eebd4a444d6ec4f2cbd12907fa7" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fShortcutChar</name></member>
+      <member refid="classBMenuItem_1a945fc7eb098d242b96758ac026151411" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fSubmenu</name></member>
+      <member refid="classBMenuItem_1a11ff75af882460e57f84b066e1cc10ab" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fSuper</name></member>
+      <member refid="classBMenuItem_1a8c6eb2a998fc4592bc528c9584e078be" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fTrigger</name></member>
+      <member refid="classBMenuItem_1a5278526759324fcd35bbcaf6c82f024d" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fTriggerIndex</name></member>
+      <member refid="classBMenuItem_1adf348e92b218877c3546f1cbe56345ed" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fUserTrigger</name></member>
+      <member refid="classBMenuItem_1aee0f98566a1a7e88702b32a46cd4adbe" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>fWindow</name></member>
+      <member refid="classBMenuItem_1a8e567edeb0be62c013dec07e2943629d" prot="protected" virt="virtual"><scope>BMenuItem</scope><name>GetContentSize</name></member>
+      <member refid="classBInvoker_1a710e78abc03eb29e9e25d11d34c874cc" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>HandlerForReply</name></member>
+      <member refid="classBMenuItem_1a56b0f747a556427aa296193fe115a74e" prot="protected" virt="virtual"><scope>BMenuItem</scope><name>Highlight</name></member>
+      <member refid="classBMenuItem_1af5b05c216c22fe85bd91d6f8589d8c62" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>Install</name></member>
+      <member refid="classBMenuItem_1adbc431076e81504889553ed348c55b94" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Instantiate</name></member>
+      <member refid="classBMenuItem_1ae51fbc9628a915b133b5862e436314a4" prot="protected" virt="virtual"><scope>BMenuItem</scope><name>Invoke</name></member>
+      <member refid="classBInvoker_1a6e33e81c7ee307621295e8da6181d3f8" prot="protected" virt="non-virtual"><scope>BMenuItem</scope><name>InvokeKind</name></member>
+      <member refid="classBInvoker_1ab009fe9c6a1f64798c614612e8c3db20" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>InvokeNotify</name></member>
+      <member refid="classBMenuItem_1a5b4747f5ff345a8068257697f083fc6b" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>IsEnabled</name></member>
+      <member refid="classBMenuItem_1a9492b89007241180fe84058000adf121" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>IsMarked</name></member>
+      <member refid="classBMenuItem_1a7f9bb278f056c48b2615b7c87de6a791" prot="protected" virt="non-virtual"><scope>BMenuItem</scope><name>IsSelected</name></member>
+      <member refid="classBInvoker_1a17470932a103267815f01d0df9e891e9" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>IsTargetLocal</name></member>
+      <member refid="classBMenuItem_1ab0e1137c2da0aebcb42c5e07d73e2043" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Label</name></member>
+      <member refid="classBMenuItem_1ab6abecc541115fb6dd61cf16c25636c8" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Menu</name></member>
+      <member refid="classBInvoker_1ab0b73729de282c93b4da51e6b9dbc170" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Message</name></member>
+      <member refid="classBInvoker_1aac0992846032f0caaed3d968cd9a1fca" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Messenger</name></member>
+      <member refid="classBMenuItem_1a929f403e8d2b4b683ada51ade0ae17c7" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>operator=</name></member>
+      <member refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de" prot="public" virt="virtual"><scope>BMenuItem</scope><name>Perform</name></member>
+      <member refid="classBMenuItem_1a4e019bc9465375fd1a548d8079e29c59" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>Select</name></member>
+      <member refid="classBMenuItem_1a9048b21433ecd0c1da5de6717d38c71d" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>SetAutomaticTrigger</name></member>
+      <member refid="classBMenuItem_1a1179e9734ed7b84d4f1ba829ed721e22" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetEnabled</name></member>
+      <member refid="classBInvoker_1a9983897bef828eea70f574f9571b8e85" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetHandlerForReply</name></member>
+      <member refid="classBMenuItem_1a83c794e5d75b300a51e8bb70c5255677" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetLabel</name></member>
+      <member refid="classBMenuItem_1a0b896795700a46215ee7884940b39119" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetMarked</name></member>
+      <member refid="classBInvoker_1a42fae8f984af3765c1a6af404dc36816" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetMessage</name></member>
+      <member refid="classBMenuItem_1aec7480dc85b1f62ff9678a22ba2b6ff3" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetShortcut</name></member>
+      <member refid="classBMenuItem_1ad17bdcb06574d7b300f791a71b76e173" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>SetSuper</name></member>
+      <member refid="classBInvoker_1ac857ceb882d95a5826447dc12dd06c74" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetTarget</name></member>
+      <member refid="classBInvoker_1a17e8040bfd829b6b084c2f6234776e11" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetTarget</name></member>
+      <member refid="classBInvoker_1ab3c4f55b01f3775832871944b5c943de" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>SetTimeout</name></member>
+      <member refid="classBMenuItem_1a559d29474bdd2608ab263f831a1a9ac4" prot="public" virt="virtual"><scope>BMenuItem</scope><name>SetTrigger</name></member>
+      <member refid="classBMenuItem_1a0a27adb900a9a831a7ff4a72685a2fe0" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Shortcut</name></member>
+      <member refid="classBMenuItem_1a143dcb6b5906e6598f8fb594b7f36757" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Submenu</name></member>
+      <member refid="classBInvoker_1aba5a469f2e0c94c08553ebe59c238cc8" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Target</name></member>
+      <member refid="classBInvoker_1af2632aee4882b11ed1bc34ce55ef4bbe" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Timeout</name></member>
+      <member refid="classBMenuItem_1aeebb4d9309ca000aafda565e40e8561e" prot="public" virt="non-virtual"><scope>BMenuItem</scope><name>Trigger</name></member>
+      <member refid="classBMenuItem_1af8af2c4606e2cee362e3238d9220bd2e" prot="protected" virt="virtual"><scope>BMenuItem</scope><name>TruncateLabel</name></member>
+      <member refid="classBMenuItem_1af8735b1aef2a64e661957d1fc729eba9" prot="private" virt="non-virtual"><scope>BMenuItem</scope><name>Uninstall</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BMenuItem</scope><name>~BArchivable</name></member>
+      <member refid="classBInvoker_1a68714c3b78a2cf2931daf54f5dc94dca" prot="public" virt="virtual"><scope>BMenuItem</scope><name>~BInvoker</name></member>
+      <member refid="classBMenuItem_1a4581d0d7f2ca677157bb60d59bdbd58a" prot="public" virt="virtual"><scope>BMenuItem</scope><name>~BMenuItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

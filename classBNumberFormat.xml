@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBNumberFormat" kind="class" language="C++" prot="public">
+    <compoundname>BNumberFormat</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BFormat</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBNumberFormat_1aa3a7594a0b68e0dafd8bb5194a5ba448" prot="private" static="no" mutable="no">
+        <type>BNumberFormatImpl *</type>
+        <definition>BNumberFormatImpl* BNumberFormat::fPrivateData</definition>
+        <argsstring></argsstring>
+        <name>fPrivateData</name>
+        <qualifiedname>BNumberFormat::fPrivateData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="51" column="18" bodyfile="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBNumberFormat_1a291690cb418bc179f859aea30b508265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNumberFormat::BNumberFormat</definition>
+        <argsstring>()</argsstring>
+        <name>BNumberFormat</name>
+        <qualifiedname>BNumberFormat::BNumberFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1aa056761b96438476291167e1a7173f3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNumberFormat::BNumberFormat</definition>
+        <argsstring>(const BLocale *locale)</argsstring>
+        <name>BNumberFormat</name>
+        <qualifiedname>BNumberFormat::BNumberFormat</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLocale" kindref="compound">BLocale</ref> *</type>
+          <declname>locale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1afaa7b4585648a11f1dd865abc65d7a17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNumberFormat::~BNumberFormat</definition>
+        <argsstring>()</argsstring>
+        <name>~BNumberFormat</name>
+        <qualifiedname>BNumberFormat::~BNumberFormat</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1a396a60cc6ef6504abdae0e8ed64b3ac2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNumberFormat::Format</definition>
+        <argsstring>(BString &amp;string, const double value)</argsstring>
+        <name>Format</name>
+        <qualifiedname>BNumberFormat::Format</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Format the <computeroutput>double</computeroutput> <emphasis>value</emphasis> as a string and put the result into <emphasis>string</emphasis> in the current locale. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to put the formatted number into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number that you want to get a formatted version of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to lock the <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while creating the NumberFormat object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough space to store the result.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>BNumberFormat::Format(BString* string, int32 value) const </para>
+</simplesect>
+<simplesect kind="see"><para>BNumberFormat::FormatMonetary(BString* string, double value) const</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1a70187c85b58c1769a4286f942991d056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNumberFormat::Format</definition>
+        <argsstring>(BString &amp;string, const int32 value)</argsstring>
+        <name>Format</name>
+        <qualifiedname>BNumberFormat::Format</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Format the <computeroutput>int32</computeroutput> <emphasis>value</emphasis> as a string and put the result into <emphasis>string</emphasis> in the current locale. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to put the formatted number into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number that you want to get a formatted version of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to lock the <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while creating the NumberFormat object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough space to store the result.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>BNumberFormat::Format(BString* string, double value) const </para>
+</simplesect>
+<simplesect kind="see"><para>BNumberFormat::FormatMonetary(BString* string, double value) const</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1a3b6ae24878908e80ba3a173521c5d8f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BNumberFormat::Format</definition>
+        <argsstring>(char *string, size_t maxSize, const double value)</argsstring>
+        <name>Format</name>
+        <qualifiedname>BNumberFormat::Format</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxSize</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Format the <computeroutput>double</computeroutput> <emphasis>value</emphasis> as a string and put the result into <emphasis>string</emphasis> up to <emphasis>maxSize</emphasis> bytes in the current locale. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to put the formatted number into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum of bytes to copy into <emphasis>string</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number that you want to get a formatted version of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The length of the string created or an error status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to lock the <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while creating the NumberFormat object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough space to store the result.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>BNumberFormat::Format(char* string, size_t maxSize,
+	int32 value) const </para>
+</simplesect>
+<simplesect kind="see"><para>ssize_t BNumberFormat::FormatMonetary(char* string, size_t maxSize,
+	double value) const</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="26" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1ae6f77207e74d982b38c58b6937486b4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BNumberFormat::Format</definition>
+        <argsstring>(char *string, size_t maxSize, const int32 value)</argsstring>
+        <name>Format</name>
+        <qualifiedname>BNumberFormat::Format</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxSize</declname>
+        </param>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Format the <computeroutput>int32</computeroutput> <emphasis>value</emphasis> as a string and put the result into <emphasis>string</emphasis> up to <emphasis>maxSize</emphasis> bytes in the current locale. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to put the formatted number into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum of bytes to copy into <emphasis>string</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number that you want to get a formatted version of.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The length of the string created or an error status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to lock the <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while creating the NumberFormat object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough space to store the result.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>BNumberFormat::Format(char* string, size_t maxSize,
+	double value) const </para>
+</simplesect>
+<simplesect kind="see"><para>BNumberFormat::FormatMonetary(char* string, size_t maxSize,
+	double value) const</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="29" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1aa692e59beaf7a961601cba3a23b87099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNumberFormat::FormatMonetary</definition>
+        <argsstring>(BString &amp;string, const double value)</argsstring>
+        <name>FormatMonetary</name>
+        <qualifiedname>BNumberFormat::FormatMonetary</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Format the <computeroutput>double</computeroutput> <emphasis>value</emphasis> as a monetary string and put the result into <emphasis>string</emphasis> in the current locale. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>string</emphasis> to put the monetary formatted number into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number to format as a monetary <emphasis>value</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to lock the <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while creating the NumberFormat object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough space to store the result.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>BNumberFormat::Format(BString* string, double value) const </para>
+</simplesect>
+<simplesect kind="see"><para>BNumberFormat::Format(BString* string, int32 value) const</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="35" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1ad3124227366747f9fffed18584a2b3fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BNumberFormat::FormatMonetary</definition>
+        <argsstring>(char *string, size_t maxSize, const double value)</argsstring>
+        <name>FormatMonetary</name>
+        <qualifiedname>BNumberFormat::FormatMonetary</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxSize</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Format the <computeroutput>double</computeroutput> <emphasis>value</emphasis> as a monetary string and put the result into <emphasis>string</emphasis> up to <emphasis>maxSize</emphasis> bytes in the current locale. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>It uses the money symbol set by the Locale (€, $, ...) or the generic money symbol (¤) if the locale is not country-specific.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>string</emphasis> to put the monetary formatted number into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum of bytes to copy into <emphasis>string</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number to format as a monetary <emphasis>value</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The length of the string created or an error status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to lock the <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while creating the NumberFormat object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough space to store the result.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>BNumberFormat::Format(char* string, size_t maxSize, double value) const </para>
+</simplesect>
+<simplesect kind="see"><para>BNumberFormat::Format(char* string, size_t maxSize, int32 value) const</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="33" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1ac7b7cb8e0fc275c14838d898d98a3169" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNumberFormat::FormatPercent</definition>
+        <argsstring>(BString &amp;string, const double value)</argsstring>
+        <name>FormatPercent</name>
+        <qualifiedname>BNumberFormat::FormatPercent</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1a87cea5db47bddfce2cb4d6bdd9c0b035" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BNumberFormat::FormatPercent</definition>
+        <argsstring>(char *string, size_t maxSize, const double value)</argsstring>
+        <name>FormatPercent</name>
+        <qualifiedname>BNumberFormat::FormatPercent</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>maxSize</declname>
+        </param>
+        <param>
+          <type>const double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="38" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1a112eb79ea5db0f29d1460aa16c5f4e4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BNumberFormat::GetSeparator</definition>
+        <argsstring>(BNumberElement element)</argsstring>
+        <name>GetSeparator</name>
+        <qualifiedname>BNumberFormat::GetSeparator</qualifiedname>
+        <param>
+          <type>BNumberElement</type>
+          <declname>element</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="45" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBNumberFormat_1a655f8eee501a280529604850a9950ad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BNumberFormat::Parse</definition>
+        <argsstring>(const BString &amp;string, double &amp;value)</argsstring>
+        <name>Parse</name>
+        <qualifiedname>BNumberFormat::Parse</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="43" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBNumberFormat_1a008e6ca7bb07b66a6750c3a24dd8b74c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BNumberFormat::BNumberFormat</definition>
+        <argsstring>(const BNumberFormat &amp;other)</argsstring>
+        <name>BNumberFormat</name>
+        <qualifiedname>BNumberFormat::BNumberFormat</qualifiedname>
+        <param>
+          <type>const <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBNumberFormat" kindref="compound">BNumberFormat</ref> object to copy from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="48" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Formatter for numbers and monetary values. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" line="20" column="1" bodyfile="/boot/home/src/haiku/headers/os/locale/NumberFormat.h" bodystart="20" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classBFormat_1a1ff84e6b18584d40445fea46931bafd0" prot="protected" virt="non-virtual"><scope>BNumberFormat</scope><name>BFormat</name></member>
+      <member refid="classBFormat_1acd966f960c76ac04a64eb65399d73c85" prot="protected" virt="non-virtual"><scope>BNumberFormat</scope><name>BFormat</name></member>
+      <member refid="classBFormat_1ab5d495c8408849155a7ff7fc16161e75" prot="protected" virt="non-virtual"><scope>BNumberFormat</scope><name>BFormat</name></member>
+      <member refid="classBNumberFormat_1a291690cb418bc179f859aea30b508265" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>BNumberFormat</name></member>
+      <member refid="classBNumberFormat_1aa056761b96438476291167e1a7173f3c" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>BNumberFormat</name></member>
+      <member refid="classBNumberFormat_1a008e6ca7bb07b66a6750c3a24dd8b74c" prot="private" virt="non-virtual"><scope>BNumberFormat</scope><name>BNumberFormat</name></member>
+      <member refid="classBFormat_1acb27d863a711eb8b2aeb62ca56024e36" prot="protected" virt="non-virtual"><scope>BNumberFormat</scope><name>fConventions</name></member>
+      <member refid="classBFormat_1a50d5bddcf4f91d741d4fbba1ac090de5" prot="protected" virt="non-virtual"><scope>BNumberFormat</scope><name>fInitStatus</name></member>
+      <member refid="classBFormat_1a9ccf84a90e0dbc89623f03e7bb325e7e" prot="protected" virt="non-virtual"><scope>BNumberFormat</scope><name>fLanguage</name></member>
+      <member refid="classBNumberFormat_1a3b6ae24878908e80ba3a173521c5d8f1" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>Format</name></member>
+      <member refid="classBNumberFormat_1a396a60cc6ef6504abdae0e8ed64b3ac2" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>Format</name></member>
+      <member refid="classBNumberFormat_1ae6f77207e74d982b38c58b6937486b4b" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>Format</name></member>
+      <member refid="classBNumberFormat_1a70187c85b58c1769a4286f942991d056" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>Format</name></member>
+      <member refid="classBNumberFormat_1ad3124227366747f9fffed18584a2b3fd" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>FormatMonetary</name></member>
+      <member refid="classBNumberFormat_1aa692e59beaf7a961601cba3a23b87099" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>FormatMonetary</name></member>
+      <member refid="classBNumberFormat_1a87cea5db47bddfce2cb4d6bdd9c0b035" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>FormatPercent</name></member>
+      <member refid="classBNumberFormat_1ac7b7cb8e0fc275c14838d898d98a3169" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>FormatPercent</name></member>
+      <member refid="classBNumberFormat_1aa3a7594a0b68e0dafd8bb5194a5ba448" prot="private" virt="non-virtual"><scope>BNumberFormat</scope><name>fPrivateData</name></member>
+      <member refid="classBNumberFormat_1a112eb79ea5db0f29d1460aa16c5f4e4e" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>GetSeparator</name></member>
+      <member refid="classBFormat_1a1c2b885fb22f2c3da84e098bc5e3e95f" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>InitCheck</name></member>
+      <member refid="classBNumberFormat_1a655f8eee501a280529604850a9950ad6" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>Parse</name></member>
+      <member refid="classBFormat_1a2824e15e80fac46c80cfd0d19e9f45fc" prot="protected" virt="virtual"><scope>BNumberFormat</scope><name>~BFormat</name></member>
+      <member refid="classBNumberFormat_1afaa7b4585648a11f1dd865abc65d7a17" prot="public" virt="non-virtual"><scope>BNumberFormat</scope><name>~BNumberFormat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

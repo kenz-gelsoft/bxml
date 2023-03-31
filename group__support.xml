@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__support" kind="group">
+    <compoundname>support</compoundname>
+    <title>Support Kit</title>
+    <innerfile refid="Architecture_8h">Architecture.h</innerfile>
+    <innerfile refid="Archivable_8h">Archivable.h</innerfile>
+    <innerfile refid="Autolock_8h">Autolock.h</innerfile>
+    <innerfile refid="Beep_8h">Beep.h</innerfile>
+    <innerfile refid="BlockCache_8h">BlockCache.h</innerfile>
+    <innerfile refid="BufferedDataIO_8h">BufferedDataIO.h</innerfile>
+    <innerfile refid="BufferIO_8h">BufferIO.h</innerfile>
+    <innerfile refid="DataIO_8h">DataIO.h</innerfile>
+    <innerfile refid="Flattenable_8h">Flattenable.h</innerfile>
+    <innerfile refid="List_8h">List.h</innerfile>
+    <innerfile refid="Locker_8h">Locker.h</innerfile>
+    <innerfile refid="ObjectList_8h">ObjectList.h</innerfile>
+    <innerfile refid="parsedate_8h">parsedate.h</innerfile>
+    <innerfile refid="Referenceable_8h">Referenceable.h</innerfile>
+    <innerfile refid="StackOrHeapArray_8h">StackOrHeapArray.h</innerfile>
+    <innerfile refid="StopWatch_8h">StopWatch.h</innerfile>
+    <innerfile refid="String_8h">String.h</innerfile>
+    <innerfile refid="StringList_8h">StringList.h</innerfile>
+    <innerfile refid="SupportDefs_8h">SupportDefs.h</innerfile>
+    <innerfile refid="TLS_8h">TLS.h</innerfile>
+    <innerfile refid="TypeConstants_8h">TypeConstants.h</innerfile>
+    <innerfile refid="Url_8h">Url.h</innerfile>
+    <innerclass refid="classBArchivable" prot="public">BArchivable</innerclass>
+    <innerclass refid="classBArchiver" prot="public">BArchiver</innerclass>
+    <innerclass refid="classBAutolock" prot="public">BAutolock</innerclass>
+    <innerclass refid="classBBlockCache" prot="public">BBlockCache</innerclass>
+    <innerclass refid="classBBufferedDataIO" prot="public">BBufferedDataIO</innerclass>
+    <innerclass refid="classBBufferIO" prot="public">BBufferIO</innerclass>
+    <innerclass refid="classBDataIO" prot="public">BDataIO</innerclass>
+    <innerclass refid="classBFlattenable" prot="public">BFlattenable</innerclass>
+    <innerclass refid="classBList" prot="public">BList</innerclass>
+    <innerclass refid="classBLocker" prot="public">BLocker</innerclass>
+    <innerclass refid="classBMallocIO" prot="public">BMallocIO</innerclass>
+    <innerclass refid="classBMemoryIO" prot="public">BMemoryIO</innerclass>
+    <innerclass refid="classBMemoryRingIO" prot="public">BMemoryRingIO</innerclass>
+    <innerclass refid="classBObjectList" prot="public">BObjectList</innerclass>
+    <innerclass refid="classBPositionIO" prot="public">BPositionIO</innerclass>
+    <innerclass refid="classBReference" prot="public">BReference</innerclass>
+    <innerclass refid="classBReferenceable" prot="public">BReferenceable</innerclass>
+    <innerclass refid="classBStackOrHeapArray" prot="public">BStackOrHeapArray</innerclass>
+    <innerclass refid="classBStopWatch" prot="public">BStopWatch</innerclass>
+    <innerclass refid="classBString" prot="public">BString</innerclass>
+    <innerclass refid="classBStringList" prot="public">BStringList</innerclass>
+    <innerclass refid="classBUnarchiver" prot="public">BUnarchiver</innerclass>
+    <innerclass refid="classBUrl" prot="public">BUrl</innerclass>
+    <innergroup refid="group__support__globals">Global functions</innergroup>
+    <briefdescription>
+<para>Collection of utility classes that are used throughout the API. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The Support Kit provides a handy set of classes that you can use in your applications. These classes provide:<itemizedlist>
+<listitem><para><bold>Thread</bold> <bold>Safety</bold>. Haiku can execute multiple threads of an application in parallel, letting certain parts of an application continue when one part is stalled, as well as letting an application process multiple pieces of data at the same time on multicore or multiprocessor systems. However, there are times when multiple threads desire to work on the same piece of data at the same time, potentially causing a conflict where variables or pointers are changed by one thread causing another to execute incorrectly. To prevent this, Haiku implements a "locking" mechanism, allowing one thread to "lock out" other threads from executing code that might modify the same data.</para>
+</listitem><listitem><para><bold>Archiving</bold> <bold>and</bold> <bold>IO</bold>. These classes allow a programmer to convert objects into a form that can more easily be transferred to other applications or stored to disk, as well as performing basic input and output operations.</para>
+</listitem><listitem><para><bold>Memory</bold> <bold>Allocation</bold>. This class allows a programmer to hand off some of the duties of memory accounting and management.</para>
+</listitem><listitem><para><bold>Common</bold> <bold>Datatypes</bold>. To avoid unnecessary duplication of code and to make life easier for programmers, Haiku includes classes that handle management of ordered lists and strings.</para>
+</listitem></itemizedlist>
+</para>
+<para>There are also a number of utility functions to time actions, play system alert sounds, compare strings, and atomically manipulate integers. Have a look at the overview, or go straight to the complete <ref refid="group__support" kindref="compound">list of components </ref> of this kit.</para>
+<sect1 id="group__support_1book_overview">
+<title>Overview</title>
+<para><itemizedlist>
+<listitem><para>Thread Safety:<itemizedlist>
+<listitem><para><ref refid="classBLocker" kindref="compound">BLocker</ref> provides a semaphore-like locking mechanism allowing for recursive locks.</para>
+</listitem><listitem><para><ref refid="classBAutolock" kindref="compound">BAutolock</ref> provides a simple method of automatically removing a lock when a function ends.</para>
+</listitem><listitem><para><ref refid="TLS_8h" kindref="compound">Thread Local Storage</ref> allows a global variable\&apos;s content to be sensitive to thread context.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Archiving and IO:<itemizedlist>
+<listitem><para><ref refid="classBArchivable" kindref="compound">BArchivable</ref> provides an interface for "archiving" objects so that they may be sent to other applications where an identical copy will be recreated.</para>
+</listitem><listitem><para><ref refid="classBArchiver" kindref="compound">BArchiver</ref> simplifies archiving of <ref refid="classBArchivable" kindref="compound">BArchivable</ref> hierarchies.</para>
+</listitem><listitem><para><ref refid="classBUnarchiver" kindref="compound">BUnarchiver</ref> simplifies unarchiving hierarchies that have been archived using <ref refid="classBArchiver" kindref="compound">BArchiver</ref>.</para>
+</listitem><listitem><para><ref refid="classBFlattenable" kindref="compound">BFlattenable</ref> provides an interface for "flattening" objects so that they may be easily stored to disk.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><ref refid="classBDataIO" kindref="compound">BDataIO</ref> provides an interface for generalized read/write streams.<itemizedlist>
+<listitem><para><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> extends <ref refid="classBDataIO" kindref="compound">BDataIO</ref> to allow seeking within the data.</para>
+</listitem><listitem><para><ref refid="classBBufferIO" kindref="compound">BBufferIO</ref> creates a buffer and attaches it to a <ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> stream, allowing for reduced load on the underlying stream.</para>
+</listitem><listitem><para><ref refid="classBMemoryIO" kindref="compound">BMemoryIO</ref> allows operation on an already-existing buffer.</para>
+</listitem><listitem><para><ref refid="classBMallocIO" kindref="compound">BMallocIO</ref> creates and allows operation on a buffer.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Memory Allocation:<itemizedlist>
+<listitem><para><ref refid="classBBlockCache" kindref="compound">BBlockCache</ref> allows an application to allocate a "pool" of memory blocks that the application can fetch and dispose of as it pleases, letting the application make only a few large memory allocations, instead of many small expensive allocations.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>Common Datatypes:<itemizedlist>
+<listitem><para><ref refid="classBList" kindref="compound">BList</ref> allows simple ordered lists and provides common access, modification, and comparison functions.</para>
+</listitem><listitem><para><ref refid="classBString" kindref="compound">BString</ref> allows strings and provides common access, modification, and comparison functions.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><ref refid="classBStopWatch" kindref="compound">BStopWatch</ref> allows an application to measure the time an action takes.</para>
+</listitem><listitem><para><ref refid="group__support__globals" kindref="compound">Global functions</ref></para>
+</listitem><listitem><para><ref refid="TypeConstants_8h" kindref="compound">Common types and constants</ref></para>
+</listitem><listitem><para>Error codes for all kits</para>
+</listitem></itemizedlist>
+</para>
+<para>For a better overview, have a look at <ref refid="support_intro" kindref="compound">Introduction to the Support Kit</ref> . </para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

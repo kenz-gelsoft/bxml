@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="layout_tips" kind="page">
+    <compoundname>layout_tips</compoundname>
+    <title>Layout API tips</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="layout_tips_1layout_window_tips">
+<title>BWindow Tips</title>
+<para><itemizedlist>
+<listitem><para>You can use the BLayoutBuilder classes to build a layout directly into a <ref refid="classBWindow" kindref="compound">BWindow</ref>. </para>
+</listitem>
+<listitem><para>Passing the B_AUTO_UPDATE_SIZE_LIMITS flag to a <ref refid="classBWindow" kindref="compound">BWindow</ref> with a <ref refid="classBLayout" kindref="compound">BLayout</ref> will make sure that window is always big enough to accomadate everything in it.</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+<sect1 id="layout_tips_1layout_view_tips">
+<title>BView Tips</title>
+<para><itemizedlist>
+<listitem><para>When the main purpose of a <ref refid="classBView" kindref="compound">BView</ref> is to hold a <ref refid="classBLayout" kindref="compound">BLayout</ref>, consider nesting the <ref refid="classBLayout" kindref="compound">BLayout</ref> directly (i.e. without a <ref refid="classBView" kindref="compound">BView</ref>)</para>
+</listitem>
+</itemizedlist>
+<itemizedlist>
+<listitem><para>When the main purpose of a <ref refid="classBView" kindref="compound">BView</ref> is to hold another <ref refid="classBView" kindref="compound">BView</ref> which has children added to it, consider adding directly to the first <ref refid="classBView" kindref="compound">BView</ref>.</para>
+</listitem>
+</itemizedlist>
+<itemizedlist>
+<listitem><para>When the main purpose of a <ref refid="classBView" kindref="compound">BView</ref> is to hold a <ref refid="classBLayout" kindref="compound">BLayout</ref>, but you also wish to have a view color set for that area, considering using one of the layout-related convenience classes (eg. <ref refid="classBGroupView" kindref="compound">BGroupView</ref> for <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>).</para>
+</listitem>
+</itemizedlist>
+<itemizedlist>
+<listitem><para>When the main purpose of a <ref refid="classBView" kindref="compound">BView</ref> is to hold a <ref refid="classBLayout" kindref="compound">BLayout</ref>, but it must be populated before being attached to another <ref refid="classBView" kindref="compound">BView</ref> or a <ref refid="classBWindow" kindref="compound">BWindow</ref>, consider using one of the layout-related convenience classes (eg. <ref refid="classBGroupView" kindref="compound">BGroupView</ref> for <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>).</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+<sect1 id="layout_tips_1layout_layout_tips">
+<title>BLayout Tips</title>
+<para><itemizedlist>
+<listitem><para>It is generally better to add BViews and BLayoutItems directly to the <ref refid="classBLayout" kindref="compound">BLayout</ref> subclass attached to a <ref refid="classBView" kindref="compound">BView</ref>, rather than the <ref refid="classBView" kindref="compound">BView</ref> itself. This way, you can make full use of the specific features the subclass you&apos;re using provides. </para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="interface/layout_tips.dox"/>
+  </compounddef>
+</doxygen>

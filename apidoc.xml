@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="apidoc" kind="page">
+    <compoundname>apidoc</compoundname>
+    <title>Documenting the API</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This article explains how to document the API. Its intended audience are the Haiku developers who want to document their own classes, and also the members of the API Documentation team who want to brush up the documentation. The guidelines are synchronous with the Haiku Coding Guidelines, which means that the formal requirements are the same where applicable. If you find an inconsistency, it&apos;s usually a good idea to report this on the documentation team&apos;s mailing list.</para>
+<para>This document is divided into three sections. <ref refid="apidoc_1formalrequirements" kindref="member">Formal Requirements</ref> describes the demands that are made from the markup and spacing of the files. <ref refid="apidoc_1commands" kindref="member">Doxygen Commands</ref> describes the subset of Doxygen commands the Haiku API documentation uses, and which commands are used in which situation. <ref refid="apidoc_1style" kindref="member">Writing Guidelines</ref> describes the required style and structure of the documentation. If you are a developer and you want to prepare the first version of the documentation for the API documentation team to go over, have a good look at the formal requirements and the Doxygen commands. In addition, have a quick glance at how to write member and class documentation, since you&apos;ll need to know which information is mandatory for the documentation. Aspiring members or members of the API documentation team should read the third section carefully, and should also check out some of the finished documentation to get a good grip on the actual tone, style and contents of the documentation.</para>
+<sect1 id="apidoc_1formalrequirements">
+<title>Formal Requirements</title>
+<para>This section describes formal requirements, such as location and naming of the files, the header blocks of files, what blocks of documentation look like and how to put delimiters to separate different &apos;blocks&apos; in your source file.</para>
+<sect2 id="apidoc_1formalrequirements_location">
+<title>Location of the Documentation Source</title>
+<para>Doxygen, the tool that we use to generate the marked up documentation, has an ingenious parser that is able to scan through both header and source files making it possible to document the API directly in the headers or the source. However, the Haiku project have decided not to put the documentation in either location, and opt for the third option Doxygen provides: to put the documentation into separate files.</para>
+<para><simplesect kind="note"><para>The reasons to not put the documentation in the header files are twofold. First of all, it would add unnecessary cruft to the headers that the compiler will needlessly have to parse, and developers will have a hard time to find the info they are looking for. The second reason is that the system headers are included throughout the tree. It&apos;s a waste of electricity to have everybody recompile the entire tree if someone fixes a typo in the documentation. Likewise, the reason to not put the documentation in the source code is that it unnecessarily clutters up that file. By not using direct documentation we lose some advantages, like the fact that developers might be inclined to update the documentation quicker if they change a method, but as you will see we&apos;ll have some methods in place to prevent that to a certain extent. There are a few aspects to the naming and locations of files:<orderedlist>
+<listitem><para>Most important, documentation files <bold>mirror</bold> header files. This not only means that they get the same name, but also that the order of the methods, variables, functions, etc. will have to be the same.</para>
+</listitem><listitem><para>The root directory of the public API headers is at <computeroutput>headers/os</computeroutput>. In a similar vein, the root of the documentation files is at <computeroutput>docs/user</computeroutput>. The subdirectory structure, or the division of kits, will also be replicated.</para>
+</listitem><listitem><para>The name of the files is the same as the base of the header files, with the <computeroutput>dox</computeroutput> extension. So <computeroutput>Something.h</computeroutput> becomes <computeroutput>Something.dox</computeroutput>. Note the case!</para>
+</listitem></orderedlist>
+</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="apidoc_1formalrequirements_headerblock">
+<title>The Header Block</title>
+<para>Every documentation file will begin with the header block. It&apos;s basically a copyright block, with a reference to the author(s) and against which revision the documentation was written.</para>
+<para><verbatim>/*
+ * Copyright 2007-2013 Haiku, Inc. All rights reserved.
+ * Distributed under the terms of the MIT License.
+ *
+ * Authors:
+ *      Niels Sascha Reedijk, niels.reedijk@gmail.com
+ *
+ * Proofreaders:
+ *      Alan Smale, ajsmale@gmail.com
+ *
+ * Corresponds to:
+ *      headers/os/support/String.h  rev 19731
+ *      src/kits/support/String.cpp  rev 19731
+ */
+</verbatim></para>
+<para>The example above has a few elements that you should take note of:<orderedlist>
+<listitem><para>The header is put in a standard C comment, which is enclosed between <verbatim>/*
+</verbatim> and <verbatim>*/
+</verbatim></para>
+</listitem><listitem><para>Every line starts with a whitespace and an asterisk followed by another space. If the text is part of a category, such as <computeroutput>Authors</computeroutput>, put three spaces after the delimiter.</para>
+</listitem><listitem><para>The first line is empty, then we get to the copyright notice. You may either retain the copyright yourself, or you can attribute to to Haiku Inc. It&apos;s your choice. The next line is the <emphasis>MIT</emphasis> License notice, followed by an empty line.</para>
+</listitem><listitem><para>Then there is a label <computeroutput>Authors:</computeroutput>, which is followed by lines with names and email addresses. The latter one is optional, but recommended. Each author is proceeded by two tabs after the asterisk.</para>
+</listitem><listitem><para>In the same vein there is the label <computeroutput>Proofreaders:</computeroutput> in case the file has been proofread.</para>
+</listitem><listitem><para>The final part is underneath the label <computeroutput>Corresponds to:</computeroutput>. Underneath there is a list of files and their svn revisions that the current documentation is known to correspond with.</para>
+</listitem><listitem><para>The header block ends with the <verbatim>*/
+</verbatim> where the asterisk is aligned with the ones above it.</para>
+</listitem></orderedlist>
+</para>
+</sect2>
+<sect2 id="apidoc_1formalrequirements_blocks">
+<title>Blocks</title>
+<para>Blocks are the basic units of documentation for Doxygen. At first it will feel like overkill to use blocks, but realize that Doxygen was initially designed to operate on header and source files, and then the blocks of documentation would be before the definition or declaration of the methods, functions, etcetera. Doxygen is used to operating on blocks, and that&apos;s why we need to reproduce them in our <computeroutput>dox</computeroutput> files.</para>
+<para>Blocks should adhere to the following standards:<orderedlist>
+<listitem><para>All blocks open with <verbatim>/*!
+</verbatim> and close with <verbatim>*/
+</verbatim></para>
+</listitem><listitem><para>The documentation is placed in between these markers.</para>
+</listitem><listitem><para>All the contents in between the markers is indented by tabs. The tab length should be four.</para>
+</listitem><listitem><para>Between blocks, there should be two empty lines.</para>
+</listitem><listitem><para>The maximum width of the contents between blocks is 80 columns. <bold>Try not to cross this limit</bold>, because it will severely limit readability.</para>
+</listitem></orderedlist>
+</para>
+<para>Example: <verbatim>/*!
+    \fn bool BList::AddItem(void *item)
+    \brief Append an item to the list.
+
+    \param item The item to add.
+    \retval true The item was appended.
+    \retval false Item was not appended, since resizing the list failed.
+    \sa AddItem(void *item, int32 index)
+*/
+</verbatim></para>
+<para><simplesect kind="note"><para>Doxygen also allows the use of single line comments, starting with <computeroutput>//!</computeroutput>, however, we won&apos;t use these <bold>except</bold> for group markers, which you can read more about in the next section.</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="apidoc_1formalrequirements_delimiters">
+<title>Delimiters</title>
+<para>Many of the header files in the Haiku API just document one class or one group of functions. However, there be a time when you come across a more complex header and for the sake of clarity in your <computeroutput>dox</computeroutput> file you want to mark the sections. Use the standard delimiter marker for this, which consists of five slashes, a space, the title of the section, a space and another five slashes. Like this: <computeroutput>///// Global Functions /////</computeroutput>.</para>
+<para><simplesect kind="note"><para>This is only for the source files and for you as documenter. It will not show up in the actual generated documentation!</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="apidoc_1formalrequirements_internal">
+<title>Internal documentation</title>
+<para>It is possible that there is documentation for parts of the API that are not (yet) part of the public API. It could either be that the documentation is part of the public header file (usually hidden behind a namespace like <computeroutput><ref refid="namespaceBPrivate" kindref="compound">BPrivate</ref></computeroutput>), or it is part of a private header file.</para>
+<para>In case you are in the situation where you need to store private API docs, you should put the entirety of the documentation in a conditional block, with the <computeroutput>INTERNAL</computeroutput> identifier. You open the block with the command <computeroutput>//! \cond INTERNAL</computeroutput> and end the block with the command <computeroutput>//! \endcond INTERNAL</computeroutput>.</para>
+<para>There are two different cases where you must or could use these blocks:</para>
+<para><orderedlist>
+<listitem><para>For non-public API of a <emphasis>public header file</emphasis>, you must always add the classes and other elements to the documentation even if they are placeholders, and put them in the conditional block.</para>
+</listitem><listitem><para>For parts of the non-public API that is in a <emphasis>private header file</emphasis>, you could put the documentation in a conditional block. If you choose to do so, you must document all elements in that header file.</para>
+</listitem></orderedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="apidoc_1commands">
+<title>Doxygen Commands</title>
+<para>This section describes all the Doxygen commands that will be used in the Haiku API documentation. As a rule, Doxygen commands start with a backslash (\) and are followed by whitespace (such as a space or a newline), with the exception of group markers; this is discussed in more detail later on. The commands can be divided into several categories, which are described in the following subsections.</para>
+<para><simplesect kind="note"><para>This section does not discuss which commands you should actually use in documentation. See the next section on <ref refid="apidoc_1style" kindref="member">Writing Guidelines</ref> for that. This section merely explains the different groupings and syntaxes of commands.</para>
+</simplesect>
+Most commands accept an argument. Arguments can be one of these three types:<itemizedlist>
+<listitem><para>&lt;single_word&gt; - The argument is a single word.</para>
+</listitem><listitem><para>(until the end of the line) - The argument runs until the end of the line.</para>
+</listitem><listitem><para>{paragraph} - The argument runs for an entire paragraph. A paragraph is ended by an empty line, or if another command that defines a <ref refid="apidoc_1commands_sections" kindref="member">section </ref> is found. Note that if you use commands that work on a paragraph and you split it over multiple lines (because of the maximum line width of 80 characters or because it looks better), you will have to indent subsequent lines that belong to the paragraph with two more spaces, making the total of four. This is to visually distinguish paragraphs for other documenters.</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="apidoc_1commands_definitions">
+<title>Block Definitions</title>
+<para>Because our API documentation is not done in the source, nor in the headers, Doxygen needs to be helped with figuring out what the documentation in the different blocks actually are about. That&apos;s why the first line in a documentation block would be one of the following commands:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>\class</computeroutput> &lt;name&gt; <linebreak/>
+ Tells Doxygen that the following section is going to be on the class as specified by <emphasis>name</emphasis>.</para>
+</listitem><listitem><para><computeroutput>\fn</computeroutput> (function declaration) <linebreak/>
+ This block is going to be about the function that corresponds to the given declaration. Please note that the declaration is what you find in the source file, so if class members are declared, the classname and the scope operator, <computeroutput>::</computeroutput>, are to be added as well. Modifiers such as <computeroutput>const</computeroutput> should be included.</para>
+</listitem><listitem><para><computeroutput>\var</computeroutput> (variable declaration) <linebreak/>
+ This block is going to be about the variable indicated by the declaration. This means basically that data members of a class should have the classname and the scope operator as well.</para>
+</listitem><listitem><para><computeroutput>\typedef</computeroutput> (typedef declaration) <linebreak/>
+ This block is going to be about the typedef indicated by the declaration. Copy the declaration exactly, including the leading <computeroutput>typedef</computeroutput> keyword.</para>
+</listitem><listitem><para><computeroutput>\struct</computeroutput> &lt;name&gt; <linebreak/>
+ Tells Doxygen the section is going to be on the <computeroutput>struct</computeroutput> indicated by <emphasis>name</emphasis>.</para>
+</listitem><listitem><para><computeroutput>\def</computeroutput> &lt;name&gt; <linebreak/>
+ This block is going to be about the <computeroutput>#define</computeroutput> with the identifier <emphasis>name</emphasis>.</para>
+</listitem><listitem><para><computeroutput>\page</computeroutput> <linebreak/>
+ This block represents a page. See the section on <ref refid="apidoc_1commands_pages" kindref="member">Page Commands</ref> for detailed information on pages.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="apidoc_1commands_sections">
+<title>Sections in Member Documentation</title>
+<para>If you have a look at the output that Doxygen generates, you can see that there are recurring sections in the documentation. Documentation that belongs to a certain section should be placed after a command that marks the start of that section. All the commands take a paragraph as argument. A paragraph ends with an empty line, or with a command that marks a new section. Note that this list only shows the syntax of the commands. For the semantics, have a look at the next section on style. In member documentation you can use the following:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>\brief</computeroutput> {brief description} <linebreak/>
+ This is the only <bold>mandatory</bold> section. Every member should have at least a brief description.</para>
+</listitem><listitem><para><computeroutput>\param</computeroutput> &lt;parameter-name&gt; {parameter description} <linebreak/>
+ This section describes a parameter with the name <emphasis>parameter-name</emphasis>. The parameter name must match the function declaration, since Doxygen will check if all the documented parameters exist.</para>
+</listitem><listitem><para><computeroutput>\return</computeroutput> {description of the return value} <linebreak/>
+ This section describes the return value. This is a totally free form paragraph, whereas <computeroutput>\retval</computeroutput> has a more structured form.</para>
+</listitem><listitem><para><computeroutput>\retval</computeroutput> &lt;value&gt; {description} <linebreak/>
+ This section describes the return value indicated by <emphasis>value</emphasis>.</para>
+</listitem><listitem><para><computeroutput>\see</computeroutput> {references} <linebreak/>
+ This section contains references to other parts of the documentation.</para>
+</listitem></itemizedlist>
+</para>
+<para>There are also a number of things that can be used in pages and member documentation. See the style section to find out the appropriate situations in which to use them.<itemizedlist>
+<listitem><para><computeroutput>\note</computeroutput> {text}</para>
+</listitem><listitem><para><computeroutput>\attention</computeroutput> {text}</para>
+</listitem><listitem><para><computeroutput>\warning</computeroutput> {text}</para>
+</listitem><listitem><para><computeroutput>\remarks</computeroutput> {text}</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="apidoc_1commands_markup">
+<title>Markup</title>
+<para>Sometimes you might require certain text to have a special markup, to make words stand out, but also if you want to have example code within the documentation you&apos;ll need a special markup. Doxygen defines three types of commands. There are commands that work on single words, commands that work on longer phrases and commands that define blocks. Basically, the single letter commands are commands that work on a the next word. If you need to mark multiple words or sentences, use the HTML-style commands. Finally, for blocks of code or blocks of text that need to be in &quot;typewriter&quot; font, use the block commands. Have a look at the following listing:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>\a</computeroutput> <linebreak/>
+ Use to refer to parameters or arguments in a running text, for example when referring to parameters in method descriptions.</para>
+</listitem><listitem><para><bold>Bold text</bold><itemizedlist>
+<listitem><para>For single words, use <computeroutput>\b</computeroutput>.</para>
+</listitem><listitem><para>For multiple words, enclose between the <computeroutput>&lt;b&gt;</computeroutput> and <computeroutput>&lt;\b&gt;</computeroutput> tags.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>Typewriter font</computeroutput> <linebreak/>
+ This can be used to refer to constants, or anything that needs to be in a monospace, or typewriter, font. There are a few options<itemizedlist>
+<listitem><para><computeroutput>\c</computeroutput> for single words.</para>
+</listitem><listitem><para><computeroutput>&lt;tt&gt;</computeroutput> and <computeroutput>&lt;\tt&gt;</computeroutput> for multiple words or phrases</para>
+</listitem><listitem><para>The commands <computeroutput>\verbatim</computeroutput> and <computeroutput>\endverbatim</computeroutput>. Everything between these two commands will be put in a distinct block that stands out from the rest of the text.</para>
+</listitem><listitem><para>The commands <computeroutput>\code</computeroutput> and <computeroutput>\endcode</computeroutput> do the same, but Doxygen will parse the contents and try to mark up the code to make it look a little bit nicer.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><emphasis>Emphasis</emphasis><itemizedlist>
+<listitem><para><computeroutput>\e</computeroutput> for single words.</para>
+</listitem><listitem><para><computeroutput>&lt;em&gt;</computeroutput> and <computeroutput>&lt;\em&gt;</computeroutput> for phrases.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="apidoc_1commands_pages">
+<title>Page Commands</title>
+<para>Pages are a very special element of the documentation. They are not associated with any kind of module, such as files or classes, and therefore, since they&apos;re not members, some of the structuring commands won&apos;t work. Important to know is that a page is the complete length of the block, so dividing it up in subsections by starting new blocks will not work. Instead, Doxygen provides some commands to structure text on a page.</para>
+<para>First of all, you define a new page by using the <computeroutput>\page</computeroutput> command. This command takes two arguments: a <computeroutput>&lt;name&gt;</computeroutput> and <computeroutput>(a title)</computeroutput>. The name is the internal identifier that can be used in linking between pages (see <ref refid="apidoc_1commands_miscellaneous" kindref="member">Miscellaneous Commands</ref> for <computeroutput>\ref</computeroutput>). After you&apos;ve defined the block to be a page, you can start writing the contents.</para>
+<para>For more complicated pages, you might want to divide the page up in sections. Use the <computeroutput>\section</computeroutput> command to define a new section. It takes the same arguments as <computeroutput>\page</computeroutput>, namely the <computeroutput>&lt;name&gt;</computeroutput> and the <computeroutput>(title)</computeroutput>. If you need a deeper hierarchy you may use <computeroutput>\subsection</computeroutput> and <computeroutput>\subsubsection</computeroutput>, again, both with the same syntax. If you need to distinguish between sections in sub-sub-sections, you are able to use <computeroutput>\paragraph</computeroutput>, which takes the same arguments.</para>
+<para><simplesect kind="note"><para>Before and after each of the commands above, you need to have an empty line so as to provide readability. It is not necessary to indent sections and subsections more than the normal two spaces, as long as you keep the section markers clear.</para>
+</simplesect>
+<simplesect kind="warning"><para>If you are entering the realm of subsections and sub-subsections, think about the nature of your page. Either it needs to be split up into multiple pages, or what you&apos;re writing is too complex and would be better off as a big tutorial on the Haiku website.</para>
+</simplesect>
+If you are creating multiple pages that are related, you will be able to structure them in a tree by using the <computeroutput>\subpage</computeroutput> command. This will rank the different pages in a tree structure. It will put a link in the place of the command, so you should place it at the top of the parent place and use it as an index.</para>
+</sect2>
+<sect2 id="apidoc_1commands_grouping">
+<title>Member Grouping Commands</title>
+<para>Doxygen makes it possible to group certain members together. It is used in the <ref refid="classBString" kindref="compound">BString</ref> class for example, where the members are grouped by what kind of operation they perform, such as appending, finding, etc. Defining groups is currently not as powerful as it could be, but if you use it inside classes, you will be fine if you follow the instructions presented in this section.</para>
+<para><simplesect kind="note"><para>If you are looking on how to add classes to kits, see <ref refid="apidoc_1commands_miscellaneous" kindref="member">Miscellaneous Commands</ref> and have a look at the <computeroutput>\ingroup</computeroutput> command.</para>
+</simplesect>
+Groups of members are preceded by a block that describes what the group is about. You are required to give each group of members at least a name. Have a look at the example:</para>
+<para><verbatim>/*!
+    \name Appending Methods
+
+    These methods append things to the object.
+*/
+
+
+//! \@{
+
+
+... methods ...
+
+
+//! \@}</verbatim></para>
+<para>The block preceding the block opening marker, <computeroutput>//! @{</computeroutput>, contains a <computeroutput>\name</computeroutput> command and a paragraph that gives a description. The header block can be as long or short as you want, but please don&apos;t make it too long. See the <ref refid="apidoc_1style" kindref="member">Writing Guidelines</ref> section on how to effectively write group headers. The members that you want to belong to the group are between the group opening and closing markers.</para>
+<para><simplesect kind="note"><para>Group headers don&apos;t have a <computeroutput>\brief</computeroutput> description.</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="apidoc_1commands_miscellaneous">
+<title>Miscellaneous Commands</title>
+<para>There are some commands that don&apos;t fit into the categories above, but that you will end up using every now and then. This section will describe those commands.</para>
+<para>The first one is <computeroutput>\n</computeroutput>. This command sort of belongs to the category of markup commands. It basically forces a newline. Because Doxygen parses paragraphs as a single contiguous entity, it&apos;s not possible to mark up the text using carriage returns in the documentation. <computeroutput>\n</computeroutput> forces a newline in the output. So in HTML it will be translated into a <computeroutput>&lt;br\&gt;</computeroutput>.</para>
+<para>Sometimes there are some parts of the API that you don&apos;t want to be visible. Since Doxygen extracts all the public and protected members from a class, and virtually every member from a file, you might want to force it to hide certain things. If so, use the <computeroutput>\internal</computeroutput> command. If you place this just after the block marker, the command will be hidden from documentation. Any further documentation or remarks you put inside the block will not be visible in the final documentation.</para>
+<para>Images can be a valuable addition to documentation. To include ones you made, use the <computeroutput>\image</computeroutput> command. It has the following prototype: <computeroutput>\image &lt;format&gt; &lt;file&gt;</computeroutput>. The format is currently fixed at <computeroutput>html</computeroutput>. The file refers to the filename relative to the location of the documentation file. Any images you want to add should be in the same location as the dox file, so only the file name will suffice.</para>
+<para>Modules are defined in the main book, and you can add classes to them by using the <computeroutput>\ingroup</computeroutput> command. This commands adds the class to the module and groups it on a separate page. At this moment, the group handling has yet to be finalized. For now, add the classes to the kit they belong in. In the future this might change.</para>
+<para>Finally, it is a good idea to link between parts of the documentation. There are two commands for that. The first one is <computeroutput>\ref</computeroutput>, which enable you to refer to pages, sections, etc. that you created yourself. The second one is <computeroutput>\link</computeroutput> which refers to members. The first one takes one word as an argument, the name of the section, and it inserts a link with the text of the title. <computeroutput>\link</computeroutput> is more complex. It should always be accompanied by <computeroutput>\endlink</computeroutput>. The first word between the two commands is the object that is referred to, and the rest is the link text.</para>
+</sect2>
+</sect1>
+<sect1 id="apidoc_1style">
+<title>Writing Guidelines</title>
+<para>This final section will present guidelines for the actual writing of the documentation. Both the structure of the documentation, which sections to use when, and the style of the writing will be discussed. Before diverging into the requirements for file and class descriptions, member descriptions and pages, there are some general remarks that apply to all types of documentation.</para>
+<para>First of all, everything you write should be in <emphasis>proper English sentences</emphasis>. Spelling, grammar, punctuation, make sure you adhere to the standards. It also means the following:<itemizedlist>
+<listitem><para>It means that every sentence should at least have a subject and a verb (unless it&apos;s an imperative statement).</para>
+</listitem><listitem><para>Also use the proper terminology. Remember, you are dealing with C++ here, which means you should use the right names. So use <bold>method</bold> instead of function, and data member instead of variable (where appropriate).</para>
+</listitem><listitem><para>Avoid in-formalism. Avoid constructs like &apos;if you want to disconnect the object&apos;, but rather use &apos;to disconnect the object&apos;. Avoid familiarizes, or jokes.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="remark"><para>It isn&apos;t the goal to create dry, legal-style documentation. Just try to find a balance. Read through documentation that&apos;s already been approved to get a hint of what you should be aiming for. </para>
+</simplesect>
+<simplesect kind="remark"><para>If you are having a problem with phrasing certain things, put it down in such a way that it says everything it needs to. A proofreader might then be able to rephrase it to a better style.</para>
+</simplesect>
+Throughout the documentation you might want to provide hints, warnings or remarks that might interrupt the flow of the text, or that need to visually stand out from the rest. Doxygen provides commands for paragraphs that display remarks, warnings, notes and points of attention. You can use these commands in case you meet one or more of the following requirements:<itemizedlist>
+<listitem><para>The point is for a specific audience, such as beginners in the Haiku API. Notes on what to read first, or mistakes that may be made by beginners will not be for the entire audience, and such should be separated. These kinds of notes should be at the end of blocks.</para>
+</listitem><listitem><para>The point needs to visually stand out. This is especially the case with remarks, but could also apply for other types.</para>
+</listitem><listitem><para>The point is not completely relevant to the text and therefore should be separated so that it doesn&apos;t interrupt the main flow.</para>
+</listitem></itemizedlist>
+</para>
+<para>This listing shows which one to use for which situation:<itemizedlist>
+<listitem><para><computeroutput>\attention</computeroutput> <itemizedlist>
+<listitem><para>Used when the developer is bound to make a mistake, when the API is ambiguous. The difference between this and a warning is that warnings warn about things that are the developers fault, and attention blocks warn about things that might go wrong because of the way the API is structured.</para>
+</listitem><listitem><para>Used to warn for abuse of the API that might be caused by the way the internals of the system are structured.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>\warning</computeroutput> <itemizedlist>
+<listitem><para>Used to warn developers about using the API in a certain way. Warnings apply especially to new developers that aren&apos;t completely familiar with the API and that might want to abuse it. For example, the thread safety of <ref refid="classBString" kindref="compound">BString</ref> requires a warning.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>\note</computeroutput> <itemizedlist>
+<listitem><para>Used to place references to other documentation that might not be directly related to the text. For example, <ref refid="classBLooper" kindref="compound">BLooper</ref> will have a direct reference to <ref refid="classBHandler" kindref="compound">BHandler</ref> in the class description, but <ref refid="classBMessenger" kindref="compound">BMessenger</ref> will be mentioned in a note because it does not directly influence the use of the class.</para>
+</listitem><listitem><para>Can also be used for useful hints or notes that somehow need to stand out from the rest of the text.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>\remarks</computeroutput> <itemizedlist>
+<listitem><para>Remarks are small notes that would interrupt the flow of the text. For example, if you in a text ignore a certain condition that is so extremely rare and uncommon, you can put a remark at the end of the text to tell that you have been lying.</para>
+</listitem><listitem><para>Remarks interact with the text whereas notes add something unmentioned to it.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="apidoc_1style_files">
+<title>File Descriptions</title>
+<para>The design of Doxygen makes it very file oriented, and this might come off as inconvenient. At the moment, how to actually group the documentation is still under debate, but it does not change the requirement that a header needs to be documented before the members of that header can be documented. As such, the first documentation block in your <computeroutput>dox</computeroutput> file will be the block that describes the header. Examples:</para>
+<para><verbatim>/*!
+    \file String.h
+    \brief Defines the BString class and global operators and functions for
+           handling strings.
+*/
+
+
+/*!
+    \file SupportDefs.h
+    \brief Defines basic types and definitions for the Haiku API.
+*/ 
+</verbatim></para>
+<para>The first statement defines what the block is about, namely the header file. The second element is the <computeroutput>\brief</computeroutput> remark on what it contains. The first file defines the <ref refid="classBString" kindref="compound">BString</ref> class and some global operators. You can see that reflected in the description. <ref refid="SupportDefs_8h" kindref="compound">SupportDefs.h</ref> does not define classes, but rather a range of different functions and defines, so the text refers to that.</para>
+<para><simplesect kind="remark"><para>\brief documentation for files is about what it <emphasis>implements</emphasis>, as header files are passive (whereas members and functions are active). Thus, use the third person form of the verb.</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="apidoc_1style_classes">
+<title>Class Descriptions</title>
+<para>Classes are the basic building blocks in the Haiku API and as such have extensive documentation. This section will go over the actual class description. This section will present a list of items you should think about when writing the class description. This doesn&apos;t mean you&apos;ll have to include every item, it merely serves as a guiding principle that helps organise your thoughts. Have a look at the list:</para>
+<para><orderedlist>
+<listitem><para>The <computeroutput>\brief</computeroutput> description is <bold>obligatory</bold>. This description describes what it is. For example, <ref refid="classBDataIO" kindref="compound">BDataIO</ref>: &quot;Abstract interface for objects that
+		provide read and write access to data.&quot; Note that this description is not a full sentence, but it does end with a period.</para>
+</listitem><listitem><para>One or more paragraphs that give a broad overview of what the class can do. Describe things like what it works on, when you want to use it, what advantage it might give over other directly related alternatives. Also describe if a class is made to be derived from, and if so, how. Make sure that a developer in the first few paragraphs can judge if what he wants to do can be done with this class.</para>
+</listitem><listitem><para>One or more paragraphs that show how this class ties in with the rest of the kit or the API. What objects does it work with, how it interacts with the servers, etcetera.</para>
+</listitem><listitem><para>One or more paragraphs that give a concrete example or use case. Keep it tidy and self contained. If you use code examples, make sure your examples adhere to Haiku&apos;s coding guidelines. Remember, an example can illustrate better than a few paragraphs of text.</para>
+</listitem><listitem><para>End with a list of references to other classes, functions, pages, etc. that might be of interest to the reader.</para>
+</listitem></orderedlist>
+</para>
+<para>When documenting classes, don&apos;t be too exhaustive. Avoid becoming a tutorial or a complete guide. This documentation is for reference only. If you want to enlighten the reader on bigger subjects, consider writing a separate documentation page that connects the different points you want to make.</para>
+<para>Also, you don&apos;t have to put in any groupings of members in class descriptions. If you want to do that, physically divide the members up in groups. Look at the <ref refid="apidoc_1commands_grouping" kindref="member">Member Grouping Commands</ref> for the actual commands, and at <ref refid="apidoc_1style_groups" kindref="member">Groups</ref> for help on writing group headers.</para>
+</sect2>
+<sect2 id="apidoc_1style_members">
+<title>Members and Functions</title>
+<para>Members and functions share the same basic Doxygen syntax, and they can be documented in a similar way. That&apos;s why this section deals with them together. Documenting members is probably the main thing you&apos;ll do when writing the actual documentation. There are some guidelines as to how, but the actual implementation probably differs per class. Keep the following points in mind:</para>
+<para><orderedlist>
+<listitem><para>To repeat a very important fact, the first line is a <computeroutput>\fn</computeroutput> line. This line needs to match the declaration, which is in the source file. This means that for members, also the class name and the scope indicator (::) should be present. Also note that this line doesn&apos;t have to adhere to the 80 column width limit.</para>
+</listitem><listitem><para>The first command is always the <computeroutput>\brief</computeroutput> command. Give a short and clear description. The description starts with a capital letter and ends with a dot. Don&apos;t write the description saying what the method does, like &quot;Starts the timer&quot;, but rather as what it will do: &quot;Start the
+		timer.&quot;</para>
+</listitem><listitem><para>If the brief description doesn&apos;t cover all of what the method or function does, then you can add a few paragraphs that explain it in more depth. Don&apos;t be too verbose, and use an example to illustrate points. Point out any potential misunderstandings or problems you expect developers to have, but don&apos;t repeat the class documentation too much.</para>
+</listitem><listitem><para>You are obliged to then document all the parameters. Use the <computeroutput>\param</computeroutput> command for that. For the description, use a short phrase such as &quot;The 
+		offset (zero based) where to begin the move.&quot; Note the capital and the dot.</para>
+</listitem><listitem><para>If the function is non-void, then you&apos;ll have to specify what it will return. In case of fixed values, have a look at <computeroutput>\retval</computeroutput>. You&apos;ll use this one when the return type is a bool or a status_t. In case of something else, use <computeroutput>\return</computeroutput>. You can also combine these two. For example, a method that returns a length (positive) or an error code (negative).</para>
+</listitem><listitem><para>Use <computeroutput>\see</computeroutput> if you have any references to other methods, classes or global functions. At least document all the overloaded methods. Also add methods that do the opposite of this method, or methods that are intimately related.</para>
+</listitem></orderedlist>
+</para>
+<para>In case of overloaded members, you&apos;ll need to make a decision. If you need to copy too much information, you might resort to putting it in one paragraph with the text &quot;This is an overloaded member function, and differs
+	from &lt;name&gt; only by the type of parameter it takes.&quot; That will keep the copying down and will point developers right to the place where they can get more documentation.</para>
+<para>Again, like class descriptions, you&apos;ll have to find a good middle-ground between too much information, and too little. Again, write for the broadest audience possible, and resort to notes and warnings for specialised audiences.</para>
+</sect2>
+<sect2 id="apidoc_1style_variables">
+<title>Enumerations, Variables and Defines</title>
+<para>This section helps you document (member) variables and defines that define constants, as well as enumerations and their values. If you need to document a <computeroutput>#define</computeroutput> macro that takes arguments, have a look at <ref refid="apidoc_1style_members" kindref="member">Members and Functions</ref></para>
+<para>The <computeroutput>\brief</computeroutput> description of all these types follow a similar structure. They are a short phrase that mention what the variable contains. Example:</para>
+<para><verbatim>/*!
+    \var char* BString::fPrivateData
+    \brief BString&apos;s storage for data.
+
+    This member is deprecated and might even become \c private in future
+    releases.
+
+    If you are planning to derive from this object and you want to manipulate
+    the raw string data, please have a look at LockBuffer() and UnlockBuffer().
+*/
+</verbatim></para>
+<para>The variables you are going to encounter are either <computeroutput>public</computeroutput> or <computeroutput>protected</computeroutput> member variables, or global variables that have a certain significance. In the case of member variables, you&apos;ll need to document what they mean and how the developer should manipulate them. If the class is one that is meant to be derived from, make sure that in the description of the variable you mention how it interacts with the others, and how the developer should make sure that the internal coherence of the data and code members of the inherited class is maintained.</para>
+<para>Global variables will mostly be constants. If so, document what they stand for and what they might be used for, as well as which classes and functions depend on that constant. If the variable is meant to be changed by the developer, explain what values are valid and which functions and classes depend on this variable.</para>
+<para>Defines are usually used as message constants. Give a short description of what the message constant stands for, and where it might be sent from and where it might be received.</para>
+<para>Enumerations can either be anonymous or named. In case of the latter, you can give a description of the enumeration in a documentation block that starts with an <computeroutput>\enum</computeroutput> command, followed by the name of the enumeration. If the enumeration is within the scope of a class, prepend the classname and the scope indicator. In case of an anonymous enum, you can only document the individual members (which you should do for the named enumerations as well), which can be done within code blocks that start with the <computeroutput>\var</computeroutput> command. Doxygen will know that it&apos;s an enumeration value, don&apos;t worry about mixups. If the enumeration value is within a class, prepend the classname and scope indicator. Give a short description of the value, which methods react to it, where it might be used, etcetera. Don&apos;t go as far as to copy information too much. For example, if you use an enumeration in only one class and you document the possible values there, then don&apos;t do that again for the enumeration documentation: rather just refer to it. That sort of documentation belongs to the class description, not to the enumeration.</para>
+</sect2>
+<sect2 id="apidoc_1style_groups">
+<title>Groups</title>
+<para>If you subdivide members of classes into groups, you have the ability to apply some general information that will be listed above the listing of the members in that group. See the section <ref refid="apidoc_1commands_grouping" kindref="member">Member Grouping Commands</ref> on how to define groups. This section is on what to put in the header block.</para>
+<para>First of all, it&apos;s probably a good idea to give your group a name. This name will be printed as a title and will enhance the clarity of what the group contains. If you put the <computeroutput>\name</computeroutput> command as the first command of a group, the rest of the words on that line will be used as the title. You should choose simple titles of no more than three words.</para>
+<para>It&apos;s possible to add one or two paragraphs of information. These paragraphs should contain some quick notes on which of the members in that group to use for what purpose. See it as a quick subdivision that a developer could use as a guide to see which method he actually wants to use. Don&apos;t go on describing the methods in detail though, that&apos;s what the member documentation is about. Have a look at the example:</para>
+<para><verbatim>/*!
+    \name Comparison Methods
+
+    There are two different comparison methods. First of all there is the whole
+    range of operators that return a boolean value, secondly there are methods
+    that return an integer value, both case sensitive and case insensitive.
+
+    There are also global comparison operators and global compare functions.
+    You might need these in case you have a sort routine that takes a generic
+    comparison function, such as BList::SortItems().
+
+    See the String.h documentation file to see the specifics, as they are
+    basically the same as implemented in this class.
+*/
+</verbatim></para>
+<para>Straight, to the point, gives no more information than necessary. Divides the members up into two groups and refers to other functions the developer might be looking for. The hard limit is two (short) paragraphs. Using more will not improve clarity. </para>
+</sect2>
+</sect1>
+    </detaileddescription>
+    <location file="apidoc.dox"/>
+  </compounddef>
+</doxygen>

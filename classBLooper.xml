@@ -1,0 +1,2744 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBLooper" kind="class" language="C++" prot="public">
+    <compoundname>BLooper</compoundname>
+    <basecompoundref refid="classBHandler" prot="public" virt="non-virtual">BHandler</basecompoundref>
+    <derivedcompoundref refid="classBApplication" prot="public" virt="non-virtual">BApplication</derivedcompoundref>
+    <derivedcompoundref refid="classBMediaRoster" prot="public" virt="non-virtual">BMediaRoster</derivedcompoundref>
+    <derivedcompoundref refid="classBWindow" prot="public" virt="non-virtual">BWindow</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBLooper_1aad314758fd652fb48d61bcccab8b6ae3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLooper::BLooper</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BLooper</name>
+        <qualifiedname>BLooper::BLooper</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Construct a looper from an archived message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <emphasis>data</emphasis> message has to be constructed by a <ref refid="classBLooper_1a791ef8664f674b6683d551762888f1c2" kindref="member">BLooper::Archive()</ref> call. Note that the data that is restored, is merely the port capacity and the name of the looper/handler. Other data, such as filters, is not archived by the default archiver.</para>
+<para><simplesect kind="warning"><para>This constructor does no type check whatsoever. Since you can pass any <ref refid="classBMessage" kindref="compound">BMessage</ref>, you should - if you are not sure about the exact type - use the <ref refid="classBLooper_1aee61314ab77c54a64f8122440189b73a" kindref="member">Instantiate()</ref> method, which does check the type.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1aee61314ab77c54a64f8122440189b73a" kindref="member">Instantiate()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a791ef8664f674b6683d551762888f1c2" kindref="member">Archive()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="38" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a791ef8664f674b6683d551762888f1c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BLooper::Archive</qualifiedname>
+        <reimplements refid="classBHandler_1ac2711ccff5e7f711244c88a5642c83db">Archive</reimplements>
+        <reimplementedby refid="classBWindow_1a69163d40d8f1eda77c9134ad4ab745a2">Archive</reimplementedby>
+        <reimplementedby refid="classBApplication_1aa36536582835264341376064cbc96a27">Archive</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a39e69ba4bba5221b3099cf34129862c8">Archive</reimplementedby>
+        <reimplementedby refid="classBAlert_1aba312ca5f7e668bf4d96efc7f41625a3">Archive</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archive a looper to a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Currently, only the name and the port capacity are archived. Any other data, such as the filters, is not stored.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to archive the object in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This parameter is ignored, as <ref refid="classBLooper" kindref="compound">BLooper</ref> does not have children.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Archiving succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>data</emphasis> parameter is not a valid message.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1aee61314ab77c54a64f8122440189b73a" kindref="member">BLooper::Instantiate(BMessage* data)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="40" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aee61314ab77c54a64f8122440189b73a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BLooper::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BLooper::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Static method to instantiate a looper from an archived message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the instantiated looper, or <computeroutput>NULL</computeroutput> if the <emphasis>data</emphasis> is not a valid archived <ref refid="classBLooper" kindref="compound">BLooper</ref> object.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1aad314758fd652fb48d61bcccab8b6ae3" kindref="member">BLooper(BMessage* data)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="39" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Message Mechanics</header>
+      <memberdef kind="function" id="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::PostMessage</definition>
+        <argsstring>(uint32 command)</argsstring>
+        <name>PostMessage</name>
+        <qualifiedname>BLooper::PostMessage</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+<para>Post a message with the <emphasis>command</emphasis> as <computeroutput>what</computeroutput> identifier to this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Posting a message puts it in the message queue. The message passes through the default handler chain.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>what</computeroutput> identifier of the message to be sent.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation succeeded, and the message is sent to the port. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a general operation error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This looper is not yet running and therefore cannot receive messages.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1ae79a7818ce950d8edcd238f7948df020" kindref="member">PostMessage(BMessage *)</ref> if you want to send a message with data members. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a2dc16ecf211eb7e32eaa4b08863e856d" kindref="member">PostMessage(uint32, BHandler *, BHandler *)</ref> if you want to send a message to a specific handler, and request a reply. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ac75eed80e72b236650f19b4015de6e99" kindref="member">PostMessage(BMessage *, BHandler *, BHandler *)</ref> for the same thing, but with a complete message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ae79a7818ce950d8edcd238f7948df020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::PostMessage</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>PostMessage</name>
+        <qualifiedname>BLooper::PostMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Post a <emphasis>message</emphasis> to this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Posting a message puts it in the message queue. The message passes through the default handler chain.</para>
+<para>The <emphasis>message</emphasis> is copied, and as such, you should make sure you will not leak it. The best way to send messages is like this: <programlisting><codeline><highlight class="normal"><ref refid="classBMessage" kindref="compound">BMessage</ref><sp/>message;</highlight></codeline>
+<codeline><highlight class="normal">message.<ref refid="classBMessage_1ad074faab0857f51fba778f0d8558df1e" kindref="member">what</ref><sp/>=<sp/>B_DO_SOMETHING;</highlight></codeline>
+<codeline><highlight class="normal">message.<ref refid="classBMessage_1a342311ccdf68206c4b879bcd0f2d6e83" kindref="member">AddString</ref>(</highlight><highlight class="stringliteral">&quot;some_data&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>is<sp/>data&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">aLooper-&gt;PostMessage(&amp;message);</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message you would like to pass to this method.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation succeeded, and the message is sent to the port. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a general operation error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This looper is not yet running and therefore cannot receive messages.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">PostMessage(uint32)</ref> if you want to send a message without data members. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a2dc16ecf211eb7e32eaa4b08863e856d" kindref="member">PostMessage(uint32, BHandler *, BHandler *)</ref> if you want to send a message to a specific handler, and request a reply. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ac75eed80e72b236650f19b4015de6e99" kindref="member">PostMessage(BMessage *, BHandler *, BHandler *)</ref> for the same thing, but with a complete message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="44" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a2dc16ecf211eb7e32eaa4b08863e856d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::PostMessage</definition>
+        <argsstring>(uint32 command, BHandler *handler, BHandler *replyTo=NULL)</argsstring>
+        <name>PostMessage</name>
+        <qualifiedname>BLooper::PostMessage</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>command</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>replyTo</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Sends a message with <emphasis>command</emphasis> <computeroutput>what</computeroutput> identifier to the <emphasis>handler</emphasis> associated with this looper. A response may be sent to the <emphasis>replyTo</emphasis> handler asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The target <emphasis>handler</emphasis> should be associated with this looper. This method bypasses the default message queue.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>command</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value you want as the message&apos;s <computeroutput>what</computeroutput> identifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handler you would like to pass this message to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>replyTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If you would like to request a reply, pass the handler to which this reply should be directed to. If you pass <computeroutput>NULL</computeroutput>, you will not receive a reply.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation succeeded, and the message is sent to the port. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a general operation error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This looper is not yet running and therefore cannot receive messages. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_MISMATCHED_VALUES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>handler</emphasis> is not associated with this looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">PostMessage(uint32)</ref> if you want to send a message without data members. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ae79a7818ce950d8edcd238f7948df020" kindref="member">PostMessage(BMessage *)</ref> if you want to send a message with data members. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ac75eed80e72b236650f19b4015de6e99" kindref="member">PostMessage(BMessage *, BHandler *, BHandler *)</ref> if you want to send a message to a specific handler, and request a reply.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="45" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ac75eed80e72b236650f19b4015de6e99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::PostMessage</definition>
+        <argsstring>(BMessage *message, BHandler *handler, BHandler *replyTo=NULL)</argsstring>
+        <name>PostMessage</name>
+        <qualifiedname>BLooper::PostMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>replyTo</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Send a <emphasis>message</emphasis> to the <emphasis>handler</emphasis> associated with this looper. A response may be sent to the <emphasis>replyTo</emphasis> handler asynchronously. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The target <emphasis>handler</emphasis> should be associated with this looper. This method bypasses the default message queue.</para>
+<para>The <emphasis>message</emphasis> is copied, and as such, you should make sure you will not leak it. The best way to send messages is like this: <programlisting><codeline><highlight class="normal"><ref refid="classBMessage" kindref="compound">BMessage</ref><sp/>message;</highlight></codeline>
+<codeline><highlight class="normal">message.<ref refid="classBMessage_1ad074faab0857f51fba778f0d8558df1e" kindref="member">what</ref><sp/>=<sp/>B_DO_SOMETHING;</highlight></codeline>
+<codeline><highlight class="normal">message.<ref refid="classBMessage_1a342311ccdf68206c4b879bcd0f2d6e83" kindref="member">AddString</ref>(</highlight><highlight class="stringliteral">&quot;some_data&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;This<sp/>is<sp/>data&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">aLooper-&gt;PostMessage(&amp;message,<sp/>aHandler);</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message you want to pass. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handler you would like to pass this message to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>replyTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If you would like to request a reply, pass the handler to which this reply should be directed to. If you pass <computeroutput>NULL</computeroutput>, you will not receive a reply.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation succeeded, and the message is sent to the port. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a general operation error. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This looper is not yet running and therefore cannot receive messages. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_MISMATCHED_VALUES</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>handler</emphasis> is not associated with this looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">PostMessage(uint32)</ref> if you want to send a message without data members. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ae79a7818ce950d8edcd238f7948df020" kindref="member">PostMessage(BMessage *)</ref> if you want to send a message with data members. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a2dc16ecf211eb7e32eaa4b08863e856d" kindref="member">PostMessage(uint32, BHandler *, BHandler *)</ref> if you want to send a message without data to a specific handler, and request a reply.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="47" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Message Processing</header>
+      <memberdef kind="function" id="classBLooper_1add21ca8765c67b0dbf95b8f0361afa73" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLooper::DispatchMessage</definition>
+        <argsstring>(BMessage *message, BHandler *handler)</argsstring>
+        <name>DispatchMessage</name>
+        <qualifiedname>BLooper::DispatchMessage</qualifiedname>
+        <reimplementedby refid="classBApplication_1a034ef79fe7f1ca45e63193c76a6fd128">DispatchMessage</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a62952e05d331dde0b091998db878a9f6">DispatchMessage</reimplementedby>
+        <reimplementedby refid="classBAlert_1a29b871841d182889a147b58b16a7c111">DispatchMessage</reimplementedby>
+        <reimplementedby refid="classBWindow_1a2089af8a214389c3f673c06420457b16">DispatchMessage</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Dispatch a message to a handler. Override if there are messages that you want to catch before they are sent to the handlers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is called by the message looping thread to dispatch a message to <emphasis>handler</emphasis>. If you implement the <ref refid="classBLooper" kindref="compound">BLooper</ref> class and your looper receives messages that absolutely have to be processed by the looper instead of any of the handlers, override this method. For example, the default implementation catches B_QUIT_REQUESTED messages before they are sent to the handlers, so that the looper will quit at those messages.</para>
+<para>You are discouraged from using this method to filter out any messages you do not want to process. For this, there is a more generic method using the <ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> class. If you want to skip messages with certain patterns, have a look at the <ref refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" kindref="member">AddCommonFilter()</ref> and <ref refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" kindref="member">SetCommonFilterList()</ref> methods.</para>
+<para>If you do override this method, please remember to call the <ref refid="classBLooper_1add21ca8765c67b0dbf95b8f0361afa73" kindref="member">DispatchMessage()</ref> method of the parent class.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="50" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a89303d11c987dae76cdfc38ad5d3c4c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLooper::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BLooper::MessageReceived</qualifiedname>
+        <reimplements refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53">MessageReceived</reimplements>
+        <reimplementedby refid="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a1eb5e6dfeee341e9baf3d688ff66194a">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBAlert_1a1300fdf51e73dd4f8a24b908d6fc2e1e">MessageReceived</reimplementedby>
+        <reimplementedby refid="classBWindow_1a1ce544ea7d9adcc6941759817a42affe">MessageReceived</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Process a message received by the internal handler of this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reimplemented from <ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">BHandler::MessageReceived()</ref>;</para>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="52" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a6d244af065c4a12ea795bbbc7bb20e07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage * BLooper::CurrentMessage</definition>
+        <argsstring>() const</argsstring>
+        <name>CurrentMessage</name>
+        <qualifiedname>BLooper::CurrentMessage</qualifiedname>
+        <briefdescription>
+<para>Retrieve the current message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="attention"><para>Only call this method from within the thread that processes the messages. It contains a pointer to the message that is currently being handled. Due to the multithreaded nature of the operating system, this method will not safely let you read the message that is being processed by this handler from outside the context of the processing. If you do want to use a message outside of the processing thread, have a look at <ref refid="classBLooper_1a7c8f05bcc354bc1d53026417417120e3" kindref="member">DetachCurrentMessage()</ref> to safely retrieve a message.</para>
+</simplesect>
+<simplesect kind="return"><para>A pointer to the message that is currently being processed. Note that calling it from outside the thread that processes the message, could give you a <computeroutput>NULL</computeroutput> pointer or an invalid pointer.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="53" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a7c8f05bcc354bc1d53026417417120e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage * BLooper::DetachCurrentMessage</definition>
+        <argsstring>()</argsstring>
+        <name>DetachCurrentMessage</name>
+        <qualifiedname>BLooper::DetachCurrentMessage</qualifiedname>
+        <briefdescription>
+<para>Get ownership of the message currently being processed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieve the current message and gain ownership of it. This means that the message will not be deleted as soon as the looper is done processing it. You can then use it for different purposes.</para>
+<para><simplesect kind="attention"><para>Only call this method from within the thread that processes the messages. Due to the multithreaded nature of the operating system, calling it from another thread is very likely to give you an invalid or a <computeroutput>NULL</computeroutput> pointer.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a3a2d3773466de19a6c117f3a04861b11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::DispatchExternalMessage</definition>
+        <argsstring>(BMessage *message, BHandler *handler, bool &amp;_detached)</argsstring>
+        <name>DispatchExternalMessage</name>
+        <qualifiedname>BLooper::DispatchExternalMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type>bool &amp;</type>
+          <declname>_detached</declname>
+        </param>
+        <briefdescription>
+<para>Internal method to support single-threaded GUI toolkits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="55" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ad0643973ceda5cca540c4684a9f670ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessageQueue" kindref="compound">BMessageQueue</ref> *</type>
+        <definition>BMessageQueue * BLooper::MessageQueue</definition>
+        <argsstring>() const</argsstring>
+        <name>MessageQueue</name>
+        <qualifiedname>BLooper::MessageQueue</qualifiedname>
+        <briefdescription>
+<para>Get a pointer to the internal message queue of this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You can use this pointer to manipulate the message queue. Note that the message that is being processed is already detached from this queue.</para>
+<para><simplesect kind="return"><para>A pointer to the internal message queue.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="57" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a27fd22b9eeaeadbeff1e973ed5242a64" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLooper::IsMessageWaiting</definition>
+        <argsstring>() const</argsstring>
+        <name>IsMessageWaiting</name>
+        <qualifiedname>BLooper::IsMessageWaiting</qualifiedname>
+        <briefdescription>
+<para>Check if there is a message waiting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if there are still messages to be processed, <computeroutput>false</computeroutput> if there is no message waiting. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="58" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Handler Management</header>
+      <memberdef kind="function" id="classBLooper_1a484be74814014e3c48c1a16f44e34074" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::AddHandler</definition>
+        <argsstring>(BHandler *handler)</argsstring>
+        <name>AddHandler</name>
+        <qualifiedname>BLooper::AddHandler</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Associate a <emphasis>handler</emphasis> to this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <emphasis>handler</emphasis> will be associated to this looper. By default, the handler in this looper will be chained to the supplied <emphasis>handler</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The handler to associate with this looper. If the handler is already associated to another looper, the operation will fail silently. Check beforehand if you cannot be sure that the <emphasis>handler</emphasis> is unassociated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1a5af57140bf018388a2e64343f46ac330" kindref="member">RemoveHandler()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="61" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a5af57140bf018388a2e64343f46ac330" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLooper::RemoveHandler</definition>
+        <argsstring>(BHandler *handler)</argsstring>
+        <name>RemoveHandler</name>
+        <qualifiedname>BLooper::RemoveHandler</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Disassociate a <emphasis>handler</emphasis> from this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the handler is disassociated, it can be reassociated to another looper.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the <emphasis>handler</emphasis> has been removed from this looper, <computeroutput>false</computeroutput> The <emphasis>handler</emphasis> was invalid or the handler was not associated to this looper.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a484be74814014e3c48c1a16f44e34074" kindref="member">AddHandler()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="62" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a6179629238d0be92d7a89503be24d4e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::CountHandlers</definition>
+        <argsstring>() const</argsstring>
+        <name>CountHandlers</name>
+        <qualifiedname>BLooper::CountHandlers</qualifiedname>
+        <briefdescription>
+<para>Get the number of handlers associated with this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1a6976132123edacf4b3a2831eadf5f4bf" kindref="member">HandlerAt()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a3061534f6d2f3186efca4cddd19f378f" kindref="member">IndexOf()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a6976132123edacf4b3a2831eadf5f4bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::HandlerAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>HandlerAt</name>
+        <qualifiedname>BLooper::HandlerAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Get the handler at an <emphasis>index</emphasis> of the list of associated handlers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the handler at that <emphasis>index</emphasis>, or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> is out of range.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a6179629238d0be92d7a89503be24d4e3" kindref="member">CountHandlers()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a3061534f6d2f3186efca4cddd19f378f" kindref="member">IndexOf()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="64" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a3061534f6d2f3186efca4cddd19f378f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::IndexOf</definition>
+        <argsstring>(BHandler *handler) const</argsstring>
+        <name>IndexOf</name>
+        <qualifiedname>BLooper::IndexOf</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Get the index of the <emphasis>handler</emphasis> that is in the associated handler list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The index of the handler in the list if the <emphasis>handler</emphasis> is in the list, else this method will return -1.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="65" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1af1a4af6872abc40a887bfcabd55aff98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::PreferredHandler</definition>
+        <argsstring>() const</argsstring>
+        <name>PreferredHandler</name>
+        <qualifiedname>BLooper::PreferredHandler</qualifiedname>
+        <briefdescription>
+<para>Get the preferred handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the preferred handler, or <computeroutput>NULL</computeroutput> if none is set.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a07c6e5c65354b48465fde2b0b44e22c6" kindref="member">SetPreferredHandler()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a07c6e5c65354b48465fde2b0b44e22c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::SetPreferredHandler</definition>
+        <argsstring>(BHandler *handler)</argsstring>
+        <name>SetPreferredHandler</name>
+        <qualifiedname>BLooper::SetPreferredHandler</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+<para>Set a preferred handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If messages are posted to this looper using one of the <ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">PostMessage()</ref> methods without a specific <ref refid="classBHandler" kindref="compound">BHandler</ref> argument, the messages will be handled by the looper itself (since a looper is a subclass of <ref refid="classBHandler" kindref="compound">BHandler</ref>, this is perfectly possible). If you want to override that behavior, you should set a preferred handler. This handler will be called if incoming messages do not ask to be directly passed on to a specific handler.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handler</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The preferred handler you want undesignated messages to be handled by. If you want to unset the preferred handler, pass <computeroutput>NULL</computeroutput>. If the supplied <emphasis>handler</emphasis> is not associated with this looper, this call will fail silently and the current preferred handler will be unset.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1af1a4af6872abc40a887bfcabd55aff98" kindref="member">PreferredHandler()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="68" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Loop Control</header>
+      <memberdef kind="function" id="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>thread_id</type>
+        <definition>thread_id BLooper::Run</definition>
+        <argsstring>()</argsstring>
+        <name>Run</name>
+        <qualifiedname>BLooper::Run</qualifiedname>
+        <reimplementedby refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad">Run</reimplementedby>
+        <reimplementedby refid="classBWindow_1ae49c02ad870d55514c800631b37b97cf">Run</reimplementedby>
+        <briefdescription>
+<para>Start the event loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After the looper has been constructed, it needs to be started using this method. A thread will be spawned, which will receive messages.</para>
+<para>Make sure the looper is not yet running before you call this method.</para>
+<para><simplesect kind="return"><para>A (positive) thread id if spawning the thread succeeded, or an error code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="71" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a5cb1d2eb7640fdcbc1085ad19583691d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>thread_id BLooper::Loop</definition>
+        <argsstring>()</argsstring>
+        <name>Loop</name>
+        <qualifiedname>BLooper::Loop</qualifiedname>
+        <briefdescription>
+<para>Run the event loop in the current thread. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method runs the event loop in an already existing thread. It blocks until the looper stops looping. This can be used to turn an existing thread into a <ref refid="classBLooper" kindref="compound">BLooper</ref>.</para>
+<para>Make sure the looper is not yet running before you call this method.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="72" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLooper::Quit</definition>
+        <argsstring>()</argsstring>
+        <name>Quit</name>
+        <qualifiedname>BLooper::Quit</qualifiedname>
+        <reimplementedby refid="classBApplication_1abd8cb94d425105f89bf9e18f01552015">Quit</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a0e078c054a66514021099c529cfdde2f">Quit</reimplementedby>
+        <reimplementedby refid="classBAlert_1a691fe42dc7dc5acea09771e9c080dd0e">Quit</reimplementedby>
+        <reimplementedby refid="classBWindow_1a054c0206836014dcc20c59e50bceab44">Quit</reimplementedby>
+        <briefdescription>
+<para>Hook method that is called after a <computeroutput>B_QUIT_REQUESTED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If you want to quit and delete the looper, you should post a <computeroutput>B_QUIT_REQUESTED</computeroutput> message. This will first call the hook method <ref refid="classBLooper_1aff7aaf066538383f0e0ea28d18eb8863" kindref="member">QuitRequested()</ref>, which can be overridden in child classes in case there are conditions that would prevent the looper to be quit. If you really know what you are doing, and you definitely want to quit this looper, you may call this method, but only after performing a <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> operation.</para>
+<para>Override this method if your subclass needs to perform specific clean-up tasks. Remember to call the base class implementation when you&apos;re done.</para>
+<para><simplesect kind="attention"><para>You will not have to delete the looper object, if a looper quits it will delete itself.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="73" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aff7aaf066538383f0e0ea28d18eb8863" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLooper::QuitRequested</definition>
+        <argsstring>()</argsstring>
+        <name>QuitRequested</name>
+        <qualifiedname>BLooper::QuitRequested</qualifiedname>
+        <reimplementedby refid="classBApplication_1a4965aea57452c88022f0fdba2af65e0a">QuitRequested</reimplementedby>
+        <reimplementedby refid="classBAlert_1ae91bb7bb3b99006f0b2616d47cf85985">QuitRequested</reimplementedby>
+        <reimplementedby refid="classBWindow_1a8fccbfd10fceb2c6103c6036ca9e961a">QuitRequested</reimplementedby>
+        <briefdescription>
+<para>Hook method that is called during a <computeroutput>B_QUIT_REQUESTED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This hook function is called by the looper thread when a <computeroutput>B_QUIT_REQUESTED</computeroutput> is received. The default implementation always accepts the message, but if your subclass needs a special condition to be met before actually accepting a quit message, you can test for that condition in this hook method. A good example is a window (which is a derivative of <ref refid="classBLooper" kindref="compound">BLooper</ref>), which contains a modified document. The condition may be that a modal dialog requesting a path of action is closed.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the looper can be quit and destroyed, <computeroutput>false</computeroutput> if this method does not accept the quit message and continue processing messages.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="74" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLooper::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <qualifiedname>BLooper::Lock</qualifiedname>
+        <briefdescription>
+<para>Lock the looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For most operations involving the internal data of the looper, you need to hold the lock. Each looper implements a global lock, which you can use to perform operations on internal data in a thread-safe manner.</para>
+<para>Do not forget to pair each <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> request with an <ref refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" kindref="member">Unlock()</ref> request. <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> requests can be stacked, which means that recursively locking a looper from a thread that actually holds the lock, will not cause a deadlock. See <ref refid="classBLocker" kindref="compound">BLocker</ref> for more information on locking internals.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the locking request succeeded, <computeroutput>false</computeroutput> if the locking request could not be completed. There are a variety of reasons for this to happen, for example when the looper is destroyed.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" kindref="member">Unlock()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a734cdb06bfe92efdea24528c9b43bfc1" kindref="member">LockWithTimeout()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a525d6677c2fc76a84c2d48853dad142a" kindref="member">IsLocked()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="75" column="5"/>
+        <referencedby refid="classBAutolock_1a5808a41f3c76294ed35deef3864c9a7c" compoundref="Autolock_8h" startline="77" endline="88">BAutolock::Lock</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ac84ea15405640082b9fda58f6672467c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <qualifiedname>BLooper::Unlock</qualifiedname>
+        <briefdescription>
+<para>Unlock a locked looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Use this method paired with <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> calls, to release a lock. Make sure that this method is only called on a locked looper.</para>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a734cdb06bfe92efdea24528c9b43bfc1" kindref="member">LockWithTimeout()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a525d6677c2fc76a84c2d48853dad142a" kindref="member">IsLocked()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="76" column="5"/>
+        <referencedby refid="classBAutolock_1a62e220b72b39ffa459b51dae1ca50332" compoundref="Autolock_8h" startline="92" endline="102">BAutolock::Unlock</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a525d6677c2fc76a84c2d48853dad142a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLooper::IsLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLocked</name>
+        <qualifiedname>BLooper::IsLocked</qualifiedname>
+        <briefdescription>
+<para>Check if a looper is locked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the looper is locked, <computeroutput>false</computeroutput> if the looper is not locked, or the looper has been deleted.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" kindref="member">Unlock()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a734cdb06bfe92efdea24528c9b43bfc1" kindref="member">LockWithTimeout()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="77" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a734cdb06bfe92efdea24528c9b43bfc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::LockWithTimeout</definition>
+        <argsstring>(bigtime_t timeout)</argsstring>
+        <name>LockWithTimeout</name>
+        <qualifiedname>BLooper::LockWithTimeout</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+<para>Lock a looper with a <emphasis>timeout</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method locks the looper like <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref>, but if the locking request does not succeed within the provided <emphasis>timeout</emphasis>, the method will return.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum time to wait for the lock request to succeed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The lock is acquired. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The looper has been destroyed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>other errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was an error acquiring the lock.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" kindref="member">Unlock()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a525d6677c2fc76a84c2d48853dad142a" kindref="member">IsLocked()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="78" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a257d396d04d128edf7a0c9669ead36c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>thread_id</type>
+        <definition>thread_id BLooper::Thread</definition>
+        <argsstring>() const</argsstring>
+        <name>Thread</name>
+        <qualifiedname>BLooper::Thread</qualifiedname>
+        <briefdescription>
+<para>Return the thread id of the internal message looper thread. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the looper is not yet running, this method will return 0.</para>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" kindref="member">Run()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="79" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1afeb7a4900f26e7746d6c8bdb5cf684f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>team_id</type>
+        <definition>team_id BLooper::Team</definition>
+        <argsstring>() const</argsstring>
+        <name>Team</name>
+        <qualifiedname>BLooper::Team</qualifiedname>
+        <briefdescription>
+<para>Return the team id in which this looper exists. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="80" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1acf16bb9628e7dbbace3920ebeff6dc34" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+        <definition>BLooper * BLooper::LooperForThread</definition>
+        <argsstring>(thread_id thread)</argsstring>
+        <name>LooperForThread</name>
+        <qualifiedname>BLooper::LooperForThread</qualifiedname>
+        <param>
+          <type>thread_id</type>
+          <declname>thread</declname>
+        </param>
+        <briefdescription>
+<para>Static method to retrieve a <ref refid="classBLooper" kindref="compound">BLooper</ref> for a specified <emphasis>thread</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="81" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Loop Debugging</header>
+      <description><para>These methods may aid you in debugging problems when they occur, but do not use these in actual production code. These methods are unreliable because they are not thread-safe, and as such are only useful in specific debugging situations. Handle with care. </para>
+</description>
+      <memberdef kind="function" id="classBLooper_1a1d5d9dbc9d890ed1329b69fbfe9254b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>thread_id</type>
+        <definition>thread_id BLooper::LockingThread</definition>
+        <argsstring>() const</argsstring>
+        <name>LockingThread</name>
+        <qualifiedname>BLooper::LockingThread</qualifiedname>
+        <briefdescription>
+<para>Return the thread id of the thread that currently holds the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="84" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a4eec703acd9bd7fe9a455af0f81e08f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::CountLocks</definition>
+        <argsstring>() const</argsstring>
+        <name>CountLocks</name>
+        <qualifiedname>BLooper::CountLocks</qualifiedname>
+        <briefdescription>
+<para>Return the number of recursive locks that are currently being held on this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="85" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a64e7b89294df1f7b614d1267f870ecd9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::CountLockRequests</definition>
+        <argsstring>() const</argsstring>
+        <name>CountLockRequests</name>
+        <qualifiedname>BLooper::CountLockRequests</qualifiedname>
+        <briefdescription>
+<para>Return the number of pending locks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="86" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aa96df67561b0ce1428ae45148c21e01f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sem_id</type>
+        <definition>sem_id BLooper::Sem</definition>
+        <argsstring>() const</argsstring>
+        <name>Sem</name>
+        <qualifiedname>BLooper::Sem</qualifiedname>
+        <briefdescription>
+<para>Return the id of the semaphore that is used to lock this looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="87" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Scripting</header>
+      <memberdef kind="function" id="classBLooper_1a16b494160d9b37d4dbbc0d426a22c946" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 what, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BLooper::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBHandler_1a76439ffaf84e65232698d2a4a3317d22">ResolveSpecifier</reimplements>
+        <reimplementedby refid="classBApplication_1a044d40580b05617288c91748cbd30513">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBAlert_1a22285daeb96ea0936faab97b077115e6">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1aee5db7142cabc984cb16e61eaa7baa36">ResolveSpecifier</reimplementedby>
+        <reimplementedby refid="classBWindow_1aaf328e28799cf868ec31df2847a4ed37">ResolveSpecifier</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+<para>Determine the proper handler for a scripting message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="90" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a915a50de7d5b6263f0fd1a349a9a6d92" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::GetSupportedSuites</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BLooper::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBHandler_1acf34435dada239f411e8e034e0ea36b5">GetSupportedSuites</reimplements>
+        <reimplementedby refid="classBApplication_1a0fb9cc161a785cad42925075a087fc16">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBDirectWindow_1a55e920fcba8972f5173bd3714f416c13">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBAlert_1a9e658b2f7dc50b2c5da3191d77a22594">GetSupportedSuites</reimplementedby>
+        <reimplementedby refid="classBWindow_1a8c2f3013601609b54778af99fa6a25ca">GetSupportedSuites</reimplementedby>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Reports the suites of messages and specifiers that derived classes understand. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="93" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Looper Message Filters</header>
+      <description><para>Note that filters added with these methods will be applied to all associated handlers. Have a look at the filtering methods of the <ref refid="classBHandler" kindref="compound">BHandler</ref> class to see how filters can be applied to the inherited handler of this looper specifically. </para>
+</description>
+      <memberdef kind="function" id="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLooper::AddCommonFilter</definition>
+        <argsstring>(BMessageFilter *filter)</argsstring>
+        <name>AddCommonFilter</name>
+        <qualifiedname>BLooper::AddCommonFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> *</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Add a common filter to the list of filters that are applied to all incoming messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Filters can only be applied once, so they cannot be shared between loopers, a handler and a looper or between two handlers.</para>
+<para>The <emphasis>filter</emphasis> is not copied; rather a pointer is stored. Keep the <emphasis>filter</emphasis> alive as long as it is used by a looper.</para>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1ad2233fa143e9deff912bff39eebac4a2" kindref="member">RemoveCommonFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" kindref="member">SetCommonFilterList()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ad64f1a98c1cce8087e7d492860461a62" kindref="member">CommonFilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="96" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ad2233fa143e9deff912bff39eebac4a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BLooper::RemoveCommonFilter</definition>
+        <argsstring>(BMessageFilter *filter)</argsstring>
+        <name>RemoveCommonFilter</name>
+        <qualifiedname>BLooper::RemoveCommonFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> *</type>
+          <declname>filter</declname>
+        </param>
+        <briefdescription>
+<para>Remove a <emphasis>filter</emphasis> from the common message filter list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that this will not free the memory used by the <emphasis>filter</emphasis>, so you should dispose of it yourself.</para>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" kindref="member">AddCommonFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" kindref="member">SetCommonFilterList()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ad64f1a98c1cce8087e7d492860461a62" kindref="member">CommonFilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="97" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a9b39e686873763cc6491c91f77b177b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BLooper::SetCommonFilterList</definition>
+        <argsstring>(BList *filters)</argsstring>
+        <name>SetCommonFilterList</name>
+        <qualifiedname>BLooper::SetCommonFilterList</qualifiedname>
+        <param>
+          <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>filters</declname>
+        </param>
+        <briefdescription>
+<para>Set a new list of <emphasis>filters</emphasis> that need to be applied to all incoming messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You are responsible for validating that all the items in the list of <emphasis>filters</emphasis> are actual filters. The old list is discarded; all the filters are <bold>destroyed</bold>.</para>
+<para>Note that filters can only be applied to one looper or handler. If any of the filters is already associated with another one, this call will fail.</para>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" kindref="member">AddCommonFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ad2233fa143e9deff912bff39eebac4a2" kindref="member">RemoveCommonFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ad64f1a98c1cce8087e7d492860461a62" kindref="member">CommonFilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="98" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ad64f1a98c1cce8087e7d492860461a62" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList * BLooper::CommonFilterList</definition>
+        <argsstring>() const</argsstring>
+        <name>CommonFilterList</name>
+        <qualifiedname>BLooper::CommonFilterList</qualifiedname>
+        <briefdescription>
+<para>Return a list of filters applied to all incoming messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the internal filter list, or <computeroutput>NULL</computeroutput> if such a list has not yet been created. Please note that you should use the internal list management functions to manipulate the internal filter list, in order to maintain internal consistency.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" kindref="member">AddCommonFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1ad2233fa143e9deff912bff39eebac4a2" kindref="member">RemoveCommonFilter()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" kindref="member">SetCommonFilterList()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="99" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classBLooper_1a2bdb3a7887c8371979f100fec5a20377" prot="private" static="no">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref></type>
+        <definition>typedef BHandler BLooper::_inherited</definition>
+        <argsstring></argsstring>
+        <name>_inherited</name>
+        <qualifiedname>BLooper::_inherited</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="109" column="18" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBLooper_1aa5982978c2f2a15248b2b67fd1f11a9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class ::BPrivate::BLooperList</definition>
+        <argsstring></argsstring>
+        <name>::BPrivate::BLooperList</name>
+        <qualifiedname>BLooper::BLooperList</qualifiedname>
+        <param>
+          <type>::BPrivate::BLooperList</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="115" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBLooper_1a86ef8e2217ea39c1887d95555ca556ce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>port_id</type>
+        <definition>port_id _get_looper_port_</definition>
+        <argsstring>(const BLooper *)</argsstring>
+        <name>_get_looper_port_</name>
+        <qualifiedname>BLooper::_get_looper_port_</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="116" column="16"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBLooper_1ae165aff26722b3fd863557348acd8ef6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BApplication</definition>
+        <argsstring></argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BLooper::BApplication</qualifiedname>
+        <param>
+          <type><ref refid="classBApplication" kindref="compound">BApplication</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="111" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBLooper_1ae292714a27146822665fd7a24c10a07a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BHandler</definition>
+        <argsstring></argsstring>
+        <name>BHandler</name>
+        <qualifiedname>BLooper::BHandler</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="114" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBLooper_1a69d8f4d6899e6c6e62fc478cfb8c723a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMessenger</definition>
+        <argsstring></argsstring>
+        <name>BMessenger</name>
+        <qualifiedname>BLooper::BMessenger</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="112" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBLooper_1a304c5edf0ab3769baf95966dda5800a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BView</definition>
+        <argsstring></argsstring>
+        <name>BView</name>
+        <qualifiedname>BLooper::BView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="113" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBLooper_1af159fae9bef1f9a91dcaa0b93fd5658d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BWindow</definition>
+        <argsstring></argsstring>
+        <name>BWindow</name>
+        <qualifiedname>BLooper::BWindow</qualifiedname>
+        <param>
+          <type><ref refid="classBWindow" kindref="compound">BWindow</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="110" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBLooper_1a98b9a4320e3ef89546ec996b6c52b4d6" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BLooper::_reserved[11]</definition>
+        <argsstring>[11]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BLooper::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="177" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a0d5f05cf74e4790e49f4eb89656c4aed" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::fAtomicCount</definition>
+        <argsstring></argsstring>
+        <name>fAtomicCount</name>
+        <qualifiedname>BLooper::fAtomicCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="164" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a79e7eac2588311db64bf2dc1b0e24857" prot="private" static="no" mutable="no">
+        <type>addr_t</type>
+        <definition>addr_t BLooper::fCachedStack</definition>
+        <argsstring></argsstring>
+        <name>fCachedStack</name>
+        <qualifiedname>BLooper::fCachedStack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="169" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1afdcdf7cfe854c1b7807d48405331a6fc" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList* BLooper::fCommonFilters</definition>
+        <argsstring></argsstring>
+        <name>fCommonFilters</name>
+        <qualifiedname>BLooper::fCommonFilters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="173" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1aa99356b63587cc25fd45dcb55bdfa1d8" prot="private" static="no" mutable="no">
+        <type>::BPrivate::BDirectMessageTarget *</type>
+        <definition>::BPrivate::BDirectMessageTarget* BLooper::fDirectTarget</definition>
+        <argsstring></argsstring>
+        <name>fDirectTarget</name>
+        <qualifiedname>BLooper::fDirectTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="161" column="34" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a927310b4c1001d182bdbb1b7daa0560d" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref></type>
+        <definition>BList BLooper::fHandlers</definition>
+        <argsstring></argsstring>
+        <name>fHandlers</name>
+        <qualifiedname>BLooper::fHandlers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="172" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a7d1e8f68bec1260e6c591f76340ceeaf" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::fInitPriority</definition>
+        <argsstring></argsstring>
+        <name>fInitPriority</name>
+        <qualifiedname>BLooper::fInitPriority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="170" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a26bed976118c8ab3d05f9ac8f7389b7c" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage* BLooper::fLastMessage</definition>
+        <argsstring></argsstring>
+        <name>fLastMessage</name>
+        <qualifiedname>BLooper::fLastMessage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="162" column="9" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a07007d3e5ddfa6ab68790b336189e4be" prot="private" static="no" mutable="no">
+        <type>sem_id</type>
+        <definition>sem_id BLooper::fLockSem</definition>
+        <argsstring></argsstring>
+        <name>fLockSem</name>
+        <qualifiedname>BLooper::fLockSem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="165" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a53be8e32298790e4ed17adc94b3ca5b3" prot="private" static="no" mutable="no">
+        <type>port_id</type>
+        <definition>port_id BLooper::fMsgPort</definition>
+        <argsstring></argsstring>
+        <name>fMsgPort</name>
+        <qualifiedname>BLooper::fMsgPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="163" column="8" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a40d5bb56b2c0836efadee9a0783efe5c" prot="private" static="no" mutable="no">
+        <type>thread_id</type>
+        <definition>thread_id BLooper::fOwner</definition>
+        <argsstring></argsstring>
+        <name>fOwner</name>
+        <qualifiedname>BLooper::fOwner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="167" column="10" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1ab280efe75b3ffdf0944edbaba7fa8db0" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BLooper::fOwnerCount</definition>
+        <argsstring></argsstring>
+        <name>fOwnerCount</name>
+        <qualifiedname>BLooper::fOwnerCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="166" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1ab56311e6f7ed5327bfd3968f5a6f98b6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BLooper::fOwnsPort</definition>
+        <argsstring></argsstring>
+        <name>fOwnsPort</name>
+        <qualifiedname>BLooper::fOwnsPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="176" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a4ab677e82a812aa1ff1b414147971064" prot="private" static="no" mutable="no">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler* BLooper::fPreferred</definition>
+        <argsstring></argsstring>
+        <name>fPreferred</name>
+        <qualifiedname>BLooper::fPreferred</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="171" column="9" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a134ec30fd5ad0b6a08f63b4ab3a94a19" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BLooper::fRunCalled</definition>
+        <argsstring></argsstring>
+        <name>fRunCalled</name>
+        <qualifiedname>BLooper::fRunCalled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="175" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a0f25109849f42f53ff481aaafac13048" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BLooper::fTerminating</definition>
+        <argsstring></argsstring>
+        <name>fTerminating</name>
+        <qualifiedname>BLooper::fTerminating</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="174" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBLooper_1a67cba7907ce736c96e0264b4d7cfffa4" prot="private" static="no" mutable="no">
+        <type>thread_id</type>
+        <definition>thread_id BLooper::fThread</definition>
+        <argsstring></argsstring>
+        <name>fThread</name>
+        <qualifiedname>BLooper::fThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="168" column="10" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBLooper_1a33fa84a6ed383e5a897d11380d72ce38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLooper::BLooper</definition>
+        <argsstring>(const char *name=NULL, int32 priority=B_NORMAL_PRIORITY, int32 portCapacity=B_LOOPER_PORT_DEFAULT_CAPACITY)</argsstring>
+        <name>BLooper</name>
+        <qualifiedname>BLooper::BLooper</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>priority</declname>
+          <defval>B_NORMAL_PRIORITY</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>portCapacity</declname>
+          <defval><ref refid="Looper_8h_1a7e8948687d8c2652df30af6c9eba4ab4" kindref="member">B_LOOPER_PORT_DEFAULT_CAPACITY</ref></defval>
+        </param>
+        <briefdescription>
+<para>Construct a new <ref refid="classBLooper" kindref="compound">BLooper</ref> with a <emphasis>priority</emphasis> and an <emphasis>capacity</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The new looper is, by default, not running yet. If you have set up everything properly, you may call <ref refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" kindref="member">Run()</ref>.</para>
+<para><simplesect kind="attention"><para>Remember that loopers should be created on the heap, because they will <computeroutput>delete</computeroutput> themselves in the <ref refid="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949" kindref="member">Quit()</ref> method.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the looper. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>priority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The priority of the message thread of this looper. The default priority should be good enough for most tasks. Also, some derived versions of <ref refid="classBLooper" kindref="compound">BLooper</ref> will use a specialized priority. So it is advised to leave this setting at the default, unless you know why you would like another setting. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>portCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Loopers use ports to send and receive messages (see the kernel kit). Ports have a maximum capacity; if there are so many messages queued that the port is full, all other incoming messages are dropped. There are situations where the size of the port should be different from the default. This might be when your looper receives a lot of messages, or if the message handling thread runs at a lower priority than normal, which would decrease the processing speed. Finding a suitable value for these custom scenarios would be done by testing.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" kindref="member">Run()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="31" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ab2fa21c0315644144f55523adbdc0457" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BLooper::~BLooper</definition>
+        <argsstring>()</argsstring>
+        <name>~BLooper</name>
+        <qualifiedname>BLooper::~BLooper</qualifiedname>
+        <briefdescription>
+<para>Destruct the looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You will never delete a looper yourself. You should pass a <computeroutput>B_QUIT_REQUESTED</computeroutput> message, or if you are destroying the looper from inside its own message handling thread, you should call <ref refid="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949" kindref="member">Quit()</ref>.</para>
+<para><simplesect kind="see"><para><ref refid="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949" kindref="member">Quit()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="35" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1adfc642544ce22888d412e6a4be25fa72" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BLooper::Perform</qualifiedname>
+        <reimplements refid="classBHandler_1a4e6ebc7ebcb72855a1f0fee7bde99766">Perform</reimplements>
+        <reimplementedby refid="classBDirectWindow_1a113afd3534fca8b81bcc86f8e55738be">Perform</reimplementedby>
+        <reimplementedby refid="classBWindow_1afde7d74e5526f740dedb82a1d10faa7a">Perform</reimplementedby>
+        <reimplementedby refid="classBApplication_1ab8fea9f4a96bdee62ce77a089d472973">Perform</reimplementedby>
+        <reimplementedby refid="classBAlert_1a3d2769c5bf9b9822f21770e38e561fd6">Perform</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Internal method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="102" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBLooper_1a1be73aad8e8fed41659b98633525e5b3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage * BLooper::MessageFromPort</definition>
+        <argsstring>(bigtime_t=B_INFINITE_TIMEOUT)</argsstring>
+        <name>MessageFromPort</name>
+        <qualifiedname>BLooper::MessageFromPort</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <defname>timeout</defname>
+          <defval>B_INFINITE_TIMEOUT</defval>
+        </param>
+        <briefdescription>
+<para>Hook method to retrieve a message from the looper&apos;s port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default implementation is called by the internal message looping thread and retrieves the next message from the port that belongs to this looper.</para>
+<para>If you use a looper in a context where it might receive messages from other sources, you can override this method in order to insert these methods into the message processing. Note that any messages that are returned by this method will be deleted by this looper, so make sure you have ownership of the message. If you override this method, remember to call the base implementation every now and then, in order to retrieve the messages arriving at the default port.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="106" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBLooper_1aaff8545110a674f910c0ada86b411612" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLooper::BLooper</definition>
+        <argsstring>(const BLooper &amp;)</argsstring>
+        <name>BLooper</name>
+        <qualifiedname>BLooper::BLooper</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLooper" kindref="compound">BLooper</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="125" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aa995310f73b3f83a03164f5f497560df" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BLooper::BLooper</definition>
+        <argsstring>(int32 priority, port_id port, const char *name)</argsstring>
+        <name>BLooper</name>
+        <qualifiedname>BLooper::BLooper</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="128" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ae31017918dcf2e08a022c3bd4cea0040" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::_AddMessagePriv</definition>
+        <argsstring>(BMessage *msg)</argsstring>
+        <name>_AddMessagePriv</name>
+        <qualifiedname>BLooper::_AddMessagePriv</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="142" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a5deba4ae2e813ebacc0349ae9f4d0d98" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::_ApplyFilters</definition>
+        <argsstring>(BList *list, BMessage *msg, BHandler *target)</argsstring>
+        <name>_ApplyFilters</name>
+        <qualifiedname>BLooper::_ApplyFilters</qualifiedname>
+        <param>
+          <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="155" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a5f87a077e9e344a1532a9e2e6ef8b6f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::_HandlerFilter</definition>
+        <argsstring>(BMessage *msg, BHandler *target)</argsstring>
+        <name>_HandlerFilter</name>
+        <qualifiedname>BLooper::_HandlerFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="154" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a4060f74b20d450781831925b8d0dff3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::_InitData</definition>
+        <argsstring>(const char *name, int32 priority, port_id port, int32 capacity)</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BLooper::_InitData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>priority</declname>
+        </param>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>capacity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="139" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a806f0cf21808b8a2681515dd05dbd6c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BLooper::_PostMessage</definition>
+        <argsstring>(BMessage *msg, BHandler *handler, BHandler *reply_to)</argsstring>
+        <name>_PostMessage</name>
+        <qualifiedname>BLooper::_PostMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>reply_to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="131" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a0b175f4dcf5ef397c6b69c0e016e876d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::_QuitRequested</definition>
+        <argsstring>(BMessage *msg)</argsstring>
+        <name>_QuitRequested</name>
+        <qualifiedname>BLooper::_QuitRequested</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="151" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a3fc99358994f4c85a33312180ed42887" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::_ReservedLooper1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLooper1</name>
+        <qualifiedname>BLooper::_ReservedLooper1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="118" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a21b80a9c69e574a80357f74b8374cd40" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::_ReservedLooper2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLooper2</name>
+        <qualifiedname>BLooper::_ReservedLooper2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="119" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a4a5519b4c3763a3c81dc16fdc88c8358" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::_ReservedLooper3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLooper3</name>
+        <qualifiedname>BLooper::_ReservedLooper3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="120" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a05a62c202f75961009fcb87b057926b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::_ReservedLooper4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLooper4</name>
+        <qualifiedname>BLooper::_ReservedLooper4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="121" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a08d283159b524e6bd8b451a432c126c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::_ReservedLooper5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLooper5</name>
+        <qualifiedname>BLooper::_ReservedLooper5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="122" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1acdde306e3cf5d4730bfffe5e1034db78" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::_ReservedLooper6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedLooper6</name>
+        <qualifiedname>BLooper::_ReservedLooper6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="123" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aa8c6ddd20b022da86c5650ca01592599" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::_TopLevelFilter</definition>
+        <argsstring>(BMessage *msg, BHandler *target)</argsstring>
+        <name>_TopLevelFilter</name>
+        <qualifiedname>BLooper::_TopLevelFilter</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="153" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a5cfda312461758f4cef708a47c43fcd2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::AddMessage</definition>
+        <argsstring>(BMessage *msg)</argsstring>
+        <name>AddMessage</name>
+        <qualifiedname>BLooper::AddMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="141" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a974270aa3210fe6acc35845a688e4947" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BLooper::AssertLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>AssertLocked</name>
+        <qualifiedname>BLooper::AssertLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="152" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ae10aadbcb22b116d0f187d8596de6bb8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::check_lock</definition>
+        <argsstring>()</argsstring>
+        <name>check_lock</name>
+        <qualifiedname>BLooper::check_lock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="157" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aacd56b5034dd54835f91666abe8a7202" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>virtual BMessage * BLooper::ConvertToMessage</definition>
+        <argsstring>(void *raw, int32 code)</argsstring>
+        <name>ConvertToMessage</name>
+        <qualifiedname>BLooper::ConvertToMessage</qualifiedname>
+        <reimplementedby refid="classBDirectWindow_1a76f533f2ddedce57b026c771d4cedc99">ConvertToMessage</reimplementedby>
+        <reimplementedby refid="classBWindow_1a46de81dc0e4aefd6ff2e2ff84c72e37c">ConvertToMessage</reimplementedby>
+        <param>
+          <type>void *</type>
+          <declname>raw</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="149" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a878c01f144bef77ae9e3527936354428" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBLooper" kindref="compound">BLooper</ref> &amp;</type>
+        <definition>BLooper &amp; BLooper::operator=</definition>
+        <argsstring>(const BLooper &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BLooper::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBLooper" kindref="compound">BLooper</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="126" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a7868d32e7b5309232e4c8f1db22f7544" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage * BLooper::ReadMessageFromPort</definition>
+        <argsstring>(bigtime_t timeout=B_INFINITE_TIMEOUT)</argsstring>
+        <name>ReadMessageFromPort</name>
+        <qualifiedname>BLooper::ReadMessageFromPort</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+          <defval>B_INFINITE_TIMEOUT</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="147" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1af3e33bb024cfba457f51f79f85a97704" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BLooper::ReadRawFromPort</definition>
+        <argsstring>(int32 *code, bigtime_t timeout=B_INFINITE_TIMEOUT)</argsstring>
+        <name>ReadRawFromPort</name>
+        <qualifiedname>BLooper::ReadRawFromPort</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+          <defval>B_INFINITE_TIMEOUT</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="145" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aba57f7582ceeda4025b8870d72cec581" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BLooper::resolve_specifier</definition>
+        <argsstring>(BHandler *target, BMessage *msg)</argsstring>
+        <name>resolve_specifier</name>
+        <qualifiedname>BLooper::resolve_specifier</qualifiedname>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="158" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1a4ce97f42833c0823df099ecdc69d6cb8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BLooper::task_looper</definition>
+        <argsstring>()</argsstring>
+        <name>task_looper</name>
+        <qualifiedname>BLooper::task_looper</qualifiedname>
+        <reimplementedby refid="classBDirectWindow_1a6c5ed232c8060d3ce8f6c861fa2d793c">task_looper</reimplementedby>
+        <reimplementedby refid="classBWindow_1a03af45cf0edd6565f15e8fce29a146b7">task_looper</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="150" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1aea4e499e3df2a5e6866936b35ecf6a92" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BLooper::UnlockFully</definition>
+        <argsstring>()</argsstring>
+        <name>UnlockFully</name>
+        <qualifiedname>BLooper::UnlockFully</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="159" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBLooper_1ab7b2d4e88ff95a5f7b1114e1b7fe86f6" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>static status_t BLooper::_Lock</definition>
+        <argsstring>(BLooper *loop, port_id port, bigtime_t timeout)</argsstring>
+        <name>_Lock</name>
+        <qualifiedname>BLooper::_Lock</qualifiedname>
+        <param>
+          <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="134" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ac8ed62532cbf052da1e1db7372376937" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>static status_t BLooper::_LockComplete</definition>
+        <argsstring>(BLooper *loop, int32 old, thread_id this_tid, sem_id sem, bigtime_t timeout)</argsstring>
+        <name>_LockComplete</name>
+        <qualifiedname>BLooper::_LockComplete</qualifiedname>
+        <param>
+          <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+          <declname>loop</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>old</declname>
+        </param>
+        <param>
+          <type>thread_id</type>
+          <declname>this_tid</declname>
+        </param>
+        <param>
+          <type>sem_id</type>
+          <declname>sem</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="136" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBLooper_1ac7e1e39e636c18874059478e67f1e387" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>static status_t BLooper::_task0_</definition>
+        <argsstring>(void *arg)</argsstring>
+        <name>_task0_</name>
+        <qualifiedname>BLooper::_task0_</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="143" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Receive and process messages in a separate thread. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>When an object of this class is created, the message loop can be started with <ref refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" kindref="member">Run()</ref>. This spawns the thread that receives messages and processes messages. Messages are actually passed on to <ref refid="classBHandler" kindref="compound">handlers </ref> that are associated with this looper. By default there is always one handler available: the looper itself. To &apos;quit&apos; a looper, you should pass a <computeroutput>B_QUIT_REQUESTED</computeroutput> message using one of the message post functions. When a looper receives such a request, it will <bold>delete</bold> itself. As such, looper should <emphasis>always be created on the heap</emphasis> (with <computeroutput>new</computeroutput>), and never on the stack.</para>
+<para>Posting messages can be done using the various <ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">PostMessage()</ref> methods. Whenever a message is posted, it will be added through to the message queue. It is possible to apply filters (see <ref refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" kindref="member">AddCommonFilter()</ref>) to filter out any messages that correspond with certain criteria. The method will copy the contents of the message and this copy is processed, so make sure you delete the original messages in case you create them on the heap. The handler for the message is chosen using the following criteria:</para>
+<para><orderedlist>
+<listitem><para>If <ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">PostMessage()</ref> or the <ref refid="classBMessenger" kindref="compound">BMessenger</ref> is set to a specific handler, and this handler is associated with this looper, than the message is processed by that handler.</para>
+</listitem><listitem><para>Else, the preferred handler is used. You can set this using <ref refid="classBLooper_1a07c6e5c65354b48465fde2b0b44e22c6" kindref="member">SetPreferredHandler()</ref>.</para>
+</listitem><listitem><para>If there is no preferred handler, then the looper itself will process the message.</para>
+</listitem></orderedlist>
+</para>
+<para>Because a looper usually is used in multiple threads, you should make sure you <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> and <ref refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" kindref="member">Unlock()</ref> it during most operations. Locking calls can be recursive (so multiple locks can come from a single thread), but make sure you pair every <ref refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" kindref="member">Lock()</ref> with an <ref refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" kindref="member">Unlock()</ref> call. Failing to do so will inevitably cause a deadlock.</para>
+<para>Because a looper provides a separate thread, and the inherited handler is usually a default handler, you will most often use this class by subclassing it. For example, you are likely to subclass <ref refid="classBWindow" kindref="compound">BWindow</ref> (which is derived from <ref refid="classBLooper" kindref="compound">BLooper</ref>) to customize your window and handle the messages sent to that window. You can override <ref refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" kindref="member">Run()</ref> in case you want to perform additional tasks before (or right after) starting the message loop. You can override <ref refid="classBLooper_1aff7aaf066538383f0e0ea28d18eb8863" kindref="member">QuitRequested()</ref> if you want to decline quitting in certain circumstances. You can override <ref refid="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949" kindref="member">Quit()</ref> in case you want to perform additional procedures during closing time. You can also override <ref refid="classBLooper_1add21ca8765c67b0dbf95b8f0361afa73" kindref="member">DispatchMessage()</ref> if you want to do something with all incoming messages before they are dispatched to a handler.</para>
+<para><ref refid="classBLooper" kindref="compound">BLooper</ref> is one of the major base classes of the Haiku application programmers interface. Closely related classes are <ref refid="classBMessage" kindref="compound">BMessage</ref>, <ref refid="classBHandler" kindref="compound">BHandler</ref> and <ref refid="classBMessenger" kindref="compound">BMessenger</ref>. It is used in the interface kit, for example by the <ref refid="classBWindow" kindref="compound">BWindow</ref> class, which makes sure every window runs it its own thread.</para>
+<para><ref refid="classBLooper" kindref="compound">BLooper</ref> is a part of the chain in the eloquent messaging structure. For a proper understanding of all its facets, have a look at the <ref refid="app_messaging" kindref="compound">messaging overview</ref>.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="6">
+        <label>BAlert</label>
+        <link refid="classBAlert"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BApplication</label>
+        <link refid="classBApplication"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="7">
+        <label>BDirectWindow</label>
+        <link refid="classBDirectWindow"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BLooper</label>
+        <link refid="classBLooper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BWindow</label>
+        <link refid="classBWindow"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="2">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BLooper</label>
+        <link refid="classBLooper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/app/Looper.h" line="29" column="1" bodyfile="/boot/home/src/haiku/headers/os/app/Looper.h" bodystart="29" bodyend="178"/>
+    <listofallmembers>
+      <member refid="classBLooper_1ae31017918dcf2e08a022c3bd4cea0040" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_AddMessagePriv</name></member>
+      <member refid="classBLooper_1a5deba4ae2e813ebacc0349ae9f4d0d98" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_ApplyFilters</name></member>
+      <member refid="classBLooper_1a86ef8e2217ea39c1887d95555ca556ce" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_get_looper_port_</name></member>
+      <member refid="classBLooper_1a5f87a077e9e344a1532a9e2e6ef8b6f3" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_HandlerFilter</name></member>
+      <member refid="classBLooper_1a2bdb3a7887c8371979f100fec5a20377" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_inherited</name></member>
+      <member refid="classBLooper_1a4060f74b20d450781831925b8d0dff3d" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_InitData</name></member>
+      <member refid="classBLooper_1ab7b2d4e88ff95a5f7b1114e1b7fe86f6" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_Lock</name></member>
+      <member refid="classBLooper_1ac8ed62532cbf052da1e1db7372376937" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_LockComplete</name></member>
+      <member refid="classBLooper_1a806f0cf21808b8a2681515dd05dbd6c0" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_PostMessage</name></member>
+      <member refid="classBLooper_1a0b175f4dcf5ef397c6b69c0e016e876d" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_QuitRequested</name></member>
+      <member refid="classBLooper_1a98b9a4320e3ef89546ec996b6c52b4d6" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_reserved</name></member>
+      <member refid="classBLooper_1a3fc99358994f4c85a33312180ed42887" prot="private" virt="virtual"><scope>BLooper</scope><name>_ReservedLooper1</name></member>
+      <member refid="classBLooper_1a21b80a9c69e574a80357f74b8374cd40" prot="private" virt="virtual"><scope>BLooper</scope><name>_ReservedLooper2</name></member>
+      <member refid="classBLooper_1a4a5519b4c3763a3c81dc16fdc88c8358" prot="private" virt="virtual"><scope>BLooper</scope><name>_ReservedLooper3</name></member>
+      <member refid="classBLooper_1a05a62c202f75961009fcb87b057926b2" prot="private" virt="virtual"><scope>BLooper</scope><name>_ReservedLooper4</name></member>
+      <member refid="classBLooper_1a08d283159b524e6bd8b451a432c126c1" prot="private" virt="virtual"><scope>BLooper</scope><name>_ReservedLooper5</name></member>
+      <member refid="classBLooper_1acdde306e3cf5d4730bfffe5e1034db78" prot="private" virt="virtual"><scope>BLooper</scope><name>_ReservedLooper6</name></member>
+      <member refid="classBLooper_1ac7e1e39e636c18874059478e67f1e387" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_task0_</name></member>
+      <member refid="classBLooper_1aa8c6ddd20b022da86c5650ca01592599" prot="private" virt="non-virtual"><scope>BLooper</scope><name>_TopLevelFilter</name></member>
+      <member refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" prot="public" virt="virtual"><scope>BLooper</scope><name>AddCommonFilter</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BLooper</scope><name>AddFilter</name></member>
+      <member refid="classBLooper_1a484be74814014e3c48c1a16f44e34074" prot="public" virt="non-virtual"><scope>BLooper</scope><name>AddHandler</name></member>
+      <member refid="classBLooper_1a5cfda312461758f4cef708a47c43fcd2" prot="private" virt="non-virtual"><scope>BLooper</scope><name>AddMessage</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BLooper</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BLooper</scope><name>AllUnarchived</name></member>
+      <member refid="classBLooper_1a791ef8664f674b6683d551762888f1c2" prot="public" virt="virtual"><scope>BLooper</scope><name>Archive</name></member>
+      <member refid="classBLooper_1a974270aa3210fe6acc35845a688e4947" prot="private" virt="non-virtual"><scope>BLooper</scope><name>AssertLocked</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BLooper</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BLooper</scope><name>BArchivable</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BLooper</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BLooper</scope><name>BHandler</name></member>
+      <member refid="classBLooper_1a33fa84a6ed383e5a897d11380d72ce38" prot="public" virt="non-virtual"><scope>BLooper</scope><name>BLooper</name></member>
+      <member refid="classBLooper_1aad314758fd652fb48d61bcccab8b6ae3" prot="public" virt="non-virtual"><scope>BLooper</scope><name>BLooper</name></member>
+      <member refid="classBLooper_1aaff8545110a674f910c0ada86b411612" prot="private" virt="non-virtual"><scope>BLooper</scope><name>BLooper</name></member>
+      <member refid="classBLooper_1aa995310f73b3f83a03164f5f497560df" prot="private" virt="non-virtual"><scope>BLooper</scope><name>BLooper</name></member>
+      <member refid="classBLooper_1ae10aadbcb22b116d0f187d8596de6bb8" prot="private" virt="non-virtual"><scope>BLooper</scope><name>check_lock</name></member>
+      <member refid="classBLooper_1ad64f1a98c1cce8087e7d492860461a62" prot="public" virt="non-virtual"><scope>BLooper</scope><name>CommonFilterList</name></member>
+      <member refid="classBLooper_1aacd56b5034dd54835f91666abe8a7202" prot="private" virt="virtual"><scope>BLooper</scope><name>ConvertToMessage</name></member>
+      <member refid="classBLooper_1a6179629238d0be92d7a89503be24d4e3" prot="public" virt="non-virtual"><scope>BLooper</scope><name>CountHandlers</name></member>
+      <member refid="classBLooper_1a64e7b89294df1f7b614d1267f870ecd9" prot="public" virt="non-virtual"><scope>BLooper</scope><name>CountLockRequests</name></member>
+      <member refid="classBLooper_1a4eec703acd9bd7fe9a455af0f81e08f9" prot="public" virt="non-virtual"><scope>BLooper</scope><name>CountLocks</name></member>
+      <member refid="classBLooper_1a6d244af065c4a12ea795bbbc7bb20e07" prot="public" virt="non-virtual"><scope>BLooper</scope><name>CurrentMessage</name></member>
+      <member refid="classBLooper_1a7c8f05bcc354bc1d53026417417120e3" prot="public" virt="non-virtual"><scope>BLooper</scope><name>DetachCurrentMessage</name></member>
+      <member refid="classBLooper_1a3a2d3773466de19a6c117f3a04861b11" prot="public" virt="non-virtual"><scope>BLooper</scope><name>DispatchExternalMessage</name></member>
+      <member refid="classBLooper_1add21ca8765c67b0dbf95b8f0361afa73" prot="public" virt="virtual"><scope>BLooper</scope><name>DispatchMessage</name></member>
+      <member refid="classBLooper_1a0d5f05cf74e4790e49f4eb89656c4aed" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fAtomicCount</name></member>
+      <member refid="classBLooper_1a79e7eac2588311db64bf2dc1b0e24857" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fCachedStack</name></member>
+      <member refid="classBLooper_1afdcdf7cfe854c1b7807d48405331a6fc" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fCommonFilters</name></member>
+      <member refid="classBLooper_1aa99356b63587cc25fd45dcb55bdfa1d8" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fDirectTarget</name></member>
+      <member refid="classBLooper_1a927310b4c1001d182bdbb1b7daa0560d" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fHandlers</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BLooper</scope><name>FilterList</name></member>
+      <member refid="classBLooper_1a7d1e8f68bec1260e6c591f76340ceeaf" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fInitPriority</name></member>
+      <member refid="classBLooper_1a26bed976118c8ab3d05f9ac8f7389b7c" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fLastMessage</name></member>
+      <member refid="classBLooper_1a07007d3e5ddfa6ab68790b336189e4be" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fLockSem</name></member>
+      <member refid="classBLooper_1a53be8e32298790e4ed17adc94b3ca5b3" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fMsgPort</name></member>
+      <member refid="classBLooper_1a40d5bb56b2c0836efadee9a0783efe5c" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fOwner</name></member>
+      <member refid="classBLooper_1ab280efe75b3ffdf0944edbaba7fa8db0" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fOwnerCount</name></member>
+      <member refid="classBLooper_1ab56311e6f7ed5327bfd3968f5a6f98b6" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fOwnsPort</name></member>
+      <member refid="classBLooper_1a4ab677e82a812aa1ff1b414147971064" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fPreferred</name></member>
+      <member refid="classBLooper_1a134ec30fd5ad0b6a08f63b4ab3a94a19" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fRunCalled</name></member>
+      <member refid="classBLooper_1a0f25109849f42f53ff481aaafac13048" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fTerminating</name></member>
+      <member refid="classBLooper_1a67cba7907ce736c96e0264b4d7cfffa4" prot="private" virt="non-virtual"><scope>BLooper</scope><name>fThread</name></member>
+      <member refid="classBLooper_1a915a50de7d5b6263f0fd1a349a9a6d92" prot="public" virt="virtual"><scope>BLooper</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBLooper_1a6976132123edacf4b3a2831eadf5f4bf" prot="public" virt="non-virtual"><scope>BLooper</scope><name>HandlerAt</name></member>
+      <member refid="classBLooper_1a3061534f6d2f3186efca4cddd19f378f" prot="public" virt="non-virtual"><scope>BLooper</scope><name>IndexOf</name></member>
+      <member refid="classBLooper_1aee61314ab77c54a64f8122440189b73a" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Instantiate</name></member>
+      <member refid="classBLooper_1a525d6677c2fc76a84c2d48853dad142a" prot="public" virt="non-virtual"><scope>BLooper</scope><name>IsLocked</name></member>
+      <member refid="classBLooper_1a27fd22b9eeaeadbeff1e973ed5242a64" prot="public" virt="non-virtual"><scope>BLooper</scope><name>IsMessageWaiting</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BLooper</scope><name>IsWatched</name></member>
+      <member refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Lock</name></member>
+      <member refid="classBLooper_1a1d5d9dbc9d890ed1329b69fbfe9254b3" prot="public" virt="non-virtual"><scope>BLooper</scope><name>LockingThread</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BLooper</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BLooper</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBLooper_1a734cdb06bfe92efdea24528c9b43bfc1" prot="public" virt="non-virtual"><scope>BLooper</scope><name>LockWithTimeout</name></member>
+      <member refid="classBLooper_1a5cb1d2eb7640fdcbc1085ad19583691d" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Loop</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Looper</name></member>
+      <member refid="classBLooper_1acf16bb9628e7dbbace3920ebeff6dc34" prot="public" virt="non-virtual"><scope>BLooper</scope><name>LooperForThread</name></member>
+      <member refid="classBLooper_1a1be73aad8e8fed41659b98633525e5b3" prot="protected" virt="non-virtual"><scope>BLooper</scope><name>MessageFromPort</name></member>
+      <member refid="classBLooper_1ad0643973ceda5cca540c4684a9f670ac" prot="public" virt="non-virtual"><scope>BLooper</scope><name>MessageQueue</name></member>
+      <member refid="classBLooper_1a89303d11c987dae76cdfc38ad5d3c4c2" prot="public" virt="virtual"><scope>BLooper</scope><name>MessageReceived</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BLooper</scope><name>NextHandler</name></member>
+      <member refid="classBLooper_1a878c01f144bef77ae9e3527936354428" prot="private" virt="non-virtual"><scope>BLooper</scope><name>operator=</name></member>
+      <member refid="classBLooper_1adfc642544ce22888d412e6a4be25fa72" prot="public" virt="virtual"><scope>BLooper</scope><name>Perform</name></member>
+      <member refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" prot="public" virt="non-virtual"><scope>BLooper</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1ae79a7818ce950d8edcd238f7948df020" prot="public" virt="non-virtual"><scope>BLooper</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1a2dc16ecf211eb7e32eaa4b08863e856d" prot="public" virt="non-virtual"><scope>BLooper</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1ac75eed80e72b236650f19b4015de6e99" prot="public" virt="non-virtual"><scope>BLooper</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1af1a4af6872abc40a887bfcabd55aff98" prot="public" virt="non-virtual"><scope>BLooper</scope><name>PreferredHandler</name></member>
+      <member refid="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949" prot="public" virt="virtual"><scope>BLooper</scope><name>Quit</name></member>
+      <member refid="classBLooper_1aff7aaf066538383f0e0ea28d18eb8863" prot="public" virt="virtual"><scope>BLooper</scope><name>QuitRequested</name></member>
+      <member refid="classBLooper_1a7868d32e7b5309232e4c8f1db22f7544" prot="private" virt="non-virtual"><scope>BLooper</scope><name>ReadMessageFromPort</name></member>
+      <member refid="classBLooper_1af3e33bb024cfba457f51f79f85a97704" prot="private" virt="non-virtual"><scope>BLooper</scope><name>ReadRawFromPort</name></member>
+      <member refid="classBLooper_1ad2233fa143e9deff912bff39eebac4a2" prot="public" virt="virtual"><scope>BLooper</scope><name>RemoveCommonFilter</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BLooper</scope><name>RemoveFilter</name></member>
+      <member refid="classBLooper_1a5af57140bf018388a2e64343f46ac330" prot="public" virt="non-virtual"><scope>BLooper</scope><name>RemoveHandler</name></member>
+      <member refid="classBLooper_1aba57f7582ceeda4025b8870d72cec581" prot="private" virt="non-virtual"><scope>BLooper</scope><name>resolve_specifier</name></member>
+      <member refid="classBLooper_1a16b494160d9b37d4dbbc0d426a22c946" prot="public" virt="virtual"><scope>BLooper</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811" prot="public" virt="virtual"><scope>BLooper</scope><name>Run</name></member>
+      <member refid="classBLooper_1aa96df67561b0ce1428ae45148c21e01f" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Sem</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BLooper</scope><name>SendNotices</name></member>
+      <member refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" prot="public" virt="virtual"><scope>BLooper</scope><name>SetCommonFilterList</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BLooper</scope><name>SetFilterList</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BLooper</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BLooper</scope><name>SetNextHandler</name></member>
+      <member refid="classBLooper_1a07c6e5c65354b48465fde2b0b44e22c6" prot="public" virt="non-virtual"><scope>BLooper</scope><name>SetPreferredHandler</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BLooper</scope><name>StopWatchingAll</name></member>
+      <member refid="classBLooper_1a4ce97f42833c0823df099ecdc69d6cb8" prot="private" virt="virtual"><scope>BLooper</scope><name>task_looper</name></member>
+      <member refid="classBLooper_1afeb7a4900f26e7746d6c8bdb5cf684f3" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Team</name></member>
+      <member refid="classBLooper_1a257d396d04d128edf7a0c9669ead36c0" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Thread</name></member>
+      <member refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" prot="public" virt="non-virtual"><scope>BLooper</scope><name>Unlock</name></member>
+      <member refid="classBLooper_1aea4e499e3df2a5e6866936b35ecf6a92" prot="private" virt="non-virtual"><scope>BLooper</scope><name>UnlockFully</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BLooper</scope><name>UnlockLooper</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BLooper</scope><name>~BArchivable</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BLooper</scope><name>~BHandler</name></member>
+      <member refid="classBLooper_1ab2fa21c0315644144f55523adbdc0457" prot="public" virt="virtual"><scope>BLooper</scope><name>~BLooper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

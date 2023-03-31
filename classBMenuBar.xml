@@ -1,0 +1,1962 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMenuBar" kind="class" language="C++" prot="public">
+    <compoundname>BMenuBar</compoundname>
+    <basecompoundref refid="classBMenu" prot="public" virt="non-virtual">BMenu</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBMenuBar_1af4ae9bcc3c1cbe560e745c9868fb9c5f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMenuBar::Archive</definition>
+        <argsstring>(BMessage *archive, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BMenuBar::Archive</qualifiedname>
+        <reimplements refid="classBMenu_1a71bed24f541bdfb690863118ce3f716b">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the the <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> object into the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> to archive the object into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to archive attached menu items as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if everything went well or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was archived successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while archiving the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="41" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ac26385837dc4b71f8c15282438148711" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BMenuBar::Instantiate</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BMenuBar::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> object from an <emphasis>archive</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A newly created <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> object or <computeroutput>NULL</computeroutput> if the message doesn&apos;t contain an archived <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="40" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Hook Methods</header>
+      <memberdef kind="function" id="classBMenuBar_1a48b3c56f65222c9dc3e5faca5eb80319" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuBar::AttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>AttachedToWindow</name>
+        <qualifiedname>BMenuBar::AttachedToWindow</qualifiedname>
+        <reimplements refid="classBMenu_1af38b2e6bf69d918e37bcf1e18711bb37">AttachedToWindow</reimplements>
+        <briefdescription>
+<para>Sets this as the key menubar for the window, lays out the menu items and resizes the menu to fit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBWindow_1aa1e9322c76ffdad1886253171f8a5972" kindref="member">BWindow::SetKeyMenuBar()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="44" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ad3dcc7b2c1eeada95ef6986a21754324" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuBar::FrameResized</definition>
+        <argsstring>(float newWidth, float newHeight)</argsstring>
+        <name>FrameResized</name>
+        <qualifiedname>BMenuBar::FrameResized</qualifiedname>
+        <reimplements refid="classBMenu_1ad6d6eac1f12e9456b9db896aee122181">FrameResized</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newWidth</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>newHeight</declname>
+        </param>
+        <briefdescription>
+<para>Hook method that gets called when the menu bar is resized. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Redraws the affected borders.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="59" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a50f02992ee792e7f66b8f3148e75dcc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuBar::Draw</definition>
+        <argsstring>(BRect updateRect)</argsstring>
+        <name>Draw</name>
+        <qualifiedname>BMenuBar::Draw</qualifiedname>
+        <reimplements refid="classBMenu_1a239982fa92e2f5a9c2ed0c267b7470b3">Draw</reimplements>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>updateRect</declname>
+        </param>
+        <briefdescription>
+<para>Draws the menu bar. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>updateRect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The area to draw in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="64" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a0aa84693746c1cfe671c48a4dcc654c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuBar::MouseDown</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseDown</name>
+        <qualifiedname>BMenuBar::MouseDown</qualifiedname>
+        <reimplements refid="classBView_1a5f5bd975d15df94f2ebbc80eb79cc3f6">MouseDown</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method that is called when a mouse button is pressed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Right clicking on a menu bar sends the window to back or brings it to front.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is pressed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="67" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBMenuBar_1a646ee4a58fbdc0ea2c195836efa5ce69" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMenu</definition>
+        <argsstring></argsstring>
+        <name>BMenu</name>
+        <qualifiedname>BMenuBar::BMenu</qualifiedname>
+        <param>
+          <type><ref refid="classBMenu" kindref="compound">BMenu</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="90" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMenuBar_1a43d26877f2a516dfa3aaa8b5c16ec70a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMenuField</definition>
+        <argsstring></argsstring>
+        <name>BMenuField</name>
+        <qualifiedname>BMenuBar::BMenuField</qualifiedname>
+        <param>
+          <type><ref refid="classBMenuField" kindref="compound">BMenuField</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="89" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMenuBar_1af159fae9bef1f9a91dcaa0b93fd5658d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BWindow</definition>
+        <argsstring></argsstring>
+        <name>BWindow</name>
+        <qualifiedname>BMenuBar::BWindow</qualifiedname>
+        <param>
+          <type><ref refid="classBWindow" kindref="compound">BWindow</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="88" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMenuBar_1adf87850d5d2bc5d197c5975330ae24f6" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMenuBar::_reserved[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BMenuBar::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="112" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1a2a1ab68db9f58cad7430534f33ede1f0" prot="private" static="no" mutable="no">
+        <type><ref refid="MenuBar_8h_1a0727d657f3994b2f8cb71f09e09f10b0" kindref="member">menu_bar_border</ref></type>
+        <definition>menu_bar_border BMenuBar::fBorder</definition>
+        <argsstring></argsstring>
+        <name>fBorder</name>
+        <qualifiedname>BMenuBar::fBorder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="106" column="16" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1af9edd9bdce8c695c7eb63acf7d49e6f7" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMenuBar::fBorders</definition>
+        <argsstring></argsstring>
+        <name>fBorders</name>
+        <qualifiedname>BMenuBar::fBorders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="111" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1a83b5bfad7521821162731bb5fa53dfa4" prot="private" static="no" mutable="no">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref> *</type>
+        <definition>BRect* BMenuBar::fLastBounds</definition>
+        <argsstring></argsstring>
+        <name>fLastBounds</name>
+        <qualifiedname>BMenuBar::fLastBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="110" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1a4b9699bb585ee30a53b5b8dc9ac7945f" prot="private" static="no" mutable="no">
+        <type>sem_id</type>
+        <definition>sem_id BMenuBar::fMenuSem</definition>
+        <argsstring></argsstring>
+        <name>fMenuSem</name>
+        <qualifiedname>BMenuBar::fMenuSem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="109" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1a0107e7c32e2741e2dfaa517c1034a91d" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMenuBar::fPrevFocusToken</definition>
+        <argsstring></argsstring>
+        <name>fPrevFocusToken</name>
+        <qualifiedname>BMenuBar::fPrevFocusToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="108" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1a672d8f744155f1cda7fd390e90ec40ee" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMenuBar::fTracking</definition>
+        <argsstring></argsstring>
+        <name>fTracking</name>
+        <qualifiedname>BMenuBar::fTracking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="114" column="5" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMenuBar_1a99ca3a45f229a410e6c2e2b442720b8a" prot="private" static="no" mutable="no">
+        <type>thread_id</type>
+        <definition>thread_id BMenuBar::fTrackingPID</definition>
+        <argsstring></argsstring>
+        <name>fTrackingPID</name>
+        <qualifiedname>BMenuBar::fTrackingPID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="107" column="10" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMenuBar_1ad083b4d1fcaa2c8483d73c0691cccd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuBar::BMenuBar</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BMenuBar</name>
+        <qualifiedname>BMenuBar::BMenuBar</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Archive constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message data to construct the menu from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a97f304a1b753aec98c4cf89af4174909" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuBar::BMenuBar</definition>
+        <argsstring>(BRect frame, const char *name, uint32 resizingMode=B_FOLLOW_LEFT_RIGHT|B_FOLLOW_TOP, menu_layout layout=B_ITEMS_IN_ROW, bool resizeToFit=true)</argsstring>
+        <name>BMenuBar</name>
+        <qualifiedname>BMenuBar::BMenuBar</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>resizingMode</declname>
+          <defval><ref refid="View_8h_1ab8a994ce4ff4521d25e1984807bc1a75" kindref="member">B_FOLLOW_LEFT_RIGHT</ref>|<ref refid="View_8h_1aa411b002ccc9912b6ee9cbebef5472d1" kindref="member">B_FOLLOW_TOP</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="Menu_8h_1a238c8bed18e01ae53d0db0dcc2a148e1" kindref="member">menu_layout</ref></type>
+          <declname>layout</declname>
+          <defval><ref refid="Menu_8h_1a238c8bed18e01ae53d0db0dcc2a148e1ac61b92b8f6492733c31ae2d64fd1e866" kindref="member">B_ITEMS_IN_ROW</ref></defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resizeToFit</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Create a new <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default resizing mode, <computeroutput>B_FOLLOW_LEFT_RIGHT</computeroutput> | <computeroutput>B_FOLLOW_TOP</computeroutput> is meant to be used by a typical menu bar that is positioned along the top edge of a window. This resizing mode allows the menu bar to resize itself based on changes to the window&apos;s width while keeping it attached to the top of the window frame.</para>
+<para>For menu bars in <computeroutput>B_ITEMS_IN_ROW</computeroutput> layout the height is automatically set to be the height of a single item, while menus bars in <computeroutput>B_ITEMS_IN_COLUMN</computeroutput> layout the width is automatically set to be the width of the widest item.</para>
+<para>The width of a menu bar is set equal to the width of its parent for menu bars in <computeroutput>B_ITEMS_IN_ROW</computeroutput> layout and a <emphasis>resizingMode</emphasis> mask that includes <computeroutput>B_FOLLOW_LEFT_RIGHT</computeroutput> so that the menu bar will always be as wide as its attached window.</para>
+<para>Likewise, the height of a menu bar is set equal to the height of its parent for menu bars in <computeroutput>B_ITEMS_IN_COLUMN</computeroutput> layout and a <emphasis>resizingMode</emphasis> mask that includes <computeroutput>B_FOLLOW_TOP_BOTTOM</computeroutput> so that the menu bar will always be as high as its attached window.</para>
+<para>When <emphasis>resizeToFit</emphasis> is set to <computeroutput>true</computeroutput>, as is the default, the <emphasis>frame</emphasis> rectangle determines only where the menu bar is located, not its size. If the <emphasis>layout</emphasis> is set to <computeroutput>B_ITEMS_IN_MATRIX</computeroutput> the <emphasis>resizeToFit</emphasis> flag should be set to <computeroutput>false</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>frame</emphasis> rectangle to create the menu bar in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>name</emphasis> of the menu bar, used internally only. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resizingMode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The resizing mode flags, see <ref refid="classBView" kindref="compound">BView</ref> for more details. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The menu layout, possibilities include:<itemizedlist>
+<listitem><para><computeroutput>B_ITEMS_IN_ROW</computeroutput> items are displayed in a single row,</para>
+</listitem><listitem><para><computeroutput>B_ITEMS_IN_COLUMN</computeroutput> items are displayed in a single column,</para>
+</listitem><listitem><para><computeroutput>B_ITEMS_IN_MATRIX</computeroutput> items are displayed in a custom matrix. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resizeToFit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not the menu bar should automatically resize itself to fit its contents, this will not work in <computeroutput>B_ITEMS_IN_MATRIX</computeroutput> layout.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a33de2272d8a5d2415d6204bdd92e51ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMenuBar::BMenuBar</definition>
+        <argsstring>(const char *name, menu_layout layout=B_ITEMS_IN_ROW, uint32 flags=B_WILL_DRAW|B_FRAME_EVENTS)</argsstring>
+        <name>BMenuBar</name>
+        <qualifiedname>BMenuBar::BMenuBar</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="Menu_8h_1a238c8bed18e01ae53d0db0dcc2a148e1" kindref="member">menu_layout</ref></type>
+          <declname>layout</declname>
+          <defval><ref refid="Menu_8h_1a238c8bed18e01ae53d0db0dcc2a148e1ac61b92b8f6492733c31ae2d64fd1e866" kindref="member">B_ITEMS_IN_ROW</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval><ref refid="View_8h_1a59354fa34a5663d714649927705fd4bf" kindref="member">B_WILL_DRAW</ref>|<ref refid="View_8h_1a0f5ad6b15e8c8e4a0b8b4c79d1f0f370" kindref="member">B_FRAME_EVENTS</ref></defval>
+        </param>
+        <briefdescription>
+<para>Create a new <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> object suitable to use with the layout APIs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>name</emphasis> of the menu bar, used internally only. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The view <emphasis>flags</emphasis>, see <ref refid="classBView" kindref="compound">BView</ref> for more details. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>layout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The menu layout, possibilities include:<itemizedlist>
+<listitem><para><computeroutput>B_ITEMS_IN_ROW</computeroutput> items are displayed in a single row,</para>
+</listitem><listitem><para><computeroutput>B_ITEMS_IN_COLUMN</computeroutput> items are displayed in a single column,</para>
+</listitem><listitem><para><computeroutput>B_ITEMS_IN_MATRIX</computeroutput> items are displayed in a custom matrix.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="33" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a4a0e51a23570d9c9abf66121e88c1ea9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BMenuBar::~BMenuBar</definition>
+        <argsstring>()</argsstring>
+        <name>~BMenuBar</name>
+        <qualifiedname>BMenuBar::~BMenuBar</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Also frees the memory used by any attached menus and menu items.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="38" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ac02982cd861af6eb4771f260fcf50ed8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::AllAttached</definition>
+        <argsstring>()</argsstring>
+        <name>AllAttached</name>
+        <qualifiedname>BMenuBar::AllAttached</qualifiedname>
+        <reimplements refid="classBMenu_1a2540cab39de9a2ed1a3e71e2c8ec52dc">AllAttached</reimplements>
+        <briefdescription>
+<para>Similar to <ref refid="classBMenuBar_1a48b3c56f65222c9dc3e5faca5eb80319" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been attached to a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="46" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a0c548adc7796603d8d686a401817d0d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::AllDetached</definition>
+        <argsstring>()</argsstring>
+        <name>AllDetached</name>
+        <qualifiedname>BMenuBar::AllDetached</qualifiedname>
+        <reimplements refid="classBMenu_1a40c41c3d2d1a8e23dfad97039615b208">AllDetached</reimplements>
+        <briefdescription>
+<para>Similar to <ref refid="classBMenuBar_1a48b3c56f65222c9dc3e5faca5eb80319" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="47" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1aa105aa010f8a65da27fa268fb2c482d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="MenuBar_8h_1a0727d657f3994b2f8cb71f09e09f10b0" kindref="member">menu_bar_border</ref></type>
+        <definition>menu_bar_border BMenuBar::Border</definition>
+        <argsstring>() const</argsstring>
+        <name>Border</name>
+        <qualifiedname>BMenuBar::Border</qualifiedname>
+        <briefdescription>
+<para>Returns the currently set border style. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMenuBar_1a3d1f0ec6b4718c089f128bbcb864697d" kindref="member">BMenuBar::SetBorder()</ref> for details.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="76" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a6cef14c2d67a38f2062d2ed77af00176" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMenuBar::Borders</definition>
+        <argsstring>() const</argsstring>
+        <name>Borders</name>
+        <qualifiedname>BMenuBar::Borders</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="78" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1aaf4b5448201a1d30c969ddc20f1d492d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::DetachedFromWindow</definition>
+        <argsstring>()</argsstring>
+        <name>DetachedFromWindow</name>
+        <qualifiedname>BMenuBar::DetachedFromWindow</qualifiedname>
+        <reimplements refid="classBMenu_1a51b79eb8595e20234f2fefabf7899e21">DetachedFromWindow</reimplements>
+        <briefdescription>
+<para>Hook method called when the object is detached from a window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="45" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1aa711264d76e8f5faa0f974ca66d01ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::FrameMoved</definition>
+        <argsstring>(BPoint newPosition)</argsstring>
+        <name>FrameMoved</name>
+        <qualifiedname>BMenuBar::FrameMoved</qualifiedname>
+        <reimplements refid="classBMenu_1ab14bf3dc8b6f082f2609094c1f964577">FrameMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>newPosition</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the view is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point of the top left corner of the frame that the view has been moved to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="58" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ab4dd370f1363d89c1fb2918877595b02" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::GetPreferredSize</definition>
+        <argsstring>(float *_width, float *_height)</argsstring>
+        <name>GetPreferredSize</name>
+        <qualifiedname>BMenuBar::GetPreferredSize</qualifiedname>
+        <reimplements refid="classBMenu_1af60a7b8ec6f92749fd46ce2e9179dc17">GetPreferredSize</reimplements>
+        <param>
+          <type>float *</type>
+          <declname>_width</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_height</declname>
+        </param>
+        <briefdescription>
+<para>Fill out the preferred width and height of the view into the <emphasis>_width</emphasis> and <emphasis>_height</emphasis> parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Derived classes should override this method to set the preferred size of object.</para>
+<para><simplesect kind="remark"><para>Either the <emphasis>_width</emphasis> or <emphasis>_height</emphasis> parameter may be set to <computeroutput>NULL</computeroutput> if you only want to get the other one.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a float to store the width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a float to store the height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="53" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ad635f7e68997f901cbd4b15491b5f2a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMenuBar::GetSupportedSuites</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BMenuBar::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBMenu_1a2aa0277374bacf3b7644f738bc064637">GetSupportedSuites</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports the suites of messages and specifiers that derived classes understand.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="73" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::Hide</definition>
+        <argsstring>()</argsstring>
+        <name>Hide</name>
+        <qualifiedname>BMenuBar::Hide</qualifiedname>
+        <reimplements refid="classBMenu_1acebb809699f7efa7d72346f2ba0b869f">Hide</reimplements>
+        <briefdescription>
+<para>Hides the view without removing it from the view hierarchy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls to <ref refid="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" kindref="member">Hide()</ref> and <ref refid="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" kindref="member">Show()</ref> are cumulative. A visible view becomes hidden once the number of <ref refid="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" kindref="member">Hide()</ref> calls exceeds the number of <ref refid="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" kindref="member">Show()</ref> calls.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" kindref="member">Show()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBWindow_1a53b85e4d43d34e5259b3b16ff6c52b32" kindref="member">BWindow::Hide()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" kindref="member">IsHidden()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="62" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a170fbfdd3be7b9bdc750777f31c216c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::MakeFocus</definition>
+        <argsstring>(bool state=true)</argsstring>
+        <name>MakeFocus</name>
+        <qualifiedname>BMenuBar::MakeFocus</qualifiedname>
+        <reimplements refid="classBMenu_1a1465ef5881a0b85729118534d8ee3a15">MakeFocus</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>focus</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Makes the view the current focus view of the window or gives up being the window&apos;s focus view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The focus view handles selections and KeyDown events when the the attached window is active. There can be only one focus view at a time per window.</para>
+<para>When called with <emphasis>focus</emphasis> set to <computeroutput>true</computeroutput> this method first calls <ref refid="classBMenuBar_1a170fbfdd3be7b9bdc750777f31c216c0" kindref="member">MakeFocus()</ref> on the previously focused view with <emphasis>focus</emphasis> set to <computeroutput>false</computeroutput>.</para>
+<para>The focus doesn&apos;t automatically change when <ref refid="classBMenuBar_1a0aa84693746c1cfe671c48a4dcc654c6" kindref="member">MouseDown()</ref> is called so calling <ref refid="classBMenuBar_1a170fbfdd3be7b9bdc750777f31c216c0" kindref="member">MakeFocus()</ref> is the only way to make a view the focus view of a window. Classes derived from <ref refid="classBView" kindref="compound">BView</ref> that can display the current selection, or that can accept pasted data should call <ref refid="classBMenuBar_1a170fbfdd3be7b9bdc750777f31c216c0" kindref="member">MakeFocus()</ref> in their <ref refid="classBMenuBar_1a0aa84693746c1cfe671c48a4dcc654c6" kindref="member">MouseDown()</ref> method to update the focus view of the window on click.</para>
+<para>If the view isn&apos;t attached to a window this method has no effect.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>focus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>true</emphasis> to set focus, <emphasis>false</emphasis> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="50" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ad0dc5e934924d2511d82718d31da2740" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>virtual BSize BMenuBar::MaxSize</definition>
+        <argsstring>()</argsstring>
+        <name>MaxSize</name>
+        <qualifiedname>BMenuBar::MaxSize</qualifiedname>
+        <reimplements refid="classBMenu_1a5f94df489ae102d0e377df3b63d9864a">MaxSize</reimplements>
+        <briefdescription>
+<para>Return the maximum size of the view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is only meaningful if the view is part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="return"><para>The maximum size of the view as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBAbstractLayout_1ad1ea5d04a5c8028f8295efde7106a66c" kindref="member">BAbstractLayout::MaxSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="56" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a7d7c1d1674e059b56c82c81e381d4455" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BMenuBar::MessageReceived</qualifiedname>
+        <reimplements refid="classBMenu_1aca12e6b863279cc62772ac13ef286d31">MessageReceived</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handles a <emphasis>message</emphasis> received by the associated looper. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Responds to mouse wheel events scrolling the menu if it is too long to fit in the window. Hold <computeroutput>B_SHIFT_KEY</computeroutput> to cause the menu to scroll faster.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> received by the associated looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="66" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ae0781646adecf0bd08123868c40ee218" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>virtual BSize BMenuBar::MinSize</definition>
+        <argsstring>()</argsstring>
+        <name>MinSize</name>
+        <qualifiedname>BMenuBar::MinSize</qualifiedname>
+        <reimplements refid="classBMenu_1a659643414ede82d0233e62ce9da4c01e">MinSize</reimplements>
+        <briefdescription>
+<para>Return the minimum size of the view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is only meaningful if the view is part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="return"><para>The minimum size of the view as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBAbstractLayout_1a3f692cb3306ce726e3cc6d2771824cd5" kindref="member">BAbstractLayout::MinSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="55" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a4781bbe6cd7ccff992b0c12f2c4ea4b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::MouseUp</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseUp</name>
+        <qualifiedname>BMenuBar::MouseUp</qualifiedname>
+        <reimplements refid="classBView_1acdb92b30069157b2e3c522a3ef9d6ae4">MouseUp</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when a mouse button is released. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is released.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="68" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a4b8a4e16ace175bc3bad9d6ef6b42daf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMenuBar::Perform</definition>
+        <argsstring>(perform_code code, void *data)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BMenuBar::Perform</qualifiedname>
+        <reimplements refid="classBMenu_1a6dedb98c6ba5ffbc44893ff43785c93c">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+          <defname>_data</defname>
+        </param>
+        <briefdescription>
+<para>Perform some action. (Internal Method) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is available to allow classes to be extended while maintaining binary compatibility.</para>
+<para>The following perform codes are recognized:<itemizedlist>
+<listitem><para><computeroutput>PERFORM_CODE_MIN_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_MAX_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_PREFERRED_SIZE:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_LAYOUT_ALIGNMENT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_HAS_HEIGHT_FOR_WIDTH:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_GET_HEIGHT_FOR_WIDTH:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_SET_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_INVALIDATE_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_DO_LAYOUT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_GET_TOOL_TIP_AT:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_ALL_UNARCHIVED:</computeroutput> </para>
+</listitem><listitem><para><computeroutput>PERFORM_CODE_ALL_ARCHIVED:</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The perform code. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to store some data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="80" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ae3e3832dbc024a802a18c4253f01b05a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>virtual BSize BMenuBar::PreferredSize</definition>
+        <argsstring>()</argsstring>
+        <name>PreferredSize</name>
+        <qualifiedname>BMenuBar::PreferredSize</qualifiedname>
+        <reimplements refid="classBMenu_1a03aad94d2eb22836823045530e58c052">PreferredSize</reimplements>
+        <briefdescription>
+<para>Return the preferred size of the view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="remark"><para>This is only meaningful if the view is part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="return"><para>The preferred size of the view as a <ref refid="classBSize" kindref="compound">BSize</ref>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBAbstractLayout_1af5f21d9900c85ca053dba3938bef3fd3" kindref="member">BAbstractLayout::PreferredSize()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="57" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a7e846a6abc075a0db6305e86cbed1760" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::ResizeToPreferred</definition>
+        <argsstring>()</argsstring>
+        <name>ResizeToPreferred</name>
+        <qualifiedname>BMenuBar::ResizeToPreferred</qualifiedname>
+        <reimplements refid="classBMenu_1a90a8228da7623e8e991a2fc7dc0e8898">ResizeToPreferred</reimplements>
+        <briefdescription>
+<para>Resizes the view to its preferred size keeping the position of the left top corner constant. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>It is not recommended to use this method for views that are part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="52" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ab8e2eb06afc52455be926b3cde21f935" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>virtual BHandler * BMenuBar::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 form, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BMenuBar::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBMenu_1adfd2e1d211f34a8ac748abb989adac48">ResolveSpecifier</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>form</declname>
+          <defname>what</defname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the proper handler for a scripting message.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a3d1f0ec6b4718c089f128bbcb864697d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMenuBar::SetBorder</definition>
+        <argsstring>(menu_bar_border border)</argsstring>
+        <name>SetBorder</name>
+        <qualifiedname>BMenuBar::SetBorder</qualifiedname>
+        <param>
+          <type><ref refid="MenuBar_8h_1a0727d657f3994b2f8cb71f09e09f10b0" kindref="member">menu_bar_border</ref></type>
+          <declname>border</declname>
+        </param>
+        <briefdescription>
+<para>Specifies how the menu bar border is drawn. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default is <computeroutput>B_BORDER_FRAME</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>border</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Options include:<itemizedlist>
+<listitem><para><computeroutput>B_BORDER_FRAME</computeroutput> The border is drawn around the entire menu bar.</para>
+</listitem><listitem><para><computeroutput>B_BORDER_CONTENTS</computeroutput> The border is drawn around the list of items.</para>
+</listitem><listitem><para><computeroutput>B_BORDER_EACH_ITEM</computeroutput> The border is drawn around each individual item.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="75" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ae7eee30417fc7065950f301bd38bb858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuBar::SetBorders</definition>
+        <argsstring>(uint32 borders)</argsstring>
+        <name>SetBorders</name>
+        <qualifiedname>BMenuBar::SetBorders</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>borders</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="77" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::Show</definition>
+        <argsstring>()</argsstring>
+        <name>Show</name>
+        <qualifiedname>BMenuBar::Show</qualifiedname>
+        <reimplements refid="classBMenu_1a880d9a96919d389e03106e978709bf9b">Show</reimplements>
+        <briefdescription>
+<para>Shows the view making it visible. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Calls to <ref refid="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" kindref="member">Hide()</ref> and <ref refid="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" kindref="member">Show()</ref> are cumulative. A hidden view becomes visible again once the number of <ref refid="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" kindref="member">Show()</ref> calls matches the number of <ref refid="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" kindref="member">Hide()</ref> calls.</para>
+<para><simplesect kind="see"><para><ref refid="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" kindref="member">Hide()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBWindow_1af7009117df50add72cf0e799ff7d0fa5" kindref="member">BWindow::Show()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" kindref="member">IsHidden()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="61" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a5e623033adfd89d43cca5b8030fb9ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::WindowActivated</definition>
+        <argsstring>(bool state)</argsstring>
+        <name>WindowActivated</name>
+        <qualifiedname>BMenuBar::WindowActivated</qualifiedname>
+        <reimplements refid="classBView_1a5b7aeff0b2608ec63e2c01153a7717f6">WindowActivated</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when the attached window is activated or deactivated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> when the window becomes activated, <computeroutput>false</computeroutput> when the window becomes deactivated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="49" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBMenuBar_1ad8024622318ac48d90c431d30174df27" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuBar::StartMenuBar</definition>
+        <argsstring>(int32 menuIndex, bool sticky=true, bool showMenu=false, BRect *special_rect=NULL)</argsstring>
+        <name>StartMenuBar</name>
+        <qualifiedname>BMenuBar::StartMenuBar</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>menuIndex</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>sticky</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showMenu</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref> *</type>
+          <declname>special_rect</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="83" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMenuBar_1a7a302148b2f1d14d6ca60263ee0646e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuBar::_InitData</definition>
+        <argsstring>(menu_layout layout)</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BMenuBar::_InitData</qualifiedname>
+        <param>
+          <type><ref refid="Menu_8h_1a238c8bed18e01ae53d0db0dcc2a148e1" kindref="member">menu_layout</ref></type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="104" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a3c73f5a629b27f08c21f930ff2854c17" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::_ReservedMenuBar1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuBar1</name>
+        <qualifiedname>BMenuBar::_ReservedMenuBar1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="92" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a400cc223b1f7c8506de90721b4e6e3dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::_ReservedMenuBar2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuBar2</name>
+        <qualifiedname>BMenuBar::_ReservedMenuBar2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="93" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a6b38aec5215993d713f6f05e7bc5c2ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::_ReservedMenuBar3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuBar3</name>
+        <qualifiedname>BMenuBar::_ReservedMenuBar3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="94" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1adb55818002fef09efe5dd5bea30e420d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMenuBar::_ReservedMenuBar4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMenuBar4</name>
+        <qualifiedname>BMenuBar::_ReservedMenuBar4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="95" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1abde2d3b3f47018d5ea16b066b35d5042" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuBar::_RestoreFocus</definition>
+        <argsstring>()</argsstring>
+        <name>_RestoreFocus</name>
+        <qualifiedname>BMenuBar::_RestoreFocus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="103" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a9c2b361da8efc25b8a90361f66f6963c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMenuBar::_StealFocus</definition>
+        <argsstring>()</argsstring>
+        <name>_StealFocus</name>
+        <qualifiedname>BMenuBar::_StealFocus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="102" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1acfb096d04c9e8f2ed0d7c7359e607cb4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMenuItem" kindref="compound">BMenuItem</ref> *</type>
+        <definition>BMenuItem * BMenuBar::_Track</definition>
+        <argsstring>(int32 *action, int32 startIndex=-1, bool showMenu=false)</argsstring>
+        <name>_Track</name>
+        <qualifiedname>BMenuBar::_Track</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>action</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>startIndex</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showMenu</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="100" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMenuBar_1a5c3f2b959a17a4205268a6a43f9ddf2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> &amp;</type>
+        <definition>BMenuBar &amp; BMenuBar::operator=</definition>
+        <argsstring>(const BMenuBar &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BMenuBar::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="97" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBMenuBar_1a380a82c29d5f43fcdf81603c8a6141e2" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>static int32 BMenuBar::_TrackTask</definition>
+        <argsstring>(void *arg)</argsstring>
+        <name>_TrackTask</name>
+        <qualifiedname>BMenuBar::_TrackTask</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="99" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A window&apos;s root menu. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A menu bar, if a window has one, is typically drawn across the top of the window just below the tab and a window typically has just a single menu bar, although this is up to you.</para>
+<para>One menu bar attached to a window is considered to be the &quot;key&quot; menu bar that can be navigated by the user using the keyboard. The last menu bar attached to a window is automatically set as the key menu bar for the window. To override this behavior and set a different key menu bar use the <ref refid="classBWindow_1aa1e9322c76ffdad1886253171f8a5972" kindref="member">BWindow::SetKeyMenuBar()</ref> method.</para>
+<para>When either the Menu key or Command+Esc keys are pressed the key menu bar opens and focuses its first menu item, typically a <ref refid="classBMenu" kindref="compound">BMenu</ref>. Once the menu bar is open the user can navigate around the attached menus and menu items using the arrow keys.</para>
+<para>Like a <ref refid="classBMenu" kindref="compound">BMenu</ref>, a <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> object starts without any items attached to it, you&apos;ll need to call <ref refid="classBMenu_1a93b3441be6f675d4f04b396a460f3edb" kindref="member">AddItem()</ref> or <ref refid="classBMenu_1a7e9495276526fabf009db1f923fcc036" kindref="member">AddList()</ref> to add some. The top-level items in a menu bar are typically menus which have menu items and menus added to them in turn.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="4">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BMenu</label>
+        <link refid="classBMenu"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BMenuBar</label>
+        <link refid="classBMenuBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="5">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="4">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BMenu</label>
+        <link refid="classBMenu"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BMenuBar</label>
+        <link refid="classBMenuBar"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/MenuBar.h" line="26" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/MenuBar.h" bodystart="26" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classBMenuBar_1a7a302148b2f1d14d6ca60263ee0646e1" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>_InitData</name></member>
+      <member refid="classBMenuBar_1adf87850d5d2bc5d197c5975330ae24f6" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>_reserved</name></member>
+      <member refid="classBMenuBar_1a3c73f5a629b27f08c21f930ff2854c17" prot="private" virt="virtual"><scope>BMenuBar</scope><name>_ReservedMenuBar1</name></member>
+      <member refid="classBMenuBar_1a400cc223b1f7c8506de90721b4e6e3dd" prot="private" virt="virtual"><scope>BMenuBar</scope><name>_ReservedMenuBar2</name></member>
+      <member refid="classBMenuBar_1a6b38aec5215993d713f6f05e7bc5c2ca" prot="private" virt="virtual"><scope>BMenuBar</scope><name>_ReservedMenuBar3</name></member>
+      <member refid="classBMenuBar_1adb55818002fef09efe5dd5bea30e420d" prot="private" virt="virtual"><scope>BMenuBar</scope><name>_ReservedMenuBar4</name></member>
+      <member refid="classBMenuBar_1abde2d3b3f47018d5ea16b066b35d5042" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>_RestoreFocus</name></member>
+      <member refid="classBMenuBar_1a9c2b361da8efc25b8a90361f66f6963c" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>_StealFocus</name></member>
+      <member refid="classBMenuBar_1acfb096d04c9e8f2ed0d7c7359e607cb4" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>_Track</name></member>
+      <member refid="classBMenuBar_1a380a82c29d5f43fcdf81603c8a6141e2" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>_TrackTask</name></member>
+      <member refid="classBMenu_1a016bd4db389c9daf5119905039b28371" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>add_state</name></member>
+      <member refid="classBView_1ab6382c582e5e1be527d3199459d05e8f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddChild</name></member>
+      <member refid="classBView_1a5d30ae4fa0119bf5286f52f83c2f351c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddChild</name></member>
+      <member refid="classBMenu_1a23bb62b2d8ebf6ebd539218273e31eb0" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AddDynamicItem</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AddFilter</name></member>
+      <member refid="classBMenu_1a93b3441be6f675d4f04b396a460f3edb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddItem</name></member>
+      <member refid="classBMenu_1a54b0803984953195bf425f439f2877f3" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddItem</name></member>
+      <member refid="classBMenu_1af7369a0039d85b80bb43a87e069babf7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddItem</name></member>
+      <member refid="classBMenu_1a28e2ee1c1f97b5d7ab4b397493c1b37e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddItem</name></member>
+      <member refid="classBMenu_1a627295137a1fb9d6567a03243cab27f4" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddItem</name></member>
+      <member refid="classBMenu_1ae9d684a3d4ad604e19b0727939a1e1b3" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddItem</name></member>
+      <member refid="classBView_1a88440336a66ee9b1a4b1661e9ba9e59c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddLine</name></member>
+      <member refid="classBMenu_1a7e9495276526fabf009db1f923fcc036" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddList</name></member>
+      <member refid="classBMenu_1a9101f4977ee547e81e6a2544f891e493" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AddSeparatorItem</name></member>
+      <member refid="classBView_1ac780f029d415ee0a915792b4e756fa77" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AdoptParentColors</name></member>
+      <member refid="classBView_1a0e429a82fe06e9ab390b06d993ee31be" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AdoptSystemColors</name></member>
+      <member refid="classBView_1ab68ad7103708884f9e6fd84e8a579746" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AdoptViewColors</name></member>
+      <member refid="classBView_1a561e82ed41cbb93d3bacf371787497bf" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AllArchived</name></member>
+      <member refid="classBMenuBar_1ac02982cd861af6eb4771f260fcf50ed8" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AllAttached</name></member>
+      <member refid="classBMenuBar_1a0c548adc7796603d8d686a401817d0d9" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AllDetached</name></member>
+      <member refid="classBView_1ab7bd04272afed8b28bf57d1de33cbe05" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AllUnarchived</name></member>
+      <member refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AppendToPicture</name></member>
+      <member refid="classBMenuBar_1af4ae9bcc3c1cbe560e745c9868fb9c5f" prot="public" virt="virtual"><scope>BMenuBar</scope><name>Archive</name></member>
+      <member refid="classBMenu_1a97d2138f50a3fd757b31407627e12eea" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>AreTriggersEnabled</name></member>
+      <member refid="classBMenuBar_1a48b3c56f65222c9dc3e5faca5eb80319" prot="public" virt="virtual"><scope>BMenuBar</scope><name>AttachedToWindow</name></member>
+      <member refid="classBMenu_1a016bd4db389c9daf5119905039b28371a4c907fcfe2abf86721f24ff6e86e7636" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>B_ABORT</name></member>
+      <member refid="classBMenu_1a016bd4db389c9daf5119905039b28371af5ea94801b213916ac9887ca910c0179" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>B_INITIAL_ADD</name></member>
+      <member refid="classBMenu_1a016bd4db389c9daf5119905039b28371a826c4d7d11b9c0c09d083e6e4b798879" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>B_PROCESSING</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BArchivable</name></member>
+      <member refid="classBView_1abe65757b7c83c8db390bf0c87457a343" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BeginLayer</name></member>
+      <member refid="classBView_1ab3f2e9f54d2b93952b27e182ac552983" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BeginLineArray</name></member>
+      <member refid="classBView_1a14155192773aad22ebe47a9975afac5f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BeginPicture</name></member>
+      <member refid="classBView_1ac1eb1eeee67ec97205a4acc6955185bd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BeginRectTracking</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BHandler</name></member>
+      <member refid="classBMenu_1a7a674ff3dbf2620a038bb1728edd4378" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BMenu</name></member>
+      <member refid="classBMenu_1ab6ace1b9965547b7e2019818effc3e15" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BMenu</name></member>
+      <member refid="classBMenu_1a66018a8f741b47ff198cd0308bf75bb5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BMenu</name></member>
+      <member refid="classBMenu_1ad70c71bed508876fa919b63072bb5c72" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>BMenu</name></member>
+      <member refid="classBMenuBar_1a97f304a1b753aec98c4cf89af4174909" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BMenuBar</name></member>
+      <member refid="classBMenuBar_1a33de2272d8a5d2415d6204bdd92e51ee" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BMenuBar</name></member>
+      <member refid="classBMenuBar_1ad083b4d1fcaa2c8483d73c0691cccd8f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BMenuBar</name></member>
+      <member refid="classBMenuBar_1aa105aa010f8a65da27fa268fb2c482d1" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Border</name></member>
+      <member refid="classBMenuBar_1a6cef14c2d67a38f2062d2ed77af00176" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Borders</name></member>
+      <member refid="classBView_1acbb8ea442346e91428689163db9d633e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Bounds</name></member>
+      <member refid="classBView_1ab148f59c41c9a22ced87bf7a0221ed62" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BView</name></member>
+      <member refid="classBView_1ae3a1b2a66dc19690e766623be65c37e2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BView</name></member>
+      <member refid="classBView_1ae982fac35c278cc64990c506efe3965e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>BView</name></member>
+      <member refid="classBView_1aaf91592f50f2f44d16f23e7504f494cb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ChildAt</name></member>
+      <member refid="classBView_1ae7582b9a2b0b446a1de16c681f23baf9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClearViewBitmap</name></member>
+      <member refid="classBView_1a0ae48f37c3f56b422841638971488cc0" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClearViewOverlay</name></member>
+      <member refid="classBView_1a18d61bcae2a7ca8a1a0977ac23d15171" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClipToInversePicture</name></member>
+      <member refid="classBView_1ad1762d160500ec3ce90c7bd73944d8a7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClipToInverseRect</name></member>
+      <member refid="classBView_1a17dcb4f2e92994cde9a9ece9caa619c2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClipToInverseShape</name></member>
+      <member refid="classBView_1a9c92c9e8e306d00dbfef81f2b0282339" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClipToPicture</name></member>
+      <member refid="classBView_1a22ff147a2f0a0bd65de494c9a039acee" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClipToRect</name></member>
+      <member refid="classBView_1ac0884c62949361a7eb6a4834f46b902c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ClipToShape</name></member>
+      <member refid="classBView_1a656b8d82a6a7c7c6ab33c3dd08aad6ec" prot="public" virt="virtual"><scope>BMenuBar</scope><name>ConstrainClippingRegion</name></member>
+      <member refid="classBView_1a43c16140dd4491a6a6f7bad11bbea1f9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1aa3201bdf5c489fbab7d67afe3453466d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1ab2aeeb14409a18f950173e7cb22e147c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a45b405f10c29442aea8b70161410565f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a4b794ccd899dc6a0cafd886169122df5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a75f1d68cf77bccc03930eb8e273f2967" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a3fbc496f437925cb02ccf9e817406e4e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a44c3b5174e4ccfa4c123e0d5d54e9408" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1ab20700567eabd5f8135be179b4232e2c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1a91e6a7edab78547be47cb8dc84cfdecf" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ac7bd2e0e7aac40d1be9a47999b5701a9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ae3b385e4d1b9f70bc848bf2fd0b7753c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1aefefb1242613b869feb6b8e0cc119518" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1af90cdeb62cc60adf64eb9a669c37c153" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ad99f5af006f28c485f02484752a2ac5d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ae60c56c306d0cf3f504d710fac8b9bed" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1a8ace5c5cc811c4ad16acf281ffd1a48d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>CopyBits</name></member>
+      <member refid="classBView_1ae30d094a1cb1f3357c4aa7caa4b0e29d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>CountChildren</name></member>
+      <member refid="classBMenu_1ae2328de69b20f84bd925dc943e3ae3cc" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>CountItems</name></member>
+      <member refid="classBView_1ae2a9da1ca04489dd60ef8aefa86331ed" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBView_1a6389a46cf1842eb0d412b44958955e61" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBMenuBar_1aaf4b5448201a1d30c969ddc20f1d492d" prot="public" virt="virtual"><scope>BMenuBar</scope><name>DetachedFromWindow</name></member>
+      <member refid="classBView_1aa165cbaac7d6915feaae6048c4378c85" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DisableLayoutInvalidation</name></member>
+      <member refid="classBMenu_1a981691c987e0f0a82a8f056284280032" prot="public" virt="virtual"><scope>BMenuBar</scope><name>DoLayout</name></member>
+      <member refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DragMessage</name></member>
+      <member refid="classBView_1a466287a3d939759cc09e4a6d1c9982cd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DragMessage</name></member>
+      <member refid="classBView_1ae1caa1d0bef9452db00c2adc8e3280b4" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DragMessage</name></member>
+      <member refid="classBMenuBar_1a50f02992ee792e7f66b8f3148e75dcc8" prot="public" virt="virtual"><scope>BMenuBar</scope><name>Draw</name></member>
+      <member refid="classBView_1abb50623b4236926b068fc5a2264f6a48" prot="public" virt="virtual"><scope>BMenuBar</scope><name>DrawAfterChildren</name></member>
+      <member refid="classBMenu_1ae315f78a12586d80ea7db6247d7d8f1a" prot="public" virt="virtual"><scope>BMenuBar</scope><name>DrawBackground</name></member>
+      <member refid="classBView_1a6171150993fbf7c73966c7c302a95573" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a63db7245fd9b9fefd461d7596c15f9cc" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1abce81666128d183d59b5cf2ed75c7f07" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a1c8b6e3e9218388a68ae43dd408a187c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a769c3e3dee7d86ed50308f7a3f46ef91" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1ae66727344d35f05c56b6163ad70e360c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a0ef432afa41aefcb3fdd537e2d290001" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1aa3275b791787a66f3638611cd6a5ae09" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a6931c5fe803eb5fa9e66438d347c4b6d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1ab50fba0500357abebb9f3ef3832f2e68" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a02ba5c68f21d4345ec3ee683496ce851" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawChar</name></member>
+      <member refid="classBView_1a2ed7c3628692426116fc0bb450c0f0c7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawChar</name></member>
+      <member refid="classBView_1ae7953a2e451fb6e5a439df9e9dc8451a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawingMode</name></member>
+      <member refid="classBMenu_1a20cd1eadfb72b0e5484ede360521e297" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>DrawItems</name></member>
+      <member refid="classBView_1ae4b252943befd9f0b62e30517b3ecec2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a2fdf36421cccce9136cdd9966a971955" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a9f5781a2b37113c55950c93b621984a7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a65498927c21d6681a0e77c4e3d29efba" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a05881f8b07989e1e9db0bd41f8181341" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a7f2fde4e7719bded5af33805b8242b06" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a5c261dbbb4e8157799e85d6ad1530920" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a83d77965bd9cda6212189d92b97d8198" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1ad3830d09ed0300a1144d47ac78cd2dde" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a4e1f1c59352a1373ccace7255a0ccf23" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a5dacf5d193a0c492f296bc1e402e6370" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a135868eb5cd1b35ee1c2d03517b9a33f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawString</name></member>
+      <member refid="classBView_1a8848d931fd0354860a0e71934e66cb03" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawTiledBitmap</name></member>
+      <member refid="classBView_1ad281a4e40f212e3cb56c23fa6e574a84" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>DrawTiledBitmapAsync</name></member>
+      <member refid="classBView_1ad43cc5c22f83d95632d3d81eff73f425" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>EnableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9f54d4478a12823f116168a45af30898" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>EndLayer</name></member>
+      <member refid="classBView_1a24ba922f9698936bc27f48b3c51349a1" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>EndLineArray</name></member>
+      <member refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>EndPicture</name></member>
+      <member refid="classBView_1a7bcc3532c03eeeb929278de8fcc1fd25" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>EndRectTracking</name></member>
+      <member refid="classBView_1a8851d500773c732ddbb1a4b31f0ad664" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>EventMask</name></member>
+      <member refid="classBView_1a1f078f5c987061c5cf3059f7091bcb1a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ExplicitAlignment</name></member>
+      <member refid="classBView_1a4e63cc8ca1f604ccb20f5891adade70f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ExplicitMaxSize</name></member>
+      <member refid="classBView_1a1b24db754473008766cdd0fd9c4ee3b7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ExplicitMinSize</name></member>
+      <member refid="classBView_1a218cd0d238104a6ff31c1d72ae2d9e6e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ExplicitPreferredSize</name></member>
+      <member refid="classBMenuBar_1a2a1ab68db9f58cad7430534f33ede1f0" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fBorder</name></member>
+      <member refid="classBMenuBar_1af9edd9bdce8c695c7eb63acf7d49e6f7" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fBorders</name></member>
+      <member refid="classBView_1af0e5d362474d39199116045aa9621aa5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1ac216c652253a21f0f28a7caef07deb77" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1a49017edefe45ca5c74954e1227e673bb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1a4304fe45708f72d0ba20b579870c24ce" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillArc</name></member>
+      <member refid="classBView_1a531ad43e129d810ee64208123b550193" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a7cf8a5eaa5451b2c7df0d6fa392012bd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a06942f0dd4c13175bcfff6a88eae7cc0" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a98a73cbccb42edfc61b93f9aa6f4a13b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a2738cf2f3d39f560d0cff90543f45afa" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a86de91f260577187eaf22ba0fdf32fba" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1ae72733cae8a1fc2da8feb47c0c2149fa" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1adc7d96f2d60a819f03685eb11b6945e2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a1bdc02a311b2a051ad7fbdbf1789e958" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a96cdb60a8c87e4958380a3077a2197a5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a22a5ce1f024e622b6eade6a9176ff1f7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a57b0870cd6a0109c347d80c34ca2f34a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a4d074663998c7ba922a9d981d0cfe086" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRect</name></member>
+      <member refid="classBView_1aae6a3ff6683bb15ac8c647c946475e8f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRect</name></member>
+      <member refid="classBView_1a4810086c415d90bffa25ab2963716936" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a56828d13947717462b661e1645305509" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a38d7e7b15a13591c20020599886402b5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a73956d28b356b2eee83ebc19bd6e398b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a3a2fd2d7313a9bb7dff359a4f4362a5f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillRule</name></member>
+      <member refid="classBView_1a91b9ce4b8b8ee13ff5f1071e1fb0d829" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillShape</name></member>
+      <member refid="classBView_1a9a82da733397e97b985875be941f77a6" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillShape</name></member>
+      <member refid="classBView_1a46ec16609a402d03baa322a04d8c50e2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1af512b76752705cba87f89c8dac313005" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a5dd1c64839c11a79e80581e37656cc26" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a0878dea14a61d58c951bd8e11c0a2ef6" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FillTriangle</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FilterList</name></member>
+      <member refid="classBMenu_1a8a9b9f676fb940ad648c76499219ee63" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FindItem</name></member>
+      <member refid="classBMenu_1a28dc785b54ef7b7c820c173e607610ed" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FindItem</name></member>
+      <member refid="classBMenu_1a359ed911cbf2e38b93fdc8a7bcbd5439" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FindMarked</name></member>
+      <member refid="classBMenu_1a79ac06123571bb519ae25cd15482497c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FindMarkedIndex</name></member>
+      <member refid="classBView_1ab83ef89f1876913174c825ff7cd02c4a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>FindView</name></member>
+      <member refid="classBView_1a561b10abf94dd65a26b02253af667508" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Flags</name></member>
+      <member refid="classBMenuBar_1a83b5bfad7521821162731bb5fa53dfa4" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fLastBounds</name></member>
+      <member refid="classBView_1a15465930f84d2d01f7818bd79bc91c3e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Flush</name></member>
+      <member refid="classBMenuBar_1a4b9699bb585ee30a53b5b8dc9ac7945f" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fMenuSem</name></member>
+      <member refid="classBView_1a424161ccf6f52a354fdd67ed1376d196" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ForceFontAliasing</name></member>
+      <member refid="classBMenuBar_1a0107e7c32e2741e2dfaa517c1034a91d" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fPrevFocusToken</name></member>
+      <member refid="classBView_1a487b04a3aaffdd1a1afb730dca36a7e2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Frame</name></member>
+      <member refid="classBMenuBar_1aa711264d76e8f5faa0f974ca66d01ccf" prot="public" virt="virtual"><scope>BMenuBar</scope><name>FrameMoved</name></member>
+      <member refid="classBMenuBar_1ad3dcc7b2c1eeada95ef6986a21754324" prot="public" virt="virtual"><scope>BMenuBar</scope><name>FrameResized</name></member>
+      <member refid="classBMenuBar_1a672d8f744155f1cda7fd390e90ec40ee" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fTracking</name></member>
+      <member refid="classBMenuBar_1a99ca3a45f229a410e6c2e2b442720b8a" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>fTrackingPID</name></member>
+      <member refid="classBView_1ad50d5ba2249fdf3dd8640b3573c2a2e8" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetBlendingMode</name></member>
+      <member refid="classBView_1acf50a063c9621f35a84b1d0245b12d69" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetClippingRegion</name></member>
+      <member refid="classBView_1af244d01f85e6d9ae7f5fcca4637dc78c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetFont</name></member>
+      <member refid="classBView_1a5bf95d66754634c647b2ddf7d39b4dfb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetFontHeight</name></member>
+      <member refid="classBView_1ad34bee968b1ec98a0bf89343340b6b07" prot="public" virt="virtual"><scope>BMenuBar</scope><name>GetHeightForWidth</name></member>
+      <member refid="classBMenu_1a46adc5db4b9a629a93c198a41a57ca36" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>GetItemMargins</name></member>
+      <member refid="classBView_1aec2975b51966c397aa52b9e3eebd2c85" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetLayout</name></member>
+      <member refid="classBView_1a830ce9cf2ac2ffb5f73f526ee5d6e53d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetMouse</name></member>
+      <member refid="classBMenuBar_1ab4dd370f1363d89c1fb2918877595b02" prot="public" virt="virtual"><scope>BMenuBar</scope><name>GetPreferredSize</name></member>
+      <member refid="classBView_1aaae0dc93bc61d7f221465fbe0aecd30a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>GetStringWidths</name></member>
+      <member refid="classBMenuBar_1ad635f7e68997f901cbd4b15491b5f2a3" prot="public" virt="virtual"><scope>BMenuBar</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBView_1afb826fe9b8964e4d843cae190170badf" prot="protected" virt="virtual"><scope>BMenuBar</scope><name>GetToolTipAt</name></member>
+      <member refid="classBView_1a606e0e7e03516dccb53bf073827460a8" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>HasDefaultColors</name></member>
+      <member refid="classBView_1abd411461b7e23ad17e7294f8f5e1cbeb" prot="public" virt="virtual"><scope>BMenuBar</scope><name>HasHeightForWidth</name></member>
+      <member refid="classBView_1aa9aacc95606b650e6a8d776b51cb902b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>HasSystemColors</name></member>
+      <member refid="classBMenuBar_1a7dfa53005734435d3b805161e3495e99" prot="public" virt="virtual"><scope>BMenuBar</scope><name>Hide</name></member>
+      <member refid="classBView_1af75bbc1131ad6a90e299c6cbcf623fa7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>HideToolTip</name></member>
+      <member refid="classBView_1abda3583967fba9f6ed9524058d00a6e9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>HighColor</name></member>
+      <member refid="classBView_1aa86f548fba2e82d022066198be6d5af6" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>HighUIColor</name></member>
+      <member refid="classBMenu_1a93256bdb0b477bf1ba52e6bd75f86694" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IndexOf</name></member>
+      <member refid="classBMenu_1a515c29525463092462e64105469dcdcf" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IndexOf</name></member>
+      <member refid="classBMenuBar_1ac26385837dc4b71f8c15282438148711" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Instantiate</name></member>
+      <member refid="classBView_1a8c767d948dc9435c006cabdcab1cd08e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Invalidate</name></member>
+      <member refid="classBView_1ac70b682819c0f9b008c428e02015b19b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Invalidate</name></member>
+      <member refid="classBView_1adfced0dcb244e199f872fdbd48349a05" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Invalidate</name></member>
+      <member refid="classBMenu_1a133e0d3f810cf9d0e0f2f206189deb50" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>InvalidateLayout</name></member>
+      <member refid="classBView_1a4a711316094e43076a3f5478d937accf" prot="public" virt="non-virtual" ambiguityscope="BView::"><scope>BMenuBar</scope><name>InvalidateLayout</name></member>
+      <member refid="classBView_1af7e5ebc41cd5a471dcdcfa1f3db801a5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>InvertRect</name></member>
+      <member refid="classBMenu_1a374ec27870b0d21e0f16d77e5aa12535" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsEnabled</name></member>
+      <member refid="classBView_1a165719de682845f80735042a499692ff" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsFocus</name></member>
+      <member refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a95cfa8ee585230ea8fb224e88eddc503" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsHidden</name></member>
+      <member refid="classBMenu_1ac2a915d6b9b323c3d12d29df7a2b5571" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsLabelFromMarked</name></member>
+      <member refid="classBView_1a4e86b719129a12afbda7c10371eeca47" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsLayoutInvalidationDisabled</name></member>
+      <member refid="classBView_1a00a5d5d6edee7d488d77df03945b3e94" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsLayoutValid</name></member>
+      <member refid="classBView_1a8e3f1722e40fdf01c5131e49199ec3ff" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsPrinting</name></member>
+      <member refid="classBMenu_1a85e16e170b2d5e16a91c5608b31865fc" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsRadioMode</name></member>
+      <member refid="classBMenu_1aca1162897b36710a15957b7148907d24" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsRedrawAfterSticky</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>IsWatched</name></member>
+      <member refid="classBMenu_1a1612e6c652a53451bbd7da8ab52d0668" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ItemAt</name></member>
+      <member refid="classBMenu_1a6c50b44b2da8caf0280854c5a250b8c2" prot="public" virt="virtual"><scope>BMenuBar</scope><name>KeyDown</name></member>
+      <member refid="classBView_1acbc528bb70be49993bd99aa136dbb089" prot="public" virt="virtual"><scope>BMenuBar</scope><name>KeyUp</name></member>
+      <member refid="classBMenu_1a0a7706c4966b183b9790822bc512fd4e" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>Layout</name></member>
+      <member refid="classBView_1a854b6ca54eeca610db9eab8b58d68a8b" prot="public" virt="non-virtual" ambiguityscope="BView::"><scope>BMenuBar</scope><name>Layout</name></member>
+      <member refid="classBView_1a2f74b3e7c602045d8c927f923f45eefa" prot="public" virt="virtual"><scope>BMenuBar</scope><name>LayoutAlignment</name></member>
+      <member refid="classBView_1ada521f848e4c800cd02eb4fe529e7ea0" prot="protected" virt="virtual"><scope>BMenuBar</scope><name>LayoutChanged</name></member>
+      <member refid="classBView_1ae066513c0a788a9544744d409f28cada" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LayoutContext</name></member>
+      <member refid="classBMenu_1ab5474abecef27e68bade9c58721caeed" prot="protected" virt="virtual"><scope>BMenuBar</scope><name>LayoutInvalidated</name></member>
+      <member refid="classBView_1a5d252dfe28eee049be2192d1a01ed6e3" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LeftTop</name></member>
+      <member refid="classBView_1a551f5961188e4f26ef310eb5eea7c926" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LineCapMode</name></member>
+      <member refid="classBView_1a0aa47adb29d91b4cc6c4924b7f436012" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LineJoinMode</name></member>
+      <member refid="classBView_1ab1cd7cf77a4fa01755d186a05163cfbe" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LineMiterLimit</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Looper</name></member>
+      <member refid="classBView_1a423c54f22ab95745b28b583af999e554" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LowColor</name></member>
+      <member refid="classBView_1ae32ca6d8f106d44b5b51df82a7eb64c5" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>LowUIColor</name></member>
+      <member refid="classBMenuBar_1a170fbfdd3be7b9bdc750777f31c216c0" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MakeFocus</name></member>
+      <member refid="classBMenu_1ae35fd8bf7622196e8c1c7400cdad2823" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MaxContentWidth</name></member>
+      <member refid="classBMenuBar_1ad0dc5e934924d2511d82718d31da2740" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MaxSize</name></member>
+      <member refid="classBMenuBar_1a7d7c1d1674e059b56c82c81e381d4455" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MessageReceived</name></member>
+      <member refid="classBMenuBar_1ae0781646adecf0bd08123868c40ee218" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MinSize</name></member>
+      <member refid="classBMenuBar_1a0aa84693746c1cfe671c48a4dcc654c6" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MouseDown</name></member>
+      <member refid="classBView_1ac8b20516e42bab2f1eeb130e2432bde0" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MouseMoved</name></member>
+      <member refid="classBMenuBar_1a4781bbe6cd7ccff992b0c12f2c4ea4b7" prot="public" virt="virtual"><scope>BMenuBar</scope><name>MouseUp</name></member>
+      <member refid="classBView_1a6e122baca4494f6ce739a507054fa81f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MoveBy</name></member>
+      <member refid="classBMenu_1a52f15cd54ebd73143c0c0f68e7eb5a43" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MoveItem</name></member>
+      <member refid="classBView_1a979f8f0090284919b6e7c6c04d91cbde" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MovePenBy</name></member>
+      <member refid="classBView_1acb61254a2121f569f6223a95cd835abd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1ae32d7951a4ce9cff6b81899f5208a25f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1acce9c93118a3db24078f16bdabc6fbec" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MoveTo</name></member>
+      <member refid="classBView_1a1c9b2df47ba1b9f3a1ce3286995fb8bd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>MoveTo</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>NextHandler</name></member>
+      <member refid="classBView_1a76e7d862fe78e4d2766573bf073b9d30" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>NextSibling</name></member>
+      <member refid="classBMenuBar_1a5c3f2b959a17a4205268a6a43f9ddf2a" prot="private" virt="non-virtual"><scope>BMenuBar</scope><name>operator=</name></member>
+      <member refid="classBView_1aefbf71a7a403900e960ffa3943dc9901" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Origin</name></member>
+      <member refid="classBView_1a332f34d9862000dbc859fd4e308839dd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Parent</name></member>
+      <member refid="classBView_1a2774e13c2b12c6a5fee333e95b76b07d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>PenLocation</name></member>
+      <member refid="classBView_1a69d8657d26b49773fa2de914f263b204" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>PenSize</name></member>
+      <member refid="classBMenuBar_1a4b8a4e16ace175bc3bad9d6ef6b42daf" prot="public" virt="virtual"><scope>BMenuBar</scope><name>Perform</name></member>
+      <member refid="classBView_1abc0d202fe13366b80703afbdb3832951" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>PopState</name></member>
+      <member refid="classBMenuBar_1ae3e3832dbc024a802a18c4253f01b05a" prot="public" virt="virtual"><scope>BMenuBar</scope><name>PreferredSize</name></member>
+      <member refid="classBView_1a2a46f78756eacca3f3d4c90d31c758b1" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>PreviousSibling</name></member>
+      <member refid="classBView_1a0ae8ec3e94ee3d41cb329e3df6966566" prot="public" virt="virtual"><scope>BMenuBar</scope><name>Pulse</name></member>
+      <member refid="classBView_1a1dcb914cd0c6ef8d1291aa8492968d40" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>PushState</name></member>
+      <member refid="classBView_1a2cf4e698a4322ecfb946e440e0f7ac62" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Relayout</name></member>
+      <member refid="classBView_1a5f93a23d06267da83c128bce222ceb17" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RemoveChild</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BMenuBar</scope><name>RemoveFilter</name></member>
+      <member refid="classBMenu_1a5bddcfe7908198f10046fd58e517d906" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RemoveItem</name></member>
+      <member refid="classBMenu_1a3b28ecdc6fa0e04f8da5fea0a295d667" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RemoveItem</name></member>
+      <member refid="classBMenu_1ab221333103579b6c7a5d08c7c6005e20" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RemoveItem</name></member>
+      <member refid="classBMenu_1a21410c37d9ff94ce58f00a4741126a7d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RemoveItems</name></member>
+      <member refid="classBView_1a87e0848b1760a9f28aad4516467a03ed" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RemoveSelf</name></member>
+      <member refid="classBView_1a127933a3820f0bfe0497b5e7ddfa191f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ResetLayoutInvalidation</name></member>
+      <member refid="classBView_1ace23acc948bbc9b9272da8dc7f01d3ce" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ResizeBy</name></member>
+      <member refid="classBView_1a742bccd6034ef9ade65b0e596fba55f2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ResizeTo</name></member>
+      <member refid="classBView_1a6134097569f75679616257a361086d7a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ResizeTo</name></member>
+      <member refid="classBMenuBar_1a7e846a6abc075a0db6305e86cbed1760" prot="public" virt="virtual"><scope>BMenuBar</scope><name>ResizeToPreferred</name></member>
+      <member refid="classBView_1a1e93df523fc9edc807274ac6cfd2dc8d" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ResizingMode</name></member>
+      <member refid="classBMenuBar_1ab8e2eb06afc52455be926b3cde21f935" prot="public" virt="virtual"><scope>BMenuBar</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBView_1a02ab6b6196b140b20ae516a55680e30b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>RotateBy</name></member>
+      <member refid="classBView_1a50e12d6b8080b3bc6bc617d31d1ab200" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Scale</name></member>
+      <member refid="classBView_1ac83f9fdfb882f849e3ac79bfb06a0fd6" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ScaleBy</name></member>
+      <member refid="classBMenu_1a8a63e94a031a323ed5ff904f00fefb7f" prot="protected" virt="virtual"><scope>BMenuBar</scope><name>ScreenLocation</name></member>
+      <member refid="classBView_1a0878bc7981ba814190b822349599a120" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ScrollBar</name></member>
+      <member refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ScrollBy</name></member>
+      <member refid="classBView_1a33ed2a9eeff474a756b548996a82b964" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a2b76ddc60289ce92e1fb706332edbafc" prot="public" virt="virtual"><scope>BMenuBar</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a54991372110199183fed775598ae1912" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>ScrollWithMouseWheelDelta</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SendNotices</name></member>
+      <member refid="classBView_1ad01fc0fd68e4683af9b9386bf33abf63" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetBlendingMode</name></member>
+      <member refid="classBMenuBar_1a3d1f0ec6b4718c089f128bbcb864697d" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetBorder</name></member>
+      <member refid="classBMenuBar_1ae7eee30417fc7065950f301bd38bb858" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetBorders</name></member>
+      <member refid="classBView_1a8ba0fe3a3dbeec1b7fd8c9655070ef64" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetDiskMode</name></member>
+      <member refid="classBView_1a0c392ed0e36213e1007322a9cbca71c0" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetDrawingMode</name></member>
+      <member refid="classBMenu_1a68c7fe3263da4d1cb254bd0b6ee1f01f" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetEnabled</name></member>
+      <member refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetEventMask</name></member>
+      <member refid="classBView_1a6906e47d4fdd6923dd51edb60a83ccea" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetExplicitAlignment</name></member>
+      <member refid="classBView_1acd759dd7505050f9cbd8213c71991b8b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetExplicitMaxSize</name></member>
+      <member refid="classBView_1abfcb5c761f9b06da3b4a6788aad5d0ee" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetExplicitMinSize</name></member>
+      <member refid="classBView_1a98b7d450210099ed59b7cd34f2575e20" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetExplicitPreferredSize</name></member>
+      <member refid="classBView_1aeef8a27a5577db87251412ce44421494" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetExplicitSize</name></member>
+      <member refid="classBView_1a2019def93337069c0b7d416e103522e9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetFillRule</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetFilterList</name></member>
+      <member refid="classBView_1a4740f9a1e1163073b042102a421a2e33" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetFlags</name></member>
+      <member refid="classBView_1a9247127c151153542a3e6bc1f3904433" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetFont</name></member>
+      <member refid="classBView_1a443e4d9ff182f85a6b1c8478ef22ffe8" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetFontSize</name></member>
+      <member refid="classBView_1ab5482f91a642d545bc3fcefe199f95e9" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1aff9e1ab5e88f33027e72b39874868e9b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1a54eefc28bf7a4bc30612cf83aff2963b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetHighUIColor</name></member>
+      <member refid="classBMenu_1a2f12a6614dfdea3b27e248b29be764dc" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>SetItemMargins</name></member>
+      <member refid="classBMenu_1a6575006958cc1fd049fea76fed4c40ba" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetLabelFromMarked</name></member>
+      <member refid="classBView_1acac1ebbba8c76e543e1b06e84dffab02" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetLayout</name></member>
+      <member refid="classBView_1ae97bfe6c0c93fce98bc7bbd93761dbfb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetLineMode</name></member>
+      <member refid="classBView_1af0426243110fb150ad7ef0705209a12c" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a929fb1ca47a00220c355ae55a0ea6077" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a879ab88d4e64345069f1041d3a7b652f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetLowUIColor</name></member>
+      <member refid="classBMenu_1ae0ccabdfaa67f0ffa7ec3e6e8efdcd03" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetMaxContentWidth</name></member>
+      <member refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetMouseEventMask</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetNextHandler</name></member>
+      <member refid="classBView_1a769e5fa6486adf12e7a3511ed372a06c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a7cf4e3ac5b0759b9c38d7b36517f2337" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a80ea4cb97d2e6e2c3088e610a9e157e6" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetPenSize</name></member>
+      <member refid="classBMenu_1a71036007fd11439ac43bccc05e833938" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetRadioMode</name></member>
+      <member refid="classBView_1a38d29ea581880c3978d7e50dcc851696" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetResizingMode</name></member>
+      <member refid="classBView_1a077136ea06f0a6b39aa0b8b24311cce8" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetScale</name></member>
+      <member refid="classBMenu_1ab11e3f007322fc75a9943a1443339ac2" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetTargetForItems</name></member>
+      <member refid="classBMenu_1aa6075b7d5ed82ba117904f3b5cec61ef" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetTargetForItems</name></member>
+      <member refid="classBView_1a75fb825a3ef69c1c6fbf3535ee2260ab" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1aa377bad64048a2d3cd1c2b272ae3079b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetToolTip</name></member>
+      <member refid="classBMenu_1a7718aab1bf69711c4eb1043424eb2a59" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetTrackingHook</name></member>
+      <member refid="classBView_1afbd9b8f35226ba89980c450f7626fc85" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetTransform</name></member>
+      <member refid="classBMenu_1a67da7ae008cbe0f38196e5aafd79fe53" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetTriggersEnabled</name></member>
+      <member refid="classBView_1ac247ddc58f1cb719d60e354a77c51c1e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1a046a9c1656823db5401e530cf8121734" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1ae8dde0e0330b394db016f3e609e7fb6a" prot="public" virt="virtual"><scope>BMenuBar</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a7dace2963c85b5ce55b7d8e96946625c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a39b4878773b4436e3c76aee51c4fbc09" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewCursor</name></member>
+      <member refid="classBView_1a576100502a8c6dfb46ff36b08cbe9405" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a9770c1bb97d7ffd797f7c40ca1339f98" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a34f020c4bb1008cef972cf1eec7dba0f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SetViewUIColor</name></member>
+      <member refid="classBMenuBar_1ac0b9dafc30dd338e8f67b26eff7168f0" prot="public" virt="virtual"><scope>BMenuBar</scope><name>Show</name></member>
+      <member refid="classBMenu_1ab2fba7cc5470c72b47b052c4fdb78d85" prot="protected" virt="non-virtual" ambiguityscope="BMenu::"><scope>BMenuBar</scope><name>Show</name></member>
+      <member refid="classBView_1a61d28f55d6fdc55b59c38c44b9788205" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ShowToolTip</name></member>
+      <member refid="classBMenu_1a4a3000f320f707d70da1e72da79fca72" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SortItems</name></member>
+      <member refid="classBMenuBar_1ad8024622318ac48d90c431d30174df27" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>StartMenuBar</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StopWatchingAll</name></member>
+      <member refid="classBView_1adef480de8a8bcd2fff3129660501616e" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StringWidth</name></member>
+      <member refid="classBView_1aef3638cf597407e6a9f31bc75cd42097" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StringWidth</name></member>
+      <member refid="classBView_1a57222cd40096dfe23e1df86a01277041" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a9c958b9399925a8a0ea333afd337ebfd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a64ea2ad06018b0b3b156113d201c7ad7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeBezier</name></member>
+      <member refid="classBView_1a042703445263f1d9a9213757fcf27414" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1ae7727ca808873634363e5306fdbcc09a" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1a909ee03901fac4ae5504f7faf5e41a7c" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ab713fc42e330d0a091a9774edfb9626f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ae871d03592c1bba5d6be3d5d982ea747" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1638c58553467f3ebe5ee2b3683d4905" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1482fddababe3dd1377f86a038f7119b" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1ad3893af66d3891855f9db7072bfb4de7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeRect</name></member>
+      <member refid="classBView_1acf743b2ba22b82c8bc38eb514513df55" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeRoundRect</name></member>
+      <member refid="classBView_1a507e9b732e880ac8e6379e19e74d5757" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeShape</name></member>
+      <member refid="classBView_1a8221cce8942e590c2fea954f57933e78" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1ae59fc9e9cfaba5e2d6e79a90723a3330" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>StrokeTriangle</name></member>
+      <member refid="classBMenu_1a51cad9f6d981ce27ca0094f74540ce29" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SubmenuAt</name></member>
+      <member refid="classBMenu_1a544cdc1fc6d05c535d677a65ad1ee3d9" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Superitem</name></member>
+      <member refid="classBMenu_1a205d32b63c8fc5a5a3a49249838af057" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Supermenu</name></member>
+      <member refid="classBMenu_1a717c241c8234cbec4327e6f55b5df1b7" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>SwapItems</name></member>
+      <member refid="classBView_1a27e217abb3fefa45b6e4ceb7a54cb362" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Sync</name></member>
+      <member refid="classBView_1a668a4ed5419c86a7f2696ca7ece28df7" prot="public" virt="virtual"><scope>BMenuBar</scope><name>TargetedByScrollView</name></member>
+      <member refid="classBView_1a127ceec2101b12c0fbe1e0e66a7b9dc1" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ToolTip</name></member>
+      <member refid="classBMenu_1a22254e7fa893fea5c381ff59b2c8c3a8" prot="protected" virt="non-virtual"><scope>BMenuBar</scope><name>Track</name></member>
+      <member refid="classBView_1ab16cc72cf8ae3b40abcf1f714e7e9b74" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Transform</name></member>
+      <member refid="classBView_1a98597d70ae48b2576683f25078135534" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>TransformTo</name></member>
+      <member refid="classBView_1a8ae6d4e1cdfeeee33b753d56bee6ae7f" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>TranslateBy</name></member>
+      <member refid="classBView_1ac2e293fbdd999e4857b44b6e4d4c3820" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>TruncateString</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>UnlockLooper</name></member>
+      <member refid="classBView_1a8b2b1d9e08ce0c1763dd6a077ed02fdd" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ViewColor</name></member>
+      <member refid="classBView_1aec6c89446eb4f5ded151adced9126df8" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>ViewUIColor</name></member>
+      <member refid="classBView_1a32733d357b76bc3504cae326d174f4a2" prot="public" virt="non-virtual"><scope>BMenuBar</scope><name>Window</name></member>
+      <member refid="classBMenuBar_1a5e623033adfd89d43cca5b8030fb9ccf" prot="public" virt="virtual"><scope>BMenuBar</scope><name>WindowActivated</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BMenuBar</scope><name>~BArchivable</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BMenuBar</scope><name>~BHandler</name></member>
+      <member refid="classBMenu_1ad986f4d6a7b9c5a99f51535b55bdd4df" prot="public" virt="virtual"><scope>BMenuBar</scope><name>~BMenu</name></member>
+      <member refid="classBMenuBar_1a4a0e51a23570d9c9abf66121e88c1ea9" prot="public" virt="virtual"><scope>BMenuBar</scope><name>~BMenuBar</name></member>
+      <member refid="classBView_1a7df0d7eaeb97a3c8a800f9e321f23f67" prot="public" virt="virtual"><scope>BMenuBar</scope><name>~BView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,623 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="USB3_8h" kind="file" language="C++">
+    <compoundname>USB3.h</compoundname>
+    <includes local="no">KernelExport.h</includes>
+    <includes local="no">bus_manager.h</includes>
+    <includes local="no">iovec.h</includes>
+    <includes refid="USB__spec_8h" local="no">USB_spec.h</includes>
+    <includes local="no">USB_isochronous.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>USB3.h</label>
+        <link refid="USB3_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>USB_spec.h</label>
+        <link refid="USB__spec_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="2">
+        <label>KernelExport.h</label>
+      </node>
+      <node id="10">
+        <label>USB_isochronous.h</label>
+      </node>
+      <node id="3">
+        <label>bus_manager.h</label>
+      </node>
+      <node id="8">
+        <label>inttypes.h</label>
+      </node>
+      <node id="4">
+        <label>iovec.h</label>
+      </node>
+      <node id="9">
+        <label>sys/types.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structusb__configuration__info" prot="public">usb_configuration_info</innerclass>
+    <innerclass refid="structusb__endpoint__info" prot="public">usb_endpoint_info</innerclass>
+    <innerclass refid="structusb__interface__info" prot="public">usb_interface_info</innerclass>
+    <innerclass refid="structusb__interface__list" prot="public">usb_interface_list</innerclass>
+    <innerclass refid="structusb__module__info" prot="public">usb_module_info</innerclass>
+    <innerclass refid="structusb__notify__hooks" prot="public">usb_notify_hooks</innerclass>
+    <innerclass refid="structusb__support__descriptor" prot="public">usb_support_descriptor</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="USB3_8h_1a22b89f939badbd5ede71f3830811aeb5" prot="public" static="no">
+        <name>B_USB_MODULE_NAME</name>
+        <initializer>&quot;bus_managers/usb/v3&quot;</initializer>
+        <briefdescription>
+<para>The identifier string for the USB Stack interface module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="257" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB3_8h_1aabfe9a1bc893eea36eeb268c4e689a02" prot="public" static="no">
+        <name>USB_ISO_ASAP</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="78" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* usb_callback_func)(void *cookie, status_t status, void *data, size_t actualLength)</definition>
+        <argsstring>)(void *cookie, status_t status, void *data, size_t actualLength)</argsstring>
+        <name>usb_callback_func</name>
+        <briefdescription>
+<para>Callback function for asynchronous transfers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie you supplied when you queued the transfer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The status of the transfer. This is one of the following: <table rows="10" cols="2"><row>
+<entry thead="no"><para><emphasis>B_OK</emphasis></para>
+</entry><entry thead="no"><para>The transfer succeeded.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_CANCELED</emphasis></para>
+</entry><entry thead="no"><para>The transfer was cancelled by the user via a <ref refid="structusb__module__info_1addadab9d5c4fbb672b563197bc6cfc3c" kindref="member">usb_module_info::cancel_queued_transfers()</ref> call.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_MULTIPLE_ERRORS</emphasis></para>
+</entry><entry thead="no"><para>More than one of the errors below occurred. Unfortunately, the stack cannot give you more information.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_STALLED</emphasis></para>
+</entry><entry thead="no"><para>The endpoint is stalled. You can use <ref refid="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" kindref="member">usb_module_info::clear_feature()</ref> method with the associated pipe and the USB_FEATURE_ENDPOINT_HALT arguments.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_DATA_OVERRUN</emphasis></para>
+</entry><entry thead="no"><para>Incoming transfer: more data flowing in than the size of the buffer.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_DATA_UNDERRUN</emphasis></para>
+</entry><entry thead="no"><para>Outgoing transfer: more data is flowing out than the endpoint accepts.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_CRC_ERROR</emphasis></para>
+</entry><entry thead="no"><para>The internal data consistency checks of the USB protocol failed. It is best to retry. If you keep on getting this error there might be something wrong with the device.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_UNEXPECTED_PID</emphasis></para>
+</entry><entry thead="no"><para>There was an internal error. You should retry your transfer.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_FIFO_OVERRUN</emphasis></para>
+</entry><entry thead="no"><para>internal error. You should retry your transfer.  </para>
+</entry></row>
+<row>
+<entry thead="no"><para><emphasis>B_DEV_FIFO_UNDERRUN</emphasis></para>
+</entry><entry thead="no"><para>There was an internal error. You should retry your transfer.  </para>
+</entry></row>
+</table>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>actualLength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The amount of bytes read or written during the transfer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="80" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1a0c8dbc157811b2cdf78cd1aa6155ac29" prot="public" static="no">
+        <type>struct <ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref></type>
+        <definition>struct usb_configuration_info usb_configuration_info</definition>
+        <argsstring></argsstring>
+        <name>usb_configuration_info</name>
+        <briefdescription>
+<para>Container for USB configuration descriptors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>Documentation for <ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="32" column="37" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1a6347af9072687b463ab4aa141d17338e" prot="public" static="no">
+        <type><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref></type>
+        <definition>usb_id usb_device</definition>
+        <argsstring></argsstring>
+        <name>usb_device</name>
+        <briefdescription>
+<para>Uniquely identify USB devices. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="25" column="16" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1a1b5a5fd2e2e5ef45fc636dd41256cb77" prot="public" static="no">
+        <type>struct <ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref></type>
+        <definition>struct usb_endpoint_info usb_endpoint_info</definition>
+        <argsstring></argsstring>
+        <name>usb_endpoint_info</name>
+        <briefdescription>
+<para>Container for USB endpoint descriptors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>Documentation for <ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="29" column="32" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" prot="public" static="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 usb_id</definition>
+        <argsstring></argsstring>
+        <name>usb_id</name>
+        <briefdescription>
+<para>Uniquely identify various USB objects that are used in the module. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="24" column="16" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1ad463b8b8c8b1ef32a68235290e6f7251" prot="public" static="no">
+        <type><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref></type>
+        <definition>usb_id usb_interface</definition>
+        <argsstring></argsstring>
+        <name>usb_interface</name>
+        <briefdescription>
+<para>Uniquely identify USB interfaces. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="26" column="16" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1a78bfd46a98e4051dd07b060b94a2d7a5" prot="public" static="no">
+        <type>struct <ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref></type>
+        <definition>struct usb_interface_info usb_interface_info</definition>
+        <argsstring></argsstring>
+        <name>usb_interface_info</name>
+        <briefdescription>
+<para>Container for USB interface descriptors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>Documentation for <ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="30" column="33" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1af68ada5982ceb4fde0cdcf02edae285f" prot="public" static="no">
+        <type>struct <ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref></type>
+        <definition>struct usb_interface_list usb_interface_list</definition>
+        <argsstring></argsstring>
+        <name>usb_interface_list</name>
+        <briefdescription>
+<para>Container that holds a list of USB interface descriptors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para>Documentation for <ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="31" column="33" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1ab87e8f1b319b5a5baa72aa5f3aebd9f8" prot="public" static="no">
+        <type>struct <ref refid="structusb__module__info" kindref="compound">usb_module_info</ref></type>
+        <definition>struct usb_module_info usb_module_info</definition>
+        <argsstring></argsstring>
+        <name>usb_module_info</name>
+        <briefdescription>
+<para>The main interface object. See the <ref refid="structusb__module__info" kindref="compound">usb_module_info</ref> documentation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="22" column="30" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1a735a5f325a9736f3c5420bfdeeda361d" prot="public" static="no">
+        <type>struct <ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref></type>
+        <definition>typedef struct usb_notify_hooks usb_notify_hooks</definition>
+        <argsstring></argsstring>
+        <name>usb_notify_hooks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="37" column="18"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" prot="public" static="no">
+        <type><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref></type>
+        <definition>usb_id usb_pipe</definition>
+        <argsstring></argsstring>
+        <name>usb_pipe</name>
+        <briefdescription>
+<para>Uniquely identify USB pipes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="27" column="16" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB3_8h_1a0a09d4ff0bc24d71f61b1f2217394d4a" prot="public" static="no">
+        <type>struct <ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref></type>
+        <definition>typedef struct usb_support_descriptor usb_support_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_support_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="45" column="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for the USB module. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Version<sp/>3<sp/>USB<sp/>Device<sp/>Driver<sp/>API</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>2006,<sp/>Haiku<sp/>Inc.<sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_USB_V3_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_USB_V3_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;KernelExport.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bus_manager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iovec.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="USB__spec_8h" kindref="compound">USB_spec.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;USB_isochronous.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="USB3_8h_1ab87e8f1b319b5a5baa72aa5f3aebd9f8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__module__info" kindref="compound">usb_module_info</ref><sp/><ref refid="structusb__module__info" kindref="compound">usb_module_info</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref>;</highlight></codeline>
+<codeline lineno="25" refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref><sp/><ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref>;</highlight></codeline>
+<codeline lineno="26" refid="USB3_8h_1ad463b8b8c8b1ef32a68235290e6f7251" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref><sp/><ref refid="USB3_8h_1ad463b8b8c8b1ef32a68235290e6f7251" kindref="member">usb_interface</ref>;</highlight></codeline>
+<codeline lineno="27" refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref><sp/><ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="USB3_8h_1a1b5a5fd2e2e5ef45fc636dd41256cb77" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref><sp/><ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref>;</highlight></codeline>
+<codeline lineno="30" refid="USB3_8h_1a78bfd46a98e4051dd07b060b94a2d7a5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref><sp/><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref>;</highlight></codeline>
+<codeline lineno="31" refid="USB3_8h_1af68ada5982ceb4fde0cdcf02edae285f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref><sp/><ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref>;</highlight></codeline>
+<codeline lineno="32" refid="USB3_8h_1a0c8dbc157811b2cdf78cd1aa6155ac29" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref><sp/><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structusb__notify__hooks" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*<ref refid="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" kindref="member">device_added</ref>)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**cookie);</highlight></codeline>
+<codeline lineno="36" refid="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*<ref refid="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" kindref="member">device_removed</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cookie);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<sp/><ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structusb__support__descriptor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref><sp/>{</highlight></codeline>
+<codeline lineno="40" refid="structusb__support__descriptor_1a6ce85c5c72a47373f7ae352956475597" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__support__descriptor_1a6ce85c5c72a47373f7ae352956475597" kindref="member">dev_class</ref>;</highlight></codeline>
+<codeline lineno="41" refid="structusb__support__descriptor_1acaee3b468df565b077c5617d0efb027c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__support__descriptor_1acaee3b468df565b077c5617d0efb027c" kindref="member">dev_subclass</ref>;</highlight></codeline>
+<codeline lineno="42" refid="structusb__support__descriptor_1a8a21fd4563ea2c35af7b06ccd45e8ae7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__support__descriptor_1a8a21fd4563ea2c35af7b06ccd45e8ae7" kindref="member">dev_protocol</ref>;</highlight></codeline>
+<codeline lineno="43" refid="structusb__support__descriptor_1a2be3482d222395f65043a9a66c16eaf8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__support__descriptor_1a2be3482d222395f65043a9a66c16eaf8" kindref="member">vendor</ref>;</highlight></codeline>
+<codeline lineno="44" refid="structusb__support__descriptor_1ade470c3d5cc3312a425bf0b91c01067f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__support__descriptor_1ade470c3d5cc3312a425bf0b91c01067f" kindref="member">product</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}<sp/><ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="structusb__endpoint__info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref><sp/>{</highlight></codeline>
+<codeline lineno="48" refid="structusb__endpoint__info_1adef31f750013597efac5667555dc0694" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_endpoint_descriptor<sp/><sp/><sp/><sp/><sp/>*<ref refid="structusb__endpoint__info_1adef31f750013597efac5667555dc0694" kindref="member">descr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>descriptor<sp/>and<sp/>handle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="structusb__endpoint__info_1a60eb2a3b1632e6ba5c6c04dd7f5ae4f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__endpoint__info_1a60eb2a3b1632e6ba5c6c04dd7f5ae4f8" kindref="member">handle</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>of<sp/>this<sp/>endpoint/pipe<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="structusb__interface__info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref><sp/>{</highlight></codeline>
+<codeline lineno="53" refid="structusb__interface__info_1a98a7a2be768020575354b9e009aa54a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_interface_descriptor<sp/><sp/><sp/><sp/>*<ref refid="structusb__interface__info_1a98a7a2be768020575354b9e009aa54a3" kindref="member">descr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>descriptor<sp/>and<sp/>handle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structusb__interface__info_1a03c9c388f67b4779b85cdb752f1b923f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1ad463b8b8c8b1ef32a68235290e6f7251" kindref="member">usb_interface</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__interface__info_1a03c9c388f67b4779b85cdb752f1b923f" kindref="member">handle</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>of<sp/>this<sp/>interface<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="structusb__interface__info_1ae30d515db1524f08ecfbc43f4874c561" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__interface__info_1ae30d515db1524f08ecfbc43f4874c561" kindref="member">endpoint_count</ref>;<sp/></highlight><highlight class="comment">/*<sp/>count<sp/>and<sp/>list<sp/>of<sp/>endpoints<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="structusb__interface__info_1a17a1d62792623cd7f766e45976369874" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structusb__endpoint__info" kindref="compound">usb_endpoint_info</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structusb__interface__info_1a17a1d62792623cd7f766e45976369874" kindref="member">endpoint</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>in<sp/>this<sp/>interface<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="structusb__interface__info_1a2286b760fe6bcea04fd83768c64cba90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__interface__info_1a2286b760fe6bcea04fd83768c64cba90" kindref="member">generic_count</ref>;<sp/><sp/></highlight><highlight class="comment">/*<sp/>unparsed<sp/>descriptors<sp/>in<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="structusb__interface__info_1aea3d7088f3add433381c048e21ccdaec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>**</highlight><highlight class="keyword">generic</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>this<sp/>interface<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="structusb__interface__list" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref><sp/>{</highlight></codeline>
+<codeline lineno="64" refid="structusb__interface__list_1a0b72d1c4d8dc5c0901f47ce6f2e0e3ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__interface__list_1a0b72d1c4d8dc5c0901f47ce6f2e0e3ab" kindref="member">alt_count</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>count<sp/>and<sp/>list<sp/>of<sp/>alternate<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="structusb__interface__list_1a4c6387041b010b81afedfd3e10d5ee60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structusb__interface__list_1a4c6387041b010b81afedfd3e10d5ee60" kindref="member">alt</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>interfaces<sp/>available<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="structusb__interface__list_1ae15e7a4a129e53b4a603a6bb2c419264" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structusb__interface__list_1ae15e7a4a129e53b4a603a6bb2c419264" kindref="member">active</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>currently<sp/>active<sp/>alternate<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="structusb__configuration__info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref><sp/>{</highlight></codeline>
+<codeline lineno="71" refid="structusb__configuration__info_1af90fe2dd88e8907184defd59b4cdb0bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_configuration_descriptor<sp/>*<ref refid="structusb__configuration__info_1af90fe2dd88e8907184defd59b4cdb0bb" kindref="member">descr</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>descriptor<sp/>of<sp/>this<sp/>config<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structusb__configuration__info_1a04e220ca6f613eead4a1466eff06bf9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__configuration__info_1a04e220ca6f613eead4a1466eff06bf9d" kindref="member">interface_count</ref>;</highlight><highlight class="comment">/*<sp/>interfaces<sp/>in<sp/>this<sp/>config<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="structusb__configuration__info_1a9fc77a24e6e884e1d6e3021802088193" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structusb__interface__list" kindref="compound">usb_interface_list</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<ref refid="structusb__configuration__info_1a9fc77a24e6e884e1d6e3021802088193" kindref="member">interface</ref>;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Flags<sp/>for<sp/>queue_isochronous</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ISO_ASAP<sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref>)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*cookie,<sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>status,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>actualLength);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>usb_module_info<sp/>represents<sp/>the<sp/>public<sp/>API<sp/>of<sp/>the<sp/>USB<sp/>Stack.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="structusb__module__info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structusb__module__info" kindref="compound">usb_module_info</ref><sp/>{</highlight></codeline>
+<codeline lineno="86" refid="structusb__module__info_1ab629f658d9ea6598e41c7b3e3fa78833" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bus_manager_info<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__module__info_1ab629f658d9ea6598e41c7b3e3fa78833" kindref="member">binfo</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>Use<sp/>register_driver()<sp/>to<sp/>inform<sp/>the<sp/>Stack<sp/>of<sp/>your<sp/>interest<sp/>to<sp/>support</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>USB<sp/>devices.<sp/>Support<sp/>descriptors<sp/>are<sp/>used<sp/>to<sp/>indicate<sp/>support<sp/>for<sp/>a</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>specific<sp/>device<sp/>class/subclass/protocol<sp/>or<sp/>vendor/product.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>A<sp/>value<sp/>of<sp/>0<sp/>can<sp/>be<sp/>used<sp/>as<sp/>a<sp/>wildcard<sp/>for<sp/>all<sp/>fields.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>Would<sp/>you<sp/>like<sp/>to<sp/>be<sp/>notified<sp/>about<sp/>all<sp/>added<sp/>hubs<sp/>(class<sp/>0x09)<sp/>you</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>would<sp/>use<sp/>a<sp/>support<sp/>descriptor<sp/>like<sp/>this<sp/>for<sp/>register_driver:</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/>usb_support_descriptor<sp/>hub_devs<sp/>=<sp/>{<sp/>9,<sp/>0,<sp/>0,<sp/>0,<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>If<sp/>you<sp/>intend<sp/>to<sp/>support<sp/>just<sp/>any<sp/>device,<sp/>or<sp/>you<sp/>at<sp/>least<sp/>want<sp/>to<sp/>be</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>notified<sp/>about<sp/>any<sp/>device,<sp/>just<sp/>pass<sp/>NULL<sp/>as<sp/>the<sp/>supportDescriptor<sp/>and</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>0<sp/>as<sp/>the<sp/>supportDescriptorCount<sp/>to<sp/>register_driver.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="structusb__module__info_1ae8547e3805633a0d09f3b79c9aaee4ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*register_driver)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*driverName,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref><sp/>*supportDescriptors,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>supportDescriptorCount,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*optionalRepublishDriverName);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>Install<sp/>notification<sp/>hooks<sp/>using<sp/>your<sp/>registered<sp/>driverName.<sp/>The</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>device_added<sp/>hook<sp/>will<sp/>be<sp/>called<sp/>for<sp/>every<sp/>device<sp/>that<sp/>matches<sp/>the</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>support<sp/>descriptors<sp/>you<sp/>provided<sp/>in<sp/>register_driver.</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>When<sp/>first<sp/>installing<sp/>the<sp/>hooks<sp/>you<sp/>will<sp/>receive<sp/>a<sp/>notification<sp/>about</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>any<sp/>already<sp/>present<sp/>matching<sp/>device.<sp/>If<sp/>you<sp/>return<sp/>B_OK<sp/>in<sp/>this<sp/>hook,</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>you<sp/>can<sp/>use<sp/>the<sp/>id<sp/>that<sp/>is<sp/>provided.<sp/>If<sp/>the<sp/>hook<sp/>indicates<sp/>an<sp/>error,</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>the<sp/>resources<sp/>will<sp/>be<sp/>deallocated<sp/>and<sp/>you<sp/>may<sp/>not<sp/>use<sp/>the<sp/>usb_device</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>that<sp/>is<sp/>provided.<sp/>In<sp/>this<sp/>case<sp/>you<sp/>will<sp/>not<sp/>receive<sp/>a<sp/>device_removed</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>notification<sp/>for<sp/>the<sp/>device<sp/>either.</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*install_notify)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*driverName,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structusb__notify__hooks" kindref="compound">usb_notify_hooks</ref><sp/>*hooks);</highlight></codeline>
+<codeline lineno="120" refid="structusb__module__info_1a09965c1a72c449d6d866ef33b31fa1dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*uninstall_notify)(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*driverName);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>device<sp/>descriptor<sp/>of<sp/>a<sp/>device.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="structusb__module__info_1a52aad2b91cf3472c80ad32ffe3e6a008" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>usb_device_descriptor<sp/><sp/><sp/><sp/><sp/>*(*get_device_descriptor)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>nth<sp/>supported<sp/>configuration<sp/>of<sp/>a<sp/>device*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="structusb__module__info_1a5d8882493d8803f3237b1808dda3a1a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref><sp/><sp/><sp/><sp/>*(*get_nth_configuration)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>index);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Get<sp/>the<sp/>current<sp/>configuration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="structusb__module__info_1ab99f30d408ccce88e584c8ccc3a7d1b8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref><sp/><sp/><sp/><sp/>*(*get_configuration)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Set<sp/>the<sp/>current<sp/>configuration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="structusb__module__info_1a3acc17927855d50cedb3a99eca964b93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*set_configuration)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structusb__configuration__info" kindref="compound">usb_configuration_info</ref><sp/>*configuration);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="structusb__module__info_1a5e5e6b6008e3f38575b10d372eec6a5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*set_alt_interface)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structusb__interface__info" kindref="compound">usb_interface_info</ref><sp/>*interface);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>Standard<sp/>device<sp/>requests<sp/>-<sp/>convenience<sp/>functions</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>The<sp/>provided<sp/>handle<sp/>may<sp/>be<sp/>a<sp/>usb_device,<sp/>usb_pipe<sp/>or<sp/>usb_interface</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143" refid="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*set_feature)(<ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref><sp/>handle,<sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>selector);</highlight></codeline>
+<codeline lineno="144" refid="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*clear_feature)(<ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref><sp/>handle,<sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>selector);</highlight></codeline>
+<codeline lineno="145" refid="structusb__module__info_1a2d342f1553fb3a4b5ea61eb6d7db27a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*get_status)(<ref refid="USB3_8h_1aaa683db1b3b02b3818597566b093f5b1" kindref="member">usb_id</ref><sp/>handle,<sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>*status);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="structusb__module__info_1a8643ea1daa67bcbaa5dd5b0d7b79f4e4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*get_descriptor)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>descriptorType,<sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>index,</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>languageID,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataLength,</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*actualLength);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Generic<sp/>device<sp/>request<sp/>function<sp/>-<sp/>synchronous<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154" refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*send_request)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>requestType,<sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>request,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>value,<sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>index,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>length,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>*actualLength);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>Asynchronous<sp/>request<sp/>queueing.<sp/>These<sp/>functions<sp/>return<sp/>immediately</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>and<sp/>the<sp/>return<sp/>code<sp/>only<sp/>tells<sp/>whether<sp/>the<sp/>_queuing_<sp/>of<sp/>the<sp/>request</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>was<sp/>successful<sp/>or<sp/>not.<sp/>It<sp/>doesn&apos;t<sp/>indicate<sp/>transfer<sp/>success<sp/>or<sp/>error.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>When<sp/>the<sp/>transfer<sp/>is<sp/>finished,<sp/>the<sp/>provided<sp/>callback<sp/>function<sp/>is</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>called<sp/>with<sp/>the<sp/>transfer<sp/>status,<sp/>a<sp/>pointer<sp/>to<sp/>the<sp/>data<sp/>buffer<sp/>and</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>the<sp/>actually<sp/>transfered<sp/>length<sp/>as<sp/>well<sp/>as<sp/>with<sp/>the<sp/>callbackCookie</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>that<sp/>was<sp/>used<sp/>when<sp/>queuing<sp/>the<sp/>request.</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170" refid="structusb__module__info_1af46188738f7e77b713f5925f949ce613" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*queue_interrupt)(<ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/>pipe,</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataLength,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref><sp/>callback,</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*callbackCookie);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="structusb__module__info_1aaf2e5f284d228b5264827d98ffac7ef4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*queue_bulk)(<ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/>pipe,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataLength,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref><sp/>callback,</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*callbackCookie);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="structusb__module__info_1ab1ad7ea7155b166ffd4423a26b2fdf6d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*queue_bulk_v)(<ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/>pipe,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iovec<sp/>*vector,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>vectorCount,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref><sp/>callback,</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*callbackCookie);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="structusb__module__info_1a51bd569f73c289254aae0a09d88f2910" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*queue_isochronous)(<ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/>pipe,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>dataLength,</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structusb__iso__packet__descriptor" kindref="compound">usb_iso_packet_descriptor</ref><sp/>*packetDesc,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>packetCount,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>*startingFrameNumber,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref><sp/>callback,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*callbackCookie);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*queue_request)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>requestType,<sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>request,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>value,<sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>index,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>length,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a93fe2ea6f3c29ffb217e55fe699c7aff" kindref="member">usb_callback_func</ref><sp/>callback,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*callbackCookie);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201" refid="structusb__module__info_1a5f4a673416744b496b8ea049a31e4447" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*set_pipe_policy)(<ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/>pipe,</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>maxNumQueuedPackets,</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>maxBufferDurationMS,</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/>sampleSize);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Cancel<sp/>all<sp/>pending<sp/>async<sp/>requests<sp/>in<sp/>a<sp/>pipe<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207" refid="structusb__module__info_1addadab9d5c4fbb672b563197bc6cfc3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*cancel_queued_transfers)(<ref refid="USB3_8h_1abcbb968868d538b8d3bfdb195c8b4cdf" kindref="member">usb_pipe</ref><sp/>pipe);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Tuning,<sp/>configuration<sp/>of<sp/>timeouts,<sp/>etc<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="structusb__module__info_1aaf861275d26378593d11907468a62200" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*usb_ioctl)(<ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>opcode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*buffer,</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Enumeration<sp/>of<sp/>device<sp/>topology<sp/>-<sp/>With<sp/>these<sp/>commands<sp/>you<sp/>can<sp/>enumerate</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>roothubs<sp/>and<sp/>enumerate<sp/>child<sp/>devices<sp/>of<sp/>hubs.<sp/>Note<sp/>that<sp/>the<sp/>index</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>provided<sp/>to<sp/>get_nth_child<sp/>does<sp/>not<sp/>map<sp/>to<sp/>the<sp/>port<sp/>where<sp/>the<sp/>child</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>device<sp/>is<sp/>attached<sp/>to.<sp/>To<sp/>get<sp/>this<sp/>information<sp/>you<sp/>would<sp/>call</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>get_device_parent<sp/>which<sp/>provides<sp/>you<sp/>with<sp/>the<sp/>parent<sp/>hub<sp/>and<sp/>the<sp/>port</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>index<sp/>of<sp/>a<sp/>device.<sp/>To<sp/>test<sp/>whether<sp/>an<sp/>enumerated<sp/>child<sp/>is<sp/>a<sp/>hub<sp/>you</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>can<sp/>either<sp/>examine<sp/>the<sp/>device<sp/>descriptor<sp/>or<sp/>you<sp/>can<sp/>call<sp/>get_nth_child</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>and<sp/>check<sp/>the<sp/>returned<sp/>status.<sp/>A<sp/>value<sp/>of<sp/>B_OK<sp/>indicates<sp/>that<sp/>the<sp/>call</highlight></codeline>
+<codeline lineno="222"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>succeeded<sp/>and<sp/>the<sp/>returned<sp/>info<sp/>is<sp/>valid,<sp/>B_ENTRY_NOT_FOUND<sp/>indicates</highlight></codeline>
+<codeline lineno="223"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>that<sp/>you<sp/>have<sp/>reached<sp/>the<sp/>last<sp/>index.<sp/>Any<sp/>other<sp/>error<sp/>indicates<sp/>that</highlight></codeline>
+<codeline lineno="224"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>provided<sp/>arguments<sp/>are<sp/>invalid<sp/>(i.e.<sp/>not<sp/>a<sp/>hub<sp/>or<sp/>invalid<sp/>pointers)</highlight></codeline>
+<codeline lineno="225"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>or<sp/>an<sp/>internal<sp/>error<sp/>occured.<sp/>Note<sp/>that<sp/>there<sp/>are<sp/>no<sp/>guarantees<sp/>that</highlight></codeline>
+<codeline lineno="226"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>the<sp/>device<sp/>handle<sp/>you<sp/>get<sp/>stays<sp/>valid<sp/>while<sp/>you<sp/>are<sp/>using<sp/>it.<sp/>If<sp/>it<sp/>gets</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>invalid<sp/>any<sp/>further<sp/>use<sp/>will<sp/>simply<sp/>return<sp/>an<sp/>error.<sp/>You<sp/>should<sp/>install</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>notify<sp/>hooks<sp/>to<sp/>avoid<sp/>such<sp/>situations.</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*get_nth_roothub)(<ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>index,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>*rootHub);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*get_nth_child)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>hub,</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>index,<sp/><ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>*childDevice);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*get_device_parent)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device,</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>*parentHub,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>*portIndex);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Hub<sp/>interaction<sp/>-<sp/>These<sp/>commands<sp/>are<sp/>only<sp/>valid<sp/>when<sp/>used<sp/>with<sp/>a<sp/>hub</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>device<sp/>handle.<sp/>Use<sp/>reset_port<sp/>to<sp/>trigger<sp/>a<sp/>reset<sp/>of<sp/>the<sp/>port<sp/>with<sp/>index</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>portIndex.<sp/>This<sp/>will<sp/>cause<sp/>a<sp/>disconnect<sp/>event<sp/>for<sp/>the<sp/>attached<sp/>device.</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>With<sp/>disable_port<sp/>you<sp/>can<sp/>specify<sp/>that<sp/>the<sp/>port<sp/>at<sp/>portIndex<sp/>shall<sp/>be</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>disabled.<sp/>This<sp/>will<sp/>also<sp/>cause<sp/>a<sp/>disconnect<sp/>event<sp/>for<sp/>the<sp/>attached</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>device.<sp/>Use<sp/>reset_port<sp/>to<sp/>reenable<sp/>a<sp/>previously<sp/>disabled<sp/>port.</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*reset_port)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>hub,</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>portIndex);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*disable_port)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>hub,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>portIndex);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Cancel<sp/>all<sp/>pending<sp/>async<sp/>requests<sp/>in<sp/>a<sp/>device<sp/>control<sp/>pipe<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*cancel_queued_requests)(<ref refid="USB3_8h_1a6347af9072687b463ab4aa141d17338e" kindref="member">usb_device</ref><sp/>device);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257" refid="USB3_8h_1a22b89f939badbd5ede71f3830811aeb5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B_USB_MODULE_NAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;bus_managers/usb/v3&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!_USB_V3_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h"/>
+  </compounddef>
+</doxygen>

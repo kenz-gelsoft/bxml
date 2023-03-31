@@ -1,0 +1,496 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBEntryList" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BEntryList</compoundname>
+    <derivedcompoundref refid="classBDirectory" prot="public" virt="non-virtual">BDirectory</derivedcompoundref>
+    <derivedcompoundref refid="classBQuery" prot="public" virt="non-virtual">BQuery</derivedcompoundref>
+    <includes local="no">EntryList.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBEntryList_1adf5344c4229922691642b6e07c29bcaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BEntryList::BEntryList</definition>
+        <argsstring>()</argsstring>
+        <name>BEntryList</name>
+        <qualifiedname>BEntryList::BEntryList</qualifiedname>
+        <briefdescription>
+<para>Creates a <ref refid="classBEntryList" kindref="compound">BEntryList</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing at this time.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1ac239f4229be2d0a1c9a58c83f503be4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BEntryList::~BEntryList</definition>
+        <argsstring>()</argsstring>
+        <name>~BEntryList</name>
+        <qualifiedname>BEntryList::~BEntryList</qualifiedname>
+        <briefdescription>
+<para>Frees all resources associated with the <ref refid="classBEntryList" kindref="compound">BEntryList</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing at this time.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="25" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a290b792f7b12265c10ba589aa969b862" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BEntryList::CountEntries</definition>
+        <argsstring>()=0</argsstring>
+        <name>CountEntries</name>
+        <qualifiedname>BEntryList::CountEntries</qualifiedname>
+        <reimplementedby refid="classBDirectory_1a9408e42d1c0683cd97991e8d3ac0b41f">CountEntries</reimplementedby>
+        <reimplementedby refid="classBQuery_1ab57f2b6d7a84c557f77a77d3baaca421">CountEntries</reimplementedby>
+        <briefdescription>
+<para>Returns the number of entries in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if successful </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when at the end of the list </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>or another error code (depending on the implementation of the derived class).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="34" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a2f8498249c876866d5f53a8b89044871" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BEntryList::GetNextDirents</definition>
+        <argsstring>(struct dirent *direntBuffer, size_t bufferSize, int32 maxEntries=INT_MAX)=0</argsstring>
+        <name>GetNextDirents</name>
+        <qualifiedname>BEntryList::GetNextDirents</qualifiedname>
+        <reimplementedby refid="classBDirectory_1ad163bac44f24104b1cd336487114e2fe">GetNextDirents</reimplementedby>
+        <reimplementedby refid="classBQuery_1af5a9ba3e24f68c59b1247b7181433d23">GetNextDirents</reimplementedby>
+        <param>
+          <type>struct dirent *</type>
+          <declname>direntBuffer</declname>
+          <defname>buf</defname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+          <defname>length</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>maxEntries</declname>
+          <defname>count</defname>
+          <defval>INT_MAX</defval>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classBEntryList" kindref="compound">BEntryList</ref>&apos;s next entries as dirent structures. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads a number of entries into the array of dirent structures pointed to by <emphasis>buf</emphasis>. Reads as many but no more than <emphasis>count</emphasis> entries, as many entries as remain, or as many entries as will fit into the array at <emphasis>buf</emphasis> with given length <emphasis>length</emphasis> (in bytes), whichever is smallest.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a buffer to be filled with dirent structures of the found entries. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the <emphasis>buf</emphasis> array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum number of entries to be read.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The iterator used by this method is the same one used by <ref refid="classBEntryList_1a52e6c79344a6e511e7890f008e7281d1" kindref="member">GetNextEntry()</ref>, <ref refid="classBEntryList_1a908ff7149239ab66683b12b27be917ee" kindref="member">GetNextRef()</ref>, <ref refid="classBEntryList_1a6cbcd041425e5a1225a762c72a4eb8af" kindref="member">Rewind()</ref> and <ref refid="classBEntryList_1a290b792f7b12265c10ba589aa969b862" kindref="member">CountEntries()</ref>.</para>
+</simplesect>
+<simplesect kind="return"><para><itemizedlist>
+<listitem><para>The number of dirent structures stored in the buffer or 0 when there are no more entries to be read.</para>
+</listitem><listitem><para>an error code (depending on the implementation of the derived class) if an error occurred.</para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="30" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a52e6c79344a6e511e7890f008e7281d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BEntryList::GetNextEntry</definition>
+        <argsstring>(BEntry *entry, bool traverse=false)=0</argsstring>
+        <name>GetNextEntry</name>
+        <qualifiedname>BEntryList::GetNextEntry</qualifiedname>
+        <reimplementedby refid="classBDirectory_1afc19ccbfe069ccd6d800d368eab24008">GetNextEntry</reimplementedby>
+        <reimplementedby refid="classBQuery_1ab30c05e8425a5c39dd35bd5fe5b05748">GetNextEntry</reimplementedby>
+        <param>
+          <type><ref refid="classBEntry" kindref="compound">BEntry</ref> *</type>
+          <declname>entry</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>traverse</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classBEntryList" kindref="compound">BEntryList</ref>&apos;s next entry as a <ref refid="classBEntry" kindref="compound">BEntry</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Places the next entry in the list in <emphasis>entry</emphasis>, traversing symlinks if <emphasis>traverse</emphasis> is <computeroutput>true</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>entry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to a <ref refid="classBEntry" kindref="compound">BEntry</ref> to be initialized with the found entry. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>traverse</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>specifies whether to follow it, if the found entry is a symbolic link.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The iterator used by this method is the same one used by <ref refid="classBEntryList_1a908ff7149239ab66683b12b27be917ee" kindref="member">GetNextRef()</ref>, <ref refid="classBEntryList_1a2f8498249c876866d5f53a8b89044871" kindref="member">GetNextDirents()</ref>, <ref refid="classBEntryList_1a6cbcd041425e5a1225a762c72a4eb8af" kindref="member">Rewind()</ref> and <ref refid="classBEntryList_1a290b792f7b12265c10ba589aa969b862" kindref="member">CountEntries()</ref>.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if successful </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when at the end of the list </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>or another error code (depending on the implementation of the derived class).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="27" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a908ff7149239ab66683b12b27be917ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BEntryList::GetNextRef</definition>
+        <argsstring>(entry_ref *ref)=0</argsstring>
+        <name>GetNextRef</name>
+        <qualifiedname>BEntryList::GetNextRef</qualifiedname>
+        <reimplementedby refid="classBDirectory_1a915d4da2de8eebd949f9feb2d3407c32">GetNextRef</reimplementedby>
+        <reimplementedby refid="classBQuery_1a40b44c5c8e047d005572334dd681bd37">GetNextRef</reimplementedby>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classBEntryList" kindref="compound">BEntryList</ref>&apos;s next entry as an <ref refid="structentry__ref" kindref="compound">entry_ref</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Places an <ref refid="structentry__ref" kindref="compound">entry_ref</ref> to the next entry in the list into <emphasis>ref</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to an <ref refid="structentry__ref" kindref="compound">entry_ref</ref> to be filled in with the data of the found entry.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>The iterator used by this method is the same one used by <ref refid="classBEntryList_1a52e6c79344a6e511e7890f008e7281d1" kindref="member">GetNextEntry()</ref>, <ref refid="classBEntryList_1a2f8498249c876866d5f53a8b89044871" kindref="member">GetNextDirents()</ref>, <ref refid="classBEntryList_1a6cbcd041425e5a1225a762c72a4eb8af" kindref="member">Rewind()</ref> and <ref refid="classBEntryList_1a290b792f7b12265c10ba589aa969b862" kindref="member">CountEntries()</ref>.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if successful </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>when at the end of the list </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>or another error code (depending on the implementation of the derived class).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="29" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a6cbcd041425e5a1225a762c72a4eb8af" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BEntryList::Rewind</definition>
+        <argsstring>()=0</argsstring>
+        <name>Rewind</name>
+        <qualifiedname>BEntryList::Rewind</qualifiedname>
+        <reimplementedby refid="classBDirectory_1a741e1b95a65ce83edad07baa11e5aa81">Rewind</reimplementedby>
+        <reimplementedby refid="classBQuery_1a42e73f8b1328e0a0bf42610a87a97e4a">Rewind</reimplementedby>
+        <briefdescription>
+<para>Rewinds the list pointer to the beginning of the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if successful </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>or another error code (depending on the implementation of the derived class).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="33" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBEntryList_1a096a06aad6a57ecbdaf98990fdd434d1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList1</name>
+        <qualifiedname>BEntryList::_ReservedEntryList1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="37" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a85ba542420fa6074d10b6cdccc09fc59" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList2</name>
+        <qualifiedname>BEntryList::_ReservedEntryList2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="38" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a12200b5ac6c9f3903c8ecf7c4303ddb0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList3</name>
+        <qualifiedname>BEntryList::_ReservedEntryList3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="39" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1ac491e04112042d7e1a842dfe4b440659" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList4</name>
+        <qualifiedname>BEntryList::_ReservedEntryList4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1aa02f4a6129409e33338425d5fb167784" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList5</name>
+        <qualifiedname>BEntryList::_ReservedEntryList5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a85b3ac9f291db920f15da805de72b9b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList6</name>
+        <qualifiedname>BEntryList::_ReservedEntryList6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a2b5f7dad056c544cc3b2db21c082ac9d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList7</name>
+        <qualifiedname>BEntryList::_ReservedEntryList7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="43" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBEntryList_1a6eafecdab3520aa6e3b2fbf1d4b8d142" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BEntryList::_ReservedEntryList8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedEntryList8</name>
+        <qualifiedname>BEntryList::_ReservedEntryList8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="44" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for iterating through a list of filesystem entries. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface for iterating through a list of filesystem entries Defines a general interface for iterating through a list of entries (i.e. files in a folder</para>
+<para>Defines a general interface for iterating through a list of entries i.e. files in a folder.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BDirectory</label>
+        <link refid="classBDirectory"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BEntryList</label>
+        <link refid="classBEntryList"/>
+      </node>
+      <node id="3">
+        <label>BQuery</label>
+        <link refid="classBQuery"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/storage/EntryList.h" line="22" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/EntryList.h" bodystart="22" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classBEntryList_1a096a06aad6a57ecbdaf98990fdd434d1" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList1</name></member>
+      <member refid="classBEntryList_1a85ba542420fa6074d10b6cdccc09fc59" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList2</name></member>
+      <member refid="classBEntryList_1a12200b5ac6c9f3903c8ecf7c4303ddb0" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList3</name></member>
+      <member refid="classBEntryList_1ac491e04112042d7e1a842dfe4b440659" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList4</name></member>
+      <member refid="classBEntryList_1aa02f4a6129409e33338425d5fb167784" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList5</name></member>
+      <member refid="classBEntryList_1a85b3ac9f291db920f15da805de72b9b8" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList6</name></member>
+      <member refid="classBEntryList_1a2b5f7dad056c544cc3b2db21c082ac9d" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList7</name></member>
+      <member refid="classBEntryList_1a6eafecdab3520aa6e3b2fbf1d4b8d142" prot="private" virt="virtual"><scope>BEntryList</scope><name>_ReservedEntryList8</name></member>
+      <member refid="classBEntryList_1adf5344c4229922691642b6e07c29bcaa" prot="public" virt="non-virtual"><scope>BEntryList</scope><name>BEntryList</name></member>
+      <member refid="classBEntryList_1a290b792f7b12265c10ba589aa969b862" prot="public" virt="pure-virtual"><scope>BEntryList</scope><name>CountEntries</name></member>
+      <member refid="classBEntryList_1a2f8498249c876866d5f53a8b89044871" prot="public" virt="pure-virtual"><scope>BEntryList</scope><name>GetNextDirents</name></member>
+      <member refid="classBEntryList_1a52e6c79344a6e511e7890f008e7281d1" prot="public" virt="pure-virtual"><scope>BEntryList</scope><name>GetNextEntry</name></member>
+      <member refid="classBEntryList_1a908ff7149239ab66683b12b27be917ee" prot="public" virt="pure-virtual"><scope>BEntryList</scope><name>GetNextRef</name></member>
+      <member refid="classBEntryList_1a6cbcd041425e5a1225a762c72a4eb8af" prot="public" virt="pure-virtual"><scope>BEntryList</scope><name>Rewind</name></member>
+      <member refid="classBEntryList_1ac239f4229be2d0a1c9a58c83f503be4c" prot="public" virt="virtual"><scope>BEntryList</scope><name>~BEntryList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="HttpRequest_8h" kind="file" language="C++">
+    <compoundname>HttpRequest.h</compoundname>
+    <includes local="no">memory</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">string_view</includes>
+    <includes local="no">variant</includes>
+    <includes refid="ErrorsExt_8h" local="no">ErrorsExt.h</includes>
+    <includes refid="String_8h" local="no">String.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>String.h</label>
+        <link refid="String_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ErrorsExt.h</label>
+        <link refid="ErrorsExt_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>HttpRequest.h</label>
+        <link refid="HttpRequest_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="13">
+        <label>inttypes.h</label>
+      </node>
+      <node id="7">
+        <label>iosfwd</label>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
+      <node id="9">
+        <label>stdarg.h</label>
+      </node>
+      <node id="10">
+        <label>string.h</label>
+      </node>
+      <node id="4">
+        <label>string_view</label>
+      </node>
+      <node id="14">
+        <label>sys/types.h</label>
+      </node>
+      <node id="5">
+        <label>variant</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpAuthentication" prot="public">BPrivate::Network::BHttpAuthentication</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpMethod" prot="public">BPrivate::Network::BHttpMethod</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpRequest" prot="public">BPrivate::Network::BHttpRequest</innerclass>
+    <innerclass refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body" prot="public">BPrivate::Network::BHttpRequest::Body</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod" prot="public">BPrivate::Network::BHttpMethod::InvalidMethod</innerclass>
+    <innernamespace refid="namespaceBPrivate">BPrivate</innernamespace>
+    <innernamespace refid="namespaceBPrivate_1_1Network">BPrivate::Network</innernamespace>
+    <briefdescription>
+<para>Provides the classes and tools to build HTTP Requests. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2022<sp/>Haiku<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_B_HTTP_REQUEST_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_B_HTTP_REQUEST_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string_view&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;variant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ErrorsExt_8h" kindref="compound">ErrorsExt.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="String_8h" kindref="compound">String.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBDataIO" kindref="compound">BDataIO</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBMallocIO" kindref="compound">BMallocIO</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBUrl" kindref="compound">BUrl</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceBPrivate" kindref="compound">BPrivate</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Network<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">BHttpFields;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">HttpBuffer;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">HttpSerializer;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classBPrivate_1_1Network_1_1BHttpMethod" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constants<sp/>for<sp/>default<sp/>methods<sp/>in<sp/>RFC<sp/>7230<sp/>section<sp/>4.2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55eaf14bc741c0fd31f10ce0ca5d6d9bd9fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55e" kindref="member">Verb</ref><sp/>{<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55eae16d94bfc1bdba38523d7d09648f314f" kindref="member">Get</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55ea41984f3842879643666cf3f3b1d3e456" kindref="member">Head</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55ea55be2f2974c6f903a1b0d1c30ca46b5b" kindref="member">Post</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55eae0137507cae043e027cdad7ebe2cea24" kindref="member">Put</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55ead0cb22b2ff63a668a766616e9a673db2" kindref="member">Delete</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55eaf14bc741c0fd31f10ce0ca5d6d9bd9fb" kindref="member">Connect</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55ea2bb635871c8cdf7dc4ca44366ceee71d" kindref="member">Options</ref>,<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1ga16eddbfe1a87e0c5c233416f2358e55ead5fe555fa7ad65b5e951a63e2c45acbd" kindref="member">Trace</ref><sp/>};</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Error<sp/>type<sp/>when<sp/>constructing<sp/>with<sp/>a<sp/>custom<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">InvalidMethod;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructors<sp/>&amp;<sp/>Destructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classBPrivate_1_1Network_1_1BHttpMethod_1afad640b36abdaa3ce9ab2aa973745073" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1afad640b36abdaa3ce9ab2aa973745073" kindref="member">BHttpMethod</ref>(<ref refid="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55e" kindref="member">Verb</ref><sp/>verb)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a4657c7a2181f6a77d981455c06f24dcf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a4657c7a2181f6a77d981455c06f24dcf" kindref="member">BHttpMethod</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string_view&amp;<sp/>method);</highlight></codeline>
+<codeline lineno="44" refid="classBPrivate_1_1Network_1_1BHttpMethod_1aab95cc2c8bb0b0a454458b765e5d7c75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1aab95cc2c8bb0b0a454458b765e5d7c75" kindref="member">BHttpMethod</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;<sp/>other);</highlight></codeline>
+<codeline lineno="45" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a1dde8f2e72bd791376a5ac52c366df6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a1dde8f2e72bd791376a5ac52c366df6e" kindref="member">BHttpMethod</ref>(<ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a0a01b80dc314bf8802c2f80b5a5bd1f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a0a01b80dc314bf8802c2f80b5a5bd1f5" kindref="member">~BHttpMethod</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Assignment<sp/>operators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a1a5554c8211b2cd6d730a359f6a700d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a1a5554c8211b2cd6d730a359f6a700d6" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;<sp/>other);</highlight></codeline>
+<codeline lineno="50" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a69b49f84e78f00e7b8532dca8b02cac1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a69b49f84e78f00e7b8532dca8b02cac1" kindref="member">operator=</ref>(<ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Comparison</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="classBPrivate_1_1Network_1_1BHttpMethod_1aeebfa89b7e5f85ef5995cdc730ce40cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1aeebfa89b7e5f85ef5995cdc730ce40cd" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55e" kindref="member">Verb</ref>&amp;<sp/>other)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a11140387e4a692f1656fecbaf15f7b99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a11140387e4a692f1656fecbaf15f7b99" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55e" kindref="member">Verb</ref>&amp;<sp/>other)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>method<sp/>as<sp/>a<sp/>string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classBPrivate_1_1Network_1_1BHttpMethod_1a4f8bc5715db0def42e5241b6b7618f30" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string_view<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1a4f8bc5715db0def42e5241b6b7618f30" kindref="member">Method</ref>()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal">private:</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::variant&lt;<ref refid="group__netservices_1ga16eddbfe1a87e0c5c233416f2358e55e" kindref="member">Verb</ref>,<sp/><ref refid="classBString" kindref="compound">BString</ref>&gt;<sp/>fMethod;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod" refkind="compound"><highlight class="normal">class<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>::<ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod" kindref="compound">InvalidMethod</ref><sp/>:<sp/>public<sp/><ref refid="classBPrivate_1_1Network_1_1BError" kindref="compound">BError</ref></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="67" refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod_1afc0bc1a17c8dcd2c67e280b709566cda" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod_1afc0bc1a17c8dcd2c67e280b709566cda" kindref="member">InvalidMethod</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>origin,<sp/><ref refid="classBString" kindref="compound">BString</ref><sp/>input);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod_1a397e87c6134ba1a25488ad781519016e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod_1a397e87c6134ba1a25488ad781519016e" kindref="member">Message</ref>()<sp/>const<sp/>noexcept<sp/>override;</highlight></codeline>
+<codeline lineno="70" refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod_1a7f52e4d68de0f5735b223e78f3ac4b67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>virtual<sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DebugMessage()<sp/>const<sp/>override;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="classBPrivate_1_1Network_1_1BHttpMethod_1_1InvalidMethod_1aecc3243315602e5ab9c7095f47827108" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structBPrivate_1_1Network_1_1BHttpAuthentication" refkind="compound"><highlight class="normal">struct<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpAuthentication" kindref="compound">BHttpAuthentication</ref><sp/>{</highlight></codeline>
+<codeline lineno="77" refid="structBPrivate_1_1Network_1_1BHttpAuthentication_1a6798279afc08c4a97c53d84fcfd28d73" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpAuthentication_1a6798279afc08c4a97c53d84fcfd28d73" kindref="member">username</ref>;</highlight></codeline>
+<codeline lineno="78" refid="structBPrivate_1_1Network_1_1BHttpAuthentication_1a11d4062064a16f26415ef7889a0f7651" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpAuthentication_1a11d4062064a16f26415ef7889a0f7651" kindref="member">password</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classBPrivate_1_1Network_1_1BHttpRequest" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Aggregate<sp/>parameter<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body" kindref="compound">Body</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructors<sp/>and<sp/>Destructor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a32e3059501cecb9c77e92c89c2f7674e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1a32e3059501cecb9c77e92c89c2f7674e" kindref="member">BHttpRequest</ref>();</highlight></codeline>
+<codeline lineno="90" refid="classBPrivate_1_1Network_1_1BHttpRequest_1aa7773d8d1165f4f05c1a5265e60d24c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1aa7773d8d1165f4f05c1a5265e60d24c4" kindref="member">BHttpRequest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBUrl" kindref="compound">BUrl</ref>&amp;<sp/>url);</highlight></codeline>
+<codeline lineno="91" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a55afcc4906f83a75370bc2f963047e9b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1a55afcc4906f83a75370bc2f963047e9b" kindref="member">BHttpRequest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>&amp;<sp/>other)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a7e6af5e282a64319c35e5baf1f817ef6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1a7e6af5e282a64319c35e5baf1f817ef6" kindref="member">BHttpRequest</ref>(<ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>&amp;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a26e9ac3a43fe05eec0e8ac1b863012a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1a26e9ac3a43fe05eec0e8ac1b863012a7" kindref="member">~BHttpRequest</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Assignment<sp/>operators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="classBPrivate_1_1Network_1_1BHttpRequest_1ae791ddb4bc341aa2439733563e4bf774" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1ae791ddb4bc341aa2439733563e4bf774" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>&amp;<sp/>other)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a4cca69e9a02ab1db1b7a34a667b044e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest_1a4cca69e9a02ab1db1b7a34a667b044e5" kindref="member">operator=</ref>(<ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>&amp;&amp;)<sp/>noexcept;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Access</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a5b0464e2f3417b904bce245cf5faff3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IsEmpty()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="101" refid="classBPrivate_1_1Network_1_1BHttpRequest_1ac837488d86d25ef1f52e1f0631b84eee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpAuthentication" kindref="compound">BHttpAuthentication</ref>*<sp/>Authentication()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="102" refid="classBPrivate_1_1Network_1_1BHttpRequest_1aa2b4c16a1e5e8c59052b4f310f63dfb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref>&amp;<sp/><sp/>Fields()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="103" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a171280deecf9e9222b42244b1a892e03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MaxRedirections()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="104" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a15ec1596ab365755cce3a93ef26f1cf5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;<sp/><sp/>Method()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="105" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a65dbf7dc1fa5e5ea26578c9c613b53d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body" kindref="compound">Body</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RequestBody()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="106" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a156aa59838ce4b782f18aef1a85525dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StopOnError()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="107" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a90a392bb5093f33dc7825c5d227cdf01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Timeout()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="108" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a4ab0b01f3f6dbd94dedcddb2a0daf72c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/><ref refid="classBUrl" kindref="compound">BUrl</ref>&amp;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Url()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Named<sp/>Setters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="classBPrivate_1_1Network_1_1BHttpRequest_1ae334ac3d1f5408479d75814f7a28af26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetAuthentication(const<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpAuthentication" kindref="compound">BHttpAuthentication</ref>&amp;<sp/>authentication);</highlight></codeline>
+<codeline lineno="112" refid="classBPrivate_1_1Network_1_1BHttpRequest_1abb42d55a1b9296ee317091694852ba28" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetFields(const<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpFields" kindref="compound">BHttpFields</ref>&amp;<sp/>fields);</highlight></codeline>
+<codeline lineno="113" refid="classBPrivate_1_1Network_1_1BHttpRequest_1afcc97e60fdf1b05592908e592e83665f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetMaxRedirections(<ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>maxRedirections);</highlight></codeline>
+<codeline lineno="114" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a0b749d41f92f0102e279607f031055ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetMethod(const<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpMethod" kindref="compound">BHttpMethod</ref>&amp;<sp/>method);</highlight></codeline>
+<codeline lineno="115" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a20ba3bb6bd91224a7207d56208add672" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetRequestBody(std::unique_ptr&lt;<ref refid="classBDataIO" kindref="compound">BDataIO</ref>&gt;<sp/>input,<sp/><ref refid="classBString" kindref="compound">BString</ref><sp/>mimeType,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;off_t&gt;<sp/>size);</highlight></codeline>
+<codeline lineno="117" refid="classBPrivate_1_1Network_1_1BHttpRequest_1ac1b3d4ad8820991191ef12a3e9850ca7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetStopOnError(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>stopOnError);</highlight></codeline>
+<codeline lineno="118" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a2d86edf07d6e9458493e8c274ab760ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetTimeout(<ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref><sp/>timeout);</highlight></codeline>
+<codeline lineno="119" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a6c095622eb7be3bec6d5a58b3de76b47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SetUrl(const<sp/><ref refid="classBUrl" kindref="compound">BUrl</ref>&amp;<sp/>url);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clearing<sp/>Options</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a4d93841151f1214139608df29013c66c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClearAuthentication()<sp/>noexcept;</highlight></codeline>
+<codeline lineno="123" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a929a032b44ef5222877661aceeefe468" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;<ref refid="classBDataIO" kindref="compound">BDataIO</ref>&gt;<sp/>ClearRequestBody()<sp/>noexcept;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Serialization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classBPrivate_1_1Network_1_1BHttpRequest_1a99c6af9d109665f433c8270502d9aebf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>HeaderToString()<sp/>const;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal">private:</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>friend<sp/>class<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpSession" kindref="compound">BHttpSession</ref>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>friend<sp/>class<sp/>HttpSerializer;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>struct<sp/>Data;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RewindBody()<sp/>noexcept;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SerializeHeaderTo(HttpBuffer&amp;<sp/>buffer)<sp/>const;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;Data&gt;<sp/>fData;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140" refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body" refkind="compound"><highlight class="normal">struct<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpRequest" kindref="compound">BHttpRequest</ref>::<ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body" kindref="compound">Body</ref><sp/>{</highlight></codeline>
+<codeline lineno="141" refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1a070222a623bb49a83d151c04bffdd69a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;BDataIO&gt;<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1a070222a623bb49a83d151c04bffdd69a" kindref="member">input</ref>;</highlight></codeline>
+<codeline lineno="142" refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1a892ebd04b690d10ab98a8628ac31e3b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1a892ebd04b690d10ab98a8628ac31e3b3" kindref="member">mimeType</ref>;</highlight></codeline>
+<codeline lineno="143" refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1aacf2167880a0f395fcd9fae30313fa0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;off_t&gt;<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1aacf2167880a0f395fcd9fae30313fa0c" kindref="member">size</ref>;</highlight></codeline>
+<codeline lineno="144" refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1a30b76dbccb1b45a7004976f3c652ee9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::optional&lt;off_t&gt;<sp/><ref refid="structBPrivate_1_1Network_1_1BHttpRequest_1_1Body_1a30b76dbccb1b45a7004976f3c652ee9e" kindref="member">startPosition</ref>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Network</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>BPrivate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_B_HTTP_REQUEST_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/private/netservices2/HttpRequest.h"/>
+  </compounddef>
+</doxygen>

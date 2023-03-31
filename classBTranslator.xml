@@ -1,0 +1,924 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBTranslator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BTranslator</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Constructor and reference counting</header>
+      <memberdef kind="function" id="classBTranslator_1a2f62f219cbc88c68e24b190c7815f49a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTranslator::BTranslator</definition>
+        <argsstring>()</argsstring>
+        <name>BTranslator</name>
+        <qualifiedname>BTranslator::BTranslator</qualifiedname>
+        <briefdescription>
+<para>Creates a new <ref refid="classBTranslator" kindref="compound">BTranslator</ref> and sets its reference count to 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a1a385cacf95b85e7988d41437a00cf64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBTranslator" kindref="compound">BTranslator</ref> *</type>
+        <definition>BTranslator * BTranslator::Acquire</definition>
+        <argsstring>()</argsstring>
+        <name>Acquire</name>
+        <qualifiedname>BTranslator::Acquire</qualifiedname>
+        <briefdescription>
+<para>Increments the reference count by 1 and returns a pointer to itself. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>this</computeroutput>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="18" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a5edb71d50a84af82d6c25979d38c385b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBTranslator" kindref="compound">BTranslator</ref> *</type>
+        <definition>BTranslator * BTranslator::Release</definition>
+        <argsstring>()</argsstring>
+        <name>Release</name>
+        <qualifiedname>BTranslator::Release</qualifiedname>
+        <briefdescription>
+<para>Decrements the reference count by 1. If the reference count is decreased to zero, the object is deleted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>this</computeroutput> if the object was not destroyed, <computeroutput>NULL</computeroutput> if it was.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="19" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1ac6db049c2e18559761528e9b304acba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTranslator::ReferenceCount</definition>
+        <argsstring>()</argsstring>
+        <name>ReferenceCount</name>
+        <qualifiedname>BTranslator::ReferenceCount</qualifiedname>
+        <briefdescription>
+<para>Gets the current reference count. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The current reference count.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="21" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Accessors</header>
+      <memberdef kind="function" id="classBTranslator_1a780b894e10d20a443aa68ff18d98fa9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const char *</type>
+        <definition>const char * BTranslator::TranslatorName</definition>
+        <argsstring>() const =0</argsstring>
+        <name>TranslatorName</name>
+        <qualifiedname>BTranslator::TranslatorName</qualifiedname>
+        <briefdescription>
+<para>Pure virtual. Returns the name of the translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Amongst other uses, the name is used to populate Save as-dropdowns and for the preference window.</para>
+<para><simplesect kind="return"><para>The name of the translator.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="23" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1ae893bfad197cfc77ad06fa8edcd974f6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const char *</type>
+        <definition>const char * BTranslator::TranslatorInfo</definition>
+        <argsstring>() const =0</argsstring>
+        <name>TranslatorInfo</name>
+        <qualifiedname>BTranslator::TranslatorInfo</qualifiedname>
+        <briefdescription>
+<para>Pure virtual. Returns a brief description of the translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A brief description of the translator.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="24" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1ab1367814e1344d6d41679f3e33d6fa16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTranslator::TranslatorVersion</definition>
+        <argsstring>() const =0</argsstring>
+        <name>TranslatorVersion</name>
+        <qualifiedname>BTranslator::TranslatorVersion</qualifiedname>
+        <briefdescription>
+<para>Pure virtual. Returns the version of the translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The correct way to format the version is using the <computeroutput>B_TRANSLATION_MAKE_VERSION</computeroutput> macro from <ref refid="TranslationDefs_8h" kindref="compound">TranslationDefs.h</ref>.</para>
+<para><simplesect kind="return"><para>The version of the translator.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="25" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a7730d0bd8774b558e41f2e19b4362b46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const translation_format *</type>
+        <definition>const translation_format * BTranslator::InputFormats</definition>
+        <argsstring>(int32 *_count) const =0</argsstring>
+        <name>InputFormats</name>
+        <qualifiedname>BTranslator::InputFormats</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_count</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual. Returns an array containing information about all input formats the translator can handle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the number of input formats that are returned will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the first element of the array of input formats.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="27" column="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a8513e71cfe17d1915613401996af8eb8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const translation_format *</type>
+        <definition>const translation_format * BTranslator::OutputFormats</definition>
+        <argsstring>(int32 *_count) const =0</argsstring>
+        <name>OutputFormats</name>
+        <qualifiedname>BTranslator::OutputFormats</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_count</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual. Returns an array containing information about all output formats the translator can produce. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the number of output formats that are returned will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the first element of the array of output formats.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="28" column="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Core methods</header>
+      <memberdef kind="function" id="classBTranslator_1afeeb58dd769f1fdf5ba29da69d9fff25" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslator::Identify</definition>
+        <argsstring>(BPositionIO *source, const translation_format *format, BMessage *extension, translator_info *info, uint32 outType)=0</argsstring>
+        <name>Identify</name>
+        <qualifiedname>BTranslator::Identify</qualifiedname>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const translation_format *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>extension</declname>
+        </param>
+        <param>
+          <type>translator_info *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>outType</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual. Analyzes <emphasis>source</emphasis> and decides whether this translator can work with the provided format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The translator examines the data in source and tries to identify its format (for instance by checking for magic numbers). It may use the hints provided by <emphasis>format</emphasis>. If it is successful, and it is able to translate the data at hand to <emphasis>outType</emphasis>, it populates <emphasis>info</emphasis> with information about the input format and returns <computeroutput>B_OK</computeroutput>. If it is unable to identify the data or cannot translate it to <emphasis>outType</emphasis>, it returns <computeroutput>B_NO_TRANSLATOR</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read and seek interface to the input data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hints about the incoming data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>extension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translator. A standard set of possible fields is defined in <ref refid="TranslatorFormats_8h" kindref="compound">TranslatorFormats.h</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the translator will write information about the determined input format in case identification is successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <emphasis>outType</emphasis> is non-zero, identification will only be successful if the translator can transform the data in source to the format denoted by <emphasis>outType</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>When creating a translator, be prepared for the information in <emphasis>format</emphasis> to be inaccurate or wrong.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translator has identified the data in <emphasis>source</emphasis>, has verified its ability to translate it to <emphasis>outType</emphasis> and has written information describing it to <emphasis>info</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translator does not know how to handle the data in <emphasis>source</emphasis> or cannot translate it to <emphasis>outType</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>extension</emphasis> was <computeroutput>NULL</computeroutput> or contained bad data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="30" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1aceccae4a5041677afcb71cd4e739416c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslator::Translate</definition>
+        <argsstring>(BPositionIO *source, const translator_info *info, BMessage *extension, uint32 outType, BPositionIO *destination)=0</argsstring>
+        <name>Translate</name>
+        <qualifiedname>BTranslator::Translate</qualifiedname>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const translator_info *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>extension</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>outType</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+<para>Pure virtual. Reads the provided data and tries to translate it to a given format. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The translator attempts to translate the data in <emphasis>source</emphasis>, which may or may not have the format represented by <emphasis>info</emphasis>, to <emphasis>outType</emphasis> and then write the result to destination. Upon success, it returns <computeroutput>B_OK</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read and seek interface to the input data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Hints about the incoming data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>extension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translator. A standard set of possible fields is defined in <ref refid="TranslatorFormats_8h" kindref="compound">TranslatorFormats.h</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>outType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The identifier of the desired output format. An <emphasis>outType</emphasis> of 0 is equivalent to the defualt format for the media type if the translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Write interface for the destination of the data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="warning"><para>When creating a translator, be prepared for the information in <emphasis>format</emphasis> to be inaccurate or wrong.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translated data was successfully written to destination. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred during memory allocation or the conversion itself. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>extension</emphasis> was <computeroutput>NULL</computeroutput> or contained bad data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translator cannot handle the input.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="34" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Configuration methods</header>
+      <memberdef kind="function" id="classBTranslator_1a04604cd147897713783a936feb6b28e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslator::MakeConfigurationView</definition>
+        <argsstring>(BMessage *extension, BView **_view, BRect *_extent)</argsstring>
+        <name>MakeConfigurationView</name>
+        <qualifiedname>BTranslator::MakeConfigurationView</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>extension</declname>
+        </param>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> **</type>
+          <declname>_view</declname>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref> *</type>
+          <declname>_extent</declname>
+        </param>
+        <briefdescription>
+<para>Virtual. Creates a <ref refid="classBView" kindref="compound">BView</ref> that contains information and configuration options for the translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is optional. If the translator chose not to implement it, <computeroutput>B_ERROR</computeroutput> will be returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>extension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translator. A standard set of possible fields is defined in <ref refid="TranslatorFormats_8h" kindref="compound">TranslatorFormats.h</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where a pointer to the newly created configuration view will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_extent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the size of the newly created configuration view will be stored. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went well. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred or the method was not overriden by the translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_view</emphasis> or <emphasis>_extent</emphasis> were <computeroutput>NULL</computeroutput> or <emphasis>extension</emphasis> was <computeroutput>NULL</computeroutput> or contained bad data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="38" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1aba382f2b2672c6732dd6905875d2fb3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslator::GetConfigurationMessage</definition>
+        <argsstring>(BMessage *extension)</argsstring>
+        <name>GetConfigurationMessage</name>
+        <qualifiedname>BTranslator::GetConfigurationMessage</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>extension</declname>
+        </param>
+        <briefdescription>
+<para>Populates a <ref refid="classBMessage" kindref="compound">BMessage</ref> with the settings of the translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>A standard set of possible fields is defined in <ref refid="TranslatorFormats_8h" kindref="compound">TranslatorFormats.h</ref>. This method is optional. If the translator chose not to implement it, <computeroutput>B_ERROR</computeroutput> will be returned.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>extension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBMessage" kindref="compound">BMessage</ref> that is populated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went well. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred or the method was not overriden by the translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>extension</emphasis> was <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="40" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBTranslator_1afb53e4b3f81119e6155074fa574dacf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BTranslatorRoster::Private</definition>
+        <argsstring></argsstring>
+        <name>BTranslatorRoster::Private</name>
+        <qualifiedname>BTranslator::Private</qualifiedname>
+        <param>
+          <type>BTranslatorRoster::Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="49" column="14" bodyfile="/boot/home/src/haiku/headers/os/translation/Translator.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBTranslator_1ad171dd891758834608f9243ccc740b36" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BTranslator::_reserved[7]</definition>
+        <argsstring>[7]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BTranslator::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="64" column="7" bodyfile="/boot/home/src/haiku/headers/os/translation/Translator.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTranslator_1a318067958aee59d320dda5b827c89b6e" prot="private" static="no" mutable="no">
+        <type>translator_id</type>
+        <definition>translator_id BTranslator::fID</definition>
+        <argsstring></argsstring>
+        <name>fID</name>
+        <qualifiedname>BTranslator::fID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="61" column="14" bodyfile="/boot/home/src/haiku/headers/os/translation/Translator.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTranslator_1a6263c7f8aba03362587a7d197a330ba1" prot="private" static="no" mutable="no">
+        <type>BTranslatorRoster::Private *</type>
+        <definition>BTranslatorRoster::Private* BTranslator::fOwningRoster</definition>
+        <argsstring></argsstring>
+        <name>fOwningRoster</name>
+        <qualifiedname>BTranslator::fOwningRoster</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="60" column="28" bodyfile="/boot/home/src/haiku/headers/os/translation/Translator.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTranslator_1a58979d3ada51162b59c34af39efbc937" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTranslator::fRefCount</definition>
+        <argsstring></argsstring>
+        <name>fRefCount</name>
+        <qualifiedname>BTranslator::fRefCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="62" column="6" bodyfile="/boot/home/src/haiku/headers/os/translation/Translator.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBTranslator_1a7770d8d83648b3fb8fe3a0ca5bd66acd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BTranslator::~BTranslator</definition>
+        <argsstring>()</argsstring>
+        <name>~BTranslator</name>
+        <qualifiedname>BTranslator::~BTranslator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="43" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBTranslator_1a487152df507de79a4ea817c2da0d7df3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_0</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_0</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_0</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="51" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a8afffd76d69182af158802cd617f8e0b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_1</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_1</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_1</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="52" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1addb9d3d15485a63236ba0d2cb10ee211" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_2</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_2</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_2</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="53" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a653ad6ff6a444289ddd3be166314bd5a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_3</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_3</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_3</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="54" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1aaf1822e4dc45a59b59781e604f063555" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_4</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_4</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_4</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="55" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a5df7b8a70c1195acd25718d6f5888d58" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_5</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_5</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_5</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="56" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a3b83889f63898566d1224e528a1f1340" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_6</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_6</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_6</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="57" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslator_1a1ad89b554d14f74feb2c8eae4a121ea7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BTranslator::_Reserved_Translator_7</definition>
+        <argsstring>(int32, void *)</argsstring>
+        <name>_Reserved_Translator_7</name>
+        <qualifiedname>BTranslator::_Reserved_Translator_7</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        </param>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="58" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract class that defines the necessary functionality of a translator. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBTranslator" kindref="compound">BTranslator</ref> is the core class of the translation kit. Every translator defines input and output data types it can work with. A <ref refid="classBTranslator" kindref="compound">BTranslator</ref> uses <ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> as an abstraction for the data it operates on. It is able to decide wether incoming data is of any of its known input types and, upon successful identification, translate it to any of its output formats. It may also provide a config view that appears in the DataTranslations preference app.</para>
+<para>Usually, a translator is very specific. It only offers translations between the format it was created for and the basic format for that media type. As an example, the translator for GIF images only translates between GIF images and bitmaps, the baseline format for images.</para>
+<para>The function <computeroutput>make_nth_translator</computeroutput> enables add-ons to expose translators. Communication between applications and BTranslators is carried out by the <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> class.</para>
+<para><simplesect kind="note"><para>Another option to create a translator is using a BFuncTranslator.</para>
+</simplesect>
+<simplesect kind="remark"><para>In most cases it is easier to derive from BaseTranslator instead of <ref refid="classBTranslator" kindref="compound">BTranslator</ref>. BaseTranslator provides a lot of functionality that is common for most translators as well as a unified method to save settings and routines for handling bitmaps.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BTranslator</label>
+        <link refid="classBTranslator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BTranslator</label>
+        <link refid="classBTranslator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/translation/Translator.h" line="14" column="1" bodyfile="/boot/home/src/haiku/headers/os/translation/Translator.h" bodystart="14" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classBTranslator_1ad171dd891758834608f9243ccc740b36" prot="private" virt="non-virtual"><scope>BTranslator</scope><name>_reserved</name></member>
+      <member refid="classBTranslator_1a487152df507de79a4ea817c2da0d7df3" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_0</name></member>
+      <member refid="classBTranslator_1a8afffd76d69182af158802cd617f8e0b" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_1</name></member>
+      <member refid="classBTranslator_1addb9d3d15485a63236ba0d2cb10ee211" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_2</name></member>
+      <member refid="classBTranslator_1a653ad6ff6a444289ddd3be166314bd5a" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_3</name></member>
+      <member refid="classBTranslator_1aaf1822e4dc45a59b59781e604f063555" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_4</name></member>
+      <member refid="classBTranslator_1a5df7b8a70c1195acd25718d6f5888d58" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_5</name></member>
+      <member refid="classBTranslator_1a3b83889f63898566d1224e528a1f1340" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_6</name></member>
+      <member refid="classBTranslator_1a1ad89b554d14f74feb2c8eae4a121ea7" prot="private" virt="virtual"><scope>BTranslator</scope><name>_Reserved_Translator_7</name></member>
+      <member refid="classBTranslator_1a1a385cacf95b85e7988d41437a00cf64" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>Acquire</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BTranslator</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BTranslator</scope><name>AllUnarchived</name></member>
+      <member refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44" prot="public" virt="virtual"><scope>BTranslator</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>BArchivable</name></member>
+      <member refid="classBTranslator_1a2f62f219cbc88c68e24b190c7815f49a" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>BTranslator</name></member>
+      <member refid="classBTranslator_1a318067958aee59d320dda5b827c89b6e" prot="private" virt="non-virtual"><scope>BTranslator</scope><name>fID</name></member>
+      <member refid="classBTranslator_1a6263c7f8aba03362587a7d197a330ba1" prot="private" virt="non-virtual"><scope>BTranslator</scope><name>fOwningRoster</name></member>
+      <member refid="classBTranslator_1a58979d3ada51162b59c34af39efbc937" prot="private" virt="non-virtual"><scope>BTranslator</scope><name>fRefCount</name></member>
+      <member refid="classBTranslator_1aba382f2b2672c6732dd6905875d2fb3b" prot="public" virt="virtual"><scope>BTranslator</scope><name>GetConfigurationMessage</name></member>
+      <member refid="classBTranslator_1afeeb58dd769f1fdf5ba29da69d9fff25" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>Identify</name></member>
+      <member refid="classBTranslator_1a7730d0bd8774b558e41f2e19b4362b46" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>InputFormats</name></member>
+      <member refid="classBArchivable_1a04efcb17fa2a64a776923cc12303efcd" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>Instantiate</name></member>
+      <member refid="classBTranslator_1a04604cd147897713783a936feb6b28e7" prot="public" virt="virtual"><scope>BTranslator</scope><name>MakeConfigurationView</name></member>
+      <member refid="classBTranslator_1a8513e71cfe17d1915613401996af8eb8" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>OutputFormats</name></member>
+      <member refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de" prot="public" virt="virtual"><scope>BTranslator</scope><name>Perform</name></member>
+      <member refid="classBTranslator_1ac6db049c2e18559761528e9b304acba8" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>ReferenceCount</name></member>
+      <member refid="classBTranslator_1a5edb71d50a84af82d6c25979d38c385b" prot="public" virt="non-virtual"><scope>BTranslator</scope><name>Release</name></member>
+      <member refid="classBTranslator_1aceccae4a5041677afcb71cd4e739416c" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>Translate</name></member>
+      <member refid="classBTranslator_1ae893bfad197cfc77ad06fa8edcd974f6" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>TranslatorInfo</name></member>
+      <member refid="classBTranslator_1a780b894e10d20a443aa68ff18d98fa9a" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>TranslatorName</name></member>
+      <member refid="classBTranslator_1ab1367814e1344d6d41679f3e33d6fa16" prot="public" virt="pure-virtual"><scope>BTranslator</scope><name>TranslatorVersion</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BTranslator</scope><name>~BArchivable</name></member>
+      <member refid="classBTranslator_1a7770d8d83648b3fb8fe3a0ca5bd66acd" prot="protected" virt="virtual"><scope>BTranslator</scope><name>~BTranslator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

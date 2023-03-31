@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="layout_intro" kind="page">
+    <compoundname>layout_intro</compoundname>
+    <title>Introduction to the Layout API</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Haiku&apos;s Layout API is centered around the <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> and <ref refid="classBLayout" kindref="compound">BLayout</ref> classes. The <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref> class represents thing that can be managed by a <ref refid="classBLayout" kindref="compound">BLayout</ref>, which is itself a <ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>. Before we go any further, it is a good idea to familiarize yourself with the different <ref refid="classBLayout" kindref="compound">BLayout</ref> classes available in Haiku: <itemizedlist>
+<listitem><para><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> </para>
+</listitem>
+<listitem><para><ref refid="classBGridLayout" kindref="compound">BGridLayout</ref> </para>
+</listitem>
+<listitem><para><ref refid="classBCardLayout" kindref="compound">BCardLayout</ref> </para>
+</listitem>
+<listitem><para><ref refid="classBSplitView" kindref="compound">BSplitView</ref></para>
+</listitem>
+</itemizedlist>
+You&apos;ll notice that <ref refid="classBSplitView" kindref="compound">BSplitView</ref> is not actually a <ref refid="classBLayout" kindref="compound">BLayout</ref>, but a <ref refid="classBView" kindref="compound">BView</ref>. The <ref refid="classBSplitView" kindref="compound">BSplitView</ref> class uses a custom <ref refid="classBLayout" kindref="compound">BLayout</ref> behind the scenes, but because it must also be able to draw, a <ref refid="classBView" kindref="compound">BView</ref> is required. Other <ref refid="classBLayout" kindref="compound">BLayout</ref> objects have <ref refid="classBView" kindref="compound">BView</ref> objects that can be used for convenience. <itemizedlist>
+<listitem><para><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> : <ref refid="classBGroupView" kindref="compound">BGroupView</ref> </para>
+</listitem>
+<listitem><para><ref refid="classBGridLayout" kindref="compound">BGridLayout</ref> : <ref refid="classBGridView" kindref="compound">BGridView</ref> </para>
+</listitem>
+<listitem><para><ref refid="classBCardLayout" kindref="compound">BCardLayout</ref> : <ref refid="classBTabView" kindref="compound">BTabView</ref> (also provides on-screen tabs)</para>
+</listitem>
+</itemizedlist>
+Although it is not necessary to use these classes to make use of the corresponding layouts, it does make things easier.</para>
+<para>Once you have an understanding of what each <ref refid="classBLayout" kindref="compound">BLayout</ref> does, you can start designing an interface with them. Let&apos;s consider a very simple window, with a single item in the center. For this, any of the layouts mentioned above would work, but we&apos;ll use a <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>, because it suits this purpose the best.</para>
+<para>The <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> constructor is:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>(<ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref><sp/><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4" kindref="member">orientation</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>spacing<sp/>=<sp/>B_USE_DEFAULT_SPACING)</highlight></codeline>
+</programlisting></para>
+<para>Because we only have one item in this layout, <computeroutput>orientation</computeroutput> and <computeroutput>spacing</computeroutput> become irrelevant. Let&apos;s choose B_VERTICAL for <computeroutput>orientation</computeroutput>, and leave <computeroutput>spacing</computeroutput> at its default.</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>*<sp/>group<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref>(<ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4a01c35140b008aea2cb9eca52ecf7cd4e" kindref="member">B_VERTICAL</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBWindow" kindref="compound">BWindow</ref>*<sp/>window<sp/>=<sp/>MakeWindow();</highlight></codeline>
+<codeline><highlight class="normal">window-&gt;<ref refid="classBWindow_1ad0e630f2691a0f7919b809b7ea265095" kindref="member">SetLayout</ref>(group);</highlight></codeline>
+</programlisting></para>
+<para>Before we can add anything to our layout, we must attach it to something, and here we&apos;ve used the <ref refid="classBWindow_1ad0e630f2691a0f7919b809b7ea265095" kindref="member">BWindow::SetLayout()</ref> method to accomplish that. By doing this, <computeroutput>window</computeroutput> takes ownership of <computeroutput>group</computeroutput>, so there is no need to manually <computeroutput>delete group</computeroutput> when we&apos;re done with it.</para>
+<para>Now that we&apos;ve got our <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> in place, we can start adding things to it, so let&apos;s add a <ref refid="classBStringView" kindref="compound">BStringView</ref>.</para>
+<para><programlisting><codeline><highlight class="normal">group-&gt;<ref refid="classBGroupLayout_1ac732947ea67a015a1d2babe82f60fd90" kindref="member">AddView</ref>(MakeStringView(</highlight><highlight class="stringliteral">&quot;Haiku<sp/>rocks!&quot;</highlight><highlight class="normal">));</highlight></codeline>
+</programlisting></para>
+<para>Now we&apos;ve got a <ref refid="classBWindow" kindref="compound">BWindow</ref> with a horizontal <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> holding a single <ref refid="classBView" kindref="compound">BView</ref>. However, if we want to ensure that our <ref refid="classBStringView" kindref="compound">BStringView</ref> is always centered in the window, we should give it an explicit <ref refid="classBAlignment" kindref="compound">BAlignment</ref>. So the last line becomes:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBLayoutItem" kindref="compound">BLayoutItem</ref>*<sp/>stringView<sp/>=<sp/>group-&gt;<ref refid="classBGroupLayout_1ac732947ea67a015a1d2babe82f60fd90" kindref="member">AddView</ref>(MakeStringView(</highlight><highlight class="stringliteral">&quot;Haiku<sp/>rocks!&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline><highlight class="normal">stringView-&gt;<ref refid="classBLayoutItem_1a78604c5055ac0aca561f196d879d762d" kindref="member">SetExplicitAlignment</ref>(<ref refid="classBAlignment" kindref="compound">BAlignment</ref>(B_ALIGN_HORIZONTAL_CENTER,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>B_ALIGN_VERTICAL_CENTER);</highlight></codeline>
+</programlisting></para>
+<para>Now our <ref refid="classBStringView" kindref="compound">BStringView</ref> will always be right in the middle of the space allotted to it, which at the moment is the whole of <computeroutput>window</computeroutput>.</para>
+<para>Now let&apos;s add a <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref>:</para>
+<para><programlisting><codeline><highlight class="normal">group-&gt;<ref refid="classBGroupLayout_1ac732947ea67a015a1d2babe82f60fd90" kindref="member">AddView</ref>(0,<sp/>MakeMenuBar());</highlight></codeline>
+<codeline><highlight class="normal">group-&gt;<ref refid="classBTwoDimensionalLayout_1acaf4ec650969994cb39dd015e3bebd91" kindref="member">SetInsets</ref>(0,<sp/>0,<sp/>0,<sp/>0);</highlight></codeline>
+</programlisting></para>
+<para>Because we want our <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> to appear at the very top of the window, we have to insert it at index <computeroutput>0</computeroutput>, above the <ref refid="classBStringView" kindref="compound">BStringView</ref> we added earlier. We also use <ref refid="classBTwoDimensionalLayout_1acaf4ec650969994cb39dd015e3bebd91" kindref="member">BTwoDimensionalLayout::SetInsets()</ref> to make sure that our <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> is flush to the edges of <computeroutput>window</computeroutput>. We also want a bit of space between our <ref refid="classBMenuBar" kindref="compound">BMenuBar</ref> and our <ref refid="classBStringView" kindref="compound">BStringView</ref>, but <computeroutput>group&apos;s</computeroutput> spacing has already been set by the <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> constructor, so we don&apos;t need to do that.</para>
+<para>Now that we&apos;ve put our <ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref> to good use, we can rest easy, assured that GUI will always look nice, no matter what font is used, or how big or little <computeroutput>window</computeroutput> is stretched. Of course, very few interfaces are as simple as this one.</para>
+<para>The layout classes can deal with complex layouts. Suppose, for example, that we wanted to add a grid of BButtons under our <ref refid="classBStringView" kindref="compound">BStringView</ref>. We could use a <ref refid="classBGridLayout" kindref="compound">BGridLayout</ref> for this. The <ref refid="classBGridLayout" kindref="compound">BGridLayout</ref> constructor is:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBGridLayout" kindref="compound">BGridLayout</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>horizontal<sp/>=<sp/>B_USE_DEFAULT_SPACING,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>vertical<sp/>=<sp/>B_USE_DEFAULT_SPACING);</highlight></codeline>
+</programlisting></para>
+<para>Because we want a bit of breathing room between our buttons, we&apos;ll leave vertical and horizontal spacing as is.</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBGridLayout" kindref="compound">BGridLayout</ref>*<sp/>grid<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBGridLayout" kindref="compound">BGridLayout</ref>();</highlight></codeline>
+<codeline><highlight class="normal">group-&gt;<ref refid="classBGroupLayout_1a7d53490ec7fe0b7fff6c2df5cc084493" kindref="member">AddItem</ref>(grid);</highlight></codeline>
+</programlisting></para>
+<para>You&apos;ll notice that we&apos;ve added <computeroutput>grid</computeroutput> directly to <computeroutput>group</computeroutput>. This means that any <ref refid="classBView" kindref="compound">BView</ref> objects we add to <computeroutput>grid</computeroutput> will become children of <computeroutput>window</computeroutput>, but will be positioned by <computeroutput>grid</computeroutput>.</para>
+<para><programlisting><codeline><highlight class="normal">grid-&gt;<ref refid="classBGridLayout_1a226fb320cbb2f5028fe4b537d9922fb3" kindref="member">AddView</ref>(MakeSmallButton(),<sp/>0,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal">grid-&gt;<ref refid="classBGridLayout_1a226fb320cbb2f5028fe4b537d9922fb3" kindref="member">AddView</ref>(MakeSmallButton(),<sp/>1,<sp/>0);</highlight></codeline>
+<codeline><highlight class="normal">grid-&gt;<ref refid="classBGridLayout_1a226fb320cbb2f5028fe4b537d9922fb3" kindref="member">AddView</ref>(MakeBigButton(),<sp/>0,<sp/>1,<sp/>2,<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal">grid-&gt;<ref refid="classBGridLayout_1a226fb320cbb2f5028fe4b537d9922fb3" kindref="member">AddView</ref>(MakeSmallButton(),<sp/>1,<sp/>2);</highlight></codeline>
+</programlisting></para>
+<para>Now we&apos;ve got a nice grid of <ref refid="classBButton" kindref="compound">BButton</ref> objects, let&apos;s go over it quickly: <itemizedlist>
+<listitem><para><computeroutput>grid</computeroutput> has two columns and three rows. </para>
+</listitem>
+<listitem><para>The cells (0, 0), (1, 0), and (1, 2) hold small buttons </para>
+</listitem>
+<listitem><para>The cells (0, 1) and (1, 1) hold a single button that spans both cells. </para>
+</listitem>
+<listitem><para>The cell (0, 2) is empty.</para>
+</listitem>
+</itemizedlist>
+One of the features you&apos;ll find incredibly handy in the layout API is the builders in <ref refid="LayoutBuilder_8h" kindref="compound">LayoutBuilder.h</ref>. Here&apos;s how our whole layout would look if it were done with these builders:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBLayoutBuilder_1_1Group" kindref="compound">BLayoutBuilder::Group&lt;&gt;</ref>(window,<sp/><ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4a01c35140b008aea2cb9eca52ecf7cd4e" kindref="member">B_VERTICAL</ref>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Group_1abb385c4aed1cc15b178083bde5b64b01" kindref="member">SetInsets</ref>(0,<sp/>0,<sp/>0,<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Group_1a685b4f95bb296070df86a02b31865d81" kindref="member">Add</ref>(MakeMenuBar())</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Group_1a685b4f95bb296070df86a02b31865d81" kindref="member">Add</ref>(MakeStringView(</highlight><highlight class="stringliteral">&quot;Haiku<sp/>rocks!&quot;</highlight><highlight class="normal">))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Group_1abc185e5d9c43241664889b3b7f8df641" kindref="member">AddGrid</ref>()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Grid_1a68885aa5db050c006484e5286d1a3c55" kindref="member">Add</ref>(MakeSmallButton(),<sp/>0,<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Grid_1a68885aa5db050c006484e5286d1a3c55" kindref="member">Add</ref>(MakeSmallButton(),<sp/>1,<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Grid_1a68885aa5db050c006484e5286d1a3c55" kindref="member">Add</ref>(MakeBigButton(),<sp/>0,<sp/>1,<sp/>2,<sp/>1)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Grid_1a68885aa5db050c006484e5286d1a3c55" kindref="member">Add</ref>(MakeSmallButton(),<sp/>1,<sp/>2);</highlight></codeline>
+</programlisting></para>
+<para>This is only one way that you could build this layout, but it is probably the most succinct. Functionally, this is equivalent to all the previous code in this introduction.</para>
+<para><simplesect kind="par"><title>Special Handling for BBox</title><para><ref refid="classBBox" kindref="compound">BBox</ref> is a &quot;container&quot; view that can contain other views. The use of the layout manager within an instance of <ref refid="classBBox" kindref="compound">BBox</ref> is a special case. Code such as is shown below is necessary to automatically layout views within a <ref refid="classBBox" kindref="compound">BBox</ref>.</para>
+</simplesect>
+<programlisting><codeline><highlight class="normal"><ref refid="classBBox" kindref="compound">BBox</ref><sp/>*box<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBBox" kindref="compound">BBox</ref>(</highlight><highlight class="stringliteral">&quot;box-example&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="classBGroupLayout" kindref="compound">BGroupLayout</ref><sp/>*boxLayout<sp/>=<sp/><ref refid="classBLayoutBuilder_1_1Group" kindref="compound">BLayoutBuilder::Group&lt;&gt;</ref>(<ref refid="InterfaceDefs_8h_1ac5fc6e200c34376449ba20a234061eb4ae796c97ca7ee2f24f65fc51ab650726d" kindref="member">B_HORIZONTAL</ref>)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Group_1a685b4f95bb296070df86a02b31865d81" kindref="member">Add</ref>(button1)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>.<ref refid="classBLayoutBuilder_1_1Group_1a685b4f95bb296070df86a02b31865d81" kindref="member">Add</ref>(button2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">box-&gt;<ref refid="classBView_1ab6382c582e5e1be527d3199459d05e8f" kindref="member">AddChild</ref>(boxLayout-&gt;<ref refid="classBLayout_1aefd7bf5546d6b69d1561e7baebf15387" kindref="member">View</ref>());</highlight></codeline>
+</programlisting> </para>
+    </detaileddescription>
+    <location file="interface/_layout_intro.dox"/>
+  </compounddef>
+</doxygen>

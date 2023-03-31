@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="HttpTime_8h" kind="file" language="C++">
+    <compoundname>HttpTime.h</compoundname>
+    <includes local="no">ctime</includes>
+    <includes refid="DateTime_8h" local="no">DateTime.h</includes>
+    <includes refid="ErrorsExt_8h" local="no">ErrorsExt.h</includes>
+    <includes refid="String_8h" local="no">String.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>String.h</label>
+        <link refid="String_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ErrorsExt.h</label>
+        <link refid="ErrorsExt_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>HttpTime.h</label>
+        <link refid="HttpTime_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="2">
+        <label>ctime</label>
+      </node>
+      <node id="10">
+        <label>inttypes.h</label>
+      </node>
+      <node id="4">
+        <label>iosfwd</label>
+      </node>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="7">
+        <label>string.h</label>
+      </node>
+      <node id="11">
+        <label>sys/types.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpTime" prot="public">BPrivate::Network::BHttpTime</innerclass>
+    <innerclass refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput" prot="public">BPrivate::Network::BHttpTime::InvalidInput</innerclass>
+    <innernamespace refid="namespaceBPrivate">BPrivate</innernamespace>
+    <innernamespace refid="namespaceBPrivate_1_1Network">BPrivate::Network</innernamespace>
+    <briefdescription>
+<para>Provides tools to parse and format HTTP dates. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The HTTP protocols prescribe that each HTTP response should have a <computeroutput>Date</computeroutput> header field with a timestamp the response was generated. Optionally, there are other fields that may have a timestamp in them, such as <computeroutput>Set-Cookie</computeroutput> or <computeroutput>If-Modified-Since</computeroutput>.</para>
+<para>According to section 3.3 of RFC 2616, the standard date format is the format described by RFC 1123, which updates the previous RFC 822. However, a proper implementation of a HTTP parser may also want to support the RFC 850 format (which was obsoleted by RFC 1036) and the old C-library standard date formatting of <computeroutput>asctime()</computeroutput>.</para>
+<para>Examples: <table rows="3" cols="2"><row>
+<entry thead="no"><para>RFC1123 / RFC822</para>
+</entry><entry thead="no"><para>Sun, 06 Nov 1994 08:49:37 GMT </para>
+</entry></row>
+<row>
+<entry thead="no"><para>RFC850</para>
+</entry><entry thead="no"><para>Sunday, 06-Nov-94 08:49:37 GMT </para>
+</entry></row>
+<row>
+<entry thead="no"><para>asctime</para>
+</entry><entry thead="no"><para>Sun Nov 6 08:49:37 1994 </para>
+</entry></row>
+</table>
+</para>
+<para>The tools in this module will make it easer to parse and format dates according to those standards. When parsing the</para>
+<para>You can use parse_http_time() to parse a string that contains a HTTP timestamp. You can use format_http_time() to format the HTTP time according to the prescribed format. If you want slightly more information about parsing, or if you want to hold an intermediate representation of the timestamp, have a look at the <ref refid="classBPrivate_1_1Network_1_1BHttpTime" kindref="compound">BPrivate::Network::BHttpTime</ref> class.</para>
+<para>Note that when parsing a timestamp string, the tools are slightly more permissive than the standards. For example, if the RFC 1123 timestamp does not have the GMT timezone indicator at the end, it will still be accepted. Likewise, there is support for RFC 850 timestamps with a 4-digit year format. When formatting a BPrivate::BDateTime to a string, it will always use prescribed representation.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2010-2022<sp/>Haiku<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_B_HTTP_TIME_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_B_HTTP_TIME_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctime&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;DateTime.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="ErrorsExt_8h" kindref="compound">ErrorsExt.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="String_8h" kindref="compound">String.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceBPrivate" kindref="compound">BPrivate</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">Network<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref><sp/>:<sp/><ref refid="SupportDefs_8h_1ac69a93dcc865c5e4aa2072cac9002aeb" kindref="member">int8</ref><sp/>{<sp/>RFC1123<sp/>=<sp/>0,<sp/>RFC850,<sp/>AscTime<sp/>};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classBPrivate_1_1Network_1_1BHttpTime" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpTime" kindref="compound">BHttpTime</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Error<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput" kindref="compound">InvalidInput</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="classBPrivate_1_1Network_1_1BHttpTime_1a828931a80f511cc15b98c8e930dde2a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1a828931a80f511cc15b98c8e930dde2a0" kindref="member">BHttpTime</ref>()<sp/>noexcept;</highlight></codeline>
+<codeline lineno="29" refid="classBPrivate_1_1Network_1_1BHttpTime_1af7b0356a07fc11bbef1079a4e07d23fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime" kindref="compound">BHttpTime</ref>(BDateTime<sp/>date);</highlight></codeline>
+<codeline lineno="30" refid="classBPrivate_1_1Network_1_1BHttpTime_1a4c8625d39a63bca0f677e39d50d26ba3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime" kindref="compound">BHttpTime</ref>(const<sp/><ref refid="classBString" kindref="compound">BString</ref>&amp;<sp/>dateString);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Date<sp/>modification</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="classBPrivate_1_1Network_1_1BHttpTime_1a5fa42216d0c23cad9437a883445487aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1a5fa42216d0c23cad9437a883445487aa" kindref="member">SetTo</ref>(const<sp/><ref refid="classBString" kindref="compound">BString</ref>&amp;<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34" refid="classBPrivate_1_1Network_1_1BHttpTime_1a2c9b2c4cf24f24a0ec7962332659a69f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1a5fa42216d0c23cad9437a883445487aa" kindref="member">SetTo</ref>(BDateTime<sp/>date);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Date<sp/>Access</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classBPrivate_1_1Network_1_1BHttpTime_1a288063850b49d6aad2554178303f02aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BDateTime<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1a288063850b49d6aad2554178303f02aa" kindref="member">DateTime</ref>()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="39" refid="classBPrivate_1_1Network_1_1BHttpTime_1a57c8a3c869c450814a0ee5f7ce003f5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1a57c8a3c869c450814a0ee5f7ce003f5d" kindref="member">DateTimeFormat</ref>()<sp/>const<sp/>noexcept;</highlight></codeline>
+<codeline lineno="40" refid="classBPrivate_1_1Network_1_1BHttpTime_1a10ee3127792f468ac943ef70c7e5c380" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1a10ee3127792f468ac943ef70c7e5c380" kindref="member">ToString</ref>(<ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref><sp/>outputFormat</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref>::RFC1123)<sp/>const;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">private:</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_Parse(const<sp/><ref refid="classBString" kindref="compound">BString</ref>&amp;<sp/>dateString);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BDateTime<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fDate;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref><sp/><sp/><sp/><sp/><sp/>fDateFormat;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput" refkind="compound"><highlight class="normal">class<sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime" kindref="compound">BHttpTime</ref>::<ref refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput" kindref="compound">InvalidInput</ref><sp/>:<sp/>public<sp/><ref refid="classBPrivate_1_1Network_1_1BError" kindref="compound">BError</ref></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54" refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput_1ae2940286e9e179ffe4b03d2a613a64af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput_1ae2940286e9e179ffe4b03d2a613a64af" kindref="member">InvalidInput</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>origin,<sp/><ref refid="classBString" kindref="compound">BString</ref><sp/>input);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput_1a9b89f597f4628bf70778d61d524549d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput_1a9b89f597f4628bf70778d61d524549d2" kindref="member">Message</ref>()<sp/>const<sp/>noexcept<sp/>override;</highlight></codeline>
+<codeline lineno="57" refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput_1a39203d08c6694acce04af2a6cfc5726e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>virtual<sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DebugMessage()<sp/>const<sp/>override;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="classBPrivate_1_1Network_1_1BHttpTime_1_1InvalidInput_1a01107e56bc8583b21e5860e731dab451" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBString" kindref="compound">BString</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Convenience<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="namespaceBPrivate_1_1Network_1a564db27874e23e8e080df76f21d39ed8" refkind="member"><highlight class="normal">BDateTime<sp/><ref refid="namespaceBPrivate_1_1Network_1a564db27874e23e8e080df76f21d39ed8" kindref="member">parse_http_time</ref>(const<sp/><ref refid="classBString" kindref="compound">BString</ref>&amp;<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65" refid="namespaceBPrivate_1_1Network_1adf43cae73e73f416b4ec05923e81a772" refkind="member"><highlight class="normal"><ref refid="classBString" kindref="compound">BString</ref><sp/><ref refid="namespaceBPrivate_1_1Network_1adf43cae73e73f416b4ec05923e81a772" kindref="member">format_http_time</ref>(BDateTime<sp/>timestamp,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref><sp/>outputFormat<sp/>=<sp/><ref refid="namespaceBPrivate_1_1Network_1a9b49062e24f11190deacce6b0ab82a5e" kindref="member">BHttpTimeFormat</ref>::RFC1123);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Network</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>BPrivate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_B_HTTP_TIME_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/private/netservices2/HttpTime.h"/>
+  </compounddef>
+</doxygen>

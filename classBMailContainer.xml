@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMailContainer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BMailContainer</compoundname>
+    <basecompoundref refid="classBMailComponent" prot="public" virt="non-virtual">BMailComponent</basecompoundref>
+    <derivedcompoundref refid="classBEmailMessage" prot="public" virt="non-virtual">BEmailMessage</derivedcompoundref>
+    <derivedcompoundref refid="classBMIMEMultipartMailContainer" prot="public" virt="non-virtual">BMIMEMultipartMailContainer</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMailContainer_1a356bf45ce9788da373908abe788f6d36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BMailContainer::BMailContainer</definition>
+        <argsstring>(uint32 defaultCharSet=B_MAIL_NULL_CONVERSION)</argsstring>
+        <name>BMailContainer</name>
+        <qualifiedname>BMailContainer::BMailContainer</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>defaultCharSet</declname>
+          <defval>B_MAIL_NULL_CONVERSION</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="17" column="1" bodyfile="/boot/home/src/haiku/headers/os/mail/MailContainer.h" bodystart="17" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1a602a118eb637d6b09b33adcc2882a016" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMailContainer::AddComponent</definition>
+        <argsstring>(BMailComponent *component)=0</argsstring>
+        <name>AddComponent</name>
+        <qualifiedname>BMailContainer::AddComponent</qualifiedname>
+        <param>
+          <type><ref refid="classBMailComponent" kindref="compound">BMailComponent</ref> *</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="20" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1a2dda83856b91aba689aff02e673fdf75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>virtual int32 BMailContainer::CountComponents</definition>
+        <argsstring>() const =0</argsstring>
+        <name>CountComponents</name>
+        <qualifiedname>BMailContainer::CountComponents</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="25" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1a67687ae9c0a43022d1822bb5d976d237" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classBMailComponent" kindref="compound">BMailComponent</ref> *</type>
+        <definition>virtual BMailComponent * BMailContainer::GetComponent</definition>
+        <argsstring>(int32 index, bool parse_now=false)=0</argsstring>
+        <name>GetComponent</name>
+        <qualifiedname>BMailContainer::GetComponent</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>parse_now</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="24" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1a405709a04f21333d5fedbc12a9419379" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMailContainer::RemoveComponent</definition>
+        <argsstring>(BMailComponent *component)=0</argsstring>
+        <name>RemoveComponent</name>
+        <qualifiedname>BMailContainer::RemoveComponent</qualifiedname>
+        <param>
+          <type><ref refid="classBMailComponent" kindref="compound">BMailComponent</ref> *</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="21" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1ae634821d215d6f200efc256280d53a30" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMailContainer::RemoveComponent</definition>
+        <argsstring>(int32 index)=0</argsstring>
+        <name>RemoveComponent</name>
+        <qualifiedname>BMailContainer::RemoveComponent</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="22" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMailContainer_1ac0d9c2e0bded415840312cc2d23fb955" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMailContainer::_ReservedContainer1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedContainer1</name>
+        <qualifiedname>BMailContainer::_ReservedContainer1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="28" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1a5c6d562f6788b65ad2e62862d06c89c0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMailContainer::_ReservedContainer2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedContainer2</name>
+        <qualifiedname>BMailContainer::_ReservedContainer2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="29" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1a6971b5884b33c0afa0b80b8d559f8f91" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMailContainer::_ReservedContainer3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedContainer3</name>
+        <qualifiedname>BMailContainer::_ReservedContainer3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="30" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMailContainer_1af74be2125086cd1c50be50ae0ce4d6af" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMailContainer::_ReservedContainer4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedContainer4</name>
+        <qualifiedname>BMailContainer::_ReservedContainer4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="31" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BMailComponent</label>
+        <link refid="classBMailComponent"/>
+      </node>
+      <node id="1">
+        <label>BMailContainer</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BMailComponent</label>
+        <link refid="classBMailComponent"/>
+      </node>
+      <node id="1">
+        <label>BMailContainer</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/mail/MailContainer.h" line="15" column="1" bodyfile="/boot/home/src/haiku/headers/os/mail/MailContainer.h" bodystart="15" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classBMailComponent_1a5c0a4133a09330701091d384cf2be591" prot="protected" virt="non-virtual"><scope>BMailContainer</scope><name>_charSetForTextDecoding</name></member>
+      <member refid="classBMailContainer_1ac0d9c2e0bded415840312cc2d23fb955" prot="private" virt="virtual"><scope>BMailContainer</scope><name>_ReservedContainer1</name></member>
+      <member refid="classBMailContainer_1a5c6d562f6788b65ad2e62862d06c89c0" prot="private" virt="virtual"><scope>BMailContainer</scope><name>_ReservedContainer2</name></member>
+      <member refid="classBMailContainer_1a6971b5884b33c0afa0b80b8d559f8f91" prot="private" virt="virtual"><scope>BMailContainer</scope><name>_ReservedContainer3</name></member>
+      <member refid="classBMailContainer_1af74be2125086cd1c50be50ae0ce4d6af" prot="private" virt="virtual"><scope>BMailContainer</scope><name>_ReservedContainer4</name></member>
+      <member refid="classBMailContainer_1a602a118eb637d6b09b33adcc2882a016" prot="public" virt="pure-virtual"><scope>BMailContainer</scope><name>AddComponent</name></member>
+      <member refid="classBMailComponent_1a896e3d00ea10a8e0a606e892a68006cc" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>BMailComponent</name></member>
+      <member refid="classBMailContainer_1a356bf45ce9788da373908abe788f6d36" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>BMailContainer</name></member>
+      <member refid="classBMailComponent_1a31efb4b32fb435918e9ada3afd2dc424" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>ComponentType</name></member>
+      <member refid="classBMailContainer_1a2dda83856b91aba689aff02e673fdf75" prot="public" virt="pure-virtual"><scope>BMailContainer</scope><name>CountComponents</name></member>
+      <member refid="classBMailContainer_1a67687ae9c0a43022d1822bb5d976d237" prot="public" virt="pure-virtual"><scope>BMailContainer</scope><name>GetComponent</name></member>
+      <member refid="classBMailComponent_1a46e65753239d6efe7856aafe02a7cc27" prot="public" virt="virtual"><scope>BMailContainer</scope><name>GetDecodedData</name></member>
+      <member refid="classBMailComponent_1a06cb67bf4ec90ca225ed5cf4c8cf115b" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>HeaderAt</name></member>
+      <member refid="classBMailComponent_1abc5f64496ba534360d0b1e9dcc0f17e4" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>HeaderField</name></member>
+      <member refid="classBMailComponent_1ac83168c9e94be178a111402eb4ac6484" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>HeaderField</name></member>
+      <member refid="classBMailComponent_1ab66ce045c8b608e7064bc091868d8953" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>IsAttachment</name></member>
+      <member refid="classBMailComponent_1a59da0d548d0bd23a29c7e9e043843377" prot="public" virt="virtual"><scope>BMailContainer</scope><name>MIMEType</name></member>
+      <member refid="classBMailContainer_1a405709a04f21333d5fedbc12a9419379" prot="public" virt="pure-virtual"><scope>BMailContainer</scope><name>RemoveComponent</name></member>
+      <member refid="classBMailContainer_1ae634821d215d6f200efc256280d53a30" prot="public" virt="pure-virtual"><scope>BMailContainer</scope><name>RemoveComponent</name></member>
+      <member refid="classBMailComponent_1a58bbcaedf4bb7d71e765835f4f4b92f5" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>RemoveHeader</name></member>
+      <member refid="classBMailComponent_1a1b38a761364e8cc7bcab62f921db1ee3" prot="public" virt="virtual"><scope>BMailContainer</scope><name>RenderToRFC822</name></member>
+      <member refid="classBMailComponent_1aba4b4e0d158e5c6c66cfd37b2fc38dd4" prot="public" virt="virtual"><scope>BMailContainer</scope><name>SetDecodedData</name></member>
+      <member refid="classBMailComponent_1acdb63a023d53293efda55180466dd14f" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>SetHeaderField</name></member>
+      <member refid="classBMailComponent_1ac918b8e513ea48fc9df181e96d88e22d" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>SetHeaderField</name></member>
+      <member refid="classBMailComponent_1a95a1764eb1e70b410be3bf7e3137d855" prot="public" virt="virtual"><scope>BMailContainer</scope><name>SetToRFC822</name></member>
+      <member refid="classBMailComponent_1ab7986c49344a2f9b14ede9974788a03a" prot="public" virt="non-virtual"><scope>BMailContainer</scope><name>WhatIsThis</name></member>
+      <member refid="classBMailComponent_1a2834a21549d0bee175d4f1df1cb3622f" prot="public" virt="virtual"><scope>BMailContainer</scope><name>~BMailComponent</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

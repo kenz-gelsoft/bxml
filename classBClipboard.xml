@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBClipboard" kind="class" language="C++" prot="public">
+    <compoundname>BClipboard</compoundname>
+      <sectiondef kind="user-defined">
+      <header>Commit Count</header>
+      <memberdef kind="function" id="classBClipboard_1a3ebf50bcad5524840398ef5c3aa67af2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BClipboard::LocalCount</definition>
+        <argsstring>() const</argsstring>
+        <name>LocalCount</name>
+        <qualifiedname>BClipboard::LocalCount</qualifiedname>
+        <briefdescription>
+<para>Returns the (locally cached) number of commits to the clipboard. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The returned value is the number of successful <ref refid="classBClipboard_1a987a3b6c6e9bc68e3d1b471fb71457fc" kindref="member">Commit()</ref> invocations for the clipboard represented by this object, either invoked on this object or another (even from another application). This method returns a locally cached value, which might already be obsolete. For an up-to-date value use <ref refid="classBClipboard_1ad338ae61edc9c6d1df73be89cd903afa" kindref="member">SystemCount()</ref>.</para>
+<para><simplesect kind="return"><para>The number of commits to the clipboard.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBClipboard_1ad338ae61edc9c6d1df73be89cd903afa" kindref="member">SystemCount()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="31" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1ad338ae61edc9c6d1df73be89cd903afa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BClipboard::SystemCount</definition>
+        <argsstring>() const</argsstring>
+        <name>SystemCount</name>
+        <qualifiedname>BClipboard::SystemCount</qualifiedname>
+        <briefdescription>
+<para>Returns the number of commits to the clipboard. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The returned value is the number of successful <ref refid="classBClipboard_1a987a3b6c6e9bc68e3d1b471fb71457fc" kindref="member">Commit()</ref> invocations for the clipboard represented by this object, either invoked on this object or another (even from another application). This method retrieves the value directly from the system service managing the clipboards, so it is more expensive, but more up-to-date than <ref refid="classBClipboard_1a3ebf50bcad5524840398ef5c3aa67af2" kindref="member">LocalCount()</ref>, which returns a locally cached value.</para>
+<para><simplesect kind="return"><para>The number of commits to the clipboard.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBClipboard_1a3ebf50bcad5524840398ef5c3aa67af2" kindref="member">LocalCount()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="32" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Monitoring</header>
+      <memberdef kind="function" id="classBClipboard_1a8edb82d5df9abb96a2273ea969e69e4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::StartWatching</definition>
+        <argsstring>(BMessenger target)</argsstring>
+        <name>StartWatching</name>
+        <qualifiedname>BClipboard::StartWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Start watching the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object for changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When a change in the clipboard occurs, most like as the result of a cut or copy action, a <emphasis>B_CLIPBOARD_CHANGED</emphasis> message is sent to <emphasis>target</emphasis>.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>target</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occured.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBClipboard_1a52dfd633666d0de9e8180e94277209da" kindref="member">StopWatching()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a52dfd633666d0de9e8180e94277209da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::StopWatching</definition>
+        <argsstring>(BMessenger target)</argsstring>
+        <name>StopWatching</name>
+        <qualifiedname>BClipboard::StopWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Stop watching the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object for changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>target</emphasis> is invalid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBClipboard_1a8edb82d5df9abb96a2273ea969e69e4c" kindref="member">StartWatching()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="34" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Locking</header>
+      <memberdef kind="function" id="classBClipboard_1af6739195b86ae73b7f8c16bb17ebb66c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BClipboard::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <qualifiedname>BClipboard::Lock</qualifiedname>
+        <briefdescription>
+<para>Locks the clipboard so that no other tread can read from it or write to it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You should call <ref refid="classBClipboard_1af6739195b86ae73b7f8c16bb17ebb66c" kindref="member">Lock()</ref> before reading or writing to the clipboard.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the clipboard was locked, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBClipboard_1afb846e47951f042740d81d0acdd3d078" kindref="member">Unlock()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="36" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1afb846e47951f042740d81d0acdd3d078" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BClipboard::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <qualifiedname>BClipboard::Unlock</qualifiedname>
+        <briefdescription>
+<para>Unlocks the clipboard. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBClipboard_1af6739195b86ae73b7f8c16bb17ebb66c" kindref="member">Lock()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="37" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a1397fc057cff4f3bb7abd1f99970ae22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BClipboard::IsLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLocked</name>
+        <qualifiedname>BClipboard::IsLocked</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the clipboard is locked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the clipboard is locked, <computeroutput>false</computeroutput> if it is unlocked.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="38" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Clipboard Data Transaction</header>
+      <memberdef kind="function" id="classBClipboard_1ab761d1164ce410618671312d2f9d6e70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <qualifiedname>BClipboard::Clear</qualifiedname>
+        <briefdescription>
+<para>Clears out all data from the clipboard. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You should call <ref refid="classBClipboard_1ab761d1164ce410618671312d2f9d6e70" kindref="member">Clear()</ref> before adding new data to the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object.</para>
+<para><simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clipboard is not locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory initializing the data message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a987a3b6c6e9bc68e3d1b471fb71457fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::Commit</definition>
+        <argsstring>()</argsstring>
+        <name>Commit</name>
+        <qualifiedname>BClipboard::Commit</qualifiedname>
+        <briefdescription>
+<para>Commits the clipboard data to the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clipboard is not locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1adb941a4d7b920486c96faa7491c8cab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::Commit</definition>
+        <argsstring>(bool failIfChanged)</argsstring>
+        <name>Commit</name>
+        <qualifiedname>BClipboard::Commit</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>failIfChanged</declname>
+        </param>
+        <briefdescription>
+<para>Commits the clipboard data to the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object with the option to fail if there is a change to the clipboard data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>failIfChanged</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to fail to commit the changes if there is a change in the clipboard data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clipboard is not locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a5393effd0c6f1eb5b6794a4bc9d9768f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::Revert</definition>
+        <argsstring>()</argsstring>
+        <name>Revert</name>
+        <qualifiedname>BClipboard::Revert</qualifiedname>
+        <briefdescription>
+<para>Reverts the clipboard data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The method should be used in the case that you have made a change to the clipboard data message and then decide to revert the change instead of committing it.</para>
+<para><simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NOT_ALLOWED</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clipboard is not locked. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory initializing the data message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Another error occurred.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="43" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Clipboard Data Message</header>
+      <memberdef kind="function" id="classBClipboard_1ad52756e9ae1b1ea7e59425c591b25703" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+        <definition>BMessenger BClipboard::DataSource</definition>
+        <argsstring>() const</argsstring>
+        <name>DataSource</name>
+        <qualifiedname>BClipboard::DataSource</qualifiedname>
+        <briefdescription>
+<para>Gets a <ref refid="classBMessenger" kindref="compound">BMessenger</ref> object targeting the application that last modified the clipboard. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The clipboard object does not need to be locked to call this method.</para>
+<para><simplesect kind="return"><para>A <ref refid="classBMessenger" kindref="compound">BMessenger</ref> object that targets the application that last modified the clipboard.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="45" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage * BClipboard::Data</definition>
+        <argsstring>() const</argsstring>
+        <name>Data</name>
+        <qualifiedname>BClipboard::Data</qualifiedname>
+        <briefdescription>
+<para>Gets a pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> object that holds the clipboard data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object is not locked this method returns <computeroutput>NULL</computeroutput>.</para>
+<para><simplesect kind="return"><para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> object that holds the clipboard data or <computeroutput>NULL</computeroutput> if the clipboard is not locked.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="46" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBClipboard_1a54b3bf02616c3097035c4ec1654e5329" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BClipboard::_reserved[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BClipboard::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="67" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1ae5535d2f92950be0d9ccef031c0719a4" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BClipboard::_reserved0</definition>
+        <argsstring></argsstring>
+        <name>_reserved0</name>
+        <qualifiedname>BClipboard::_reserved0</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="60" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1a9420a3cdd4fb30599773e8ccb7d77992" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+        <definition>BMessenger BClipboard::fClipHandler</definition>
+        <argsstring></argsstring>
+        <name>fClipHandler</name>
+        <qualifiedname>BClipboard::fClipHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="63" column="11" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1a2bc3d3f720e3da670c0c1dc1fd898d29" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BClipboard::fCount</definition>
+        <argsstring></argsstring>
+        <name>fCount</name>
+        <qualifiedname>BClipboard::fCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="65" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1a0b7facb07563a7fa9639f775b7e3818c" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+        <definition>BMessage* BClipboard::fData</definition>
+        <argsstring></argsstring>
+        <name>fData</name>
+        <qualifiedname>BClipboard::fData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="61" column="9" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1a44a374a605c2053adc764d31f60f5930" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+        <definition>BMessenger BClipboard::fDataSource</definition>
+        <argsstring></argsstring>
+        <name>fDataSource</name>
+        <qualifiedname>BClipboard::fDataSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="64" column="11" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1a3cedc525224293a13c88309f0204d121" prot="private" static="no" mutable="no">
+        <type><ref refid="classBLocker" kindref="compound">BLocker</ref></type>
+        <definition>BLocker BClipboard::fLock</definition>
+        <argsstring></argsstring>
+        <name>fLock</name>
+        <qualifiedname>BClipboard::fLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="62" column="8" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBClipboard_1ad1dfc3f984cb2488a2417cc489c5734f" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* BClipboard::fName</definition>
+        <argsstring></argsstring>
+        <name>fName</name>
+        <qualifiedname>BClipboard::fName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="66" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBClipboard_1aad708b905729146ba078a4e64ea6b0b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BClipboard::BClipboard</definition>
+        <argsstring>(const char *name, bool transient=false)</argsstring>
+        <name>BClipboard</name>
+        <qualifiedname>BClipboard::BClipboard</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>transient</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Create a <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object with the given <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>name</emphasis> parameter is <computeroutput>NULL</computeroutput> then the &quot;system&quot; <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object is constructed instead.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>name</emphasis> of the clipboard. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transient</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, lose data after a reboot (currently unused).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a61c6c94d8bbcb9853615c97e3ace0d2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BClipboard::~BClipboard</definition>
+        <argsstring>()</argsstring>
+        <name>~BClipboard</name>
+        <qualifiedname>BClipboard::~BClipboard</qualifiedname>
+        <briefdescription>
+<para>Destroys the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object. The clipboard data is not destroyed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="27" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1ac65770020e3178d6af8788a2bb196e81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * BClipboard::Name</definition>
+        <argsstring>() const</argsstring>
+        <name>Name</name>
+        <qualifiedname>BClipboard::Name</qualifiedname>
+        <briefdescription>
+<para>Returns the name of the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the clipboard.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="29" column="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBClipboard_1ab0c7cc07428540f5ca9dd9a99e126e9d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BClipboard::BClipboard</definition>
+        <argsstring>(const BClipboard &amp;)</argsstring>
+        <name>BClipboard</name>
+        <qualifiedname>BClipboard::BClipboard</qualifiedname>
+        <param>
+          <type>const <ref refid="classBClipboard" kindref="compound">BClipboard</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1aa802f06f792d9bc05793ef5a0aa8f35f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BClipboard::_AssertLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>_AssertLocked</name>
+        <qualifiedname>BClipboard::_AssertLocked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="56" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1ae8697c36e9cfeabb0b91a73182f8bafd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::_DownloadFromSystem</definition>
+        <argsstring>(bool force=false)</argsstring>
+        <name>_DownloadFromSystem</name>
+        <qualifiedname>BClipboard::_DownloadFromSystem</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a5630a04d5175e873bbd6fc1225414bd0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BClipboard::_ReservedClipboard1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedClipboard1</name>
+        <qualifiedname>BClipboard::_ReservedClipboard1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="52" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a865bdee263413d87fd67bbce01b688c9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BClipboard::_ReservedClipboard2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedClipboard2</name>
+        <qualifiedname>BClipboard::_ReservedClipboard2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="53" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1a12a30bbe0edb01b66fd30275e40b7fe8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BClipboard::_ReservedClipboard3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedClipboard3</name>
+        <qualifiedname>BClipboard::_ReservedClipboard3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="54" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1ae12cd767be93ee1275d93f3df88e5f6c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BClipboard::_UploadToSystem</definition>
+        <argsstring>()</argsstring>
+        <name>_UploadToSystem</name>
+        <qualifiedname>BClipboard::_UploadToSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="58" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBClipboard_1afd245dd5a2e0d7827acfe6d5b69700ea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBClipboard" kindref="compound">BClipboard</ref> &amp;</type>
+        <definition>BClipboard &amp; BClipboard::operator=</definition>
+        <argsstring>(const BClipboard &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BClipboard::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBClipboard" kindref="compound">BClipboard</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="50" column="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Used for short-term data storage between documents and applications via copy and paste operations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Clipboards are differentiated by their name. In order for two applications to share a clipboard they simply have to create a <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object with the same name. However, it is rarely necessary to create your own clipboard, instead you can use the <computeroutput>be_clipboard</computeroutput> system clipboard object.</para>
+<para><simplesect kind="remark"><para>To access the system clipboard without a <ref refid="classBApplication" kindref="compound">BApplication</ref> object, create a <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object with the name &quot;system&quot;. You should avoid creating a custom clipboard with the name &quot;system&quot; for your own use.</para>
+</simplesect>
+To access the clipboard data call the <ref refid="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" kindref="member">Data()</ref> method. The <ref refid="classBMessage" kindref="compound">BMessage</ref> object returned by the <ref refid="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" kindref="member">Data()</ref> method has the following properties:<itemizedlist>
+<listitem><para>The <computeroutput>what</computeroutput> value is unused.</para>
+</listitem><listitem><para>The clipboard data is stored in a message field typed as <computeroutput>B_MIME_TYPE</computeroutput>.</para>
+</listitem><listitem><para>The MIME type of the data is used as the name of the field that holds the data.</para>
+</listitem><listitem><para>Each field in the data message contains the same data with a different format.</para>
+</listitem></itemizedlist>
+</para>
+<para>To read and write to the clipboard you must first lock the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object. If you fail to lock the <ref refid="classBClipboard" kindref="compound">BClipboard</ref> object then the <ref refid="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" kindref="member">Data()</ref> method will return <computeroutput>NULL</computeroutput> instead of a pointer to a <ref refid="classBMessage" kindref="compound">BMessage</ref> object.</para>
+<para>Below is an example of reading a string from the system clipboard. <programlisting><codeline><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*string;</highlight></codeline>
+<codeline><highlight class="normal"><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>stringLen;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1af6739195b86ae73b7f8c16bb17ebb66c" kindref="member">Lock</ref>())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>clipboard<sp/>BMessage</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBMessage" kindref="compound">BMessage</ref><sp/>*clip<sp/>=<sp/><ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" kindref="member">Data</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>the<sp/>string<sp/>from<sp/>the<sp/>clipboard<sp/>data<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>clip-&gt;<ref refid="classBMessage_1a1e896648ee668dd5d6c8a4311d6cfa94" kindref="member">FindData</ref>(</highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/><ref refid="TypeConstants_8h_1a26e1124d33b4acdb532c49f6498df549a5533645300b1cb6cd682a48ce78b3b1b" kindref="member">B_MIME_TYPE</ref>,<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**)&amp;</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;stringLen);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1afb846e47951f042740d81d0acdd3d078" kindref="member">Unlock</ref>();</highlight></codeline>
+<codeline><highlight class="normal">}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;could<sp/>not<sp/>lock<sp/>clipboard.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting></para>
+<para>Below is an example of writing a string to the system clipboard. <programlisting><codeline><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Some<sp/>clipboard<sp/>data&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1af6739195b86ae73b7f8c16bb17ebb66c" kindref="member">Lock</ref>())<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clear<sp/>the<sp/>clipboard<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1ab761d1164ce410618671312d2f9d6e70" kindref="member">Clear</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>clipboard<sp/>data<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBMessage" kindref="compound">BMessage</ref><sp/>*clip<sp/>=<sp/><ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" kindref="member">Data</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Write<sp/>string<sp/>data<sp/>to<sp/>the<sp/>clipboard<sp/>data<sp/>message</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>clip-&gt;<ref refid="classBMessage_1a4b99de85becfb1058a893fc6e40c48ad" kindref="member">AddData</ref>(</highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/><ref refid="TypeConstants_8h_1a26e1124d33b4acdb532c49f6498df549a5533645300b1cb6cd682a48ce78b3b1b" kindref="member">B_MIME_TYPE</ref>,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">,<sp/>strlen(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal">));</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Commit<sp/>the<sp/>data<sp/>to<sp/>the<sp/>clipboard</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>status<sp/>=<sp/><ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1a987a3b6c6e9bc68e3d1b471fb71457fc" kindref="member">Commit</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status<sp/>!=<sp/>B_OK)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;could<sp/>not<sp/>commit<sp/>data<sp/>to<sp/>clipboard.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Clipboard_8h_1a28c5253fca2ac84019c1dd26dbb8ce56" kindref="member">be_clipboard</ref>-&gt;<ref refid="classBClipboard_1afb846e47951f042740d81d0acdd3d078" kindref="member">Unlock</ref>();</highlight></codeline>
+<codeline><highlight class="normal">}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;could<sp/>not<sp/>lock<sp/>clipboard.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+</programlisting></para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/app/Clipboard.h" line="23" column="1" bodyfile="/boot/home/src/haiku/headers/os/app/Clipboard.h" bodystart="23" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classBClipboard_1aa802f06f792d9bc05793ef5a0aa8f35f" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>_AssertLocked</name></member>
+      <member refid="classBClipboard_1ae8697c36e9cfeabb0b91a73182f8bafd" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>_DownloadFromSystem</name></member>
+      <member refid="classBClipboard_1a54b3bf02616c3097035c4ec1654e5329" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>_reserved</name></member>
+      <member refid="classBClipboard_1ae5535d2f92950be0d9ccef031c0719a4" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>_reserved0</name></member>
+      <member refid="classBClipboard_1a5630a04d5175e873bbd6fc1225414bd0" prot="private" virt="virtual"><scope>BClipboard</scope><name>_ReservedClipboard1</name></member>
+      <member refid="classBClipboard_1a865bdee263413d87fd67bbce01b688c9" prot="private" virt="virtual"><scope>BClipboard</scope><name>_ReservedClipboard2</name></member>
+      <member refid="classBClipboard_1a12a30bbe0edb01b66fd30275e40b7fe8" prot="private" virt="virtual"><scope>BClipboard</scope><name>_ReservedClipboard3</name></member>
+      <member refid="classBClipboard_1ae12cd767be93ee1275d93f3df88e5f6c" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>_UploadToSystem</name></member>
+      <member refid="classBClipboard_1aad708b905729146ba078a4e64ea6b0b4" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>BClipboard</name></member>
+      <member refid="classBClipboard_1ab0c7cc07428540f5ca9dd9a99e126e9d" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>BClipboard</name></member>
+      <member refid="classBClipboard_1ab761d1164ce410618671312d2f9d6e70" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Clear</name></member>
+      <member refid="classBClipboard_1a987a3b6c6e9bc68e3d1b471fb71457fc" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Commit</name></member>
+      <member refid="classBClipboard_1adb941a4d7b920486c96faa7491c8cab1" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Commit</name></member>
+      <member refid="classBClipboard_1a8725f40981256bce5e63ef7b5c70f9b4" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Data</name></member>
+      <member refid="classBClipboard_1ad52756e9ae1b1ea7e59425c591b25703" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>DataSource</name></member>
+      <member refid="classBClipboard_1a9420a3cdd4fb30599773e8ccb7d77992" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>fClipHandler</name></member>
+      <member refid="classBClipboard_1a2bc3d3f720e3da670c0c1dc1fd898d29" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>fCount</name></member>
+      <member refid="classBClipboard_1a0b7facb07563a7fa9639f775b7e3818c" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>fData</name></member>
+      <member refid="classBClipboard_1a44a374a605c2053adc764d31f60f5930" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>fDataSource</name></member>
+      <member refid="classBClipboard_1a3cedc525224293a13c88309f0204d121" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>fLock</name></member>
+      <member refid="classBClipboard_1ad1dfc3f984cb2488a2417cc489c5734f" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>fName</name></member>
+      <member refid="classBClipboard_1a1397fc057cff4f3bb7abd1f99970ae22" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>IsLocked</name></member>
+      <member refid="classBClipboard_1a3ebf50bcad5524840398ef5c3aa67af2" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>LocalCount</name></member>
+      <member refid="classBClipboard_1af6739195b86ae73b7f8c16bb17ebb66c" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Lock</name></member>
+      <member refid="classBClipboard_1ac65770020e3178d6af8788a2bb196e81" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Name</name></member>
+      <member refid="classBClipboard_1afd245dd5a2e0d7827acfe6d5b69700ea" prot="private" virt="non-virtual"><scope>BClipboard</scope><name>operator=</name></member>
+      <member refid="classBClipboard_1a5393effd0c6f1eb5b6794a4bc9d9768f" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Revert</name></member>
+      <member refid="classBClipboard_1a8edb82d5df9abb96a2273ea969e69e4c" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>StartWatching</name></member>
+      <member refid="classBClipboard_1a52dfd633666d0de9e8180e94277209da" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>StopWatching</name></member>
+      <member refid="classBClipboard_1ad338ae61edc9c6d1df73be89cd903afa" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>SystemCount</name></member>
+      <member refid="classBClipboard_1afb846e47951f042740d81d0acdd3d078" prot="public" virt="non-virtual"><scope>BClipboard</scope><name>Unlock</name></member>
+      <member refid="classBClipboard_1a61c6c94d8bbcb9853615c97e3ace0d2f" prot="public" virt="virtual"><scope>BClipboard</scope><name>~BClipboard</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

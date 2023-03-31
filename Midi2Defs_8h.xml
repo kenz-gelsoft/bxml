@@ -1,0 +1,1019 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="Midi2Defs_8h" kind="file" language="C++">
+    <compoundname>Midi2Defs.h</compoundname>
+    <includes local="no">OS.h</includes>
+    <includes refid="Errors_8h" local="no">Errors.h</includes>
+    <includedby refid="MidiEndpoint_8h" local="no">MidiEndpoint.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Midi2Defs.h</label>
+        <link refid="Midi2Defs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OS.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>Midi2Defs.h</label>
+        <link refid="Midi2Defs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>MidiConsumer.h</label>
+        <link refid="MidiConsumer_8h"/>
+      </node>
+      <node id="2">
+        <label>MidiEndpoint.h</label>
+        <link refid="MidiEndpoint_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>MidiProducer.h</label>
+        <link refid="MidiProducer_8h"/>
+      </node>
+      <node id="5">
+        <label>MidiRoster.h</label>
+        <link refid="MidiRoster_8h"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="user-defined">
+      <header>Channel Message Masks</header>
+      <description><para>Some definitions to define the raw MIDI events.</para>
+<para>The default implementation of <ref refid="classBMidiLocalConsumer_1a4b99be774374a9098cdb7535baef51bb" kindref="member">BMidiLocalConsumer::Data()</ref> uses these constants to determine which event has been passed on. If you override that method, you may use the constants yourself. </para>
+</description>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ab72dd05dad2248ba07f849f09b86750d" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_CHANNEL_PRESSURE</definition>
+        <argsstring></argsstring>
+        <name>B_CHANNEL_PRESSURE</name>
+        <initializer>= 0xd0</initializer>
+        <briefdescription>
+<para>Identifier of channel pressure message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="17" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a93fb77bc403e86ec58d4b57e79f20e9e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_CONTROL_CHANGE</definition>
+        <argsstring></argsstring>
+        <name>B_CONTROL_CHANGE</name>
+        <initializer>= 0xb0</initializer>
+        <briefdescription>
+<para>Identifier of control change message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="15" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a8f69196f837bc6d36b7862d9e26057df" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_KEY_PRESSURE</definition>
+        <argsstring></argsstring>
+        <name>B_KEY_PRESSURE</name>
+        <initializer>= 0xa0</initializer>
+        <briefdescription>
+<para>Identifier of key pressure message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="14" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a971821a14f599b21be6b0e0cdf888e72" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_NOTE_OFF</definition>
+        <argsstring></argsstring>
+        <name>B_NOTE_OFF</name>
+        <initializer>= 0x80</initializer>
+        <briefdescription>
+<para>Identifier of note off message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="12" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1abb0bb2e0bdbcf71c91704f0a85dcb9d3" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_NOTE_ON</definition>
+        <argsstring></argsstring>
+        <name>B_NOTE_ON</name>
+        <initializer>= 0x90</initializer>
+        <briefdescription>
+<para>Identifier of note on message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="13" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a90cca37d6a625a4be448ddbb5f43f73f" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_PITCH_BEND</definition>
+        <argsstring></argsstring>
+        <name>B_PITCH_BEND</name>
+        <initializer>= 0xe0</initializer>
+        <briefdescription>
+<para>Identifier of pitch bend message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="18" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a0453d6edc456cf5b42b3793821d6b691" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_PROGRAM_CHANGE</definition>
+        <argsstring></argsstring>
+        <name>B_PROGRAM_CHANGE</name>
+        <initializer>= 0xc0</initializer>
+        <briefdescription>
+<para>Identifier of program change message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="16" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>System Messages</header>
+      <description><para>Some definitions to define the raw MIDI system messages.</para>
+<para>The default implementation of <ref refid="classBMidiLocalConsumer_1a4b99be774374a9098cdb7535baef51bb" kindref="member">BMidiLocalConsumer::Data()</ref> uses these constants to determine which event system message has been passed on. See <ref refid="classBMidiLocalProducer_1a7e0de2eea30f60f75ef06a8bc03b853e" kindref="member">BMidiLocalProducer::SpraySystemCommon()</ref> and <ref refid="classBMidiLocalProducer_1a776c12865641386d826145a37796bd54" kindref="member">BMidiLocalProducer::SpraySystemRealTime()</ref> for more details on how and when to use these messages. </para>
+</description>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ab60642924f018683320316d9b38abf88" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_ACTIVE_SENSING</definition>
+        <argsstring></argsstring>
+        <name>B_ACTIVE_SENSING</name>
+        <initializer>= 0xfe</initializer>
+        <briefdescription>
+<para>Identifier of active sensing message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="32" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1acae6450dd14c07e1a2b573ab7cc8acf3" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_CABLE_MESSAGE</definition>
+        <argsstring></argsstring>
+        <name>B_CABLE_MESSAGE</name>
+        <initializer>= 0xf5</initializer>
+        <briefdescription>
+<para>Identifier of cable message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="25" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ac0002173949c4f7699bf951286536ed1" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_CONTINUE</definition>
+        <argsstring></argsstring>
+        <name>B_CONTINUE</name>
+        <initializer>= 0xfb</initializer>
+        <briefdescription>
+<para>Identifier of continue message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="30" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a100c7f0ea2002d7e7f75997e9321be68" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_MIDI_TIME_CODE</definition>
+        <argsstring></argsstring>
+        <name>B_MIDI_TIME_CODE</name>
+        <initializer>= 0xf1</initializer>
+        <briefdescription>
+<para>Identifier of midi time code message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="22" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a14c5c7aa68060f5f4de326ae95476a3c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SONG_POSITION</definition>
+        <argsstring></argsstring>
+        <name>B_SONG_POSITION</name>
+        <initializer>= 0xf2</initializer>
+        <briefdescription>
+<para>Identifier of song position message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="23" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a7365140887802f23589d370d00fe5bf4" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SONG_SELECT</definition>
+        <argsstring></argsstring>
+        <name>B_SONG_SELECT</name>
+        <initializer>= 0xf3</initializer>
+        <briefdescription>
+<para>Identifier of song select message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="24" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a1ccecbbe78c93d09032717406f3c5b14" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_START</definition>
+        <argsstring></argsstring>
+        <name>B_START</name>
+        <initializer>= 0xfa</initializer>
+        <briefdescription>
+<para>Identifier of start message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="29" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1adfe0a1536cb2c22ddfba9a2ad8c77370" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_STOP</definition>
+        <argsstring></argsstring>
+        <name>B_STOP</name>
+        <initializer>= 0xfc</initializer>
+        <briefdescription>
+<para>Identifier of stop message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="31" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a1d3c6d021b404836df850415161d05f8" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SYS_EX_END</definition>
+        <argsstring></argsstring>
+        <name>B_SYS_EX_END</name>
+        <initializer>= 0xf7</initializer>
+        <briefdescription>
+<para>Identifier of system exclusive end message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="27" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a5d8612051108ae47786bdc555c10a7e9" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SYS_EX_START</definition>
+        <argsstring></argsstring>
+        <name>B_SYS_EX_START</name>
+        <initializer>= 0xf0</initializer>
+        <briefdescription>
+<para>Identifier of system exclusive start message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="21" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a1e65b2d669951f437e0316edbf392646" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SYSTEM_RESET</definition>
+        <argsstring></argsstring>
+        <name>B_SYSTEM_RESET</name>
+        <initializer>= 0xff</initializer>
+        <briefdescription>
+<para>Identifier of system reset message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="33" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a130d29b8bc41d18ae66c492d811fa0bf" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_TIMING_CLOCK</definition>
+        <argsstring></argsstring>
+        <name>B_TIMING_CLOCK</name>
+        <initializer>= 0xf8</initializer>
+        <briefdescription>
+<para>Identifier of timing clock message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="28" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a27e4716d5b484e3c84a27755e463d762" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_TUNE_REQUEST</definition>
+        <argsstring></argsstring>
+        <name>B_TUNE_REQUEST</name>
+        <initializer>= 0xf6</initializer>
+        <briefdescription>
+<para>Identifier of tune request message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="26" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Controller Numbers</header>
+      <description><para>Constants that represent specific controller messages.</para>
+<para>These constants can be used in <ref refid="classBMidiLocalProducer_1a25e58f5d855eadfebd50d8ac5e9db423" kindref="member">BMidiLocalProducer::SprayControlChange()</ref> and <ref refid="classBMidiLocalConsumer_1a48ae4c29a7044c1f53fa2901f0aad548" kindref="member">BMidiLocalConsumer::ControlChange()</ref>. These constants represent the MIDI specification. </para>
+</description>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a1cc0e85e03ebdfe1b546bc9bbe2322dd" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_ALL_NOTES_OFF</definition>
+        <argsstring></argsstring>
+        <name>B_ALL_NOTES_OFF</name>
+        <initializer>= 0x7b</initializer>
+        <briefdescription>
+<para>Identifier of all notes off message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="68" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a41dea5954a259a32b66635c3209bae3b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_BREATH_CONTROLLER</definition>
+        <argsstring></argsstring>
+        <name>B_BREATH_CONTROLLER</name>
+        <initializer>= 0x02</initializer>
+        <briefdescription>
+<para>Identifier of breath controller message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="37" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1acdba1adb0b084526017450213f6b7169" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_CELESTE_DEPTH</definition>
+        <argsstring></argsstring>
+        <name>B_CELESTE_DEPTH</name>
+        <initializer>= 0x5e</initializer>
+        <briefdescription>
+<para>Identifier of celeste depth message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="62" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a8212c587d123d63713abd3cd58dadbf2" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_CHORUS_DEPTH</definition>
+        <argsstring></argsstring>
+        <name>B_CHORUS_DEPTH</name>
+        <initializer>= 0x5d</initializer>
+        <briefdescription>
+<para>Identifier of chorus depth message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="61" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ad07553414791bacd0639cbe09e2f6278" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_DATA_DECREMENT</definition>
+        <argsstring></argsstring>
+        <name>B_DATA_DECREMENT</name>
+        <initializer>= 0x61</initializer>
+        <briefdescription>
+<para>Identifier of data decrement message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="65" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1aa6360163f4dcdaadda907b82dc3a4119" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_DATA_ENTRY</definition>
+        <argsstring></argsstring>
+        <name>B_DATA_ENTRY</name>
+        <initializer>= 0x06</initializer>
+        <briefdescription>
+<para>Identifier of data entry message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="40" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a7b900faa83762fe5ecdd9331fb14f7f5" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_DATA_INCREMENT</definition>
+        <argsstring></argsstring>
+        <name>B_DATA_INCREMENT</name>
+        <initializer>= 0x60</initializer>
+        <briefdescription>
+<para>Identifier of data increment message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="64" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a81aea6c74dacae4c0899b00f70775d3a" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_EFFECTS_DEPTH</definition>
+        <argsstring></argsstring>
+        <name>B_EFFECTS_DEPTH</name>
+        <initializer>= 0x5b</initializer>
+        <briefdescription>
+<para>Identifier of effects depth message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="59" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a6546fb3d9aa8616e8b87c0a5db2526f5" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_EXPRESSION_CTRL</definition>
+        <argsstring></argsstring>
+        <name>B_EXPRESSION_CTRL</name>
+        <initializer>= 0x0b</initializer>
+        <briefdescription>
+<para>Identifier of expression control message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="44" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a61a14dee6c60665cef1391a458634fd0" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_FOOT_CONTROLLER</definition>
+        <argsstring></argsstring>
+        <name>B_FOOT_CONTROLLER</name>
+        <initializer>= 0x04</initializer>
+        <briefdescription>
+<para>Identifier of foot controller message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="38" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1aa44e719bb341bd7a746f1b9cb0c2efee" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_1</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_1</name>
+        <initializer>= 0x10</initializer>
+        <briefdescription>
+<para>Identifier of general control 1 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="45" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ac6cabe28feb0514448c7e4ecbe0abd8b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_2</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_2</name>
+        <initializer>= 0x11</initializer>
+        <briefdescription>
+<para>Identifier of general control 2 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="46" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ab4c84d24ea781743ce736b8ce2089525" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_3</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_3</name>
+        <initializer>= 0x12</initializer>
+        <briefdescription>
+<para>Identifier of general control 3 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="47" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1abc55b8e75f734c3537178ca671835e2e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_4</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_4</name>
+        <initializer>= 0x13</initializer>
+        <briefdescription>
+<para>Identifier of general control 4 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="48" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a0549a3ae64f2e02388149981faccd8fc" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_5</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_5</name>
+        <initializer>= 0x50</initializer>
+        <briefdescription>
+<para>Identifier of general control 5 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="54" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1addd56b641e0d5c1dabb65e3457371023" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_6</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_6</name>
+        <initializer>= 0x51</initializer>
+        <briefdescription>
+<para>Identifier of general control 6 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="55" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ab803b1cc98894ab515294d1e2164560e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_7</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_7</name>
+        <initializer>= 0x52</initializer>
+        <briefdescription>
+<para>Identifier of general control 7 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="57" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a0f16c50feecca73fc27737f7e08ca917" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_GENERAL_CTRL_8</definition>
+        <argsstring></argsstring>
+        <name>B_GENERAL_CTRL_8</name>
+        <initializer>= 0x53</initializer>
+        <briefdescription>
+<para>Identifier of general control 8 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="58" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a13f18cd9c7b0658c2a92f83b021465ac" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_HOLD_2</definition>
+        <argsstring></argsstring>
+        <name>B_HOLD_2</name>
+        <initializer>= 0x45</initializer>
+        <briefdescription>
+<para>Identifier of hold 2 message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="53" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a6d80c5975831c28ff591fddcedb96a1c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_LOCAL_CONTROL</definition>
+        <argsstring></argsstring>
+        <name>B_LOCAL_CONTROL</name>
+        <initializer>= 0x7a</initializer>
+        <briefdescription>
+<para>Identifier of local control message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="67" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1afdb6abb180e584719f30f816b1bea702" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_MAIN_VOLUME</definition>
+        <argsstring></argsstring>
+        <name>B_MAIN_VOLUME</name>
+        <initializer>= 0x07</initializer>
+        <briefdescription>
+<para>Identifier of main volume message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="41" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a66d88f3b4c70ed11d9c214bb11ebdf26" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_MIDI_BALANCE</definition>
+        <argsstring></argsstring>
+        <name>B_MIDI_BALANCE</name>
+        <initializer>= 0x08</initializer>
+        <briefdescription>
+<para>Identifier of MIDI balance message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="42" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a4989c8aa6f3998d706b022884a7b4dfd" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_MODULATION</definition>
+        <argsstring></argsstring>
+        <name>B_MODULATION</name>
+        <initializer>= 0x01</initializer>
+        <briefdescription>
+<para>Identifier of modulation message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="36" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a8ed3fda3e480de6345590bbb1b4fbb1c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_MONO_MODE_ON</definition>
+        <argsstring></argsstring>
+        <name>B_MONO_MODE_ON</name>
+        <initializer>= 0x7e</initializer>
+        <briefdescription>
+<para>Identifier of mono mode on message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="71" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a8e6cbf7bbab8eccde1d6e05a6045a814" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_OMNI_MODE_OFF</definition>
+        <argsstring></argsstring>
+        <name>B_OMNI_MODE_OFF</name>
+        <initializer>= 0x7c</initializer>
+        <briefdescription>
+<para>Identifier of omni mode off message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="69" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ac9602e6c4c172808ee11cd0e81df2d5b" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_OMNI_MODE_ON</definition>
+        <argsstring></argsstring>
+        <name>B_OMNI_MODE_ON</name>
+        <initializer>= 0x7d</initializer>
+        <briefdescription>
+<para>Identifier of omni mode on message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="70" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ae66adc422213a4f7dacdf3791c1da49c" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_PAN</definition>
+        <argsstring></argsstring>
+        <name>B_PAN</name>
+        <initializer>= 0x0a</initializer>
+        <briefdescription>
+<para>Identifier of pan message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="43" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a546cfdc23f66ef693d6dc04b9c7e1576" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_PHASER_DEPTH</definition>
+        <argsstring></argsstring>
+        <name>B_PHASER_DEPTH</name>
+        <initializer>= 0x5f</initializer>
+        <briefdescription>
+<para>Identifier of phaser depth message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="63" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1aac137f6accec9ea852423e48810fcf88" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_POLY_MODE_ON</definition>
+        <argsstring></argsstring>
+        <name>B_POLY_MODE_ON</name>
+        <initializer>= 0x7f</initializer>
+        <briefdescription>
+<para>Identifier of poly mode on message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="72" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a9f850fffe1d2e776e4721704730b03f7" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_PORTAMENTO</definition>
+        <argsstring></argsstring>
+        <name>B_PORTAMENTO</name>
+        <initializer>= 0x41</initializer>
+        <briefdescription>
+<para>Identifier of portamento message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="50" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a7cc2682cf8145e88bf7ca0ae67f8e8f2" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_PORTAMENTO_TIME</definition>
+        <argsstring></argsstring>
+        <name>B_PORTAMENTO_TIME</name>
+        <initializer>= 0x05</initializer>
+        <briefdescription>
+<para>Identifier of portamento time message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="39" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a6e62611623d4a833022dcdb1508cda6e" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_RESET_ALL_CONTROLLERS</definition>
+        <argsstring></argsstring>
+        <name>B_RESET_ALL_CONTROLLERS</name>
+        <initializer>= 0x79</initializer>
+        <briefdescription>
+<para>Identifier of reset all controllers message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="66" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a2bd9cc4aa9149d4793a9f043bc61c1f0" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SOFT_PEDAL</definition>
+        <argsstring></argsstring>
+        <name>B_SOFT_PEDAL</name>
+        <initializer>= 0x43</initializer>
+        <briefdescription>
+<para>Identifier of soft pedal message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="52" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a0ae5b3d9ff3b3ef42b3cc9c2f0fe9084" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SOSTENUTO</definition>
+        <argsstring></argsstring>
+        <name>B_SOSTENUTO</name>
+        <initializer>= 0x42</initializer>
+        <briefdescription>
+<para>Identifier of sostenuto message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="51" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1ac72f879327f4e595a9c4060f81a58001" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_SUSTAIN_PEDAL</definition>
+        <argsstring></argsstring>
+        <name>B_SUSTAIN_PEDAL</name>
+        <initializer>= 0x40</initializer>
+        <briefdescription>
+<para>Identifier of sustain pedal message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="49" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a1c079292c134dbeb106810687a95463f" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_TEMPO_CHANGE</definition>
+        <argsstring></argsstring>
+        <name>B_TEMPO_CHANGE</name>
+        <initializer>= 0x51</initializer>
+        <briefdescription>
+<para>Identifier of tempo change message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="56" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Midi2Defs_8h_1a571902e4e1bcd2d0af26885ef40abdbc" prot="public" static="no" mutable="no">
+        <type>const <ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+        <definition>B_TREMOLO_DEPTH</definition>
+        <argsstring></argsstring>
+        <name>B_TREMOLO_DEPTH</name>
+        <initializer>= 0x5c</initializer>
+        <briefdescription>
+<para>Identifier of tremelo depth message. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="60" column="13" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="Midi2Defs_8h_1acbac1613c6207431e1b763c9a65e1e03" prot="public" static="no">
+        <name>_MIDI_CONSTANTS_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" line="9" column="9" bodyfile="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Some definitions to define raw MIDI events. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_MIDI2_DEFS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_MIDI2_DEFS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OS.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Errors.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_MIDI_CONSTANTS_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_MIDI_CONSTANTS_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Channel<sp/>Message<sp/>Masks<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="Midi2Defs_8h_1a971821a14f599b21be6b0e0cdf888e72" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a971821a14f599b21be6b0e0cdf888e72" kindref="member">B_NOTE_OFF</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x80;</highlight></codeline>
+<codeline lineno="13" refid="Midi2Defs_8h_1abb0bb2e0bdbcf71c91704f0a85dcb9d3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1abb0bb2e0bdbcf71c91704f0a85dcb9d3" kindref="member">B_NOTE_ON</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x90;</highlight></codeline>
+<codeline lineno="14" refid="Midi2Defs_8h_1a8f69196f837bc6d36b7862d9e26057df" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a8f69196f837bc6d36b7862d9e26057df" kindref="member">B_KEY_PRESSURE</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xa0;</highlight></codeline>
+<codeline lineno="15" refid="Midi2Defs_8h_1a93fb77bc403e86ec58d4b57e79f20e9e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a93fb77bc403e86ec58d4b57e79f20e9e" kindref="member">B_CONTROL_CHANGE</ref><sp/><sp/><sp/><sp/>=<sp/>0xb0;</highlight></codeline>
+<codeline lineno="16" refid="Midi2Defs_8h_1a0453d6edc456cf5b42b3793821d6b691" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a0453d6edc456cf5b42b3793821d6b691" kindref="member">B_PROGRAM_CHANGE</ref><sp/><sp/><sp/><sp/>=<sp/>0xc0;</highlight></codeline>
+<codeline lineno="17" refid="Midi2Defs_8h_1ab72dd05dad2248ba07f849f09b86750d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ab72dd05dad2248ba07f849f09b86750d" kindref="member">B_CHANNEL_PRESSURE</ref><sp/><sp/>=<sp/>0xd0;</highlight></codeline>
+<codeline lineno="18" refid="Midi2Defs_8h_1a90cca37d6a625a4be448ddbb5f43f73f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a90cca37d6a625a4be448ddbb5f43f73f" kindref="member">B_PITCH_BEND</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xe0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>System<sp/>Messages<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="Midi2Defs_8h_1a5d8612051108ae47786bdc555c10a7e9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a5d8612051108ae47786bdc555c10a7e9" kindref="member">B_SYS_EX_START</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf0;</highlight></codeline>
+<codeline lineno="22" refid="Midi2Defs_8h_1a100c7f0ea2002d7e7f75997e9321be68" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a100c7f0ea2002d7e7f75997e9321be68" kindref="member">B_MIDI_TIME_CODE</ref><sp/><sp/><sp/><sp/>=<sp/>0xf1;</highlight></codeline>
+<codeline lineno="23" refid="Midi2Defs_8h_1a14c5c7aa68060f5f4de326ae95476a3c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a14c5c7aa68060f5f4de326ae95476a3c" kindref="member">B_SONG_POSITION</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf2;</highlight></codeline>
+<codeline lineno="24" refid="Midi2Defs_8h_1a7365140887802f23589d370d00fe5bf4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a7365140887802f23589d370d00fe5bf4" kindref="member">B_SONG_SELECT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf3;</highlight></codeline>
+<codeline lineno="25" refid="Midi2Defs_8h_1acae6450dd14c07e1a2b573ab7cc8acf3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1acae6450dd14c07e1a2b573ab7cc8acf3" kindref="member">B_CABLE_MESSAGE</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf5;</highlight></codeline>
+<codeline lineno="26" refid="Midi2Defs_8h_1a27e4716d5b484e3c84a27755e463d762" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a27e4716d5b484e3c84a27755e463d762" kindref="member">B_TUNE_REQUEST</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf6;</highlight></codeline>
+<codeline lineno="27" refid="Midi2Defs_8h_1a1d3c6d021b404836df850415161d05f8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a1d3c6d021b404836df850415161d05f8" kindref="member">B_SYS_EX_END</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf7;</highlight></codeline>
+<codeline lineno="28" refid="Midi2Defs_8h_1a130d29b8bc41d18ae66c492d811fa0bf" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a130d29b8bc41d18ae66c492d811fa0bf" kindref="member">B_TIMING_CLOCK</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xf8;</highlight></codeline>
+<codeline lineno="29" refid="Midi2Defs_8h_1a1ccecbbe78c93d09032717406f3c5b14" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a1ccecbbe78c93d09032717406f3c5b14" kindref="member">B_START</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xfa;</highlight></codeline>
+<codeline lineno="30" refid="Midi2Defs_8h_1ac0002173949c4f7699bf951286536ed1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ac0002173949c4f7699bf951286536ed1" kindref="member">B_CONTINUE</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xfb;</highlight></codeline>
+<codeline lineno="31" refid="Midi2Defs_8h_1adfe0a1536cb2c22ddfba9a2ad8c77370" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1adfe0a1536cb2c22ddfba9a2ad8c77370" kindref="member">B_STOP</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xfc;</highlight></codeline>
+<codeline lineno="32" refid="Midi2Defs_8h_1ab60642924f018683320316d9b38abf88" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ab60642924f018683320316d9b38abf88" kindref="member">B_ACTIVE_SENSING</ref><sp/><sp/><sp/><sp/>=<sp/>0xfe;</highlight></codeline>
+<codeline lineno="33" refid="Midi2Defs_8h_1a1e65b2d669951f437e0316edbf392646" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a1e65b2d669951f437e0316edbf392646" kindref="member">B_SYSTEM_RESET</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0xff;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Controller<sp/>Numbers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="Midi2Defs_8h_1a4989c8aa6f3998d706b022884a7b4dfd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a4989c8aa6f3998d706b022884a7b4dfd" kindref="member">B_MODULATION</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x01;</highlight></codeline>
+<codeline lineno="37" refid="Midi2Defs_8h_1a41dea5954a259a32b66635c3209bae3b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a41dea5954a259a32b66635c3209bae3b" kindref="member">B_BREATH_CONTROLLER</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>0x02;</highlight></codeline>
+<codeline lineno="38" refid="Midi2Defs_8h_1a61a14dee6c60665cef1391a458634fd0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a61a14dee6c60665cef1391a458634fd0" kindref="member">B_FOOT_CONTROLLER</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x04;</highlight></codeline>
+<codeline lineno="39" refid="Midi2Defs_8h_1a7cc2682cf8145e88bf7ca0ae67f8e8f2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a7cc2682cf8145e88bf7ca0ae67f8e8f2" kindref="member">B_PORTAMENTO_TIME</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x05;</highlight></codeline>
+<codeline lineno="40" refid="Midi2Defs_8h_1aa6360163f4dcdaadda907b82dc3a4119" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1aa6360163f4dcdaadda907b82dc3a4119" kindref="member">B_DATA_ENTRY</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x06;</highlight></codeline>
+<codeline lineno="41" refid="Midi2Defs_8h_1afdb6abb180e584719f30f816b1bea702" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1afdb6abb180e584719f30f816b1bea702" kindref="member">B_MAIN_VOLUME</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x07;</highlight></codeline>
+<codeline lineno="42" refid="Midi2Defs_8h_1a66d88f3b4c70ed11d9c214bb11ebdf26" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a66d88f3b4c70ed11d9c214bb11ebdf26" kindref="member">B_MIDI_BALANCE</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x08;</highlight></codeline>
+<codeline lineno="43" refid="Midi2Defs_8h_1ae66adc422213a4f7dacdf3791c1da49c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ae66adc422213a4f7dacdf3791c1da49c" kindref="member">B_PAN</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0a;</highlight></codeline>
+<codeline lineno="44" refid="Midi2Defs_8h_1a6546fb3d9aa8616e8b87c0a5db2526f5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a6546fb3d9aa8616e8b87c0a5db2526f5" kindref="member">B_EXPRESSION_CTRL</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x0b;</highlight></codeline>
+<codeline lineno="45" refid="Midi2Defs_8h_1aa44e719bb341bd7a746f1b9cb0c2efee" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1aa44e719bb341bd7a746f1b9cb0c2efee" kindref="member">B_GENERAL_CTRL_1</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x10;</highlight></codeline>
+<codeline lineno="46" refid="Midi2Defs_8h_1ac6cabe28feb0514448c7e4ecbe0abd8b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ac6cabe28feb0514448c7e4ecbe0abd8b" kindref="member">B_GENERAL_CTRL_2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x11;</highlight></codeline>
+<codeline lineno="47" refid="Midi2Defs_8h_1ab4c84d24ea781743ce736b8ce2089525" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ab4c84d24ea781743ce736b8ce2089525" kindref="member">B_GENERAL_CTRL_3</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x12;</highlight></codeline>
+<codeline lineno="48" refid="Midi2Defs_8h_1abc55b8e75f734c3537178ca671835e2e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1abc55b8e75f734c3537178ca671835e2e" kindref="member">B_GENERAL_CTRL_4</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x13;</highlight></codeline>
+<codeline lineno="49" refid="Midi2Defs_8h_1ac72f879327f4e595a9c4060f81a58001" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ac72f879327f4e595a9c4060f81a58001" kindref="member">B_SUSTAIN_PEDAL</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x40;</highlight></codeline>
+<codeline lineno="50" refid="Midi2Defs_8h_1a9f850fffe1d2e776e4721704730b03f7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a9f850fffe1d2e776e4721704730b03f7" kindref="member">B_PORTAMENTO</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x41;</highlight></codeline>
+<codeline lineno="51" refid="Midi2Defs_8h_1a0ae5b3d9ff3b3ef42b3cc9c2f0fe9084" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a0ae5b3d9ff3b3ef42b3cc9c2f0fe9084" kindref="member">B_SOSTENUTO</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x42;</highlight></codeline>
+<codeline lineno="52" refid="Midi2Defs_8h_1a2bd9cc4aa9149d4793a9f043bc61c1f0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a2bd9cc4aa9149d4793a9f043bc61c1f0" kindref="member">B_SOFT_PEDAL</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x43;</highlight></codeline>
+<codeline lineno="53" refid="Midi2Defs_8h_1a13f18cd9c7b0658c2a92f83b021465ac" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a13f18cd9c7b0658c2a92f83b021465ac" kindref="member">B_HOLD_2</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x45;</highlight></codeline>
+<codeline lineno="54" refid="Midi2Defs_8h_1a0549a3ae64f2e02388149981faccd8fc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a0549a3ae64f2e02388149981faccd8fc" kindref="member">B_GENERAL_CTRL_5</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x50;</highlight></codeline>
+<codeline lineno="55" refid="Midi2Defs_8h_1addd56b641e0d5c1dabb65e3457371023" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1addd56b641e0d5c1dabb65e3457371023" kindref="member">B_GENERAL_CTRL_6</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x51;</highlight></codeline>
+<codeline lineno="56" refid="Midi2Defs_8h_1a1c079292c134dbeb106810687a95463f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a1c079292c134dbeb106810687a95463f" kindref="member">B_TEMPO_CHANGE</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x51;</highlight></codeline>
+<codeline lineno="57" refid="Midi2Defs_8h_1ab803b1cc98894ab515294d1e2164560e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ab803b1cc98894ab515294d1e2164560e" kindref="member">B_GENERAL_CTRL_7</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x52;</highlight></codeline>
+<codeline lineno="58" refid="Midi2Defs_8h_1a0f16c50feecca73fc27737f7e08ca917" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a0f16c50feecca73fc27737f7e08ca917" kindref="member">B_GENERAL_CTRL_8</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x53;</highlight></codeline>
+<codeline lineno="59" refid="Midi2Defs_8h_1a81aea6c74dacae4c0899b00f70775d3a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a81aea6c74dacae4c0899b00f70775d3a" kindref="member">B_EFFECTS_DEPTH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x5b;</highlight></codeline>
+<codeline lineno="60" refid="Midi2Defs_8h_1a571902e4e1bcd2d0af26885ef40abdbc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a571902e4e1bcd2d0af26885ef40abdbc" kindref="member">B_TREMOLO_DEPTH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x5c;</highlight></codeline>
+<codeline lineno="61" refid="Midi2Defs_8h_1a8212c587d123d63713abd3cd58dadbf2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a8212c587d123d63713abd3cd58dadbf2" kindref="member">B_CHORUS_DEPTH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x5d;</highlight></codeline>
+<codeline lineno="62" refid="Midi2Defs_8h_1acdba1adb0b084526017450213f6b7169" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1acdba1adb0b084526017450213f6b7169" kindref="member">B_CELESTE_DEPTH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x5e;</highlight></codeline>
+<codeline lineno="63" refid="Midi2Defs_8h_1a546cfdc23f66ef693d6dc04b9c7e1576" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a546cfdc23f66ef693d6dc04b9c7e1576" kindref="member">B_PHASER_DEPTH</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x5f;</highlight></codeline>
+<codeline lineno="64" refid="Midi2Defs_8h_1a7b900faa83762fe5ecdd9331fb14f7f5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a7b900faa83762fe5ecdd9331fb14f7f5" kindref="member">B_DATA_INCREMENT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x60;</highlight></codeline>
+<codeline lineno="65" refid="Midi2Defs_8h_1ad07553414791bacd0639cbe09e2f6278" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ad07553414791bacd0639cbe09e2f6278" kindref="member">B_DATA_DECREMENT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x61;</highlight></codeline>
+<codeline lineno="66" refid="Midi2Defs_8h_1a6e62611623d4a833022dcdb1508cda6e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a6e62611623d4a833022dcdb1508cda6e" kindref="member">B_RESET_ALL_CONTROLLERS</ref><sp/>=<sp/>0x79;</highlight></codeline>
+<codeline lineno="67" refid="Midi2Defs_8h_1a6d80c5975831c28ff591fddcedb96a1c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a6d80c5975831c28ff591fddcedb96a1c" kindref="member">B_LOCAL_CONTROL</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x7a;</highlight></codeline>
+<codeline lineno="68" refid="Midi2Defs_8h_1a1cc0e85e03ebdfe1b546bc9bbe2322dd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a1cc0e85e03ebdfe1b546bc9bbe2322dd" kindref="member">B_ALL_NOTES_OFF</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x7b;</highlight></codeline>
+<codeline lineno="69" refid="Midi2Defs_8h_1a8e6cbf7bbab8eccde1d6e05a6045a814" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a8e6cbf7bbab8eccde1d6e05a6045a814" kindref="member">B_OMNI_MODE_OFF</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x7c;</highlight></codeline>
+<codeline lineno="70" refid="Midi2Defs_8h_1ac9602e6c4c172808ee11cd0e81df2d5b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1ac9602e6c4c172808ee11cd0e81df2d5b" kindref="member">B_OMNI_MODE_ON</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x7d;</highlight></codeline>
+<codeline lineno="71" refid="Midi2Defs_8h_1a8ed3fda3e480de6345590bbb1b4fbb1c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1a8ed3fda3e480de6345590bbb1b4fbb1c" kindref="member">B_MONO_MODE_ON</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x7e;</highlight></codeline>
+<codeline lineno="72" refid="Midi2Defs_8h_1aac137f6accec9ea852423e48810fcf88" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><ref refid="Midi2Defs_8h_1aac137f6accec9ea852423e48810fcf88" kindref="member">B_POLY_MODE_ON</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>0x7f;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_MIDI_CONSTANTS_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>_MIDI2_DEFS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/midi2/Midi2Defs.h"/>
+  </compounddef>
+</doxygen>

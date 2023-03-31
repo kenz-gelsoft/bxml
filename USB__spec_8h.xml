@@ -1,0 +1,973 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="USB__spec_8h" kind="file" language="C++">
+    <compoundname>USB_spec.h</compoundname>
+    <includes refid="SupportDefs_8h" local="no">SupportDefs.h</includes>
+    <includedby refid="USB3_8h" local="no">USB3.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>USB_spec.h</label>
+        <link refid="USB__spec_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="4">
+        <label>inttypes.h</label>
+      </node>
+      <node id="5">
+        <label>sys/types.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>USB3.h</label>
+        <link refid="USB3_8h"/>
+      </node>
+      <node id="1">
+        <label>USB_spec.h</label>
+        <link refid="USB__spec_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structusb__configuration__descriptor" prot="public">usb_configuration_descriptor</innerclass>
+    <innerclass refid="unionusb__descriptor" prot="public">usb_descriptor</innerclass>
+    <innerclass refid="structusb__device__descriptor" prot="public">usb_device_descriptor</innerclass>
+    <innerclass refid="structusb__endpoint__descriptor" prot="public">usb_endpoint_descriptor</innerclass>
+    <innerclass refid="structusb__generic__descriptor" prot="public">usb_generic_descriptor</innerclass>
+    <innerclass refid="structusb__interface__descriptor" prot="public">usb_interface_descriptor</innerclass>
+    <innerclass refid="structusb__string__descriptor" prot="public">usb_string_descriptor</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Request Types: targets and direction</header>
+      <description><para>These request types can be used in the <ref refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" kindref="member">usb_module_info::send_request()</ref> and <ref refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" kindref="member">usb_module_info::queue_request()</ref> methods. They specifiy both the type of interface and the direction of the transfer.</para>
+<para>These are usually combined with a category (found on this page). </para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1afa45763a7416c60bbfc7d4eaa40e3b81" prot="public" static="no">
+        <name>USB_REQTYPE_DEVICE_IN</name>
+        <initializer>0x80</initializer>
+        <briefdescription>
+<para>Device. In. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="13" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1af2c34442fded060cdde2698cf7728b45" prot="public" static="no">
+        <name>USB_REQTYPE_DEVICE_OUT</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>Device. Out. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="14" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a3f202c8c2c0f95104e0499ea05a3fbc0" prot="public" static="no">
+        <name>USB_REQTYPE_ENDPOINT_IN</name>
+        <initializer>0x82</initializer>
+        <briefdescription>
+<para>Endpoint. In. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="17" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a3b10d793bafe587e94f7fa66c843ba25" prot="public" static="no">
+        <name>USB_REQTYPE_ENDPOINT_OUT</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+<para>Endpoint. Out. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="18" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a1bae0bcd7c7151cc1b986c4512182422" prot="public" static="no">
+        <name>USB_REQTYPE_INTERFACE_IN</name>
+        <initializer>0x81</initializer>
+        <briefdescription>
+<para>Interface. In. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="15" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a03b6032e262dc068b95a4a3a45e600e1" prot="public" static="no">
+        <name>USB_REQTYPE_INTERFACE_OUT</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+<para>Interface. Out. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="16" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a9c3895f32637da602c50dc9390ef4912" prot="public" static="no">
+        <name>USB_REQTYPE_OTHER_IN</name>
+        <initializer>0x83</initializer>
+        <briefdescription>
+<para>Other. In. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="19" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a6c2db417c4b4ae227211744fd32061c1" prot="public" static="no">
+        <name>USB_REQTYPE_OTHER_OUT</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+<para>Other. Out. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="20" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Request Types: categories</header>
+      <description><para>These request types can be used in the <ref refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" kindref="member">usb_module_info::send_request()</ref> and <ref refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" kindref="member">usb_module_info::queue_request()</ref> methods. They specifiy the category of the transfer.</para>
+<para>These are usually combined with a target and direction (found on this page). </para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1a77d6d88e09fe3af350a57649e8f34c7f" prot="public" static="no">
+        <name>USB_REQTYPE_CLASS</name>
+        <initializer>0x20</initializer>
+        <briefdescription>
+<para>Request that adheres to the specifications of the class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="24" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1acef38afe7caf86262352630cf690d99e" prot="public" static="no">
+        <name>USB_REQTYPE_MASK</name>
+        <initializer>0x9f</initializer>
+        <briefdescription>
+<para>Constant that can be used as mask over the requesttype field. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="27" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1aeedc612cfc706c22db997b323f265f0e" prot="public" static="no">
+        <name>USB_REQTYPE_RESERVED</name>
+        <initializer>0x60</initializer>
+        <briefdescription>
+<para>Reserved for special implementations. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="26" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ac2576e6efe2d99d0910c277303268302" prot="public" static="no">
+        <name>USB_REQTYPE_STANDARD</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>Request that adheres to the USB specifications. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="23" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a3739ba60ab3d94aa1abb69085aa45152" prot="public" static="no">
+        <name>USB_REQTYPE_VENDOR</name>
+        <initializer>0x40</initializer>
+        <briefdescription>
+<para>Request that is defined by the specifications of the vendor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="25" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Standard Request Values</header>
+      <description><para>These request values are defined by the USB standard. You can use these constants in both the <ref refid="structusb__module__info_1a159be7a943c6bab2f8ba0f283f87cf5c" kindref="member">usb_module_info::send_request()</ref> and <ref refid="structusb__module__info_1a0fb27efb5515580d23358dc3391311ca" kindref="member">usb_module_info::queue_request()</ref> methods.</para>
+<para><simplesect kind="warning"><para>The stack handles most of these standard requests for you. Use the supplied convenience functions the the <ref refid="structusb__module__info" kindref="compound">usb_module_info</ref> interface rather than doing the requests yourself. Some of these request may actually interfere with the inner workings of the USB stack! </para>
+</simplesect>
+</para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1ab9fe860caa1f21c9410984a24bf57c7c" prot="public" static="no">
+        <name>USB_REQUEST_CLEAR_FEATURE</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Clear a feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="31" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a341ed4aff1f0d5a1a4a4f17cb606d08d" prot="public" static="no">
+        <name>USB_REQUEST_GET_CONFIGURATION</name>
+        <initializer>8</initializer>
+        <briefdescription>
+<para>Get a configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="36" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a3572226ee2137c7fbf7487a02b0f560f" prot="public" static="no">
+        <name>USB_REQUEST_GET_DESCRIPTOR</name>
+        <initializer>6</initializer>
+        <briefdescription>
+<para>Get a descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="34" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a25550f44898d9c9a3bf0a7814af7fe96" prot="public" static="no">
+        <name>USB_REQUEST_GET_INTERFACE</name>
+        <initializer>10</initializer>
+        <briefdescription>
+<para>Request an interface descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="38" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a062f3147a1bae954b642b915827b3f3f" prot="public" static="no">
+        <name>USB_REQUEST_GET_STATUS</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Get the status of a device. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="30" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ac87659819bfd6491120c819fae2d46bc" prot="public" static="no">
+        <name>USB_REQUEST_SET_ADDRESS</name>
+        <initializer>5</initializer>
+        <briefdescription>
+<para>Set the device address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="33" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1aadef005acc40340955d34d9767ef297c" prot="public" static="no">
+        <name>USB_REQUEST_SET_CONFIGURATION</name>
+        <initializer>9</initializer>
+        <briefdescription>
+<para>Set the configuration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="37" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a3c80fdedd69586ccf2894f5bd4638252" prot="public" static="no">
+        <name>USB_REQUEST_SET_DESCRIPTOR</name>
+        <initializer>7</initializer>
+        <briefdescription>
+<para>Update a descriptor to a supplied one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="35" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1aa2b4d305dcd185cc1242e94ee78eea25" prot="public" static="no">
+        <name>USB_REQUEST_SET_FEATURE</name>
+        <initializer>3</initializer>
+        <briefdescription>
+<para>Set a feature. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="32" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1af8d2ea632916bfc2a7628f63d3f643aa" prot="public" static="no">
+        <name>USB_REQUEST_SET_INTERFACE</name>
+        <initializer>11</initializer>
+        <briefdescription>
+<para>Set a specific interface. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="39" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a7497da1d974b456583b64889a2b5dd04" prot="public" static="no">
+        <name>USB_REQUEST_SYNCH_FRAME</name>
+        <initializer>12</initializer>
+        <briefdescription>
+<para>Synchronize a frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="40" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Descriptor Constants</header>
+      <description><para>These constants refer to a specific descriptor. They can be used when building a standard USB request for a descriptor, or in the <ref refid="structusb__module__info_1a8643ea1daa67bcbaa5dd5b0d7b79f4e4" kindref="member">usb_module_info::get_descriptor()</ref> method. </para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1aa17b365c4eb8bd2f6a4d4e4fb5f881c7" prot="public" static="no">
+        <name>USB_DESCRIPTOR_CONFIGURATION</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+<para>Constant for a configuration descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="44" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ac6d0566773ed4549fe1a7a932e6c46de" prot="public" static="no">
+        <name>USB_DESCRIPTOR_DEVICE</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+<para>Constant for the device descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="43" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ac3f574f82929eedc3386195f9a941203" prot="public" static="no">
+        <name>USB_DESCRIPTOR_ENDPOINT</name>
+        <initializer>0x05</initializer>
+        <briefdescription>
+<para>Constant for an endpoint descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="47" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a5856eef11136823c671407f77cc5d254" prot="public" static="no">
+        <name>USB_DESCRIPTOR_INTERFACE</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+<para>Constant for an interface descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="46" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1abbad38caa1ca9c52f47adccd3a850aed" prot="public" static="no">
+        <name>USB_DESCRIPTOR_STRING</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+<para>Constant for a string descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="45" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Feature Requests</header>
+      <description><para>These constants refer to standard feature requests. You can use these using the convenient <ref refid="structusb__module__info_1a60d13fcb389e508283d36fb2b2431b7f" kindref="member">usb_module_info::set_feature()</ref> and <ref refid="structusb__module__info_1a64e431fb32e434ba29305dbffaa69b02" kindref="member">usb_module_info::clear_feature()</ref> methods. </para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1ab75da7fec6dd00924f1d9f4e3c587a6f" prot="public" static="no">
+        <name>USB_FEATURE_DEVICE_REMOTE_WAKEUP</name>
+        <initializer>1</initializer>
+        <briefdescription>
+<para>Request a device to wakeup from remote calls. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="56" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a0a75e9871273bf2c40d1d9aa1641c8ce" prot="public" static="no">
+        <name>USB_FEATURE_ENDPOINT_HALT</name>
+        <initializer>0</initializer>
+        <briefdescription>
+<para>Request for a specific endpoint to halt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="57" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Endpoint Attributes</header>
+      <description><para>These constants refer to values in the usb_endpoint_descriptor::attributes field. </para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1a047bfd3bbf1131ae8ede74fb0ae2a16c" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_BULK</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+<para>Endpoint facilitates bulk transfers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="61" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ab1e838145ba06656041249cd69235462" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_CONTROL</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>Endpoint facilitates control transfers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="59" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a70df2b8053c7bf219de175bb70eaa72a" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_INTERRUPT</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+<para>Endpoint facilitates interrupt transfers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="62" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1aea0ab078ed62729e0725366726091d74" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_ISOCHRONOUS</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+<para>Endpoint facilitates isochronous transfers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="60" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ae8e0db984ecafd2bf560fe08e548ee86" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_MASK</name>
+        <initializer>0x03</initializer>
+        <briefdescription>
+<para>Constant to mask out transfer types. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="63" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Endpoint Address</header>
+      <description><para>These constants refer to the direction that is embedded in the usb_endpoint_descriptor::address field. </para>
+</description>
+      <memberdef kind="define" id="USB__spec_8h_1a7648e16b01de46c84ede6b1b97edd863" prot="public" static="no">
+        <name>USB_ENDPOINT_ADDR_DIR_IN</name>
+        <initializer>0x80</initializer>
+        <briefdescription>
+<para>The endpoint provides data for the driver. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="79" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a46850c8487878c4e1cf5ae146f0c458e" prot="public" static="no">
+        <name>USB_ENDPOINT_ADDR_DIR_OUT</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+<para>The endpoint accepts data from the host. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="80" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="USB__spec_8h_1aca341e2b06dd31a775a4c0715323f49d" prot="public" static="no">
+        <name>USB_DESCRIPTOR_CS_CONFIGURATION</name>
+        <initializer>0x22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="50" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a99043c0cc86c9e4d7f7a748817f814e6" prot="public" static="no">
+        <name>USB_DESCRIPTOR_CS_DEVICE</name>
+        <initializer>0x21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="49" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a3e3d4c368cbf3dc31f742cf7f5b2bd9a" prot="public" static="no">
+        <name>USB_DESCRIPTOR_CS_ENDPOINT</name>
+        <initializer>0x25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="53" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ab555654f5621ae927a674b3bed3e3767" prot="public" static="no">
+        <name>USB_DESCRIPTOR_CS_INTERFACE</name>
+        <initializer>0x24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="52" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1aaaf1e6842e5642082a92ebf8dcd82031" prot="public" static="no">
+        <name>USB_DESCRIPTOR_CS_STRING</name>
+        <initializer>0x23</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="51" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a80a61b2eefd74ca822b052b52f6c84c7" prot="public" static="no">
+        <name>USB_ENDPOINT_ADDR_DIR_MASK</name>
+        <initializer>0x80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="81" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1aebbda45e41a5586ea95408ae48e41e8d" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_ADAPTIVE_SYNCHRO</name>
+        <initializer>0x08</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="68" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ad2d3bc95f49f4f39e9f679950e9c744f" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_ASYNCRONOUS</name>
+        <initializer>0x04</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="67" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1afcaf77a7db5999dee180b1cd58e0657b" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_DATA_USAGE</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="73" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a5dc8eb69b53fe383afa33314f93182b9" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_FEEDBACK_USAGE</name>
+        <initializer>0x10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="74" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a183b4f800a0e48e499424fb147d8525a" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_IMPLICIT_USAGE</name>
+        <initializer>0x20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="75" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1ab139de0ce6867df2ccf178546d0bf27b" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_NO_SYNCHRONIZE</name>
+        <initializer>0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="66" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a6387d063ccece0bdd7c0cf12966953a9" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_SYNCHRONIZE_MASK</name>
+        <initializer>0x0C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="70" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a84c0ca3d1f25646b6fd4d38c3b0c123f" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_SYNCHRONOUS</name>
+        <initializer>0x0C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="69" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="USB__spec_8h_1a0117123cfb5502fadc681926ae0bb523" prot="public" static="no">
+        <name>USB_ENDPOINT_ATTR_USAGE_MASK</name>
+        <initializer>0x30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="76" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="USB__spec_8h_1a557c0ed152deb2719c74809afde46e16" prot="public" static="no">
+        <type>struct usb_configuration_descriptor</type>
+        <definition>typedef struct usb_configuration_descriptor usb_configuration_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_configuration_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="110" column="38"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB__spec_8h_1ac2772432eaf1a4461c65433acc172278" prot="public" static="no">
+        <type>union usb_descriptor</type>
+        <definition>typedef union usb_descriptor usb_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="152" column="16"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB__spec_8h_1a0594c6be62cf95bd825c84fe5915eb09" prot="public" static="no">
+        <type>struct usb_device_descriptor</type>
+        <definition>typedef struct usb_device_descriptor usb_device_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_device_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="99" column="31"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB__spec_8h_1a5901e4abe32f2a9af04c6758aa7f791f" prot="public" static="no">
+        <type>struct usb_endpoint_descriptor</type>
+        <definition>typedef struct usb_endpoint_descriptor usb_endpoint_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_endpoint_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="131" column="33"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB__spec_8h_1a0778cd78d5bec1311435a7d86f0b9bac" prot="public" static="no">
+        <type>struct usb_generic_descriptor</type>
+        <definition>typedef struct usb_generic_descriptor usb_generic_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_generic_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="143" column="32"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB__spec_8h_1acc733ac9d24b4b43b8009bf4cdabb95a" prot="public" static="no">
+        <type>struct usb_interface_descriptor</type>
+        <definition>typedef struct usb_interface_descriptor usb_interface_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_interface_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="122" column="34"/>
+      </memberdef>
+      <memberdef kind="typedef" id="USB__spec_8h_1a0c413d9a257f9008b1547136977c840d" prot="public" static="no">
+        <type>struct usb_string_descriptor</type>
+        <definition>typedef struct usb_string_descriptor usb_string_descriptor</definition>
+        <argsstring></argsstring>
+        <name>usb_string_descriptor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h" line="137" column="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General definitions as defined by the USB standard. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2009,<sp/>Haiku<sp/>Inc.<sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_USB_SPEC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_USB_SPEC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SupportDefs_8h" kindref="compound">SupportDefs.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Request<sp/>types<sp/>(target/direction)<sp/>for<sp/>send_request()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="USB__spec_8h_1afa45763a7416c60bbfc7d4eaa40e3b81" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_DEVICE_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="USB__spec_8h_1af2c34442fded060cdde2698cf7728b45" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_DEVICE_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="USB__spec_8h_1a1bae0bcd7c7151cc1b986c4512182422" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_INTERFACE_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x81</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="USB__spec_8h_1a03b6032e262dc068b95a4a3a45e600e1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_INTERFACE_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="USB__spec_8h_1a3f202c8c2c0f95104e0499ea05a3fbc0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_ENDPOINT_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x82</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="USB__spec_8h_1a3b10d793bafe587e94f7fa66c843ba25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_ENDPOINT_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="USB__spec_8h_1a9c3895f32637da602c50dc9390ef4912" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_OTHER_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x83</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="USB__spec_8h_1a6c2db417c4b4ae227211744fd32061c1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_OTHER_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Request<sp/>types<sp/>for<sp/>send_request()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="USB__spec_8h_1ac2576e6efe2d99d0910c277303268302" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_STANDARD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="USB__spec_8h_1a77d6d88e09fe3af350a57649e8f34c7f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_CLASS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="USB__spec_8h_1a3739ba60ab3d94aa1abb69085aa45152" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_VENDOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x40</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="USB__spec_8h_1aeedc612cfc706c22db997b323f265f0e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_RESERVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x60</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="USB__spec_8h_1acef38afe7caf86262352630cf690d99e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQTYPE_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x9f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Standard<sp/>request<sp/>values<sp/>for<sp/>send_request()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="USB__spec_8h_1a062f3147a1bae954b642b915827b3f3f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_GET_STATUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="USB__spec_8h_1ab9fe860caa1f21c9410984a24bf57c7c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_CLEAR_FEATURE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="USB__spec_8h_1aa2b4d305dcd185cc1242e94ee78eea25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_SET_FEATURE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="USB__spec_8h_1ac87659819bfd6491120c819fae2d46bc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_SET_ADDRESS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="USB__spec_8h_1a3572226ee2137c7fbf7487a02b0f560f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_GET_DESCRIPTOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="USB__spec_8h_1a3c80fdedd69586ccf2894f5bd4638252" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_SET_DESCRIPTOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="USB__spec_8h_1a341ed4aff1f0d5a1a4a4f17cb606d08d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_GET_CONFIGURATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="USB__spec_8h_1aadef005acc40340955d34d9767ef297c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_SET_CONFIGURATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/>9</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="USB__spec_8h_1a25550f44898d9c9a3bf0a7814af7fe96" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_GET_INTERFACE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="USB__spec_8h_1af8d2ea632916bfc2a7628f63d3f643aa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_SET_INTERFACE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="USB__spec_8h_1a7497da1d974b456583b64889a2b5dd04" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_REQUEST_SYNCH_FRAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Used<sp/>by<sp/>{set|get}_descriptor()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="USB__spec_8h_1ac6d0566773ed4549fe1a7a932e6c46de" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_DEVICE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="USB__spec_8h_1aa17b365c4eb8bd2f6a4d4e4fb5f881c7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_CONFIGURATION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="USB__spec_8h_1abbad38caa1ca9c52f47adccd3a850aed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_STRING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="USB__spec_8h_1a5856eef11136823c671407f77cc5d254" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_INTERFACE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x04</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="USB__spec_8h_1ac3f574f82929eedc3386195f9a941203" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_ENDPOINT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x05</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>conventional<sp/>class-specific<sp/>descriptors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_CS_DEVICE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x21</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_CS_CONFIGURATION<sp/><sp/><sp/><sp/><sp/>0x22</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_CS_STRING<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x23</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_CS_INTERFACE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x24</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_DESCRIPTOR_CS_ENDPOINT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x25</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Used<sp/>by<sp/>{set|clear}_feature()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="USB__spec_8h_1ab75da7fec6dd00924f1d9f4e3c587a6f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_FEATURE_DEVICE_REMOTE_WAKEUP<sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="USB__spec_8h_1a0a75e9871273bf2c40d1d9aa1641c8ce" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_FEATURE_ENDPOINT_HALT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="USB__spec_8h_1ab1e838145ba06656041249cd69235462" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_CONTROL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="USB__spec_8h_1aea0ab078ed62729e0725366726091d74" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_ISOCHRONOUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="USB__spec_8h_1a047bfd3bbf1131ae8ede74fb0ae2a16c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_BULK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="USB__spec_8h_1a70df2b8053c7bf219de175bb70eaa72a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_INTERRUPT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="USB__spec_8h_1ae8e0db984ecafd2bf560fe08e548ee86" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x03</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Synchronization<sp/>-<sp/>isochrnous<sp/>endpoints<sp/>only<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_NO_SYNCHRONIZE<sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_ASYNCRONOUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x04</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_ADAPTIVE_SYNCHRO<sp/><sp/>0x08</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_SYNCHRONOUS<sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_SYNCHRONIZE_MASK<sp/><sp/>0x0C</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Usage<sp/>Type<sp/>-<sp/>isochrnous<sp/>endpoints<sp/>only<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_DATA_USAGE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_FEEDBACK_USAGE<sp/><sp/><sp/><sp/>0x10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_IMPLICIT_USAGE<sp/><sp/><sp/><sp/>0x20</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ATTR_USAGE_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x30</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Direction<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="USB__spec_8h_1a7648e16b01de46c84ede6b1b97edd863" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ADDR_DIR_IN<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="USB__spec_8h_1a46850c8487878c4e1cf5ae146f0c458e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ADDR_DIR_OUT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x00</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USB_ENDPOINT_ADDR_DIR_MASK<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">usb_device_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>length;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>descriptor_type;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/>usb_version;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>device_class;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>device_subclass;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>device_protocol;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>max_packet_size_0;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/>vendor_id;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/>product_id;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/>device_version;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>manufacturer;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>product;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>serial_number;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>num_configurations;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}<sp/>_PACKED<sp/>usb_device_descriptor;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">usb_configuration_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>length;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>descriptor_type;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/>total_length;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>number_interfaces;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>configuration_value;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>configuration;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>attributes;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>max_power;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}<sp/>_PACKED<sp/>usb_configuration_descriptor;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">usb_interface_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>length;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>descriptor_type;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>interface_number;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>alternate_setting;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>num_endpoints;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>interface_class;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>interface_subclass;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>interface_protocol;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>interface;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}<sp/>_PACKED<sp/>usb_interface_descriptor;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">usb_endpoint_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>length;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>descriptor_type;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>endpoint_address;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>attributes;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac267cdaa9a4909f02aa2fc83cc7da477" kindref="member">uint16</ref><sp/><sp/>max_packet_size;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>interval;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}<sp/>_PACKED<sp/>usb_endpoint_descriptor;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">usb_string_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>length;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>descriptor_type;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal">[1];</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}<sp/>_PACKED<sp/>usb_string_descriptor;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">usb_generic_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>length;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>descriptor_type;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/><sp/><sp/>data[1];</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}<sp/>_PACKED<sp/>usb_generic_descriptor;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal">usb_descriptor<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_generic_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">generic</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_device_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>device;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_interface_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>interface;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_endpoint_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endpoint;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_configuration_descriptor<sp/><sp/><sp/><sp/>configuration;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>usb_string_descriptor<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>string;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}<sp/>usb_descriptor;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_USB_SPEC_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/drivers/USB_spec.h"/>
+  </compounddef>
+</doxygen>

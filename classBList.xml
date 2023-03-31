@@ -1,0 +1,1370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBList" kind="class" language="C++" prot="public">
+    <compoundname>BList</compoundname>
+    <derivedcompoundref refid="class__PointerList__" prot="public" virt="non-virtual">_PointerList_</derivedcompoundref>
+      <sectiondef kind="user-defined">
+      <header>Operators</header>
+      <memberdef kind="function" id="classBList_1af7da7ecbaaa1963074ca17302adb6099" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBList" kindref="compound">BList</ref> &amp;</type>
+        <definition>BList &amp; BList::operator=</definition>
+        <argsstring>(const BList &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BList::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy another list into this object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="18" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1aaec14d70fda5ee21b0bfb26702b6640e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::operator==</definition>
+        <argsstring>(const BList &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>BList::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether or not the <ref refid="classBList" kindref="compound">BList</ref> and <emphasis>other</emphasis> are equal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Equal means that they are the same object or their contents are the same.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the lists are equal, <computeroutput>false</computeroutput> if they are NOT equal.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="19" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1abbaf2188cd4f4f1588399b4dd7be5c7b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::operator!=</definition>
+        <argsstring>(const BList &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>BList::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether or not the <ref refid="classBList" kindref="compound">BList</ref> and <emphasis>other</emphasis> are NOT equal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the lists are NOT equal, <computeroutput>false</computeroutput> if they are equal.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="20" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Adding and Removing Items</header>
+      <memberdef kind="function" id="classBList_1ab827c4118ba2a46eae24f5a41eb9bdb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::AddItem</definition>
+        <argsstring>(void *item, int32 index)</argsstring>
+        <name>AddItem</name>
+        <qualifiedname>BList::AddItem</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Add <emphasis>item</emphasis> at the specified <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> to add. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The place in the list to add the <emphasis>item</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the item was added. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item was added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Item was not added. Either the index is negative or invalid, or resizing the list failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1a466d0c711d3736a185ca243749120ad3" kindref="member">AddItem(void*)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="23" column="5"/>
+        <referencedby refid="classBObjectList_1a8474455acae0f14ac9c4104727f06f99" compoundref="ObjectList_8h" startline="477" endline="481">BObjectList&lt; T &gt;::AddItem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a466d0c711d3736a185ca243749120ad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::AddItem</definition>
+        <argsstring>(void *item)</argsstring>
+        <name>AddItem</name>
+        <qualifiedname>BList::AddItem</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Append the <emphasis>item</emphasis> to the end of the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item to append.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>item</emphasis> was appended. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> was appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>item</emphasis> was not appended, since resizing the <ref refid="classBList" kindref="compound">BList</ref> failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1ab827c4118ba2a46eae24f5a41eb9bdb6" kindref="member">AddItem(void*, int32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="24" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1ad6d19427b9f9f6accf0ab5ab5df7f219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::AddList</definition>
+        <argsstring>(const BList *list, int32 index)</argsstring>
+        <name>AddList</name>
+        <qualifiedname>BList::AddList</qualifiedname>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Add a <emphasis>list</emphasis> of items to this list at the specified <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that the <emphasis>list</emphasis> parameter is <computeroutput>const</computeroutput>, so the original list will not be altered.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> to be added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The position in the current <emphasis>list</emphasis> where the new item(s) are added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>list</emphasis> was added. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> was added. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to insert the <emphasis>list</emphasis> resizing failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1a285e109e612c8e2c18fd09436e9afd6d" kindref="member">AddList(const BList*)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="25" column="5"/>
+        <referencedby refid="classBObjectList_1aab84cecc949a75574321ac580b4297f8" compoundref="ObjectList_8h" startline="494" endline="497">BObjectList&lt; T &gt;::AddList</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a285e109e612c8e2c18fd09436e9afd6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::AddList</definition>
+        <argsstring>(const BList *list)</argsstring>
+        <name>AddList</name>
+        <qualifiedname>BList::AddList</qualifiedname>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>Append a <emphasis>list</emphasis> of items to this list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that the <emphasis>list</emphasis> parameter is a <computeroutput>const</computeroutput>, so the original list will not be altered.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> to be added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>list</emphasis> was added. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>list</emphasis> was appended. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to append the list, resizing failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1ad6d19427b9f9f6accf0ab5ab5df7f219" kindref="member">AddList(const BList*, int32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="26" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1abea827f5275c57b89fe463e1ad191088" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::RemoveItem</definition>
+        <argsstring>(void *item)</argsstring>
+        <name>RemoveItem</name>
+        <qualifiedname>BList::RemoveItem</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Remove <emphasis>item</emphasis> from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> to be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the <emphasis>item</emphasis> was removed. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> was found and removed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>item</emphasis> was not in this list and thus not removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1a4ce0e34daae40f74ff024773a5f799b2" kindref="member">RemoveItem(int32)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="28" column="5"/>
+        <referencedby refid="classBObjectList_1ab2122267be7d9699b6cf66396824dc24" compoundref="ObjectList_8h" startline="510" endline="518">BObjectList&lt; T &gt;::RemoveItem</referencedby>
+        <referencedby refid="classBObjectList_1aa1865b1756f09be36b674414be3d0251" compoundref="ObjectList_8h" startline="523" endline="526">BObjectList&lt; T &gt;::RemoveItemAt</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a4ce0e34daae40f74ff024773a5f799b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BList::RemoveItem</definition>
+        <argsstring>(int32 index)</argsstring>
+        <name>RemoveItem</name>
+        <qualifiedname>BList::RemoveItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Remove the item at <emphasis>index</emphasis> from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>index</emphasis> of the item to be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The pointer to the item that was removed, or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> was invalid.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBList_1abea827f5275c57b89fe463e1ad191088" kindref="member">RemoveItem(void*)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="29" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a401542cd9d61fe480bcfd61e7caf9f3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::RemoveItems</definition>
+        <argsstring>(int32 index, int32 count)</argsstring>
+        <name>RemoveItems</name>
+        <qualifiedname>BList::RemoveItems</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Remove a number of items starting at a certain position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the count parameter is larger than the number of items in the list, all the items from the offset to the end will be removed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the list where removal should start. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of items to remove.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the items were removed. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Removal succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to remove the items because the index was invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="30" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a043d798461212144c1388f3ee6059cda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::ReplaceItem</definition>
+        <argsstring>(int32 index, void *item)</argsstring>
+        <name>ReplaceItem</name>
+        <qualifiedname>BList::ReplaceItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Replace an item with another one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the list where to put the <emphasis>item</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>item</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new <emphasis>item</emphasis> to put in the list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the item was replaced. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item was replaced. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>index</emphasis> was invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="31" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1ad7529a3817b21cd33f34802f1efa26bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BList::MakeEmpty</definition>
+        <argsstring>()</argsstring>
+        <name>MakeEmpty</name>
+        <qualifiedname>BList::MakeEmpty</qualifiedname>
+        <briefdescription>
+<para>Clear all the items from the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This does not free the items.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="33" column="5"/>
+        <referencedby refid="classBObjectList_1a6471f8710c7739d8504ee68d427aaa4c" compoundref="ObjectList_8h" startline="625" endline="633">BObjectList&lt; T &gt;::MakeEmpty</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Reordering Items</header>
+      <memberdef kind="function" id="classBList_1abe55aa005c16d47128365775b7aee021" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BList::SortItems</definition>
+        <argsstring>(int(*compareFunc)(const void *, const void *))</argsstring>
+        <name>SortItems</name>
+        <qualifiedname>BList::SortItems</qualifiedname>
+        <param>
+          <type>int(*)(const void *, const void *)</type>
+          <declname>compareFunc</declname>
+        </param>
+        <briefdescription>
+<para>Sort the items with the use of a supplied comparison function. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The function should take two <computeroutput>const</computeroutput> pointers as arguments and should return an integer.</para>
+<para>For an example, see the <ref refid="group__support__globals_1gaa845691f971dbf61ff57ba6d86aa2df1" kindref="member">Compare(const BString *, const BString *)</ref> function.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="36" column="5"/>
+        <referencedby refid="classBObjectList_1a115bcccb12d870156ef7386e3e1a6b10" compoundref="ObjectList_8h" startline="680" endline="683">BObjectList&lt; T &gt;::SortItems</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a1e0f5e82f57fe98ed9b76228e2df43d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::SwapItems</definition>
+        <argsstring>(int32 indexA, int32 indexB)</argsstring>
+        <name>SwapItems</name>
+        <qualifiedname>BList::SwapItems</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>indexA</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>indexB</declname>
+        </param>
+        <briefdescription>
+<para>Swap the items at <emphasis>indexA</emphasis> and <emphasis>indexB</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>indexA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first item. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>indexB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second item.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the items were swapped. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Swap succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Swap failed because one of the indexes was invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a9a90328dd4eb4f86160b2acc1ea90cee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::MoveItem</definition>
+        <argsstring>(int32 from, int32 to)</argsstring>
+        <name>MoveItem</name>
+        <qualifiedname>BList::MoveItem</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>from</declname>
+          <defname>fromIndex</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>to</declname>
+          <defname>toIndex</defname>
+        </param>
+        <briefdescription>
+<para>Move the item at <emphasis>fromIndex</emphasis> to the position of <emphasis>toIndex</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This moves a list item from position A to position B, moving the appropriate block of list elements to make up for the move. For example, in the array: <verbatim>A B C D E F G H I J
+</verbatim></para>
+<para>Moving 1(B)-&gt;6(G) would result in this: <verbatim>A C D E F G B H I J
+</verbatim></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fromIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The original location. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>toIndex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new location.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Whether or not the items were moved. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Move succeeded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Move failed due to the indexes being invalid.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="39" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Retrieving Items</header>
+      <memberdef kind="function" id="classBList_1a8dd0ea855550a6923294ceff045a82b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BList::ItemAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>ItemAt</name>
+        <qualifiedname>BList::ItemAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Return a pointer to the item at the given <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The item to retrieve.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the item in that position, or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> is out of bounds.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBList_1a7d6db1ced8d620bdfc6cfaf6d9383162" kindref="member">ItemAtFast(int32 index) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="42" column="5"/>
+        <referencedby refid="classBObjectList_1ad25f9f1202e9e59576d5ab292c39b916" compoundref="ObjectList_8h" startline="531" endline="534">BObjectList&lt; T &gt;::ItemAt</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a0f942e4b3c56a1a5b4b6685eda799d65" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BList::FirstItem</definition>
+        <argsstring>() const</argsstring>
+        <name>FirstItem</name>
+        <qualifiedname>BList::FirstItem</qualifiedname>
+        <briefdescription>
+<para>Return a pointer to the first item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the first item or <computeroutput>NULL</computeroutput> if the list is empty.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBList_1a38e516f6bf9f058b970793f877c4d41f" kindref="member">LastItem() const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="43" column="5"/>
+        <referencedby refid="classBObjectList_1adb2d3f2ba5a5bcb6bd1d3b185771b6dc" compoundref="ObjectList_8h" startline="585" endline="588">BObjectList&lt; T &gt;::FirstItem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a7d6db1ced8d620bdfc6cfaf6d9383162" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BList::ItemAtFast</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>ItemAtFast</name>
+        <qualifiedname>BList::ItemAtFast</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Return a pointer to the item at <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does not perform any boundary checks when it retrieves an item. Use this method in a performance critical area of your program where you are sure you will not get an invalid item.</para>
+<para><simplesect kind="return"><para>A pointer to the item.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="44" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a38e516f6bf9f058b970793f877c4d41f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BList::LastItem</definition>
+        <argsstring>() const</argsstring>
+        <name>LastItem</name>
+        <qualifiedname>BList::LastItem</qualifiedname>
+        <briefdescription>
+<para>Return a pointer to the last item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A pointer to the last item or <computeroutput>NULL</computeroutput> if the list is empty.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBList_1a0f942e4b3c56a1a5b4b6685eda799d65" kindref="member">FirstItem() const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="47" column="5"/>
+        <referencedby refid="classBObjectList_1ac3c9f69bfb2f53f323de43425e3e6516" compoundref="ObjectList_8h" startline="593" endline="596">BObjectList&lt; T &gt;::LastItem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a3af18a435a926a1200ac44671a01f2a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BList::Items</definition>
+        <argsstring>() const</argsstring>
+        <name>Items</name>
+        <qualifiedname>BList::Items</qualifiedname>
+        <briefdescription>
+<para>Return the internal list of objects. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will return a pointer to the internal pointer list. This means that you should be careful what you are doing, since you are working with the internals of the class directly.</para>
+<para>It is not a good idea to make any changes to the list, since that will mess up the internal consistency.</para>
+<para><simplesect kind="warning"><para>If there is anything you want, for which you need the list of objects, please realize that that probably means that what you want to do is a bad idea to begin with and that you should avoid this method. The list of objects does not belong to you.</para>
+</simplesect>
+<simplesect kind="return"><para>The internal list of pointers.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBList_1af6c57e27f1c15a8779f1c7e4002d593c" kindref="member">DoForEach()</ref> for an alternate method.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="48" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Querying Items</header>
+      <memberdef kind="function" id="classBList_1a52eba743d386b339fcc092781a25ba81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::HasItem</definition>
+        <argsstring>(void *item) const</argsstring>
+        <name>HasItem</name>
+        <qualifiedname>BList::HasItem</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Return whether or not <emphasis>item</emphasis> is in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the <emphasis>item</emphasis> was in the list, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="51" column="5"/>
+        <referencedby refid="classBObjectList_1a6ec26fa32fa3e05902a690d1c1e1a82b" compoundref="ObjectList_8h" startline="601" endline="604">BObjectList&lt; T &gt;::HasItem</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a9046dd4910aa56e436eb97146984c050" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::HasItem</definition>
+        <argsstring>(const void *item) const</argsstring>
+        <name>HasItem</name>
+        <qualifiedname>BList::HasItem</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Return whether or not <emphasis>item</emphasis> is in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the <emphasis>item</emphasis> was in the list, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1aa66edf99e4c395006964e665805a9f84" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::IndexOf</definition>
+        <argsstring>(void *item) const</argsstring>
+        <name>IndexOf</name>
+        <qualifiedname>BList::IndexOf</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Return the index of <emphasis>item</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The index of the item, or -1 when the item is not in the list.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="53" column="6"/>
+        <referencedby refid="classBObjectList_1a4676ea2919f4bf735f972a1b04fbff29" compoundref="ObjectList_8h" startline="577" endline="580">BObjectList&lt; T &gt;::IndexOf</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a17f9954ac3b3b8af9a2054f9caa0a63b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::IndexOf</definition>
+        <argsstring>(const void *item) const</argsstring>
+        <name>IndexOf</name>
+        <qualifiedname>BList::IndexOf</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+<para>Return the index of <emphasis>item</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The index of the item, or -1 when the item is not in the list.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="54" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a9934f3617c27ae2276607efd0de858f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::CountItems</definition>
+        <argsstring>() const</argsstring>
+        <name>CountItems</name>
+        <qualifiedname>BList::CountItems</qualifiedname>
+        <briefdescription>
+<para>Returns the number of items in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of items in the list as an int32.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="55" column="6"/>
+        <referencedby refid="classBObjectList_1a406ad33a266101bbc9add7562f64096e" compoundref="ObjectList_8h" startline="617" endline="620">BObjectList&lt; T &gt;::CountItems</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a8fe0fa7c73e17ce27e543f4de22751ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::IsEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>IsEmpty</name>
+        <qualifiedname>BList::IsEmpty</qualifiedname>
+        <briefdescription>
+<para>Return whether or not there are items in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the list was empty, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="56" column="5"/>
+        <referencedby refid="classBObjectList_1a57160ca46fda7d6268ce6d3b05f3f940" compoundref="ObjectList_8h" startline="609" endline="612">BObjectList&lt; T &gt;::IsEmpty</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Iterating Over Items</header>
+      <memberdef kind="function" id="classBList_1af6c57e27f1c15a8779f1c7e4002d593c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BList::DoForEach</definition>
+        <argsstring>(bool(*func)(void *item))</argsstring>
+        <name>DoForEach</name>
+        <qualifiedname>BList::DoForEach</qualifiedname>
+        <param>
+          <type>bool(*)(void *item)</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Perform an action on every item in the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterates over all items in the list, and calls the <emphasis>func</emphasis> function on each of them, until the function returns <computeroutput>true</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a function that takes a <computeroutput>void*</computeroutput> list item, and returns a bool indicating if the iteration should stop.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1af6c57e27f1c15a8779f1c7e4002d593c" kindref="member">DoForEach</ref>(bool (*func)(void*, void*), void*)</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="59" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1aa00ded2072c9c604bcbbabb8f1a70a6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BList::DoForEach</definition>
+        <argsstring>(bool(*func)(void *item, void *arg2), void *arg2)</argsstring>
+        <name>DoForEach</name>
+        <qualifiedname>BList::DoForEach</qualifiedname>
+        <param>
+          <type>bool(*)(void *item, void *arg2)</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg2</declname>
+        </param>
+        <briefdescription>
+<para>Perform an action on every item in the list with an argument. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The iteration stops when the <emphasis>func</emphasis> function returns <computeroutput>true</computeroutput>. This can be used to implement a linear search of the list, for example:</para>
+<para><programlisting filename=".cpp"><codeline><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>compareFunc(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>_item,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arg2)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Item*<sp/>item<sp/>=<sp/>(Item*)_item;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Args*<sp/>args<sp/>=<sp/>(Args*)arg2;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(item-&gt;Matches(args-&gt;pattern))<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>args-&gt;result<sp/>=<sp/>item;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">Args<sp/>args<sp/>=<sp/>{0};</highlight></codeline>
+<codeline><highlight class="normal">list.DoForEach(compareFunc,<sp/>&amp;args);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(args-&gt;result<sp/>!=<sp/><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref>)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Found<sp/>it!</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A function with the first <computeroutput>void*</computeroutput> argument being the item and the second <computeroutput>void*</computeroutput> being the argument that you supply. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An argument to supply to <emphasis>func</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBList_1af6c57e27f1c15a8779f1c7e4002d593c" kindref="member">DoForEach</ref>(bool (*func)(void*))</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="60" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBList_1a11e25310cfa8ab61a0d06d05154a6005" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BList::_reserved[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BList::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="76" column="7" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBList_1a81f0e069d5c6b40601f4d599175b63ce" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::fBlockSize</definition>
+        <argsstring></argsstring>
+        <name>fBlockSize</name>
+        <qualifiedname>BList::fBlockSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="73" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBList_1a4ef8b37efea3133b8f8a1096bd676b3d" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::fItemCount</definition>
+        <argsstring></argsstring>
+        <name>fItemCount</name>
+        <qualifiedname>BList::fItemCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="72" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBList_1af7f363aba3c839d2fe749bf44986e2cc" prot="private" static="no" mutable="no">
+        <type>void **</type>
+        <definition>void** BList::fObjectList</definition>
+        <argsstring></argsstring>
+        <name>fObjectList</name>
+        <qualifiedname>BList::fObjectList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="70" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBList_1a4f62789abc358d4d585aabc0c66a4cfc" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::fPhysicalSize</definition>
+        <argsstring></argsstring>
+        <name>fPhysicalSize</name>
+        <qualifiedname>BList::fPhysicalSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="71" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBList_1a858096649ef79d32e135499bfa454d2d" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BList::fResizeThreshold</definition>
+        <argsstring></argsstring>
+        <name>fResizeThreshold</name>
+        <qualifiedname>BList::fResizeThreshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="74" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBList_1a38ee57f24e4f987679e169ce09beeed4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BList::BList</definition>
+        <argsstring>(const BList &amp;other)</argsstring>
+        <name>BList</name>
+        <qualifiedname>BList::BList</qualifiedname>
+        <param>
+          <type>const <ref refid="classBList" kindref="compound">BList</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. Copy a complete list into this one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list to copy from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1af4d093d31739318b902bb67b93865e3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BList::BList</definition>
+        <argsstring>(int32 count=20)</argsstring>
+        <name>BList</name>
+        <qualifiedname>BList::BList</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+          <defval>20</defval>
+        </param>
+        <briefdescription>
+<para>Create a new list with a number of empty slots. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The memory management of this class allocates new memory per block. The <computeroutput>count</computeroutput> parameter can be tweaked to determine the size of these blocks. In general, if you know your list is only going to contain a certain number of items at most, you can pass that value. If you expect your list to have very few items, it is safe to choose a low number. This is to prevent the list from taking up unneeded memory. If you expect the list to contain a large number of items, choose a higher value. Every time the memory is full, all the items have to be copied into a new piece of allocated memory, which is an expensive operation.</para>
+<para>If you are unsure, you do not have to worry too much. Just make sure you do not use a lot of lists, and as long as the list is not used in one of the performance critical parts of the code, you are safe to go with the default values.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the blocks allocated in memory.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1af08f58e63380be9bb720a2918afe3113" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BList::~BList</definition>
+        <argsstring>()</argsstring>
+        <name>~BList</name>
+        <qualifiedname>BList::~BList</qualifiedname>
+        <briefdescription>
+<para>Destroy the list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Please note that as <ref refid="classBList" kindref="compound">BList</ref> does not assume ownership of the objects, only the list will be freed, not the objects that are held in it.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="16" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBList_1ae5ac23a3a8b72b63bda19fbe76266ce2" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BList::_ReservedList1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedList1</name>
+        <qualifiedname>BList::_ReservedList1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="64" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a39e6c9176a750fd7777f403ae75ab1a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BList::_ReservedList2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedList2</name>
+        <qualifiedname>BList::_ReservedList2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="65" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBList_1a436396c1895367b6ef7e26cbb3960186" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BList::_ResizeArray</definition>
+        <argsstring>(int32 count)</argsstring>
+        <name>_ResizeArray</name>
+        <qualifiedname>BList::_ResizeArray</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/List.h" line="67" column="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>An ordered container that is designed to hold generic <computeroutput>void*</computeroutput> objects. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is designed to be used for a variety of tasks. Unlike similar implementations in other libraries, this class is not based on templates and as such is inherently not typed. So it will be the job of the programmer to make sure proper data is entered since the compiler cannot check this by itself.</para>
+<para><ref refid="classBList" kindref="compound">BList</ref> contains a list of items that will grow and shrink depending on how many items are in it. So you will not have to do any of the memory management nor any ordering. These properties makes it useful in a whole range of situations such as the interface kit within the <ref refid="classBListView" kindref="compound">BListView</ref> class.</para>
+<para>A note on the ownership of the objects might come in handy. <ref refid="classBList" kindref="compound">BList</ref> never assumes ownership of the objects. As such, removing items from the list will only remove the entries from the list; it will not delete the items themselves. Similarly, you should also make sure that before you might delete an object that is in a list, you will have to remove it from the list first.</para>
+<para><simplesect kind="warning"><para>This class is not thread-safe.</para>
+</simplesect>
+The class implements methods to add, remove, reorder, retrieve, and query items as well as some advanced methods which let you perform a task on all the items in the list.</para>
+<para><simplesect kind="see"><para><ref refid="classBObjectList" kindref="compound">BObjectList</ref> for a templated version of <ref refid="classBList" kindref="compound">BList</ref> that adds type safety, optional object ownership, search, and insert operations.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/support/List.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/List.h" bodystart="12" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classBList_1a11e25310cfa8ab61a0d06d05154a6005" prot="private" virt="non-virtual"><scope>BList</scope><name>_reserved</name></member>
+      <member refid="classBList_1ae5ac23a3a8b72b63bda19fbe76266ce2" prot="private" virt="virtual"><scope>BList</scope><name>_ReservedList1</name></member>
+      <member refid="classBList_1a39e6c9176a750fd7777f403ae75ab1a1" prot="private" virt="virtual"><scope>BList</scope><name>_ReservedList2</name></member>
+      <member refid="classBList_1a436396c1895367b6ef7e26cbb3960186" prot="private" virt="non-virtual"><scope>BList</scope><name>_ResizeArray</name></member>
+      <member refid="classBList_1ab827c4118ba2a46eae24f5a41eb9bdb6" prot="public" virt="non-virtual"><scope>BList</scope><name>AddItem</name></member>
+      <member refid="classBList_1a466d0c711d3736a185ca243749120ad3" prot="public" virt="non-virtual"><scope>BList</scope><name>AddItem</name></member>
+      <member refid="classBList_1ad6d19427b9f9f6accf0ab5ab5df7f219" prot="public" virt="non-virtual"><scope>BList</scope><name>AddList</name></member>
+      <member refid="classBList_1a285e109e612c8e2c18fd09436e9afd6d" prot="public" virt="non-virtual"><scope>BList</scope><name>AddList</name></member>
+      <member refid="classBList_1af4d093d31739318b902bb67b93865e3a" prot="public" virt="non-virtual"><scope>BList</scope><name>BList</name></member>
+      <member refid="classBList_1a38ee57f24e4f987679e169ce09beeed4" prot="public" virt="non-virtual"><scope>BList</scope><name>BList</name></member>
+      <member refid="classBList_1a9934f3617c27ae2276607efd0de858f0" prot="public" virt="non-virtual"><scope>BList</scope><name>CountItems</name></member>
+      <member refid="classBList_1af6c57e27f1c15a8779f1c7e4002d593c" prot="public" virt="non-virtual"><scope>BList</scope><name>DoForEach</name></member>
+      <member refid="classBList_1aa00ded2072c9c604bcbbabb8f1a70a6a" prot="public" virt="non-virtual"><scope>BList</scope><name>DoForEach</name></member>
+      <member refid="classBList_1a81f0e069d5c6b40601f4d599175b63ce" prot="private" virt="non-virtual"><scope>BList</scope><name>fBlockSize</name></member>
+      <member refid="classBList_1a0f942e4b3c56a1a5b4b6685eda799d65" prot="public" virt="non-virtual"><scope>BList</scope><name>FirstItem</name></member>
+      <member refid="classBList_1a4ef8b37efea3133b8f8a1096bd676b3d" prot="private" virt="non-virtual"><scope>BList</scope><name>fItemCount</name></member>
+      <member refid="classBList_1af7f363aba3c839d2fe749bf44986e2cc" prot="private" virt="non-virtual"><scope>BList</scope><name>fObjectList</name></member>
+      <member refid="classBList_1a4f62789abc358d4d585aabc0c66a4cfc" prot="private" virt="non-virtual"><scope>BList</scope><name>fPhysicalSize</name></member>
+      <member refid="classBList_1a858096649ef79d32e135499bfa454d2d" prot="private" virt="non-virtual"><scope>BList</scope><name>fResizeThreshold</name></member>
+      <member refid="classBList_1a52eba743d386b339fcc092781a25ba81" prot="public" virt="non-virtual"><scope>BList</scope><name>HasItem</name></member>
+      <member refid="classBList_1a9046dd4910aa56e436eb97146984c050" prot="public" virt="non-virtual"><scope>BList</scope><name>HasItem</name></member>
+      <member refid="classBList_1aa66edf99e4c395006964e665805a9f84" prot="public" virt="non-virtual"><scope>BList</scope><name>IndexOf</name></member>
+      <member refid="classBList_1a17f9954ac3b3b8af9a2054f9caa0a63b" prot="public" virt="non-virtual"><scope>BList</scope><name>IndexOf</name></member>
+      <member refid="classBList_1a8fe0fa7c73e17ce27e543f4de22751ad" prot="public" virt="non-virtual"><scope>BList</scope><name>IsEmpty</name></member>
+      <member refid="classBList_1a8dd0ea855550a6923294ceff045a82b0" prot="public" virt="non-virtual"><scope>BList</scope><name>ItemAt</name></member>
+      <member refid="classBList_1a7d6db1ced8d620bdfc6cfaf6d9383162" prot="public" virt="non-virtual"><scope>BList</scope><name>ItemAtFast</name></member>
+      <member refid="classBList_1a3af18a435a926a1200ac44671a01f2a8" prot="public" virt="non-virtual"><scope>BList</scope><name>Items</name></member>
+      <member refid="classBList_1a38e516f6bf9f058b970793f877c4d41f" prot="public" virt="non-virtual"><scope>BList</scope><name>LastItem</name></member>
+      <member refid="classBList_1ad7529a3817b21cd33f34802f1efa26bd" prot="public" virt="non-virtual"><scope>BList</scope><name>MakeEmpty</name></member>
+      <member refid="classBList_1a9a90328dd4eb4f86160b2acc1ea90cee" prot="public" virt="non-virtual"><scope>BList</scope><name>MoveItem</name></member>
+      <member refid="classBList_1abbaf2188cd4f4f1588399b4dd7be5c7b" prot="public" virt="non-virtual"><scope>BList</scope><name>operator!=</name></member>
+      <member refid="classBList_1af7da7ecbaaa1963074ca17302adb6099" prot="public" virt="non-virtual"><scope>BList</scope><name>operator=</name></member>
+      <member refid="classBList_1aaec14d70fda5ee21b0bfb26702b6640e" prot="public" virt="non-virtual"><scope>BList</scope><name>operator==</name></member>
+      <member refid="classBList_1abea827f5275c57b89fe463e1ad191088" prot="public" virt="non-virtual"><scope>BList</scope><name>RemoveItem</name></member>
+      <member refid="classBList_1a4ce0e34daae40f74ff024773a5f799b2" prot="public" virt="non-virtual"><scope>BList</scope><name>RemoveItem</name></member>
+      <member refid="classBList_1a401542cd9d61fe480bcfd61e7caf9f3d" prot="public" virt="non-virtual"><scope>BList</scope><name>RemoveItems</name></member>
+      <member refid="classBList_1a043d798461212144c1388f3ee6059cda" prot="public" virt="non-virtual"><scope>BList</scope><name>ReplaceItem</name></member>
+      <member refid="classBList_1abe55aa005c16d47128365775b7aee021" prot="public" virt="non-virtual"><scope>BList</scope><name>SortItems</name></member>
+      <member refid="classBList_1a1e0f5e82f57fe98ed9b76228e2df43d5" prot="public" virt="non-virtual"><scope>BList</scope><name>SwapItems</name></member>
+      <member refid="classBList_1af08f58e63380be9bb720a2918afe3113" prot="public" virt="virtual"><scope>BList</scope><name>~BList</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,591 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBDataIO" kind="class" language="C++" prot="public">
+    <compoundname>BDataIO</compoundname>
+    <derivedcompoundref refid="classBAbstractSocket" prot="public" virt="non-virtual">BAbstractSocket</derivedcompoundref>
+    <derivedcompoundref refid="classBBufferedDataIO" prot="public" virt="non-virtual">BBufferedDataIO</derivedcompoundref>
+    <derivedcompoundref refid="classBPositionIO" prot="public" virt="non-virtual">BPositionIO</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBDataIO_1aa31bfe0302bb46dbc39b27fedeb24cba" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BDataIO::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BDataIO::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="44" column="7" bodyfile="/boot/home/src/haiku/headers/os/support/DataIO.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBDataIO_1a67891b7afe78d6a77845dd0352218801" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BDataIO::BDataIO</definition>
+        <argsstring>()</argsstring>
+        <name>BDataIO</name>
+        <qualifiedname>BDataIO::BDataIO</qualifiedname>
+        <briefdescription>
+<para>This constructor does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a45daa9db670dd2e5b83efcefcf8dbaed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BDataIO::~BDataIO</definition>
+        <argsstring>()</argsstring>
+        <name>~BDataIO</name>
+        <qualifiedname>BDataIO::~BDataIO</qualifiedname>
+        <briefdescription>
+<para>This destructor does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="15" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a38a8df63b367585fe5e6b6a85c406d05" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BDataIO::Flush</definition>
+        <argsstring>()</argsstring>
+        <name>Flush</name>
+        <qualifiedname>BDataIO::Flush</qualifiedname>
+        <reimplementedby refid="classBBufferedDataIO_1a7a1cd3147b96744c2e3646db4cb6c995">Flush</reimplementedby>
+        <reimplementedby refid="classBBufferIO_1a6c51066fea50d99b1b87228651c689f3">Flush</reimplementedby>
+        <briefdescription>
+<para>Writes pending data to underlying storage. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is relevant for <ref refid="classBDataIO" kindref="compound">BDataIO</ref> implementations that buffer data passed to <ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">Write()</ref>. The <ref refid="classBDataIO_1a38a8df63b367585fe5e6b6a85c406d05" kindref="member">Flush()</ref> implementation should make sure that all such data are written to the underlying storage.</para>
+<para>The default implementation is a no-op returning <computeroutput>B_OK</computeroutput>.</para>
+<para><simplesect kind="return"><para>An error code indicating whether flushing the buffered data succeeded.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="20" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a847ec8576c368bf9aada412e92aed623" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BDataIO::Read</definition>
+        <argsstring>(void *buffer, size_t size)</argsstring>
+        <name>Read</name>
+        <qualifiedname>BDataIO::Read</qualifiedname>
+        <reimplementedby refid="classBDatagramSocket_1ac8d954e7e11eb2ef59d55b80a89e286c">Read</reimplementedby>
+        <reimplementedby refid="classBFile_1a84879555b0c3bee54e36abdeeb2cb559">Read</reimplementedby>
+        <reimplementedby refid="classBBufferedDataIO_1aef91ed925bd2f40a4332dff9a7cbdb28">Read</reimplementedby>
+        <reimplementedby refid="classBPositionIO_1abce66c314f7cbd5ab6de0e6480bd7a00">Read</reimplementedby>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Reads data from the object into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Your implementation should copy data into <computeroutput>buffer</computeroutput>, with the maximum size of <computeroutput>size</computeroutput>.</para>
+<para>The default implementation is a no-op returning <computeroutput>B_NOT_SUPPORTED</computeroutput>.</para>
+<para><simplesect kind="return"><para>You should return the amount of bytes actually read, or an error code in case of failure.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="17" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a3a0b0fc36232531a1d8c1144a7d75741" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BDataIO::ReadExactly</definition>
+        <argsstring>(void *buffer, size_t size, size_t *_bytesRead=NULL)</argsstring>
+        <name>ReadExactly</name>
+        <qualifiedname>BDataIO::ReadExactly</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_bytesRead</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Reads an exact amount of data from the object into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a convenience wrapper method for <ref refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" kindref="member">Read()</ref> for code that expects the exact number of bytes requested to be read. This method calls <ref refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" kindref="member">Read()</ref> in a loop to read the data. It fails when <ref refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" kindref="member">Read()</ref> returns an error or fails to read any more data (i.e. returns 0).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to pre-allocated storage of at least <emphasis>size</emphasis> bytes into which the data shall be read. Won&apos;t be dereferenced, when <emphasis>size</emphasis> is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to be read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_bytesRead</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional pointer to a pre-allocated size_t into which the number of bytes actually read will be written. When the method returns <computeroutput>B_OK</computeroutput> this will always be <emphasis>size</emphasis>. Can be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An error code indicating whether or not the method succeeded. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All data have been read. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PARTIAL_READ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" kindref="member">Read()</ref> didn&apos;t fail, but couldn&apos;t provide as many bytes as requested.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="22" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BDataIO::Write</definition>
+        <argsstring>(const void *buffer, size_t size)</argsstring>
+        <name>Write</name>
+        <qualifiedname>BDataIO::Write</qualifiedname>
+        <reimplementedby refid="classBDatagramSocket_1a166e043d7e578825b4b36f069309d1df">Write</reimplementedby>
+        <reimplementedby refid="classBFile_1afcf216fde234f4fd0754409617bedc55">Write</reimplementedby>
+        <reimplementedby refid="classBBufferedDataIO_1a6396fe1a4a153f1a70ef28e358cac037">Write</reimplementedby>
+        <reimplementedby refid="classBPositionIO_1a50ec7f6b834893a153d46c0f3c0e09c4">Write</reimplementedby>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Writes data from a buffer to the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Your implementation should copy data from <computeroutput>buffer</computeroutput>, with the maximum size of <computeroutput>size</computeroutput>.</para>
+<para>The default implementation is a no-op returning <computeroutput>B_NOT_SUPPORTED</computeroutput>.</para>
+<para><simplesect kind="return"><para>You should return the amount of bytes actually written, or an error code in case of failure.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="18" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a0095cfffa454a82eac3dedda2e187ab7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BDataIO::WriteExactly</definition>
+        <argsstring>(const void *buffer, size_t size, size_t *_bytesWritten=NULL)</argsstring>
+        <name>WriteExactly</name>
+        <qualifiedname>BDataIO::WriteExactly</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_bytesWritten</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Writes an exact amount of data from a buffer to the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a convenience wrapper method for <ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">Write()</ref> for code that expects the exact number of bytes given to be written. This method calls <ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">Write()</ref> in a loop to write the data. It fails when <ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">Write()</ref> returns an error or fails to write any more data (i.e. returns 0).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a buffer of at least <emphasis>size</emphasis> bytes containing the data to be written. Won&apos;t be dereferenced, when <emphasis>size</emphasis> is 0. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes to be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_bytesWritten</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional pointer to a pre-allocated size_t into which the number of bytes actually written will be written. When the method returns <computeroutput>B_OK</computeroutput> this will always be <emphasis>size</emphasis>. Can be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An error code indicated whether the method succeeded. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All data have been written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_PARTIAL_READ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">Write()</ref> didn&apos;t fail, but couldn&apos;t write as many bytes as provided.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="24" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBDataIO_1a25ff5aafb9576b6e3f3d3ca5486b5cc5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BDataIO::BDataIO</definition>
+        <argsstring>(const BDataIO &amp;)</argsstring>
+        <name>BDataIO</name>
+        <qualifiedname>BDataIO::BDataIO</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDataIO" kindref="compound">BDataIO</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="28" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1aa855d67098f42cd78007b364751b36b9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO10</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO10</name>
+        <qualifiedname>BDataIO::_ReservedDataIO10</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="39" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1ab0c84dd8b1d41a8678d30dd5d96a3908" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO11</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO11</name>
+        <qualifiedname>BDataIO::_ReservedDataIO11</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1ab7857af39888e205c5f9c8566532212c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO12</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO12</name>
+        <qualifiedname>BDataIO::_ReservedDataIO12</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1ac9c5d24c6e34a0bb2a2296fdd74717dd" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO2</name>
+        <qualifiedname>BDataIO::_ReservedDataIO2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="31" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a83e70acab030a3afb8fa72fe4993f69d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO3</name>
+        <qualifiedname>BDataIO::_ReservedDataIO3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="32" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1ac8bcfd4bfd53b693654ff7c984088782" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO4</name>
+        <qualifiedname>BDataIO::_ReservedDataIO4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="33" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a5bf474c92bc605669498f2dffa5f6c59" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO5</name>
+        <qualifiedname>BDataIO::_ReservedDataIO5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="34" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a0adefe403a479e7df8515a044cc16a5d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO6</name>
+        <qualifiedname>BDataIO::_ReservedDataIO6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="35" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1aa56ef135028170703d6b098f423c3b9d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO7</name>
+        <qualifiedname>BDataIO::_ReservedDataIO7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a8a55369e5d9c66fe2789c3f449ca4787" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO8</name>
+        <qualifiedname>BDataIO::_ReservedDataIO8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="37" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a074b35adbb9b95ab063dd0cb4b9a401b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BDataIO::_ReservedDataIO9</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedDataIO9</name>
+        <qualifiedname>BDataIO::_ReservedDataIO9</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="38" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDataIO_1a1c4f40800e43b57a61826ae791d63e1b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBDataIO" kindref="compound">BDataIO</ref> &amp;</type>
+        <definition>BDataIO &amp; BDataIO::operator=</definition>
+        <argsstring>(const BDataIO &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BDataIO::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDataIO" kindref="compound">BDataIO</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="29" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Abstract interface for objects that provide read and write access to data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The interface provided by this class applies to objects or data that are limited to reading and writing data. Classes derived from this class should re-implement the <ref refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" kindref="member">Read()</ref> or the <ref refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" kindref="member">Write()</ref> method from this class or both.</para>
+<para>Candidates of types of data or objects that should be derived from this class are probably broadcasting media streams (which don&apos;t support reading at a certain point in the data) or network streams that output data continuously. Objects and data that support more advanced operations like seeking or reading at writing at defined positions should derive their classes from <ref refid="classBPositionIO" kindref="compound">BPositionIO</ref>, which inherits this class.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BAbstractSocket</label>
+        <link refid="classBAbstractSocket"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BBitmapStream</label>
+        <link refid="classBBitmapStream"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>BBufferIO</label>
+        <link refid="classBBufferIO"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BBufferedDataIO</label>
+        <link refid="classBBufferedDataIO"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="3">
+        <label>BDatagramSocket</label>
+        <link refid="classBDatagramSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>BFile</label>
+        <link refid="classBFile"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>BMallocIO</label>
+        <link refid="classBMallocIO"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>BMemoryIO</label>
+        <link refid="classBMemoryIO"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>BPositionIO</label>
+        <link refid="classBPositionIO"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/support/DataIO.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/DataIO.h" bodystart="12" bodyend="45"/>
+    <listofallmembers>
+      <member refid="classBDataIO_1aa31bfe0302bb46dbc39b27fedeb24cba" prot="private" virt="non-virtual"><scope>BDataIO</scope><name>_reserved</name></member>
+      <member refid="classBDataIO_1aa855d67098f42cd78007b364751b36b9" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO10</name></member>
+      <member refid="classBDataIO_1ab0c84dd8b1d41a8678d30dd5d96a3908" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO11</name></member>
+      <member refid="classBDataIO_1ab7857af39888e205c5f9c8566532212c" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO12</name></member>
+      <member refid="classBDataIO_1ac9c5d24c6e34a0bb2a2296fdd74717dd" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO2</name></member>
+      <member refid="classBDataIO_1a83e70acab030a3afb8fa72fe4993f69d" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO3</name></member>
+      <member refid="classBDataIO_1ac8bcfd4bfd53b693654ff7c984088782" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO4</name></member>
+      <member refid="classBDataIO_1a5bf474c92bc605669498f2dffa5f6c59" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO5</name></member>
+      <member refid="classBDataIO_1a0adefe403a479e7df8515a044cc16a5d" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO6</name></member>
+      <member refid="classBDataIO_1aa56ef135028170703d6b098f423c3b9d" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO7</name></member>
+      <member refid="classBDataIO_1a8a55369e5d9c66fe2789c3f449ca4787" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO8</name></member>
+      <member refid="classBDataIO_1a074b35adbb9b95ab063dd0cb4b9a401b" prot="private" virt="virtual"><scope>BDataIO</scope><name>_ReservedDataIO9</name></member>
+      <member refid="classBDataIO_1a67891b7afe78d6a77845dd0352218801" prot="public" virt="non-virtual"><scope>BDataIO</scope><name>BDataIO</name></member>
+      <member refid="classBDataIO_1a25ff5aafb9576b6e3f3d3ca5486b5cc5" prot="private" virt="non-virtual"><scope>BDataIO</scope><name>BDataIO</name></member>
+      <member refid="classBDataIO_1a38a8df63b367585fe5e6b6a85c406d05" prot="public" virt="virtual"><scope>BDataIO</scope><name>Flush</name></member>
+      <member refid="classBDataIO_1a1c4f40800e43b57a61826ae791d63e1b" prot="private" virt="non-virtual"><scope>BDataIO</scope><name>operator=</name></member>
+      <member refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623" prot="public" virt="virtual"><scope>BDataIO</scope><name>Read</name></member>
+      <member refid="classBDataIO_1a3a0b0fc36232531a1d8c1144a7d75741" prot="public" virt="non-virtual"><scope>BDataIO</scope><name>ReadExactly</name></member>
+      <member refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb" prot="public" virt="virtual"><scope>BDataIO</scope><name>Write</name></member>
+      <member refid="classBDataIO_1a0095cfffa454a82eac3dedda2e187ab7" prot="public" virt="non-virtual"><scope>BDataIO</scope><name>WriteExactly</name></member>
+      <member refid="classBDataIO_1a45daa9db670dd2e5b83efcefcf8dbaed" prot="public" virt="virtual"><scope>BDataIO</scope><name>~BDataIO</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

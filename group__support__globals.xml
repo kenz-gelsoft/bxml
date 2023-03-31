@@ -1,0 +1,1429 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__support__globals" kind="group">
+    <compoundname>support_globals</compoundname>
+    <title>Global functions</title>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="group__support__globals_1gac69340ddd30c80ddaf1878c84491cc86" prot="public" static="no">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *(*</type>
+        <definition>typedef BArchivable *(* instantiation_func)(BMessage *)</definition>
+        <argsstring>)(BMessage *)</argsstring>
+        <name>instantiation_func</name>
+        <briefdescription>
+<para>Internal definition of a function that can instantiate objects that have been created with the <ref refid="classBArchivable" kindref="compound">BArchivable</ref> API. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="158" column="9" bodyfile="/boot/home/src/haiku/headers/os/support/Archivable.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t add_system_beep_event</definition>
+        <argsstring>(const char *eventName, uint32 flags=0)</argsstring>
+        <name>add_system_beep_event</name>
+        <param>
+          <type>const char *</type>
+          <declname>eventName</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Adds an event to the media server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this method to add a specific event to the media server. From <ref refid="Beep_8h" kindref="compound">Beep.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>eventName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Currently unused. Pass <computeroutput>0</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Beep.h" line="18" column="10" declfile="/boot/home/src/haiku/headers/os/support/Beep.h" declline="18" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 atomic_add</definition>
+        <argsstring>(int32 *value, int32 addValue)</argsstring>
+        <name>atomic_add</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>addValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically add the value of <emphasis>addValue</emphasis> to <emphasis>value</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>+=</computeroutput> <computeroutput>addValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" kindref="member">atomic_get_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="372" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="372" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+        <definition>int64 atomic_add64</definition>
+        <argsstring>(int64 *value, int64 addValue)</argsstring>
+        <name>atomic_add64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>addValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically add the value of <emphasis>addValue</emphasis> to <emphasis>value</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>+=</computeroutput> <computeroutput>addValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="380" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="380" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 atomic_and</definition>
+        <argsstring>(int32 *value, int32 andValue)</argsstring>
+        <name>atomic_and</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>andValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically perform a bitwise AND operation of <emphasis>andValue</emphasis> to the variable <emphasis>andValue</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>&amp;=</computeroutput> <computeroutput>andValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" kindref="member">atomic_get_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="373" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="373" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+        <definition>int64 atomic_and64</definition>
+        <argsstring>(int64 *value, int64 andValue)</argsstring>
+        <name>atomic_and64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>andValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically perform a bitwise AND operation of <emphasis>andValue</emphasis> to the variable <emphasis>andValue</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>&amp;=</computeroutput> <computeroutput>andValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="381" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="381" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 atomic_get</definition>
+        <argsstring>(int32 *value)</argsstring>
+        <name>atomic_get</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Atomically return the value of <computeroutput>value</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of reading the contents of the <computeroutput>value</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case. The variable must be naturally aligned.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" kindref="member">atomic_get_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="375" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="375" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+        <definition>int64 atomic_get64</definition>
+        <argsstring>(int64 *value)</argsstring>
+        <name>atomic_get64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Atomically return the value of <computeroutput>value</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of reading the contents of the <computeroutput>value</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case. The variable must be naturally aligned.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="383" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="383" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 atomic_get_and_set</definition>
+        <argsstring>(int32 *value, int32 newValue)</argsstring>
+        <name>atomic_get_and_set</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically set the variable <emphasis>value</emphasis> to <emphasis>newvalue</emphasis> and return the old value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>=</computeroutput> <computeroutput>newValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref>, </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="370" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="370" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+        <definition>int64 atomic_get_and_set64</definition>
+        <argsstring>(int64 *value, int64 newValue)</argsstring>
+        <name>atomic_get_and_set64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically set the variable <emphasis>value</emphasis> to <emphasis>newvalue</emphasis> and return the old value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>=</computeroutput> <computeroutput>newValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" kindref="member">atomic_get_and_set()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="378" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="378" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 atomic_or</definition>
+        <argsstring>(int32 *value, int32 orValue)</argsstring>
+        <name>atomic_or</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>orValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically perform a bitwise OR operation of <emphasis>orValue</emphasis> to the variable <emphasis>andValue</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput></computeroutput>|= <computeroutput>orValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" kindref="member">atomic_get_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="374" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="374" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+        <definition>int64 atomic_or64</definition>
+        <argsstring>(int64 *value, int64 orValue)</argsstring>
+        <name>atomic_or64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>orValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically perform a bitwise OR operation of <emphasis>orValue</emphasis> to the variable <emphasis>andValue</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput></computeroutput>|= <computeroutput>orValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="382" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="382" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void atomic_set</definition>
+        <argsstring>(int32 *value, int32 newValue)</argsstring>
+        <name>atomic_set</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically set the variable <emphasis>value</emphasis> to <emphasis>newvalue</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>=</computeroutput> <computeroutput>newValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case. The variable must be naturally aligned.</para>
+<para><simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref>, </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="369" column="12" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="369" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga90492800f50ed0520d6b82408436b551" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void atomic_set64</definition>
+        <argsstring>(int64 *value, int64 newValue)</argsstring>
+        <name>atomic_set64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>newValue</declname>
+        </param>
+        <briefdescription>
+<para>Atomically set the variable <emphasis>value</emphasis> to <emphasis>newvalue</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of performing the <computeroutput>*value</computeroutput> <computeroutput>=</computeroutput> <computeroutput>newValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case. The variable must be naturally aligned.</para>
+<para><simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="377" column="12" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="377" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 atomic_test_and_set</definition>
+        <argsstring>(int32 *value, int32 newValue, int32 testAgainst)</argsstring>
+        <name>atomic_test_and_set</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>newValue</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>testAgainst</declname>
+        </param>
+        <briefdescription>
+<para>Atomically set the variable <emphasis>value</emphasis> to <emphasis>newValue</emphasis> if the current value is <emphasis>testAgainst</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of conditionally performing the <computeroutput>*value</computeroutput> <computeroutput>+=</computeroutput> <computeroutput>newValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" kindref="member">atomic_test_and_set64()</ref> for a version that works on <computeroutput>long</computeroutput> <computeroutput>long</computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga07b69379f20df5cfc6a7506a69364d80" kindref="member">atomic_get_and_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad6d9cc999081f5f54afe500b8ab22a31" kindref="member">atomic_set()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga8a7c9722b2dcc2d6a92da0d8e6809390" kindref="member">atomic_add()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac0f5dbcaa491161a6ab6f16ac1c1bca3" kindref="member">atomic_and()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga7ea6205f09f65652dd5b35987e570a20" kindref="member">atomic_or()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga61648da3ddc2f3df3c0b08b14b5dd09e" kindref="member">atomic_get()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="371" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="371" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga18987c30eda4e56c0111528af4dd8d9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+        <definition>int64 atomic_test_and_set64</definition>
+        <argsstring>(int64 *value, int64 newValue, int64 testAgainst)</argsstring>
+        <name>atomic_test_and_set64</name>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref> *</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>newValue</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1abfe468d3544c044c1b17902a4876e7f0" kindref="member">int64</ref></type>
+          <declname>testAgainst</declname>
+        </param>
+        <briefdescription>
+<para>Atomically set the variable <emphasis>value</emphasis> to <emphasis>newValue</emphasis> if the current value is <emphasis>testAgainst</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is a thread-safe way of conditionally performing the <computeroutput>*value</computeroutput> <computeroutput>+=</computeroutput> <computeroutput>newValue</computeroutput> operation. You should use these function when two or more threads might access the variable simultaneously. You don&apos;t have to use a semaphore or a mutex in this case.</para>
+<para><simplesect kind="return"><para>The original value of <computeroutput>value</computeroutput>.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gad5e8491539af69445d3eaea7818166e4" kindref="member">atomic_test_and_set()</ref> for a version that works on an <computeroutput><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></computeroutput>. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gaa28eab35df67e1b51685340a00c61484" kindref="member">atomic_get_and_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga90492800f50ed0520d6b82408436b551" kindref="member">atomic_set64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga3cc98e39c62b37089aa6ce270244f636" kindref="member">atomic_add64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga2ffe7f5af9390fa80744a35be7796177" kindref="member">atomic_and64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1ga58bc6786c1eab83a64b31bdb44db5634" kindref="member">atomic_or64()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gae15a75fb3937e2497baf8989cf6206af" kindref="member">atomic_get64()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/SupportDefs.h" line="379" column="13" declfile="/boot/home/src/haiku/headers/os/support/SupportDefs.h" declline="379" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gac178267cc77532b134ff7ee34c99d6e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t beep</definition>
+        <argsstring>()</argsstring>
+        <name>beep</name>
+        <briefdescription>
+<para>Invoke the standard system beep to alert users. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="Beep_8h" kindref="compound">Beep.h</ref> and in libbe.so.</para>
+<para><simplesect kind="see"><para><ref refid="group__support__globals_1gadd6488e3357ba3dfb3a8217db6cfc67d" kindref="member">system_beep()</ref> and <ref refid="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" kindref="member">add_system_beep_event()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Beep.h" line="16" column="10" declfile="/boot/home/src/haiku/headers/os/support/Beep.h" declline="16" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga4ed93281e1f1459821c6f41dbc81499c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Compare</definition>
+        <argsstring>(const BString &amp;a, const BString &amp;b)</argsstring>
+        <name>Compare</name>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare two strings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is useful if you need a global compare function to feed to <ref refid="classBList_1abe55aa005c16d47128365775b7aee021" kindref="member">BList::SortItems()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><simplesect kind="return"><para>An int representing the strings relationship to each other. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&gt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically after <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>=0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> is equal to <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically before <emphasis>b</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBString_1a58a9b35feb85f415771c9270d01c1951" kindref="member">BString::Compare(const BString&amp;) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="442" column="5" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="442" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gaa845691f971dbf61ff57ba6d86aa2df1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Compare</definition>
+        <argsstring>(const BString *a, const BString *b)</argsstring>
+        <name>Compare</name>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare two strings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is useful if you need a global compare function to feed to <ref refid="classBList_1abe55aa005c16d47128365775b7aee021" kindref="member">BList::SortItems()</ref>.</para>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An int representing the strings relationship to each other. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&gt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically after <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>=0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> is equal to <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically before <emphasis>b</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBString_1a58a9b35feb85f415771c9270d01c1951" kindref="member">BString::Compare(const BString&amp;) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="444" column="5" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="444" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga43c75713eb3ac57b46018dab24ed1a11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__support__globals_1gac69340ddd30c80ddaf1878c84491cc86" kindref="member">instantiation_func</ref></type>
+        <definition>instantiation_func find_instantiation_func</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>find_instantiation_func</name>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Internal function that searches for the instantiation func that works on the specified <emphasis>archive</emphasis>. Use <ref refid="group__support__globals_1gac98d3af4a84cd0880d8a853f7c526764" kindref="member">instantiate_object()</ref> instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="167" column="20" declfile="/boot/home/src/haiku/headers/os/support/Archivable.h" declline="167" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gae4cdf523a00d2b6ca0f3e8bc5f28ef51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__support__globals_1gac69340ddd30c80ddaf1878c84491cc86" kindref="member">instantiation_func</ref></type>
+        <definition>instantiation_func find_instantiation_func</definition>
+        <argsstring>(const char *className)</argsstring>
+        <name>find_instantiation_func</name>
+        <param>
+          <type>const char *</type>
+          <declname>className</declname>
+        </param>
+        <briefdescription>
+<para>Internal function that searches for the instantiation func of a specific class. Use <ref refid="group__support__globals_1gac98d3af4a84cd0880d8a853f7c526764" kindref="member">instantiate_object()</ref> instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="166" column="20" declfile="/boot/home/src/haiku/headers/os/support/Archivable.h" declline="166" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga222db6ff576bd53ba4f54d356992d621" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="group__support__globals_1gac69340ddd30c80ddaf1878c84491cc86" kindref="member">instantiation_func</ref></type>
+        <definition>instantiation_func find_instantiation_func</definition>
+        <argsstring>(const char *className, const char *signature)</argsstring>
+        <name>find_instantiation_func</name>
+        <param>
+          <type>const char *</type>
+          <declname>className</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Internal function that searches for the instantiation func with a specific signature. Use <ref refid="group__support__globals_1gac98d3af4a84cd0880d8a853f7c526764" kindref="member">instantiate_object()</ref> instead. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="164" column="20" declfile="/boot/home/src/haiku/headers/os/support/Archivable.h" declline="164" declcolumn="20"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga7e131707bf6c4a0481647e5a84b6e4a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ICompare</definition>
+        <argsstring>(const BString &amp;a, const BString &amp;b)</argsstring>
+        <name>ICompare</name>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare two strings case-insensitively. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is useful if you need a global compare function to feed to <ref refid="classBList_1abe55aa005c16d47128365775b7aee021" kindref="member">BList::SortItems()</ref>.</para>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An int representing the strings relationship to each other. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&gt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically after <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>=0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> is equal to <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically before <emphasis>b</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBString_1a58a9b35feb85f415771c9270d01c1951" kindref="member">BString::Compare(const BString&amp;) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="443" column="5" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="443" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga00dfffa0c89a6c24dedd0176782e53bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ICompare</definition>
+        <argsstring>(const BString *a, const BString *b)</argsstring>
+        <name>ICompare</name>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> *</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare two strings case-insensitively. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is useful if you need a global compare function to feed to <ref refid="classBList_1abe55aa005c16d47128365775b7aee021" kindref="member">BList::SortItems()</ref>.</para>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An int representing the strings relationship to each other. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&gt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically after <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>=0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> is equal to <emphasis>b</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>&lt;0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>a</emphasis> sorts lexicographically before <emphasis>b</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBString_1a58a9b35feb85f415771c9270d01c1951" kindref="member">BString::Compare(const BString&amp;) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="445" column="5" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="445" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga1ad60dbee75973620a85b2559e02d62d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * instantiate_object</definition>
+        <argsstring>(BMessage *from)</argsstring>
+        <name>instantiate_object</name>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Instantiate an archived object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This global function will determine the base class, based on the <emphasis>from</emphasis> argument, and it will call the Instantiate() function of that object to restore it.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archived object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The object returns a pointer to the instantiated object, or <computeroutput>NULL</computeroutput> if the instantiation failed. The global <computeroutput>errno</computeroutput> variable will contain the reason why it failed.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="group__support__globals_1gac98d3af4a84cd0880d8a853f7c526764" kindref="member">instantiate_object(BMessage *from, image_id *id)</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="161" column="13" declfile="/boot/home/src/haiku/headers/os/support/Archivable.h" declline="161" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gac98d3af4a84cd0880d8a853f7c526764" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * instantiate_object</definition>
+        <argsstring>(BMessage *from, image_id *id)</argsstring>
+        <name>instantiate_object</name>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>image_id *</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Instantiate an archived object with the object being defined in a different application or library. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is similar to <ref refid="group__support__globals_1ga1ad60dbee75973620a85b2559e02d62d" kindref="member">instantiate_object(BMessage *from)</ref>, except that it takes the <emphasis>id</emphasis> argument referring to an image where the object might be stored.</para>
+<para><simplesect kind="note"><para>Images are names for executable files. Image id&apos;s refer to these executable files that have been loaded by your application. Have a look at the kernel API for further information.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="160" column="13" declfile="/boot/home/src/haiku/headers/os/support/Archivable.h" declline="160" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gad38636cf059e2166e653b1ff257526ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const char *a, const BString &amp;b)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare if <computeroutput>a</computeroutput> is not equal to given <ref refid="classBString" kindref="compound">BString</ref> <emphasis>b</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>a</emphasis> is NOT equal to <emphasis>b</emphasis>, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBString_1a68a2d28b93ee8348163a320bb1054b22" kindref="member">BString::operator!=(const char*) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="618" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/String.h" bodystart="618" bodyend="621" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="438" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gaf9da661b62e03cf779fcf99831bde205" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;</definition>
+        <argsstring>(const char *a, const BString &amp;b)</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare if <computeroutput>a</computeroutput> is less than the given <ref refid="classBString" kindref="compound">BString</ref> <emphasis>b</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>a</emphasis> is less than <emphasis>b</emphasis>, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBString_1aa6886f45135f335ed05f002bd19f842d" kindref="member">BString::operator&lt;(const char*) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="582" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/String.h" bodystart="583" bodyend="586" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="433" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gabc5ffd2bede5b8fb0f41ad273b10485b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;=</definition>
+        <argsstring>(const char *a, const BString &amp;b)</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare if <computeroutput>a</computeroutput> is less than or equal to a given <ref refid="classBString" kindref="compound">BString</ref> <emphasis>b</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>a</emphasis> is less than or equal to <emphasis>b</emphasis>, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBString_1a7c660e1dd749f068967cfb0f900bd96d" kindref="member">BString::operator&lt;=(const char*) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="589" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/String.h" bodystart="590" bodyend="593" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="434" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gafc658fa3946745858aad13c8589c7065" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const char *a, const BString &amp;b)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare if <computeroutput>a</computeroutput> is equal to a given <ref refid="classBString" kindref="compound">BString</ref> <emphasis>b</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBString_1a67138abea38871ddb5dfc8646a1676f3" kindref="member">BString::operator==(const char*) const</ref></para>
+</simplesect>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>a</emphasis> is equal to <emphasis>b</emphasis>, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="597" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/String.h" bodystart="597" bodyend="600" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="435" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga79515be2058ee0aade9eb39fe8114dde" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;</definition>
+        <argsstring>(const char *a, const BString &amp;b)</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare if <computeroutput>a</computeroutput> is greater than a given <ref refid="classBString" kindref="compound">BString</ref> <emphasis>b</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBString_1af7bb77100b7103935c0b325b7666e3fa" kindref="member">BString::operator&gt;(const char*) const</ref></para>
+</simplesect>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>a</emphasis> is greater than <emphasis>b</emphasis>, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="604" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/String.h" bodystart="604" bodyend="607" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="436" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1ga7840009be7074a1fbff9e1c89742bf3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;=</definition>
+        <argsstring>(const char *a, const BString &amp;b)</argsstring>
+        <name>operator&gt;=</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Lexicographically compare if <computeroutput>a</computeroutput> is greater than or equal to a given <ref refid="classBString" kindref="compound">BString</ref> <emphasis>b</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="String_8h" kindref="compound">String.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first string to compare. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second string to compare.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>a</emphasis> is greater than or equal to <emphasis>b</emphasis>, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBString_1acc3c2882848a1bcd43c37fb1a44e7665" kindref="member">BString::operator&gt;=(const char*) const</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/String.h" line="611" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/String.h" bodystart="611" bodyend="614" declfile="/boot/home/src/haiku/headers/os/support/String.h" declline="437" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gadd6488e3357ba3dfb3a8217db6cfc67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t system_beep</definition>
+        <argsstring>(const char *eventName)</argsstring>
+        <name>system_beep</name>
+        <param>
+          <type>const char *</type>
+          <declname>eventName</declname>
+        </param>
+        <briefdescription>
+<para>Invokes the sound for event <emphasis>eventName</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You can add the events using <ref refid="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" kindref="member">add_system_beep_event()</ref>. From <ref refid="Beep_8h" kindref="compound">Beep.h</ref> and in libbe.so.</para>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Beep.h" line="17" column="10" declfile="/boot/home/src/haiku/headers/os/support/Beep.h" declline="17" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gae5dd9c83f4d3ab639edd84deb6bfd1c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool validate_instantiation</definition>
+        <argsstring>(BMessage *from, const char *className)</argsstring>
+        <name>validate_instantiation</name>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>className</declname>
+        </param>
+        <briefdescription>
+<para>Internal function that checks if the <emphasis>className</emphasis> is the same as the one stored in the <emphasis>from</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Archivable.h" line="162" column="6" declfile="/boot/home/src/haiku/headers/os/support/Archivable.h" declline="162" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

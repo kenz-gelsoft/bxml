@@ -1,0 +1,966 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMessageRunner" kind="class" language="C++" prot="public">
+    <compoundname>BMessageRunner</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMessageRunner_1aa97816b8219d141b501334877eb8b52a" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMessageRunner::_reserved[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BMessageRunner::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="67" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/MessageRunner.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMessageRunner_1adf226460b8d2be0c399ab0738d1a23f8" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMessageRunner::fToken</definition>
+        <argsstring></argsstring>
+        <name>fToken</name>
+        <qualifiedname>BMessageRunner::fToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="66" column="6" bodyfile="/boot/home/src/haiku/headers/os/app/MessageRunner.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMessageRunner_1a41ea90009b9f038a3146ab5c7cbe5d4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMessageRunner::BMessageRunner</definition>
+        <argsstring>(BMessenger target, const BMessage &amp;message, bigtime_t interval, int32 count, BMessenger replyTo)</argsstring>
+        <name>BMessageRunner</name>
+        <qualifiedname>BMessageRunner::BMessageRunner</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>replyTo</declname>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a new <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> and instructs the system roster to send the specified <emphasis>message</emphasis> to the <emphasis>target</emphasis> <emphasis>count</emphasis> times every <emphasis>interval</emphasis> microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This constructor also allows you to specify the target for replies to the delivered messages.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target of the message(s). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be sent to the target. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period of time before the first message is sent and between messages (if more than one shall be sent) in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>replyTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target replies to the delivered message(s) shall be sent to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a3d78a38af76e15670808fa2761208dd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMessageRunner::BMessageRunner</definition>
+        <argsstring>(BMessenger target, const BMessage &amp;message, bigtime_t interval, int32 count=-1)</argsstring>
+        <name>BMessageRunner</name>
+        <qualifiedname>BMessageRunner::BMessageRunner</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a new <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> and instructs the system roster to send the specified <emphasis>message</emphasis> to the <emphasis>target</emphasis> <emphasis>count</emphasis> times every <emphasis>interval</emphasis> microseconds, reply messages are sent to <computeroutput>be_app_messenger</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target of the message(s). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be sent to the target. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period of time before the first message is sent and between messages (if more than one shall be sent) in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1ad484c095eeda712b88c6e958cae1449c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMessageRunner::BMessageRunner</definition>
+        <argsstring>(BMessenger target, const BMessage *message, bigtime_t interval, int32 count, BMessenger replyTo)</argsstring>
+        <name>BMessageRunner</name>
+        <qualifiedname>BMessageRunner::BMessageRunner</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>replyTo</declname>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a new <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> and instructs the system roster to send the specified <emphasis>message</emphasis> to the <emphasis>target</emphasis> <emphasis>count</emphasis> times every <emphasis>interval</emphasis> microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This constructor also allows you to specify the target for replies to the delivered messages.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target of the message(s). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be sent to the target. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period of time before the first message is sent and between messages (if more than one shall be sent) in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>replyTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target replies to the delivered message(s) shall be sent to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a7297d589c21956749b131e12c1851a99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMessageRunner::BMessageRunner</definition>
+        <argsstring>(BMessenger target, const BMessage *message, bigtime_t interval, int32 count=-1)</argsstring>
+        <name>BMessageRunner</name>
+        <qualifiedname>BMessageRunner::BMessageRunner</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a new <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> and instructs the system roster to send the specified <emphasis>message</emphasis> to the <emphasis>target</emphasis> <emphasis>count</emphasis> times every <emphasis>interval</emphasis> microseconds, reply messages are sent to <computeroutput>be_app_messenger</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target of the message(s). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be sent to the target. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period of time before the first message is sent and between messages (if more than one shall be sent) in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a7df5fa65c8abdeb371f49c4d4401c6a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BMessageRunner::~BMessageRunner</definition>
+        <argsstring>()</argsstring>
+        <name>~BMessageRunner</name>
+        <qualifiedname>BMessageRunner::~BMessageRunner</qualifiedname>
+        <briefdescription>
+<para>Frees all resources associated with the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="26" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a18060e7228d1e35b1511421d8da0bf21" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::GetInfo</definition>
+        <argsstring>(bigtime_t *interval, int32 *count) const</argsstring>
+        <name>GetInfo</name>
+        <qualifiedname>BMessageRunner::GetInfo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref> *</type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Returns the time interval between two messages and the number of times the message has still to be sent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Both parameters (<emphasis>interval</emphasis> and <emphasis>count</emphasis>) may be <computeroutput>NULL</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated bigtime_t variable to be set to the time interval. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated int32 variable to be set to the number of times the message has still to be sent. May be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>interval</emphasis> was 0 or negative, or the message runner had already sent all messages and became unusable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a495c20a458d090edcd4d952abe41311e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BMessageRunner::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Returns the initialization status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>As soon as the last message is sent, the message runner becomes unusable. <ref refid="classBMessageRunner_1a495c20a458d090edcd4d952abe41311e" kindref="member">InitCheck()</ref> will still return <computeroutput>B_OK</computeroutput>, but <ref refid="classBMessageRunner_1ab9e13888044ee17bc57727b05c104c73" kindref="member">SetInterval()</ref>, <ref refid="classBMessageRunner_1a6a37e56fa7938d946f2d5580bf9a4a3e" kindref="member">SetCount()</ref> and <ref refid="classBMessageRunner_1a18060e7228d1e35b1511421d8da0bf21" kindref="member">GetInfo()</ref> will all fail.</para>
+</simplesect>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the object was properly initialized or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a6a37e56fa7938d946f2d5580bf9a4a3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::SetCount</definition>
+        <argsstring>(int32 count)</argsstring>
+        <name>SetCount</name>
+        <qualifiedname>BMessageRunner::SetCount</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Sets the number of times message should be sent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message runner was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>interval</emphasis> was <computeroutput>0</computeroutput> or negative, or the message runner had already sent all messages and became unusable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1ab9e13888044ee17bc57727b05c104c73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::SetInterval</definition>
+        <argsstring>(bigtime_t interval)</argsstring>
+        <name>SetInterval</name>
+        <qualifiedname>BMessageRunner::SetInterval</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <briefdescription>
+<para>Sets the interval of time between messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new interval in microseconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> on success or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message runner was not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>interval</emphasis> was <computeroutput>0</computeroutput> or negative, or the message runner had already sent all messages and became unusable.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="30" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classBMessageRunner_1ae161adabfc1b87ec78ee38b7563d87ef" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::StartSending</definition>
+        <argsstring>(BMessenger target, const BMessage *message, bigtime_t interval, int32 count)</argsstring>
+        <name>StartSending</name>
+        <qualifiedname>BMessageRunner::StartSending</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a detached <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> and instructs the system roster to send the specified <emphasis>message</emphasis> to the <emphasis>target</emphasis> <emphasis>count</emphasis> times every <emphasis>interval</emphasis> microseconds, reply messages are sent to <computeroutput>be_app_messenger</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You cannot alter the runner after the creation, and it will be deleted automatically the last message is sent.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target of the message(s). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be sent to the target. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period of time before the first message is sent and between messages (if more than one shall be sent) in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="35" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1ad1c3fcfc9787b60c61a7704f268722cc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::StartSending</definition>
+        <argsstring>(BMessenger target, const BMessage *message, bigtime_t interval, int32 count, BMessenger replyTo)</argsstring>
+        <name>StartSending</name>
+        <qualifiedname>BMessageRunner::StartSending</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>replyTo</declname>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a detached <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> and instructs the system roster to send the specified <emphasis>message</emphasis> to the <emphasis>target</emphasis> <emphasis>count</emphasis> times every <emphasis>interval</emphasis> microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You cannot alter the runner after the creation, and it will be deleted automatically once the last message is sent.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target of the message(s). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to be sent to the target. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Period of time before the first message is sent and between messages (if more than one shall be sent) in microseconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies how many times the message shall be sent. A negative value indicates that the message will be sent forever, or until the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> is reconfigured or deleted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>replyTo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target replies to the delivered message(s) shall be sent to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="38" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMessageRunner_1a19a4c3d0b3d870b965c89613e9d56d6a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMessageRunner::BMessageRunner</definition>
+        <argsstring>(const BMessageRunner &amp;)</argsstring>
+        <name>BMessageRunner</name>
+        <qualifiedname>BMessageRunner::BMessageRunner</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="43" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1acf3ede46f4d81617a5a0f0088bcdc1ee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMessageRunner::_InitData</definition>
+        <argsstring>(BMessenger target, const BMessage *message, bigtime_t interval, int32 count, BMessenger replyTo)</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BMessageRunner::_InitData</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>replyTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="51" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a69ea1fec834e316d0cddb9d4d463f840" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMessageRunner::_ReservedMessageRunner1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMessageRunner1</name>
+        <qualifiedname>BMessageRunner::_ReservedMessageRunner1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="58" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a61956ac4acb7b64c522cbc1fb4f59070" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMessageRunner::_ReservedMessageRunner2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMessageRunner2</name>
+        <qualifiedname>BMessageRunner::_ReservedMessageRunner2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="59" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1acf74ab8806d29a173795dad7429b7555" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMessageRunner::_ReservedMessageRunner3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMessageRunner3</name>
+        <qualifiedname>BMessageRunner::_ReservedMessageRunner3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="60" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a52378844d2b882f8adfdf4e4d82542d5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMessageRunner::_ReservedMessageRunner4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMessageRunner4</name>
+        <qualifiedname>BMessageRunner::_ReservedMessageRunner4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="61" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1aa77361a300febf59ccb60c455d3a2d72" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMessageRunner::_ReservedMessageRunner5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMessageRunner5</name>
+        <qualifiedname>BMessageRunner::_ReservedMessageRunner5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="62" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a83aae1c583a0cf34fdc735597a281abb" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMessageRunner::_ReservedMessageRunner6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedMessageRunner6</name>
+        <qualifiedname>BMessageRunner::_ReservedMessageRunner6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="63" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1aad4ab8bf9bed5a7483862231d50bdfca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMessageRunner::_SetParams</definition>
+        <argsstring>(bool resetInterval, bigtime_t interval, bool resetCount, int32 count)</argsstring>
+        <name>_SetParams</name>
+        <qualifiedname>BMessageRunner::_SetParams</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>resetInterval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>resetCount</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMessageRunner_1a54fa99ee497e72d86dcb2a1c96ec8b50" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> &amp;</type>
+        <definition>BMessageRunner &amp; BMessageRunner::operator=</definition>
+        <argsstring>(const BMessageRunner &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BMessageRunner::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="44" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBMessageRunner_1abe6178193c4892757791fe9eae04d552" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>static int32 BMessageRunner::_RegisterRunner</definition>
+        <argsstring>(BMessenger target, const BMessage *message, bigtime_t interval, int32 count, bool detach, BMessenger replyTo)</argsstring>
+        <name>_RegisterRunner</name>
+        <qualifiedname>BMessageRunner::_RegisterRunner</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>detach</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>replyTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="46" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides a mechanism for sending one or more messages to a messenger at a specified interval and receive reply messages. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The application that creates the <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> can specify the message, the <ref refid="classBMessenger" kindref="compound">BMessenger</ref> to send the message to, how often to send the message, how many times to send the message, and the <ref refid="classBMessenger" kindref="compound">BMessenger</ref> to send reply messages from.</para>
+<para>The system roster handles dispatching the messages to the appropriate messengers at the specified time intervals. The target for any reply messages is <computeroutput>be_app_messenger</computeroutput> by default, or it can be specified in the constructor.</para>
+<para>After initializing a <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref>, the initialization can and should be checked by calling <ref refid="classBMessageRunner_1a495c20a458d090edcd4d952abe41311e" kindref="member">InitCheck()</ref>. <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> will not take ownership of the message, you may freely change or delete the message after initialization.</para>
+<para>The <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> can be reconfigured (to change the interval or count) by calling <ref refid="classBMessageRunner_1ab9e13888044ee17bc57727b05c104c73" kindref="member">SetInterval()</ref> and <ref refid="classBMessageRunner_1a6a37e56fa7938d946f2d5580bf9a4a3e" kindref="member">SetCount()</ref>. This is useful if you want to stop a <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> from sending messages early or if messages are set to be sent forever.</para>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/app/MessageRunner.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/app/MessageRunner.h" bodystart="12" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classBMessageRunner_1acf3ede46f4d81617a5a0f0088bcdc1ee" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>_InitData</name></member>
+      <member refid="classBMessageRunner_1abe6178193c4892757791fe9eae04d552" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>_RegisterRunner</name></member>
+      <member refid="classBMessageRunner_1aa97816b8219d141b501334877eb8b52a" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>_reserved</name></member>
+      <member refid="classBMessageRunner_1a69ea1fec834e316d0cddb9d4d463f840" prot="private" virt="virtual"><scope>BMessageRunner</scope><name>_ReservedMessageRunner1</name></member>
+      <member refid="classBMessageRunner_1a61956ac4acb7b64c522cbc1fb4f59070" prot="private" virt="virtual"><scope>BMessageRunner</scope><name>_ReservedMessageRunner2</name></member>
+      <member refid="classBMessageRunner_1acf74ab8806d29a173795dad7429b7555" prot="private" virt="virtual"><scope>BMessageRunner</scope><name>_ReservedMessageRunner3</name></member>
+      <member refid="classBMessageRunner_1a52378844d2b882f8adfdf4e4d82542d5" prot="private" virt="virtual"><scope>BMessageRunner</scope><name>_ReservedMessageRunner4</name></member>
+      <member refid="classBMessageRunner_1aa77361a300febf59ccb60c455d3a2d72" prot="private" virt="virtual"><scope>BMessageRunner</scope><name>_ReservedMessageRunner5</name></member>
+      <member refid="classBMessageRunner_1a83aae1c583a0cf34fdc735597a281abb" prot="private" virt="virtual"><scope>BMessageRunner</scope><name>_ReservedMessageRunner6</name></member>
+      <member refid="classBMessageRunner_1aad4ab8bf9bed5a7483862231d50bdfca" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>_SetParams</name></member>
+      <member refid="classBMessageRunner_1a7297d589c21956749b131e12c1851a99" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>BMessageRunner</name></member>
+      <member refid="classBMessageRunner_1a3d78a38af76e15670808fa2761208dd3" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>BMessageRunner</name></member>
+      <member refid="classBMessageRunner_1ad484c095eeda712b88c6e958cae1449c" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>BMessageRunner</name></member>
+      <member refid="classBMessageRunner_1a41ea90009b9f038a3146ab5c7cbe5d4f" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>BMessageRunner</name></member>
+      <member refid="classBMessageRunner_1a19a4c3d0b3d870b965c89613e9d56d6a" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>BMessageRunner</name></member>
+      <member refid="classBMessageRunner_1adf226460b8d2be0c399ab0738d1a23f8" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>fToken</name></member>
+      <member refid="classBMessageRunner_1a18060e7228d1e35b1511421d8da0bf21" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>GetInfo</name></member>
+      <member refid="classBMessageRunner_1a495c20a458d090edcd4d952abe41311e" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>InitCheck</name></member>
+      <member refid="classBMessageRunner_1a54fa99ee497e72d86dcb2a1c96ec8b50" prot="private" virt="non-virtual"><scope>BMessageRunner</scope><name>operator=</name></member>
+      <member refid="classBMessageRunner_1a6a37e56fa7938d946f2d5580bf9a4a3e" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>SetCount</name></member>
+      <member refid="classBMessageRunner_1ab9e13888044ee17bc57727b05c104c73" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>SetInterval</name></member>
+      <member refid="classBMessageRunner_1ae161adabfc1b87ec78ee38b7563d87ef" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>StartSending</name></member>
+      <member refid="classBMessageRunner_1ad1c3fcfc9787b60c61a7704f268722cc" prot="public" virt="non-virtual"><scope>BMessageRunner</scope><name>StartSending</name></member>
+      <member refid="classBMessageRunner_1a7df5fa65c8abdeb371f49c4d4401c6a4" prot="public" virt="virtual"><scope>BMessageRunner</scope><name>~BMessageRunner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

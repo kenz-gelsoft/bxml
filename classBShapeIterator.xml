@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBShapeIterator" kind="class" language="C++" prot="public">
+    <compoundname>BShapeIterator</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBShapeIterator_1af401c6942a0e4e47d00a9b6fce2bd8dd" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BShapeIterator::reserved[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>reserved</name>
+        <qualifiedname>BShapeIterator::reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="45" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Shape.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBShapeIterator_1af75e4b21ce367ff43dbc4f5280ad4adc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BShapeIterator::BShapeIterator</definition>
+        <argsstring>()</argsstring>
+        <name>BShapeIterator</name>
+        <qualifiedname>BShapeIterator::BShapeIterator</qualifiedname>
+        <briefdescription>
+<para>Constructor, does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing and should be implemented by derived classes.</para>
+<para><simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1acf898961872f144f8b8a1a8fa96c1d02" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BShapeIterator::~BShapeIterator</definition>
+        <argsstring>()</argsstring>
+        <name>~BShapeIterator</name>
+        <qualifiedname>BShapeIterator::~BShapeIterator</qualifiedname>
+        <briefdescription>
+<para>Destructor, does nothing. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing and should be implemented by derived classes.</para>
+<para><simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="25" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BShapeIterator::Iterate</definition>
+        <argsstring>(BShape *shape)</argsstring>
+        <name>Iterate</name>
+        <qualifiedname>BShapeIterator::Iterate</qualifiedname>
+        <param>
+          <type><ref refid="classBShape" kindref="compound">BShape</ref> *</type>
+          <declname>shape</declname>
+        </param>
+        <briefdescription>
+<para>Iterates over each operation that make up the <ref refid="classBShape" kindref="compound">BShape</ref> calling <ref refid="classBShapeIterator_1a7d6f517a72417e91e5d071e01166826c" kindref="member">IterateMoveTo()</ref>, <ref refid="classBShapeIterator_1aadfce4825458bfcaa3255c22423e02d4" kindref="member">IterateLineTo()</ref>, <ref refid="classBShapeIterator_1aec88187a4c636b8515dccef965c3b25b" kindref="member">IterateBezierTo()</ref>, <ref refid="classBShapeIterator_1abd832aedee4ce794d4b6e8676b15ec3e" kindref="member">IterateClose()</ref> or <ref refid="classBShapeIterator_1afeaf8241a4fa83028d09640ab959fd92" kindref="member">IterateArcTo()</ref> depending on the operation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>shape The <ref refid="classBShape" kindref="compound">BShape</ref> object to iterate through.</para>
+<para><simplesect kind="return"><para>Always returns <computeroutput>B_OK</computeroutput>. You should override this method to return an appropriate status code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="38" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1afeaf8241a4fa83028d09640ab959fd92" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BShapeIterator::IterateArcTo</definition>
+        <argsstring>(float &amp;rx, float &amp;ry, float &amp;angle, bool largeArc, bool counterClockWise, BPoint &amp;point)</argsstring>
+        <name>IterateArcTo</name>
+        <qualifiedname>BShapeIterator::IterateArcTo</qualifiedname>
+        <param>
+          <type>float &amp;</type>
+          <declname>rx</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>ry</declname>
+        </param>
+        <param>
+          <type>float &amp;</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>largeArc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>counterClockWise</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>Called by <ref refid="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" kindref="member">Iterate()</ref> to act on an arc. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The horizontal radius of the arc to act on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vertical radius of the arc to act on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>angle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The starting angle of the arc in degrees to act on. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>largeArc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to draw a large arc. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>counterClockWise</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> if the arc is drawn counter-clockwise, <computeroutput>false</computeroutput> if the arc is drawn clockwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The center point of the arc to act on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+This method does nothing and should be implemented by derived classes.</para>
+<para><simplesect kind="return"><para>Always returns <computeroutput>B_OK</computeroutput>. You should override this method to return an appropriate status code.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="34" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1aec88187a4c636b8515dccef965c3b25b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BShapeIterator::IterateBezierTo</definition>
+        <argsstring>(int32 bezierCount, BPoint *bezierPoints)</argsstring>
+        <name>IterateBezierTo</name>
+        <qualifiedname>BShapeIterator::IterateBezierTo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bezierCount</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref> *</type>
+          <declname>bezierPoints</declname>
+        </param>
+        <briefdescription>
+<para>Called by <ref refid="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" kindref="member">Iterate()</ref> to act on <emphasis>bezierCount</emphasis> Bézier curves comprised of the points specified by <emphasis>bezierPoints</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing and should be implemented by derived classes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bezierCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of points in <emphasis>bezierPoints</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bezierPoints</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of Bézier curve points to act on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Always returns <computeroutput>B_OK</computeroutput>. You should override this method to return an appropriate status code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="30" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1abd832aedee4ce794d4b6e8676b15ec3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BShapeIterator::IterateClose</definition>
+        <argsstring>()</argsstring>
+        <name>IterateClose</name>
+        <qualifiedname>BShapeIterator::IterateClose</qualifiedname>
+        <briefdescription>
+<para>Called by <ref refid="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" kindref="member">Iterate()</ref> to close the <ref refid="classBShape" kindref="compound">BShape</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing and should be implemented by derived classes.</para>
+<para><simplesect kind="return"><para>Always returns <computeroutput>B_OK</computeroutput>. You should override this method to return an appropriate status code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="32" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1aadfce4825458bfcaa3255c22423e02d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BShapeIterator::IterateLineTo</definition>
+        <argsstring>(int32 lineCount, BPoint *linePoints)</argsstring>
+        <name>IterateLineTo</name>
+        <qualifiedname>BShapeIterator::IterateLineTo</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>lineCount</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref> *</type>
+          <declname>linePoints</declname>
+        </param>
+        <briefdescription>
+<para>Called by <ref refid="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" kindref="member">Iterate()</ref> to act on <emphasis>lineCount</emphasis> lines comprised of the points specified by <emphasis>linePoints</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing and should be implemented by derived classes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>lineCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of points in <emphasis>linePoints</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>linePoints</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The list of points of lines to act on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Always returns <computeroutput>B_OK</computeroutput>. You should override this method to return an appropriate status code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="28" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1a7d6f517a72417e91e5d071e01166826c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BShapeIterator::IterateMoveTo</definition>
+        <argsstring>(BPoint *point)</argsstring>
+        <name>IterateMoveTo</name>
+        <qualifiedname>BShapeIterator::IterateMoveTo</qualifiedname>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref> *</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>Called by <ref refid="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" kindref="member">Iterate()</ref> to act on <emphasis>point</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method does nothing and should be implemented by derived classes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point to act on.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Always returns <computeroutput>B_OK</computeroutput>. You should override this method to return an appropriate status code.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="27" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBShapeIterator_1affdf9dcf252a6509ee500b3582ca9360" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BShapeIterator::_ReservedShapeIterator2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedShapeIterator2</name>
+        <qualifiedname>BShapeIterator::_ReservedShapeIterator2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1a846151abc09fc282c8193d60d3617364" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BShapeIterator::_ReservedShapeIterator3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedShapeIterator3</name>
+        <qualifiedname>BShapeIterator::_ReservedShapeIterator3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="42" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBShapeIterator_1a2d694f1201365f909fea63e1f51a18c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BShapeIterator::_ReservedShapeIterator4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedShapeIterator4</name>
+        <qualifiedname>BShapeIterator::_ReservedShapeIterator4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="43" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Allows you to iterate through <ref refid="classBShape" kindref="compound">BShape</ref> operations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>You should override this class and implement the <ref refid="classBShapeIterator_1a7d6f517a72417e91e5d071e01166826c" kindref="member">IterateMoveTo()</ref>, <ref refid="classBShapeIterator_1aadfce4825458bfcaa3255c22423e02d4" kindref="member">IterateLineTo()</ref>, <ref refid="classBShapeIterator_1aec88187a4c636b8515dccef965c3b25b" kindref="member">IterateBezierTo()</ref>, <ref refid="classBShapeIterator_1abd832aedee4ce794d4b6e8676b15ec3e" kindref="member">IterateClose()</ref>, and <ref refid="classBShapeIterator_1afeaf8241a4fa83028d09640ab959fd92" kindref="member">IterateArcTo()</ref> methods which correspond to <ref refid="classBShape_1a1c09ecefdcf97647be144a296768d3a8" kindref="member">BShape::MoveTo()</ref>, <ref refid="classBShape_1ad4d566bb4953c3c3861a2d3d9d13deda" kindref="member">BShape::LineTo()</ref>, <ref refid="classBShape_1a7cb0066ad12c01792af8db55d0e63d29" kindref="member">BShape::BezierTo()</ref>, <ref refid="classBShape_1aac2250db6c8e504433b4a7665623640b" kindref="member">BShape::Close()</ref> and <ref refid="classBShape_1ac6c84ff1042d4896a9a2a06fe06a3281" kindref="member">BShape::ArcTo()</ref> respectively.</para>
+<para><simplesect kind="see"><para><ref refid="classBShape" kindref="compound">BShape</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/interface/Shape.h" line="22" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Shape.h" bodystart="22" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classBShapeIterator_1affdf9dcf252a6509ee500b3582ca9360" prot="private" virt="virtual"><scope>BShapeIterator</scope><name>_ReservedShapeIterator2</name></member>
+      <member refid="classBShapeIterator_1a846151abc09fc282c8193d60d3617364" prot="private" virt="virtual"><scope>BShapeIterator</scope><name>_ReservedShapeIterator3</name></member>
+      <member refid="classBShapeIterator_1a2d694f1201365f909fea63e1f51a18c1" prot="private" virt="virtual"><scope>BShapeIterator</scope><name>_ReservedShapeIterator4</name></member>
+      <member refid="classBShapeIterator_1af75e4b21ce367ff43dbc4f5280ad4adc" prot="public" virt="non-virtual"><scope>BShapeIterator</scope><name>BShapeIterator</name></member>
+      <member refid="classBShapeIterator_1a21d75abfba3c3a8d7735ab0c865aec92" prot="public" virt="non-virtual"><scope>BShapeIterator</scope><name>Iterate</name></member>
+      <member refid="classBShapeIterator_1afeaf8241a4fa83028d09640ab959fd92" prot="public" virt="virtual"><scope>BShapeIterator</scope><name>IterateArcTo</name></member>
+      <member refid="classBShapeIterator_1aec88187a4c636b8515dccef965c3b25b" prot="public" virt="virtual"><scope>BShapeIterator</scope><name>IterateBezierTo</name></member>
+      <member refid="classBShapeIterator_1abd832aedee4ce794d4b6e8676b15ec3e" prot="public" virt="virtual"><scope>BShapeIterator</scope><name>IterateClose</name></member>
+      <member refid="classBShapeIterator_1aadfce4825458bfcaa3255c22423e02d4" prot="public" virt="virtual"><scope>BShapeIterator</scope><name>IterateLineTo</name></member>
+      <member refid="classBShapeIterator_1a7d6f517a72417e91e5d071e01166826c" prot="public" virt="virtual"><scope>BShapeIterator</scope><name>IterateMoveTo</name></member>
+      <member refid="classBShapeIterator_1af401c6942a0e4e47d00a9b6fce2bd8dd" prot="private" virt="non-virtual"><scope>BShapeIterator</scope><name>reserved</name></member>
+      <member refid="classBShapeIterator_1acf898961872f144f8b8a1a8fa96c1d02" prot="public" virt="virtual"><scope>BShapeIterator</scope><name>~BShapeIterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

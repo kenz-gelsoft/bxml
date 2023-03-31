@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBReferenceable" kind="class" language="C++" prot="public">
+    <compoundname>BReferenceable</compoundname>
+    <derivedcompoundref refid="classBNetworkAddressResolver" prot="public" virt="non-virtual">BNetworkAddressResolver</derivedcompoundref>
+    <derivedcompoundref refid="classBToolTip" prot="public" virt="non-virtual">BToolTip</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classBReferenceable_1ad4035cf7e6b586c37743c2d8ce07c78d" prot="protected" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BReferenceable::fReferenceCount</definition>
+        <argsstring></argsstring>
+        <name>fReferenceCount</name>
+        <qualifiedname>BReferenceable::fReferenceCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="33" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBReferenceable_1aef45178f24465974be5d385b204176e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BReferenceable::BReferenceable</definition>
+        <argsstring>()</argsstring>
+        <name>BReferenceable</name>
+        <qualifiedname>BReferenceable::BReferenceable</qualifiedname>
+        <briefdescription>
+<para>Initialize the object with a reference count of 1. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The creator of the object is assumed to owns the first reference to it. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReferenceable_1aed77fa81682764305085f8c8480b2b19" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BReferenceable::~BReferenceable</definition>
+        <argsstring>()</argsstring>
+        <name>~BReferenceable</name>
+        <qualifiedname>BReferenceable::~BReferenceable</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The destructor should not be called directly, as the object is destructed automatically when the last reference is released. This destructor is public because you may still need to destroy the objects in the case where LastReferenceReleased is overriden and you handle object destruction in some other way.</para>
+<para>In debug mode, the destructor checks that no references to the object are still held. If the object was allocated on the stack, it allows exactly one reference to be kept, which makes it possible to allocate <ref refid="classBReferenceable" kindref="compound">BReferenceable</ref> on the stack without needing to release the single reference to it. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="18" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReferenceable_1ac98c8b1801978166c2a7e6c994fb689a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BReferenceable::AcquireReference</definition>
+        <argsstring>()</argsstring>
+        <name>AcquireReference</name>
+        <qualifiedname>BReferenceable::AcquireReference</qualifiedname>
+        <briefdescription>
+<para>Acquire a reference to the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the previous reference count</para>
+</simplesect>
+If the reference count was previously 0, this will call FirstReferenceAcquired. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="22" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReferenceable_1a2ffe8211f9390cb6b83f0fc86824a3a1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BReferenceable::CountReferences</definition>
+        <argsstring>() const</argsstring>
+        <name>CountReferences</name>
+        <qualifiedname>BReferenceable::CountReferences</qualifiedname>
+        <briefdescription>
+<para>Return the number of references to the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the reference count. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="25" column="6" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="25" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReferenceable_1a699a804cd2650e9f9078c49958aa431b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BReferenceable::ReleaseReference</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseReference</name>
+        <qualifiedname>BReferenceable::ReleaseReference</qualifiedname>
+        <briefdescription>
+<para>Release a reference to the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the previous reference count</para>
+</simplesect>
+If the reference count was previously 1 (and is now 0), this will call LastReferenceReleased. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="23" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBReferenceable_1aa9e2bd2354b0985827a2868b8aa15f47" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BReferenceable::FirstReferenceAcquired</definition>
+        <argsstring>()</argsstring>
+        <name>FirstReferenceAcquired</name>
+        <qualifiedname>BReferenceable::FirstReferenceAcquired</qualifiedname>
+        <briefdescription>
+<para>Called when the first reference to the object is reacquired. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default implementation does nothing. This method can be overriden to implement reinitialization of the object, when using <ref refid="classBReferenceable" kindref="compound">BReferenceable</ref> to keep track of a pool of reusable objects.</para>
+<para>In this use case, the objects are created (at initialization or lazily on an as-needed basis) and stored in a pool. When an object is needed, if there is an unused one waiting in the pool, it is reused instead of creating a new one. Once a reference to it is acquired, this method is called and the object can initialize itself to a clean state.</para>
+<para><simplesect kind="warning"><para>This is currently not called when the object is first created, but only on subsequent reuses. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="29" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBReferenceable_1a86ae8a45fa2fce4f5db3bdecac6a0a5e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BReferenceable::LastReferenceReleased</definition>
+        <argsstring>()</argsstring>
+        <name>LastReferenceReleased</name>
+        <qualifiedname>BReferenceable::LastReferenceReleased</qualifiedname>
+        <briefdescription>
+<para>Called when the last reference to the object is released. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function is called when the object is not referenced anymore. The default implementation deletes the object using the delete operator.</para>
+<para>This behavior can be overriden. For example, to implement an object pool, this method would not delete the object, but instead put it back in the free object pool, ready for reuse at a later point. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="30" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Implementation of reference-counted memory management. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The C++ language provides two main ways of allocating objects: on the stack, and on the heap. Objects created on the heap must be managed by the application and deleted when they are not needed. Objects allocated on the stack have a lifetime limited to the execution of the block they are declared in.</para>
+<para>This approach is simple, but in some cases it can become quite difficult to track ownership and lifetime of objects. The <ref refid="classBReferenceable" kindref="compound">BReferenceable</ref> class allows to implement reference counting, which allows a partially automated memory management and some safety checks. It can also be used to implement pools of reusable objects.</para>
+<para>As the name implies, reference counting consists of keeping track, inside an object, of how much references there are to it in the running application. When the object is not referenced anymore, it can&apos;t be reached or used from other parts of the application, so it is safe to delete or recycle the object.</para>
+<para>To use reference counting for a particular class, you make it inherit <ref refid="classBReferenceable" kindref="compound">BReferenceable</ref>. This provides all the support for reference counting. Objects are created as usual, on the stack or using the new operator.</para>
+<para>The object can then be referenced from other places. Each time a reference to it is kept, the owner of the reference should call AcquireReference. When the reference is not needed, it should call ReleaseReference.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/support/Referenceable.h" line="15" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Referenceable.h" bodystart="15" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classBReferenceable_1ac98c8b1801978166c2a7e6c994fb689a" prot="public" virt="non-virtual"><scope>BReferenceable</scope><name>AcquireReference</name></member>
+      <member refid="classBReferenceable_1aef45178f24465974be5d385b204176e3" prot="public" virt="non-virtual"><scope>BReferenceable</scope><name>BReferenceable</name></member>
+      <member refid="classBReferenceable_1a2ffe8211f9390cb6b83f0fc86824a3a1" prot="public" virt="non-virtual"><scope>BReferenceable</scope><name>CountReferences</name></member>
+      <member refid="classBReferenceable_1aa9e2bd2354b0985827a2868b8aa15f47" prot="protected" virt="virtual"><scope>BReferenceable</scope><name>FirstReferenceAcquired</name></member>
+      <member refid="classBReferenceable_1ad4035cf7e6b586c37743c2d8ce07c78d" prot="protected" virt="non-virtual"><scope>BReferenceable</scope><name>fReferenceCount</name></member>
+      <member refid="classBReferenceable_1a86ae8a45fa2fce4f5db3bdecac6a0a5e" prot="protected" virt="virtual"><scope>BReferenceable</scope><name>LastReferenceReleased</name></member>
+      <member refid="classBReferenceable_1a699a804cd2650e9f9078c49958aa431b" prot="public" virt="non-virtual"><scope>BReferenceable</scope><name>ReleaseReference</name></member>
+      <member refid="classBReferenceable_1aed77fa81682764305085f8c8480b2b19" prot="public" virt="virtual"><scope>BReferenceable</scope><name>~BReferenceable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

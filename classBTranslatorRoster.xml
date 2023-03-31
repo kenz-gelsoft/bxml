@@ -1,0 +1,1862 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBTranslatorRoster" kind="class" language="C++" prot="public">
+    <compoundname>BTranslatorRoster</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Constructors and Destructor</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1af83b21d0ef78199fee09dd6036e8a59a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTranslatorRoster::BTranslatorRoster</definition>
+        <argsstring>()</argsstring>
+        <name>BTranslatorRoster</name>
+        <qualifiedname>BTranslatorRoster::BTranslatorRoster</qualifiedname>
+        <briefdescription>
+<para>Constructs an empty <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>Only call the contructor if you want to use a custom collection of translators. Use <ref refid="classBTranslatorRoster_1a60e78b682be3b46d4dd283f9f4ae09b6" kindref="member">Default()</ref> if you don&apos;t. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="39" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1af89f82b5a2d066a05474a45d17fd5340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTranslatorRoster::BTranslatorRoster</definition>
+        <argsstring>(BMessage *model)</argsstring>
+        <name>BTranslatorRoster</name>
+        <qualifiedname>BTranslatorRoster::BTranslatorRoster</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>model</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> and fills it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message that contains information about a <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+After initialization, <emphasis>model</emphasis> is searched for strings with the name <computeroutput>&quot;be:translator_path&quot;</computeroutput>. The translators that are located at each path are added to the roster. If multiple paths point to translators with the same name, the translator at the path with the lowest index within the message will be kept.</para>
+<para><simplesect kind="warning"><para>Use <ref refid="classBTranslatorRoster_1a9b9638d2fa6763193e62495b098f0b54" kindref="member">Instantiate()</ref> instead of this constructor if <emphasis>model</emphasis> was created using <ref refid="classBTranslatorRoster_1a3da914e839d12c865bfc1f7a89d902e9" kindref="member">Archive()</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="40" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a29f95c13d3bc13aaea57f17766a0d91d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BTranslatorRoster::~BTranslatorRoster</definition>
+        <argsstring>()</argsstring>
+        <name>~BTranslatorRoster</name>
+        <qualifiedname>BTranslatorRoster::~BTranslatorRoster</qualifiedname>
+        <briefdescription>
+<para>Deletes this <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> that is deleted is the default roster, a new default roster will be created when <ref refid="classBTranslatorRoster_1a60e78b682be3b46d4dd283f9f4ae09b6" kindref="member">BTranslatorRoster::Default()</ref> is called for the next time.</para>
+<para>Release() is called on all translators in the roster. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="41" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a60e78b682be3b46d4dd283f9f4ae09b6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> *</type>
+        <definition>static BTranslatorRoster * BTranslatorRoster::Default</definition>
+        <argsstring>()</argsstring>
+        <name>Default</name>
+        <qualifiedname>BTranslatorRoster::Default</qualifiedname>
+        <briefdescription>
+<para>Gets the default <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>At any point, there is only one default roster. It is created when this method is called for the first time (possibly after being deleted) and is populated according to the following rules:</para>
+<para>If the environment variable <computeroutput>TRANSLATORS</computeroutput> is set, the default roster will be populated with all translators that are present in the directories denoted by <computeroutput>TRANSLATORS</computeroutput>. The paths are separated by a colon (<computeroutput>:</computeroutput>). If multiple paths contain a translator with the same name, the translator that is located in the path that appears earliest in <computeroutput>TRANSLATORS</computeroutput> will be kept.</para>
+<para>If <computeroutput>TRANSLATORS</computeroutput> is not set, the user non-packaged add-ons directory, the user add-ons directory, the system non-packaged add-ons directory and the system add-ons directory will be used. If those directories do not contain a subdirectory <computeroutput>Translators</computeroutput>, it will be created. The subdirectories are then added in the above order. If multiple directories contain a translator with the same name, the translator that is located in the path that appears earliest in the above list will be kept. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="43" column="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1a3da914e839d12c865bfc1f7a89d902e9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::Archive</definition>
+        <argsstring>(BMessage *into, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BTranslatorRoster::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>into</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archive this <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> into a <ref refid="classBMessage" kindref="compound">BMessage</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>into</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unused.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>into</emphasis> was NULL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation failed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="45" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a9b9638d2fa6763193e62495b098f0b54" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>static BArchivable * BTranslatorRoster::Instantiate</definition>
+        <argsstring>(BMessage *from)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BTranslatorRoster::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Creates a new <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> from a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message that contains information about a <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>NULL</computeroutput> if <emphasis>from</emphasis> was <computeroutput>NULL</computeroutput>, contained invalid archive data or archive data of a class that is not <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref>. A pointer to a new <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> containing the information from <emphasis>from</emphasis> otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="46" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Roster Management</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1ab0123b5bdbf2edd8e451383dc17f68c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::AddTranslators</definition>
+        <argsstring>(const char *loadPath=NULL)</argsstring>
+        <name>AddTranslators</name>
+        <qualifiedname>BTranslatorRoster::AddTranslators</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>loadPath</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Adds translators from a directory to the roster. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>loadPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A colon-separated list of directories to search for translators in.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+The following method is used to determine which translators to add:</para>
+<para>If <emphasis>loadPath</emphasis> is not <computeroutput>NULL</computeroutput>, the roster will be populated with all translators that are present in the directores denoted by <emphasis>loadPath</emphasis>. The paths are separated by a colon (<computeroutput>:</computeroutput>). If multiple paths contain a translator with the same name, the translator that is located in the path that appears earliest in <emphasis>loadPath</emphasis> will be kept.</para>
+<para>If <emphasis>loadPath</emphasis> is <computeroutput>NULL</computeroutput> and the environment variable <computeroutput>TRANSLATORS</computeroutput> is set, it will be populated with all translators that are present in the directories denoted by <computeroutput>TRANSLATORS</computeroutput>. The paths are separated by a colon (<computeroutput>:</computeroutput>). If multiple paths contain a translator with the same name, the translator that is located in the path that appears earliest in <computeroutput>TRANSLATORS</computeroutput> will be kept.</para>
+<para>If <emphasis>loadPath</emphasis> is <computeroutput>NULL</computeroutput> and <computeroutput>TRANSLATORS</computeroutput> is unset, the user non-packaged add-ons directory, the user add-ons directory, the system non-packaged add-ons directory and the system add-ons directory will be used. If those directories do not contain a subdirectory <computeroutput>Translators</computeroutput>, it will be created. The subdirectories are then added in the above order. If multiple directories contain a translator with the same name, the translator that is located in the path that appears earliest in the above list will be kept.</para>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went well, an error code specific to the operation that failed otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a3a594e4e4c9cb34a959e70b5760816e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::AddTranslator</definition>
+        <argsstring>(BTranslator *translator)</argsstring>
+        <name>AddTranslator</name>
+        <qualifiedname>BTranslatorRoster::AddTranslator</qualifiedname>
+        <param>
+          <type><ref refid="classBTranslator" kindref="compound">BTranslator</ref> *</type>
+          <declname>translator</declname>
+        </param>
+        <briefdescription>
+<para>Adds a single <ref refid="classBTranslator" kindref="compound">BTranslator</ref> to the roster. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translator</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translator that should be added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="remark"><para><ref refid="classBTranslatorRoster_1a3a594e4e4c9cb34a959e70b5760816e4" kindref="member">AddTranslator()</ref> calls Acquire() on the translator, so it is safe to release it if you had acquired it before.</para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translator was successfully added to the roster. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was no memory to enlarge the roster. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>translator</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="49" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Core Methods</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1abc19c6daf3381256da9f11140c030401" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::Identify</definition>
+        <argsstring>(BPositionIO *source, BMessage *ioExtension, translator_info *_info, uint32 hintType=0, const char *hintMIME=NULL, uint32 wantType=0)</argsstring>
+        <name>Identify</name>
+        <qualifiedname>BTranslatorRoster::Identify</qualifiedname>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>ioExtension</declname>
+        </param>
+        <param>
+          <type>translator_info *</type>
+          <declname>_info</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>hintType</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>hintMIME</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>wantType</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Determines the best translator in the roster to perform a certain conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read and seek interface to the data to be examined. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ioExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration infortmation for the translators. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where information about the best translator will be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hintType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hint about the data format in <emphasis>source</emphasis>. <computeroutput>0</computeroutput> represents an unknown type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hintMIME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hint about the MIME type of <emphasis>source</emphasis>. <computeroutput>NULL</computeroutput> represents an unknown type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wantType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The format that <emphasis>source</emphasis> needs to be translated into. <computeroutput>0</computeroutput> permits any output type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+To determine the best translator, for all translators that report that they are able to perform the translation, the values they return for quality and capability are multiplied. The translator with the highest value gets returned. Note that quality and capability for the output format are not taken into consideration.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Identification was successful. Information about the chosen translator was written to <emphasis>_info</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No suitable translator was found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>source</emphasis> or <emphasis>_info</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was an error interacting with <emphasis>source</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="51" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1afdbf0925f7f4425d39893f2f8ff6338a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::Translate</definition>
+        <argsstring>(BPositionIO *source, const translator_info *info, BMessage *ioExtension, BPositionIO *destination, uint32 wantOutType, uint32 hintType=0, const char *hintMIME=NULL)</argsstring>
+        <name>Translate</name>
+        <qualifiedname>BTranslatorRoster::Translate</qualifiedname>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const translator_info *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>ioExtension</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>wantOutType</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>hintType</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>hintMIME</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Finds and invokes the best translator for a conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read and seek interface to the input data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Information about wich translator should be used. If <emphasis>info</emphasis> is <computeroutput>NULL</computeroutput>, <ref refid="classBTranslatorRoster_1abc19c6daf3381256da9f11140c030401" kindref="member">Identify()</ref> will be used to find a suitable translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ioExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Write interface to the output location. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wantOutType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired output format. If this is <computeroutput>0</computeroutput>, any type is permitted. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hintType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hint about the type of the data in <emphasis>source</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hintMIME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hint about the MIME type of the data in <emphasis>source</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translated data was successfully written to <emphasis>destination</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>When <emphasis>info</emphasis> was non-null, it did not match to any translator in the roster. If <emphasis>info</emphasis> was <computeroutput>NULL</computeroutput>, then no suitable translator was found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>source</emphasis> or <emphasis>destination</emphasis> was <computeroutput>NULL</computeroutput> or <emphasis>ioExtension</emphasis> was <computeroutput>NULL</computeroutput> or contained bad data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred accessing <emphasis>source</emphasis> or <emphasis>destination</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="79" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1ad93df9a0a73f5bfb2b50d0144586f39e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::Translate</definition>
+        <argsstring>(translator_id translatorID, BPositionIO *source, BMessage *ioExtension, BPositionIO *destination, uint32 wantOutType)</argsstring>
+        <name>Translate</name>
+        <qualifiedname>BTranslatorRoster::Translate</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>ioExtension</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>wantOutType</declname>
+        </param>
+        <briefdescription>
+<para>Uses a specified translator from the roster to perform a conversion. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator that should be used. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read and seek interface to the input data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ioExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Write interface to the output location. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wantOutType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired output format. If this is <computeroutput>0</computeroutput>, any type is permitted.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The translated data was successfully written to <emphasis>destination</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The specified translator cannot handle the data in <emphasis>source</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>source</emphasis> or <emphasis>destination</emphasis> was <computeroutput>NULL</computeroutput> or <emphasis>ioExtension</emphasis> was <computeroutput>NULL</computeroutput> or contained bad data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred accessing <emphasis>source</emphasis> or <emphasis>destination</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="86" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Translator Access</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1a57a59b5623c1909aaaa34ae02428ad2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetTranslators</definition>
+        <argsstring>(BPositionIO *source, BMessage *ioExtension, translator_info **_info, int32 *_numInfo, uint32 hintType=0, const char *hintMIME=NULL, uint32 wantType=0)</argsstring>
+        <name>GetTranslators</name>
+        <qualifiedname>BTranslatorRoster::GetTranslators</qualifiedname>
+        <param>
+          <type><ref refid="classBPositionIO" kindref="compound">BPositionIO</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>ioExtension</declname>
+        </param>
+        <param>
+          <type>translator_info **</type>
+          <declname>_info</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_numInfo</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>hintType</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>hintMIME</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>wantType</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Collects information about all translators that are able to perform a certain conversion in an array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Read and seek interface to the data to be examinded. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ioExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translators. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the resulting array will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_numInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the number of elements in the resulting array will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hintType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hint about the data format in <emphasis>source</emphasis>. <computeroutput>0</computeroutput> represents an unknown type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hintMIME</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A hint about the MIME type of <emphasis>source</emphasis>. <computeroutput>NULL</computeroutput> represents an unknown type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wantType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The format that <emphasis>source</emphasis> needs to be translated into. <computeroutput>0</computeroutput> permits any output type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+If this function returns <computeroutput>B_OK</computeroutput> the caller has to call <computeroutput>delete</computeroutput>[] when they are done using <emphasis>_info</emphasis>.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_info</emphasis> and <emphasis>_numInfo</emphasis> were successfully populated. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No suitable translator was found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>source</emphasis>, <emphasis>_info</emphasis> or <emphasis>_numInfo</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_IO_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was an error interacting with <emphasis>source</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Could not allocate enough memory for the array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="57" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a4243683e52936ddf802c47d79a081436" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetAllTranslators</definition>
+        <argsstring>(translator_id **_list, int32 *_count)</argsstring>
+        <name>GetAllTranslators</name>
+        <qualifiedname>BTranslatorRoster::GetAllTranslators</qualifiedname>
+        <param>
+          <type>translator_id **</type>
+          <declname>_list</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_count</declname>
+        </param>
+        <briefdescription>
+<para>Collects the IDs of all translators in the roster in an array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the resulting array will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the number of elements in the resulting array will be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+If this function returns <computeroutput>B_OK</computeroutput> the caller has to call <computeroutput>delete</computeroutput>[] when they are done using <emphasis>_info</emphasis>.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_list</emphasis> and <emphasis>_count</emphasis> were populated successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Could not allocate the memory for the array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="64" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a2e38aed81b23a399fe2c83cf5a017ba6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetTranslatorInfo</definition>
+        <argsstring>(translator_id translatorID, const char **_name, const char **_info, int32 *_version)</argsstring>
+        <name>GetTranslatorInfo</name>
+        <qualifiedname>BTranslatorRoster::GetTranslatorInfo</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>_name</declname>
+        </param>
+        <param>
+          <type>const char **</type>
+          <declname>_info</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_version</declname>
+        </param>
+        <briefdescription>
+<para>Looks up general information of the translator with a given ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator whose information is requested. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the name of the translator will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the description of the translator will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_version</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the version of the translator will be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Do not free any returned data. If any of <emphasis>_name</emphasis>, <emphasis>_info</emphasis> and <emphasis>_version</emphasis> are <computeroutput>NULL</computeroutput>, the non-null pointers will still be written to.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All non-null pointers were written to successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>All three pointers were <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The roster does not contain any translator with the ID <emphasis>translatorID</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="67" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a46b37086a22347d8e9b8a01413bd8f0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetInputFormats</definition>
+        <argsstring>(translator_id translatorID, const translation_format **_formats, int32 *_numFormats)</argsstring>
+        <name>GetInputFormats</name>
+        <qualifiedname>BTranslatorRoster::GetInputFormats</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type>const translation_format **</type>
+          <declname>_formats</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_numFormats</declname>
+        </param>
+        <briefdescription>
+<para>Looks up the input formats of the translator with a given ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator whose input formats are requested. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_formats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the array of input formats will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_numFormats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the number of elements in the array of input formats will be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Do not free any of the returned data.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_formats</emphasis> and <emphasis>_numFormats</emphasis> were successfully set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_formats</emphasis> or <emphasis>_numFormats</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The roster does not contain any translator with the ID <emphasis>translatorID</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="71" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a039dbcf8967418f988f370459cb82d0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetOutputFormats</definition>
+        <argsstring>(translator_id translatorID, const translation_format **_formats, int32 *_numFormats)</argsstring>
+        <name>GetOutputFormats</name>
+        <qualifiedname>BTranslatorRoster::GetOutputFormats</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type>const translation_format **</type>
+          <declname>_formats</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>_numFormats</declname>
+        </param>
+        <briefdescription>
+<para>Looks up the output formats of the translator with a given ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator whose output formats are requested. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_formats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the array of output formats will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_numFormats</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the number of elements in the array of output formats will be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Do not free any of the returned data.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_formats</emphasis> and <emphasis>_numFormats</emphasis> were successfully set. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_formats</emphasis> or <emphasis>_numFormats</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The roster does not contain any translator with the ID <emphasis>translatorID</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="75" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a8c0ac933442510d1e1dcadea850580db" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::MakeConfigurationView</definition>
+        <argsstring>(translator_id translatorID, BMessage *ioExtension, BView **_view, BRect *_extent)</argsstring>
+        <name>MakeConfigurationView</name>
+        <qualifiedname>BTranslatorRoster::MakeConfigurationView</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>ioExtension</declname>
+        </param>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> **</type>
+          <declname>_view</declname>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref> *</type>
+          <declname>_extent</declname>
+        </param>
+        <briefdescription>
+<para>Creates the configuration view of a specified translator from the roster. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator whose configuration view should be created. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ioExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A message containing configuration information for the translator. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where a pointer to the newly created configuration view will be stored. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_extent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the size of of the newly created configuration view will be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went well. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>_view</emphasis> or <emphasis>_extent</emphasis> were <computeroutput>NULL</computeroutput> or <emphasis>ioExtension</emphasis> was <computeroutput>NULL</computeroutput> or contained bad data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The roster does not contain any translator with the ID <emphasis>translatorID</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred or the translator chose not to supply a configuration view. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="91" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a545782121c88e69708c5679706c7166f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetConfigurationMessage</definition>
+        <argsstring>(translator_id translatorID, BMessage *ioExtension)</argsstring>
+        <name>GetConfigurationMessage</name>
+        <qualifiedname>BTranslatorRoster::GetConfigurationMessage</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>ioExtension</declname>
+        </param>
+        <briefdescription>
+<para>Populates a <ref refid="classBMessage" kindref="compound">BMessage</ref> with the settings of the specified translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator whose settings <emphasis>ioExtension</emphasis> should be populated with. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ioExtension</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message that should be populated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ioExtension</emphasis> was populated successfully. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The roster does not contain any translator with the ID <emphasis>translatorID</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ioExtension</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred or the translator chose not to provide this functionality. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="96" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1abdb8e6c9742b1764fa4529791c74b1ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::GetRefFor</definition>
+        <argsstring>(translator_id translatorID, entry_ref *ref)</argsstring>
+        <name>GetRefFor</name>
+        <qualifiedname>BTranslatorRoster::GetRefFor</qualifiedname>
+        <param>
+          <type>translator_id</type>
+          <declname>translatorID</declname>
+        </param>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="structentry__ref" kindref="compound">entry_ref</ref> of the specified translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>translatorID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the translator whose <ref refid="structentry__ref" kindref="compound">entry_ref</ref> is to be found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Where the <ref refid="structentry__ref" kindref="compound">entry_ref</ref> will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went well. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>ref</emphasis> was <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_TRANSLATOR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The roster does not contain any translator with the ID <emphasis>translatorID</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="102" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Miscellaneous</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1a6524c2e8e3d5eb693bdac714f3301174" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BTranslatorRoster::IsTranslator</definition>
+        <argsstring>(entry_ref *ref)</argsstring>
+        <name>IsTranslator</name>
+        <qualifiedname>BTranslatorRoster::IsTranslator</qualifiedname>
+        <param>
+          <type><ref refid="structentry__ref" kindref="compound">entry_ref</ref> *</type>
+          <declname>ref</declname>
+        </param>
+        <briefdescription>
+<para>Determines whether the specified add-on contains at least one translator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ref</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="structentry__ref" kindref="compound">entry_ref</ref> to be tested.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>true</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The add-on exposes translators. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>false</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The add-on exposes no translators or an error occurred. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="104" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Notifications</header>
+      <memberdef kind="function" id="classBTranslatorRoster_1ad389aed357b37c8bf7c6b6a6828355f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::StartWatching</definition>
+        <argsstring>(BMessenger target)</argsstring>
+        <name>StartWatching</name>
+        <qualifiedname>BTranslatorRoster::StartWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Register a messenger to be notified when the roster changes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBMessenger" kindref="compound">BMessenger</ref> to be registered.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Whenever a translator is added to or removed from the roster, all messengers that were registered through this method are sent a message. <computeroutput>message-&gt;what</computeroutput> will be <computeroutput>B_TRANSLATOR_ADDED</computeroutput> or <computeroutput>B_TRANSLATOR_REMOVED</computeroutput> (as defined in AppDefs.h) respectively.</para>
+<para><parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>target</emphasis> was successfully registered. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unable to allocate more memory for the list of targets. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="106" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a56dffa645a8cd40ff084441d71e129aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTranslatorRoster::StopWatching</definition>
+        <argsstring>(BMessenger target)</argsstring>
+        <name>StopWatching</name>
+        <qualifiedname>BTranslatorRoster::StopWatching</qualifiedname>
+        <param>
+          <type><ref refid="classBMessenger" kindref="compound">BMessenger</ref></type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+<para>Unregister a messenger from the notification list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>target</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBMessenger" kindref="compound">BMessenger</ref> to be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>target</emphasis> was successfully unsubscribed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>target</emphasis> could not be found on the notification list.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBTranslatorRoster_1ad389aed357b37c8bf7c6b6a6828355f8" kindref="member">StartWatching(BMessenger target)</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="107" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBTranslatorRoster_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BTranslatorRoster::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="132" column="14" bodyfile="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBTranslatorRoster_1a96341d714a84b69676f75d9dd43aba02" prot="private" static="no" mutable="no">
+        <type>Private *</type>
+        <definition>Private* BTranslatorRoster::fPrivate</definition>
+        <argsstring></argsstring>
+        <name>fPrivate</name>
+        <qualifiedname>BTranslatorRoster::fPrivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="134" column="8" bodyfile="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTranslatorRoster_1a65148fd824d213e9f6f328be3e709825" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTranslatorRoster::fUnused[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>fUnused</name>
+        <qualifiedname>BTranslatorRoster::fUnused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="135" column="6" bodyfile="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classBTranslatorRoster_1a11ff13cb60565dd5e54d18158fa9c71a" prot="private" static="yes" mutable="no">
+        <type><ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> *</type>
+        <definition>BTranslatorRoster* BTranslatorRoster::sDefaultRoster</definition>
+        <argsstring></argsstring>
+        <name>sDefaultRoster</name>
+        <qualifiedname>BTranslatorRoster::sDefaultRoster</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="137" column="24" bodyfile="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBTranslatorRoster_1a2dbdc3d4be5b57b4104229c83cc262a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>BTranslatorReleaseDelegate *</type>
+        <definition>BTranslatorReleaseDelegate * BTranslatorRoster::AcquireTranslator</definition>
+        <argsstring>(int32 translatorID)</argsstring>
+        <name>AcquireTranslator</name>
+        <qualifiedname>BTranslatorRoster::AcquireTranslator</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>translatorID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="100" column="27"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBTranslatorRoster_1a9dbe517ac681ae3e00d1170afd7af0ab" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTranslatorRoster::BTranslatorRoster</definition>
+        <argsstring>(const BTranslatorRoster &amp;other)</argsstring>
+        <name>BTranslatorRoster</name>
+        <qualifiedname>BTranslatorRoster::BTranslatorRoster</qualifiedname>
+        <param>
+          <type>const <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="113" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a3309f3741fc27658c9d485e7bfe1746a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BTranslatorRoster::_Initialize</definition>
+        <argsstring>()</argsstring>
+        <name>_Initialize</name>
+        <qualifiedname>BTranslatorRoster::_Initialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="124" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1ac86c75cd477e50649c1d3b50aecfd89d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> &amp;</type>
+        <definition>BTranslatorRoster &amp; BTranslatorRoster::operator=</definition>
+        <argsstring>(const BTranslatorRoster &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BTranslatorRoster::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="115" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a1690d47f1bcd0ef67a0f687cfe4e4b2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTranslatorRoster::ReservedTranslatorRoster1</definition>
+        <argsstring>()</argsstring>
+        <name>ReservedTranslatorRoster1</name>
+        <qualifiedname>BTranslatorRoster::ReservedTranslatorRoster1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="117" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a089195b144290e6a35e1149fc32db7a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTranslatorRoster::ReservedTranslatorRoster2</definition>
+        <argsstring>()</argsstring>
+        <name>ReservedTranslatorRoster2</name>
+        <qualifiedname>BTranslatorRoster::ReservedTranslatorRoster2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="118" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a6d07768532f311a4e35a2efb2d0b9e6f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTranslatorRoster::ReservedTranslatorRoster3</definition>
+        <argsstring>()</argsstring>
+        <name>ReservedTranslatorRoster3</name>
+        <qualifiedname>BTranslatorRoster::ReservedTranslatorRoster3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="119" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1abd400f78e17677025796518134d4c194" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTranslatorRoster::ReservedTranslatorRoster4</definition>
+        <argsstring>()</argsstring>
+        <name>ReservedTranslatorRoster4</name>
+        <qualifiedname>BTranslatorRoster::ReservedTranslatorRoster4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="120" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1a5fb94e6135e01f437e6ec900f16f7098" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTranslatorRoster::ReservedTranslatorRoster5</definition>
+        <argsstring>()</argsstring>
+        <name>ReservedTranslatorRoster5</name>
+        <qualifiedname>BTranslatorRoster::ReservedTranslatorRoster5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="121" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTranslatorRoster_1ab4092841e485da8cc2a2bd6a7c8466a2" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTranslatorRoster::ReservedTranslatorRoster6</definition>
+        <argsstring>()</argsstring>
+        <name>ReservedTranslatorRoster6</name>
+        <qualifiedname>BTranslatorRoster::ReservedTranslatorRoster6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="122" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBTranslatorRoster_1ad94b6819a2c216c8adb2b450a554644d" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>static const char * BTranslatorRoster::Version</definition>
+        <argsstring>(int32 *outCurVersion, int32 *outMinVersion, int32 inAppVersion)</argsstring>
+        <name>Version</name>
+        <qualifiedname>BTranslatorRoster::Version</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>outCurVersion</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>outMinVersion</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>inAppVersion</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="126" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class that serves as an interface between applications and translators. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> gives applications access to the translation kit. Applications can request translations and <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> will automatically search for a matching translator and have it perfrom the translation.</para>
+<para><simplesect kind="warning"><para><ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> does not perform chaining of any sort. Only translations that can be made by invoking a single translator are supported.</para>
+</simplesect>
+<simplesect kind="note"><para>BTranslationUtils provides some helper methods that perform the interaction with <ref refid="classBTranslatorRoster" kindref="compound">BTranslatorRoster</ref> for you.</para>
+</simplesect>
+BTranslationRoster acts as a container. While in most cases the default roster is used, it is possible to create a roster that interacts with a custom set of translators. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BTranslatorRoster</label>
+        <link refid="classBTranslatorRoster"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BTranslatorRoster</label>
+        <link refid="classBTranslatorRoster"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" line="37" column="1" bodyfile="/boot/home/src/haiku/headers/os/translation/TranslatorRoster.h" bodystart="37" bodyend="138"/>
+    <listofallmembers>
+      <member refid="classBTranslatorRoster_1a3309f3741fc27658c9d485e7bfe1746a" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>_Initialize</name></member>
+      <member refid="classBTranslatorRoster_1a2dbdc3d4be5b57b4104229c83cc262a0" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>AcquireTranslator</name></member>
+      <member refid="classBTranslatorRoster_1a3a594e4e4c9cb34a959e70b5760816e4" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>AddTranslator</name></member>
+      <member refid="classBTranslatorRoster_1ab0123b5bdbf2edd8e451383dc17f68c4" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>AddTranslators</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>AllUnarchived</name></member>
+      <member refid="classBTranslatorRoster_1a3da914e839d12c865bfc1f7a89d902e9" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>Archive</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>BArchivable</name></member>
+      <member refid="classBTranslatorRoster_1af83b21d0ef78199fee09dd6036e8a59a" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>BTranslatorRoster</name></member>
+      <member refid="classBTranslatorRoster_1af89f82b5a2d066a05474a45d17fd5340" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>BTranslatorRoster</name></member>
+      <member refid="classBTranslatorRoster_1a9dbe517ac681ae3e00d1170afd7af0ab" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>BTranslatorRoster</name></member>
+      <member refid="classBTranslatorRoster_1a60e78b682be3b46d4dd283f9f4ae09b6" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>Default</name></member>
+      <member refid="classBTranslatorRoster_1a96341d714a84b69676f75d9dd43aba02" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>fPrivate</name></member>
+      <member refid="classBTranslatorRoster_1a65148fd824d213e9f6f328be3e709825" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>fUnused</name></member>
+      <member refid="classBTranslatorRoster_1a4243683e52936ddf802c47d79a081436" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>GetAllTranslators</name></member>
+      <member refid="classBTranslatorRoster_1a545782121c88e69708c5679706c7166f" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>GetConfigurationMessage</name></member>
+      <member refid="classBTranslatorRoster_1a46b37086a22347d8e9b8a01413bd8f0c" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>GetInputFormats</name></member>
+      <member refid="classBTranslatorRoster_1a039dbcf8967418f988f370459cb82d0a" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>GetOutputFormats</name></member>
+      <member refid="classBTranslatorRoster_1abdb8e6c9742b1764fa4529791c74b1ff" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>GetRefFor</name></member>
+      <member refid="classBTranslatorRoster_1a2e38aed81b23a399fe2c83cf5a017ba6" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>GetTranslatorInfo</name></member>
+      <member refid="classBTranslatorRoster_1a57a59b5623c1909aaaa34ae02428ad2f" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>GetTranslators</name></member>
+      <member refid="classBTranslatorRoster_1abc19c6daf3381256da9f11140c030401" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>Identify</name></member>
+      <member refid="classBTranslatorRoster_1a9b9638d2fa6763193e62495b098f0b54" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>Instantiate</name></member>
+      <member refid="classBTranslatorRoster_1a6524c2e8e3d5eb693bdac714f3301174" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>IsTranslator</name></member>
+      <member refid="classBTranslatorRoster_1a8c0ac933442510d1e1dcadea850580db" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>MakeConfigurationView</name></member>
+      <member refid="classBTranslatorRoster_1ac86c75cd477e50649c1d3b50aecfd89d" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>operator=</name></member>
+      <member refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>Perform</name></member>
+      <member refid="classBTranslatorRoster_1a1690d47f1bcd0ef67a0f687cfe4e4b2a" prot="private" virt="virtual"><scope>BTranslatorRoster</scope><name>ReservedTranslatorRoster1</name></member>
+      <member refid="classBTranslatorRoster_1a089195b144290e6a35e1149fc32db7a5" prot="private" virt="virtual"><scope>BTranslatorRoster</scope><name>ReservedTranslatorRoster2</name></member>
+      <member refid="classBTranslatorRoster_1a6d07768532f311a4e35a2efb2d0b9e6f" prot="private" virt="virtual"><scope>BTranslatorRoster</scope><name>ReservedTranslatorRoster3</name></member>
+      <member refid="classBTranslatorRoster_1abd400f78e17677025796518134d4c194" prot="private" virt="virtual"><scope>BTranslatorRoster</scope><name>ReservedTranslatorRoster4</name></member>
+      <member refid="classBTranslatorRoster_1a5fb94e6135e01f437e6ec900f16f7098" prot="private" virt="virtual"><scope>BTranslatorRoster</scope><name>ReservedTranslatorRoster5</name></member>
+      <member refid="classBTranslatorRoster_1ab4092841e485da8cc2a2bd6a7c8466a2" prot="private" virt="virtual"><scope>BTranslatorRoster</scope><name>ReservedTranslatorRoster6</name></member>
+      <member refid="classBTranslatorRoster_1a11ff13cb60565dd5e54d18158fa9c71a" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>sDefaultRoster</name></member>
+      <member refid="classBTranslatorRoster_1ad389aed357b37c8bf7c6b6a6828355f8" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>StartWatching</name></member>
+      <member refid="classBTranslatorRoster_1a56dffa645a8cd40ff084441d71e129aa" prot="public" virt="non-virtual"><scope>BTranslatorRoster</scope><name>StopWatching</name></member>
+      <member refid="classBTranslatorRoster_1afdbf0925f7f4425d39893f2f8ff6338a" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>Translate</name></member>
+      <member refid="classBTranslatorRoster_1ad93df9a0a73f5bfb2b50d0144586f39e" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>Translate</name></member>
+      <member refid="classBTranslatorRoster_1ad94b6819a2c216c8adb2b450a554644d" prot="private" virt="non-virtual"><scope>BTranslatorRoster</scope><name>Version</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>~BArchivable</name></member>
+      <member refid="classBTranslatorRoster_1a29f95c13d3bc13aaea57f17766a0d91d" prot="public" virt="virtual"><scope>BTranslatorRoster</scope><name>~BTranslatorRoster</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

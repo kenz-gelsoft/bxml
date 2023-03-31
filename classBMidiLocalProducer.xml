@@ -1,0 +1,865 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMidiLocalProducer" kind="class" language="C++" prot="public">
+    <compoundname>BMidiLocalProducer</compoundname>
+    <basecompoundref refid="classBMidiProducer" prot="public" virt="non-virtual">BMidiProducer</basecompoundref>
+    <includes local="no">MidiProducer.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMidiLocalProducer_1a04a1bbb49f97c5367195b82721d2dfdf" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMidiLocalProducer::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BMidiLocalProducer::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="123" column="8" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMidiLocalProducer_1aaa7581cc02a64df6520abc42c6290b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMidiLocalProducer::BMidiLocalProducer</definition>
+        <argsstring>(const char *name=NULL)</argsstring>
+        <name>BMidiLocalProducer</name>
+        <qualifiedname>BMidiLocalProducer::BMidiLocalProducer</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Creates a new local producer endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The new endpoint is not visible to other applications until you <ref refid="classBMidiEndpoint_1a6a818947b6098488a46e5a934d254186" kindref="member">Register()</ref> it. You can tell the constructor what the name of the new producer will be. If you pass NULL (or use the default argument), then the producer&apos;s name will be an empty string. It won&apos;t be NULL, since endpoint names cannot be NULL. There is no guarantee that the endpoint will be successfully created. For example, the Midi Server may not be running. Therefore, you should always call <ref refid="classBMidiEndpoint_1a0c9f93e72f5302f6f0c631e5a4f0ddb2" kindref="member">IsValid()</ref> after creating a new endpoint to make sure that everything went okay. If not, <ref refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" kindref="member">Release()</ref> the object to reclaim memory and abort gracefully. <programlisting><codeline><highlight class="normal"><ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref>*<sp/>prod<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref>(...);</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!prod-&gt;<ref refid="classBMidiEndpoint_1a0c9f93e72f5302f6f0c631e5a4f0ddb2" kindref="member">IsValid</ref>())</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>prod-&gt;<ref refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" kindref="member">Release</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>...exit<sp/>gracefully...</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="58" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a7a399648299576dd5173d66140b5e91e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::Connected</definition>
+        <argsstring>(BMidiConsumer *cons)</argsstring>
+        <name>Connected</name>
+        <qualifiedname>BMidiLocalProducer::Connected</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+<para>Invoked when a new consumer is connected to this producer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Although typical notifications (i.e. from <ref refid="classBMidiRoster" kindref="compound">BMidiRoster</ref>&apos;s &quot;watching&quot; facility) are only sent if it is some other app that is performing the operation, <ref refid="classBMidiLocalProducer_1a7a399648299576dd5173d66140b5e91e" kindref="member">Connected()</ref> is also called if you are making the connection yourself. If you override this hook, you don&apos;t have to call the default implementation, because that does nothing.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cons</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The newly connected consumer. The reference count of the consumer object is not increased, so you should not <ref refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" kindref="member">Release()</ref> it. However, if you want to keep track of the consumer beyond this function, you should first <ref refid="classBMidiEndpoint_1a504efce89310e4473c4a9ae77da7a641" kindref="member">Acquire()</ref> it, and <ref refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" kindref="member">Release()</ref> it when you are done.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBMidiLocalProducer_1a26c3cef91310c467d46e6ada96ae194b" kindref="member">Disconnected()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="60" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a26c3cef91310c467d46e6ada96ae194b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::Disconnected</definition>
+        <argsstring>(BMidiConsumer *cons)</argsstring>
+        <name>Disconnected</name>
+        <qualifiedname>BMidiLocalProducer::Disconnected</qualifiedname>
+        <param>
+          <type><ref refid="classBMidiConsumer" kindref="compound">BMidiConsumer</ref> *</type>
+          <declname>cons</declname>
+        </param>
+        <briefdescription>
+<para>Invoked when a consumer is disconnected from this producer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalProducer_1a7a399648299576dd5173d66140b5e91e" kindref="member">Connected()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="61" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a29eacce2dc50b1e193903ae28b5e5feb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayChannelPressure</definition>
+        <argsstring>(uchar channel, uchar pressure, bigtime_t time=0) const</argsstring>
+        <name>SprayChannelPressure</name>
+        <qualifiedname>BMidiLocalProducer::SprayChannelPressure</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>pressure</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Channel Pressure event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1af44b9be98bfa1993de27a3d557eb7699" kindref="member">BMidiLocalConsumer::ChannelPressure()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="86" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a25e58f5d855eadfebd50d8ac5e9db423" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayControlChange</definition>
+        <argsstring>(uchar channel, uchar controlNumber, uchar controlValue, bigtime_t time=0) const</argsstring>
+        <name>SprayControlChange</name>
+        <qualifiedname>BMidiLocalProducer::SprayControlChange</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>controlNumber</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>controlValue</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Controller Change event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="Midi2Defs_8h" kindref="compound">Midi2Defs.h</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a48ae4c29a7044c1f53fa2901f0aad548" kindref="member">BMidiLocalConsumer::ControlChange()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="79" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ae8cabda990298dbb11a3c4d70edcb047" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayData</definition>
+        <argsstring>(void *data, size_t length, bool atomic=false, bigtime_t time=0) const</argsstring>
+        <name>SprayData</name>
+        <qualifiedname>BMidiLocalProducer::SprayData</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>atomic</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends raw MIDI data downstream to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Typically you won&apos;t have to call <ref refid="classBMidiLocalProducer_1ae8cabda990298dbb11a3c4d70edcb047" kindref="member">SprayData()</ref>; the other spray functions will do just fine. If you do call it, remember that you retain ownership of the data and that you are responsible for freeing it at some point. (Even though data is not declared const, the function does not change it.) With atomic set to false, you can send a MIDI message in segments (perhaps for a large sysex dump). However, when you do this, you are on your own. The Midi Kit only tags the data as being non-atomic, but offers no] additional support.</para>
+<para>The default implementation of <ref refid="classBMidiLocalConsumer" kindref="compound">BMidiLocalConsumer</ref> completely ignores such events. To handle non-atomic MIDI data, you should override the <ref refid="classBMidiLocalConsumer_1a4b99be774374a9098cdb7535baef51bb" kindref="member">BMidiLocalConsumer::Data()</ref> hook and process the MIDI event yourself. All of <ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref>&apos;s other spray functions always send atomic data.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the MIDI event data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>byte size of the data buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>atomic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>whether the data buffer contains a single complete MIDI event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the required performance time of the event.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a4b99be774374a9098cdb7535baef51bb" kindref="member">BMidiLocalConsumer::Data()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="63" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a7508488d1d0268d0061146c706392e5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayKeyPressure</definition>
+        <argsstring>(uchar channel, uchar note, uchar pressure, bigtime_t time=0) const</argsstring>
+        <name>SprayKeyPressure</name>
+        <qualifiedname>BMidiLocalProducer::SprayKeyPressure</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>note</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>pressure</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Polyphonic Pressure (Aftertouch) event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a40bd466df44bc73cb896123e693cb96b" kindref="member">BMidiLocalConsumer::KeyPressure()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="75" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a9a8eaf2c2993e435f4b766ebc3dc0135" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayNoteOff</definition>
+        <argsstring>(uchar channel, uchar note, uchar velocity, bigtime_t time=0) const</argsstring>
+        <name>SprayNoteOff</name>
+        <qualifiedname>BMidiLocalProducer::SprayNoteOff</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>note</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Note Off event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a25329db05d4e210e7495d0618cc7e2cd" kindref="member">BMidiLocalConsumer::NoteOff()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="67" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ae894fdb7f04b2c65329720592cb525dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayNoteOn</definition>
+        <argsstring>(uchar channel, uchar note, uchar velocity, bigtime_t time=0) const</argsstring>
+        <name>SprayNoteOn</name>
+        <qualifiedname>BMidiLocalProducer::SprayNoteOn</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>note</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Note On event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1af8986251fbb08548712e0273c13dd87e" kindref="member">BMidiLocalConsumer::NoteOn()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="71" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ab8bf5919d03bd48cb245868d6765da72" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayPitchBend</definition>
+        <argsstring>(uchar channel, uchar lsb, uchar msb, bigtime_t time=0) const</argsstring>
+        <name>SprayPitchBend</name>
+        <qualifiedname>BMidiLocalProducer::SprayPitchBend</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>lsb</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>msb</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Pitch Bend event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a0aeef8a6c7ac0933c290e34ec413b679" kindref="member">BMidiLocalConsumer::PitchBend()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="89" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a1996b1a5486d0ff0008e7705138fe9d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayProgramChange</definition>
+        <argsstring>(uchar channel, uchar programNumber, bigtime_t time=0) const</argsstring>
+        <name>SprayProgramChange</name>
+        <qualifiedname>BMidiLocalProducer::SprayProgramChange</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>programNumber</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Program Change event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1abc694df60305b285bfd82291709cf3f7" kindref="member">BMidiLocalConsumer::ProgramChange()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="83" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a7e0de2eea30f60f75ef06a8bc03b853e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SpraySystemCommon</definition>
+        <argsstring>(uchar status, uchar data1, uchar data2, bigtime_t time=0) const</argsstring>
+        <name>SpraySystemCommon</name>
+        <qualifiedname>BMidiLocalProducer::SpraySystemCommon</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>data1</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>data2</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a System Common event to the connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The status byte must be one of the following: <table rows="6" cols="3"><row>
+<entry thead="no"><para>0xF1 </para>
+</entry><entry thead="no"><para><computeroutput>B_MIDI_TIME_CODE</computeroutput>  </para>
+</entry><entry thead="no"><para>data1 only  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xF2 </para>
+</entry><entry thead="no"><para><computeroutput>B_SONG_POSITION</computeroutput>  </para>
+</entry><entry thead="no"><para>data1 and data2  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xF3 </para>
+</entry><entry thead="no"><para><computeroutput>B_SONG_SELECT</computeroutput>  </para>
+</entry><entry thead="no"><para>data1 only  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xF5 </para>
+</entry><entry thead="no"><para><computeroutput>B_CABLE_MESSAGE</computeroutput>  </para>
+</entry><entry thead="no"><para>data1 only  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xF6 </para>
+</entry><entry thead="no"><para><computeroutput>B_TUNE_REQUEST</computeroutput>  </para>
+</entry><entry thead="no"><para>no data  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xF7 </para>
+</entry><entry thead="no"><para><computeroutput>B_SYS_EX_END</computeroutput>  </para>
+</entry><entry thead="no"><para>no data  </para>
+</entry></row>
+</table>
+</para>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a269746afdbeed326f7d95ba897e8d10c" kindref="member">BMidiLocalConsumer::SystemCommon()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="95" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1af7aeb206b4e0b343d95f42e68db5d956" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SpraySystemExclusive</definition>
+        <argsstring>(void *data, size_t length, bigtime_t time=0) const</argsstring>
+        <name>SpraySystemExclusive</name>
+        <qualifiedname>BMidiLocalProducer::SpraySystemExclusive</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a System Exclusive event to all connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You retain ownership of the data and are responsible for freeing it. Even though data is not declared const, the function does not change it. Even though the amount of data may be quite large, this function always sends sysex messages as an atomic block of data.</para>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a64798d8363e51044b516addc23937788" kindref="member">BMidiLocalConsumer::SystemExclusive()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="92" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a776c12865641386d826145a37796bd54" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SpraySystemRealTime</definition>
+        <argsstring>(uchar status, bigtime_t time=0) const</argsstring>
+        <name>SpraySystemRealTime</name>
+        <qualifiedname>BMidiLocalProducer::SpraySystemRealTime</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a65f85814a8290f9797005d3b28e7e5fc" kindref="member">uchar</ref></type>
+          <declname>status</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Real Time event to the connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The status byte must be one of the following: <table rows="6" cols="2"><row>
+<entry thead="no"><para>0xf8</para>
+</entry><entry thead="no"><para><computeroutput>B_TIMING_CLOCK</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xfa</para>
+</entry><entry thead="no"><para><computeroutput>B_START</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xfb</para>
+</entry><entry thead="no"><para><computeroutput>B_CONTINUE</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xfc</para>
+</entry><entry thead="no"><para><computeroutput>B_STOP</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xfe</para>
+</entry><entry thead="no"><para><computeroutput>B_ACTIVE_SENSING</computeroutput>  </para>
+</entry></row>
+<row>
+<entry thead="no"><para>0xff</para>
+</entry><entry thead="no"><para><computeroutput>B_SYSTEM_RESET</computeroutput>  </para>
+</entry></row>
+</table>
+</para>
+<para>Because of their high priority, the MIDI specification allows real time messages to &quot;interleave&quot; with other MIDI messages. A large sysex dump, for example, may be interrupted by a real time event. The Midi Kit, however, doesn&apos;t care. If you (or another producer) have just sent a big system exclusive to a consumer, any following real time message will simply have to wait until the consumer has dealt with the sysex.</para>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1a3a36cf048a1bb7d92a9d97e98ffc3dc4" kindref="member">BMidiLocalConsumer::SystemRealTime()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="98" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ae7302b78045f6e99a50bb43ec255b848" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayTempoChange</definition>
+        <argsstring>(int32 beatsPerMinute, bigtime_t time=0) const</argsstring>
+        <name>SprayTempoChange</name>
+        <qualifiedname>BMidiLocalProducer::SprayTempoChange</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>beatsPerMinute</declname>
+          <defname>bpm</defname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Sends a Tempo Change event to the connected consumers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This kind of Tempo Change event is not really part of the MIDI spec, rather it is an extension from the SMF (Standard MIDI File) format.</para>
+<para><simplesect kind="see"><para><ref refid="classBMidiLocalConsumer_1aa86d74b50c5b0ff5f2a49c8d0ad9e01d" kindref="member">BMidiLocalConsumer::TempoChange()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="101" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBMidiLocalProducer_1a2b6f584b8f9f050a436a32ed37442f6d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMidiLocalProducer::~BMidiLocalProducer</definition>
+        <argsstring>()</argsstring>
+        <name>~BMidiLocalProducer</name>
+        <qualifiedname>BMidiLocalProducer::~BMidiLocalProducer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="106" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMidiLocalProducer_1a70adc8a5de463db9e1496eebd1524eda" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved1</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved1</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved1</qualifiedname>
+        <reimplements refid="classBMidiProducer_1a92465eea2f8dd2920d555e90e70b29cc">_Reserved1</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="114" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ae54ce4d038f81f30294969815ffa2550" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved2</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved2</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved2</qualifiedname>
+        <reimplements refid="classBMidiProducer_1a46838f96c04eebbf948d588566b4a1e4">_Reserved2</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="115" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a9a81bd54f795ac63d833dc6d0ee94ac8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved3</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved3</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved3</qualifiedname>
+        <reimplements refid="classBMidiProducer_1a636bb02c521268a018ff1904942db5d3">_Reserved3</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="116" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a787eee0e697999ca9438be0bc6a1bc48" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved4</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved4</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved4</qualifiedname>
+        <reimplements refid="classBMidiProducer_1a1159874834cabea34e2a559bc4e1fb8a">_Reserved4</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="117" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a320605201325a7bacc51900fd1bf002e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved5</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved5</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved5</qualifiedname>
+        <reimplements refid="classBMidiProducer_1a6f990ef6dc52b7fd9f7b2726d9cab958">_Reserved5</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="118" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a0bfa853acc61bebe540500d82ea3d235" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved6</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved6</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved6</qualifiedname>
+        <reimplements refid="classBMidiProducer_1ac626cd1dffd8107674b47ed22b2d9886">_Reserved6</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="119" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1a5e34216517cc385e1006f3ecb5f0e4bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved7</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved7</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved7</qualifiedname>
+        <reimplements refid="classBMidiProducer_1a18340767e54d71a63ae59749013997e5">_Reserved7</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="120" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ab03801ddef582da8eff6c1cb95917560" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMidiLocalProducer::_Reserved8</definition>
+        <argsstring>()</argsstring>
+        <name>_Reserved8</name>
+        <qualifiedname>BMidiLocalProducer::_Reserved8</qualifiedname>
+        <reimplements refid="classBMidiProducer_1af897284baa6bddadd6ff6a82cf28a32f">_Reserved8</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="121" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMidiLocalProducer_1ab62e48f89003a5df35544529bc55fc94" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMidiLocalProducer::SprayEvent</definition>
+        <argsstring>(const void *data, size_t length, bool atomic, bigtime_t time, bool sysex=false) const</argsstring>
+        <name>SprayEvent</name>
+        <qualifiedname>BMidiLocalProducer::SprayEvent</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>atomic</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>sysex</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="110" column="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A producer endpoint that is created by your own application. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>You create a <ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref> if you want your application to send MIDI events. You use the various spray functions to send events to all connected consumers. If no consumers are connected to the producer, any calls to the spray functions are ignored.</para>
+<para>Most spray functions accept a channel argument. Even though MIDI channels are really numbered 1 through 16, the spray functions work with channels 0 through 15. You can also specify the performance time for the event using the time argument. Specify 0 (or any time in the past) to perform the event &quot;now&quot;, i.e. as soon as possible. You can also schedule events to be performed in the future, by passing a time such as system_time() + 5000000, which means 5 seconds from now.</para>
+<para>Unlike <ref refid="classBMidiLocalConsumer" kindref="compound">BMidiLocalConsumer</ref>, which should be subclassed almost always, you hardly ever need to derive a class from <ref refid="classBMidiLocalProducer" kindref="compound">BMidiLocalProducer</ref>. The only reason for subclassing is when you need to know when the producer gets connected or disconnected.</para>
+<para>Also unlike consumers, local producers have no thread of control directly associated with them. If you want to send out the MIDI events from a different thread, you will have to create one yourself. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BMidiEndpoint</label>
+        <link refid="classBMidiEndpoint"/>
+      </node>
+      <node id="1">
+        <label>BMidiLocalProducer</label>
+        <link refid="classBMidiLocalProducer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BMidiProducer</label>
+        <link refid="classBMidiProducer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BMidiEndpoint</label>
+        <link refid="classBMidiEndpoint"/>
+      </node>
+      <node id="1">
+        <label>BMidiLocalProducer</label>
+        <link refid="classBMidiLocalProducer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BMidiProducer</label>
+        <link refid="classBMidiProducer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" line="54" column="1" bodyfile="/boot/home/src/haiku/headers/os/midi2/MidiProducer.h" bodystart="55" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classBMidiLocalProducer_1a04a1bbb49f97c5367195b82721d2dfdf" prot="private" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>_reserved</name></member>
+      <member refid="classBMidiLocalProducer_1a70adc8a5de463db9e1496eebd1524eda" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved1</name></member>
+      <member refid="classBMidiLocalProducer_1ae54ce4d038f81f30294969815ffa2550" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved2</name></member>
+      <member refid="classBMidiLocalProducer_1a9a81bd54f795ac63d833dc6d0ee94ac8" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved3</name></member>
+      <member refid="classBMidiLocalProducer_1a787eee0e697999ca9438be0bc6a1bc48" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved4</name></member>
+      <member refid="classBMidiLocalProducer_1a320605201325a7bacc51900fd1bf002e" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved5</name></member>
+      <member refid="classBMidiLocalProducer_1a0bfa853acc61bebe540500d82ea3d235" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved6</name></member>
+      <member refid="classBMidiLocalProducer_1a5e34216517cc385e1006f3ecb5f0e4bb" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved7</name></member>
+      <member refid="classBMidiLocalProducer_1ab03801ddef582da8eff6c1cb95917560" prot="private" virt="virtual"><scope>BMidiLocalProducer</scope><name>_Reserved8</name></member>
+      <member refid="classBMidiEndpoint_1a504efce89310e4473c4a9ae77da7a641" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Acquire</name></member>
+      <member refid="classBMidiLocalProducer_1aaa7581cc02a64df6520abc42c6290b03" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>BMidiLocalProducer</name></member>
+      <member refid="classBMidiProducer_1ae1fe6a25736a3f8eb154158429fc224a" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Connect</name></member>
+      <member refid="classBMidiLocalProducer_1a7a399648299576dd5173d66140b5e91e" prot="public" virt="virtual"><scope>BMidiLocalProducer</scope><name>Connected</name></member>
+      <member refid="classBMidiProducer_1a86959b229758ec9c9cccec9f8631d6ab" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Connections</name></member>
+      <member refid="classBMidiProducer_1a7f68b65fd703766a0fccb5d9535ea6ed" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Disconnect</name></member>
+      <member refid="classBMidiLocalProducer_1a26c3cef91310c467d46e6ada96ae194b" prot="public" virt="virtual"><scope>BMidiLocalProducer</scope><name>Disconnected</name></member>
+      <member refid="classBMidiEndpoint_1a5c6c8dc7f451e7c908df05319f24a64f" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>GetProperties</name></member>
+      <member refid="classBMidiEndpoint_1a3f5b840617bf84cddbca779c470cef17" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>ID</name></member>
+      <member refid="classBMidiProducer_1a1aca7bf741e4765737dfda6685c50063" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsConnected</name></member>
+      <member refid="classBMidiEndpoint_1ae20fe83d79bd0d08cb818d3dda0fdc23" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsConsumer</name></member>
+      <member refid="classBMidiEndpoint_1a3edca82a4aa8bfa2aad3874cc9192b4d" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsLocal</name></member>
+      <member refid="classBMidiEndpoint_1a20623d6d71190a701e9bccc23e646e6a" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsPersistent</name></member>
+      <member refid="classBMidiEndpoint_1a2555a377a070eaea225ca40b9e5bb696" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsProducer</name></member>
+      <member refid="classBMidiEndpoint_1a11fc9a34aee618e137d9affcd67a7b36" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsRemote</name></member>
+      <member refid="classBMidiEndpoint_1a0c9f93e72f5302f6f0c631e5a4f0ddb2" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>IsValid</name></member>
+      <member refid="classBMidiEndpoint_1a685e4d64cfbf56e30c7a3c5849fc72d8" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Name</name></member>
+      <member refid="classBMidiEndpoint_1a6a818947b6098488a46e5a934d254186" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Register</name></member>
+      <member refid="classBMidiEndpoint_1a368ed2bdb2b76afe1466daf0cc0e2b08" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Release</name></member>
+      <member refid="classBMidiEndpoint_1afa167950f7b60558712224798f7e50aa" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SetName</name></member>
+      <member refid="classBMidiEndpoint_1a58cf2c701ba336b640067db743ba9746" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SetProperties</name></member>
+      <member refid="classBMidiLocalProducer_1a29eacce2dc50b1e193903ae28b5e5feb" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayChannelPressure</name></member>
+      <member refid="classBMidiLocalProducer_1a25e58f5d855eadfebd50d8ac5e9db423" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayControlChange</name></member>
+      <member refid="classBMidiLocalProducer_1ae8cabda990298dbb11a3c4d70edcb047" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayData</name></member>
+      <member refid="classBMidiLocalProducer_1ab62e48f89003a5df35544529bc55fc94" prot="private" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayEvent</name></member>
+      <member refid="classBMidiLocalProducer_1a7508488d1d0268d0061146c706392e5c" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayKeyPressure</name></member>
+      <member refid="classBMidiLocalProducer_1a9a8eaf2c2993e435f4b766ebc3dc0135" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayNoteOff</name></member>
+      <member refid="classBMidiLocalProducer_1ae894fdb7f04b2c65329720592cb525dd" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayNoteOn</name></member>
+      <member refid="classBMidiLocalProducer_1ab8bf5919d03bd48cb245868d6765da72" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayPitchBend</name></member>
+      <member refid="classBMidiLocalProducer_1a1996b1a5486d0ff0008e7705138fe9d6" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayProgramChange</name></member>
+      <member refid="classBMidiLocalProducer_1a7e0de2eea30f60f75ef06a8bc03b853e" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SpraySystemCommon</name></member>
+      <member refid="classBMidiLocalProducer_1af7aeb206b4e0b343d95f42e68db5d956" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SpraySystemExclusive</name></member>
+      <member refid="classBMidiLocalProducer_1a776c12865641386d826145a37796bd54" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SpraySystemRealTime</name></member>
+      <member refid="classBMidiLocalProducer_1ae7302b78045f6e99a50bb43ec255b848" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>SprayTempoChange</name></member>
+      <member refid="classBMidiEndpoint_1ad60d3fd6a9706a63f57851acf84db042" prot="public" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>Unregister</name></member>
+      <member refid="classBMidiLocalProducer_1a2b6f584b8f9f050a436a32ed37442f6d" prot="protected" virt="non-virtual"><scope>BMidiLocalProducer</scope><name>~BMidiLocalProducer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

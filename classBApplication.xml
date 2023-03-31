@@ -1,0 +1,2043 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBApplication" kind="class" language="C++" prot="public">
+    <compoundname>BApplication</compoundname>
+    <basecompoundref refid="classBLooper" prot="public" virt="non-virtual">BLooper</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBApplication_1ae76219f7c7c91b14739e94c608f7349c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BApplication::BApplication</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BApplication::BApplication</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Initialize a <ref refid="classBApplication" kindref="compound">BApplication</ref> object from a message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The message must contain the signature of the application you wish to initialize in the &quot;mime_sig&quot; variable.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message to initialize the <ref refid="classBApplication" kindref="compound">BApplication</ref> from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="42" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aa36536582835264341376064cbc96a27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BApplication::Archive</qualifiedname>
+        <reimplements refid="classBLooper_1a791ef8664f674b6683d551762888f1c2">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archive the <ref refid="classBApplication" kindref="compound">BApplication</ref> object into a <ref refid="classBMessage" kindref="compound">BMessage</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44" kindref="member">BArchivable::Archive()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="44" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aa2814aceefbe18ac62814157f53a07c0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BApplication::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BApplication::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Restores the <ref refid="classBApplication" kindref="compound">BApplication</ref> object from a <ref refid="classBMessage" kindref="compound">BMessage</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBArchivable_1a04efcb17fa2a64a776923cc12303efcd" kindref="member">BArchivable::Instantiate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="43" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Message Loop Control</header>
+      <memberdef kind="function" id="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>thread_id</type>
+        <definition>thread_id BApplication::Run</definition>
+        <argsstring>()</argsstring>
+        <name>Run</name>
+        <qualifiedname>BApplication::Run</qualifiedname>
+        <reimplements refid="classBLooper_1a88bb85410e0c4124bdc6f16168df4811">Run</reimplements>
+        <briefdescription>
+<para>Starts the message loop in the thread that it is called from, and doesn&apos;t return until the message loop stops. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> does not spawn a new thread.</para>
+<para><simplesect kind="return"><para>The thread_id of the thread that the <ref refid="classBApplication" kindref="compound">BApplication</ref> is called from.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="49" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1abd8cb94d425105f89bf9e18f01552015" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::Quit</definition>
+        <argsstring>()</argsstring>
+        <name>Quit</name>
+        <qualifiedname>BApplication::Quit</qualifiedname>
+        <reimplements refid="classBLooper_1a10d5a4873f14fd247890a6dfc9b8b949">Quit</reimplements>
+        <briefdescription>
+<para>Tells the thread to finish processing the message queue, disallowing any new messages. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBApplication_1abd8cb94d425105f89bf9e18f01552015" kindref="member">Quit()</ref> doesn&apos;t kill the looper thread. After <ref refid="classBApplication_1abd8cb94d425105f89bf9e18f01552015" kindref="member">Quit()</ref> returns, it doesn&apos;t wait for the message queue to empty. <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> will be then able to return.</para>
+<para><ref refid="classBApplication_1abd8cb94d425105f89bf9e18f01552015" kindref="member">Quit()</ref> doesn&apos;t delete the <ref refid="classBApplication" kindref="compound">BApplication</ref> object after <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> is called. You should delete the <ref refid="classBApplication" kindref="compound">BApplication</ref> object yourself one <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> returns. However <ref refid="classBApplication_1abd8cb94d425105f89bf9e18f01552015" kindref="member">Quit()</ref> does delete the object if it&apos;s called before the message loop starts i.e. before <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> is called.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="50" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Hook Methods</header>
+      <memberdef kind="function" id="classBApplication_1a4965aea57452c88022f0fdba2af65e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BApplication::QuitRequested</definition>
+        <argsstring>()</argsstring>
+        <name>QuitRequested</name>
+        <qualifiedname>BApplication::QuitRequested</qualifiedname>
+        <reimplements refid="classBLooper_1aff7aaf066538383f0e0ea28d18eb8863">QuitRequested</reimplements>
+        <briefdescription>
+<para>Hook method that gets invoked when the <ref refid="classBApplication" kindref="compound">BApplication</ref> receives a <computeroutput>B_QUIT_REQUESTED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBApplication" kindref="compound">BApplication</ref> sends a <ref refid="classBApplication_1a4965aea57452c88022f0fdba2af65e0a" kindref="member">QuitRequested()</ref> message to each of its <ref refid="classBWindow" kindref="compound">BWindow</ref> objects. If all of the <ref refid="classBWindow" kindref="compound">BWindow</ref> s return <computeroutput>true</computeroutput> then the windows are each destroyed (through <ref refid="classBWindow_1a054c0206836014dcc20c59e50bceab44" kindref="member">BWindow::Quit()</ref>) and <ref refid="classBApplication_1a4965aea57452c88022f0fdba2af65e0a" kindref="member">QuitRequested()</ref> returns <computeroutput>true</computeroutput>. If any of the <ref refid="classBWindow" kindref="compound">BWindow</ref> returns <computeroutput>false</computeroutput>, the <ref refid="classBWindow" kindref="compound">BWindow</ref> s are not destroyed and <ref refid="classBApplication_1a4965aea57452c88022f0fdba2af65e0a" kindref="member">QuitRequested()</ref> returns <computeroutput>false</computeroutput>.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the application quit or <computeroutput>false</computeroutput> if the application failed to quit.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="51" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1af912cef601090a89cc20cb3a7af48315" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::ReadyToRun</definition>
+        <argsstring>()</argsstring>
+        <name>ReadyToRun</name>
+        <qualifiedname>BApplication::ReadyToRun</qualifiedname>
+        <briefdescription>
+<para>Hook method that&apos;s invoked when the <ref refid="classBApplication" kindref="compound">BApplication</ref> receives a <computeroutput>B_READY_TO_RUN</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classBApplication_1af912cef601090a89cc20cb3a7af48315" kindref="member">ReadyToRun()</ref> method is automatically called by the <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> method. It is sent after the initial <computeroutput>B_REFS_RECEIVED</computeroutput> and <computeroutput>B_ARGV_RECEIVED</computeroutput> messages (if any) have already been handled. <ref refid="classBApplication_1af912cef601090a89cc20cb3a7af48315" kindref="member">ReadyToRun()</ref> is the only message that every running application is guaranteed to receive.</para>
+<para>The default version of <ref refid="classBApplication_1af912cef601090a89cc20cb3a7af48315" kindref="member">ReadyToRun()</ref> is empty. You should override the <ref refid="classBApplication_1af912cef601090a89cc20cb3a7af48315" kindref="member">ReadyToRun()</ref> method to do whatever you want to do. If you haven&apos;t constructed any windows in your application yet then this would be a good place to do so.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="53" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a0826684edce56baa7a31c89c97a1d161" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::ArgvReceived</definition>
+        <argsstring>(int32 argc, char **argv)</argsstring>
+        <name>ArgvReceived</name>
+        <qualifiedname>BApplication::ArgvReceived</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char **</type>
+          <declname>argv</declname>
+        </param>
+        <briefdescription>
+<para>Hook method that gets invoked when the application receives a <computeroutput>B_ARGV_RECEIVED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If command line arguments are specified when the application is launched from the the shell, or if <computeroutput>argv/argc</computeroutput> values are passed to <ref refid="classBRoster_1a7336c58b9bea76b181c83c0d6e635360" kindref="member">BRoster::Launch()</ref>, then this method is executed.</para>
+<para><simplesect kind="warning"><para><ref refid="classBApplication_1a0826684edce56baa7a31c89c97a1d161" kindref="member">ArgvReceived()</ref> is not called if no command line arguments are specified, or if <ref refid="classBRoster_1a7336c58b9bea76b181c83c0d6e635360" kindref="member">BRoster::Launch()</ref> was called without any <computeroutput>argv/argc</computeroutput> values.</para>
+</simplesect>
+The arguments passed to <ref refid="classBApplication_1a0826684edce56baa7a31c89c97a1d161" kindref="member">ArgvReceived()</ref> are the constructed in the same way as those passed to command line programs. The number of command line arguments is passed in <emphasis>argc</emphasis> and the arguments themselves are passed as an array of strings in <emphasis>argv</emphasis>. The first <emphasis>argv</emphasis> string is the name of the program and the rest of the strings are the command line arguments.</para>
+<para><ref refid="classBRoster_1a7336c58b9bea76b181c83c0d6e635360" kindref="member">BRoster::Launch()</ref> adds the program name to the front of the <emphasis>argv</emphasis> array and increments the <emphasis>argc</emphasis> value.</para>
+<para>The <computeroutput>B_ARGV_RECEIVED</computeroutput> message (if sent) is sent only once, just before the <computeroutput>B_READY_TO_RUN</computeroutput> message is sent. However, if you try to relaunch an application that is already running and the application is set to <computeroutput>B_EXCLUSIVE_LAUNCH</computeroutput> or <computeroutput>B_SINGLE_LAUNCH</computeroutput> then the application will generate a <computeroutput>B_ARGV_RECEIVED</computeroutput> message and send it to the already running instance. Thus in this case the <computeroutput>B_ARGV_RECEIVED</computeroutput> message can show up at any time.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="55" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a71e7db8bc9e4f34137bcd4c5e3ed6a16" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::AppActivated</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>AppActivated</name>
+        <qualifiedname>BApplication::AppActivated</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Hook method that gets invoked when the application receives <computeroutput>B_APP_ACTIVATED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The message is sent whenever the application changes its active application status. The active flag set to is <computeroutput>true</computeroutput> when the application becomes active and is set to <computeroutput>false</computeroutput> when the application becomes inactive.</para>
+<para>The application becomes activated in response to a user action such as clicking on or unhiding one of its windows. The application can have its active status set programmatically by calling either the <ref refid="classBWindow_1a24ef781656049451c5c6ed06eeb98c06" kindref="member">BWindow::Activate()</ref> or <ref refid="classBRoster_1a29069168723243621a07f0c818201e77" kindref="member">BRoster::ActivateApp()</ref> methods.</para>
+<para>This method is called after <ref refid="classBApplication_1af912cef601090a89cc20cb3a7af48315" kindref="member">ReadyToRun()</ref> provided the application is displaying a window that can be set active.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="56" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a5fae9740458d9aec66f3b1d5c50fae87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::RefsReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>RefsReceived</name>
+        <qualifiedname>BApplication::RefsReceived</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Hook method that gets invoked when the application receives a <computeroutput>B_REFS_RECEIVED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The message is sent in response to a user action such as a user drag-and-dropping a file on your app&apos;s icon or opening a file that the application is set to handle. You can use the <ref refid="classBApplication_1a49c3d8c8521a1b931f45fdcbaedb3f2d" kindref="member">IsLaunching()</ref> method to discern whether the message arrived when the application is launched or after the application has already been running.</para>
+<para>The default implementation is empty. You can override this method to do something with the received refs. Typically you create <ref refid="classBEntry" kindref="compound">BEntry</ref> or <ref refid="classBFile" kindref="compound">BFile</ref> objects from the passed in refs.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>contains a single field named &quot;be:refs&quot; that contains one or more <ref refid="structentry__ref" kindref="compound">entry_ref</ref> (<computeroutput>B_REF_TYPE</computeroutput>) items, one for each file sent.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="57" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a47d9b29407642805b64f0478a21e5895" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::AboutRequested</definition>
+        <argsstring>()</argsstring>
+        <name>AboutRequested</name>
+        <qualifiedname>BApplication::AboutRequested</qualifiedname>
+        <briefdescription>
+<para>Hook method that gets invoked when the <ref refid="classBApplication" kindref="compound">BApplication</ref> receives a <computeroutput>B_ABOUT_REQUESTED</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You should override this method to pop an alert to provide information about the application.</para>
+<para>The default implementation pops a basic alert dialog.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="58" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Pulse</header>
+      <memberdef kind="function" id="classBApplication_1abf9de9bc0de3a8c504a4174f34ed82b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::Pulse</definition>
+        <argsstring>()</argsstring>
+        <name>Pulse</name>
+        <qualifiedname>BApplication::Pulse</qualifiedname>
+        <briefdescription>
+<para>Hook method that gets invoked when the <ref refid="classBApplication" kindref="compound">BApplication</ref> receives a <computeroutput>B_PULSE</computeroutput> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>An action is performed each time app_server calls the <ref refid="classBApplication_1abf9de9bc0de3a8c504a4174f34ed82b4" kindref="member">Pulse()</ref> method. The pulse rate is set by <ref refid="classBApplication_1a565e7ede16cd6a0e7df384c3c97ba860" kindref="member">SetPulseRate()</ref>. You can implement <ref refid="classBApplication_1abf9de9bc0de3a8c504a4174f34ed82b4" kindref="member">Pulse()</ref> to do anything you want. The default version does nothing. The pulse granularity is no better than once per 100,000 microseconds.</para>
+<para><simplesect kind="see"><para><ref refid="classBApplication_1a565e7ede16cd6a0e7df384c3c97ba860" kindref="member">SetPulseRate()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="52" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a565e7ede16cd6a0e7df384c3c97ba860" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::SetPulseRate</definition>
+        <argsstring>(bigtime_t rate)</argsstring>
+        <name>SetPulseRate</name>
+        <qualifiedname>BApplication::SetPulseRate</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>rate</declname>
+        </param>
+        <briefdescription>
+<para>Sets the interval that the <computeroutput>B_PULSE</computeroutput> messages are sent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the <emphasis>rate</emphasis> is set to 0 then the <computeroutput>B_PULSE</computeroutput> messages are not sent. The pulse rate can be no faster than once per 100,000 microseconds or so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rate</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The rate at which <computeroutput>B_PULSE</computeroutput> messages are sent to the application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="86" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Message Mechanics</header>
+      <memberdef kind="function" id="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BApplication::MessageReceived</qualifiedname>
+        <reimplements refid="classBLooper_1a89303d11c987dae76cdfc38ad5d3c4c2">MessageReceived</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle <emphasis>message</emphasis> that has been received by the associated looper.  </para>
+<para>This method is reimplemented by subclasses. If the messages that have been received by a looper pass through the filters, then they end up in the <ref refid="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03" kindref="member">MessageReceived()</ref> methods.</para>
+<para>The example below shows a very common way to handle <emphasis>message</emphasis>. Usually, this involves parsing the <ref refid="classBMessage_1ad074faab0857f51fba778f0d8558df1e" kindref="member">BMessage::what</ref> constant and then perform an action based on that.</para>
+<para><programlisting><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">ShowImageApp::MessageReceived(<ref refid="classBMessage" kindref="compound">BMessage</ref><sp/>*message)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(message-&gt;<ref refid="classBMessage_1ad074faab0857f51fba778f0d8558df1e" kindref="member">what</ref>)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>MSG_FILE_OPEN:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fOpenPanel-&gt;Show();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>B_CANCEL:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>File<sp/>open<sp/>panel<sp/>was<sp/>closed,</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>start<sp/>checking<sp/>count<sp/>of<sp/>open<sp/>windows.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StartPulse();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>do<sp/>not<sp/>handle<sp/>this<sp/>message,<sp/>pass<sp/>it<sp/>on<sp/>to<sp/>the<sp/>base<sp/>class.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03" kindref="member">BApplication::MessageReceived</ref>(message);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para>If your handler cannot process this <emphasis>message</emphasis>, you should pass it on to the base class. Eventually, it will reach the base implementation, which will reply with <computeroutput>B_MESSAGE_NOT_UNDERSTOOD</computeroutput>.</para>
+<para><simplesect kind="attention"><para>If you want to keep or manipulate the <emphasis>message</emphasis>, have a look at <ref refid="classBLooper_1a7c8f05bcc354bc1d53026417417120e3" kindref="member">BLooper::DetachCurrentMessage()</ref> to receive ownership of the <emphasis>message</emphasis>.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message that needs to be handled.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="54" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a034ef79fe7f1ca45e63193c76a6fd128" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BApplication::DispatchMessage</definition>
+        <argsstring>(BMessage *message, BHandler *handler)</argsstring>
+        <name>DispatchMessage</name>
+        <qualifiedname>BApplication::DispatchMessage</qualifiedname>
+        <reimplements refid="classBLooper_1add21ca8765c67b0dbf95b8f0361afa73">DispatchMessage</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+          <declname>handler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Dispatch a message to a handler. Override if there are messages that you want to catch before they are sent to the handlers.  </para>
+<para>This method is called by the message looping thread to dispatch a message to <emphasis>handler</emphasis>. If you implement the <ref refid="classBLooper" kindref="compound">BLooper</ref> class and your looper receives messages that absolutely have to be processed by the looper instead of any of the handlers, override this method. For example, the default implementation catches B_QUIT_REQUESTED messages before they are sent to the handlers, so that the looper will quit at those messages.</para>
+<para>You are discouraged from using this method to filter out any messages you do not want to process. For this, there is a more generic method using the <ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> class. If you want to skip messages with certain patterns, have a look at the <ref refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" kindref="member">AddCommonFilter()</ref> and <ref refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" kindref="member">SetCommonFilterList()</ref> methods.</para>
+<para>If you do override this method, please remember to call the <ref refid="classBApplication_1a034ef79fe7f1ca45e63193c76a6fd128" kindref="member">DispatchMessage()</ref> method of the parent class.</para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="84" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Scripting</header>
+      <memberdef kind="function" id="classBApplication_1a044d40580b05617288c91748cbd30513" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BApplication::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 form, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BApplication::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBLooper_1a16b494160d9b37d4dbbc0d426a22c946">ResolveSpecifier</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>form</declname>
+          <defname>what</defname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the proper handler for a scripting message.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="61" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a0fb9cc161a785cad42925075a087fc16" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::GetSupportedSuites</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BApplication::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBLooper_1a915a50de7d5b6263f0fd1a349a9a6d92">GetSupportedSuites</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports the suites of messages and specifiers that derived classes understand.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="94" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Cursor</header>
+      <memberdef kind="function" id="classBApplication_1ad21286f2cae75ee360d022fbacc8a21d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>BApplication::ShowCursor</definition>
+        <argsstring>()</argsstring>
+        <name>ShowCursor</name>
+        <qualifiedname>BApplication::ShowCursor</qualifiedname>
+        <briefdescription>
+<para>Restores the cursor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="66" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a82504dfa192861bbf322e81550e53643" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::HideCursor</definition>
+        <argsstring>()</argsstring>
+        <name>HideCursor</name>
+        <qualifiedname>BApplication::HideCursor</qualifiedname>
+        <briefdescription>
+<para>Hides the cursor from the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="67" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a206c888fb8198a76c3b63668aadab0af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::ObscureCursor</definition>
+        <argsstring>()</argsstring>
+        <name>ObscureCursor</name>
+        <qualifiedname>BApplication::ObscureCursor</qualifiedname>
+        <briefdescription>
+<para>Hides the cursor until the mouse is moved. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="68" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a3503caddf7e23970a311b07d5db7576a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BApplication::IsCursorHidden</definition>
+        <argsstring>() const</argsstring>
+        <name>IsCursorHidden</name>
+        <qualifiedname>BApplication::IsCursorHidden</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the cursor is hidden. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the cursor is hidden, <computeroutput>false</computeroutput> if not.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="69" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aa4262e1879bcdd8f82af94dab6d4650b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::SetCursor</definition>
+        <argsstring>(const void *cursor)</argsstring>
+        <name>SetCursor</name>
+        <qualifiedname>BApplication::SetCursor</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>cursor</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>cursor</emphasis> to be used when the application is active. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You can pass one of the pre-defined cursor constants such as <computeroutput>B_HAND_CURSOR</computeroutput> or <computeroutput>B_I_BEAM_CURSOR</computeroutput> or you can create your own pass in your own cursor image. The cursor data format is described in the <ref refid="classBCursor" kindref="compound">BCursor</ref> class.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cursor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cursor data to set the cursor to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="70" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a08e75088c2f6396dfc9fc8c01a9c0545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::SetCursor</definition>
+        <argsstring>(const BCursor *cursor, bool sync=true)</argsstring>
+        <name>SetCursor</name>
+        <qualifiedname>BApplication::SetCursor</qualifiedname>
+        <param>
+          <type>const <ref refid="classBCursor" kindref="compound">BCursor</ref> *</type>
+          <declname>cursor</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>sync</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Sets the <emphasis>cursor</emphasis> to be used when the application is active with <emphasis>sync</emphasis> immediately option. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The default BCursors to use are <computeroutput>B_CURSOR_SYSTEM_DEFAULT</computeroutput> for the hand cursor and <computeroutput>B_CURSOR_I_BEAM</computeroutput> for the I-beam cursor.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cursor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classBCursor" kindref="compound">BCursor</ref> object to set the <emphasis>cursor</emphasis> to. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sync</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>synchronize the cursor immediately.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="71" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Info</header>
+      <memberdef kind="function" id="classBApplication_1a0cc9fc7396ac3717b238d61ab1f4b82b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BApplication::CountWindows</definition>
+        <argsstring>() const</argsstring>
+        <name>CountWindows</name>
+        <qualifiedname>BApplication::CountWindows</qualifiedname>
+        <briefdescription>
+<para>Returns the number of windows created by the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the number of windows created by the application.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="74" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a8850d9542d628e11d91a4fd25279b65d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBWindow" kindref="compound">BWindow</ref> *</type>
+        <definition>BWindow * BApplication::WindowAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>WindowAt</name>
+        <qualifiedname>BApplication::WindowAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classBWindow" kindref="compound">BWindow</ref> object at the specified <emphasis>index</emphasis> in the application&apos;s window list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>index</emphasis> is out of range, this function returns <computeroutput>NULL</computeroutput>.</para>
+<para><simplesect kind="warning"><para>Locking the <ref refid="classBApplication" kindref="compound">BApplication</ref> object doesn&apos;t lock the window list.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>index</emphasis> of the desired <ref refid="classBWindow" kindref="compound">BWindow</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="classBWindow" kindref="compound">BWindow</ref> object at the specified <emphasis>index</emphasis> or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> is out of range.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="75" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aa7ae6e5ae95ce7befab6e0022a2ec983" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BApplication::CountLoopers</definition>
+        <argsstring>() const</argsstring>
+        <name>CountLoopers</name>
+        <qualifiedname>BApplication::CountLoopers</qualifiedname>
+        <briefdescription>
+<para>Returns the number of BLoopers created by the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>This method may return <computeroutput>B_ERROR</computeroutput>.</para>
+</simplesect>
+<simplesect kind="return"><para>The number of BLoopers in the application.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="77" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a68827a127ca45f4c421e3b30ca9500bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+        <definition>BLooper * BApplication::LooperAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>LooperAt</name>
+        <qualifiedname>BApplication::LooperAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classBLooper" kindref="compound">BLooper</ref> object at the specified index in the application&apos;s looper list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If index is out of range, this function returns <computeroutput>NULL</computeroutput>.</para>
+<para><simplesect kind="return"><para>The <ref refid="classBLooper" kindref="compound">BLooper</ref> object at the specified <emphasis>index</emphasis> or <computeroutput>NULL</computeroutput> if the <emphasis>index</emphasis> is out of range.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="78" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Status</header>
+      <memberdef kind="function" id="classBApplication_1a49c3d8c8521a1b931f45fdcbaedb3f2d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BApplication::IsLaunching</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLaunching</name>
+        <qualifiedname>BApplication::IsLaunching</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the application is in the process of launching. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the application is launching, <computeroutput>false</computeroutput> if the application is already running.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="79" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a9f22e1a76c3a742cc9139e947e2307b3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * BApplication::Signature</definition>
+        <argsstring>() const</argsstring>
+        <name>Signature</name>
+        <qualifiedname>BApplication::Signature</qualifiedname>
+        <briefdescription>
+<para>Returns the signature of the Application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="80" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a2b27a6149b1bf53e71a8d83382708308" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::GetAppInfo</definition>
+        <argsstring>(app_info *info) const</argsstring>
+        <name>GetAppInfo</name>
+        <qualifiedname>BApplication::GetAppInfo</qualifiedname>
+        <param>
+          <type><ref refid="structapp__info" kindref="compound">app_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+<para>Fills out the <emphasis>info</emphasis> parameter with information about the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is equivalent to be_roster-&gt;GetRunningAppInfo(be_app-&gt;<ref refid="classBLooper_1afeb7a4900f26e7746d6c8bdb5cf684f3" kindref="member">Team()</ref>, info);</para>
+<para><simplesect kind="return"><para><computeroutput>B_NO_INIT</computeroutput> on an error or <computeroutput>B_OK</computeroutput> if all goes well.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBRoster_1ae0083d735bb8ebb40e66218b95693ab7" kindref="member">BRoster::GetAppInfo()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="81" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a1aef5ac43f00eed24d6501b7afb50f47" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBResources" kindref="compound">BResources</ref> *</type>
+        <definition>BResources * BApplication::AppResources</definition>
+        <argsstring>()</argsstring>
+        <name>AppResources</name>
+        <qualifiedname>BApplication::AppResources</qualifiedname>
+        <briefdescription>
+<para>Returns a <ref refid="classBResources" kindref="compound">BResources</ref> object for the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="82" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Lifecycle Management</header>
+      <memberdef kind="function" id="classBApplication_1a2b46141e108da1167be0d3427ca37716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::RegisterLooper</definition>
+        <argsstring>(BLooper *looper)</argsstring>
+        <name>RegisterLooper</name>
+        <qualifiedname>BApplication::RegisterLooper</qualifiedname>
+        <param>
+          <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+          <declname>looper</declname>
+        </param>
+        <briefdescription>
+<para>Register a looper to quit when the application quits. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>There are situations where you create <ref refid="classBLooper" kindref="compound">BLooper</ref> objects, that you may want to have <ref refid="classBApplication" kindref="compound">BApplication</ref> quit properly, when the application is quitting. This method allows you to add Loopers under management of <ref refid="classBApplication" kindref="compound">BApplication</ref>.</para>
+<para>Note that Windows are automatically handled by <ref refid="classBApplication" kindref="compound">BApplication</ref>, so there is no need to manually register BWindow-based loopers using this method.</para>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> when the looper was registered without an issue, <computeroutput>B_BAD_VALUE</computeroutput> when you try to register a <ref refid="classBWindow" kindref="compound">BWindow</ref>, or <computeroutput>B_ERROR</computeroutput> when the looper was already registered.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="90" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aac40a7828ef8cc9c65f65a30b14594f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::UnregisterLooper</definition>
+        <argsstring>(BLooper *looper)</argsstring>
+        <name>UnregisterLooper</name>
+        <qualifiedname>BApplication::UnregisterLooper</qualifiedname>
+        <param>
+          <type><ref refid="classBLooper" kindref="compound">BLooper</ref> *</type>
+          <declname>looper</declname>
+        </param>
+        <briefdescription>
+<para>Remove a previously registered Looper from the quit-list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If a looper has been added to the quit list using <ref refid="classBApplication_1a2b46141e108da1167be0d3427ca37716" kindref="member">BApplication::RegisterLooper</ref>, they can be unregistered using this method. You should do this in the case the looper quits before the application does.</para>
+<para>Note that Windows are automatically handled by <ref refid="classBApplication" kindref="compound">BApplication</ref>, so you don&apos;t have to use this function to unregister windows.</para>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> when the looper has been removed, <computeroutput>B_BAD_VALUE</computeroutput> when you try to unregister a <ref refid="classBWindow" kindref="compound">BWindow</ref>, or <computeroutput>B_ERROR</computeroutput> when the looper was not previously registered.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="91" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classBApplication_1af9b834b72823c4d6dfa46966df323e5a" prot="private" static="no">
+        <type><ref refid="classBLooper" kindref="compound">BLooper</ref></type>
+        <definition>typedef BLooper BApplication::_inherited</definition>
+        <argsstring></argsstring>
+        <name>_inherited</name>
+        <qualifiedname>BApplication::_inherited</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="103" column="17" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBApplication_1afbdc921f1ffc3c1bc0c0942b9400eaa7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BServer</definition>
+        <argsstring></argsstring>
+        <name>BServer</name>
+        <qualifiedname>BApplication::BServer</qualifiedname>
+        <param>
+          <type>BServer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="106" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBApplication_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BApplication::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="105" column="14" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classBApplication_1a8fd26f54579376b52cb0c92f7a88d34d" prot="private" static="yes" mutable="no">
+        <type><ref refid="classBResources" kindref="compound">BResources</ref> *</type>
+        <definition>BResources* BApplication::sAppResources</definition>
+        <argsstring></argsstring>
+        <name>sAppResources</name>
+        <qualifiedname>BApplication::sAppResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="149" column="17" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBApplication_1a7b3496607ae42075a32e2a0b3f45cd0a" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BApplication::_reserved[12]</definition>
+        <argsstring>[12]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BApplication::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="161" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1a172edca1e369283c2e654d853670b6c3" prot="private" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* BApplication::fAppName</definition>
+        <argsstring></argsstring>
+        <name>fAppName</name>
+        <qualifiedname>BApplication::fAppName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="151" column="11" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1a73c0f10fb990bfc136dc9ff905473557" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* BApplication::fCursorData</definition>
+        <argsstring></argsstring>
+        <name>fCursorData</name>
+        <qualifiedname>BApplication::fCursorData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="155" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1af6996547568017c3cafa1196427eb8ca" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::fInitError</definition>
+        <argsstring></argsstring>
+        <name>fInitError</name>
+        <qualifiedname>BApplication::fInitError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="159" column="9" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1ace89e0fc1b2b92a5227938d8b4de6ed1" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BApplication::fInitialWorkspace</definition>
+        <argsstring></argsstring>
+        <name>fInitialWorkspace</name>
+        <qualifiedname>BApplication::fInitialWorkspace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="157" column="7" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1a6eb615d060a4b08ad38380c0d18d0565" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+        <definition>bigtime_t BApplication::fPulseRate</definition>
+        <argsstring></argsstring>
+        <name>fPulseRate</name>
+        <qualifiedname>BApplication::fPulseRate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="156" column="10" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1ad4f6f479e008ed7ac5afc70ab5cec1d5" prot="private" static="no" mutable="no">
+        <type><ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> *</type>
+        <definition>BMessageRunner* BApplication::fPulseRunner</definition>
+        <argsstring></argsstring>
+        <name>fPulseRunner</name>
+        <qualifiedname>BApplication::fPulseRunner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="158" column="15" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1a35121536e8b80cb080c8800f5732a7ca" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BApplication::fReadyToRunCalled</definition>
+        <argsstring></argsstring>
+        <name>fReadyToRunCalled</name>
+        <qualifiedname>BApplication::fReadyToRunCalled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="163" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1a65cc28d4d128cf0e46e268180e5f3c6d" prot="private" static="no" mutable="no">
+        <type>::BPrivate::ServerMemoryAllocator *</type>
+        <definition>::BPrivate::ServerMemoryAllocator* BApplication::fServerAllocator</definition>
+        <argsstring></argsstring>
+        <name>fServerAllocator</name>
+        <qualifiedname>BApplication::fServerAllocator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="153" column="35" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1ab0b654f2a38575bcb003d61c9919a3e5" prot="private" static="no" mutable="no">
+        <type>::BPrivate::PortLink *</type>
+        <definition>::BPrivate::PortLink* BApplication::fServerLink</definition>
+        <argsstring></argsstring>
+        <name>fServerLink</name>
+        <qualifiedname>BApplication::fServerLink</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="152" column="21" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBApplication_1aa9bcedb41a356e312211f6190a50593c" prot="private" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* BApplication::fServerReadOnlyMemory</definition>
+        <argsstring></argsstring>
+        <name>fServerReadOnlyMemory</name>
+        <qualifiedname>BApplication::fServerReadOnlyMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="160" column="5" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBApplication_1a43b0671b327a0883720c6cc18d908149" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BApplication::BApplication</definition>
+        <argsstring>(const char *signature)</argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BApplication::BApplication</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Initialize a <ref refid="classBApplication" kindref="compound">BApplication</ref> with the passed in <emphasis>signature</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The new <ref refid="classBApplication" kindref="compound">BApplication</ref> is, by default, not running yet. If you have everything set up properly call <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> to start the application.</para>
+<para>You should call <ref refid="classBApplication_1aef81a1f9e59c305f2af7a7ad8e240ae0" kindref="member">InitCheck()</ref> to check for constructor initialization errors.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>signature</emphasis> of the application.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="36" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a998f767f4ddcbb5588455c8b63e08f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BApplication::BApplication</definition>
+        <argsstring>(const char *signature, status_t *error)</argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BApplication::BApplication</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref> *</type>
+          <declname>error</declname>
+          <defname>_error</defname>
+        </param>
+        <briefdescription>
+<para>Initialize a <ref refid="classBApplication" kindref="compound">BApplication</ref> with the passed in <emphasis>signature</emphasis> and a pointer to an error message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Any error that occurs while constructing the <ref refid="classBApplication" kindref="compound">BApplication</ref> will be set to the <emphasis>_error</emphasis> pointer. If <emphasis>_error</emphasis> points to a <computeroutput>status_t</computeroutput> error then you should not call <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref>.</para>
+<para>Alternately, you can call <ref refid="classBApplication_1aef81a1f9e59c305f2af7a7ad8e240ae0" kindref="member">InitCheck()</ref> to check for constructor initialization errors.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>signature</emphasis> of the application. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a <computeroutput>status_t</computeroutput> set by the <ref refid="classBApplication" kindref="compound">BApplication</ref> constructor.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="37" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a5563631a21adb4136b56ba1fb9cd4487" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BApplication::~BApplication</definition>
+        <argsstring>()</argsstring>
+        <name>~BApplication</name>
+        <qualifiedname>BApplication::~BApplication</qualifiedname>
+        <briefdescription>
+<para>Destructor Method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="39" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aef81a1f9e59c305f2af7a7ad8e240ae0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BApplication::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Returns the status of the constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>If initialization succeeded returns <computeroutput>B_OK</computeroutput>, otherwise returns an error status.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="46" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1ab8fea9f4a96bdee62ce77a089d472973" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BApplication::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BApplication::Perform</qualifiedname>
+        <reimplements refid="classBLooper_1adfc642544ce22888d412e6a4be25fa72">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Internal method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="98" column="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBApplication_1a7c322afcd9656482156a7d8b2ec65412" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BApplication::BApplication</definition>
+        <argsstring>(const BApplication &amp;)</argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BApplication::BApplication</qualifiedname>
+        <param>
+          <type>const <ref refid="classBApplication" kindref="compound">BApplication</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="112" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aab16108dfa6f73d0d4a038a1fae47688" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BApplication::BApplication</definition>
+        <argsstring>(const char *signature, const char *looperName, port_id port, bool initGUI, status_t *error)</argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BApplication::BApplication</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>looperName</declname>
+        </param>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>initGUI</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref> *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="108" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aed00fcc1682c46b9e14e90db5730e382" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BApplication::BApplication</definition>
+        <argsstring>(uint32 signature)</argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BApplication::BApplication</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="111" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a53b47b3ef8be28d67c647b84ae108e79" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::_ArgvReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>_ArgvReceived</name>
+        <qualifiedname>BApplication::_ArgvReceived</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="139" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a985ecbdfed234f611202ec49a1543397" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::_ConnectToServer</definition>
+        <argsstring>()</argsstring>
+        <name>_ConnectToServer</name>
+        <qualifiedname>BApplication::_ConnectToServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="134" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1ac7a3dbbf1235c27ef7b374d8ca09096f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BApplication::_CountWindows</definition>
+        <argsstring>(bool includeMenus) const</argsstring>
+        <name>_CountWindows</name>
+        <qualifiedname>BApplication::_CountWindows</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>includeMenus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="142" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a5636f7dfbeef343c1a57860640992ef3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>port_id</type>
+        <definition>port_id BApplication::_GetPort</definition>
+        <argsstring>(const char *signature)</argsstring>
+        <name>_GetPort</name>
+        <qualifiedname>BApplication::_GetPort</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="129" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1abed56706197f7e6bce5cd6d0b22081e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::_InitData</definition>
+        <argsstring>(const char *signature, bool initGUI, status_t *error)</argsstring>
+        <name>_InitData</name>
+        <qualifiedname>BApplication::_InitData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>initGUI</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref> *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="127" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aa5c512e33f5750aa6c718d9f4e4a3dd0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::_InitGUIContext</definition>
+        <argsstring>()</argsstring>
+        <name>_InitGUIContext</name>
+        <qualifiedname>BApplication::_InitGUIContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="133" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1ab1d831ec597b7cbd231f0ea6a7c9a8f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BApplication::_QuitAllWindows</definition>
+        <argsstring>(bool force)</argsstring>
+        <name>_QuitAllWindows</name>
+        <qualifiedname>BApplication::_QuitAllWindows</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="136" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a3e4a8844ac383c7f112f7f53f0cd36eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::_ReconnectToServer</definition>
+        <argsstring>()</argsstring>
+        <name>_ReconnectToServer</name>
+        <qualifiedname>BApplication::_ReconnectToServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="135" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a4ed1ca2f31dbc6b1ca119a2d3c30655d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication1</name>
+        <qualifiedname>BApplication::_ReservedApplication1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="115" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a1b6a03660bfb8ac01b494ca744a98c2b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication2</name>
+        <qualifiedname>BApplication::_ReservedApplication2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="116" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a70d54d89f5d33a770a16240d32e13c64" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication3</name>
+        <qualifiedname>BApplication::_ReservedApplication3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="117" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a39d363fe41b4d692f6e2226ffc2551e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication4</name>
+        <qualifiedname>BApplication::_ReservedApplication4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="118" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a3abdd0a9debd03a88fc38d17a5054ee3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication5</name>
+        <qualifiedname>BApplication::_ReservedApplication5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="119" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1ae7badfe6c098b46b9c6964700139e909" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication6</name>
+        <qualifiedname>BApplication::_ReservedApplication6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="120" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a609cae45230da68fe296e01f0944d810" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication7</name>
+        <qualifiedname>BApplication::_ReservedApplication7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="121" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a8c39226096531952fc21911413c724f9" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BApplication::_ReservedApplication8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedApplication8</name>
+        <qualifiedname>BApplication::_ReservedApplication8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="122" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a8ec8db29c3562677baf3962e8ebf72f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BApplication::_SetupServerAllocator</definition>
+        <argsstring>()</argsstring>
+        <name>_SetupServerAllocator</name>
+        <qualifiedname>BApplication::_SetupServerAllocator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="132" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a525f87355070c037e1420618e576a799" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBWindow" kindref="compound">BWindow</ref> *</type>
+        <definition>BWindow * BApplication::_WindowAt</definition>
+        <argsstring>(uint32 index, bool includeMenus) const</argsstring>
+        <name>_WindowAt</name>
+        <qualifiedname>BApplication::_WindowAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>includeMenus</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="143" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1aa13d29cff75efc9d1774066d2bdf65d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BApplication::_WindowQuitLoop</definition>
+        <argsstring>(bool quitFilePanels, bool force)</argsstring>
+        <name>_WindowQuitLoop</name>
+        <qualifiedname>BApplication::_WindowQuitLoop</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>quitFilePanels</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="137" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a5e175b9bebecabf1c6f1b338c535d2b5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::BeginRectTracking</definition>
+        <argsstring>(BRect r, bool trackWhole)</argsstring>
+        <name>BeginRectTracking</name>
+        <qualifiedname>BApplication::BeginRectTracking</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>trackWhole</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="130" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1ad31c312110d7c9784d6ea98d52a730d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BApplication::EndRectTracking</definition>
+        <argsstring>()</argsstring>
+        <name>EndRectTracking</name>
+        <qualifiedname>BApplication::EndRectTracking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="131" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1ac279e1b84235e8c07af99e60956e204c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BApplication::InitialWorkspace</definition>
+        <argsstring>()</argsstring>
+        <name>InitialWorkspace</name>
+        <qualifiedname>BApplication::InitialWorkspace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="141" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a31866924f9f70d486e892f7147c6b13a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBApplication" kindref="compound">BApplication</ref> &amp;</type>
+        <definition>BApplication &amp; BApplication::operator=</definition>
+        <argsstring>(const BApplication &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BApplication::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBApplication" kindref="compound">BApplication</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="113" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBApplication_1a38719faf143773d05cb12ae38fb1f5f0" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool BApplication::ScriptReceived</definition>
+        <argsstring>(BMessage *msg, int32 index, BMessage *specifier, int32 form, const char *property)</argsstring>
+        <name>ScriptReceived</name>
+        <qualifiedname>BApplication::ScriptReceived</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>form</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="124" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBApplication_1a9572ba69acce8e58c25b0069ba2da7fb" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void BApplication::_InitAppResources</definition>
+        <argsstring>()</argsstring>
+        <name>_InitAppResources</name>
+        <qualifiedname>BApplication::_InitAppResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="146" column="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A container object for an application. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classBApplication" kindref="compound">BApplication</ref> establishes a connection between the application and the Application Server.</para>
+<para>The most common task performed by a <ref refid="classBApplication" kindref="compound">BApplication</ref> object is to handle messages sent to it. The <ref refid="classBApplication" kindref="compound">BApplication</ref> object also is used to get information about your application such as the number of windows it has, its signature, executable location, and launch flags.</para>
+<para>The <ref refid="classBApplication" kindref="compound">BApplication</ref> object is automatically assigned to the global <computeroutput>be_app</computeroutput> variable. The <computeroutput>be_app</computeroutput> variable allows you to refer to your <ref refid="classBApplication" kindref="compound">BApplication</ref> object from anywhere in the code.</para>
+<para>To use a <ref refid="classBApplication" kindref="compound">BApplication</ref> you first construct the object and then begin its message loop by calling the <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> method. The <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> method continues until the application is told to quit. Once <ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run()</ref> returns you should then delete the <ref refid="classBApplication" kindref="compound">BApplication</ref> object to free its memory usage.</para>
+<para>Typically, you initialize the <ref refid="classBApplication" kindref="compound">BApplication</ref> object in the programs main() function. A typical main() function looks something like this:</para>
+<para><programlisting><codeline><highlight class="preprocessor">#include<sp/>Application.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">main()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Vendor<sp/>is<sp/>your<sp/>vendor<sp/>name,<sp/>application<sp/>is<sp/>your<sp/>application<sp/>name<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classBApplication" kindref="compound">BApplication</ref><sp/>*app<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBApplication" kindref="compound">BApplication</ref>(</highlight><highlight class="stringliteral">&quot;application/x-vnd.vendor-application&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>app-&gt;<ref refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" kindref="member">Run</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>app;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BApplication</label>
+        <link refid="classBApplication"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BLooper</label>
+        <link refid="classBLooper"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BApplication</label>
+        <link refid="classBApplication"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BLooper</label>
+        <link refid="classBLooper"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/app/Application.h" line="34" column="1" bodyfile="/boot/home/src/haiku/headers/os/app/Application.h" bodystart="34" bodyend="164"/>
+    <listofallmembers>
+      <member refid="classBApplication_1a53b47b3ef8be28d67c647b84ae108e79" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_ArgvReceived</name></member>
+      <member refid="classBApplication_1a985ecbdfed234f611202ec49a1543397" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_ConnectToServer</name></member>
+      <member refid="classBApplication_1ac7a3dbbf1235c27ef7b374d8ca09096f" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_CountWindows</name></member>
+      <member refid="classBApplication_1a5636f7dfbeef343c1a57860640992ef3" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_GetPort</name></member>
+      <member refid="classBApplication_1af9b834b72823c4d6dfa46966df323e5a" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_inherited</name></member>
+      <member refid="classBApplication_1a9572ba69acce8e58c25b0069ba2da7fb" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_InitAppResources</name></member>
+      <member refid="classBApplication_1abed56706197f7e6bce5cd6d0b22081e0" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_InitData</name></member>
+      <member refid="classBApplication_1aa5c512e33f5750aa6c718d9f4e4a3dd0" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_InitGUIContext</name></member>
+      <member refid="classBApplication_1ab1d831ec597b7cbd231f0ea6a7c9a8f1" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_QuitAllWindows</name></member>
+      <member refid="classBApplication_1a3e4a8844ac383c7f112f7f53f0cd36eb" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_ReconnectToServer</name></member>
+      <member refid="classBApplication_1a7b3496607ae42075a32e2a0b3f45cd0a" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_reserved</name></member>
+      <member refid="classBApplication_1a4ed1ca2f31dbc6b1ca119a2d3c30655d" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication1</name></member>
+      <member refid="classBApplication_1a1b6a03660bfb8ac01b494ca744a98c2b" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication2</name></member>
+      <member refid="classBApplication_1a70d54d89f5d33a770a16240d32e13c64" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication3</name></member>
+      <member refid="classBApplication_1a39d363fe41b4d692f6e2226ffc2551e9" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication4</name></member>
+      <member refid="classBApplication_1a3abdd0a9debd03a88fc38d17a5054ee3" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication5</name></member>
+      <member refid="classBApplication_1ae7badfe6c098b46b9c6964700139e909" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication6</name></member>
+      <member refid="classBApplication_1a609cae45230da68fe296e01f0944d810" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication7</name></member>
+      <member refid="classBApplication_1a8c39226096531952fc21911413c724f9" prot="private" virt="virtual"><scope>BApplication</scope><name>_ReservedApplication8</name></member>
+      <member refid="classBApplication_1a8ec8db29c3562677baf3962e8ebf72f2" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_SetupServerAllocator</name></member>
+      <member refid="classBApplication_1a525f87355070c037e1420618e576a799" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_WindowAt</name></member>
+      <member refid="classBApplication_1aa13d29cff75efc9d1774066d2bdf65d6" prot="private" virt="non-virtual"><scope>BApplication</scope><name>_WindowQuitLoop</name></member>
+      <member refid="classBApplication_1a47d9b29407642805b64f0478a21e5895" prot="public" virt="virtual"><scope>BApplication</scope><name>AboutRequested</name></member>
+      <member refid="classBLooper_1a25adc41bdfd741e9c82d2b469a5086b0" prot="public" virt="virtual"><scope>BApplication</scope><name>AddCommonFilter</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BApplication</scope><name>AddFilter</name></member>
+      <member refid="classBLooper_1a484be74814014e3c48c1a16f44e34074" prot="public" virt="non-virtual"><scope>BApplication</scope><name>AddHandler</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BApplication</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BApplication</scope><name>AllUnarchived</name></member>
+      <member refid="classBApplication_1a71e7db8bc9e4f34137bcd4c5e3ed6a16" prot="public" virt="virtual"><scope>BApplication</scope><name>AppActivated</name></member>
+      <member refid="classBApplication_1a1aef5ac43f00eed24d6501b7afb50f47" prot="public" virt="non-virtual"><scope>BApplication</scope><name>AppResources</name></member>
+      <member refid="classBApplication_1aa36536582835264341376064cbc96a27" prot="public" virt="virtual"><scope>BApplication</scope><name>Archive</name></member>
+      <member refid="classBApplication_1a0826684edce56baa7a31c89c97a1d161" prot="public" virt="virtual"><scope>BApplication</scope><name>ArgvReceived</name></member>
+      <member refid="classBApplication_1a43b0671b327a0883720c6cc18d908149" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BApplication</name></member>
+      <member refid="classBApplication_1a998f767f4ddcbb5588455c8b63e08f74" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BApplication</name></member>
+      <member refid="classBApplication_1ae76219f7c7c91b14739e94c608f7349c" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BApplication</name></member>
+      <member refid="classBApplication_1aab16108dfa6f73d0d4a038a1fae47688" prot="private" virt="non-virtual"><scope>BApplication</scope><name>BApplication</name></member>
+      <member refid="classBApplication_1aed00fcc1682c46b9e14e90db5730e382" prot="private" virt="non-virtual"><scope>BApplication</scope><name>BApplication</name></member>
+      <member refid="classBApplication_1a7c322afcd9656482156a7d8b2ec65412" prot="private" virt="non-virtual"><scope>BApplication</scope><name>BApplication</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BArchivable</name></member>
+      <member refid="classBApplication_1a5e175b9bebecabf1c6f1b338c535d2b5" prot="private" virt="non-virtual"><scope>BApplication</scope><name>BeginRectTracking</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BHandler</name></member>
+      <member refid="classBLooper_1a33fa84a6ed383e5a897d11380d72ce38" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BLooper</name></member>
+      <member refid="classBLooper_1aad314758fd652fb48d61bcccab8b6ae3" prot="public" virt="non-virtual"><scope>BApplication</scope><name>BLooper</name></member>
+      <member refid="classBLooper_1ad64f1a98c1cce8087e7d492860461a62" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CommonFilterList</name></member>
+      <member refid="classBLooper_1a6179629238d0be92d7a89503be24d4e3" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CountHandlers</name></member>
+      <member refid="classBLooper_1a64e7b89294df1f7b614d1267f870ecd9" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CountLockRequests</name></member>
+      <member refid="classBLooper_1a4eec703acd9bd7fe9a455af0f81e08f9" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CountLocks</name></member>
+      <member refid="classBApplication_1aa7ae6e5ae95ce7befab6e0022a2ec983" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CountLoopers</name></member>
+      <member refid="classBApplication_1a0cc9fc7396ac3717b238d61ab1f4b82b" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CountWindows</name></member>
+      <member refid="classBLooper_1a6d244af065c4a12ea795bbbc7bb20e07" prot="public" virt="non-virtual"><scope>BApplication</scope><name>CurrentMessage</name></member>
+      <member refid="classBLooper_1a7c8f05bcc354bc1d53026417417120e3" prot="public" virt="non-virtual"><scope>BApplication</scope><name>DetachCurrentMessage</name></member>
+      <member refid="classBLooper_1a3a2d3773466de19a6c117f3a04861b11" prot="public" virt="non-virtual"><scope>BApplication</scope><name>DispatchExternalMessage</name></member>
+      <member refid="classBApplication_1a034ef79fe7f1ca45e63193c76a6fd128" prot="public" virt="virtual"><scope>BApplication</scope><name>DispatchMessage</name></member>
+      <member refid="classBApplication_1ad31c312110d7c9784d6ea98d52a730d8" prot="private" virt="non-virtual"><scope>BApplication</scope><name>EndRectTracking</name></member>
+      <member refid="classBApplication_1a172edca1e369283c2e654d853670b6c3" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fAppName</name></member>
+      <member refid="classBApplication_1a73c0f10fb990bfc136dc9ff905473557" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fCursorData</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BApplication</scope><name>FilterList</name></member>
+      <member refid="classBApplication_1af6996547568017c3cafa1196427eb8ca" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fInitError</name></member>
+      <member refid="classBApplication_1ace89e0fc1b2b92a5227938d8b4de6ed1" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fInitialWorkspace</name></member>
+      <member refid="classBApplication_1a6eb615d060a4b08ad38380c0d18d0565" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fPulseRate</name></member>
+      <member refid="classBApplication_1ad4f6f479e008ed7ac5afc70ab5cec1d5" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fPulseRunner</name></member>
+      <member refid="classBApplication_1a35121536e8b80cb080c8800f5732a7ca" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fReadyToRunCalled</name></member>
+      <member refid="classBApplication_1a65cc28d4d128cf0e46e268180e5f3c6d" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fServerAllocator</name></member>
+      <member refid="classBApplication_1ab0b654f2a38575bcb003d61c9919a3e5" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fServerLink</name></member>
+      <member refid="classBApplication_1aa9bcedb41a356e312211f6190a50593c" prot="private" virt="non-virtual"><scope>BApplication</scope><name>fServerReadOnlyMemory</name></member>
+      <member refid="classBApplication_1a2b27a6149b1bf53e71a8d83382708308" prot="public" virt="non-virtual"><scope>BApplication</scope><name>GetAppInfo</name></member>
+      <member refid="classBApplication_1a0fb9cc161a785cad42925075a087fc16" prot="public" virt="virtual"><scope>BApplication</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBLooper_1a6976132123edacf4b3a2831eadf5f4bf" prot="public" virt="non-virtual"><scope>BApplication</scope><name>HandlerAt</name></member>
+      <member refid="classBApplication_1a82504dfa192861bbf322e81550e53643" prot="public" virt="non-virtual"><scope>BApplication</scope><name>HideCursor</name></member>
+      <member refid="classBLooper_1a3061534f6d2f3186efca4cddd19f378f" prot="public" virt="non-virtual"><scope>BApplication</scope><name>IndexOf</name></member>
+      <member refid="classBApplication_1aef81a1f9e59c305f2af7a7ad8e240ae0" prot="public" virt="non-virtual"><scope>BApplication</scope><name>InitCheck</name></member>
+      <member refid="classBApplication_1ac279e1b84235e8c07af99e60956e204c" prot="private" virt="non-virtual"><scope>BApplication</scope><name>InitialWorkspace</name></member>
+      <member refid="classBApplication_1aa2814aceefbe18ac62814157f53a07c0" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Instantiate</name></member>
+      <member refid="classBApplication_1a3503caddf7e23970a311b07d5db7576a" prot="public" virt="non-virtual"><scope>BApplication</scope><name>IsCursorHidden</name></member>
+      <member refid="classBApplication_1a49c3d8c8521a1b931f45fdcbaedb3f2d" prot="public" virt="non-virtual"><scope>BApplication</scope><name>IsLaunching</name></member>
+      <member refid="classBLooper_1a525d6677c2fc76a84c2d48853dad142a" prot="public" virt="non-virtual"><scope>BApplication</scope><name>IsLocked</name></member>
+      <member refid="classBLooper_1a27fd22b9eeaeadbeff1e973ed5242a64" prot="public" virt="non-virtual"><scope>BApplication</scope><name>IsMessageWaiting</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BApplication</scope><name>IsWatched</name></member>
+      <member refid="classBLooper_1a757a3e406ea3b7bb9a1ad16d04689b1d" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Lock</name></member>
+      <member refid="classBLooper_1a1d5d9dbc9d890ed1329b69fbfe9254b3" prot="public" virt="non-virtual"><scope>BApplication</scope><name>LockingThread</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BApplication</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BApplication</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBLooper_1a734cdb06bfe92efdea24528c9b43bfc1" prot="public" virt="non-virtual"><scope>BApplication</scope><name>LockWithTimeout</name></member>
+      <member refid="classBLooper_1a5cb1d2eb7640fdcbc1085ad19583691d" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Loop</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Looper</name></member>
+      <member refid="classBApplication_1a68827a127ca45f4c421e3b30ca9500bf" prot="public" virt="non-virtual"><scope>BApplication</scope><name>LooperAt</name></member>
+      <member refid="classBLooper_1acf16bb9628e7dbbace3920ebeff6dc34" prot="public" virt="non-virtual"><scope>BApplication</scope><name>LooperForThread</name></member>
+      <member refid="classBLooper_1a1be73aad8e8fed41659b98633525e5b3" prot="protected" virt="non-virtual"><scope>BApplication</scope><name>MessageFromPort</name></member>
+      <member refid="classBLooper_1ad0643973ceda5cca540c4684a9f670ac" prot="public" virt="non-virtual"><scope>BApplication</scope><name>MessageQueue</name></member>
+      <member refid="classBApplication_1aa010d676b8d372d522b7da39ddfb3b03" prot="public" virt="virtual"><scope>BApplication</scope><name>MessageReceived</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BApplication</scope><name>NextHandler</name></member>
+      <member refid="classBApplication_1a206c888fb8198a76c3b63668aadab0af" prot="public" virt="non-virtual"><scope>BApplication</scope><name>ObscureCursor</name></member>
+      <member refid="classBApplication_1a31866924f9f70d486e892f7147c6b13a" prot="private" virt="non-virtual"><scope>BApplication</scope><name>operator=</name></member>
+      <member refid="classBApplication_1ab8fea9f4a96bdee62ce77a089d472973" prot="public" virt="virtual"><scope>BApplication</scope><name>Perform</name></member>
+      <member refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" prot="public" virt="non-virtual"><scope>BApplication</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1ae79a7818ce950d8edcd238f7948df020" prot="public" virt="non-virtual"><scope>BApplication</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1a2dc16ecf211eb7e32eaa4b08863e856d" prot="public" virt="non-virtual"><scope>BApplication</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1ac75eed80e72b236650f19b4015de6e99" prot="public" virt="non-virtual"><scope>BApplication</scope><name>PostMessage</name></member>
+      <member refid="classBLooper_1af1a4af6872abc40a887bfcabd55aff98" prot="public" virt="non-virtual"><scope>BApplication</scope><name>PreferredHandler</name></member>
+      <member refid="classBApplication_1abf9de9bc0de3a8c504a4174f34ed82b4" prot="public" virt="virtual"><scope>BApplication</scope><name>Pulse</name></member>
+      <member refid="classBApplication_1abd8cb94d425105f89bf9e18f01552015" prot="public" virt="virtual"><scope>BApplication</scope><name>Quit</name></member>
+      <member refid="classBApplication_1a4965aea57452c88022f0fdba2af65e0a" prot="public" virt="virtual"><scope>BApplication</scope><name>QuitRequested</name></member>
+      <member refid="classBApplication_1af912cef601090a89cc20cb3a7af48315" prot="public" virt="virtual"><scope>BApplication</scope><name>ReadyToRun</name></member>
+      <member refid="classBApplication_1a5fae9740458d9aec66f3b1d5c50fae87" prot="public" virt="virtual"><scope>BApplication</scope><name>RefsReceived</name></member>
+      <member refid="classBApplication_1a2b46141e108da1167be0d3427ca37716" prot="public" virt="non-virtual"><scope>BApplication</scope><name>RegisterLooper</name></member>
+      <member refid="classBLooper_1ad2233fa143e9deff912bff39eebac4a2" prot="public" virt="virtual"><scope>BApplication</scope><name>RemoveCommonFilter</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BApplication</scope><name>RemoveFilter</name></member>
+      <member refid="classBLooper_1a5af57140bf018388a2e64343f46ac330" prot="public" virt="non-virtual"><scope>BApplication</scope><name>RemoveHandler</name></member>
+      <member refid="classBApplication_1a044d40580b05617288c91748cbd30513" prot="public" virt="virtual"><scope>BApplication</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBApplication_1a3fd11f52918b337f01eab978e8a56bad" prot="public" virt="virtual"><scope>BApplication</scope><name>Run</name></member>
+      <member refid="classBApplication_1a8fd26f54579376b52cb0c92f7a88d34d" prot="private" virt="non-virtual"><scope>BApplication</scope><name>sAppResources</name></member>
+      <member refid="classBApplication_1a38719faf143773d05cb12ae38fb1f5f0" prot="private" virt="virtual"><scope>BApplication</scope><name>ScriptReceived</name></member>
+      <member refid="classBLooper_1aa96df67561b0ce1428ae45148c21e01f" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Sem</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BApplication</scope><name>SendNotices</name></member>
+      <member refid="classBLooper_1a9b39e686873763cc6491c91f77b177b7" prot="public" virt="virtual"><scope>BApplication</scope><name>SetCommonFilterList</name></member>
+      <member refid="classBApplication_1aa4262e1879bcdd8f82af94dab6d4650b" prot="public" virt="non-virtual"><scope>BApplication</scope><name>SetCursor</name></member>
+      <member refid="classBApplication_1a08e75088c2f6396dfc9fc8c01a9c0545" prot="public" virt="non-virtual"><scope>BApplication</scope><name>SetCursor</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BApplication</scope><name>SetFilterList</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BApplication</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BApplication</scope><name>SetNextHandler</name></member>
+      <member refid="classBLooper_1a07c6e5c65354b48465fde2b0b44e22c6" prot="public" virt="non-virtual"><scope>BApplication</scope><name>SetPreferredHandler</name></member>
+      <member refid="classBApplication_1a565e7ede16cd6a0e7df384c3c97ba860" prot="public" virt="non-virtual"><scope>BApplication</scope><name>SetPulseRate</name></member>
+      <member refid="classBApplication_1ad21286f2cae75ee360d022fbacc8a21d" prot="public" virt="non-virtual"><scope>BApplication</scope><name>ShowCursor</name></member>
+      <member refid="classBApplication_1a9f22e1a76c3a742cc9139e947e2307b3" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Signature</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BApplication</scope><name>StopWatchingAll</name></member>
+      <member refid="classBLooper_1afeb7a4900f26e7746d6c8bdb5cf684f3" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Team</name></member>
+      <member refid="classBLooper_1a257d396d04d128edf7a0c9669ead36c0" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Thread</name></member>
+      <member refid="classBLooper_1ac84ea15405640082b9fda58f6672467c" prot="public" virt="non-virtual"><scope>BApplication</scope><name>Unlock</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BApplication</scope><name>UnlockLooper</name></member>
+      <member refid="classBApplication_1aac40a7828ef8cc9c65f65a30b14594f6" prot="public" virt="non-virtual"><scope>BApplication</scope><name>UnregisterLooper</name></member>
+      <member refid="classBApplication_1a8850d9542d628e11d91a4fd25279b65d" prot="public" virt="non-virtual"><scope>BApplication</scope><name>WindowAt</name></member>
+      <member refid="classBApplication_1a5563631a21adb4136b56ba1fb9cd4487" prot="public" virt="virtual"><scope>BApplication</scope><name>~BApplication</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BApplication</scope><name>~BArchivable</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BApplication</scope><name>~BHandler</name></member>
+      <member refid="classBLooper_1ab2fa21c0315644144f55523adbdc0457" prot="public" virt="virtual"><scope>BApplication</scope><name>~BLooper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

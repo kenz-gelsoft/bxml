@@ -1,0 +1,2609 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBAppFileInfo" kind="class" language="C++" prot="public">
+    <compoundname>BAppFileInfo</compoundname>
+    <basecompoundref refid="classBNodeInfo" prot="public" virt="non-virtual">BNodeInfo</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>MIME Type</header>
+      <memberdef kind="function" id="classBAppFileInfo_1aef1969cb93211a9edafb4b34219c0ec8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetType</definition>
+        <argsstring>(char *type) const</argsstring>
+        <name>GetType</name>
+        <qualifiedname>BAppFileInfo::GetType</qualifiedname>
+        <reimplements refid="classBNodeInfo_1a9bfd75065d98e817d078c968d02228e4">GetType</reimplements>
+        <param>
+          <type>char *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Gets the MIME type of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated character buffer of size <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> or larger into which the MIME type of the file will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>type</emphasis> or the type string stored in the attribute/resources is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attribute/resources the type string is stored in has the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No type is set on the file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="57" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a6fc65b958f2652f0a910ac2190252ff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetType</definition>
+        <argsstring>(const char *type)</argsstring>
+        <name>SetType</name>
+        <qualifiedname>BAppFileInfo::SetType</qualifiedname>
+        <reimplements refid="classBNodeInfo_1a27843b992dd5f5f9b5755073e7c6b310">SetType</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Sets the MIME type of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput> if the file&apos;s MIME type is unset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type to be assigned to the file. It must not be longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> (including the terminating \0). The MIME type may be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>type</emphasis> is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="58" column="16"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Signature</header>
+      <memberdef kind="function" id="classBAppFileInfo_1ae68c6df1b47ef4add615030c743afdb7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetSignature</definition>
+        <argsstring>(char *signature) const</argsstring>
+        <name>GetSignature</name>
+        <qualifiedname>BAppFileInfo::GetSignature</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Gets the application signature of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated character buffer of size <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> or larger into which the application signature of the file will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>signature</emphasis> or the signature stored in the attribute/resources is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attribute/resources the signature is stored in have the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No signature is set on the file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="60" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1afca5bdac998eff41aa0135955950a747" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetSignature</definition>
+        <argsstring>(const char *signature)</argsstring>
+        <name>SetSignature</name>
+        <qualifiedname>BAppFileInfo::SetSignature</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>signature</declname>
+        </param>
+        <briefdescription>
+<para>Sets the application signature of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>signature</emphasis> is <computeroutput>NULL</computeroutput> the file&apos;s application signature is unset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signature</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application signature to be assigned to the file. Must not be longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> (including the terminating \0). The <emphasis>signature</emphasis> may be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>signature</emphasis> is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="61" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Catalog Entry</header>
+      <memberdef kind="function" id="classBAppFileInfo_1ad914a37f1b242347c1d471ada964461d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetCatalogEntry</definition>
+        <argsstring>(char *catalogEntry) const</argsstring>
+        <name>GetCatalogEntry</name>
+        <qualifiedname>BAppFileInfo::GetCatalogEntry</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>catalogEntry</declname>
+        </param>
+        <briefdescription>
+<para>Gets the catalog entry of the associated file used for localization. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>catalogEntry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated character buffer of size <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> * 3 or larger into which the catalog entry of the file will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>catalogEntry</emphasis> or the entry stored in the attribute/resources is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> * 3. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attribute/resources the entry is stored in have the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No catalog entry is set on the file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="63" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1aea19df97f084ffd5335ba740273c930c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetCatalogEntry</definition>
+        <argsstring>(const char *catalogEntry)</argsstring>
+        <name>SetCatalogEntry</name>
+        <qualifiedname>BAppFileInfo::SetCatalogEntry</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>catalogEntry</declname>
+        </param>
+        <briefdescription>
+<para>Sets the catalog entry of the associated file used for localization. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>catalogEntry</emphasis> is <computeroutput>NULL</computeroutput> the file&apos;s catalog entry is unset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>catalogEntry</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The catalog entry to be assigned to the file. Of the form &quot;x-vnd.Haiku-app:context:name&quot;. Must not be longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> * 3 (including the terminating \0). The <emphasis>catalogEntry</emphasis> may be <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>catalogEntry</emphasis> is longer than <computeroutput>B_MIME_TYPE_LENGTH</computeroutput> * 3.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="64" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Application Flags</header>
+      <memberdef kind="function" id="classBAppFileInfo_1aadbed49f3eaedbd25463128b079c33df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetAppFlags</definition>
+        <argsstring>(uint32 *flags) const</argsstring>
+        <name>GetAppFlags</name>
+        <qualifiedname>BAppFileInfo::GetAppFlags</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Gets the application <emphasis>flags</emphasis> of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <computeroutput>uint32</computeroutput> into which the application flags of the file are written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>flags</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attribute/resources the flags are stored in have the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No application flags are set on the file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="66" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ad2c49b8678e85372e9e1338eb5367976" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetAppFlags</definition>
+        <argsstring>(uint32 flags)</argsstring>
+        <name>SetAppFlags</name>
+        <qualifiedname>BAppFileInfo::SetAppFlags</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Sets the application <emphasis>flags</emphasis> of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application <emphasis>flags</emphasis> to be assigned to the file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a54479f28ec210a8710e0b126c2e4bde5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::RemoveAppFlags</definition>
+        <argsstring>()</argsstring>
+        <name>RemoveAppFlags</name>
+        <qualifiedname>BAppFileInfo::RemoveAppFlags</qualifiedname>
+        <briefdescription>
+<para>Removes the application flags from the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="68" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Supported MIME Types</header>
+      <memberdef kind="function" id="classBAppFileInfo_1a42552464f2758ed6b7d9a69c8e1d0a5a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetSupportedTypes</definition>
+        <argsstring>(BMessage *types) const</argsstring>
+        <name>GetSupportedTypes</name>
+        <qualifiedname>BAppFileInfo::GetSupportedTypes</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>types</declname>
+        </param>
+        <briefdescription>
+<para>Gets the MIME types supported by the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supported MIME types are added to a field &quot;types&quot; of type <computeroutput>B_STRING_TYPE</computeroutput> in <emphasis>types</emphasis>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBMessage" kindref="compound">BMessage</ref> into which the MIME types supported by the application will be written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>types</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The attribute/resources that the supported types are stored in have the wrong type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ENTRY_NOT_FOUND</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No supported types are set on the file.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="70" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ab80c89a3832a379e02e88354ab58b902" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetSupportedTypes</definition>
+        <argsstring>(const BMessage *types, bool updateMimeDB, bool syncAll)</argsstring>
+        <name>SetSupportedTypes</name>
+        <qualifiedname>BAppFileInfo::SetSupportedTypes</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>types</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>updateMimeDB</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>syncAll</declname>
+        </param>
+        <briefdescription>
+<para>Sets the MIME types that are supported by the application and allows you to specify whether or not the supported types in the MIME DB shall be updated as well. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>types</emphasis> is <computeroutput>NULL</computeroutput> then the application&apos;s supported types are unset.</para>
+<para>The supported MIME types must be stored in a field &quot;types&quot; of type <computeroutput>B_STRING_TYPE</computeroutput> in <emphasis>types</emphasis>.</para>
+<para>If <emphasis>updateMimeDB</emphasis> is <computeroutput>true</computeroutput>, the method will inform the registrar about this news. In this case for each supported type the result of <ref refid="classBMimeType_1a32e1d909b97c84d943ac50467e56fc3d" kindref="member">BMimeType::GetSupportingApps()</ref> will afterward include the signature of this application. That is, the application file needs to have a signature set.</para>
+<para><emphasis>syncAll</emphasis> specifies whether the no longer supported types shall be updated as well, i.e. whether or not this application shall be removed from the list of supporting applications. Only relevant when <emphasis>updateMimeDB</emphasis> is <computeroutput>true</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supported types to be assigned to the file. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>updateMimeDB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to update the supported types in the MIME DB, <computeroutput>false</computeroutput> otherwise. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>syncAll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to also synchronize the no-longer supported types, <computeroutput>false</computeroutput> otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a74f609c8c49d842946b92c9bcba6eccb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetSupportedTypes</definition>
+        <argsstring>(const BMessage *types, bool syncAll)</argsstring>
+        <name>SetSupportedTypes</name>
+        <qualifiedname>BAppFileInfo::SetSupportedTypes</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>types</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>syncAll</declname>
+        </param>
+        <briefdescription>
+<para>Sets the MIME types that are supported by the application and allows you to specify whether or not the no longer supported types shall be updated as well. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>types</emphasis> is <computeroutput>NULL</computeroutput> then the application&apos;s supported types are unset.</para>
+<para>The supported MIME types must be stored in a field &quot;types&quot; of type <computeroutput>B_STRING_TYPE</computeroutput> in <emphasis>types</emphasis>.</para>
+<para>The method informs the registrar about this news. For each supported type the result of <ref refid="classBMimeType_1a32e1d909b97c84d943ac50467e56fc3d" kindref="member">BMimeType::GetSupportingApps()</ref> will afterwards include the signature of this application. That is, the application file needs to have a signature set.</para>
+<para><emphasis>syncAll</emphasis> specifies whether the no longer supported types shall be updated as well, i.e. whether or not this application shall be removed from the list of supporting applications.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supported types to be assigned to the file. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>syncAll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to also synchronize the no-longer supported types, <computeroutput>false</computeroutput> otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="73" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a973d1ea97db339dc65ee621c05ef39fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetSupportedTypes</definition>
+        <argsstring>(const BMessage *types)</argsstring>
+        <name>SetSupportedTypes</name>
+        <qualifiedname>BAppFileInfo::SetSupportedTypes</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>types</declname>
+        </param>
+        <briefdescription>
+<para>Sets the MIME types supported by the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method is a short-hand for SetSupportedTypes(types, false). <simplesect kind="see"><para>SetSupportedType(const BMessage*, bool) for detailed information.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>types</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The supported types to be assigned to the file. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="75" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a4b54d96d31373b701ab810d41085a356" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BAppFileInfo::IsSupportedType</definition>
+        <argsstring>(const char *type) const</argsstring>
+        <name>IsSupportedType</name>
+        <qualifiedname>BAppFileInfo::IsSupportedType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the application supports the supplied MIME type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the application supports the wildcard type &quot;application/octet-stream&quot; then this method returns <computeroutput>true</computeroutput> for any MIME type.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>type</emphasis> is a valid MIME type and it is supported by the application, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="76" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a0429ee4e052178f3d78d9e3d25797d57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BAppFileInfo::Supports</definition>
+        <argsstring>(BMimeType *type) const</argsstring>
+        <name>Supports</name>
+        <qualifiedname>BAppFileInfo::Supports</qualifiedname>
+        <param>
+          <type><ref refid="classBMimeType" kindref="compound">BMimeType</ref> *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the application supports the supplied MIME type explicitly. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Unlike <ref refid="classBAppFileInfo_1a4b54d96d31373b701ab810d41085a356" kindref="member">IsSupportedType()</ref>, this method returns <computeroutput>true</computeroutput>, only if the type is explicitly supported, regardless of whether it supports &quot;application/octet-stream&quot;.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput> if <emphasis>type</emphasis> is a valid MIME type and it is explicitly supported by the application, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="77" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Application Icon</header>
+      <memberdef kind="function" id="classBAppFileInfo_1a923c307844f5c97781adeb05df3fdf63" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetIcon</definition>
+        <argsstring>(BBitmap *icon, icon_size which) const</argsstring>
+        <name>GetIcon</name>
+        <qualifiedname>BAppFileInfo::GetIcon</qualifiedname>
+        <reimplements refid="classBNodeInfo_1a68b1e0645325e3ef8251cd505fe9c854">GetIcon</reimplements>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+<para>Gets the icon of the associated file and puts it into a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> of the correct dimension to store the requested icon (16x16 for the <computeroutput>B_MINI_ICON</computeroutput> and 32x32 for the <computeroutput>B_LARGE_ICON</computeroutput>). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of the icon to be retrieved: <computeroutput>B_MINI_ICON</computeroutput> for the mini and <computeroutput>B_LARGE_ICON</computeroutput> for the large icon. For HVIF icons this parameter has no effect.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>icon</emphasis>, unsupported icon size <emphasis>which</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="79" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a103efc4ed5c28d31a1720e03627db7a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIcon</definition>
+        <argsstring>(const BBitmap *icon, icon_size which, bool updateMimeDB)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BAppFileInfo::SetIcon</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>updateMimeDB</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon of the associated file from a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>icon</emphasis> is <computeroutput>NULL</computeroutput> then the icon of the file is unset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> containing the icon to be set. May be <computeroutput>NULL</computeroutput> to specify no icon. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of the icon to be set: <computeroutput>B_MINI_ICON</computeroutput> for 16x16 mini icon and <computeroutput>B_LARGE_ICON</computeroutput> for the 32x32 large icon. For HVIF icons this parameter has no effect. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>updateMimeDB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to also set the icon for the application in the MIME DB. <computeroutput>false</computeroutput> otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unknown icon size <emphasis>which</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a08664bc229f29bb15648ff8d6fce4569" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIcon</definition>
+        <argsstring>(const BBitmap *icon, icon_size which)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BAppFileInfo::SetIcon</qualifiedname>
+        <reimplements refid="classBNodeInfo_1a8ddb7be63e9a48ff851d61ab13f0a997">SetIcon</reimplements>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon of the associated file from a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>icon</emphasis> is <computeroutput>NULL</computeroutput> then the icon of the file is unset.</para>
+<para>Also sets the application&apos;s icon in the MIME DB, if the file has a valid application signature.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> containing the icon to be set. May be <computeroutput>NULL</computeroutput> to specify no icon. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of the icon to be set: <computeroutput>B_MINI_ICON</computeroutput> for 16x16 mini icon and <computeroutput>B_LARGE_ICON</computeroutput> for the 32x32 large icon. For HVIF icons this parameter has no effect.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unknown icon size <emphasis>which</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="82" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1af68a89c04ed513c1408b4234ac4209fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetIcon</definition>
+        <argsstring>(uint8 **data, size_t *size) const</argsstring>
+        <name>GetIcon</name>
+        <qualifiedname>BAppFileInfo::GetIcon</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> **</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Gets the icon of the associated file and puts it into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer in which the flat icon data will be returned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The pointer in which the size of the data found will be returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>data</emphasis> or <computeroutput>NULL</computeroutput> size.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="84" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a2db8cf52b3a56077342135ff7b8fb947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIcon</definition>
+        <argsstring>(const uint8 *data, size_t size, bool updateMimeDB)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BAppFileInfo::SetIcon</qualifiedname>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>updateMimeDB</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon of the associated file from a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>data</emphasis> is <computeroutput>NULL</computeroutput> then the icon of the file is unset.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the data buffer containing the vector icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of buffer pointed to by <emphasis>data</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>updateMimeDB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to also set the icon for the application in the MIME DB. <computeroutput>false</computeroutput> otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="85" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ade849cafa939e192ce3afa7e6b43b4d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIcon</definition>
+        <argsstring>(const uint8 *data, size_t size)</argsstring>
+        <name>SetIcon</name>
+        <qualifiedname>BAppFileInfo::SetIcon</qualifiedname>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon of the associated file from a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If <emphasis>data</emphasis> is <computeroutput>NULL</computeroutput> then the icon of the file is unset.</para>
+<para>Also sets the application&apos;s icon in the MIME DB, if the file has a valid application signature.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the data buffer containing the vector icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of buffer pointed to by <emphasis>data</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="87" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ac724955a16d777e199d8eb3732e54319" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetIconForType</definition>
+        <argsstring>(const char *type, BBitmap *icon, icon_size which) const</argsstring>
+        <name>GetIconForType</name>
+        <qualifiedname>BAppFileInfo::GetIconForType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+          <defname>size</defname>
+        </param>
+        <briefdescription>
+<para>Gets the icon the application provides for a given MIME type and puts it into a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput>, the application&apos;s icon is retrieved.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> of the correct dimension to store the requested icon (16x16 for the mini and 32x32 for the large icon). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of the icon to be retrieved: <computeroutput>B_MINI_ICON</computeroutput> for the mini and <computeroutput>B_LARGE_ICON</computeroutput> for the large icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>icon</emphasis>, unsupported icon size <emphasis>which</emphasis> or bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1aef9303de1c959944f9d4a0162699499c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetIconForType</definition>
+        <argsstring>(const char *type, uint8 **data, size_t *size) const</argsstring>
+        <name>GetIconForType</name>
+        <qualifiedname>BAppFileInfo::GetIconForType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> **</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Gets the icon the application provides for a given MIME type and puts it into a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>type</emphasis> is set to <computeroutput>NULL</computeroutput> the the application&apos;s icon is retrieved.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer in which the icon data will be returned. When you are done with the data, you should use free() to deallocate it. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer in which the size of the retrieved data is returned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>data</emphasis> and/or <emphasis>size</emphasis>. Or the supplied <emphasis>type</emphasis> is not a valid MIME type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="96" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ad590932ba096ebc583f4b42eb51395cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIconForType</definition>
+        <argsstring>(const char *type, const BBitmap *icon, icon_size which, bool updateMimeDB)</argsstring>
+        <name>SetIconForType</name>
+        <qualifiedname>BAppFileInfo::SetIconForType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>updateMimeDB</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon the application provides for a given MIME type from a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput> then the icon is set. </para>
+</simplesect>
+<simplesect kind="note"><para>If <emphasis>icon</emphasis> is <computeroutput>NULL</computeroutput> then the icon is unset.</para>
+</simplesect>
+If <emphasis>updateMimeDB</emphasis> is <computeroutput>true</computeroutput> and if the file has a signature, then the icon is also set on the MIME type. If the type for the signature has not been installed yet, it is installed before.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> containing the icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of the icon to be set: <computeroutput>B_MINI_ICON</computeroutput> for the mini and <computeroutput>B_LARGE_ICON</computeroutput> for the large icon. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>updateMimeDB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to also set the icon for the type in the MIME DB. <computeroutput>false</computeroutput> otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Either the icon size <emphasis>which</emphasis> is unknown, the bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match, or the provided <emphasis>type</emphasis> is not a valid MIME type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="98" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1aafac860cede3142d214c0f095d8d4411" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIconForType</definition>
+        <argsstring>(const char *type, const BBitmap *icon, icon_size which)</argsstring>
+        <name>SetIconForType</name>
+        <qualifiedname>BAppFileInfo::SetIconForType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon the application provides for a given MIME type from a <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput> then the icon is set. </para>
+</simplesect>
+<simplesect kind="note"><para>If <emphasis>icon</emphasis> is <computeroutput>NULL</computeroutput> then the icon is unset.</para>
+</simplesect>
+If the file has a signature, then the icon is also set on the MIME type. If the type for the signature has not been installed yet, it is installed before.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> containing the icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of the icon to be set: <computeroutput>B_MINI_ICON</computeroutput> for the mini and <computeroutput>B_LARGE_ICON</computeroutput> for the large icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Either the icon size <emphasis>which</emphasis> is unknown, the bitmap dimensions (<emphasis>icon</emphasis>) and icon size (<emphasis>which</emphasis>) do not match, or the provided <emphasis>type</emphasis> is not a valid MIME type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="101" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a8fad38770a480931855ce6c3e7fe22da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIconForType</definition>
+        <argsstring>(const char *type, const uint8 *data, size_t size, bool updateMimeDB)</argsstring>
+        <name>SetIconForType</name>
+        <qualifiedname>BAppFileInfo::SetIconForType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>updateMimeDB</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon the application provides for a given MIME type from a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput> then the icon is set. </para>
+</simplesect>
+<simplesect kind="note"><para>If <emphasis>data</emphasis> is <computeroutput>NULL</computeroutput> then the icon is unset.</para>
+</simplesect>
+If <emphasis>updateMimeDB</emphasis> is <computeroutput>true</computeroutput> and if the file has a signature, then the icon is also set on the MIME type. If the type for the signature has not been installed yet, it is installed before.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the data containing the icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of buffer provided in <emphasis>data</emphasis>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>updateMimeDB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to also set the icon for the type in the MIME DB. <computeroutput>false</computeroutput> otherwise.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>type</emphasis> is not a valid MIME type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="103" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a7b6f4737af83799ee6d9f623cfb98e9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetIconForType</definition>
+        <argsstring>(const char *type, const uint8 *data, size_t size)</argsstring>
+        <name>SetIconForType</name>
+        <qualifiedname>BAppFileInfo::SetIconForType</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const <ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Sets the icon the application provides for a given MIME type from a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>type</emphasis> is <computeroutput>NULL</computeroutput> then the icon is set. </para>
+</simplesect>
+<simplesect kind="note"><para>If <emphasis>data</emphasis> is <computeroutput>NULL</computeroutput> then the icon is unset.</para>
+</simplesect>
+If the file has a signature, then the icon is also set on the MIME type. If the type for the signature has not been installed yet, it is installed before.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The MIME type in question. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the data containing the icon to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the size of buffer provided in <emphasis>data</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The provided <emphasis>type</emphasis> is not a valid MIME type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="106" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Version Info</header>
+      <memberdef kind="function" id="classBAppFileInfo_1a3cbced16e0fcc255cf3d526536dcc27b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetVersionInfo</definition>
+        <argsstring>(version_info *info, version_kind kind) const</argsstring>
+        <name>GetVersionInfo</name>
+        <qualifiedname>BAppFileInfo::GetVersionInfo</qualifiedname>
+        <param>
+          <type>version_info *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>version_kind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Gets the version info of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated version_info structure into which the version info should be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies the kind of the version info to be retrieved:<itemizedlist>
+<listitem><para><computeroutput>B_APP_VERSION_KIND</computeroutput> for the application&apos;s version info and</para>
+</listitem><listitem><para><computeroutput>B_SYSTEM_VERSION_KIND</computeroutput> for the suite&apos;s info the application belongs to.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>info</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="89" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a4178864a920b20753cd24469e5a27ddd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetVersionInfo</definition>
+        <argsstring>(const version_info *info, version_kind kind)</argsstring>
+        <name>SetVersionInfo</name>
+        <qualifiedname>BAppFileInfo::SetVersionInfo</qualifiedname>
+        <param>
+          <type>const version_info *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>version_kind</type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+<para>Sets the version info of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>If <emphasis>info</emphasis> is set to <computeroutput>NULL</computeroutput> then the file&apos;s version info is unset.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The version info to be set. May be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>kind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Specifies kind of version info to be set:<itemizedlist>
+<listitem><para><computeroutput>B_APP_VERSION_KIND</computeroutput> for the application&apos;s version info and</para>
+</listitem><listitem><para><computeroutput>B_SYSTEM_VERSION_KIND</computeroutput> for the suite&apos;s info the application belongs to.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object is not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="91" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Attributes/Resources</header>
+      <memberdef kind="function" id="classBAppFileInfo_1a4e01cba2089d250f6d7e4c4d73d4495d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BAppFileInfo::SetInfoLocation</definition>
+        <argsstring>(info_location location)</argsstring>
+        <name>SetInfoLocation</name>
+        <qualifiedname>BAppFileInfo::SetInfoLocation</qualifiedname>
+        <param>
+          <type>info_location</type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+<para>Specifies the location where the metadata shall be stored. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The options for <emphasis>location</emphasis> are:<itemizedlist>
+<listitem><para><computeroutput>B_USE_ATTRIBUTES:</computeroutput> Store the data in the attributes.</para>
+</listitem><listitem><para><computeroutput>B_USE_RESOURCES:</computeroutput> Store the data in the resources.</para>
+</listitem><listitem><para><computeroutput>B_USE_BOTH_LOCATIONS:</computeroutput> Store the data in attributes and resources.</para>
+</listitem></itemizedlist>
+</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The location where the metadata shall be stored.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="109" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1af51c19a647c8d4955bc3a752cc3966e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BAppFileInfo::IsUsingAttributes</definition>
+        <argsstring>() const</argsstring>
+        <name>IsUsingAttributes</name>
+        <qualifiedname>BAppFileInfo::IsUsingAttributes</qualifiedname>
+        <briefdescription>
+<para>Returns whether the object (also) stores the metadata in the attributes of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the metadata are (also) stored in the file&apos;s attributes, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="110" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a25595984795ba90584d05e920f0ce399" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BAppFileInfo::IsUsingResources</definition>
+        <argsstring>() const</argsstring>
+        <name>IsUsingResources</name>
+        <qualifiedname>BAppFileInfo::IsUsingResources</qualifiedname>
+        <briefdescription>
+<para>Returns whether the object (also) stores the metadata in the resources of the associated file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput> if the metadata are (also) stored in the file&apos;s resources, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="111" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBAppFileInfo_1ad24ff5f815c88330367b99b728b0ba4f" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BAppFileInfo::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BAppFileInfo::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="135" column="7" bodyfile="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBAppFileInfo_1aa0c160adb5581ee91e20889b3d4de9dc" prot="private" static="no" mutable="no">
+        <type><ref refid="classBResources" kindref="compound">BResources</ref> *</type>
+        <definition>BResources* BAppFileInfo::fResources</definition>
+        <argsstring></argsstring>
+        <name>fResources</name>
+        <qualifiedname>BAppFileInfo::fResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="133" column="11" bodyfile="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBAppFileInfo_1a98752e7cca6f6fadc8474ef287d0948d" prot="private" static="no" mutable="no">
+        <type>info_location</type>
+        <definition>info_location BAppFileInfo::fWhere</definition>
+        <argsstring></argsstring>
+        <name>fWhere</name>
+        <qualifiedname>BAppFileInfo::fWhere</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="134" column="14" bodyfile="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBAppFileInfo_1a14518c82d65e51cf21fef2abe9e1e5f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BAppFileInfo::BAppFileInfo</definition>
+        <argsstring>()</argsstring>
+        <name>BAppFileInfo</name>
+        <qualifiedname>BAppFileInfo::BAppFileInfo</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1adfd620140120aad88d314001f7ea6a84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BAppFileInfo::BAppFileInfo</definition>
+        <argsstring>(BFile *file)</argsstring>
+        <name>BAppFileInfo</name>
+        <qualifiedname>BAppFileInfo::BAppFileInfo</qualifiedname>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Creates an <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> object and initializes it to the supplied file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The caller retains ownership of the supplied <ref refid="classBFile" kindref="compound">BFile</ref> object. It must not be deleted during the life time of the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref>. It is not deleted when the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> is destroyed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBFile" kindref="compound">BFile</ref> object that the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> object shall be initialized to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="52" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a831286d13b3c8290b7ccac8e56613c7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BAppFileInfo::~BAppFileInfo</definition>
+        <argsstring>()</argsstring>
+        <name>~BAppFileInfo</name>
+        <qualifiedname>BAppFileInfo::~BAppFileInfo</qualifiedname>
+        <briefdescription>
+<para>Frees all resources associated with this object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplied <ref refid="classBFile" kindref="compound">BFile</ref> object is not deleted if one is specified.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="53" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a4bd4d27aa93d92cce91f2cb10e3852e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::SetTo</definition>
+        <argsstring>(BFile *file)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BAppFileInfo::SetTo</qualifiedname>
+        <param>
+          <type><ref refid="classBFile" kindref="compound">BFile</ref> *</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> to the supplied file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The caller retains ownership of the supplied <ref refid="classBFile" kindref="compound">BFile</ref> object. It must not be deleted during the life time of the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref>. The <ref refid="classBFile" kindref="compound">BFile</ref> object is not deleted when the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> is destroyed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>file</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classBFile" kindref="compound">BFile</ref> object that the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> object shall be initialized to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>an status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>file</emphasis> or <emphasis>file</emphasis> is not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="55" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBAppFileInfo_1a5d28745cc113ef9b6177f217b02cb73b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BAppFileInfo::BAppFileInfo</definition>
+        <argsstring>(const BAppFileInfo &amp;)</argsstring>
+        <name>BAppFileInfo</name>
+        <qualifiedname>BAppFileInfo::BAppFileInfo</qualifiedname>
+        <param>
+          <type>const <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="119" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1abde18db8e33e5abe5df4a8d1ba64e460" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::_ReadData</definition>
+        <argsstring>(const char *name, int32 id, type_code type, void *buffer, size_t bufferSize, size_t &amp;bytesRead, void **allocatedBuffer=NULL) const</argsstring>
+        <name>_ReadData</name>
+        <qualifiedname>BAppFileInfo::_ReadData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <param>
+          <type>size_t &amp;</type>
+          <declname>bytesRead</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>allocatedBuffer</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="123" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1affff88dee68658657194aa7e32218c8c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::_RemoveData</definition>
+        <argsstring>(const char *name, type_code type)</argsstring>
+        <name>_RemoveData</name>
+        <qualifiedname>BAppFileInfo::_RemoveData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="130" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ac62dbce74d3bd49c1a893cd582b00ed5" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BAppFileInfo::_ReservedAppFileInfo1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedAppFileInfo1</name>
+        <qualifiedname>BAppFileInfo::_ReservedAppFileInfo1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="114" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1ac7101a3a3ae0fec14c58edfdb7d95d1f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BAppFileInfo::_ReservedAppFileInfo2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedAppFileInfo2</name>
+        <qualifiedname>BAppFileInfo::_ReservedAppFileInfo2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="115" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a5345002707b6464b735eab9020dff554" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BAppFileInfo::_ReservedAppFileInfo3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedAppFileInfo3</name>
+        <qualifiedname>BAppFileInfo::_ReservedAppFileInfo3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="116" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a6ac94e03db962c9a874ce675e7090936" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::_WriteData</definition>
+        <argsstring>(const char *name, int32 id, type_code type, const void *buffer, size_t bufferSize, bool findID=false)</argsstring>
+        <name>_WriteData</name>
+        <qualifiedname>BAppFileInfo::_WriteData</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>findID</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="127" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a3bfce607102d86ac4c7db25b548c9907" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BAppFileInfo::GetMetaMime</definition>
+        <argsstring>(BMimeType *meta) const</argsstring>
+        <name>GetMetaMime</name>
+        <qualifiedname>BAppFileInfo::GetMetaMime</qualifiedname>
+        <param>
+          <type><ref refid="classBMimeType" kindref="compound">BMimeType</ref> *</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="121" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBAppFileInfo_1a6928e7e74e9a5205e3a2d779a313c704" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> &amp;</type>
+        <definition>BAppFileInfo &amp; BAppFileInfo::operator=</definition>
+        <argsstring>(const BAppFileInfo &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BAppFileInfo::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="118" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides access to the metadata associated with executables, libraries and add-ons. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> class allows for information about an executable or add-on to be accessed or set. Information about an executable that can be accessed include the signature, catalog entry, supported MIME types, application flags, icon(s), and version info.</para>
+<para>You should initialize the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> with a <ref refid="classBFile" kindref="compound">BFile</ref> object that represents the executable or add-on that you want to access. If you only want to read metadata from the file you do not have to open it for reading. However, if you also want to write metadata then you should open the <ref refid="classBFile" kindref="compound">BFile</ref> for writing.</para>
+<para>To associate a <ref refid="classBFile" kindref="compound">BFile</ref> with a <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> object you can either pass the <ref refid="classBFile" kindref="compound">BFile</ref> object into the constructor or you can use the empty constructor and then use the <ref refid="classBAppFileInfo_1a4bd4d27aa93d92cce91f2cb10e3852e9" kindref="member">SetTo()</ref> method to set the <ref refid="classBFile" kindref="compound">BFile</ref> to the <ref refid="classBAppFileInfo" kindref="compound">BAppFileInfo</ref> object.</para>
+<para>When accessing information from a BFileInfo object it will first look in the attributes of the <ref refid="classBFile" kindref="compound">BFile</ref>. If the information is not found then the BFileInfo object will next look at the resource of the <ref refid="classBFile" kindref="compound">BFile</ref>. You can tell the BFileInfo object to look only in the attributes or resources with the <ref refid="classBAppFileInfo_1a4e01cba2089d250f6d7e4c4d73d4495d" kindref="member">SetInfoLocation()</ref> method.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BAppFileInfo</label>
+        <link refid="classBAppFileInfo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BNodeInfo</label>
+        <link refid="classBNodeInfo"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BAppFileInfo</label>
+        <link refid="classBAppFileInfo"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BNodeInfo</label>
+        <link refid="classBNodeInfo"/>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" line="49" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/AppFileInfo.h" bodystart="49" bodyend="136"/>
+    <listofallmembers>
+      <member refid="classBAppFileInfo_1abde18db8e33e5abe5df4a8d1ba64e460" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>_ReadData</name></member>
+      <member refid="classBAppFileInfo_1affff88dee68658657194aa7e32218c8c" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>_RemoveData</name></member>
+      <member refid="classBAppFileInfo_1ad24ff5f815c88330367b99b728b0ba4f" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>_reserved</name></member>
+      <member refid="classBAppFileInfo_1ac62dbce74d3bd49c1a893cd582b00ed5" prot="private" virt="virtual"><scope>BAppFileInfo</scope><name>_ReservedAppFileInfo1</name></member>
+      <member refid="classBAppFileInfo_1ac7101a3a3ae0fec14c58edfdb7d95d1f" prot="private" virt="virtual"><scope>BAppFileInfo</scope><name>_ReservedAppFileInfo2</name></member>
+      <member refid="classBAppFileInfo_1a5345002707b6464b735eab9020dff554" prot="private" virt="virtual"><scope>BAppFileInfo</scope><name>_ReservedAppFileInfo3</name></member>
+      <member refid="classBAppFileInfo_1a6ac94e03db962c9a874ce675e7090936" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>_WriteData</name></member>
+      <member refid="classBAppFileInfo_1a14518c82d65e51cf21fef2abe9e1e5f2" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>BAppFileInfo</name></member>
+      <member refid="classBAppFileInfo_1adfd620140120aad88d314001f7ea6a84" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>BAppFileInfo</name></member>
+      <member refid="classBAppFileInfo_1a5d28745cc113ef9b6177f217b02cb73b" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>BAppFileInfo</name></member>
+      <member refid="classBNodeInfo_1ad752fd7c10a42b1f11ae35d910aa645c" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>BNodeInfo</name></member>
+      <member refid="classBNodeInfo_1a98100e447a6fa36f7f77ee69acccd61e" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>BNodeInfo</name></member>
+      <member refid="classBAppFileInfo_1aa0c160adb5581ee91e20889b3d4de9dc" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>fResources</name></member>
+      <member refid="classBAppFileInfo_1a98752e7cca6f6fadc8474ef287d0948d" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>fWhere</name></member>
+      <member refid="classBAppFileInfo_1aadbed49f3eaedbd25463128b079c33df" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetAppFlags</name></member>
+      <member refid="classBNodeInfo_1a3ab221c59085959fa85387359a7afbee" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetAppHint</name></member>
+      <member refid="classBAppFileInfo_1ad914a37f1b242347c1d471ada964461d" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetCatalogEntry</name></member>
+      <member refid="classBAppFileInfo_1a923c307844f5c97781adeb05df3fdf63" prot="public" virt="virtual"><scope>BAppFileInfo</scope><name>GetIcon</name></member>
+      <member refid="classBAppFileInfo_1af68a89c04ed513c1408b4234ac4209fe" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetIcon</name></member>
+      <member refid="classBNodeInfo_1a0d2207fd5cd79534cc2ae1a5c2a7b489" prot="public" virt="non-virtual" ambiguityscope="BNodeInfo::"><scope>BAppFileInfo</scope><name>GetIcon</name></member>
+      <member refid="classBAppFileInfo_1ac724955a16d777e199d8eb3732e54319" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetIconForType</name></member>
+      <member refid="classBAppFileInfo_1aef9303de1c959944f9d4a0162699499c" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetIconForType</name></member>
+      <member refid="classBAppFileInfo_1a3bfce607102d86ac4c7db25b548c9907" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetMetaMime</name></member>
+      <member refid="classBNodeInfo_1a7efa86ade48aec51d4a4b7ff4762c163" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetPreferredApp</name></member>
+      <member refid="classBAppFileInfo_1ae68c6df1b47ef4add615030c743afdb7" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetSignature</name></member>
+      <member refid="classBAppFileInfo_1a42552464f2758ed6b7d9a69c8e1d0a5a" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetSupportedTypes</name></member>
+      <member refid="classBNodeInfo_1a2259ab1207533b6deb8c06e39086b980" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetTrackerIcon</name></member>
+      <member refid="classBNodeInfo_1a7f0bfd78768ed5ce96cba288487c781b" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetTrackerIcon</name></member>
+      <member refid="classBAppFileInfo_1aef1969cb93211a9edafb4b34219c0ec8" prot="public" virt="virtual"><scope>BAppFileInfo</scope><name>GetType</name></member>
+      <member refid="classBAppFileInfo_1a3cbced16e0fcc255cf3d526536dcc27b" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>GetVersionInfo</name></member>
+      <member refid="classBNodeInfo_1a362e684a08d62ec3aa95c75395f3698e" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>InitCheck</name></member>
+      <member refid="classBAppFileInfo_1a4b54d96d31373b701ab810d41085a356" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>IsSupportedType</name></member>
+      <member refid="classBAppFileInfo_1af51c19a647c8d4955bc3a752cc3966e7" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>IsUsingAttributes</name></member>
+      <member refid="classBAppFileInfo_1a25595984795ba90584d05e920f0ce399" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>IsUsingResources</name></member>
+      <member refid="classBAppFileInfo_1a6928e7e74e9a5205e3a2d779a313c704" prot="private" virt="non-virtual"><scope>BAppFileInfo</scope><name>operator=</name></member>
+      <member refid="classBAppFileInfo_1a54479f28ec210a8710e0b126c2e4bde5" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>RemoveAppFlags</name></member>
+      <member refid="classBAppFileInfo_1ad2c49b8678e85372e9e1338eb5367976" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetAppFlags</name></member>
+      <member refid="classBNodeInfo_1af5efb90d7a21c84b73e80be96644a882" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetAppHint</name></member>
+      <member refid="classBAppFileInfo_1aea19df97f084ffd5335ba740273c930c" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetCatalogEntry</name></member>
+      <member refid="classBAppFileInfo_1a103efc4ed5c28d31a1720e03627db7a8" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIcon</name></member>
+      <member refid="classBAppFileInfo_1a08664bc229f29bb15648ff8d6fce4569" prot="public" virt="virtual"><scope>BAppFileInfo</scope><name>SetIcon</name></member>
+      <member refid="classBAppFileInfo_1a2db8cf52b3a56077342135ff7b8fb947" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIcon</name></member>
+      <member refid="classBAppFileInfo_1ade849cafa939e192ce3afa7e6b43b4d5" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIcon</name></member>
+      <member refid="classBAppFileInfo_1ad590932ba096ebc583f4b42eb51395cd" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIconForType</name></member>
+      <member refid="classBAppFileInfo_1aafac860cede3142d214c0f095d8d4411" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIconForType</name></member>
+      <member refid="classBAppFileInfo_1a8fad38770a480931855ce6c3e7fe22da" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIconForType</name></member>
+      <member refid="classBAppFileInfo_1a7b6f4737af83799ee6d9f623cfb98e9a" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetIconForType</name></member>
+      <member refid="classBAppFileInfo_1a4e01cba2089d250f6d7e4c4d73d4495d" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetInfoLocation</name></member>
+      <member refid="classBNodeInfo_1ae02314008ca406a34f3391ee2e2f2326" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetPreferredApp</name></member>
+      <member refid="classBAppFileInfo_1afca5bdac998eff41aa0135955950a747" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetSignature</name></member>
+      <member refid="classBAppFileInfo_1ab80c89a3832a379e02e88354ab58b902" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetSupportedTypes</name></member>
+      <member refid="classBAppFileInfo_1a74f609c8c49d842946b92c9bcba6eccb" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetSupportedTypes</name></member>
+      <member refid="classBAppFileInfo_1a973d1ea97db339dc65ee621c05ef39fe" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetSupportedTypes</name></member>
+      <member refid="classBAppFileInfo_1a4bd4d27aa93d92cce91f2cb10e3852e9" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetTo</name></member>
+      <member refid="classBNodeInfo_1ac565dcc8ed1e34571e35a51b4f09ea39" prot="public" virt="non-virtual" ambiguityscope="BNodeInfo::"><scope>BAppFileInfo</scope><name>SetTo</name></member>
+      <member refid="classBAppFileInfo_1a6fc65b958f2652f0a910ac2190252ff8" prot="public" virt="virtual"><scope>BAppFileInfo</scope><name>SetType</name></member>
+      <member refid="classBAppFileInfo_1a4178864a920b20753cd24469e5a27ddd" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>SetVersionInfo</name></member>
+      <member refid="classBAppFileInfo_1a0429ee4e052178f3d78d9e3d25797d57" prot="public" virt="non-virtual"><scope>BAppFileInfo</scope><name>Supports</name></member>
+      <member refid="classBAppFileInfo_1a831286d13b3c8290b7ccac8e56613c7c" prot="public" virt="virtual"><scope>BAppFileInfo</scope><name>~BAppFileInfo</name></member>
+      <member refid="classBNodeInfo_1a02c3e3aa4ffa005913a4ad32861d1f99" prot="public" virt="virtual"><scope>BAppFileInfo</scope><name>~BNodeInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

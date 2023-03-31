@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="app_messaging" kind="page">
+    <compoundname>app_messaging</compoundname>
+    <title>Messaging Foundations</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>One of the foundations of the Haiku API is the messaging system. This framework is the basis for the efficient multithreaded Haiku applications, because it solves one of the fundamental issues of multithreading: it allows you to easily and securely communicate between threads. The framework allows inter-application messaging as well as intra-application messaging, and it will always use the most effective mechanism for the communication automatically.</para>
+<para>This page will introduce you to the subject of messaging. It is meant as a broad overview to the classes, rather than a tutorial. If you are looking for effective messaging techniques or a tutorial on messaging, have a look at the developer section of the Haiku website.</para>
+<para><bold>Table of contents</bold><itemizedlist>
+<listitem><para>Overview of the Messaging Classes</para>
+</listitem><listitem><para>Receiving and Handling Messages</para>
+</listitem><listitem><para>Sending messages</para>
+</listitem></itemizedlist>
+</para>
+<sect1 id="app_messaging_1app_messaging_overview">
+<title>Overview of the Messaging Classes</title>
+<sect2 id="app_messaging_1app_messaging_overview_bmessage">
+<title>BMessage</title>
+<para>The <ref refid="classBMessage" kindref="compound">BMessage</ref> class is the class that is in the center of all the messenger operations, because it represents a message. A message is nothing more than an object that contains:<itemizedlist>
+<listitem><para>The <computeroutput>what</computeroutput> member, an <computeroutput>uint32</computeroutput> that determines the type of message. Some constants are defined by the Haiku API, for example B_MOUSE_DOWN or B_QUIT_REQUESTED.</para>
+</listitem><listitem><para>Zero or more data objects. <ref refid="classBMessage" kindref="compound">BMessage</ref> is a powerful data container that keeps track of different sorts of data. <ref refid="classBMessage" kindref="compound">BMessage</ref> provides many convenient Add*() methods, for example <ref refid="classBMessage_1a2976642c2259ebad33704d1b127bae60" kindref="member">BMessage::AddBool()</ref>. With the corresponding Find*() method (in this example, <ref refid="classBMessage_1a99405de493bf7e49ce033ef8cac8825b" kindref="member">FindBool() </ref>) you can retrieve the data.</para>
+</listitem></itemizedlist>
+</para>
+<para><ref refid="classBMessage" kindref="compound">BMessage</ref> itself is generic, its syntax and semantics are determined by the context. The Haiku API defines several messages and their required data members. Several applications provide a scripting interface with defined message syntax. You can do the same for your application.</para>
+</sect2>
+<sect2 id="app_messaging_1app_messaging_overview_blooper">
+<title>BLooper</title>
+<para>Objects of the <ref refid="classBLooper" kindref="compound">BLooper</ref> type are objects that run message loops. Every object runs in its own thread. The <ref refid="classBLooper" kindref="compound">BLooper</ref> objects continually check for incoming messages. To process the messages, the looper looks for message handlers that handle the messages within the thread&apos;s context. Message handling within a looper is synchronous.</para>
+<para><ref refid="classBLooper" kindref="compound">BLooper</ref> inherits <ref refid="classBHandler" kindref="compound">BHandler</ref>, the base class for message handling. However, it is possible to chain additional handlers to the object. For example, if you have an application that understands different networking protocols, and you support extensions that understand the base protocol, these extensions can provide handlers that you can chain in your general message parser thread. See AddHandler() and SetPreferredHandler() for information on handlers.</para>
+<para>Messages can be posted to the looper by using the object&apos;s PostMessage() method. This method puts the message in the <ref refid="classBMessageQueue" kindref="compound">BMessageQueue</ref> of the looper. Since PostMessage() is asynchronous, the message might not be handled immediately. See <ref refid="app_messaging_1app_messaging_overview_bmessenger" kindref="member">BMessenger</ref> for a synchronous implementation.</para>
+<para>Loopers can have a generic filter that discards messages based on user-definable characteristics. The <ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> class provides the foundation for the qualifying of messages. See AddCommonFilterList() and SetCommonFilterList() for more information.</para>
+<para>To get the most out of the functionality of <ref refid="classBLooper" kindref="compound">BLooper</ref>, it is usually subclassed to create a self-contained event &apos;machine&apos;. Most of the time, these subclasses also perform the message handling, which is possible due to the fact that it is also a subclass of <ref refid="classBHandler" kindref="compound">BHandler</ref>.</para>
+<para>In the Haiku API, there are two major classes that inherit <ref refid="classBLooper" kindref="compound">BLooper</ref>: the base application class, <ref refid="classBApplication" kindref="compound">BApplication</ref>, and the window class, <ref refid="classBWindow" kindref="compound">BWindow</ref>. Because they inherit <ref refid="classBLooper" kindref="compound">BLooper</ref>, each application and each window has its own message loop. This makes every window quick and responsive. To keep your applications running smoothly, it is advisable to make sure that event handling that requires more processing power, is done within its own <ref refid="classBLooper" kindref="compound">BLooper</ref> context. Networking usually qualifies as a candidate for its own thread.</para>
+</sect2>
+<sect2 id="app_messaging_1app_messaging_overview_bhandler">
+<title>BHandler</title>
+<para>Objects of the <ref refid="classBHandler" kindref="compound">BHandler</ref> type are associated to BLoopers. When they are created, they should be passed to the <ref refid="classBLooper_1a484be74814014e3c48c1a16f44e34074" kindref="member">BLooper::AddHandler()</ref> method of the looper they want to handle messages for. They can then either be set as preferred handlers (by chaining them with <ref refid="classBLooper_1a07c6e5c65354b48465fde2b0b44e22c6" kindref="member">BLooper::SetPreferredHandler()</ref>), or they can be added to other BHandlers with the SetNextHandler() method.</para>
+<para>The magic of the class happens in the MessageReceived() method. In your subclasses you override this method, to check the incoming <ref refid="classBMessage" kindref="compound">BMessage</ref>. Usually, you check the <computeroutput>what</computeroutput> member of the message in a switch statement. If your handler cannot handle the object, it will pass the message on to the parent class.</para>
+<para><simplesect kind="warning"><para>Don&apos;t forget to actually call the MessageReceived() method of the base class. Failing to do this will mean that the message chain will not completely be followed, which can lead to unhandled messages. There might be some internal system messages that the Haiku API classes handle, and not actually handling these messages could lead to inconsistent internal behavior.</para>
+</simplesect>
+</para>
+</sect2>
+<sect2 id="app_messaging_1app_messaging_overview_bmessenger">
+<title>BMessenger</title>
+<para><ref refid="classBMessenger" kindref="compound">BMessenger</ref> objects can send messages to both local and remote targets. For local targets, a <ref refid="classBMessenger" kindref="compound">BMessenger</ref> provides an advantage over directly calling the <ref refid="classBLooper_1a0de6737bfbf8a8b4913adc8c74bb544e" kindref="member">BLooper::PostMessage()</ref> method: some variants of the <ref refid="classBMessenger_1aebe5aba546fa4a4696988b1bf6028f3c" kindref="member">BMessenger::SendMessage()</ref> methods allow for synchronous replies. So, the call will actually verify the handling thread processes the message, and reply to the sender.</para>
+<para>The other feature of <ref refid="classBMessenger" kindref="compound">BMessenger</ref> is that it is able to be constructed with the signature of another application as argument. This allows the messenger to pass messages to other applications. It facilitates inter-application communication.</para>
+</sect2>
+<sect2 id="app_messaging_1app_messaging-overview-other">
+<title>Other messaging classes</title>
+<para>There are several convenience classes supplied with the application kit, which can make your life easier in some specific cases.</para>
+<para><itemizedlist>
+<listitem><para><ref refid="classBInvoker" kindref="compound">BInvoker</ref> binds together a message and a target. By calling <ref refid="classBInvoker_1ad4eb9ad4b3b8286f2a155ad7f087511c" kindref="member">BInvoker::Invoke()</ref>, the message will be sent. This class is inherited by the controls in the interface kit, such as <ref refid="classBButton" kindref="compound">BButton</ref>.</para>
+</listitem><listitem><para>A <ref refid="classBMessageRunner" kindref="compound">BMessageRunner</ref> object will send messages to a specified target with specified intervals in between.</para>
+</listitem><listitem><para><ref refid="classBMessageQueue" kindref="compound">BMessageQueue</ref> is a class that is also internally used by <ref refid="classBLooper" kindref="compound">BLooper</ref>. It provides a queue of messages, with convenience functions of managing this queue.</para>
+</listitem><listitem><para><ref refid="classBMessageFilter" kindref="compound">BMessageFilter</ref> is the base class of the filters. Filters can be applied to BLoopers to filter all incoming messages, or to BHandlers to filter messages that could be handled by that object. The filter object can be subclassed and extended by overriding the <ref refid="classBMessageFilter_1a530d9898fb51e57e93bf674b8e13bcb6" kindref="member">Filter() </ref> method.</para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="app_messaging_1app-messaging-receiving">
+<title>Receiving Messages</title>
+<para>To do...</para>
+</sect1>
+<sect1 id="app_messaging_1app-messaging-sending">
+<title>Sending Messages</title>
+<para>To do... </para>
+</sect1>
+    </detaileddescription>
+    <location file="app/_app_messaging.dox"/>
+  </compounddef>
+</doxygen>

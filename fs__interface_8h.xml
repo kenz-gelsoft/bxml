@@ -1,0 +1,1612 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="fs__interface_8h" kind="file" language="C++">
+    <compoundname>fs_interface.h</compoundname>
+    <includes local="no">OS.h</includes>
+    <includes local="no">Select.h</includes>
+    <includes local="no">module.h</includes>
+    <includes local="no">disk_device_manager.h</includes>
+    <includes local="no">sys/uio.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>fs_interface.h</label>
+        <link refid="fs__interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OS.h</label>
+      </node>
+      <node id="3">
+        <label>Select.h</label>
+      </node>
+      <node id="5">
+        <label>disk_device_manager.h</label>
+      </node>
+      <node id="4">
+        <label>module.h</label>
+      </node>
+      <node id="6">
+        <label>sys/uio.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structfile__io__vec" prot="public">file_io_vec</innerclass>
+    <innerclass refid="structfile__system__module__info" prot="public">file_system_module_info</innerclass>
+    <innerclass refid="structfs__vnode" prot="public">fs_vnode</innerclass>
+    <innerclass refid="structfs__vnode__ops" prot="public">fs_vnode_ops</innerclass>
+    <innerclass refid="structfs__volume" prot="public">fs_volume</innerclass>
+    <innerclass refid="structfs__volume__ops" prot="public">fs_volume_ops</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Vnode functions</header>
+      <memberdef kind="function" id="fs__interface_8h_1ac7652dbe421f4e6a26003bd826035457" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t acquire_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID)</argsstring>
+        <name>acquire_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <briefdescription>
+<para>Acquires another reference to a vnode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar to <ref refid="fs__interface_8h_1a2cfcf01bba17eee0ad3f84115051b281" kindref="member">get_vnode()</ref> in that the function acquires a vnode reference. Unlike <ref refid="fs__interface_8h_1a2cfcf01bba17eee0ad3f84115051b281" kindref="member">get_vnode()</ref> this function can also be invoked between <ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode()</ref> and <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="328" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="328" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a2cfcf01bba17eee0ad3f84115051b281" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t get_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID, void **_privateNode)</argsstring>
+        <name>get_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <param>
+          <type>void **</type>
+          <declname>_privateNode</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the private data handle for the node with the given ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the function is successful, the caller owns a reference to the vnode. The reference can be surrendered by calling <ref refid="fs__interface_8h_1aca3e130d24090e360ed261d7e189df37" kindref="member">put_vnode()</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_privateNode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable the private data handle shall be written to. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="325" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="325" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a71887f0959b9189c84e341a68abc6691" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t get_vnode_removed</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID, bool *_removed)</argsstring>
+        <name>get_vnode_removed</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>_removed</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether the specified vnode is marked removed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The caller must own a reference to the vnode or at least ensure that a reference to the vnode exists.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_removed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a pre-allocated variable set to <computeroutput>true</computeroutput>, if the node is marked removed, to <computeroutput>false</computeroutput> otherwise. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="331" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="331" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t new_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID, void *privateNode, fs_vnode_ops *ops)</argsstring>
+        <name>new_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>privateNode</declname>
+        </param>
+        <param>
+          <type><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref> *</type>
+          <declname>ops</declname>
+        </param>
+        <briefdescription>
+<para>Create the vnode with ID <emphasis>vnodeID</emphasis> and associates it with the private data handle <emphasis>privateNode</emphasis>, but leaves is in an unpublished state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The effect of the function is similar to <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref>, but the vnode remains in an unpublished state, with the effect that a subsequent <ref refid="fs__interface_8h_1a852e2bafd586717ac447c116774373e1" kindref="member">remove_vnode()</ref> will just delete the vnode and not invoke the file system&apos;s <ref refid="structfs__vnode__ops_1a104571b9d1b232b87ce0db208b0393e0" kindref="member">remove_vnode() </ref> when the final reference is put down.</para>
+<para>If the vnode shall be kept, <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref> has to be invoked afterwards to mark the vnode published. The combined effect is the same as only invoking <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref>.</para>
+<para>You&apos;ll usually use this function to secure a vnode ID from being reused while you are in the process of creating the entry. Note that this function will panic in case you call it for an existing vnode ID.</para>
+<para>The function fails, if the vnode does already exist.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>privateNode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private data handle to be associated with the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ops</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation vector for this vnode. Is not copied and must be valid through the whole life time of the vnode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="320" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="320" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t publish_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID, void *privateNode, fs_vnode_ops *ops, int type, uint32 flags)</argsstring>
+        <name>publish_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>privateNode</declname>
+        </param>
+        <param>
+          <type><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref> *</type>
+          <declname>ops</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Creates the vnode with ID <emphasis>vnodeID</emphasis> and associates it with the private data handle <emphasis>privateNode</emphasis> or just marks it published. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the vnode does already exist and has been published, the function fails. If it has not been published yet (i.e. after a successful <ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode()</ref>), the function just marks the vnode published. If the vnode did not exist at all before, it is created and published.</para>
+<para>If the function is successful, the caller owns a reference to the vnode. A sequence of <ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode()</ref> and <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref> results in just one reference as well. The reference can be surrendered by calling <ref refid="fs__interface_8h_1aca3e130d24090e360ed261d7e189df37" kindref="member">put_vnode()</ref>.</para>
+<para>If called after a <ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode()</ref> the <emphasis>privateNode</emphasis> and <emphasis>ops</emphasis> parameters must be the same as previously passed to <ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode()</ref>.</para>
+<para>This call is equivalent to the former BeOS R5 <ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode()</ref> function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>privateNode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The private data handle to be associated with the node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ops</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The operation vector for this vnode. Is not copied and must be valid through the whole life time of the vnode. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type of the node as it would appear in a stat::st_mode (with all non type-related bits set to 0). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A bitwise combination of none or more of the following:<itemizedlist>
+<listitem><para>B_VNODE_PUBLISH_REMOVED: The node is published in &quot;removed&quot; state, i.e. it has no entry referring to it and releasing the last reference to the vnode will remove it.</para>
+</listitem><listitem><para>B_VNODE_DONT_CREATE_SPECIAL_SUB_NODE: Normally for FIFO or socket type nodes the VFS creates sub node providing the associated functionality. This flag prevents that from happing. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="322" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="322" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1aca3e130d24090e360ed261d7e189df37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t put_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID)</argsstring>
+        <name>put_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <briefdescription>
+<para>Surrenders a reference to the specified vnode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When the last reference to the vnode has been put the VFS will call <ref refid="structfs__vnode__ops_1a13873870794c714e5b470cf6e3e1bf22" kindref="member">fs_vnode_ops::put_vnode()</ref> (eventually), respectively, if the node has been marked removed <ref refid="structfs__vnode__ops_1a104571b9d1b232b87ce0db208b0393e0" kindref="member">fs_vnode_ops::remove_vnode()</ref> (immediately).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="327" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="327" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a852e2bafd586717ac447c116774373e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t remove_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID)</argsstring>
+        <name>remove_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <briefdescription>
+<para>Marks the specified vnode removed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The caller must own a reference to the vnode or at least ensure that a reference to the vnode exists. The function does not surrender a reference, though.</para>
+<para>As soon as the last reference to the vnode has been surrendered, the VFS invokes the node&apos;s <ref refid="structfs__vnode__ops_1a104571b9d1b232b87ce0db208b0393e0" kindref="member">remove_vnode() </ref> hook.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="329" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="329" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1aec07c2d99d38d82396919cbee1ec866c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t unremove_vnode</definition>
+        <argsstring>(fs_volume *volume, ino_t vnodeID)</argsstring>
+        <name>unremove_vnode</name>
+        <param>
+          <type>fs_volume *</type>
+          <declname>volume</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>vnodeID</declname>
+        </param>
+        <briefdescription>
+<para>Clears the &quot;removed&quot; mark of the specified vnode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The caller must own a reference to the vnode or at least ensure that a reference to the vnode exists.</para>
+<para>The function is usually called when the caller, who has invoked <ref refid="fs__interface_8h_1a852e2bafd586717ac447c116774373e1" kindref="member">remove_vnode()</ref> before realizes that it is not possible to remove the node (e.g. due to an error). Afterwards the vnode will continue to exist as if <ref refid="fs__interface_8h_1a852e2bafd586717ac447c116774373e1" kindref="member">remove_vnode()</ref> had never been invoked.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vnodeID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the node. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if everything went fine, another error code otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="330" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="330" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a4300c35159a64e7199f1998a37fbbc03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>fs_volume *</type>
+        <definition>fs_volume * volume_for_vnode</definition>
+        <argsstring>(fs_vnode *vnode)</argsstring>
+        <name>volume_for_vnode</name>
+        <param>
+          <type>fs_vnode *</type>
+          <declname>vnode</declname>
+        </param>
+        <briefdescription>
+<para>Returns the volume object for a given vnode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vnode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The volume object for the given vnode. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="333" column="18" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="333" declcolumn="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Notification Functions</header>
+      <description><para>The following functions are used to implement the node monitor functionality in your file system. Whenever one of the below mentioned events occur, you have to call them.</para>
+<para>The node monitor will then notify all registered listeners for the nodes that changed. </para>
+</description>
+      <memberdef kind="function" id="fs__interface_8h_1ab3b03ad1ba412bb75cdae495f282425c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_attribute_changed</definition>
+        <argsstring>(dev_t device, ino_t directory, ino_t node, const char *attribute, int32 cause)</argsstring>
+        <name>notify_attribute_changed</name>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>attribute</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>cause</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that an attribute of a node has been changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="363" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="363" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a55cd489f984ce5fc12a8ecbc7f6751e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_entry_created</definition>
+        <argsstring>(dev_t device, ino_t directory, const char *name, ino_t node)</argsstring>
+        <name>notify_entry_created</name>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that a file system entry has been created. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="354" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="354" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a470097f27af472b8d39f30c58b8fab0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_entry_moved</definition>
+        <argsstring>(dev_t device, ino_t fromDirectory, const char *fromName, ino_t toDirectory, const char *toName, ino_t node)</argsstring>
+        <name>notify_entry_moved</name>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>fromDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>fromName</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>toDirectory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>toName</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that a file system entry has been renamed and/or moved to another directory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="358" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="358" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a3baac1c403f1ecff4ad83db13a72eefa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_entry_removed</definition>
+        <argsstring>(dev_t device, ino_t directory, const char *name, ino_t node)</argsstring>
+        <name>notify_entry_removed</name>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that a file system entry has been removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="356" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="356" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a4a9de58136e078f3b99430a07b5e096e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_query_entry_created</definition>
+        <argsstring>(port_id port, int32 token, dev_t device, ino_t directory, const char *name, ino_t node)</argsstring>
+        <name>notify_query_entry_created</name>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that an entry has entered the result set of a live query. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="366" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="366" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a65efb61891fd7f412b7a06401f0e8e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_query_entry_removed</definition>
+        <argsstring>(port_id port, int32 token, dev_t device, ino_t directory, const char *name, ino_t node)</argsstring>
+        <name>notify_query_entry_removed</name>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that an entry has left the result set of a live query. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="369" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="369" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1ac46396596f5c06ecd4247a909edee103" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_stat_changed</definition>
+        <argsstring>(dev_t device, ino_t directory, ino_t node, uint32 statFields)</argsstring>
+        <name>notify_stat_changed</name>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>statFields</declname>
+        </param>
+        <briefdescription>
+<para>Notifies listeners that certain <emphasis>statFields</emphasis> of a node were updated. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="361" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="361" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="fs__interface_8h_1a4f115056276b788779b132a0d1c49552" prot="public" static="no">
+        <name>B_CURRENT_FS_API_VERSION</name>
+        <initializer>&quot;/v1&quot;</initializer>
+        <briefdescription>
+<para>Constant that defines the version of the file system API that your filesystem conforms to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The module name that exports the interface to your file system has to end with this constant as in: <programlisting><codeline><highlight class="normal">&quot;file_systems/myfs&quot;<sp/>B_CURRENT_FS_API_VERSION<sp/></highlight></codeline>
+</programlisting> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="42" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fs__interface_8h_1a800173ac56b996daa8342275580ede4e" prot="public" static="no">
+        <name>B_STAT_SIZE_INSECURE</name>
+        <initializer>0x2000</initializer>
+        <briefdescription>
+<para>Flag for the <ref refid="structfs__vnode__ops_1a1658906a3924b698a34baa2bd8757ea5" kindref="member">fs_vnode_ops::write_stat</ref> hook indicating that the FS is allowed not to clear the additional space when enlarging a file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This flag was added because BFS doesn&apos;t support sparse files. It will be phased out, when it does. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="31" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fs__interface_8h_1ad5e0ef67185a13e5b331b6617e4b62ee" prot="public" static="no">
+        <name>B_VNODE_DONT_CREATE_SPECIAL_SUB_NODE</name>
+        <initializer>0x02</initializer>
+        <briefdescription>
+<para>Flag for <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref> and <ref refid="structfs__volume__ops_1adc3a3f3ee1a553ed684dff2e25268485" kindref="member">fs_volume_ops::get_vnode()</ref> indicating that no subnodes shall be created for the node to publish the node shall be published. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="46" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fs__interface_8h_1ac018714b14875381dd91b22043b77956" prot="public" static="no">
+        <name>B_VNODE_PUBLISH_REMOVED</name>
+        <initializer>0x01</initializer>
+        <briefdescription>
+<para>Flag for <ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode()</ref> and <ref refid="structfs__vnode__ops_1afd34769cb5d4508916b97e8cb2c3668a" kindref="member">fs_vnode_ops::create_special_node()</ref> indicating that the node shall be published in removed state (i.e. no entry refers to it). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="45" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="fs__interface_8h_1a9012b3a1bb132315edd234e68b97df2c" prot="public" static="no">
+        <name>FS_WRITE_FSINFO_NAME</name>
+        <initializer>0x0001</initializer>
+        <briefdescription>
+<para>Passed to <ref refid="structfs__volume__ops_1aeaf4ca430b58f32a0e4ba6843e7f3eef" kindref="member">fs_volume_ops::write_fs_info()</ref> to indicate that the name of the volume shall be changed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="35" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="fs__interface_8h_1ae0d8160516a66294b9f4498295c91400" prot="public" static="no">
+        <type>struct <ref refid="structfile__system__module__info" kindref="compound">file_system_module_info</ref></type>
+        <definition>typedef struct file_system_module_info file_system_module_info</definition>
+        <argsstring></argsstring>
+        <name>file_system_module_info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="57" column="38" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1af28e10b4752e8abce115e0b490195880" prot="public" static="no">
+        <type>struct fs_vnode</type>
+        <definition>typedef struct fs_vnode fs_vnode</definition>
+        <argsstring></argsstring>
+        <name>fs_vnode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="55" column="23" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1a30a59ce758974149ea280ed79d914bea" prot="public" static="no">
+        <type>struct <ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref></type>
+        <definition>typedef struct fs_vnode_ops fs_vnode_ops</definition>
+        <argsstring></argsstring>
+        <name>fs_vnode_ops</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="56" column="27" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1a30ae6e341fbb84676c366df716123a7c" prot="public" static="no">
+        <type>struct fs_volume</type>
+        <definition>typedef struct fs_volume fs_volume</definition>
+        <argsstring></argsstring>
+        <name>fs_volume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="53" column="24" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1af0681f3d5110b6966b399db5a930ba4d" prot="public" static="no">
+        <type>struct <ref refid="structfs__volume__ops" kindref="compound">fs_volume_ops</ref></type>
+        <definition>typedef struct fs_volume_ops fs_volume_ops</definition>
+        <argsstring></argsstring>
+        <name>fs_volume_ops</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="54" column="28" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1a02cbf7ceb77a1d72e60718db4a80c352" prot="public" static="no">
+        <type>struct IORequest</type>
+        <definition>typedef struct IORequest io_request</definition>
+        <argsstring></argsstring>
+        <name>io_request</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="25" column="24" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1a044a3d381c45526a2751c0ed25957c5c" prot="public" static="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>typedef status_t(* iterative_io_finished) (void *cookie, io_request *request, status_t status, bool partialTransfer, size_t bytesTransferred)</definition>
+        <argsstring>)(void *cookie, io_request *request, status_t status, bool partialTransfer, size_t bytesTransferred)</argsstring>
+        <name>iterative_io_finished</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="317" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="fs__interface_8h_1a4cd565bcfec61ebb7737b876b6f4a744" prot="public" static="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>typedef status_t(* iterative_io_get_vecs) (void *cookie, io_request *request, off_t offset, size_t size, struct file_io_vec *vecs, size_t *_count)</definition>
+        <argsstring>)(void *cookie, io_request *request, off_t offset, size_t size, struct file_io_vec *vecs, size_t *_count)</argsstring>
+        <name>iterative_io_get_vecs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="314" column="9" bodyfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="fs__interface_8h_1a3873de81b9907f15f769e86cefa3aa86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t check_access_permissions</definition>
+        <argsstring>(int accessMode, mode_t mode, gid_t nodeGroupID, uid_t nodeUserID)</argsstring>
+        <name>check_access_permissions</name>
+        <param>
+          <type>int</type>
+          <declname>accessMode</declname>
+        </param>
+        <param>
+          <type>mode_t</type>
+          <declname>mode</declname>
+        </param>
+        <param>
+          <type>gid_t</type>
+          <declname>nodeGroupID</declname>
+        </param>
+        <param>
+          <type>uid_t</type>
+          <declname>nodeUserID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="334" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="334" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1ad269dcb3a5d3f8c0f8d9d56fb6ec54e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t do_fd_io</definition>
+        <argsstring>(int fd, io_request *request)</argsstring>
+        <name>do_fd_io</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>io_request *</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="349" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="349" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a9457e38f740e5c9e22bec7c873fa882a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t do_iterative_fd_io</definition>
+        <argsstring>(int fd, io_request *request, iterative_io_get_vecs getVecs, iterative_io_finished finished, void *cookie)</argsstring>
+        <name>do_iterative_fd_io</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>io_request *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>iterative_io_get_vecs</type>
+          <declname>getVecs</declname>
+        </param>
+        <param>
+          <type>iterative_io_finished</type>
+          <declname>finished</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>cookie</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="350" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="350" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a6b711a4aae4ddb89bb160efe1e2ab05f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t notify_query_attr_changed</definition>
+        <argsstring>(port_id port, int32 token, dev_t device, ino_t directory, const char *name, ino_t node)</argsstring>
+        <name>notify_query_attr_changed</name>
+        <param>
+          <type>port_id</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>token</declname>
+        </param>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>directory</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>ino_t</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="372" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="372" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a5e9c8c50036d3abd4f4af6eff36aaca5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t read_file_io_vec_pages</definition>
+        <argsstring>(int fd, const struct file_io_vec *fileVecs, size_t fileVecCount, const struct iovec *vecs, size_t vecCount, uint32 *_vecIndex, size_t *_vecOffset, size_t *_bytes)</argsstring>
+        <name>read_file_io_vec_pages</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const struct <ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref> *</type>
+          <declname>fileVecs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>fileVecCount</declname>
+        </param>
+        <param>
+          <type>const struct iovec *</type>
+          <declname>vecs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>vecCount</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_vecIndex</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_vecOffset</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="341" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="341" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a2b91f30d503f1bfd5e20f139366b83aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t read_pages</definition>
+        <argsstring>(int fd, off_t pos, const struct iovec *vecs, size_t count, size_t *_numBytes)</argsstring>
+        <name>read_pages</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const struct iovec *</type>
+          <declname>vecs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_numBytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="337" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="337" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a3655a7c4914162cb45201bc6349d7d4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t write_file_io_vec_pages</definition>
+        <argsstring>(int fd, const struct file_io_vec *fileVecs, size_t fileVecCount, const struct iovec *vecs, size_t vecCount, uint32 *_vecIndex, size_t *_vecOffset, size_t *_bytes)</argsstring>
+        <name>write_file_io_vec_pages</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const struct <ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref> *</type>
+          <declname>fileVecs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>fileVecCount</declname>
+        </param>
+        <param>
+          <type>const struct iovec *</type>
+          <declname>vecs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>vecCount</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>_vecIndex</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_vecOffset</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="345" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="345" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="fs__interface_8h_1a58b34947a24c3c3cbbd1b9b429fe97aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t write_pages</definition>
+        <argsstring>(int fd, off_t pos, const struct iovec *vecs, size_t count, size_t *_numBytes)</argsstring>
+        <name>write_pages</name>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>off_t</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>const struct iovec *</type>
+          <declname>vecs</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_numBytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" line="339" column="17" declfile="/boot/home/src/haiku/headers/os/drivers/fs_interface.h" declline="339" declcolumn="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides an interface for file system modules. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>See the <ref refid="fs_modules" kindref="compound">introduction to file system modules</ref> for a guide on how to get started with writing file system modules. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2004-2016,<sp/>Haiku<sp/>Inc.<sp/>All<sp/>Rights<sp/>Reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_FS_INTERFACE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_FS_INTERFACE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;OS.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Select.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;module.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;disk_device_manager.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/uio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dirent;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">stat;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_info;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">select_sync;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">IORequest<sp/>io_request;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>additional<sp/>flags<sp/>passed<sp/>to<sp/>write_stat()<sp/>(see<sp/>NodeMonitor.h<sp/>for<sp/>the<sp/>others)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NOTE:<sp/>Changing<sp/>the<sp/>constants<sp/>here<sp/>or<sp/>in<sp/>NodeMonitor.h<sp/>will<sp/>break</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>src/kits/storage/LibBeAdapter.cpp:_kern_write_stat().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="fs__interface_8h_1a800173ac56b996daa8342275580ede4e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B_STAT_SIZE_INSECURE<sp/><sp/><sp/><sp/>0x2000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>this<sp/>should<sp/>be<sp/>faded<sp/>out<sp/>once<sp/>BFS<sp/>supports<sp/>sparse<sp/>files</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>passed<sp/>to<sp/>write_fs_info()<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="fs__interface_8h_1a9012b3a1bb132315edd234e68b97df2c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FS_WRITE_FSINFO_NAME<sp/><sp/><sp/><sp/>0x0001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="structfile__io__vec" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref><sp/>{</highlight></codeline>
+<codeline lineno="38" refid="structfile__io__vec_1a1f57e3e79362f528d1e7ff25b5508e59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>off_t<sp/><sp/><sp/><ref refid="structfile__io__vec_1a1f57e3e79362f528d1e7ff25b5508e59" kindref="member">offset</ref>;</highlight></codeline>
+<codeline lineno="39" refid="structfile__io__vec_1a1a887235294902c19c8d1b65445e7ef9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>off_t<sp/><sp/><sp/><ref refid="structfile__io__vec_1a1a887235294902c19c8d1b65445e7ef9" kindref="member">length</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="fs__interface_8h_1a4f115056276b788779b132a0d1c49552" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B_CURRENT_FS_API_VERSION<sp/>&quot;/v1&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>flags<sp/>for<sp/>publish_vnode()<sp/>and<sp/>fs_volume_ops::get_vnode()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="fs__interface_8h_1ac018714b14875381dd91b22043b77956" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B_VNODE_PUBLISH_REMOVED<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x01</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="fs__interface_8h_1ad5e0ef67185a13e5b331b6617e4b62ee" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B_VNODE_DONT_CREATE_SPECIAL_SUB_NODE<sp/><sp/><sp/><sp/>0x02</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_volume<sp/>fs_volume;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfs__volume__ops" kindref="compound">fs_volume_ops</ref><sp/><ref refid="structfs__volume__ops" kindref="compound">fs_volume_ops</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_vnode<sp/>fs_vnode;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref><sp/><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfile__system__module__info" kindref="compound">file_system_module_info</ref><sp/><ref refid="structfile__system__module__info" kindref="compound">file_system_module_info</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_volume<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>dev_t<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>id;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>partition_id<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>partition;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>layer;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private_volume;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structfs__volume__ops" kindref="compound">fs_volume_ops</ref>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ops;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>fs_volume*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sub_volume;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>fs_volume*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>super_volume;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structfile__system__module__info" kindref="compound">file_system_module_info</ref>*<sp/><sp/><sp/><sp/>file_system;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file_system_name;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_vnode<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>private_node;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref>*<sp/><sp/><sp/>ops;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structfs__volume__ops" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfs__volume__ops" kindref="compound">fs_volume_ops</ref><sp/>{</highlight></codeline>
+<codeline lineno="77" refid="structfs__volume__ops_1a587e1b6ce260710cb2f0edaacade938b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a587e1b6ce260710cb2f0edaacade938b" kindref="member">unmount</ref>)(fs_volume*<sp/>volume);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structfs__volume__ops_1a40451a3d0fb15d9c3f00dd5e64947b27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a40451a3d0fb15d9c3f00dd5e64947b27" kindref="member">read_fs_info</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_info*<sp/>info);</highlight></codeline>
+<codeline lineno="80" refid="structfs__volume__ops_1aeaf4ca430b58f32a0e4ba6843e7f3eef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1aeaf4ca430b58f32a0e4ba6843e7f3eef" kindref="member">write_fs_info</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">fs_info*<sp/>info,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>mask);</highlight></codeline>
+<codeline lineno="82" refid="structfs__volume__ops_1a739944633fdff677af986eff0c94cbad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a739944633fdff677af986eff0c94cbad" kindref="member">sync</ref>)(fs_volume*<sp/>volume);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="structfs__volume__ops_1adc3a3f3ee1a553ed684dff2e25268485" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1adc3a3f3ee1a553ed684dff2e25268485" kindref="member">get_vnode</ref>)(fs_volume*<sp/>volume,<sp/>ino_t<sp/>id,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>_type,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_flags,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>reenter);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>index<sp/>directory<sp/>&amp;<sp/>index<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="structfs__volume__ops_1a0f146925d6be9c99fbedf361ed7c3bc2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a0f146925d6be9c99fbedf361ed7c3bc2" kindref="member">open_index_dir</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="89" refid="structfs__volume__ops_1a46ceccd853a04bde4b0aecca13730ba2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a46ceccd853a04bde4b0aecca13730ba2" kindref="member">close_index_dir</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="90" refid="structfs__volume__ops_1a00bb2483857d0d383e026c6c16709f65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a00bb2483857d0d383e026c6c16709f65" kindref="member">free_index_dir_cookie</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="91" refid="structfs__volume__ops_1a190d4d62473ea03d36d03d631befda2d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a190d4d62473ea03d36d03d631befda2d" kindref="member">read_index_dir</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dirent*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_num);</highlight></codeline>
+<codeline lineno="93" refid="structfs__volume__ops_1a752d34cfa077bffe92abdfc2c6fd7fb5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a752d34cfa077bffe92abdfc2c6fd7fb5" kindref="member">rewind_index_dir</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="structfs__volume__ops_1a6adc36796bf83cfa79c678094b646b4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a6adc36796bf83cfa79c678094b646b4a" kindref="member">create_index</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>type,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags);</highlight></codeline>
+<codeline lineno="97" refid="structfs__volume__ops_1a066875d7e19a43d59ebde417c5daf274" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a066875d7e19a43d59ebde417c5daf274" kindref="member">remove_index</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="98" refid="structfs__volume__ops_1a51f58ae3d8122677d56739f4be1882a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a51f58ae3d8122677d56739f4be1882a1" kindref="member">read_index_stat</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">stat*<sp/>stat);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>query<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="structfs__volume__ops_1a9559149189805ace5bdd4706c7cd1702" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a9559149189805ace5bdd4706c7cd1702" kindref="member">open_query</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>query,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>port_id<sp/>port,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>token,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="104" refid="structfs__volume__ops_1abf8a359357dcbd232ef12fb7506923f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1abf8a359357dcbd232ef12fb7506923f2" kindref="member">close_query</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="105" refid="structfs__volume__ops_1a0c6ea9050642d1ced519fb91e2702dbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a0c6ea9050642d1ced519fb91e2702dbd" kindref="member">free_query_cookie</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="106" refid="structfs__volume__ops_1a3517e1d8551f4fb847c0b95e4811ff80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a3517e1d8551f4fb847c0b95e4811ff80" kindref="member">read_query</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dirent*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_num);</highlight></codeline>
+<codeline lineno="108" refid="structfs__volume__ops_1aa505ac6a75ad0a362a9fe95bcfe7a4a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1aa505ac6a75ad0a362a9fe95bcfe7a4a1" kindref="member">rewind_query</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>support<sp/>for<sp/>FS<sp/>layers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="structfs__volume__ops_1a391f0be71f866b53ee3b7b7354546ffa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a391f0be71f866b53ee3b7b7354546ffa" kindref="member">all_layers_mounted</ref>)(fs_volume*<sp/>volume);</highlight></codeline>
+<codeline lineno="112" refid="structfs__volume__ops_1a3b96918639fb885938a9e29c5b2acac8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1a3b96918639fb885938a9e29c5b2acac8" kindref="member">create_sub_vnode</ref>)(fs_volume*<sp/>volume,<sp/>ino_t<sp/>id,<sp/>fs_vnode*<sp/>vnode);</highlight></codeline>
+<codeline lineno="113" refid="structfs__volume__ops_1ab701a555ced5541795df4db69024d823" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__volume__ops_1ab701a555ced5541795df4db69024d823" kindref="member">delete_sub_vnode</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="structfs__vnode__ops" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>vnode<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="structfs__vnode__ops_1a5ebce4ebee27ad71016359467fb81fe7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a5ebce4ebee27ad71016359467fb81fe7" kindref="member">lookup</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>dir,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ino_t*<sp/>_id);</highlight></codeline>
+<codeline lineno="120" refid="structfs__vnode__ops_1ae84954a5adbbc10c39d5d64d4852748f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ae84954a5adbbc10c39d5d64d4852748f" kindref="member">get_vnode_name</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="structfs__vnode__ops_1a13873870794c714e5b470cf6e3e1bf22" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a13873870794c714e5b470cf6e3e1bf22" kindref="member">put_vnode</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>reenter);</highlight></codeline>
+<codeline lineno="124" refid="structfs__vnode__ops_1a104571b9d1b232b87ce0db208b0393e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a104571b9d1b232b87ce0db208b0393e0" kindref="member">remove_vnode</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>reenter);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>VM<sp/>file<sp/>access<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="structfs__vnode__ops_1a5e77e519fd95be45e32050e0acfabc15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>(*<ref refid="structfs__vnode__ops_1a5e77e519fd95be45e32050e0acfabc15" kindref="member">can_page</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="128" refid="structfs__vnode__ops_1ac58b1b4ff8908d84f25259df8bea572a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ac58b1b4ff8908d84f25259df8bea572a" kindref="member">read_pages</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>iovec*<sp/>vecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_numBytes);</highlight></codeline>
+<codeline lineno="130" refid="structfs__vnode__ops_1ac3f066c19be99f884721a279523e9b19" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ac3f066c19be99f884721a279523e9b19" kindref="member">write_pages</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,<sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>iovec*<sp/>vecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_numBytes);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>asynchronous<sp/>I/O<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="structfs__vnode__ops_1a506f223092153b00da5f67216760496c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a506f223092153b00da5f67216760496c" kindref="member">io</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io_request*<sp/>request);</highlight></codeline>
+<codeline lineno="137" refid="structfs__vnode__ops_1adc95f2deb18ce46d91b0d372a7d98179" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1adc95f2deb18ce46d91b0d372a7d98179" kindref="member">cancel_io</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>io_request*<sp/>request);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>cache<sp/>file<sp/>access<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="structfs__vnode__ops_1ad70a0d678d291a0c800fa76eb9c7de3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ad70a0d678d291a0c800fa76eb9c7de3f" kindref="member">get_file_map</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/>off_t<sp/>offset,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref>*<sp/>vecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_count);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>common<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="structfs__vnode__ops_1aff6789e84faad7959cd6511a78d6cd1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1aff6789e84faad7959cd6511a78d6cd1d" kindref="member">ioctl</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>op,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>length);</highlight></codeline>
+<codeline lineno="147" refid="structfs__vnode__ops_1a4831dd9e1d3e99797b41d6ed147b70ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a4831dd9e1d3e99797b41d6ed147b70ad" kindref="member">set_flags</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags);</highlight></codeline>
+<codeline lineno="149" refid="structfs__vnode__ops_1a3cdcec6960aa08e7abfdd02f1c8e22d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a3cdcec6960aa08e7abfdd02f1c8e22d3" kindref="member">select</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>event,<sp/>selectsync*<sp/>sync);</highlight></codeline>
+<codeline lineno="151" refid="structfs__vnode__ops_1af641c9244f8125d5669834a0fb7cb3bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1af641c9244f8125d5669834a0fb7cb3bd" kindref="member">deselect</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref><sp/>event,<sp/>selectsync*<sp/>sync);</highlight></codeline>
+<codeline lineno="153" refid="structfs__vnode__ops_1a426627e06dd3c6bfbfd9565ae622fb3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a426627e06dd3c6bfbfd9565ae622fb3b" kindref="member">fsync</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="structfs__vnode__ops_1acbf78b533817de642e1ab9c3d69797a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1acbf78b533817de642e1ab9c3d69797a2" kindref="member">read_symlink</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/><ref refid="structfs__vnode__ops_1a3bb3ba7ca9d0cf2f83bdc5c4097f703a" kindref="member">link</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>buffer,</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_bufferSize);</highlight></codeline>
+<codeline lineno="157" refid="structfs__vnode__ops_1aeb6d3f5493748470a7894c6e6486d324" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1aeb6d3f5493748470a7894c6e6486d324" kindref="member">create_symlink</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>dir,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>path,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="structfs__vnode__ops_1a3bb3ba7ca9d0cf2f83bdc5c4097f703a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a3bb3ba7ca9d0cf2f83bdc5c4097f703a" kindref="member">link</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>dir,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fs_vnode*<sp/>vnode);</highlight></codeline>
+<codeline lineno="162" refid="structfs__vnode__ops_1a61236086b99dff3f53f2842349d67917" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a61236086b99dff3f53f2842349d67917" kindref="member">unlink</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>dir,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="163" refid="structfs__vnode__ops_1a9f492cb3f6b8576da5b9b61720382071" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a9f492cb3f6b8576da5b9b61720382071" kindref="member">rename</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>fromDir,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fromName,<sp/>fs_vnode*<sp/>toDir,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>toName);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="structfs__vnode__ops_1a86ed7b682fa1006e353167845f4e7d60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a86ed7b682fa1006e353167845f4e7d60" kindref="member">access</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode);</highlight></codeline>
+<codeline lineno="167" refid="structfs__vnode__ops_1a645a7315d3274a84958586c543efb6b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a645a7315d3274a84958586c543efb6b6" kindref="member">read_stat</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">stat*<sp/>stat);</highlight></codeline>
+<codeline lineno="169" refid="structfs__vnode__ops_1a1658906a3924b698a34baa2bd8757ea5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a1658906a3924b698a34baa2bd8757ea5" kindref="member">write_stat</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">stat*<sp/>stat,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>statMask);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*preallocate)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>pos,<sp/>off_t<sp/>length);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>file<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="structfs__vnode__ops_1a7b09be06f0c168397d62b4348d90c245" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a7b09be06f0c168397d62b4348d90c245" kindref="member">create</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>dir,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>openMode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perms,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie,</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ino_t*<sp/>_newVnodeID);</highlight></codeline>
+<codeline lineno="178" refid="structfs__vnode__ops_1a153038dfcab23bfedaf0a3657a1bb01a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a153038dfcab23bfedaf0a3657a1bb01a" kindref="member">open</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>openMode,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="180" refid="structfs__vnode__ops_1a0be1b1f60bf8b8d39e3668051e62a138" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a0be1b1f60bf8b8d39e3668051e62a138" kindref="member">close</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="181" refid="structfs__vnode__ops_1a86efe64fe11783e782da8054c50cebce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a86efe64fe11783e782da8054c50cebce" kindref="member">free_cookie</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="183" refid="structfs__vnode__ops_1a3d5f1013644389c3efee43b3e175aa34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a3d5f1013644389c3efee43b3e175aa34" kindref="member">read</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>length);</highlight></codeline>
+<codeline lineno="185" refid="structfs__vnode__ops_1a6b15bdec37363749b7dcf5e05b04d6ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a6b15bdec37363749b7dcf5e05b04d6ba" kindref="member">write</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>length);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>directory<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189" refid="structfs__vnode__ops_1aa3a5019b2694449020131280f46883cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1aa3a5019b2694449020131280f46883cd" kindref="member">create_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>parent,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>perms);</highlight></codeline>
+<codeline lineno="191" refid="structfs__vnode__ops_1ae91372438edbe5575432cb7fd5308d35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ae91372438edbe5575432cb7fd5308d35" kindref="member">remove_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>parent,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="193" refid="structfs__vnode__ops_1a973d90db38ea724859e8a1b708ed70c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a973d90db38ea724859e8a1b708ed70c8" kindref="member">open_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="195" refid="structfs__vnode__ops_1a9aad7de463ad795183ea5daaad46fe07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a9aad7de463ad795183ea5daaad46fe07" kindref="member">close_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="196" refid="structfs__vnode__ops_1addbc2c6a0a5ac5a0768afa397ee7bcb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1addbc2c6a0a5ac5a0768afa397ee7bcb4" kindref="member">free_dir_cookie</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="198" refid="structfs__vnode__ops_1a482878bf7588145c42d16c012a3de2e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a482878bf7588145c42d16c012a3de2e8" kindref="member">read_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dirent*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_num);</highlight></codeline>
+<codeline lineno="200" refid="structfs__vnode__ops_1a5648333f7cfa51ab717f7cbdc06a6e01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a5648333f7cfa51ab717f7cbdc06a6e01" kindref="member">rewind_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>attribute<sp/>directory<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="structfs__vnode__ops_1a61b0d04a6e6ad5f38459df3d6d31ca6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a61b0d04a6e6ad5f38459df3d6d31ca6e" kindref="member">open_attr_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="206" refid="structfs__vnode__ops_1a0743e780cfa66797a53ad33af1c01a05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a0743e780cfa66797a53ad33af1c01a05" kindref="member">close_attr_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="208" refid="structfs__vnode__ops_1a9182af3a0526ebfde859aae5faf8bf29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a9182af3a0526ebfde859aae5faf8bf29" kindref="member">free_attr_dir_cookie</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="210" refid="structfs__vnode__ops_1af1822e3343810ad20d8f397765f43818" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1af1822e3343810ad20d8f397765f43818" kindref="member">read_attr_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">dirent*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bufferSize,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_num);</highlight></codeline>
+<codeline lineno="213" refid="structfs__vnode__ops_1a5eaf98ee3bdc36b44fe0015a80608096" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a5eaf98ee3bdc36b44fe0015a80608096" kindref="member">rewind_attr_dir</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>attribute<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217" refid="structfs__vnode__ops_1a7d96acf480522f8aa9bdc47c4b12df79" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a7d96acf480522f8aa9bdc47c4b12df79" kindref="member">create_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>openMode,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="220" refid="structfs__vnode__ops_1aab042ad6188813ec7135c9ea178817fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1aab042ad6188813ec7135c9ea178817fb" kindref="member">open_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>openMode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="222" refid="structfs__vnode__ops_1a7e2eb5ea74abdb56e2428758289cace4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a7e2eb5ea74abdb56e2428758289cace4" kindref="member">close_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="224" refid="structfs__vnode__ops_1a71f2a439c802a2b5939c5c6a2dcfcbcd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a71f2a439c802a2b5939c5c6a2dcfcbcd" kindref="member">free_attr_cookie</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="226" refid="structfs__vnode__ops_1ad24a42fb776303c720ddb21ecb4ef7bd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ad24a42fb776303c720ddb21ecb4ef7bd" kindref="member">read_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>length);</highlight></codeline>
+<codeline lineno="228" refid="structfs__vnode__ops_1a138971075e32e275c66ba1a9369c8c44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a138971075e32e275c66ba1a9369c8c44" kindref="member">write_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>length);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231" refid="structfs__vnode__ops_1a1453fd0c00381a4172835bbb763623ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a1453fd0c00381a4172835bbb763623ca" kindref="member">read_attr_stat</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">stat*<sp/>stat);</highlight></codeline>
+<codeline lineno="233" refid="structfs__vnode__ops_1a9a5df58b82d4f51212cccedaddd3bace" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a9a5df58b82d4f51212cccedaddd3bace" kindref="member">write_attr_stat</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">stat*<sp/>stat,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>statMask);</highlight></codeline>
+<codeline lineno="235" refid="structfs__vnode__ops_1ae6c357ddeea07883f07e2a1e5652d7cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1ae6c357ddeea07883f07e2a1e5652d7cd" kindref="member">rename_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>fromVnode,</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fromName,<sp/>fs_vnode*<sp/>toVnode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>toName);</highlight></codeline>
+<codeline lineno="237" refid="structfs__vnode__ops_1adf2a75bf57bebd367e5439af92f97871" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1adf2a75bf57bebd367e5439af92f97871" kindref="member">remove_attr</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>support<sp/>for<sp/>node<sp/>and<sp/>FS<sp/>layers<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="structfs__vnode__ops_1afd34769cb5d4508916b97e8cb2c3668a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1afd34769cb5d4508916b97e8cb2c3668a" kindref="member">create_special_node</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>dir,</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/>fs_vnode*<sp/>subVnode,<sp/>mode_t<sp/>mode,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fs_vnode*<sp/>_superVnode,<sp/>ino_t*<sp/>_nodeID);</highlight></codeline>
+<codeline lineno="244" refid="structfs__vnode__ops_1a0555cf7b7f053faca3793cff4d1f08f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfs__vnode__ops_1a0555cf7b7f053faca3793cff4d1f08f8" kindref="member">get_super_vnode</ref>)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fs_volume*<sp/>superVolume,<sp/>fs_vnode*<sp/>superVnode);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>lock<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*test_lock)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">flock*<sp/>lock);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*acquire_lock)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">flock*<sp/>lock,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>wait);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*release_lock)(fs_volume*<sp/>volume,<sp/>fs_vnode*<sp/>vnode,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">flock*<sp/>lock);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256" refid="structfile__system__module__info" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfile__system__module__info" kindref="compound">file_system_module_info</ref><sp/>{</highlight></codeline>
+<codeline lineno="257" refid="structfile__system__module__info_1ac9cc7056d3d12a19acec8edc99514c63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">module_info<sp/><sp/><ref refid="structfile__system__module__info_1ac9cc7056d3d12a19acec8edc99514c63" kindref="member">info</ref>;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>short_name;</highlight></codeline>
+<codeline lineno="259" refid="structfile__system__module__info_1a71eb451ac050067188ea7b95a1a2229f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structfile__system__module__info_1a71eb451ac050067188ea7b95a1a2229f" kindref="member">pretty_name</ref>;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags;<sp/><sp/></highlight><highlight class="comment">//<sp/>DDM<sp/>flags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>scanning<sp/>(the<sp/>device<sp/>is<sp/>write<sp/>locked)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="structfile__system__module__info_1a0105524aa307d9819a91f70df8ee81a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>float<sp/>(*<ref refid="structfile__system__module__info_1a0105524aa307d9819a91f70df8ee81a5" kindref="member">identify_partition</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_data*<sp/>partition,</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_cookie);</highlight></codeline>
+<codeline lineno="265" refid="structfile__system__module__info_1a218dc77af1d56c1249bc92687c07e7b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1a218dc77af1d56c1249bc92687c07e7b4" kindref="member">scan_partition</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_data*<sp/>partition,</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="267" refid="structfile__system__module__info_1aec91e0dcedaa5389c521b7b06601bc09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="structfile__system__module__info_1aec91e0dcedaa5389c521b7b06601bc09" kindref="member">free_identify_partition_cookie</ref>)(partition_data*<sp/>partition,</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="269" refid="structfile__system__module__info_1a8e2bdc5a825dad6a9fd555bab3371100" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="structfile__system__module__info_1a8e2bdc5a825dad6a9fd555bab3371100" kindref="member">free_partition_content_cookie</ref>)(partition_data*<sp/>partition);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>general<sp/>operations<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272" refid="structfile__system__module__info_1ad59987c29f64dde1ef161e5870fd0d9e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1ad59987c29f64dde1ef161e5870fd0d9e" kindref="member">mount</ref>)(fs_volume*<sp/>volume,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>device,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags,</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>args,<sp/>ino_t*<sp/>_rootVnodeID);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>capability<sp/>querying<sp/>(the<sp/>device<sp/>is<sp/>read<sp/>locked)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>(*get_supported_operations)(partition_data*<sp/>partition,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>mask);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278" refid="structfile__system__module__info_1afdf3c9d08408f016aa850498d78fe788" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>(*<ref refid="structfile__system__module__info_1afdf3c9d08408f016aa850498d78fe788" kindref="member">validate_resize</ref>)(partition_data*<sp/>partition,<sp/>off_t*<sp/>size);</highlight></codeline>
+<codeline lineno="279" refid="structfile__system__module__info_1a24c7cd8f1ed99371b3feb99548f25bb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>(*<ref refid="structfile__system__module__info_1a24c7cd8f1ed99371b3feb99548f25bb3" kindref="member">validate_move</ref>)(partition_data*<sp/>partition,<sp/>off_t*<sp/>start);</highlight></codeline>
+<codeline lineno="280" refid="structfile__system__module__info_1ae17c36765d48b357dfe74a80891e6835" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>(*<ref refid="structfile__system__module__info_1ae17c36765d48b357dfe74a80891e6835" kindref="member">validate_set_content_name</ref>)(partition_data*<sp/>partition,</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name);</highlight></codeline>
+<codeline lineno="282" refid="structfile__system__module__info_1a85fd4e8f6033fddd7811ab99e1ed8330" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>(*<ref refid="structfile__system__module__info_1a85fd4e8f6033fddd7811ab99e1ed8330" kindref="member">validate_set_content_parameters</ref>)(partition_data*<sp/>partition,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>parameters);</highlight></codeline>
+<codeline lineno="284" refid="structfile__system__module__info_1a22d065a25ca613546d3fad7719ee9fe3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>bool<sp/>(*<ref refid="structfile__system__module__info_1a22d065a25ca613546d3fad7719ee9fe3" kindref="member">validate_initialize</ref>)(partition_data*<sp/>partition,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>parameters);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>shadow<sp/>partition<sp/>modification<sp/>(device<sp/>is<sp/>write<sp/>locked)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288" refid="structfile__system__module__info_1aeefaa1d527ac88b300db85ba050358f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1aeefaa1d527ac88b300db85ba050358f4" kindref="member">shadow_changed</ref>)(partition_data*<sp/>partition,</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>partition_data*<sp/>child,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>operation);</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>writing<sp/>(the<sp/>device<sp/>is<sp/>NOT<sp/>locked)<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292" refid="structfile__system__module__info_1a8cb1355cf464ebe60d53d97050514969" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1a8cb1355cf464ebe60d53d97050514969" kindref="member">defragment</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="294" refid="structfile__system__module__info_1a47eb48661371d59c792b9fb42aab65bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1a47eb48661371d59c792b9fb42aab65bf" kindref="member">repair</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>checkOnly,</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="296" refid="structfile__system__module__info_1ab8cd5fd9fdb880e4643d8862758ca6af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1ab8cd5fd9fdb880e4643d8862758ca6af" kindref="member">resize</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,<sp/>off_t<sp/>size,</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="298" refid="structfile__system__module__info_1a6e6b70e41145efaa690bebb0c7186043" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1a6e6b70e41145efaa690bebb0c7186043" kindref="member">move</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,<sp/>off_t<sp/>offset,</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="300" refid="structfile__system__module__info_1a7d4d3c9d6ed3dde8755efa425d52a0d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1a7d4d3c9d6ed3dde8755efa425d52a0d7" kindref="member">set_content_name</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="302" refid="structfile__system__module__info_1a3f59dc6adcc9a808c9a6917d5ea20906" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1a3f59dc6adcc9a808c9a6917d5ea20906" kindref="member">set_content_parameters</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>parameters,<sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="304" refid="structfile__system__module__info_1ace46cbad3455efd3d3d93ca6e719a24f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*<ref refid="structfile__system__module__info_1ace46cbad3455efd3d3d93ca6e719a24f" kindref="member">initialize</ref>)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>parameters,<sp/>off_t<sp/>partitionSize,<sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*uninitialize)(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>partition_id<sp/>partition,</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>partitionSize,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>blockSize,<sp/>disk_job_id<sp/>job);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>file<sp/>system<sp/>add-ons<sp/>only<sp/>prototypes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="comment">//<sp/>callbacks<sp/>for<sp/>do_iterative_fd_io()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*iterative_io_get_vecs)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,<sp/>io_request*<sp/>request,</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>off_t<sp/>offset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size,<sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref>*<sp/>vecs,</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_count);</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>(*iterative_io_finished)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie,<sp/>io_request*<sp/>request,</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>status,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>partialTransfer,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>bytesTransferred);</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320" refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a3d4321ef6888f1fb8606882b5719a562" kindref="member">new_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>privateNode,</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref>*<sp/>ops);</highlight></codeline>
+<codeline lineno="322" refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a72ca7437ee63b0b91ade75d2d0a24413" kindref="member">publish_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID,</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>privateNode,<sp/><ref refid="structfs__vnode__ops" kindref="compound">fs_vnode_ops</ref>*<sp/>ops,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type,</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags);</highlight></codeline>
+<codeline lineno="325" refid="fs__interface_8h_1a2cfcf01bba17eee0ad3f84115051b281" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a2cfcf01bba17eee0ad3f84115051b281" kindref="member">get_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID,</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>_privateNode);</highlight></codeline>
+<codeline lineno="327" refid="fs__interface_8h_1aca3e130d24090e360ed261d7e189df37" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1aca3e130d24090e360ed261d7e189df37" kindref="member">put_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID);</highlight></codeline>
+<codeline lineno="328" refid="fs__interface_8h_1ac7652dbe421f4e6a26003bd826035457" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1ac7652dbe421f4e6a26003bd826035457" kindref="member">acquire_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID);</highlight></codeline>
+<codeline lineno="329" refid="fs__interface_8h_1a852e2bafd586717ac447c116774373e1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a852e2bafd586717ac447c116774373e1" kindref="member">remove_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID);</highlight></codeline>
+<codeline lineno="330" refid="fs__interface_8h_1aec07c2d99d38d82396919cbee1ec866c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1aec07c2d99d38d82396919cbee1ec866c" kindref="member">unremove_vnode</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID);</highlight></codeline>
+<codeline lineno="331" refid="fs__interface_8h_1a71887f0959b9189c84e341a68abc6691" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a71887f0959b9189c84e341a68abc6691" kindref="member">get_vnode_removed</ref>(fs_volume*<sp/>volume,<sp/>ino_t<sp/>vnodeID,</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/>_removed);</highlight></codeline>
+<codeline lineno="333" refid="fs__interface_8h_1a4300c35159a64e7199f1998a37fbbc03" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/>fs_volume*<sp/><ref refid="fs__interface_8h_1a4300c35159a64e7199f1998a37fbbc03" kindref="member">volume_for_vnode</ref>(fs_vnode*<sp/>vnode);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>check_access_permissions(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>accessMode,<sp/>mode_t<sp/>mode,</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gid_t<sp/>nodeGroupID,<sp/>uid_t<sp/>nodeUserID);</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>read_pages(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>iovec*<sp/>vecs,</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_numBytes);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>write_pages(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>off_t<sp/>pos,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>iovec*<sp/>vecs,</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>count,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_numBytes);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>read_file_io_vec_pages(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref>*<sp/>fileVecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>fileVecCount,</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>iovec*<sp/>vecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>vecCount,</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_vecIndex,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_vecOffset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_bytes);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>write_file_io_vec_pages(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structfile__io__vec" kindref="compound">file_io_vec</ref>*<sp/>fileVecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>fileVecCount,</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>iovec*<sp/>vecs,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>vecCount,</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref>*<sp/>_vecIndex,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_vecOffset,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">*<sp/>_bytes);</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>do_fd_io(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>io_request*<sp/>request);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>do_iterative_fd_io(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd,<sp/>io_request*<sp/>request,</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iterative_io_get_vecs<sp/>getVecs,</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>iterative_io_finished<sp/>finished,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>cookie);</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"></highlight></codeline>
+<codeline lineno="354" refid="fs__interface_8h_1a55cd489f984ce5fc12a8ecbc7f6751e8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a55cd489f984ce5fc12a8ecbc7f6751e8" kindref="member">notify_entry_created</ref>(dev_t<sp/>device,<sp/>ino_t<sp/>directory,</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/>ino_t<sp/>node);</highlight></codeline>
+<codeline lineno="356" refid="fs__interface_8h_1a3baac1c403f1ecff4ad83db13a72eefa" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a3baac1c403f1ecff4ad83db13a72eefa" kindref="member">notify_entry_removed</ref>(dev_t<sp/>device,<sp/>ino_t<sp/>directory,</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/>ino_t<sp/>node);</highlight></codeline>
+<codeline lineno="358" refid="fs__interface_8h_1a470097f27af472b8d39f30c58b8fab0f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a470097f27af472b8d39f30c58b8fab0f" kindref="member">notify_entry_moved</ref>(dev_t<sp/>device,<sp/>ino_t<sp/>fromDirectory,</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>fromName,<sp/>ino_t<sp/>toDirectory,</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>toName,<sp/>ino_t<sp/>node);</highlight></codeline>
+<codeline lineno="361" refid="fs__interface_8h_1ac46396596f5c06ecd4247a909edee103" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1ac46396596f5c06ecd4247a909edee103" kindref="member">notify_stat_changed</ref>(dev_t<sp/>device,<sp/>ino_t<sp/>directory,<sp/>ino_t<sp/>node,</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>statFields);</highlight></codeline>
+<codeline lineno="363" refid="fs__interface_8h_1ab3b03ad1ba412bb75cdae495f282425c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1ab3b03ad1ba412bb75cdae495f282425c" kindref="member">notify_attribute_changed</ref>(dev_t<sp/>device,<sp/>ino_t<sp/>directory,</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ino_t<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>attribute,<sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>cause);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366" refid="fs__interface_8h_1a4a9de58136e078f3b99430a07b5e096e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a4a9de58136e078f3b99430a07b5e096e" kindref="member">notify_query_entry_created</ref>(port_id<sp/>port,<sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>token,</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev_t<sp/>device,<sp/>ino_t<sp/>directory,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="368"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ino_t<sp/>node);</highlight></codeline>
+<codeline lineno="369" refid="fs__interface_8h_1a65efb61891fd7f412b7a06401f0e8e1a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="fs__interface_8h_1a65efb61891fd7f412b7a06401f0e8e1a" kindref="member">notify_query_entry_removed</ref>(port_id<sp/>port,<sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>token,</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev_t<sp/>device,<sp/>ino_t<sp/>directory,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ino_t<sp/>node);</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/>notify_query_attr_changed(port_id<sp/>port,<sp/><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref><sp/>token,</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dev_t<sp/>device,<sp/>ino_t<sp/>directory,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,</highlight></codeline>
+<codeline lineno="374"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ino_t<sp/>node);</highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">/*<sp/>_FS_INTERFACE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/drivers/fs_interface.h"/>
+  </compounddef>
+</doxygen>

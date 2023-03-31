@@ -1,0 +1,1007 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBVolume" kind="class" language="C++" prot="public">
+    <compoundname>BVolume</compoundname>
+      <sectiondef kind="user-defined">
+      <header>Constructor Helpers</header>
+      <memberdef kind="function" id="classBVolume_1a71b630674769adcf5165bf1f255cb36e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BVolume::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Returns the initialization status. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the object was properly initialized, or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a8e7fb58eeb125c8d3df8b4e147d4e799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::SetTo</definition>
+        <argsstring>(dev_t device)</argsstring>
+        <name>SetTo</name>
+        <qualifiedname>BVolume::SetTo</qualifiedname>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Initializes the object to refer to the volume specified by the supplied device ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The device ID of the volume to set.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> if the object was properly initialized, or an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="29" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a04a707681b76b9ca5d065cb139df1624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BVolume::Unset</definition>
+        <argsstring>()</argsstring>
+        <name>Unset</name>
+        <qualifiedname>BVolume::Unset</qualifiedname>
+        <briefdescription>
+<para>Brings the <ref refid="classBVolume" kindref="compound">BVolume</ref> object to an uninitialized state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBVolume_1a71b630674769adcf5165bf1f255cb36e" kindref="member">InitCheck()</ref> will return <computeroutput>B_NO_INIT</computeroutput>.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="30" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Volume Information</header>
+      <memberdef kind="function" id="classBVolume_1ad32bd56756869253d453462db83c9736" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>dev_t</type>
+        <definition>dev_t BVolume::Device</definition>
+        <argsstring>() const</argsstring>
+        <name>Device</name>
+        <qualifiedname>BVolume::Device</qualifiedname>
+        <briefdescription>
+<para>Returns the device ID of the volume the object refers to. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Returns the device ID of the volume the object refers to or -1 if the object was not properly initialized.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="32" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1ae6d852cc0abc041c61faa6ae1eec821d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::GetRootDirectory</definition>
+        <argsstring>(BDirectory *directory) const</argsstring>
+        <name>GetRootDirectory</name>
+        <qualifiedname>BVolume::GetRootDirectory</qualifiedname>
+        <param>
+          <type><ref refid="classBDirectory" kindref="compound">BDirectory</ref> *</type>
+          <declname>directory</declname>
+        </param>
+        <briefdescription>
+<para>Writes the root directory of the volume referred to by this object into <emphasis>directory</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>directory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBDirectory" kindref="compound">BDirectory</ref> to be initialized to the volume&apos;s root directory.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>directory</emphasis> was <computeroutput>NULL</computeroutput> or the object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a2297feebf44070937968baf5cee423b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>off_t</type>
+        <definition>off_t BVolume::Capacity</definition>
+        <argsstring>() const</argsstring>
+        <name>Capacity</name>
+        <qualifiedname>BVolume::Capacity</qualifiedname>
+        <briefdescription>
+<para>Returns the total storage capacity of the volume. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The volume&apos;s total storage capacity (in bytes), or <computeroutput>B_BAD_VALUE</computeroutput> if the object is not properly initialized.</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBVolume_1adc1455af7c2965cff25ce27aee2a6a1c" kindref="member">FreeBytes()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="36" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1adc1455af7c2965cff25ce27aee2a6a1c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>off_t</type>
+        <definition>off_t BVolume::FreeBytes</definition>
+        <argsstring>() const</argsstring>
+        <name>FreeBytes</name>
+        <qualifiedname>BVolume::FreeBytes</qualifiedname>
+        <briefdescription>
+<para>Returns the amount of unused space on the volume (in bytes). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The amount of unused space on the volume (in bytes), or <computeroutput>B_BAD_VALUE</computeroutput> if the object is not properly initialized.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="37" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1aaba08f5d228e1eae2394c98b159d3892" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>off_t</type>
+        <definition>off_t BVolume::BlockSize</definition>
+        <argsstring>() const</argsstring>
+        <name>BlockSize</name>
+        <qualifiedname>BVolume::BlockSize</qualifiedname>
+        <briefdescription>
+<para>Returns the size of one block (in bytes). The meaning of this depends on the underlying file system. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The block size in bytes, <computeroutput>B_NO_INIT</computeroutput> if the volume is not initialized or other errors forwarded from the file system.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="38" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Volume Name</header>
+      <memberdef kind="function" id="classBVolume_1aeb6276fe72466393d6d70e913c248a98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::GetName</definition>
+        <argsstring>(char *name) const</argsstring>
+        <name>GetName</name>
+        <qualifiedname>BVolume::GetName</qualifiedname>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Writes the volume&apos;s name into the provided buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated character buffer of size <computeroutput>B_FILE_NAME_LENGTH</computeroutput> or larger into which the name of the volume is written.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>name</emphasis> was <computeroutput>NULL</computeroutput> or the object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBVolume_1ae8859832bad50bdbca612a6fc8d4d28d" kindref="member">SetName()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1ae8859832bad50bdbca612a6fc8d4d28d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::SetName</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>SetName</name>
+        <qualifiedname>BVolume::SetName</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Sets the volume&apos;s name to <emphasis>name</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The R5 implementation checks if an entry with the volume&apos;s old name exists in the root directory and renames that entry, if it is indeed the mount point of the volume (or a link referring to it). In all other cases, nothing is done (even if the mount point is named like the volume, but lives in a different directory). We follow suit for the time being.</para>
+</simplesect>
+<simplesect kind="warning"><para>If the volume name is set to &quot;boot&quot; this method tries to rename it to /boot, but is prevented by the kernel.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new name of the volume, must not be longer than <computeroutput>B_FILE_NAME_LENGTH</computeroutput> (including the terminating <computeroutput>NULL</computeroutput>).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>name</emphasis> was <computeroutput>NULL</computeroutput> or the object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="41" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Volume Icon</header>
+      <memberdef kind="function" id="classBVolume_1a019efbe0a8b1c7e14114c0548bb53f26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::GetIcon</definition>
+        <argsstring>(BBitmap *icon, icon_size which) const</argsstring>
+        <name>GetIcon</name>
+        <qualifiedname>BVolume::GetIcon</qualifiedname>
+        <param>
+          <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>icon</declname>
+        </param>
+        <param>
+          <type><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15" kindref="member">icon_size</ref></type>
+          <declname>which</declname>
+        </param>
+        <briefdescription>
+<para>Writes the volume&apos;s icon into the supplied <ref refid="classBBitmap" kindref="compound">BBitmap</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>icon</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pre-allocated <ref refid="classBBitmap" kindref="compound">BBitmap</ref> of the correct dimension to store the requested icon (16x16 for the mini and 32x32 for the large icon).</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>which</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The icon size to be retrieved: <computeroutput>B_MINI_ICON</computeroutput> for the mini or <computeroutput>B_LARGE_ICON</computeroutput> for the large icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1ab75f70af9be3707acb2e6679b99972ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::GetIcon</definition>
+        <argsstring>(uint8 **_data, size_t *_size, type_code *_type) const</argsstring>
+        <name>GetIcon</name>
+        <qualifiedname>BVolume::GetIcon</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> **</type>
+          <declname>_data</declname>
+        </param>
+        <param>
+          <type>size_t *</type>
+          <declname>_size</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a3b69a2260ff2e376327f0f05542b9536" kindref="member">type_code</ref> *</type>
+          <declname>_type</declname>
+        </param>
+        <briefdescription>
+<para>Writes the volume&apos;s icon data into the supplied <computeroutput>uint8</computeroutput> array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to a pointer to a pre-allocated <computeroutput>uint8</computeroutput> array of the correct size to store the requested icon. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the retrieved icon (in bytes). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The type code of the retrieve icon.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Everything went fine. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_INIT</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Object was not properly initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>fs_stat_dev() for more return codes. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="Mime_8h_1a976bf1f9aa837c56707a817404d403d1" kindref="member">get_device_icon()</ref> for more return codes.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="44" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Volume Capabilities</header>
+      <memberdef kind="function" id="classBVolume_1a683a6da4ffddc999046b300a67bf50d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::IsRemovable</definition>
+        <argsstring>() const</argsstring>
+        <name>IsRemovable</name>
+        <qualifiedname>BVolume::IsRemovable</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume is removable. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the volume was properly initialized and is removable, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="47" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1aefb65574a89b9334138a1f91e5b9c553" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::IsReadOnly</definition>
+        <argsstring>() const</argsstring>
+        <name>IsReadOnly</name>
+        <qualifiedname>BVolume::IsReadOnly</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume is read-only. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the volume was properly initialized and is read-only, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="48" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a17fc9a8ce1faff8d5c66204c7f6a5136" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::IsPersistent</definition>
+        <argsstring>() const</argsstring>
+        <name>IsPersistent</name>
+        <qualifiedname>BVolume::IsPersistent</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume is persistent. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the volume was properly initialized and is persistent, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="49" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1ae4bb784b1ec4e223c48b325ec3da1629" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::IsShared</definition>
+        <argsstring>() const</argsstring>
+        <name>IsShared</name>
+        <qualifiedname>BVolume::IsShared</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume is shared. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>return <computeroutput>true</computeroutput>, if the volume was properly initialized and is shared, <computeroutput>false</computeroutput> otherwise.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="50" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a922bf20e0534d25f7c9a60018466165e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::KnowsMime</definition>
+        <argsstring>() const</argsstring>
+        <name>KnowsMime</name>
+        <qualifiedname>BVolume::KnowsMime</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume supports MIME-types. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the volume was properly initialized and supports MIME-types, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="51" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1ad3915085dd2c050fba991df8b1b03efb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::KnowsAttr</definition>
+        <argsstring>() const</argsstring>
+        <name>KnowsAttr</name>
+        <qualifiedname>BVolume::KnowsAttr</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume supports attributes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the volume was properly initialized and supports attributes, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a942229b70906574c9d1c6e889eebc9f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::KnowsQuery</definition>
+        <argsstring>() const</argsstring>
+        <name>KnowsQuery</name>
+        <qualifiedname>BVolume::KnowsQuery</qualifiedname>
+        <briefdescription>
+<para>Returns whether or not the volume supports queries. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the volume was properly initialized and supports queries, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="53" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Operators</header>
+      <memberdef kind="function" id="classBVolume_1a79e29ad11342ace8b169068d2cedf145" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::operator==</definition>
+        <argsstring>(const BVolume &amp;volume) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>BVolume::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="classBVolume" kindref="compound">BVolume</ref> &amp;</type>
+          <declname>volume</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether or not the supplied <ref refid="classBVolume" kindref="compound">BVolume</ref> object is equal to this object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Two volume objects are said to be equal if they are both uninitialized, or they are both initialized and refer to the same volume.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume to be tested for equality.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if the objects are equal, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="55" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a137a479c41a98ba1e6cfaade22651edc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BVolume::operator!=</definition>
+        <argsstring>(const BVolume &amp;volume) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>BVolume::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBVolume" kindref="compound">BVolume</ref> &amp;</type>
+          <declname>volume</declname>
+        </param>
+        <briefdescription>
+<para>Returns whether or not the supplied <ref refid="classBVolume" kindref="compound">BVolume</ref> object is NOT equal to this object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Two volume objects are said to be unequal if one is initialized and the other is not or if they are both initialized and refer to the different volumes.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume to be tested for inequality.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>true</computeroutput>, if the objects and unequal, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="56" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a17819662a45f1a700dbfeb2490b7faf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBVolume" kindref="compound">BVolume</ref> &amp;</type>
+        <definition>BVolume &amp; BVolume::operator=</definition>
+        <argsstring>(const BVolume &amp;volume)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BVolume::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBVolume" kindref="compound">BVolume</ref> &amp;</type>
+          <declname>volume</declname>
+        </param>
+        <briefdescription>
+<para>Assigns the supplied <ref refid="classBVolume" kindref="compound">BVolume</ref> object to this volume, this object is made to be an exact clone of the supplied one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume to be assigned.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to this object.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="57" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBVolume_1affc259a7bd2ddba2379a078745ee061b" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BVolume::_reserved[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BVolume::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="73" column="6" bodyfile="/boot/home/src/haiku/headers/os/storage/Volume.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBVolume_1a3aad63437298bb099638ad4d656b1afb" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BVolume::fCStatus</definition>
+        <argsstring></argsstring>
+        <name>fCStatus</name>
+        <qualifiedname>BVolume::fCStatus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="71" column="9" bodyfile="/boot/home/src/haiku/headers/os/storage/Volume.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBVolume_1af8e3708e5d9ff1ff57d158b149fe8459" prot="private" static="no" mutable="no">
+        <type>dev_t</type>
+        <definition>dev_t BVolume::fDevice</definition>
+        <argsstring></argsstring>
+        <name>fDevice</name>
+        <qualifiedname>BVolume::fDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="69" column="6" bodyfile="/boot/home/src/haiku/headers/os/storage/Volume.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBVolume_1a8f6173dffb815b5ef2c2e0e620f016c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BVolume::BVolume</definition>
+        <argsstring>()</argsstring>
+        <name>BVolume</name>
+        <qualifiedname>BVolume::BVolume</qualifiedname>
+        <briefdescription>
+<para>Creates an uninitialized <ref refid="classBVolume" kindref="compound">BVolume</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBVolume_1a71b630674769adcf5165bf1f255cb36e" kindref="member">InitCheck()</ref> will return <computeroutput>B_NO_INIT</computeroutput>.</para>
+<para><simplesect kind="see"><para><ref refid="classBVolume_1a8e7fb58eeb125c8d3df8b4e147d4e799" kindref="member">SetTo()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1aec15671d19785fe1f9233b990709fbfa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BVolume::BVolume</definition>
+        <argsstring>(const BVolume &amp;volume)</argsstring>
+        <name>BVolume</name>
+        <qualifiedname>BVolume::BVolume</qualifiedname>
+        <param>
+          <type>const <ref refid="classBVolume" kindref="compound">BVolume</ref> &amp;</type>
+          <declname>volume</declname>
+        </param>
+        <briefdescription>
+<para>Creates a copy of the supplied <ref refid="classBVolume" kindref="compound">BVolume</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Afterwards the object refers to the same device the supplied object does. If the latter is not properly initialized, this result isn&apos;t either.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>volume</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The volume object to be copied.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="25" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1af555371e8b3fb6168a9d8c95270c0925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BVolume::BVolume</definition>
+        <argsstring>(dev_t device)</argsstring>
+        <name>BVolume</name>
+        <qualifiedname>BVolume::BVolume</qualifiedname>
+        <param>
+          <type>dev_t</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBVolume" kindref="compound">BVolume</ref> and initializes it to the volume specified by the supplied device ID. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classBVolume_1a71b630674769adcf5165bf1f255cb36e" kindref="member">InitCheck()</ref> should be called afterwards to check if initialization was successful.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The device ID of the volume.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="24" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1aa410e15258ee5f43e7cbb89e748da41e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BVolume::~BVolume</definition>
+        <argsstring>()</argsstring>
+        <name>~BVolume</name>
+        <qualifiedname>BVolume::~BVolume</qualifiedname>
+        <briefdescription>
+<para>Destroys the object and frees all associated resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="26" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBVolume_1ab991eee5110124baffcc8a817b1bfcdf" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume1</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume1</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="60" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a3a3e16121e084649acd258cd67453da8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume2</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume2</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="61" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a5fe6c725bc7b86ed602c75b60e7f6aa7" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume3</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume3</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="62" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1aa01502d8a00196726c74fc280fa2587c" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume4</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume4</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="63" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1ac6ad6ead284fb51fbcfa981cf7affd1d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume5</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume5</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="64" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a7671524de61a5742854fb879ba15f994" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume6</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume6</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="65" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1abe70b385617d8c3b47ed395f7d7bc954" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume7</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume7</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="66" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBVolume_1a0e5aaf377097b5d65a252f2b0bdd5cba" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BVolume::_TurnUpTheVolume8</definition>
+        <argsstring>()</argsstring>
+        <name>_TurnUpTheVolume8</name>
+        <qualifiedname>BVolume::_TurnUpTheVolume8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="67" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Provides an interface for querying information about a volume. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The class is a simple wrapper for a <computeroutput>dev_t</computeroutput> and the function fs_stat_dev(). The sole exception is the <ref refid="classBVolume_1ae8859832bad50bdbca612a6fc8d4d28d" kindref="member">SetName()</ref> method which sets the name of the volume.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/storage/Volume.h" line="21" column="1" bodyfile="/boot/home/src/haiku/headers/os/storage/Volume.h" bodystart="21" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classBVolume_1affc259a7bd2ddba2379a078745ee061b" prot="private" virt="non-virtual"><scope>BVolume</scope><name>_reserved</name></member>
+      <member refid="classBVolume_1ab991eee5110124baffcc8a817b1bfcdf" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume1</name></member>
+      <member refid="classBVolume_1a3a3e16121e084649acd258cd67453da8" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume2</name></member>
+      <member refid="classBVolume_1a5fe6c725bc7b86ed602c75b60e7f6aa7" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume3</name></member>
+      <member refid="classBVolume_1aa01502d8a00196726c74fc280fa2587c" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume4</name></member>
+      <member refid="classBVolume_1ac6ad6ead284fb51fbcfa981cf7affd1d" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume5</name></member>
+      <member refid="classBVolume_1a7671524de61a5742854fb879ba15f994" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume6</name></member>
+      <member refid="classBVolume_1abe70b385617d8c3b47ed395f7d7bc954" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume7</name></member>
+      <member refid="classBVolume_1a0e5aaf377097b5d65a252f2b0bdd5cba" prot="private" virt="virtual"><scope>BVolume</scope><name>_TurnUpTheVolume8</name></member>
+      <member refid="classBVolume_1aaba08f5d228e1eae2394c98b159d3892" prot="public" virt="non-virtual"><scope>BVolume</scope><name>BlockSize</name></member>
+      <member refid="classBVolume_1a8f6173dffb815b5ef2c2e0e620f016c9" prot="public" virt="non-virtual"><scope>BVolume</scope><name>BVolume</name></member>
+      <member refid="classBVolume_1af555371e8b3fb6168a9d8c95270c0925" prot="public" virt="non-virtual"><scope>BVolume</scope><name>BVolume</name></member>
+      <member refid="classBVolume_1aec15671d19785fe1f9233b990709fbfa" prot="public" virt="non-virtual"><scope>BVolume</scope><name>BVolume</name></member>
+      <member refid="classBVolume_1a2297feebf44070937968baf5cee423b9" prot="public" virt="non-virtual"><scope>BVolume</scope><name>Capacity</name></member>
+      <member refid="classBVolume_1ad32bd56756869253d453462db83c9736" prot="public" virt="non-virtual"><scope>BVolume</scope><name>Device</name></member>
+      <member refid="classBVolume_1a3aad63437298bb099638ad4d656b1afb" prot="private" virt="non-virtual"><scope>BVolume</scope><name>fCStatus</name></member>
+      <member refid="classBVolume_1af8e3708e5d9ff1ff57d158b149fe8459" prot="private" virt="non-virtual"><scope>BVolume</scope><name>fDevice</name></member>
+      <member refid="classBVolume_1adc1455af7c2965cff25ce27aee2a6a1c" prot="public" virt="non-virtual"><scope>BVolume</scope><name>FreeBytes</name></member>
+      <member refid="classBVolume_1a019efbe0a8b1c7e14114c0548bb53f26" prot="public" virt="non-virtual"><scope>BVolume</scope><name>GetIcon</name></member>
+      <member refid="classBVolume_1ab75f70af9be3707acb2e6679b99972ce" prot="public" virt="non-virtual"><scope>BVolume</scope><name>GetIcon</name></member>
+      <member refid="classBVolume_1aeb6276fe72466393d6d70e913c248a98" prot="public" virt="non-virtual"><scope>BVolume</scope><name>GetName</name></member>
+      <member refid="classBVolume_1ae6d852cc0abc041c61faa6ae1eec821d" prot="public" virt="non-virtual"><scope>BVolume</scope><name>GetRootDirectory</name></member>
+      <member refid="classBVolume_1a71b630674769adcf5165bf1f255cb36e" prot="public" virt="non-virtual"><scope>BVolume</scope><name>InitCheck</name></member>
+      <member refid="classBVolume_1a17fc9a8ce1faff8d5c66204c7f6a5136" prot="public" virt="non-virtual"><scope>BVolume</scope><name>IsPersistent</name></member>
+      <member refid="classBVolume_1aefb65574a89b9334138a1f91e5b9c553" prot="public" virt="non-virtual"><scope>BVolume</scope><name>IsReadOnly</name></member>
+      <member refid="classBVolume_1a683a6da4ffddc999046b300a67bf50d0" prot="public" virt="non-virtual"><scope>BVolume</scope><name>IsRemovable</name></member>
+      <member refid="classBVolume_1ae4bb784b1ec4e223c48b325ec3da1629" prot="public" virt="non-virtual"><scope>BVolume</scope><name>IsShared</name></member>
+      <member refid="classBVolume_1ad3915085dd2c050fba991df8b1b03efb" prot="public" virt="non-virtual"><scope>BVolume</scope><name>KnowsAttr</name></member>
+      <member refid="classBVolume_1a922bf20e0534d25f7c9a60018466165e" prot="public" virt="non-virtual"><scope>BVolume</scope><name>KnowsMime</name></member>
+      <member refid="classBVolume_1a942229b70906574c9d1c6e889eebc9f4" prot="public" virt="non-virtual"><scope>BVolume</scope><name>KnowsQuery</name></member>
+      <member refid="classBVolume_1a137a479c41a98ba1e6cfaade22651edc" prot="public" virt="non-virtual"><scope>BVolume</scope><name>operator!=</name></member>
+      <member refid="classBVolume_1a17819662a45f1a700dbfeb2490b7faf3" prot="public" virt="non-virtual"><scope>BVolume</scope><name>operator=</name></member>
+      <member refid="classBVolume_1a79e29ad11342ace8b169068d2cedf145" prot="public" virt="non-virtual"><scope>BVolume</scope><name>operator==</name></member>
+      <member refid="classBVolume_1ae8859832bad50bdbca612a6fc8d4d28d" prot="public" virt="non-virtual"><scope>BVolume</scope><name>SetName</name></member>
+      <member refid="classBVolume_1a8e7fb58eeb125c8d3df8b4e147d4e799" prot="public" virt="non-virtual"><scope>BVolume</scope><name>SetTo</name></member>
+      <member refid="classBVolume_1a04a707681b76b9ca5d065cb139df1624" prot="public" virt="non-virtual"><scope>BVolume</scope><name>Unset</name></member>
+      <member refid="classBVolume_1aa410e15258ee5f43e7cbb89e748da41e" prot="public" virt="virtual"><scope>BVolume</scope><name>~BVolume</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

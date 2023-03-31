@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="launch_intro" kind="page">
+    <compoundname>launch_intro</compoundname>
+    <title>Introduction to the Launch Daemon</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>In general, you should name your jobs/services after the application signature (if possible), and name the configuration files accordingly (in each case without the &quot;application/&quot; prefix). Alternatively, you may use the name of your package as file name. If you do so, you may want to include the version, too, but do not add the version to the name of a job.</para>
+<para>A &quot;service&quot; is re-started automatically by the launch_daemon as soon as it&apos;s quit (or has crashed). Use a &quot;job&quot; instead, if you don&apos;t want this behavior.</para>
+<para>Let&apos;s start with a simple example: <computeroutput> service x-vnd.MyGreatServer { } </computeroutput> This will register a service named MyGreatServer, and assumes it uses a BServer based application object. It will automatically launch the server either during system boot (when you place your configuration file in <computeroutput>/system/data/launch/</computeroutput>), or after user login (when it&apos;s in <computeroutput>~/config/data/launch/</computeroutput>) via its signature (which it constructs using the job&apos;s name). Furthermore, it will create a port for the server, so that it can be immediately be talked to.</para>
+<para>Unfortunately, BServer is private as of now, and you didn&apos;t want to make a great effort to subclass it. In this case, you have to notify the launch_daemon of this fact by adding a &quot;legacy&quot; to that configuration: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>legacy</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> If you want to save the cycles for querying for your server, you can also directly specify the file that should be launched; in this case, the job name is just a name. This could look like this: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>legacy</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> This method also allows you to add additional launch arguments like this: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server<sp/>--debug-mode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>legacy</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> If you do not want to enable the service by default, but only provide a template or basic configuration for the user, you can disable it like this: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server<sp/>--debug-mode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>legacy</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>disabled</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> You can then override this in the settings by redefining the service, and overwrite the parts you want to change. In this case, it might just be: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>disabled<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> The rest of the configuration will stay intact.</para>
+<para>If you only want to launch your application depending on the current environment, you can define conditions which must be met to launch your application at all, and events which will trigger launching your application.</para>
+<para>In the configuration file, this could look like this: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>not<sp/>safemode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file_exists<sp/>/path/to/license/file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>on<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>demand</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> Alternatively, there are shortcuts for two of the above items, and you could also write it like this: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file_exists<sp/>/path/to/license/file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>not_safemode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>on_demand</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> If you have only single line conditions/events, you may also omit the curly braces completely: <programlisting><codeline><highlight class="normal">service<sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>file_exists<sp/>/path/to/license/file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>not_safemode</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>on<sp/>demand</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> Note, the &quot;on demand&quot; does not use the &quot;on_demand&quot; shortcut, but just saves the curly braces of &quot;on { demand }&quot;.</para>
+<para>You can also use operators like &quot;and&quot;, &quot;or&quot;, and &quot;not&quot; in conditions. If you put more than one condition into an &quot;if&quot; they must all be true in order to meet the condition. Conditions will be evaluated every time the launch_daemon has a reason to start your application <ndash/> the outcome of the condition may change over time.</para>
+<para>Likewise, if you put more than one event into an &quot;on&quot; only one of them needs to be triggered in order to launch your job. While the event processing is already prepared to allow for an &quot;and&quot; operator, this is not yet available.</para>
+<para>You can also specify the environment variables for your application. They can be either specified directly, or you can let a shell script define them for you: <programlisting><codeline><highlight class="normal">service<sp/><sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>env<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>from_script<sp/>/path/to/my/script.sh</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>LC_TYPE<sp/>C.UTF-8</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> If you want to move the job into a specific target, you can write it like this: <programlisting><codeline><highlight class="normal">target<sp/>my-target<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>service<sp/><sp/>x-vnd.MyGreatServer<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>launch<sp/>/path/to/my/great/server</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> You will be able to move jobs into targets around in the configuration files, but this has not been implemented at the time of this writing.</para>
+<para>Like jobs, and services, targets can use conditions, events, and environment variables. If you do not specify an event for your target, it will not launch automatically unless it&apos;s requested by name. Furthermore, jobs within your target will not be available unless the target has been launched either manually or by event.</para>
+<para>You can also let the launch_daemon create resources for your application, like additional named ports. These ports will be available to other applications without having to launch your application, and will belong to the launch_daemon throughout their lifetime.</para>
+<para>Finally, there is a &quot;run&quot; directive that you can use to launch targets unconditionally. The &quot;run&quot; directive also allows to use conditions, but adds the additional keywords &quot;then&quot;, and &quot;else&quot; like this: <programlisting><codeline><highlight class="normal">run<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>read_only</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>then<sp/>installer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>desktop</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting> You can also use curly braces if you like or want to run more than one job.</para>
+<para>It&apos;s a good idea to look at the existing configuration files to get an idea how this is all supposed to work. </para>
+    </detaileddescription>
+    <location file="app/_launch_intro.dox"/>
+  </compounddef>
+</doxygen>

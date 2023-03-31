@@ -1,0 +1,1729 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBMediaNode" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BMediaNode</compoundname>
+    <derivedcompoundref refid="classBBufferConsumer" prot="public" virt="virtual">BBufferConsumer</derivedcompoundref>
+    <derivedcompoundref refid="classBBufferProducer" prot="public" virt="virtual">BBufferProducer</derivedcompoundref>
+    <derivedcompoundref refid="classBControllable" prot="public" virt="virtual">BControllable</derivedcompoundref>
+    <derivedcompoundref refid="classBFileInterface" prot="public" virt="virtual">BFileInterface</derivedcompoundref>
+    <derivedcompoundref refid="classBMediaEventLooper" prot="public" virt="virtual">BMediaEventLooper</derivedcompoundref>
+    <derivedcompoundref refid="classBTimeSource" prot="public" virt="virtual">BTimeSource</derivedcompoundref>
+    <includes local="no">MediaNode.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>node_error</name>
+        <qualifiedname>BMediaNode::node_error</qualifiedname>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba6987a7238276ba621f408c14a3d961df" prot="public">
+          <name>B_NODE_FAILED_START</name>
+          <initializer>= &apos;TRI0&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507babc274e7c8d22f8f9909670a7517806f1" prot="public">
+          <name>B_NODE_FAILED_STOP</name>
+          <initializer>= &apos;TRI1&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba7e74043d2d0bf682d1f59e37df7588b2" prot="public">
+          <name>B_NODE_FAILED_SEEK</name>
+          <initializer>= &apos;TRI2&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507baf1ee428bb2e4989e8a89e82c2bb76e1d" prot="public">
+          <name>B_NODE_FAILED_SET_RUN_MODE</name>
+          <initializer>= &apos;TRI3&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507baf57c17af5c8074cbb26c14847e4728eb" prot="public">
+          <name>B_NODE_FAILED_TIME_WARP</name>
+          <initializer>= &apos;TRI4&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba6287d8e20756ebb8175444a2559fd374" prot="public">
+          <name>B_NODE_FAILED_PREROLL</name>
+          <initializer>= &apos;TRI5&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507baab261b086b38099eb293c16ecc5d15dc" prot="public">
+          <name>B_NODE_FAILED_SET_TIME_SOURCE_FOR</name>
+          <initializer>= &apos;TRI6&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba024edc817ac86524f4c06bc993ef6f12" prot="public">
+          <name>B_NODE_IN_DISTRESS</name>
+          <initializer>= &apos;TRI7&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="169" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="169" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="enum" id="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10fa" prot="public" static="no" strong="no">
+        <type></type>
+        <name>run_mode</name>
+        <qualifiedname>BMediaNode::run_mode</qualifiedname>
+        <enumvalue id="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faae1be9ad405d3e7902cf21f0c8c9b8ff6" prot="public">
+          <name>B_OFFLINE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faa53e239e0a01a0444e4994b5306bf6ec8" prot="public">
+          <name>B_DECREASE_PRECISION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faaf05092b5c72de037b9c4a869d3cb7ffc" prot="public">
+          <name>B_INCREASE_LATENCY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faae71ef69f78e67b687a029d9715c8ca75" prot="public">
+          <name>B_DROP_DATA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faa87f18bf585fab9829b50d9ce28bcdf50" prot="public">
+          <name>B_RECORDING</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="137" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="137" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBMediaNode_1afd38307715759cfa00d61f1892bf6a63" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BBufferProducer</definition>
+        <argsstring></argsstring>
+        <name>BBufferProducer</name>
+        <qualifiedname>BMediaNode::BBufferProducer</qualifiedname>
+        <param>
+          <type>BBufferProducer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="262" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMediaNode_1af8c6566ee8c14daf127e4397bd8b5541" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BMediaRoster</definition>
+        <argsstring></argsstring>
+        <name>BMediaRoster</name>
+        <qualifiedname>BMediaNode::BMediaRoster</qualifiedname>
+        <param>
+          <type>BMediaRoster</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="261" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMediaNode_1a66bb3c145a926bab354c6f520149f961" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrivate::media::BMediaRosterEx</definition>
+        <argsstring></argsstring>
+        <name>BPrivate::media::BMediaRosterEx</name>
+        <qualifiedname>BMediaNode::BMediaRosterEx</qualifiedname>
+        <param>
+          <type>BPrivate::media::BMediaRosterEx</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="265" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMediaNode_1a33cc9aaabb063caf79ca68f0aec3c43d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrivate::media::SystemTimeSourceObject</definition>
+        <argsstring></argsstring>
+        <name>BPrivate::media::SystemTimeSourceObject</name>
+        <qualifiedname>BMediaNode::SystemTimeSourceObject</qualifiedname>
+        <param>
+          <type>BPrivate::media::SystemTimeSourceObject</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="264" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMediaNode_1a482d4367e66f2aa1cdf44d998319e00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BPrivate::media::TimeSourceObject</definition>
+        <argsstring></argsstring>
+        <name>BPrivate::media::TimeSourceObject</name>
+        <qualifiedname>BMediaNode::TimeSourceObject</qualifiedname>
+        <param>
+          <type>BPrivate::media::TimeSourceObject</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="263" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBMediaNode_1af853e8f7f4413e3a18ab1aff4ae7b5c8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BTimeSource</definition>
+        <argsstring></argsstring>
+        <name>BTimeSource</name>
+        <qualifiedname>BMediaNode::BTimeSource</qualifiedname>
+        <param>
+          <type>BTimeSource</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="260" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBMediaNode_1aaa0a541b25471c21d32961c35e02531a" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMediaNode::_reserved[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BMediaNode::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="315" column="6" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="315" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a705524a81c54b2a155f1969ecf6609cf" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BMediaNode::_reserved_media_node_[8]</definition>
+        <argsstring>[8]</argsstring>
+        <name>_reserved_media_node_</name>
+        <qualifiedname>BMediaNode::_reserved_media_node_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="330" column="7" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a029c262146efa7953204cf55f1e2b11b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BMediaNode::_reservedBool[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>_reservedBool</name>
+        <qualifiedname>BMediaNode::_reservedBool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="326" column="5" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1ad09c3026b6c969e3c820693e2e7fce7d" prot="private" static="no" mutable="no">
+        <type>BBufferConsumer *</type>
+        <definition>BBufferConsumer* BMediaNode::fConsumerThis</definition>
+        <argsstring></argsstring>
+        <name>fConsumerThis</name>
+        <qualifiedname>BMediaNode::fConsumerThis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="321" column="16" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1ad51daf7c86c695036562c8a89e4f58b2" prot="private" static="no" mutable="no">
+        <type>BControllable *</type>
+        <definition>BControllable* BMediaNode::fControllableThis</definition>
+        <argsstring></argsstring>
+        <name>fControllableThis</name>
+        <qualifiedname>BMediaNode::fControllableThis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="323" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1adb6ba0a8af74371d8faf3c3047b1f7ab" prot="private" static="no" mutable="yes">
+        <type>port_id</type>
+        <definition>port_id BMediaNode::fControlPort</definition>
+        <argsstring></argsstring>
+        <name>fControlPort</name>
+        <qualifiedname>BMediaNode::fControlPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="328" column="15" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a009e226f67aed17d4782c337292e910b" prot="private" static="no" mutable="no">
+        <type><ref refid="classBFileInterface" kindref="compound">BFileInterface</ref> *</type>
+        <definition>BFileInterface* BMediaNode::fFileInterfaceThis</definition>
+        <argsstring></argsstring>
+        <name>fFileInterfaceThis</name>
+        <qualifiedname>BMediaNode::fFileInterfaceThis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="322" column="15" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1ac385fc45044647115a4d7cf9c1b384a5" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a31809f9e3be3ab0398318f669d00a181" kindref="member">uint64</ref></type>
+        <definition>uint64 BMediaNode::fKinds</definition>
+        <argsstring></argsstring>
+        <name>fKinds</name>
+        <qualifiedname>BMediaNode::fKinds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="317" column="7" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="317" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a839303da380bf5909d45065f2d3218a5" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char BMediaNode::fName[B_MEDIA_NAME_LENGTH]</definition>
+        <argsstring>[B_MEDIA_NAME_LENGTH]</argsstring>
+        <name>fName</name>
+        <qualifiedname>BMediaNode::fName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="312" column="5" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a1c92ad0087258807678c0c904048ff2e" prot="private" static="no" mutable="no">
+        <type>media_node_id</type>
+        <definition>media_node_id BMediaNode::fNodeID</definition>
+        <argsstring></argsstring>
+        <name>fNodeID</name>
+        <qualifiedname>BMediaNode::fNodeID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="309" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a1812381ebe332e32424539361d1ea9ad" prot="private" static="no" mutable="no">
+        <type>BBufferProducer *</type>
+        <definition>BBufferProducer* BMediaNode::fProducerThis</definition>
+        <argsstring></argsstring>
+        <name>fProducerThis</name>
+        <qualifiedname>BMediaNode::fProducerThis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="320" column="16" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a285ead8d46ff84c2dd49affe0c8d2af2" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMediaNode::fRefCount</definition>
+        <argsstring></argsstring>
+        <name>fRefCount</name>
+        <qualifiedname>BMediaNode::fRefCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="311" column="6" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a697f7d488837fdd0fbaf4c445b10dbcb" prot="private" static="no" mutable="no">
+        <type>run_mode</type>
+        <definition>run_mode BMediaNode::fRunMode</definition>
+        <argsstring></argsstring>
+        <name>fRunMode</name>
+        <qualifiedname>BMediaNode::fRunMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="313" column="9" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a99e7652261e8a57bf520993b30aee88f" prot="private" static="no" mutable="no">
+        <type>BTimeSource *</type>
+        <definition>BTimeSource* BMediaNode::fTimeSource</definition>
+        <argsstring></argsstring>
+        <name>fTimeSource</name>
+        <qualifiedname>BMediaNode::fTimeSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="310" column="12" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1aa5cec1c7284e80f9f994d8fd5476f018" prot="private" static="no" mutable="no">
+        <type>media_node_id</type>
+        <definition>media_node_id BMediaNode::fTimeSourceID</definition>
+        <argsstring></argsstring>
+        <name>fTimeSourceID</name>
+        <qualifiedname>BMediaNode::fTimeSourceID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="318" column="14" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBMediaNode_1a2b99e0ce5773396d917b434427f0cade" prot="private" static="no" mutable="no">
+        <type>BTimeSource *</type>
+        <definition>BTimeSource* BMediaNode::fTimeSourceThis</definition>
+        <argsstring></argsstring>
+        <name>fTimeSourceThis</name>
+        <qualifiedname>BMediaNode::fTimeSourceThis</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="324" column="12" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classBMediaNode_1ad53adde4d027d5c947f21e097cab857e" prot="private" static="yes" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMediaNode::_m_changeTag</definition>
+        <argsstring></argsstring>
+        <name>_m_changeTag</name>
+        <qualifiedname>BMediaNode::_m_changeTag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="339" column="13" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classBMediaNode_1aa97658b152884edd258e49b113111cff" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaNode::BMediaNode</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>BMediaNode</name>
+        <qualifiedname>BMediaNode::BMediaNode</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="198" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a27b10b3b1186318f3be8f344b89f94a8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BMediaNode::~BMediaNode</definition>
+        <argsstring>()</argsstring>
+        <name>~BMediaNode</name>
+        <qualifiedname>BMediaNode::~BMediaNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="134" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1add44db1eebd51d2c4e8ce50bc13d78d2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::DeleteHook</definition>
+        <argsstring>(BMediaNode *node)</argsstring>
+        <name>DeleteHook</name>
+        <qualifiedname>BMediaNode::DeleteHook</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1a4e8328f26233aaa420e767b0dbf023c0">DeleteHook</reimplementedby>
+        <param>
+          <type><ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="244" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a108a3f8ca79ee17cc1bbfef6ed95b965" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::NodeRegistered</definition>
+        <argsstring>()</argsstring>
+        <name>NodeRegistered</name>
+        <qualifiedname>BMediaNode::NodeRegistered</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1ab5c51806ea87d494583ab5169c18384b">NodeRegistered</reimplementedby>
+        <reimplementedby refid="classGameProducer_1a36de3a61af1c634eba064eff6d5afc42">NodeRegistered</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="246" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a4c7e3ff79948e54c18d1561c645f0685" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::NodeStopped</definition>
+        <argsstring>(bigtime_t performanceTime)</argsstring>
+        <name>NodeStopped</name>
+        <qualifiedname>BMediaNode::NodeStopped</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>performanceTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="193" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a497a250d073d41ce75201db32a8e0125" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::Preroll</definition>
+        <argsstring>()</argsstring>
+        <name>Preroll</name>
+        <qualifiedname>BMediaNode::Preroll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="217" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ac44700b130d61c4645794e122ba848cc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::ReportError</definition>
+        <argsstring>(node_error what, const BMessage *info=NULL)</argsstring>
+        <name>ReportError</name>
+        <qualifiedname>BMediaNode::ReportError</qualifiedname>
+        <param>
+          <type>node_error</type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>info</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="187" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a3c141af921190e33070c47fac0ea53dd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::RequestCompleted</definition>
+        <argsstring>(const media_request_info &amp;info)</argsstring>
+        <name>RequestCompleted</name>
+        <qualifiedname>BMediaNode::RequestCompleted</qualifiedname>
+        <param>
+          <type>const media_request_info &amp;</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="241" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a339fea8f2213e134385762963d5a8698" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::Seek</definition>
+        <argsstring>(bigtime_t toMediaTime, bigtime_t atPerformanceTime)</argsstring>
+        <name>Seek</name>
+        <qualifiedname>BMediaNode::Seek</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1aa03300e5a05fe0ef21ed63903e4674b0">Seek</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>toMediaTime</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>atPerformanceTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="212" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ab7c3d78f7c02aed7f95ed25cfe88e8e2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::SetRunMode</definition>
+        <argsstring>(run_mode mode)</argsstring>
+        <name>SetRunMode</name>
+        <qualifiedname>BMediaNode::SetRunMode</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1afc758dc912fba2de2a1ee43eb527f0e2">SetRunMode</reimplementedby>
+        <reimplementedby refid="classGameProducer_1a11ccc26c3e903fc3051815d59feeaefc">SetRunMode</reimplementedby>
+        <param>
+          <type>run_mode</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="214" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a3f3ff4c9e9b440348a2d8c01b9afac34" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::SetTimeSource</definition>
+        <argsstring>(BTimeSource *timeSource)</argsstring>
+        <name>SetTimeSource</name>
+        <qualifiedname>BMediaNode::SetTimeSource</qualifiedname>
+        <param>
+          <type>BTimeSource *</type>
+          <declname>timeSource</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="218" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a9709f261325b9471c66a99d468fbbddf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::Start</definition>
+        <argsstring>(bigtime_t atPerformanceTime)</argsstring>
+        <name>Start</name>
+        <qualifiedname>BMediaNode::Start</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1ae6377fc7b869bbce906c69293948f381">Start</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>atPerformanceTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="209" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a2414120e97f847b0a5ff464cbcc2f2b8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::Stop</definition>
+        <argsstring>(bigtime_t atPerformanceTime, bool immediate)</argsstring>
+        <name>Stop</name>
+        <qualifiedname>BMediaNode::Stop</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1a3832474879103b11c72bb2a288deddf2">Stop</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>atPerformanceTime</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>immediate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="210" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a8cd74d3554a10f9d290241bc8196d782" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaNode::TimerExpired</definition>
+        <argsstring>(bigtime_t notifyPerformanceTime, int32 cookie, status_t error=B_OK)</argsstring>
+        <name>TimerExpired</name>
+        <qualifiedname>BMediaNode::TimerExpired</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>notifyPerformanceTime</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>cookie</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+          <declname>error</declname>
+          <defval>B_OK</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="194" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a902334b78bc93a4d000411d6842f500d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BMediaNode::TimeWarp</definition>
+        <argsstring>(bigtime_t atRealTime, bigtime_t toPerformanceTime)</argsstring>
+        <name>TimeWarp</name>
+        <qualifiedname>BMediaNode::TimeWarp</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1a7dd9d4988e5b0eba5847660ed9f630e1">TimeWarp</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>atRealTime</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>toPerformanceTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="215" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a1ce1a30cc7cc78a79ffde101306f3273" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::WaitForMessage</definition>
+        <argsstring>(bigtime_t waitUntil, uint32 flags=0, void *_reserved_=0)</argsstring>
+        <name>WaitForMessage</name>
+        <qualifiedname>BMediaNode::WaitForMessage</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>waitUntil</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>_reserved_</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="200" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBMediaNode_1a1d7a95a44994e683a5fbe7d9773cec0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> *</type>
+        <definition>BMediaNode * BMediaNode::Acquire</definition>
+        <argsstring>()</argsstring>
+        <name>Acquire</name>
+        <qualifiedname>BMediaNode::Acquire</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="151" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1abb9e4ecd556ee1a952377ceab7a6040a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaNode::AddNodeKind</definition>
+        <argsstring>(uint64 kind)</argsstring>
+        <name>AddNodeKind</name>
+        <qualifiedname>BMediaNode::AddNodeKind</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a31809f9e3be3ab0398318f669d00a181" kindref="member">uint64</ref></type>
+          <declname>kind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="229" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a684d078c99ea93b8fc0c01edfe909aba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classBMediaAddOn" kindref="compound">BMediaAddOn</ref> *</type>
+        <definition>virtual BMediaAddOn * BMediaNode::AddOn</definition>
+        <argsstring>(int32 *internalID) const =0</argsstring>
+        <name>AddOn</name>
+        <qualifiedname>BMediaNode::AddOn</qualifiedname>
+        <reimplementedby refid="classGameProducer_1ac58080e502326c3251ad7114244092b6">AddOn</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref> *</type>
+          <declname>internalID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="165" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ac27baba88cb72f97c3cd5da98ca9f8f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::AddTimer</definition>
+        <argsstring>(bigtime_t atPerformanceTime, int32 cookie)</argsstring>
+        <name>AddTimer</name>
+        <qualifiedname>BMediaNode::AddTimer</qualifiedname>
+        <reimplementedby refid="classBMediaEventLooper_1ac80307ca9e50f170e5f1935a47a0e043">AddTimer</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>atPerformanceTime</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>cookie</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="256" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a07755c01a6f6b51c913b7abf6f1f7e2d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>port_id</type>
+        <definition>virtual port_id BMediaNode::ControlPort</definition>
+        <argsstring>() const</argsstring>
+        <name>ControlPort</name>
+        <qualifiedname>BMediaNode::ControlPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="162" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a5e22528f968029a1e6ac57487970e81c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::GetNodeAttributes</definition>
+        <argsstring>(media_node_attribute *_attributes, size_t inMaxCount)</argsstring>
+        <name>GetNodeAttributes</name>
+        <qualifiedname>BMediaNode::GetNodeAttributes</qualifiedname>
+        <param>
+          <type>media_node_attribute *</type>
+          <declname>_attributes</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>inMaxCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="252" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ae59174fa9687b3e9a950797311d5de07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaNode::HandleBadMessage</definition>
+        <argsstring>(int32 code, const void *buffer, size_t size)</argsstring>
+        <name>HandleBadMessage</name>
+        <qualifiedname>BMediaNode::HandleBadMessage</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="225" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aeb6e35269350dee6db103b93715bf599" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::HandleMessage</definition>
+        <argsstring>(int32 message, const void *data, size_t size)</argsstring>
+        <name>HandleMessage</name>
+        <qualifiedname>BMediaNode::HandleMessage</qualifiedname>
+        <reimplementedby refid="classBFileInterface_1ab69c5000ffe084e34af54d1f2ad641e7">HandleMessage</reimplementedby>
+        <reimplementedby refid="classGameProducer_1ae3769c1fde1c9705f3d046a4beeb3264">HandleMessage</reimplementedby>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="221" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aef05bbf69f65cdfcb30aa26951df3195" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>media_node_id</type>
+        <definition>media_node_id BMediaNode::ID</definition>
+        <argsstring>() const</argsstring>
+        <name>ID</name>
+        <qualifiedname>BMediaNode::ID</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="155" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a90420755935f03aba3814a4055ffcff4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a31809f9e3be3ab0398318f669d00a181" kindref="member">uint64</ref></type>
+        <definition>uint64 BMediaNode::Kinds</definition>
+        <argsstring>() const</argsstring>
+        <name>Kinds</name>
+        <qualifiedname>BMediaNode::Kinds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="156" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aea8c326b2652bb51f23989c6827f536f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * BMediaNode::Name</definition>
+        <argsstring>() const</argsstring>
+        <name>Name</name>
+        <qualifiedname>BMediaNode::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="154" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a9dea97145e5736f26aea5155adc5b067" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>media_node</type>
+        <definition>media_node BMediaNode::Node</definition>
+        <argsstring>() const</argsstring>
+        <name>Node</name>
+        <qualifiedname>BMediaNode::Node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="157" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ab7de1837c2bd8acd46f595010409f26d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaNode::operator delete</definition>
+        <argsstring>(void *ptr)</argsstring>
+        <name>operator delete</name>
+        <qualifiedname>BMediaNode::operator delete</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="235" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1acceb2b1d83f73056a7db7bca38b23566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaNode::operator delete</definition>
+        <argsstring>(void *ptr, const std::nothrow_t &amp;)</argsstring>
+        <name>operator delete</name>
+        <qualifiedname>BMediaNode::operator delete</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>const std::nothrow_t &amp;</type>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="236" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a6ff8c34b27c2a84024e5c1c39bb6f6f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BMediaNode::operator new</definition>
+        <argsstring>(size_t size)</argsstring>
+        <name>operator new</name>
+        <qualifiedname>BMediaNode::operator new</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="232" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a41f8f6423db4cfabb855499e1ab2fabf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BMediaNode::operator new</definition>
+        <argsstring>(size_t size, const std::nothrow_t &amp;)</argsstring>
+        <name>operator new</name>
+        <qualifiedname>BMediaNode::operator new</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>const std::nothrow_t &amp;</type>
+        </param>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="233" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aff22551282ffa2eeb8b6119c4401e7b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> *</type>
+        <definition>BMediaNode * BMediaNode::Release</definition>
+        <argsstring>()</argsstring>
+        <name>Release</name>
+        <qualifiedname>BMediaNode::Release</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="152" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aa7a30dd62f4e67e68e847c60a9b40833" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>run_mode</type>
+        <definition>run_mode BMediaNode::RunMode</definition>
+        <argsstring>() const</argsstring>
+        <name>RunMode</name>
+        <qualifiedname>BMediaNode::RunMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="158" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aad220ea22e8989a0bf4965b35ebba9f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>BTimeSource *</type>
+        <definition>BTimeSource * BMediaNode::TimeSource</definition>
+        <argsstring>() const</argsstring>
+        <name>TimeSource</name>
+        <qualifiedname>BMediaNode::TimeSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="159" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBMediaNode_1a6fb4fe6a69bba8e469d57199ac6b0428" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaNode::BMediaNode</definition>
+        <argsstring>()</argsstring>
+        <name>BMediaNode</name>
+        <qualifiedname>BMediaNode::BMediaNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="297" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ad2f307c0e371fadc54f44543e3613730" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaNode::BMediaNode</definition>
+        <argsstring>(const BMediaNode &amp;other)</argsstring>
+        <name>BMediaNode</name>
+        <qualifiedname>BMediaNode::BMediaNode</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="298" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1acdce0a34a22271db06a53651197f9676" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BMediaNode::BMediaNode</definition>
+        <argsstring>(const char *name, media_node_id id, uint32 kinds)</argsstring>
+        <name>BMediaNode</name>
+        <qualifiedname>BMediaNode::BMediaNode</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>media_node_id</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>kinds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="302" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a58105e2c13c4d7a42623bd49333d3209" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BMediaNode::_InitObject</definition>
+        <argsstring>(const char *name, media_node_id id, uint64 kinds)</argsstring>
+        <name>_InitObject</name>
+        <qualifiedname>BMediaNode::_InitObject</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>media_node_id</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a31809f9e3be3ab0398318f669d00a181" kindref="member">uint64</ref></type>
+          <declname>kinds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="305" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a2ed76e5e55640bc583757cce8d043316" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::_Reserved_MediaNode_0</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_0</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_0</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="275" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ae55da2b1be05675c068fadb71f387216" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::_Reserved_MediaNode_1</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_1</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_1</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="277" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a4df03a7ddf34356d9b8aa1320189bf6f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_10</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_10</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_10</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="290" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a89d65f27f0b298dce28d1848b84e6cf4" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_11</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_11</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_11</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="291" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a499cac70291b17efa8f8806c81bcca80" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_12</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_12</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_12</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="292" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1afe1ca895dd98e323b57e20cb54707004" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_13</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_13</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_13</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="293" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a2d081771be9a7e0b75e82dff7345820a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_14</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_14</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_14</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="294" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1af63fa7760a3858db5f85113f2e45a57a" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_15</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_15</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_15</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="295" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aa78189d0ee195a0f3400aa09fab444c4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::_Reserved_MediaNode_2</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_2</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_2</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="279" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a102c028464078ffa706cbb52a2e06ac4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::_Reserved_MediaNode_3</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_3</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_3</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="281" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a680cf7f3f9a63c3fca64e343a5a473db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::_Reserved_MediaNode_4</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_4</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_4</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="283" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a66f60ae37d3bcff7bd707e9ef0480ba6" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_5</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_5</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_5</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="285" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a39458ce1baa156a7c5ddace63cd79a76" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_6</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_6</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_6</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="286" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1afedda832c9a02ca90aa4e8b45218cce2" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_7</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_7</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_7</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="287" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a08342366e74e0965eea86ae99ac10eca" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_8</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_8</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_8</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="288" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a605fe4f2fb578eceec95677ada5fa5d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BMediaNode::_Reserved_MediaNode_9</definition>
+        <argsstring>(void *)</argsstring>
+        <name>_Reserved_MediaNode_9</name>
+        <qualifiedname>BMediaNode::_Reserved_MediaNode_9</qualifiedname>
+        <param>
+          <type>void *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="289" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a61b8acccb6247a2da9b4111b8d336486" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BMediaNode::ApplyChangeTag</definition>
+        <argsstring>(int32 previouslyReserved)</argsstring>
+        <name>ApplyChangeTag</name>
+        <qualifiedname>BMediaNode::ApplyChangeTag</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>previouslyReserved</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="271" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1aaa3e945e3fe35a80569ee62e6386f946" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMediaNode::ChangeTag</definition>
+        <argsstring>()</argsstring>
+        <name>ChangeTag</name>
+        <qualifiedname>BMediaNode::ChangeTag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="269" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a4c376ee2a49bf8f9d9515a6ba22d4b0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMediaNode::IncrementChangeTag</definition>
+        <argsstring>()</argsstring>
+        <name>IncrementChangeTag</name>
+        <qualifiedname>BMediaNode::IncrementChangeTag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="268" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1a70f95223c5dceb44753f588f321bbe1c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BMediaNode::MintChangeTag</definition>
+        <argsstring>()</argsstring>
+        <name>MintChangeTag</name>
+        <qualifiedname>BMediaNode::MintChangeTag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="270" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBMediaNode_1ae4a98d05e65f1158feb82b9bf5888038" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> &amp;</type>
+        <definition>BMediaNode &amp; BMediaNode::operator=</definition>
+        <argsstring>(const BMediaNode &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BMediaNode::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="299" column="11"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classBMediaNode_1a34e6e2796841b1f72098bb0148abe3d1" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>static int32 BMediaNode::NewChangeTag</definition>
+        <argsstring>()</argsstring>
+        <name>NewChangeTag</name>
+        <qualifiedname>BMediaNode::NewChangeTag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="333" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> is the indirect base class for all Media Kit participants. However, you should use the more specific BBufferConsumer, BBufferProducer and others rather than <ref refid="classBMediaNode" kindref="compound">BMediaNode</ref> directly. It&apos;s OK to multiply inherit. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BFileInterface</label>
+        <link refid="classBFileInterface"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BMediaEventLooper</label>
+        <link refid="classBMediaEventLooper"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BMediaNode</label>
+        <link refid="classBMediaNode"/>
+      </node>
+      <node id="4">
+        <label>GameProducer</label>
+        <link refid="classGameProducer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/boot/home/src/haiku/headers/os/media/MediaNode.h" line="131" column="1" bodyfile="/boot/home/src/haiku/headers/os/media/MediaNode.h" bodystart="131" bodyend="341"/>
+    <listofallmembers>
+      <member refid="classBMediaNode_1a58105e2c13c4d7a42623bd49333d3209" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_InitObject</name></member>
+      <member refid="classBMediaNode_1ad53adde4d027d5c947f21e097cab857e" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_m_changeTag</name></member>
+      <member refid="classBMediaNode_1aaa0a541b25471c21d32961c35e02531a" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_reserved</name></member>
+      <member refid="classBMediaNode_1a705524a81c54b2a155f1969ecf6609cf" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_reserved_media_node_</name></member>
+      <member refid="classBMediaNode_1a2ed76e5e55640bc583757cce8d043316" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_0</name></member>
+      <member refid="classBMediaNode_1ae55da2b1be05675c068fadb71f387216" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_1</name></member>
+      <member refid="classBMediaNode_1a4df03a7ddf34356d9b8aa1320189bf6f" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_10</name></member>
+      <member refid="classBMediaNode_1a89d65f27f0b298dce28d1848b84e6cf4" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_11</name></member>
+      <member refid="classBMediaNode_1a499cac70291b17efa8f8806c81bcca80" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_12</name></member>
+      <member refid="classBMediaNode_1afe1ca895dd98e323b57e20cb54707004" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_13</name></member>
+      <member refid="classBMediaNode_1a2d081771be9a7e0b75e82dff7345820a" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_14</name></member>
+      <member refid="classBMediaNode_1af63fa7760a3858db5f85113f2e45a57a" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_15</name></member>
+      <member refid="classBMediaNode_1aa78189d0ee195a0f3400aa09fab444c4" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_2</name></member>
+      <member refid="classBMediaNode_1a102c028464078ffa706cbb52a2e06ac4" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_3</name></member>
+      <member refid="classBMediaNode_1a680cf7f3f9a63c3fca64e343a5a473db" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_4</name></member>
+      <member refid="classBMediaNode_1a66f60ae37d3bcff7bd707e9ef0480ba6" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_5</name></member>
+      <member refid="classBMediaNode_1a39458ce1baa156a7c5ddace63cd79a76" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_6</name></member>
+      <member refid="classBMediaNode_1afedda832c9a02ca90aa4e8b45218cce2" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_7</name></member>
+      <member refid="classBMediaNode_1a08342366e74e0965eea86ae99ac10eca" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_8</name></member>
+      <member refid="classBMediaNode_1a605fe4f2fb578eceec95677ada5fa5d8" prot="private" virt="virtual"><scope>BMediaNode</scope><name>_Reserved_MediaNode_9</name></member>
+      <member refid="classBMediaNode_1a029c262146efa7953204cf55f1e2b11b" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>_reservedBool</name></member>
+      <member refid="classBMediaNode_1a1d7a95a44994e683a5fbe7d9773cec0b" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>Acquire</name></member>
+      <member refid="classBMediaNode_1abb9e4ecd556ee1a952377ceab7a6040a" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>AddNodeKind</name></member>
+      <member refid="classBMediaNode_1a684d078c99ea93b8fc0c01edfe909aba" prot="public" virt="pure-virtual"><scope>BMediaNode</scope><name>AddOn</name></member>
+      <member refid="classBMediaNode_1ac27baba88cb72f97c3cd5da98ca9f8f5" prot="public" virt="virtual"><scope>BMediaNode</scope><name>AddTimer</name></member>
+      <member refid="classBMediaNode_1a61b8acccb6247a2da9b4111b8d336486" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>ApplyChangeTag</name></member>
+      <member refid="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faa53e239e0a01a0444e4994b5306bf6ec8" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_DECREASE_PRECISION</name></member>
+      <member refid="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faae71ef69f78e67b687a029d9715c8ca75" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_DROP_DATA</name></member>
+      <member refid="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faaf05092b5c72de037b9c4a869d3cb7ffc" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_INCREASE_LATENCY</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba6287d8e20756ebb8175444a2559fd374" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_PREROLL</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba7e74043d2d0bf682d1f59e37df7588b2" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_SEEK</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507baf1ee428bb2e4989e8a89e82c2bb76e1d" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_SET_RUN_MODE</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507baab261b086b38099eb293c16ecc5d15dc" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_SET_TIME_SOURCE_FOR</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba6987a7238276ba621f408c14a3d961df" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_START</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507babc274e7c8d22f8f9909670a7517806f1" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_STOP</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507baf57c17af5c8074cbb26c14847e4728eb" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_FAILED_TIME_WARP</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507ba024edc817ac86524f4c06bc993ef6f12" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_NODE_IN_DISTRESS</name></member>
+      <member refid="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faae1be9ad405d3e7902cf21f0c8c9b8ff6" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_OFFLINE</name></member>
+      <member refid="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10faa87f18bf585fab9829b50d9ce28bcdf50" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>B_RECORDING</name></member>
+      <member refid="classBMediaNode_1aa97658b152884edd258e49b113111cff" prot="protected" virt="non-virtual"><scope>BMediaNode</scope><name>BMediaNode</name></member>
+      <member refid="classBMediaNode_1a6fb4fe6a69bba8e469d57199ac6b0428" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>BMediaNode</name></member>
+      <member refid="classBMediaNode_1ad2f307c0e371fadc54f44543e3613730" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>BMediaNode</name></member>
+      <member refid="classBMediaNode_1acdce0a34a22271db06a53651197f9676" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>BMediaNode</name></member>
+      <member refid="classBMediaNode_1aaa3e945e3fe35a80569ee62e6386f946" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>ChangeTag</name></member>
+      <member refid="classBMediaNode_1a07755c01a6f6b51c913b7abf6f1f7e2d" prot="public" virt="virtual"><scope>BMediaNode</scope><name>ControlPort</name></member>
+      <member refid="classBMediaNode_1add44db1eebd51d2c4e8ce50bc13d78d2" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>DeleteHook</name></member>
+      <member refid="classBMediaNode_1ad09c3026b6c969e3c820693e2e7fce7d" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fConsumerThis</name></member>
+      <member refid="classBMediaNode_1ad51daf7c86c695036562c8a89e4f58b2" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fControllableThis</name></member>
+      <member refid="classBMediaNode_1adb6ba0a8af74371d8faf3c3047b1f7ab" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fControlPort</name></member>
+      <member refid="classBMediaNode_1a009e226f67aed17d4782c337292e910b" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fFileInterfaceThis</name></member>
+      <member refid="classBMediaNode_1ac385fc45044647115a4d7cf9c1b384a5" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fKinds</name></member>
+      <member refid="classBMediaNode_1a839303da380bf5909d45065f2d3218a5" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fName</name></member>
+      <member refid="classBMediaNode_1a1c92ad0087258807678c0c904048ff2e" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fNodeID</name></member>
+      <member refid="classBMediaNode_1a1812381ebe332e32424539361d1ea9ad" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fProducerThis</name></member>
+      <member refid="classBMediaNode_1a285ead8d46ff84c2dd49affe0c8d2af2" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fRefCount</name></member>
+      <member refid="classBMediaNode_1a697f7d488837fdd0fbaf4c445b10dbcb" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fRunMode</name></member>
+      <member refid="classBMediaNode_1a99e7652261e8a57bf520993b30aee88f" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fTimeSource</name></member>
+      <member refid="classBMediaNode_1aa5cec1c7284e80f9f994d8fd5476f018" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fTimeSourceID</name></member>
+      <member refid="classBMediaNode_1a2b99e0ce5773396d917b434427f0cade" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>fTimeSourceThis</name></member>
+      <member refid="classBMediaNode_1a5e22528f968029a1e6ac57487970e81c" prot="public" virt="virtual"><scope>BMediaNode</scope><name>GetNodeAttributes</name></member>
+      <member refid="classBMediaNode_1ae59174fa9687b3e9a950797311d5de07" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>HandleBadMessage</name></member>
+      <member refid="classBMediaNode_1aeb6e35269350dee6db103b93715bf599" prot="public" virt="virtual"><scope>BMediaNode</scope><name>HandleMessage</name></member>
+      <member refid="classBMediaNode_1aef05bbf69f65cdfcb30aa26951df3195" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>ID</name></member>
+      <member refid="classBMediaNode_1a4c376ee2a49bf8f9d9515a6ba22d4b0c" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>IncrementChangeTag</name></member>
+      <member refid="classBMediaNode_1a90420755935f03aba3814a4055ffcff4" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>Kinds</name></member>
+      <member refid="classBMediaNode_1a70f95223c5dceb44753f588f321bbe1c" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>MintChangeTag</name></member>
+      <member refid="classBMediaNode_1aea8c326b2652bb51f23989c6827f536f" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>Name</name></member>
+      <member refid="classBMediaNode_1a34e6e2796841b1f72098bb0148abe3d1" prot="protected" virt="non-virtual"><scope>BMediaNode</scope><name>NewChangeTag</name></member>
+      <member refid="classBMediaNode_1a9dea97145e5736f26aea5155adc5b067" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>Node</name></member>
+      <member refid="classBMediaNode_1a6ec1afb6ca969dabe912b55090f7507b" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>node_error</name></member>
+      <member refid="classBMediaNode_1a108a3f8ca79ee17cc1bbfef6ed95b965" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>NodeRegistered</name></member>
+      <member refid="classBMediaNode_1a4c7e3ff79948e54c18d1561c645f0685" prot="protected" virt="non-virtual"><scope>BMediaNode</scope><name>NodeStopped</name></member>
+      <member refid="classBMediaNode_1ab7de1837c2bd8acd46f595010409f26d" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>operator delete</name></member>
+      <member refid="classBMediaNode_1acceb2b1d83f73056a7db7bca38b23566" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>operator delete</name></member>
+      <member refid="classBMediaNode_1a6ff8c34b27c2a84024e5c1c39bb6f6f5" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>operator new</name></member>
+      <member refid="classBMediaNode_1a41f8f6423db4cfabb855499e1ab2fabf" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>operator new</name></member>
+      <member refid="classBMediaNode_1ae4a98d05e65f1158feb82b9bf5888038" prot="private" virt="non-virtual"><scope>BMediaNode</scope><name>operator=</name></member>
+      <member refid="classBMediaNode_1a497a250d073d41ce75201db32a8e0125" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>Preroll</name></member>
+      <member refid="classBMediaNode_1aff22551282ffa2eeb8b6119c4401e7b3" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>Release</name></member>
+      <member refid="classBMediaNode_1ac44700b130d61c4645794e122ba848cc" prot="protected" virt="non-virtual"><scope>BMediaNode</scope><name>ReportError</name></member>
+      <member refid="classBMediaNode_1a3c141af921190e33070c47fac0ea53dd" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>RequestCompleted</name></member>
+      <member refid="classBMediaNode_1a0164ded56d6f66562134c70a5b5c10fa" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>run_mode</name></member>
+      <member refid="classBMediaNode_1aa7a30dd62f4e67e68e847c60a9b40833" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>RunMode</name></member>
+      <member refid="classBMediaNode_1a339fea8f2213e134385762963d5a8698" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>Seek</name></member>
+      <member refid="classBMediaNode_1ab7c3d78f7c02aed7f95ed25cfe88e8e2" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>SetRunMode</name></member>
+      <member refid="classBMediaNode_1a3f3ff4c9e9b440348a2d8c01b9afac34" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>SetTimeSource</name></member>
+      <member refid="classBMediaNode_1a9709f261325b9471c66a99d468fbbddf" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>Start</name></member>
+      <member refid="classBMediaNode_1a2414120e97f847b0a5ff464cbcc2f2b8" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>Stop</name></member>
+      <member refid="classBMediaNode_1a8cd74d3554a10f9d290241bc8196d782" prot="protected" virt="non-virtual"><scope>BMediaNode</scope><name>TimerExpired</name></member>
+      <member refid="classBMediaNode_1aad220ea22e8989a0bf4965b35ebba9f7" prot="public" virt="non-virtual"><scope>BMediaNode</scope><name>TimeSource</name></member>
+      <member refid="classBMediaNode_1a902334b78bc93a4d000411d6842f500d" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>TimeWarp</name></member>
+      <member refid="classBMediaNode_1a1ce1a30cc7cc78a79ffde101306f3273" prot="protected" virt="non-virtual"><scope>BMediaNode</scope><name>WaitForMessage</name></member>
+      <member refid="classBMediaNode_1a27b10b3b1186318f3be8f344b89f94a8" prot="protected" virt="virtual"><scope>BMediaNode</scope><name>~BMediaNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

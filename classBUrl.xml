@@ -1,0 +1,2440 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBUrl" kind="class" language="C++" prot="public">
+    <compoundname>BUrl</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+      <sectiondef kind="user-defined">
+      <memberdef kind="function" id="classBUrl_1a2c0ba086519c9331129da91bc63468d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::BUrl</definition>
+        <argsstring>(const char *url)</argsstring>
+        <name>BUrl</name>
+        <qualifiedname>BUrl::BUrl</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="classBUrl" kindref="compound">BUrl</ref> and fills it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string to parse and populate the URL fields from.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Call InitCheck() to verify that the string was succesfully parsed and resulted in a valid URL. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a5293b708cdf87492893d60653412169d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::BUrl</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BUrl</name>
+        <qualifiedname>BUrl::BUrl</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Restore an URL from archived data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An archived <ref refid="classBUrl" kindref="compound">BUrl</ref> (using BArchive()).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Usually, archived messages are restored using BArchivable::Unarchive() which will automatically instanciate the correct class. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ae807d2bcb5472e5c7dac4a5232411a9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::BUrl</definition>
+        <argsstring>(const BUrl &amp;other)</argsstring>
+        <name>BUrl</name>
+        <qualifiedname>BUrl::BUrl</qualifiedname>
+        <param>
+          <type>const <ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classBUrl" kindref="compound">BUrl</ref> object to copy. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a60259de36be5fe073c5c3ad98c011645" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::BUrl</definition>
+        <argsstring>(const BUrl &amp;base, const BString &amp;relative)</argsstring>
+        <name>BUrl</name>
+        <qualifiedname>BUrl::BUrl</qualifiedname>
+        <param>
+          <type>const <ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>relative</declname>
+        </param>
+        <briefdescription>
+<para>Construct a <ref refid="classBUrl" kindref="compound">BUrl</ref> using a known base and a string representing a relative URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>base</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A <ref refid="classBUrl" kindref="compound">BUrl</ref> object that holds base URL. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>relative</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A path relative to the base URL.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+URLs can sometimes be represented in relative form. For example, links in a webpage may refer to only a path, assuming the same protocol and authority are the same as the current page. This constructor applies the required resolution process to construct a complete, standalone URL from such a string.</para>
+<para>For example, the following:</para>
+<para><ref refid="classBUrl" kindref="compound">BUrl</ref> base(&quot;http://example.org/path/page.html&quot;); <ref refid="classBUrl" kindref="compound">BUrl</ref> relative(base, &quot;sudirectory/otherpage.html&quot;);</para>
+<para>results in:</para>
+<para>&quot;http://example.org/path/subdirectory/otherpage.hhtml&quot;</para>
+<para>The relative URL can override any of the fields from the original one. The algorithm for resolution is documented in RFC3986 section 5. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1af1ff7c9a2d6a3db235dbefb7f39ddd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::BUrl</definition>
+        <argsstring>(const BPath &amp;path)</argsstring>
+        <name>BUrl</name>
+        <qualifiedname>BUrl::BUrl</qualifiedname>
+        <param>
+          <type>const <ref refid="classBPath" kindref="compound">BPath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="classBUrl" kindref="compound">BUrl</ref> identifying a local file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to convert into an URL</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+The generated URL uses the file protocol, and its path component is the path given as a parameter. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="21" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3a5f36050039221749377b4409fea080" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::BUrl</definition>
+        <argsstring>()</argsstring>
+        <name>BUrl</name>
+        <qualifiedname>BUrl::BUrl</qualifiedname>
+        <briefdescription>
+<para>Constructs an empty <ref refid="classBUrl" kindref="compound">BUrl</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a36e778750217796913f4b0eb67e6b311" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BUrl::~BUrl</definition>
+        <argsstring>()</argsstring>
+        <name>~BUrl</name>
+        <qualifiedname>BUrl::~BUrl</qualifiedname>
+        <briefdescription>
+<para>Destructor for <ref refid="classBUrl" kindref="compound">BUrl</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="23" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <memberdef kind="function" id="classBUrl_1a35ca977769841365480574cf4cdca5e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetUrlString</definition>
+        <argsstring>(const BString &amp;url)</argsstring>
+        <name>SetUrlString</name>
+        <qualifiedname>BUrl::SetUrlString</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+<para>Parse a string and set the URL accordingly. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A string to parse as an absolute URL. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="26" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a197682695d429bb6ac00aad83f1763d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetProtocol</definition>
+        <argsstring>(const BString &amp;scheme)</argsstring>
+        <name>SetProtocol</name>
+        <qualifiedname>BUrl::SetProtocol</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>scheme</declname>
+        </param>
+        <briefdescription>
+<para>Set the protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scheme</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The protocol to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="27" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a97ac2ce47db4214c813bb54804bf6817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetUserName</definition>
+        <argsstring>(const BString &amp;user)</argsstring>
+        <name>SetUserName</name>
+        <qualifiedname>BUrl::SetUserName</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>user</declname>
+        </param>
+        <briefdescription>
+<para>Set the username in the authority component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The username. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="28" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ad08b29132b24147d450d91f4cb9555b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetPassword</definition>
+        <argsstring>(const BString &amp;password)</argsstring>
+        <name>SetPassword</name>
+        <qualifiedname>BUrl::SetPassword</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+<para>Set the password in the authority component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The password. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="29" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a118c3ce21032d81625b26318f9813c9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BUrl::SetAuthority</definition>
+        <argsstring>(const BString &amp;authority)</argsstring>
+        <name>SetAuthority</name>
+        <qualifiedname>BUrl::SetAuthority</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>authority</declname>
+        </param>
+        <briefdescription>
+<para>Replace the complete authority component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>authority</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The authority component.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+The username, password, host and port fields are replaced. The authority can be of the form username:password@host:port </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="30" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1aaa5b4f8a1f155de6344971ebd099029f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetHost</definition>
+        <argsstring>(const BString &amp;host)</argsstring>
+        <name>SetHost</name>
+        <qualifiedname>BUrl::SetHost</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>host</declname>
+        </param>
+        <briefdescription>
+<para>Sets the host part of the authority component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hostname or address to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="31" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1abad7861de9d16c1199d658c5844bb14e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetPort</definition>
+        <argsstring>(int port)</argsstring>
+        <name>SetPort</name>
+        <qualifiedname>BUrl::SetPort</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Set the port of the authority component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port number to use (usually a TCP or UDP port). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="32" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a76be6277ba21086f775c974bc182ce4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetPath</definition>
+        <argsstring>(const BString &amp;path)</argsstring>
+        <name>SetPath</name>
+        <qualifiedname>BUrl::SetPath</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Set the path of the URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Set the path to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="33" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a1450afbf8c6359872cd8f4df9ce54ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetRequest</definition>
+        <argsstring>(const BString &amp;request)</argsstring>
+        <name>SetRequest</name>
+        <qualifiedname>BUrl::SetRequest</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>request</declname>
+        </param>
+        <briefdescription>
+<para>Set the request part of the URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The request string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a97388e065d4863faf20093866510a7c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>BUrl &amp; BUrl::SetFragment</definition>
+        <argsstring>(const BString &amp;fragment)</argsstring>
+        <name>SetFragment</name>
+        <qualifiedname>BUrl::SetFragment</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>fragment</declname>
+        </param>
+        <briefdescription>
+<para>Set the fragment part of the URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fragment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The fragment to use. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="35" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <memberdef kind="function" id="classBUrl_1abe7146fe16a9177a5eb3d0eda8df01fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::UrlString</definition>
+        <argsstring>() const</argsstring>
+        <name>UrlString</name>
+        <qualifiedname>BUrl::UrlString</qualifiedname>
+        <briefdescription>
+<para>Returns the string representation of the URL. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the string representation of the URL.</para>
+</simplesect>
+A complete URL string is of the form protocol://username:passord@host:port/path?request::fragment . All the fields are optional, for example a file URL will have only a protocol and a path. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="38" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a5fe451dcb0024678f5e34188391b5496" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Protocol</definition>
+        <argsstring>() const</argsstring>
+        <name>Protocol</name>
+        <qualifiedname>BUrl::Protocol</qualifiedname>
+        <briefdescription>
+<para>Returns the protocol used in the url. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The URL protocol. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="39" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a6a79c0ca3d8eb190ef855e92c3800593" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::UserName</definition>
+        <argsstring>() const</argsstring>
+        <name>UserName</name>
+        <qualifiedname>BUrl::UserName</qualifiedname>
+        <briefdescription>
+<para>Returns the username. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The username. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="40" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3a0b93ae1312526a97bcea3eb4ec327c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Password</definition>
+        <argsstring>() const</argsstring>
+        <name>Password</name>
+        <qualifiedname>BUrl::Password</qualifiedname>
+        <briefdescription>
+<para>Returns the password. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The password. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="41" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ac381182fc92fd3b314312dd566c0cd07" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::UserInfo</definition>
+        <argsstring>() const</argsstring>
+        <name>UserInfo</name>
+        <qualifiedname>BUrl::UserInfo</qualifiedname>
+        <briefdescription>
+<para>Returns the user information (username:password) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The username and password.</para>
+</simplesect>
+If there is no password, the username alone is returned. If there is no username, a string of the form &quot;:password&quot; is returned. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="42" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3bedb52143857d30495789c09f258134" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Host</definition>
+        <argsstring>() const</argsstring>
+        <name>Host</name>
+        <qualifiedname>BUrl::Host</qualifiedname>
+        <briefdescription>
+<para>Returns the URL host component. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The URL host. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="43" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a7178e9456097294f5a7a454371898410" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int BUrl::Port</definition>
+        <argsstring>() const</argsstring>
+        <name>Port</name>
+        <qualifiedname>BUrl::Port</qualifiedname>
+        <briefdescription>
+<para>Returns the URL port number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The URL port number.</para>
+</simplesect>
+-1 is returned if no port is set. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="44" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1aa772e3c1c34c9f318a59249e122ffbbd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Authority</definition>
+        <argsstring>() const</argsstring>
+        <name>Authority</name>
+        <qualifiedname>BUrl::Authority</qualifiedname>
+        <briefdescription>
+<para>Returns the authority url as a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The authority url as a string.</para>
+</simplesect>
+The authority is of the form username:password@host:port. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="45" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1adf781a52fc4369605b9fab4d60c263e1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Path</definition>
+        <argsstring>() const</argsstring>
+        <name>Path</name>
+        <qualifiedname>BUrl::Path</qualifiedname>
+        <briefdescription>
+<para>Returns the url path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The url-path. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="46" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1afce69e43da0253fce49a4591ac98a329" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Request</definition>
+        <argsstring>() const</argsstring>
+        <name>Request</name>
+        <qualifiedname>BUrl::Request</qualifiedname>
+        <briefdescription>
+<para>Returns the url-request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The url-request as a string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="47" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a5247243f9c25d56e3af0b4bb13599c92" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+        <definition>const BString &amp; BUrl::Fragment</definition>
+        <argsstring>() const</argsstring>
+        <name>Fragment</name>
+        <qualifiedname>BUrl::Fragment</qualifiedname>
+        <briefdescription>
+<para>Returns the fragment of the url. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The fragment of the url as a string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="48" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <memberdef kind="function" id="classBUrl_1ac000b758475efde79295319800c4b94b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::IsValid</definition>
+        <argsstring>() const</argsstring>
+        <name>IsValid</name>
+        <qualifiedname>BUrl::IsValid</qualifiedname>
+        <briefdescription>
+<para>Check if the URL is valid. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if the URL is valid.</para>
+</simplesect>
+This function verifies that the mandatory fields are present and perform some other sanity checks on the URL.</para>
+<para>An URL is valid if:<itemizedlist>
+<listitem><para>It has a protocol, starting with an alphabetic character and folowed by alphanumeric or +, -, or . characters exclusively,</para>
+</listitem><listitem><para>If the protocol requires one, there is a valid host,</para>
+</listitem><listitem><para>If the protocol requires one, there is a path.</para>
+</listitem><listitem><para>If there is a host, it is either an IPv4 address or valid DNS name, or an IPv6 address enclosed in brackets</para>
+</listitem></itemizedlist>
+</para>
+<para>An invalid URL can still be modified using the various setters to turn it into a valid one. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="51" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a4b884454b70e103c201961eac0650f82" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasProtocol</definition>
+        <argsstring>() const</argsstring>
+        <name>HasProtocol</name>
+        <qualifiedname>BUrl::HasProtocol</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has a protocol. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has a protocol. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="52" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a857be1340cf7af43e810126394ad9dad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasUserName</definition>
+        <argsstring>() const</argsstring>
+        <name>HasUserName</name>
+        <qualifiedname>BUrl::HasUserName</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has an username. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has an username. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="53" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3961a8f49869c3cad79bc8a1b04e4491" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasPassword</definition>
+        <argsstring>() const</argsstring>
+        <name>HasPassword</name>
+        <qualifiedname>BUrl::HasPassword</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has a password. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has a password. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="54" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a34c3b86756ac910df9fbcde6d49fd158" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasUserInfo</definition>
+        <argsstring>() const</argsstring>
+        <name>HasUserInfo</name>
+        <qualifiedname>BUrl::HasUserInfo</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has user information. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has an username or password. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="55" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a405d684c631e583b49474e2c23e318ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasHost</definition>
+        <argsstring>() const</argsstring>
+        <name>HasHost</name>
+        <qualifiedname>BUrl::HasHost</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has an host. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has an host. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="56" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a6a377ec8b922efe03773ff751afc9e14" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasPort</definition>
+        <argsstring>() const</argsstring>
+        <name>HasPort</name>
+        <qualifiedname>BUrl::HasPort</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has a port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has a port. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="57" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a703193b440ab8ff190d4ce2cd72e88f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasAuthority</definition>
+        <argsstring>() const</argsstring>
+        <name>HasAuthority</name>
+        <qualifiedname>BUrl::HasAuthority</qualifiedname>
+        <briefdescription>
+<para>Check if the URL has an host or port. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has an host or port. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="58" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a0f92337b33cb90ea69ff0a8d13994e0a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasPath</definition>
+        <argsstring>() const</argsstring>
+        <name>HasPath</name>
+        <qualifiedname>BUrl::HasPath</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has a path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has a path. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="59" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a5ddadbf707dcfcf06dd0f84c72da89be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasRequest</definition>
+        <argsstring>() const</argsstring>
+        <name>HasRequest</name>
+        <qualifiedname>BUrl::HasRequest</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has a request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has a request. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="60" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3f7abc38df2ca8439acdda75ffb76c2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasFragment</definition>
+        <argsstring>() const</argsstring>
+        <name>HasFragment</name>
+        <qualifiedname>BUrl::HasFragment</qualifiedname>
+        <briefdescription>
+<para>Check wether the URL has a fragment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the URL has a fragment. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="61" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBUrl_1ab475010913225d01bfec4031d6fce81c" prot="private" static="no" mutable="yes">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fAuthority</definition>
+        <argsstring></argsstring>
+        <name>fAuthority</name>
+        <qualifiedname>BUrl::fAuthority</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="132" column="15" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1ae08fce11584ece4bf48a66e633d0bf73" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool BUrl::fAuthorityValid</definition>
+        <argsstring></argsstring>
+        <name>fAuthorityValid</name>
+        <qualifiedname>BUrl::fAuthorityValid</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="145" column="12" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1ab0d9fdb3260c515feeb1817657be638d" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fFragment</definition>
+        <argsstring></argsstring>
+        <name>fFragment</name>
+        <qualifiedname>BUrl::fFragment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="142" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a650d3f55961c663d3621a25118cb2920" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasFragment</definition>
+        <argsstring></argsstring>
+        <name>fHasFragment</name>
+        <qualifiedname>BUrl::fHasFragment</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="155" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a97373e809c9f006405a1c992fc4ecceb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasHost</definition>
+        <argsstring></argsstring>
+        <name>fHasHost</name>
+        <qualifiedname>BUrl::fHasHost</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="151" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a59b5c4b82f4e4714eb4e0c732adfd345" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasPassword</definition>
+        <argsstring></argsstring>
+        <name>fHasPassword</name>
+        <qualifiedname>BUrl::fHasPassword</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="150" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a6a9c0ceb8b6d84b894bb64374a8cded5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasPath</definition>
+        <argsstring></argsstring>
+        <name>fHasPath</name>
+        <qualifiedname>BUrl::fHasPath</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="153" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1abfd701eab08d3e91b294722e16db0068" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasPort</definition>
+        <argsstring></argsstring>
+        <name>fHasPort</name>
+        <qualifiedname>BUrl::fHasPort</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="152" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1af0d1b9075b67fa59dbaa06b011c90925" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasProtocol</definition>
+        <argsstring></argsstring>
+        <name>fHasProtocol</name>
+        <qualifiedname>BUrl::fHasProtocol</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="148" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1aead649b0b5f50893c7da5b20b6a07807" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasRequest</definition>
+        <argsstring></argsstring>
+        <name>fHasRequest</name>
+        <qualifiedname>BUrl::fHasRequest</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="154" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1acadc669e34ec3626ec81476142b8382c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BUrl::fHasUserName</definition>
+        <argsstring></argsstring>
+        <name>fHasUserName</name>
+        <qualifiedname>BUrl::fHasUserName</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="149" column="5" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a98c97f386faf4fe12f1e7e355e67953e" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fHost</definition>
+        <argsstring></argsstring>
+        <name>fHost</name>
+        <qualifiedname>BUrl::fHost</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="138" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a1a942453a5dfe5052572f0e08b0b5520" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fPassword</definition>
+        <argsstring></argsstring>
+        <name>fPassword</name>
+        <qualifiedname>BUrl::fPassword</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="137" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1af60df0c49d0f08c2225a511c94e84aab" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fPath</definition>
+        <argsstring></argsstring>
+        <name>fPath</name>
+        <qualifiedname>BUrl::fPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="140" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a4de60a636e0644b2951d19c9191456a1" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BUrl::fPort</definition>
+        <argsstring></argsstring>
+        <name>fPort</name>
+        <qualifiedname>BUrl::fPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="139" column="4" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a3c4f4c3f90ef79ae07fca14fb9c154fd" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fProtocol</definition>
+        <argsstring></argsstring>
+        <name>fProtocol</name>
+        <qualifiedname>BUrl::fProtocol</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="135" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a3090ff232489c2f4832e61c65630f404" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fRequest</definition>
+        <argsstring></argsstring>
+        <name>fRequest</name>
+        <qualifiedname>BUrl::fRequest</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="141" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a97955abbdd41470db1972436b57715d3" prot="private" static="no" mutable="yes">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fUrlString</definition>
+        <argsstring></argsstring>
+        <name>fUrlString</name>
+        <qualifiedname>BUrl::fUrlString</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="131" column="15" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a6bd38fe6a8cd45f667b858dda4b90d8a" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool BUrl::fUrlStringValid</definition>
+        <argsstring></argsstring>
+        <name>fUrlStringValid</name>
+        <qualifiedname>BUrl::fUrlStringValid</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="144" column="12" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a7d4bea67362e82745ebe6463c8e1f511" prot="private" static="no" mutable="no">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fUser</definition>
+        <argsstring></argsstring>
+        <name>fUser</name>
+        <qualifiedname>BUrl::fUser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="136" column="8" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a822fe6fdcaedeed40ea62c0ce8bc410d" prot="private" static="no" mutable="yes">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::fUserInfo</definition>
+        <argsstring></argsstring>
+        <name>fUserInfo</name>
+        <qualifiedname>BUrl::fUserInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="133" column="15" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBUrl_1a41c0c091e46076558af4a5599ee01fdb" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool BUrl::fUserInfoValid</definition>
+        <argsstring></argsstring>
+        <name>fUserInfoValid</name>
+        <qualifiedname>BUrl::fUserInfoValid</qualifiedname>
+        <bitfield> 1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="146" column="13" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBUrl_1a7a31ffee9b9a2a2c0ed5e1469926b0fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BUrl::Archive</definition>
+        <argsstring>(BMessage *into, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BUrl::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>into</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archive the object into a <ref refid="classBMessage" kindref="compound">BMessage</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You should call this method from your derived implementation as it adds the data needed to instantiate your object to the message.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>into</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message you store your object in. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput>, all children of this object should be archived as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive operation was successful. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>archive</emphasis> message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_ERROR</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive operation failed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="84" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ac9246cefd84a7982f6f2c50c2b6542df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::HasPreferredApplication</definition>
+        <argsstring>() const</argsstring>
+        <name>HasPreferredApplication</name>
+        <qualifiedname>BUrl::HasPreferredApplication</qualifiedname>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="78" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1abca014a8cc3914752f705b7d54d0fd5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BUrl::IDNAToAscii</definition>
+        <argsstring>()</argsstring>
+        <name>IDNAToAscii</name>
+        <qualifiedname>BUrl::IDNAToAscii</qualifiedname>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1afcc5d2782f5dc66adfc551ac91fda03b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BUrl::IDNAToUnicode</definition>
+        <argsstring>()</argsstring>
+        <name>IDNAToUnicode</name>
+        <qualifiedname>BUrl::IDNAToUnicode</qualifiedname>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="68" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a09f6715479da11c9144097fd14108ea3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BUrl::OpenWithPreferredApplication</definition>
+        <argsstring>(bool onProblemAskUser=true) const</argsstring>
+        <name>OpenWithPreferredApplication</name>
+        <qualifiedname>BUrl::OpenWithPreferredApplication</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>onProblemAskUser</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>onProblemAskUser</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3e90fb68ff042f3466b07fd50f18000f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BUrl::operator const char *</definition>
+        <argsstring>() const</argsstring>
+        <name>operator const char *</name>
+        <qualifiedname>BUrl::operator const char *</qualifiedname>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="98" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ab19ee40437564a6973655e99b520ae38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::operator!=</definition>
+        <argsstring>(BUrl &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>BUrl::operator!=</qualifiedname>
+        <param>
+          <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="90" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a38bc20169ae0167ece8b6db3a1e387bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>const BUrl &amp; BUrl::operator=</definition>
+        <argsstring>(const BString &amp;string)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BUrl::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="94" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a0c014664d9af6d2922ced7f1c7d32f9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>const BUrl &amp; BUrl::operator=</definition>
+        <argsstring>(const BUrl &amp;other)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BUrl::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="93" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a6eec777fcd47f02fdd9227f9c774a3d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+        <definition>const BUrl &amp; BUrl::operator=</definition>
+        <argsstring>(const char *string)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BUrl::operator=</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="95" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a8d540dc63f937690a33affe3ab202a6c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::operator==</definition>
+        <argsstring>(BUrl &amp;other) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>BUrl::operator==</qualifiedname>
+        <param>
+          <type><ref refid="classBUrl" kindref="compound">BUrl</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="89" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1abe2a65d6ac098771d30cc906cb78c13e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::PreferredApplication</definition>
+        <argsstring>() const</argsstring>
+        <name>PreferredApplication</name>
+        <qualifiedname>BUrl::PreferredApplication</qualifiedname>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="79" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a73c640a34be4d39546b31e0dcea2d142" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BUrl::UrlDecode</definition>
+        <argsstring>(bool strict=false)</argsstring>
+        <name>UrlDecode</name>
+        <qualifiedname>BUrl::UrlDecode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="65" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a971fd4c7985f7d9a448fb245913290c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BUrl::UrlEncode</definition>
+        <argsstring>(bool strict=false)</argsstring>
+        <name>UrlEncode</name>
+        <qualifiedname>BUrl::UrlEncode</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>strict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="64" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classBUrl_1ab44ebd044cb54077712694ac3b625bc7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>static static BArchivable * BUrl::Instantiate</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BUrl::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>archive</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="86" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ab531b503de889637655f67d8fa0c7ac9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>static static BString BUrl::UrlDecode</definition>
+        <argsstring>(const BString &amp;url, bool strict=false)</argsstring>
+        <name>UrlDecode</name>
+        <qualifiedname>BUrl::UrlDecode</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="74" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1aac384016bee0eb625fbdbdac01f4a621" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>static static BString BUrl::UrlEncode</definition>
+        <argsstring>(const BString &amp;url, bool strict=false, bool directory=false)</argsstring>
+        <name>UrlEncode</name>
+        <qualifiedname>BUrl::UrlEncode</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>url</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>directory</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Undocumented public method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strict</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>directory</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Undocumented </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>&lt;value&gt;</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Undocumented</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="71" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBUrl_1addcec7e914cddd0c5185b91ac3922e98" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::_ContainsDelimiter</definition>
+        <argsstring>(const BString &amp;url)</argsstring>
+        <name>_ContainsDelimiter</name>
+        <qualifiedname>BUrl::_ContainsDelimiter</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="102" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a9196a9560cfbfc140258e681f2757589" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BUrl::_ExplodeUrlString</definition>
+        <argsstring>(const BString &amp;urlString, uint32 flags)</argsstring>
+        <name>_ExplodeUrlString</name>
+        <qualifiedname>BUrl::_ExplodeUrlString</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>urlString</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="103" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a66f242df2d1b593ee2eb5fd758c9631f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::_IsHostIPV6Valid</definition>
+        <argsstring>(size_t offset, int32 length) const</argsstring>
+        <name>_IsHostIPV6Valid</name>
+        <qualifiedname>BUrl::_IsHostIPV6Valid</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="114" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ad0c62739b363f4d953083aeff9053c00" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::_IsHostValid</definition>
+        <argsstring>() const</argsstring>
+        <name>_IsHostValid</name>
+        <qualifiedname>BUrl::_IsHostValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="113" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a1767752dfee75f338ca0e4ff0d066133" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BUrl::_IsProtocolValid</definition>
+        <argsstring>() const</argsstring>
+        <name>_IsProtocolValid</name>
+        <qualifiedname>BUrl::_IsProtocolValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="116" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a6d78b0336bb7da60a920604c343ec17f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::_MergePath</definition>
+        <argsstring>(const BString &amp;relative) const</argsstring>
+        <name>_MergePath</name>
+        <qualifiedname>BUrl::_MergePath</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>relative</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="105" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ab6dfe58aa7c9294bd7ab4542889ce028" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BUrl::_ResetFields</definition>
+        <argsstring>()</argsstring>
+        <name>_ResetFields</name>
+        <qualifiedname>BUrl::_ResetFields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="101" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ad12dae1da5ac04d9320b706c5d115393" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BUrl::_SetPathUnsafe</definition>
+        <argsstring>(const BString &amp;path)</argsstring>
+        <name>_SetPathUnsafe</name>
+        <qualifiedname>BUrl::_SetPathUnsafe</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="106" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1aa6e8c7fbfff6a7029a9e7dd13eece75e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>BString BUrl::_UrlMimeType</definition>
+        <argsstring>() const</argsstring>
+        <name>_UrlMimeType</name>
+        <qualifiedname>BUrl::_UrlMimeType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="128" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classBUrl_1a0f4f8dfc8f25a9d740eee5fc52e2209f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>static BString BUrl::_DoUrlDecodeChunk</definition>
+        <argsstring>(const BString &amp;chunk, bool strict)</argsstring>
+        <name>_DoUrlDecodeChunk</name>
+        <qualifiedname>BUrl::_DoUrlDecodeChunk</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>chunk</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="110" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a7074882f7419352baaa9960d1a18ce43" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBString" kindref="compound">BString</ref></type>
+        <definition>static BString BUrl::_DoUrlEncodeChunk</definition>
+        <argsstring>(const BString &amp;chunk, bool strict, bool directory=false)</argsstring>
+        <name>_DoUrlEncodeChunk</name>
+        <qualifiedname>BUrl::_DoUrlEncodeChunk</qualifiedname>
+        <param>
+          <type>const <ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>chunk</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>strict</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>directory</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="108" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a3c2931af3f0a942e85b2bff2c8acc7e6" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsGenDelim</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsGenDelim</name>
+        <qualifiedname>BUrl::_IsGenDelim</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="118" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ab2f978e6a75416c6e4e1ae3f1cd6b15f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsHostChar</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsHostChar</name>
+        <qualifiedname>BUrl::_IsHostChar</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="123" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1ac99b403a07d36cf3edfa3154efb49f51" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsIPV6Char</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsIPV6Char</name>
+        <qualifiedname>BUrl::_IsIPV6Char</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="120" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a9af84c427e5e1e6ccf9b1db7d34adadf" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsPasswordChar</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsPasswordChar</name>
+        <qualifiedname>BUrl::_IsPasswordChar</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="122" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a715bf04d46df36aba4bd3fd76a9d7956" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsPortChar</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsPortChar</name>
+        <qualifiedname>BUrl::_IsPortChar</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="124" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a8a53f8e4299b5374c982da549b505c2e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsSubDelim</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsSubDelim</name>
+        <qualifiedname>BUrl::_IsSubDelim</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="119" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1aa02d76abbc2596baadbe2d76d0554cbe" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsUnreserved</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsUnreserved</name>
+        <qualifiedname>BUrl::_IsUnreserved</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="117" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a7387baeca1c47923d927f397485e354b" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool BUrl::_IsUsernameChar</definition>
+        <argsstring>(char c)</argsstring>
+        <name>_IsUsernameChar</name>
+        <qualifiedname>BUrl::_IsUsernameChar</qualifiedname>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="121" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classBUrl_1a301f8cbf5ddec1fb1c87c2116d4e8e96" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void BUrl::_RemoveLastPathComponent</definition>
+        <argsstring>(BString &amp;path)</argsstring>
+        <name>_RemoveLastPathComponent</name>
+        <qualifiedname>BUrl::_RemoveLastPathComponent</qualifiedname>
+        <param>
+          <type><ref refid="classBString" kindref="compound">BString</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="126" column="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Represents and manipulates an URL (Uniform Resource Locator). </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1</para>
+</simplesect>
+An &quot;Uniform Resource Locator&quot; identifies a place where a resource can be found. It specifies both a location and a mechanism to retrieve the data. For example, <ulink url="http://www.example.com/index.html">http://www.example.com/index.html</ulink> indicates a protocol (http), a hostname (www.example.com), and a file name (index.html).</para>
+<para>Every URL consists of a sequence of up to five components: protocol, authority (consisting of login and password, hostname and port) path, request and fragment.</para>
+<para>The format is provided in RFC3986 (URI generic syntax), Appendix B as a regular expression: ^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?</para>
+<para>This regular expression makes it possible to parse any string as an URL (if there are no special characters to spearate the fields, everything will end up in the path compopent). However, some characters are not allowed: space, newlines, tabs, &lt;, &gt; and ". If any of these is present in the URL string, the parsing results in an empty URL.</para>
+<para>The protocols (http, https, ftp, irc, etc) identifies which way the resource can be accessed.</para>
+<para>Authority consists of userinfo such as username and password, a host subcomponent consisting of IP address or hostname and a port subcomponent.</para>
+<para>The path component locates the resource inside the authority&apos;s hierarchy, and can have different formats (for example, directory names separated by slashes) depending on the protocol in use.</para>
+<para>The request component (preceeded by a question mark) contains a query string of non-hierarchial data.</para>
+<para>The fragment contains a fragment identifier providing direction to a secondary resource, usually an identifier for a specific element into the resource such as a paragraph in a text. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BUrl</label>
+        <link refid="classBUrl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BUrl</label>
+        <link refid="classBUrl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/support/Url.h" line="15" column="1" bodyfile="/boot/home/src/haiku/headers/os/support/Url.h" bodystart="15" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classBUrl_1addcec7e914cddd0c5185b91ac3922e98" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_ContainsDelimiter</name></member>
+      <member refid="classBUrl_1a0f4f8dfc8f25a9d740eee5fc52e2209f" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_DoUrlDecodeChunk</name></member>
+      <member refid="classBUrl_1a7074882f7419352baaa9960d1a18ce43" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_DoUrlEncodeChunk</name></member>
+      <member refid="classBUrl_1a9196a9560cfbfc140258e681f2757589" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_ExplodeUrlString</name></member>
+      <member refid="classBUrl_1a3c2931af3f0a942e85b2bff2c8acc7e6" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsGenDelim</name></member>
+      <member refid="classBUrl_1ab2f978e6a75416c6e4e1ae3f1cd6b15f" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsHostChar</name></member>
+      <member refid="classBUrl_1a66f242df2d1b593ee2eb5fd758c9631f" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsHostIPV6Valid</name></member>
+      <member refid="classBUrl_1ad0c62739b363f4d953083aeff9053c00" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsHostValid</name></member>
+      <member refid="classBUrl_1ac99b403a07d36cf3edfa3154efb49f51" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsIPV6Char</name></member>
+      <member refid="classBUrl_1a9af84c427e5e1e6ccf9b1db7d34adadf" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsPasswordChar</name></member>
+      <member refid="classBUrl_1a715bf04d46df36aba4bd3fd76a9d7956" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsPortChar</name></member>
+      <member refid="classBUrl_1a1767752dfee75f338ca0e4ff0d066133" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsProtocolValid</name></member>
+      <member refid="classBUrl_1a8a53f8e4299b5374c982da549b505c2e" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsSubDelim</name></member>
+      <member refid="classBUrl_1aa02d76abbc2596baadbe2d76d0554cbe" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsUnreserved</name></member>
+      <member refid="classBUrl_1a7387baeca1c47923d927f397485e354b" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_IsUsernameChar</name></member>
+      <member refid="classBUrl_1a6d78b0336bb7da60a920604c343ec17f" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_MergePath</name></member>
+      <member refid="classBUrl_1a301f8cbf5ddec1fb1c87c2116d4e8e96" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_RemoveLastPathComponent</name></member>
+      <member refid="classBUrl_1ab6dfe58aa7c9294bd7ab4542889ce028" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_ResetFields</name></member>
+      <member refid="classBUrl_1ad12dae1da5ac04d9320b706c5d115393" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_SetPathUnsafe</name></member>
+      <member refid="classBUrl_1aa6e8c7fbfff6a7029a9e7dd13eece75e" prot="private" virt="non-virtual"><scope>BUrl</scope><name>_UrlMimeType</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BUrl</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BUrl</scope><name>AllUnarchived</name></member>
+      <member refid="classBUrl_1a7a31ffee9b9a2a2c0ed5e1469926b0fa" prot="public" virt="virtual"><scope>BUrl</scope><name>Archive</name></member>
+      <member refid="classBUrl_1aa772e3c1c34c9f318a59249e122ffbbd" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Authority</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BArchivable</name></member>
+      <member refid="classBUrl_1a2c0ba086519c9331129da91bc63468d8" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BUrl</name></member>
+      <member refid="classBUrl_1a5293b708cdf87492893d60653412169d" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BUrl</name></member>
+      <member refid="classBUrl_1ae807d2bcb5472e5c7dac4a5232411a9a" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BUrl</name></member>
+      <member refid="classBUrl_1a60259de36be5fe073c5c3ad98c011645" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BUrl</name></member>
+      <member refid="classBUrl_1af1ff7c9a2d6a3db235dbefb7f39ddd8f" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BUrl</name></member>
+      <member refid="classBUrl_1a3a5f36050039221749377b4409fea080" prot="public" virt="non-virtual"><scope>BUrl</scope><name>BUrl</name></member>
+      <member refid="classBUrl_1ab475010913225d01bfec4031d6fce81c" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fAuthority</name></member>
+      <member refid="classBUrl_1ae08fce11584ece4bf48a66e633d0bf73" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fAuthorityValid</name></member>
+      <member refid="classBUrl_1ab0d9fdb3260c515feeb1817657be638d" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fFragment</name></member>
+      <member refid="classBUrl_1a650d3f55961c663d3621a25118cb2920" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasFragment</name></member>
+      <member refid="classBUrl_1a97373e809c9f006405a1c992fc4ecceb" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasHost</name></member>
+      <member refid="classBUrl_1a59b5c4b82f4e4714eb4e0c732adfd345" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasPassword</name></member>
+      <member refid="classBUrl_1a6a9c0ceb8b6d84b894bb64374a8cded5" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasPath</name></member>
+      <member refid="classBUrl_1abfd701eab08d3e91b294722e16db0068" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasPort</name></member>
+      <member refid="classBUrl_1af0d1b9075b67fa59dbaa06b011c90925" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasProtocol</name></member>
+      <member refid="classBUrl_1aead649b0b5f50893c7da5b20b6a07807" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasRequest</name></member>
+      <member refid="classBUrl_1acadc669e34ec3626ec81476142b8382c" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHasUserName</name></member>
+      <member refid="classBUrl_1a98c97f386faf4fe12f1e7e355e67953e" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fHost</name></member>
+      <member refid="classBUrl_1a1a942453a5dfe5052572f0e08b0b5520" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fPassword</name></member>
+      <member refid="classBUrl_1af60df0c49d0f08c2225a511c94e84aab" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fPath</name></member>
+      <member refid="classBUrl_1a4de60a636e0644b2951d19c9191456a1" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fPort</name></member>
+      <member refid="classBUrl_1a3c4f4c3f90ef79ae07fca14fb9c154fd" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fProtocol</name></member>
+      <member refid="classBUrl_1a5247243f9c25d56e3af0b4bb13599c92" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Fragment</name></member>
+      <member refid="classBUrl_1a3090ff232489c2f4832e61c65630f404" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fRequest</name></member>
+      <member refid="classBUrl_1a97955abbdd41470db1972436b57715d3" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fUrlString</name></member>
+      <member refid="classBUrl_1a6bd38fe6a8cd45f667b858dda4b90d8a" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fUrlStringValid</name></member>
+      <member refid="classBUrl_1a7d4bea67362e82745ebe6463c8e1f511" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fUser</name></member>
+      <member refid="classBUrl_1a822fe6fdcaedeed40ea62c0ce8bc410d" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fUserInfo</name></member>
+      <member refid="classBUrl_1a41c0c091e46076558af4a5599ee01fdb" prot="private" virt="non-virtual"><scope>BUrl</scope><name>fUserInfoValid</name></member>
+      <member refid="classBUrl_1a703193b440ab8ff190d4ce2cd72e88f0" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasAuthority</name></member>
+      <member refid="classBUrl_1a3f7abc38df2ca8439acdda75ffb76c2c" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasFragment</name></member>
+      <member refid="classBUrl_1a405d684c631e583b49474e2c23e318ba" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasHost</name></member>
+      <member refid="classBUrl_1a3961a8f49869c3cad79bc8a1b04e4491" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasPassword</name></member>
+      <member refid="classBUrl_1a0f92337b33cb90ea69ff0a8d13994e0a" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasPath</name></member>
+      <member refid="classBUrl_1a6a377ec8b922efe03773ff751afc9e14" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasPort</name></member>
+      <member refid="classBUrl_1ac9246cefd84a7982f6f2c50c2b6542df" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasPreferredApplication</name></member>
+      <member refid="classBUrl_1a4b884454b70e103c201961eac0650f82" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasProtocol</name></member>
+      <member refid="classBUrl_1a5ddadbf707dcfcf06dd0f84c72da89be" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasRequest</name></member>
+      <member refid="classBUrl_1a34c3b86756ac910df9fbcde6d49fd158" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasUserInfo</name></member>
+      <member refid="classBUrl_1a857be1340cf7af43e810126394ad9dad" prot="public" virt="non-virtual"><scope>BUrl</scope><name>HasUserName</name></member>
+      <member refid="classBUrl_1a3bedb52143857d30495789c09f258134" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Host</name></member>
+      <member refid="classBUrl_1abca014a8cc3914752f705b7d54d0fd5f" prot="public" virt="non-virtual"><scope>BUrl</scope><name>IDNAToAscii</name></member>
+      <member refid="classBUrl_1afcc5d2782f5dc66adfc551ac91fda03b" prot="public" virt="non-virtual"><scope>BUrl</scope><name>IDNAToUnicode</name></member>
+      <member refid="classBUrl_1ab44ebd044cb54077712694ac3b625bc7" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Instantiate</name></member>
+      <member refid="classBUrl_1ac000b758475efde79295319800c4b94b" prot="public" virt="non-virtual"><scope>BUrl</scope><name>IsValid</name></member>
+      <member refid="classBUrl_1a09f6715479da11c9144097fd14108ea3" prot="public" virt="non-virtual"><scope>BUrl</scope><name>OpenWithPreferredApplication</name></member>
+      <member refid="classBUrl_1a3e90fb68ff042f3466b07fd50f18000f" prot="public" virt="non-virtual"><scope>BUrl</scope><name>operator const char *</name></member>
+      <member refid="classBUrl_1ab19ee40437564a6973655e99b520ae38" prot="public" virt="non-virtual"><scope>BUrl</scope><name>operator!=</name></member>
+      <member refid="classBUrl_1a0c014664d9af6d2922ced7f1c7d32f9c" prot="public" virt="non-virtual"><scope>BUrl</scope><name>operator=</name></member>
+      <member refid="classBUrl_1a38bc20169ae0167ece8b6db3a1e387bd" prot="public" virt="non-virtual"><scope>BUrl</scope><name>operator=</name></member>
+      <member refid="classBUrl_1a6eec777fcd47f02fdd9227f9c774a3d1" prot="public" virt="non-virtual"><scope>BUrl</scope><name>operator=</name></member>
+      <member refid="classBUrl_1a8d540dc63f937690a33affe3ab202a6c" prot="public" virt="non-virtual"><scope>BUrl</scope><name>operator==</name></member>
+      <member refid="classBUrl_1a3a0b93ae1312526a97bcea3eb4ec327c" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Password</name></member>
+      <member refid="classBUrl_1adf781a52fc4369605b9fab4d60c263e1" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Path</name></member>
+      <member refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de" prot="public" virt="virtual"><scope>BUrl</scope><name>Perform</name></member>
+      <member refid="classBUrl_1a7178e9456097294f5a7a454371898410" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Port</name></member>
+      <member refid="classBUrl_1abe2a65d6ac098771d30cc906cb78c13e" prot="public" virt="non-virtual"><scope>BUrl</scope><name>PreferredApplication</name></member>
+      <member refid="classBUrl_1a5fe451dcb0024678f5e34188391b5496" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Protocol</name></member>
+      <member refid="classBUrl_1afce69e43da0253fce49a4591ac98a329" prot="public" virt="non-virtual"><scope>BUrl</scope><name>Request</name></member>
+      <member refid="classBUrl_1a118c3ce21032d81625b26318f9813c9e" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetAuthority</name></member>
+      <member refid="classBUrl_1a97388e065d4863faf20093866510a7c5" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetFragment</name></member>
+      <member refid="classBUrl_1aaa5b4f8a1f155de6344971ebd099029f" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetHost</name></member>
+      <member refid="classBUrl_1ad08b29132b24147d450d91f4cb9555b0" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetPassword</name></member>
+      <member refid="classBUrl_1a76be6277ba21086f775c974bc182ce4c" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetPath</name></member>
+      <member refid="classBUrl_1abad7861de9d16c1199d658c5844bb14e" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetPort</name></member>
+      <member refid="classBUrl_1a197682695d429bb6ac00aad83f1763d4" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetProtocol</name></member>
+      <member refid="classBUrl_1a1450afbf8c6359872cd8f4df9ce54ee3" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetRequest</name></member>
+      <member refid="classBUrl_1a35ca977769841365480574cf4cdca5e0" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetUrlString</name></member>
+      <member refid="classBUrl_1a97ac2ce47db4214c813bb54804bf6817" prot="public" virt="non-virtual"><scope>BUrl</scope><name>SetUserName</name></member>
+      <member refid="classBUrl_1a73c640a34be4d39546b31e0dcea2d142" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UrlDecode</name></member>
+      <member refid="classBUrl_1ab531b503de889637655f67d8fa0c7ac9" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UrlDecode</name></member>
+      <member refid="classBUrl_1a971fd4c7985f7d9a448fb245913290c3" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UrlEncode</name></member>
+      <member refid="classBUrl_1aac384016bee0eb625fbdbdac01f4a621" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UrlEncode</name></member>
+      <member refid="classBUrl_1abe7146fe16a9177a5eb3d0eda8df01fa" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UrlString</name></member>
+      <member refid="classBUrl_1ac381182fc92fd3b314312dd566c0cd07" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UserInfo</name></member>
+      <member refid="classBUrl_1a6a79c0ca3d8eb190ef855e92c3800593" prot="public" virt="non-virtual"><scope>BUrl</scope><name>UserName</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BUrl</scope><name>~BArchivable</name></member>
+      <member refid="classBUrl_1a36e778750217796913f4b0eb67e6b311" prot="public" virt="virtual"><scope>BUrl</scope><name>~BUrl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="Beep_8h" kind="file" language="C++">
+    <compoundname>Beep.h</compoundname>
+    <includes local="no">BeBuild.h</includes>
+    <includes refid="SupportDefs_8h" local="no">SupportDefs.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Beep.h</label>
+        <link refid="Beep_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SupportDefs.h</label>
+        <link refid="SupportDefs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BeBuild.h</label>
+      </node>
+      <node id="4">
+        <label>inttypes.h</label>
+      </node>
+      <node id="5">
+        <label>sys/types.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t add_system_beep_event</definition>
+        <argsstring>(const char *eventName, uint32 flags=0)</argsstring>
+        <name>add_system_beep_event</name>
+        <param>
+          <type>const char *</type>
+          <declname>eventName</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Adds an event to the media server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Call this method to add a specific event to the media server. From <ref refid="Beep_8h" kindref="compound">Beep.h</ref> and in libbe.so.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>eventName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Currently unused. Pass <computeroutput>0</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Beep.h" line="18" column="10" declfile="/boot/home/src/haiku/headers/os/support/Beep.h" declline="18" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gac178267cc77532b134ff7ee34c99d6e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t beep</definition>
+        <argsstring>()</argsstring>
+        <name>beep</name>
+        <briefdescription>
+<para>Invoke the standard system beep to alert users. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>From <ref refid="Beep_8h" kindref="compound">Beep.h</ref> and in libbe.so.</para>
+<para><simplesect kind="see"><para><ref refid="group__support__globals_1gadd6488e3357ba3dfb3a8217db6cfc67d" kindref="member">system_beep()</ref> and <ref refid="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" kindref="member">add_system_beep_event()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Beep.h" line="16" column="10" declfile="/boot/home/src/haiku/headers/os/support/Beep.h" declline="16" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="group__support__globals_1gadd6488e3357ba3dfb3a8217db6cfc67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t system_beep</definition>
+        <argsstring>(const char *eventName)</argsstring>
+        <name>system_beep</name>
+        <param>
+          <type>const char *</type>
+          <declname>eventName</declname>
+        </param>
+        <briefdescription>
+<para>Invokes the sound for event <emphasis>eventName</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>You can add the events using <ref refid="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" kindref="member">add_system_beep_event()</ref>. From <ref refid="Beep_8h" kindref="compound">Beep.h</ref> and in libbe.so.</para>
+<para><simplesect kind="since"><para>BeOS R5 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/support/Beep.h" line="17" column="10" declfile="/boot/home/src/haiku/headers/os/support/Beep.h" declline="17" declcolumn="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Functions to generate sounds from the computer. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>2007-2014<sp/>Haiku,<sp/>Inc.<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Distributed<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>MIT<sp/>License.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_BEEP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_BEEP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;BeBuild.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="SupportDefs_8h" kindref="compound">SupportDefs.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>functions<sp/>are<sp/>only<sp/>exported<sp/>for<sp/>C++</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="group__support__globals_1gac178267cc77532b134ff7ee34c99d6e1" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__support__globals_1gac178267cc77532b134ff7ee34c99d6e1" kindref="member">beep</ref>();</highlight></codeline>
+<codeline lineno="17" refid="group__support__globals_1gadd6488e3357ba3dfb3a8217db6cfc67d" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__support__globals_1gadd6488e3357ba3dfb3a8217db6cfc67d" kindref="member">system_beep</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>eventName);</highlight></codeline>
+<codeline lineno="18" refid="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" refkind="member"><highlight class="normal"><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref><sp/><ref refid="group__support__globals_1gab1527bdd01873399ce1cab5257deb523" kindref="member">add_system_beep_event</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>eventName,<sp/><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref><sp/>flags<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>_BEEP_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/boot/home/src/haiku/headers/os/support/Beep.h"/>
+  </compounddef>
+</doxygen>

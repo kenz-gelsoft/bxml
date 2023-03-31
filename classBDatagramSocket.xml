@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBDatagramSocket" kind="class" language="C++" prot="public">
+    <compoundname>BDatagramSocket</compoundname>
+    <basecompoundref refid="classBAbstractSocket" prot="public" virt="non-virtual">BAbstractSocket</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBDatagramSocket_1aff103fc27ec7e5e6c297834f51c22647" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BDatagramSocket::BDatagramSocket</definition>
+        <argsstring>()</argsstring>
+        <name>BDatagramSocket</name>
+        <qualifiedname>BDatagramSocket::BDatagramSocket</qualifiedname>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Does nothing. Call Bind() or Connect() to actually start network communications.</para>
+<para><simplesect kind="see"><para><ref refid="classBAbstractSocket_1aa0eff1ec277cbae66613975c3bb67da7" kindref="member">BAbstractSocket::BAbstractSocket()</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a79ca47cd67f20130dd371cfdf80028ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BDatagramSocket::BDatagramSocket</definition>
+        <argsstring>(const BDatagramSocket &amp;other)</argsstring>
+        <name>BDatagramSocket</name>
+        <qualifiedname>BDatagramSocket::BDatagramSocket</qualifiedname>
+        <param>
+          <type>const <ref refid="classBDatagramSocket" kindref="compound">BDatagramSocket</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a4b0de32f12b5b4792351891c1efad563" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BDatagramSocket::BDatagramSocket</definition>
+        <argsstring>(const BNetworkAddress &amp;peer, bigtime_t timeout=-1)</argsstring>
+        <name>BDatagramSocket</name>
+        <qualifiedname>BDatagramSocket::BDatagramSocket</qualifiedname>
+        <param>
+          <type>const BNetworkAddress &amp;</type>
+          <declname>peer</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+<para>Create and connect a datagram socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The socket is immediately connected to the given peer. Use <ref refid="classBAbstractSocket_1af9d46dffaf8377e7235680873e82d66f" kindref="member">InitCheck()</ref> to make sure the connection was successful.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>peer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>host to connect to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeout</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>connection timeout, in microsecond. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1acd83cd922179997e11eeea350595abc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BDatagramSocket::~BDatagramSocket</definition>
+        <argsstring>()</argsstring>
+        <name>~BDatagramSocket</name>
+        <qualifiedname>BDatagramSocket::~BDatagramSocket</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The socket is disconnected. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="18" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1ac4850f7bd76423cc709e17488f361292" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BDatagramSocket::Accept</definition>
+        <argsstring>(BAbstractSocket *&amp;_socket)</argsstring>
+        <name>Accept</name>
+        <qualifiedname>BDatagramSocket::Accept</qualifiedname>
+        <reimplements refid="classBAbstractSocket_1ab342815add8223e087a5e765276f1467">Accept</reimplements>
+        <param>
+          <type><ref refid="classBAbstractSocket" kindref="compound">BAbstractSocket</ref> *&amp;</type>
+          <declname>_socket</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="25" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a09527623a391e9001895b231b37c62d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BDatagramSocket::Bind</definition>
+        <argsstring>(const BNetworkAddress &amp;peer, bool reuseAddr=true)</argsstring>
+        <name>Bind</name>
+        <qualifiedname>BDatagramSocket::Bind</qualifiedname>
+        <reimplements refid="classBAbstractSocket_1a9a3d46a34d8b96f443bbbf676db8dfb0">Bind</reimplements>
+        <param>
+          <type>const BNetworkAddress &amp;</type>
+          <declname>peer</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>reuseAddr</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="20" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1ae63f37f5632adf98d7a0bbe2202d72d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BDatagramSocket::Connect</definition>
+        <argsstring>(const BNetworkAddress &amp;peer, bigtime_t timeout=B_INFINITE_TIMEOUT)</argsstring>
+        <name>Connect</name>
+        <qualifiedname>BDatagramSocket::Connect</qualifiedname>
+        <reimplements refid="classBAbstractSocket_1af43b41f6fdbb1610ef6c671b02fb14d2">Connect</reimplements>
+        <param>
+          <type>const BNetworkAddress &amp;</type>
+          <declname>peer</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a29bb8e432e460af113ef8938cef96f8b" kindref="member">bigtime_t</ref></type>
+          <declname>timeout</declname>
+          <defval>B_INFINITE_TIMEOUT</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="22" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a14121c4a20ea7583b5b29bcef28aeb26" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t BDatagramSocket::MaxTransmissionSize</definition>
+        <argsstring>() const</argsstring>
+        <name>MaxTransmissionSize</name>
+        <qualifiedname>BDatagramSocket::MaxTransmissionSize</qualifiedname>
+        <reimplements refid="classBAbstractSocket_1aeb86b990a759fae1d7f15cb150510e2a">MaxTransmissionSize</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum size for datagram sockets is 32768 bytes.</para>
+<para><simplesect kind="return"><para>32768 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="30" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1ac8d954e7e11eb2ef59d55b80a89e286c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BDatagramSocket::Read</definition>
+        <argsstring>(void *buffer, size_t size)</argsstring>
+        <name>Read</name>
+        <qualifiedname>BDatagramSocket::Read</qualifiedname>
+        <reimplements refid="classBDataIO_1a847ec8576c368bf9aada412e92aed623">Read</reimplements>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Receive a datagram from any sender. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is similar to <ref refid="classBDatagramSocket_1ab63539aacc97082f7e036f135354ea96" kindref="member">ReceiveFrom()</ref>, but there is no way to know who sent the message.</para>
+<para>If the buffer is too small, the remaining part of the datagram is lost.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>memory to store the datagram in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size of the buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of bytes actually written, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="39" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1ab63539aacc97082f7e036f135354ea96" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BDatagramSocket::ReceiveFrom</definition>
+        <argsstring>(void *buffer, size_t bufferSize, BNetworkAddress &amp;from)</argsstring>
+        <name>ReceiveFrom</name>
+        <qualifiedname>BDatagramSocket::ReceiveFrom</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>bufferSize</declname>
+        </param>
+        <param>
+          <type>BNetworkAddress &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>receive a single datagram from a given host </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Receives a datagram, and fills the <emphasis>from</emphasis> address with the host that sent it. If the buffer is too small, extra bytes from the datagram will be lost.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the buffer to store the datagram in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bufferSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of the buffer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the datagram sender address </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="34" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1abbab81c244f9e6fe3078e960750a13c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BDatagramSocket::SendTo</definition>
+        <argsstring>(const BNetworkAddress &amp;address, const void *buffer, size_t size)</argsstring>
+        <name>SendTo</name>
+        <qualifiedname>BDatagramSocket::SendTo</qualifiedname>
+        <param>
+          <type>const BNetworkAddress &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Send a single datagram to the given address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Unlike the <ref refid="classBDatagramSocket_1a166e043d7e578825b4b36f069309d1df" kindref="member">Write()</ref> method, which always sends to the same peer, this method can be used to send messages to different destinations.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the host to send the datagram to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>datagram contents </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of the buffer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of bytes sent, which may be less than requested, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="32" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a66af2ddaeda1631dd384e1c677c3233a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>BDatagramSocket::SetBroadcast</definition>
+        <argsstring>(bool broadcast)</argsstring>
+        <name>SetBroadcast</name>
+        <qualifiedname>BDatagramSocket::SetBroadcast</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>broadcast</declname>
+        </param>
+        <briefdescription>
+<para>enables or disable broadcast mode </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In broadcast mode, datagrams can be sent to multiple peers at once. Calling this method is not enough, you must also set your peer address to be <computeroutput>INADDR_BROADCAST</computeroutput> to effectively send a broadcast message.</para>
+<para>Note that broadcast messages usually don&apos;t propagate on Internet as they would generate too much traffic. Their use is thus restricted to local networks.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>broadcast</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the requested state for broadcast permissions. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success, or other error codes on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a9ffccacba93217a50f57772c7c9f755f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BDatagramSocket::SetPeer</definition>
+        <argsstring>(const BNetworkAddress &amp;peer)</argsstring>
+        <name>SetPeer</name>
+        <qualifiedname>BDatagramSocket::SetPeer</qualifiedname>
+        <param>
+          <type>const BNetworkAddress &amp;</type>
+          <declname>peer</declname>
+        </param>
+        <briefdescription>
+<para>Change the remote host for this connections. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Datagram connections are not statically bound to a remote address, so it is possible to change the destination of packets at runtime.</para>
+<para>Note that packets coming to the right local address, no matter where they come from, will always be accepted.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>peer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the address to which following Write calls will send datagrams </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="28" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBDatagramSocket_1a166e043d7e578825b4b36f069309d1df" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>ssize_t</type>
+        <definition>ssize_t BDatagramSocket::Write</definition>
+        <argsstring>(const void *buffer, size_t size)</argsstring>
+        <name>Write</name>
+        <qualifiedname>BDatagramSocket::Write</qualifiedname>
+        <reimplements refid="classBDataIO_1a01692303eba7601c6a7cfa72c06d6afb">Write</reimplements>
+        <param>
+          <type>const void *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Send a datagram to the default target. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If the socket is connected, send a datagram to the connected host. If it&apos;s not, send to the peer given to the <ref refid="classBDatagramSocket_1a9ffccacba93217a50f57772c7c9f755f" kindref="member">SetPeer()</ref> function.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the datagram to send </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the size of the message </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the number of bytes written, which may be less than requested, or a negative error code. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="40" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classBAbstractSocket" kindref="compound">BAbstractSocket</ref> implementation for datagram connections. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Datagrams are atomic messages. There is no notion of sequence and the data sent in a sequence of write calls may not get to the other end of the connections in the same order. There is no flow control, so some of them may not even make it to the peer. The most well known datagram protocol is UDP, which also happens to be the only one that Haiku currently supports.</para>
+<para>The main uses for datagram sockets are when performance is more important than safety (the lack of acknowledge mechanism allows to send a lot of datagram packets at once, whereas TCP is limited by its sliding window mechanism), when the application wants to manage flow control and acknowledges itself (ie. when you want to implement your own protocol on top of UDP), and when lost packets don&apos;t matter (for example, in a video stream, there is no use for receiving late video frames if they were already skipped to play the following ones).</para>
+<para>Since UDP is a connectionless protocol, in order to specify the target, or to be able to know from where you got a packet, this class provides you with the extra methods <ref refid="classBDatagramSocket_1abbab81c244f9e6fe3078e960750a13c7" kindref="member">SendTo()</ref> and <ref refid="classBDatagramSocket_1ab63539aacc97082f7e036f135354ea96" kindref="member">ReceiveFrom()</ref>. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BAbstractSocket</label>
+        <link refid="classBAbstractSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="1">
+        <label>BDatagramSocket</label>
+        <link refid="classBDatagramSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BAbstractSocket</label>
+        <link refid="classBAbstractSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BDataIO</label>
+        <link refid="classBDataIO"/>
+      </node>
+      <node id="1">
+        <label>BDatagramSocket</label>
+        <link refid="classBDatagramSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" line="12" column="1" bodyfile="/boot/home/src/haiku/headers/os/net/DatagramSocket.h" bodystart="12" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classBDatagramSocket_1ac4850f7bd76423cc709e17488f361292" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Accept</name></member>
+      <member refid="classBAbstractSocket_1a338ddf351780ed4fef160e78b937ff01" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>AcceptNext</name></member>
+      <member refid="classBAbstractSocket_1aa0eff1ec277cbae66613975c3bb67da7" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>BAbstractSocket</name></member>
+      <member refid="classBAbstractSocket_1adad46cb8129dad3066d464e34320211f" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>BAbstractSocket</name></member>
+      <member refid="classBDatagramSocket_1aff103fc27ec7e5e6c297834f51c22647" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>BDatagramSocket</name></member>
+      <member refid="classBDatagramSocket_1a4b0de32f12b5b4792351891c1efad563" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>BDatagramSocket</name></member>
+      <member refid="classBDatagramSocket_1a79ca47cd67f20130dd371cfdf80028ee" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>BDatagramSocket</name></member>
+      <member refid="classBDataIO_1a67891b7afe78d6a77845dd0352218801" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>BDataIO</name></member>
+      <member refid="classBDatagramSocket_1a09527623a391e9001895b231b37c62d4" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Bind</name></member>
+      <member refid="classBAbstractSocket_1a1b4ea12b64505e5dbbc33628f8aa8ca1" prot="protected" virt="non-virtual" ambiguityscope="BAbstractSocket::"><scope>BDatagramSocket</scope><name>Bind</name></member>
+      <member refid="classBDatagramSocket_1ae63f37f5632adf98d7a0bbe2202d72d0" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Connect</name></member>
+      <member refid="classBAbstractSocket_1a20f10d2f72c427132973bf813ec18092" prot="protected" virt="non-virtual" ambiguityscope="BAbstractSocket::"><scope>BDatagramSocket</scope><name>Connect</name></member>
+      <member refid="classBAbstractSocket_1aa10aba8e260b4051c1ed381aee6f0fb9" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Disconnect</name></member>
+      <member refid="classBAbstractSocket_1a46610bcbcd9211d997a76fc0fe213c27" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fInitStatus</name></member>
+      <member refid="classBAbstractSocket_1a636afd8410e4ad2966e6739658901eaa" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fIsBound</name></member>
+      <member refid="classBAbstractSocket_1a635435da828eb4502560e14285f07a03" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fIsConnected</name></member>
+      <member refid="classBAbstractSocket_1a897b420ef72d4d4816ed25e261ea72ca" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fIsListening</name></member>
+      <member refid="classBAbstractSocket_1aa2421b31589c606b087797a42374943f" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fLocal</name></member>
+      <member refid="classBDataIO_1a38a8df63b367585fe5e6b6a85c406d05" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Flush</name></member>
+      <member refid="classBAbstractSocket_1a5c5fac0c69409cc2d4ef3f942ae2a31a" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fPeer</name></member>
+      <member refid="classBAbstractSocket_1afbd827826b10fd154601a612df28c6d0" prot="protected" virt="non-virtual"><scope>BDatagramSocket</scope><name>fSocket</name></member>
+      <member refid="classBAbstractSocket_1af9d46dffaf8377e7235680873e82d66f" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>InitCheck</name></member>
+      <member refid="classBAbstractSocket_1ac645bece7a4d03ea21988243ba169c02" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>IsBound</name></member>
+      <member refid="classBAbstractSocket_1adc36a9456fed2b132630b2411b58e81b" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>IsConnected</name></member>
+      <member refid="classBAbstractSocket_1a872930e548f84eca5b25e2f2996453fe" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>IsListening</name></member>
+      <member refid="classBAbstractSocket_1a037ab912c5b1edfb60e8a8e9d1b44dc7" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Listen</name></member>
+      <member refid="classBAbstractSocket_1a958ca85bdfcfe2b4414ef1e03efa86ce" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Local</name></member>
+      <member refid="classBDatagramSocket_1a14121c4a20ea7583b5b29bcef28aeb26" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>MaxTransmissionSize</name></member>
+      <member refid="classBAbstractSocket_1a26c3225da767963450b74be2b46d515c" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Peer</name></member>
+      <member refid="classBDatagramSocket_1ac8d954e7e11eb2ef59d55b80a89e286c" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Read</name></member>
+      <member refid="classBDataIO_1a3a0b0fc36232531a1d8c1144a7d75741" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>ReadExactly</name></member>
+      <member refid="classBDatagramSocket_1ab63539aacc97082f7e036f135354ea96" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>ReceiveFrom</name></member>
+      <member refid="classBDatagramSocket_1abbab81c244f9e6fe3078e960750a13c7" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>SendTo</name></member>
+      <member refid="classBDatagramSocket_1a66af2ddaeda1631dd384e1c677c3233a" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>SetBroadcast</name></member>
+      <member refid="classBDatagramSocket_1a9ffccacba93217a50f57772c7c9f755f" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>SetPeer</name></member>
+      <member refid="classBAbstractSocket_1aadd29c12de2b666f398d8605b7b72c8e" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>SetTimeout</name></member>
+      <member refid="classBAbstractSocket_1a6994fc974cf477aaff8728931302e395" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>Socket</name></member>
+      <member refid="classBAbstractSocket_1a5f014ac80e2457bcb931c9b5a20dae05" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Timeout</name></member>
+      <member refid="classBAbstractSocket_1a174391627c31e9789ebe9f74719b837a" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>WaitForReadable</name></member>
+      <member refid="classBAbstractSocket_1a66a1117d00833276e19ac9f8e5950c30" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>WaitForWritable</name></member>
+      <member refid="classBDatagramSocket_1a166e043d7e578825b4b36f069309d1df" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>Write</name></member>
+      <member refid="classBDataIO_1a0095cfffa454a82eac3dedda2e187ab7" prot="public" virt="non-virtual"><scope>BDatagramSocket</scope><name>WriteExactly</name></member>
+      <member refid="classBAbstractSocket_1a8813b61b49c1a409fc64d85e155f77fc" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>~BAbstractSocket</name></member>
+      <member refid="classBDatagramSocket_1acd83cd922179997e11eeea350595abc3" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>~BDatagramSocket</name></member>
+      <member refid="classBDataIO_1a45daa9db670dd2e5b83efcefcf8dbaed" prot="public" virt="virtual"><scope>BDatagramSocket</scope><name>~BDataIO</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

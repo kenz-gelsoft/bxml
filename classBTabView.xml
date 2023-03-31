@@ -1,0 +1,2506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBTabView" kind="class" language="C++" prot="public">
+    <compoundname>BTabView</compoundname>
+    <basecompoundref refid="classBView" prot="public" virt="non-virtual">BView</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBTabView_1a3354f9343238295b7ed0a24339106cd5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTabView::Archive</definition>
+        <argsstring>(BMessage *into, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BTabView::Archive</qualifiedname>
+        <reimplements refid="classBView_1ab6de1b48cbc3ef15a0d02113036f002d">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>into</declname>
+          <defname>data</defname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the object into the <emphasis>data</emphasis> message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A pointer to the <ref refid="classBMessage" kindref="compound">BMessage</ref> object to archive the object into. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether or not to archive child views as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A status code, <computeroutput>B_OK</computeroutput> if everything went well or an error code otherwise. </para>
+</simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The object was archived. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_NO_MEMORY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Ran out of memory while archiving the object.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="114" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a6cc6ca514c10001b8610e5937f96b48e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTabView::AllUnarchived</definition>
+        <argsstring>(const BMessage *from)</argsstring>
+        <name>AllUnarchived</name>
+        <qualifiedname>BTabView::AllUnarchived</qualifiedname>
+        <reimplements refid="classBView_1ab7bd04272afed8b28bf57d1de33cbe05">AllUnarchived</reimplements>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Hook method called when all views have been unarchived. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="116" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1aadc26bf6ad5717b8e32011b2e50d5c14" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BTabView::Instantiate</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BTabView::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Instantiates a <ref refid="classBTabView" kindref="compound">BTabView</ref> object from the passed in <emphasis>archive</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="113" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Hook Methods</header>
+      <memberdef kind="function" id="classBTabView_1a88bc95e53bc3a3cbc7fddfb7b9ce736a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::AttachedToWindow</definition>
+        <argsstring>()</argsstring>
+        <name>AttachedToWindow</name>
+        <qualifiedname>BTabView::AttachedToWindow</qualifiedname>
+        <reimplements refid="classBView_1ae8117cb4634f4a4413988eea07cf75a0">AttachedToWindow</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the object is attached to a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="119" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a6fdc45a6555af003617cfac94c3866ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::DetachedFromWindow</definition>
+        <argsstring>()</argsstring>
+        <name>DetachedFromWindow</name>
+        <qualifiedname>BTabView::DetachedFromWindow</qualifiedname>
+        <reimplements refid="classBView_1a8abc2ea500951a0a22cf018e958ba791">DetachedFromWindow</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the object is detached from a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="120" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a8243f114472f895f2491b1bf051da93d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::AllAttached</definition>
+        <argsstring>()</argsstring>
+        <name>AllAttached</name>
+        <qualifiedname>BTabView::AllAttached</qualifiedname>
+        <reimplements refid="classBView_1a6d6379e0993bd525f2cac5f848718870">AllAttached</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar to <ref refid="classBTabView_1a88bc95e53bc3a3cbc7fddfb7b9ce736a" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been attached to a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="121" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1aaaa411a7931a91b7b840d2db3785ed04" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::AllDetached</definition>
+        <argsstring>()</argsstring>
+        <name>AllDetached</name>
+        <qualifiedname>BTabView::AllDetached</qualifiedname>
+        <reimplements refid="classBView_1a19dd2213f4b953b54524d7f523d9b406">AllDetached</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Similar to <ref refid="classBTabView_1a88bc95e53bc3a3cbc7fddfb7b9ce736a" kindref="member">AttachedToWindow()</ref> but this method is triggered after all child views have already been detached from a window.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="122" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a5827436caab3b27791f2280d2d151624" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::MessageReceived</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>MessageReceived</name>
+        <qualifiedname>BTabView::MessageReceived</qualifiedname>
+        <reimplements refid="classBView_1aca0a16b0e04288e1fdc0b63690ea7a6d">MessageReceived</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+<para>Handles scripting messages for the tab view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>message</emphasis> received by the associated looper.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBHandler_1aeecda5017e0081db617f23bbff71fb53" kindref="member">BHandler::MessageReceived()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="124" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a6eca83e00f1649fbe6b6aacd3f0f66f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::KeyDown</definition>
+        <argsstring>(const char *bytes, int32 numBytes)</argsstring>
+        <name>KeyDown</name>
+        <qualifiedname>BTabView::KeyDown</qualifiedname>
+        <reimplements refid="classBView_1abea50ea665ce5fcb76b32f1302a6852d">KeyDown</reimplements>
+        <param>
+          <type>const char *</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>numBytes</declname>
+        </param>
+        <briefdescription>
+<para>Handles keyboard navigation for the <ref refid="classBTabView" kindref="compound">BTabView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Down and left arrow keys move the focus tab left, up and right arrow keys move the focus tab right. The space bar and enter keys select the currently focused tab.</para>
+<para><simplesect kind="see"><para><ref refid="classBView_1abea50ea665ce5fcb76b32f1302a6852d" kindref="member">BView::KeyDown()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="125" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a0300bd5b05234996a9eab7c6afc9479e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::MouseDown</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseDown</name>
+        <qualifiedname>BTabView::MouseDown</qualifiedname>
+        <reimplements refid="classBView_1a5f5bd975d15df94f2ebbc80eb79cc3f6">MouseDown</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+<para>Selects the tab that the user clicked on (if any). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="classBView_1a5f5bd975d15df94f2ebbc80eb79cc3f6" kindref="member">BView::MouseDown()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="126" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a9f889b22d3b00132a15b82c6d322a21a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::MouseUp</definition>
+        <argsstring>(BPoint where)</argsstring>
+        <name>MouseUp</name>
+        <qualifiedname>BTabView::MouseUp</qualifiedname>
+        <reimplements refid="classBView_1acdb92b30069157b2e3c522a3ef9d6ae4">MouseUp</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when a mouse button is released.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point on the screen where to mouse pointer is when the mouse button is released.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="127" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a482f5de48a2c17f2898b39602849a820" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::MouseMoved</definition>
+        <argsstring>(BPoint where, uint32 transit, const BMessage *dragMessage)</argsstring>
+        <name>MouseMoved</name>
+        <qualifiedname>BTabView::MouseMoved</qualifiedname>
+        <reimplements refid="classBView_1ac8b20516e42bab2f1eeb130e2432bde0">MouseMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>where</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>transit</declname>
+          <defname>code</defname>
+        </param>
+        <param>
+          <type>const <ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>dragMessage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the mouse is moved.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>where</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new location of the mouse in the view&apos;s coordinate system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the following:<itemizedlist>
+<listitem><para><computeroutput>B_ENTERED_VIEW</computeroutput> The cursor has just entered the view.</para>
+</listitem><listitem><para><computeroutput>B_INSIDE_VIEW</computeroutput> The cursor is inside the view.</para>
+</listitem><listitem><para><computeroutput>B_EXITED_VIEW</computeroutput> The cursor has left the view&apos;s bounds. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>.</para>
+</listitem><listitem><para><computeroutput>B_OUTSIDE_VIEW</computeroutput> The cursor is outside the view. This only gets sent if the scope of the mouse events that the view can receive has been expanded by <ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref> or <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref>. </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dragMessage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If a drag-and-drop operation is taking place this is a pointer to a <ref refid="classBMessage" kindref="compound">BMessage</ref> that holds the drag information, otherwise the pointer is <computeroutput>NULL</computeroutput>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" kindref="member">SetEventMask()</ref>, <ref refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" kindref="member">SetMouseEventMask()</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" kindref="member">DragMessage()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="128" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ac5411bc039523eb177d52f9e1b357cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::Pulse</definition>
+        <argsstring>()</argsstring>
+        <name>Pulse</name>
+        <qualifiedname>BTabView::Pulse</qualifiedname>
+        <reimplements refid="classBView_1a0ae8ec3e94ee3d41cb329e3df6966566">Pulse</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the view receives a <computeroutput>B_PULSE</computeroutput> message.  </para>
+<para>An action is performed each time the App Server calls the <ref refid="classBTabView_1ac5411bc039523eb177d52f9e1b357cbd" kindref="member">Pulse()</ref> method. The pulse rate is set by SetPulseRate(). You can implement <ref refid="classBTabView_1ac5411bc039523eb177d52f9e1b357cbd" kindref="member">Pulse()</ref> to do anything you want. The default version does nothing. The pulse granularity is no better than once per 100,000 microseconds.</para>
+<para><simplesect kind="see"><para>SetPulseRate()</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="130" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a40c3b03fb69dd273843304120e98c62b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::Select</definition>
+        <argsstring>(int32 index)</argsstring>
+        <name>Select</name>
+        <qualifiedname>BTabView::Select</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Selects the tab at the given <emphasis>index</emphasis> making it the selected tab. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The zero-based tab index of the tab to select.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="132" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a375938ffbd6f7331691aa407298e4ae0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::Selection</definition>
+        <argsstring>() const</argsstring>
+        <name>Selection</name>
+        <qualifiedname>BTabView::Selection</qualifiedname>
+        <briefdescription>
+<para>Returns the index of the selected tab or -1 if not found. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="133" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a2935851b89461b8d5ff01b11948dd885" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::WindowActivated</definition>
+        <argsstring>(bool active)</argsstring>
+        <name>WindowActivated</name>
+        <qualifiedname>BTabView::WindowActivated</qualifiedname>
+        <reimplements refid="classBView_1a5b7aeff0b2608ec63e2c01153a7717f6">WindowActivated</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the attached window is activated or deactivated.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> when the window becomes activated, <computeroutput>false</computeroutput> when the window becomes deactivated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="135" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1adafa3b55c2565daffe2c7df0f7c50fc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::Draw</definition>
+        <argsstring>(BRect updateRect)</argsstring>
+        <name>Draw</name>
+        <qualifiedname>BTabView::Draw</qualifiedname>
+        <reimplements refid="classBView_1aa55014241fc2f5556415850692b52db2">Draw</reimplements>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>updateRect</declname>
+        </param>
+        <briefdescription>
+<para>Draws the focus tab and the tab view frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="140" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a82c66166b3545607d7e7ddc8a3c85000" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BTabView::DrawTabs</definition>
+        <argsstring>()</argsstring>
+        <name>DrawTabs</name>
+        <qualifiedname>BTabView::DrawTabs</qualifiedname>
+        <briefdescription>
+<para>Draws all the tabs in the <ref refid="classBTabView" kindref="compound">BTabView</ref> and returns the frame rectangle of the currently selected tab. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="141" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a25a91b79630f7def5ca5a29f9e2950ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::DrawBox</definition>
+        <argsstring>(BRect selectedTabRect)</argsstring>
+        <name>DrawBox</name>
+        <qualifiedname>BTabView::DrawBox</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>selectedTabRect</declname>
+        </param>
+        <briefdescription>
+<para>Draws the box that encloses the container view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>selectedTabRect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frame rectangle of the currently selected tab.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="142" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1adaacf9a6c7cc8d4afb23022b60bc71fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::FrameResized</definition>
+        <argsstring>(float newWidth, float newHeight)</argsstring>
+        <name>FrameResized</name>
+        <qualifiedname>BTabView::FrameResized</qualifiedname>
+        <reimplements refid="classBView_1a85d88f9c2bb6800560874b2061378fa0">FrameResized</reimplements>
+        <param>
+          <type>float</type>
+          <declname>newWidth</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>newHeight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the view is resized.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>newHeight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="156" column="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classBTabView_1a83597cbdcddffee4edb4bb50eda0beff" prot="public" static="no" strong="no">
+        <type></type>
+        <name>tab_side</name>
+        <qualifiedname>BTabView::tab_side</qualifiedname>
+        <enumvalue id="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffa4d5f9eb56c8f7e214888a6795719a6a6" prot="public">
+          <name>kLeftSide</name>
+          <initializer>= 1 &lt;&lt; 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffad4fe96689a8ae812e488297f4454bb23" prot="public">
+          <name>kRightSide</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffa01afd124d81cfda29ee742d7bf36ebb4" prot="public">
+          <name>kTopSide</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffaa89da788d3bc6bbb5641b723bd955f5f" prot="public">
+          <name>kBottomSide</name>
+          <initializer>= 1 &lt;&lt; 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="92" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="92" bodyend="97"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBTabView_1a751635b92ae0cb004a1eb35105b3157c" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BTabView::_reserved[9]</definition>
+        <argsstring>[9]</argsstring>
+        <name>_reserved</name>
+        <qualifiedname>BTabView::_reserved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="224" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a0163808b61ba0fda75494c2d85cf75c3" prot="private" static="no" mutable="no">
+        <type><ref refid="InterfaceDefs_8h_1a9624f7e0b98ddd4f28be86eb84d3a0d6" kindref="member">border_style</ref></type>
+        <definition>border_style BTabView::fBorderStyle</definition>
+        <argsstring></argsstring>
+        <name>fBorderStyle</name>
+        <qualifiedname>BTabView::fBorderStyle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="221" column="13" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a78760e6d0a318db6be568e1a1639ce9b" prot="private" static="no" mutable="no">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView* BTabView::fContainerView</definition>
+        <argsstring></argsstring>
+        <name>fContainerView</name>
+        <qualifiedname>BTabView::fContainerView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="213" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1afc73fb426e7436a760c3b2f656fa000c" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::fFocus</definition>
+        <argsstring></argsstring>
+        <name>fFocus</name>
+        <qualifiedname>BTabView::fFocus</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="219" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a0d091327088f7755b2d42462aba2de7d" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::fInitialSelection</definition>
+        <argsstring></argsstring>
+        <name>fInitialSelection</name>
+        <qualifiedname>BTabView::fInitialSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="218" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a6d5a05c7ebd4931aee7c257b303be73d" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::fSelection</definition>
+        <argsstring></argsstring>
+        <name>fSelection</name>
+        <qualifiedname>BTabView::fSelection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="217" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a62818545390d96e48385cec322319ae2" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BTabView::fTabHeight</definition>
+        <argsstring></argsstring>
+        <name>fTabHeight</name>
+        <qualifiedname>BTabView::fTabHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="216" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1ab433cf1cfa89fd2ebc2a2f239ccb0b40" prot="private" static="no" mutable="no">
+        <type><ref refid="classBList" kindref="compound">BList</ref> *</type>
+        <definition>BList* BTabView::fTabList</definition>
+        <argsstring></argsstring>
+        <name>fTabList</name>
+        <qualifiedname>BTabView::fTabList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="212" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a3c3a2d52e0a27ace297c73ae1ad603b5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BTabView::fTabOffset</definition>
+        <argsstring></argsstring>
+        <name>fTabOffset</name>
+        <qualifiedname>BTabView::fTabOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="220" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a7a483c63280cafd04cd7a2f1fc669f93" prot="private" static="no" mutable="no">
+        <type>tab_side</type>
+        <definition>tab_side BTabView::fTabSide</definition>
+        <argsstring></argsstring>
+        <name>fTabSide</name>
+        <qualifiedname>BTabView::fTabSide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="222" column="9" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1ab9745c7d896ce2e3411b5617da558de1" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BTabView::fTabWidth</definition>
+        <argsstring></argsstring>
+        <name>fTabWidth</name>
+        <qualifiedname>BTabView::fTabWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="215" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBTabView_1a57232032719a226991a8a3cf804dad33" prot="private" static="no" mutable="no">
+        <type><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6" kindref="member">button_width</ref></type>
+        <definition>button_width BTabView::fTabWidthSetting</definition>
+        <argsstring></argsstring>
+        <name>fTabWidthSetting</name>
+        <qualifiedname>BTabView::fTabWidthSetting</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="214" column="13" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBTabView_1afbbb336fb8eacbae0a08012b5a777eab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTabView::BTabView</definition>
+        <argsstring>(BMessage *archive)</argsstring>
+        <name>BTabView</name>
+        <qualifiedname>BTabView::BTabView</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>archive</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBTabView" kindref="compound">BTabView</ref> object from the passed in <emphasis>archive</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="112" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1aaa4419646f63f69f7367ba10a7039d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTabView::BTabView</definition>
+        <argsstring>(BRect frame, const char *name, button_width width=B_WIDTH_AS_USUAL, uint32 resizeMask=B_FOLLOW_ALL, uint32 flags=B_FULL_UPDATE_ON_RESIZE|B_WILL_DRAW|B_NAVIGABLE_JUMP|B_FRAME_EVENTS|B_NAVIGABLE)</argsstring>
+        <name>BTabView</name>
+        <qualifiedname>BTabView::BTabView</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6" kindref="member">button_width</ref></type>
+          <declname>width</declname>
+          <defval><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6a00ad379450fec3c751ff02a26d9ab62e" kindref="member">B_WIDTH_AS_USUAL</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>resizeMask</declname>
+          <defval><ref refid="View_8h_1a2deb7276ce9bba19df48e4c1db459330" kindref="member">B_FOLLOW_ALL</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval><ref refid="View_8h_1ab6f1dd49aa7b471c09594a11e5503b42" kindref="member">B_FULL_UPDATE_ON_RESIZE</ref>|<ref refid="View_8h_1a59354fa34a5663d714649927705fd4bf" kindref="member">B_WILL_DRAW</ref>|<ref refid="View_8h_1a092742a7d47f6f20dd529507662ad560" kindref="member">B_NAVIGABLE_JUMP</ref>|<ref refid="View_8h_1a0f5ad6b15e8c8e4a0b8b4c79d1f0f370" kindref="member">B_FRAME_EVENTS</ref>|<ref refid="View_8h_1aa81b14ef09870d992f97f6f1163dc0a9" kindref="member">B_NAVIGABLE</ref></defval>
+        </param>
+        <briefdescription>
+<para>Initializes a new <ref refid="classBTabView" kindref="compound">BTabView</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The frame rectangle. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the tab view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The tab width flag to use. Options include:<itemizedlist>
+<listitem><para><computeroutput>B_WIDTH_AS_USUAL</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_WIDTH_FROM_WIDEST</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_WIDTH_FROM_LABEL</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>resizeMask</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Resizing mask, passed to <ref refid="classBView" kindref="compound">BView</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>flags</emphasis> passed to <ref refid="classBView" kindref="compound">BView</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="104" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a01cf2718632b5bfd2d510f475d38f36a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTabView::BTabView</definition>
+        <argsstring>(const char *name, button_width width=B_WIDTH_FROM_WIDEST, uint32 flags=B_FULL_UPDATE_ON_RESIZE|B_WILL_DRAW|B_NAVIGABLE_JUMP|B_FRAME_EVENTS|B_NAVIGABLE)</argsstring>
+        <name>BTabView</name>
+        <qualifiedname>BTabView::BTabView</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6" kindref="member">button_width</ref></type>
+          <declname>width</declname>
+          <defval><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6a1e63d46328345b395d982f801ef76b8e" kindref="member">B_WIDTH_FROM_WIDEST</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+          <defval><ref refid="View_8h_1ab6f1dd49aa7b471c09594a11e5503b42" kindref="member">B_FULL_UPDATE_ON_RESIZE</ref>|<ref refid="View_8h_1a59354fa34a5663d714649927705fd4bf" kindref="member">B_WILL_DRAW</ref>|<ref refid="View_8h_1a092742a7d47f6f20dd529507662ad560" kindref="member">B_NAVIGABLE_JUMP</ref>|<ref refid="View_8h_1a0f5ad6b15e8c8e4a0b8b4c79d1f0f370" kindref="member">B_FRAME_EVENTS</ref>|<ref refid="View_8h_1aa81b14ef09870d992f97f6f1163dc0a9" kindref="member">B_NAVIGABLE</ref></defval>
+        </param>
+        <briefdescription>
+<para>Initializes a new <ref refid="classBTabView" kindref="compound">BTabView</ref> object for use as part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the tab view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The tab width flag to use. Options include:<itemizedlist>
+<listitem><para><computeroutput>B_WIDTH_AS_USUAL</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_WIDTH_FROM_WIDEST</computeroutput> </para>
+</listitem><listitem><para><computeroutput>B_WIDTH_FROM_LABEL</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>flags</emphasis> passed to <ref refid="classBView" kindref="compound">BView</ref>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="99" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a9b4909b80d969e42731a8b0145df1a59" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BTabView::~BTabView</definition>
+        <argsstring>()</argsstring>
+        <name>~BTabView</name>
+        <qualifiedname>BTabView::~BTabView</qualifiedname>
+        <briefdescription>
+<para>Frees the memory allocated by each tab then destroys the object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="110" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a9353bca7cdb50cc525bff5f8837e0d45" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::AddTab</definition>
+        <argsstring>(BView *target, BTab *tab=NULL)</argsstring>
+        <name>AddTab</name>
+        <qualifiedname>BTabView::AddTab</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="classBTab" kindref="compound">BTab</ref> *</type>
+          <declname>tab</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Adds the specified <emphasis>tab</emphasis> to the <ref refid="classBTabView" kindref="compound">BTabView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The tab is added to the end of the tab list. The new tab&apos;s target view is set to <emphasis>target</emphasis>. If <emphasis>tab</emphasis> is <computeroutput>NULL</computeroutput>, a new <ref refid="classBTab" kindref="compound">BTab</ref> object is constructed and added to the <ref refid="classBTabView" kindref="compound">BTabView</ref>. You can get a pointer to the new tab by calling the <ref refid="classBTabView_1ad417bb696711a310aa4aa9525b15eb66" kindref="member">TabAt()</ref> method.</para>
+<para>If you choose to reimplement <ref refid="classBTabView_1a9353bca7cdb50cc525bff5f8837e0d45" kindref="member">AddTab()</ref>, you should call this parent method at the end of your method.</para>
+<para><simplesect kind="see"><para><ref refid="classBTabView_1ad417bb696711a310aa4aa9525b15eb66" kindref="member">BTabView::TabAt()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="164" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a4a2451db462e1c9fdc26d1a3964a6a71" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="InterfaceDefs_8h_1a9624f7e0b98ddd4f28be86eb84d3a0d6" kindref="member">border_style</ref></type>
+        <definition>border_style BTabView::Border</definition>
+        <argsstring>() const</argsstring>
+        <name>Border</name>
+        <qualifiedname>BTabView::Border</qualifiedname>
+        <briefdescription>
+<para>Returns the current border_style flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="176" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a9708b972061a72fb4dfd59d2575e56cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BTabView::ContainerView</definition>
+        <argsstring>() const</argsstring>
+        <name>ContainerView</name>
+        <qualifiedname>BTabView::ContainerView</qualifiedname>
+        <briefdescription>
+<para>Returns a pointer to the tab view&apos;s container view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="181" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a83dff446e7ba13d9d2e8881acad5b46f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::CountTabs</definition>
+        <argsstring>() const</argsstring>
+        <name>CountTabs</name>
+        <qualifiedname>BTabView::CountTabs</qualifiedname>
+        <briefdescription>
+<para>Returns the number of tabs in the tab view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="183" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ae3c9fcc7e0521d59af89b419916d8bd9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::FocusTab</definition>
+        <argsstring>() const</argsstring>
+        <name>FocusTab</name>
+        <qualifiedname>BTabView::FocusTab</qualifiedname>
+        <briefdescription>
+<para>Returns the index of the current focus tab. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="138" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1af1b6043bcdb3372a0800aa3a086b8218" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::FrameMoved</definition>
+        <argsstring>(BPoint newPosition)</argsstring>
+        <name>FrameMoved</name>
+        <qualifiedname>BTabView::FrameMoved</qualifiedname>
+        <reimplements refid="classBView_1a551c22b45301e13a3ba959eece3cec7f">FrameMoved</reimplements>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>newPosition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hook method called when the view is moved.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>newPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The point of the top left corner of the frame that the view has been moved to.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="155" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a331553465a07b7de9cef71e54d6b3ed0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::GetPreferredSize</definition>
+        <argsstring>(float *_width, float *_height)</argsstring>
+        <name>GetPreferredSize</name>
+        <qualifiedname>BTabView::GetPreferredSize</qualifiedname>
+        <reimplements refid="classBView_1a089c3ff794c454388a9388c7b6568478">GetPreferredSize</reimplements>
+        <param>
+          <type>float *</type>
+          <declname>_width</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fill out the preferred width and height of the view into the <emphasis>_width</emphasis> and <emphasis>_height</emphasis> parameters.  </para>
+<para>Derived classes should override this method to set the preferred size of object.</para>
+<para><simplesect kind="remark"><para>Either the <emphasis>_width</emphasis> or <emphasis>_height</emphasis> parameter may be set to <computeroutput>NULL</computeroutput> if you only want to get the other one.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a float to store the width of the view. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to a float to store the height of the view.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="149" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1aed45f36a1cdcc1bb23fc964714cbe20d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTabView::GetSupportedSuites</definition>
+        <argsstring>(BMessage *message)</argsstring>
+        <name>GetSupportedSuites</name>
+        <qualifiedname>BTabView::GetSupportedSuites</qualifiedname>
+        <reimplements refid="classBView_1a772462d751d457f63ee0fc56d8ba02d1">GetSupportedSuites</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports the suites of messages and specifiers that derived classes understand.  </para>
+<para><simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="161" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a7bb1dd022ca51fc1f4c4a1724ebd024b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BTabView::IndexOf</definition>
+        <argsstring>(BTab *tab) const</argsstring>
+        <name>IndexOf</name>
+        <qualifiedname>BTabView::IndexOf</qualifiedname>
+        <param>
+          <type><ref refid="classBTab" kindref="compound">BTab</ref> *</type>
+          <declname>tab</declname>
+        </param>
+        <briefdescription>
+<para>Returns the index of <emphasis>tab</emphasis> or -1 if not found. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="186" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a0bba5d8ebb1263111769df12ab9b4c2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::MakeFocus</definition>
+        <argsstring>(bool focused=true)</argsstring>
+        <name>MakeFocus</name>
+        <qualifiedname>BTabView::MakeFocus</qualifiedname>
+        <reimplements refid="classBView_1a266a368d81c6e1668b2b9b22b5016853">MakeFocus</reimplements>
+        <param>
+          <type>bool</type>
+          <declname>focused</declname>
+          <defname>focus</defname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Highlight or unhighlight the selection when the tab view acquires or loses its focus state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The focus view handles selections and KeyDown events when the the attached window is active. There can be only one focus view at a time per window.</para>
+<para>When called with <emphasis>focus</emphasis> set to <computeroutput>true</computeroutput> this method first calls <ref refid="classBTabView_1a0bba5d8ebb1263111769df12ab9b4c2a" kindref="member">MakeFocus()</ref> on the previously focused view with <emphasis>focus</emphasis> set to <computeroutput>false</computeroutput>.</para>
+<para>The focus doesn&apos;t automatically change when <ref refid="classBTabView_1a0300bd5b05234996a9eab7c6afc9479e" kindref="member">MouseDown()</ref> is called so calling <ref refid="classBTabView_1a0bba5d8ebb1263111769df12ab9b4c2a" kindref="member">MakeFocus()</ref> is the only way to make a view the focus view of a window. Classes derived from <ref refid="classBView" kindref="compound">BView</ref> that can display the current selection, or that can accept pasted data should call <ref refid="classBTabView_1a0bba5d8ebb1263111769df12ab9b4c2a" kindref="member">MakeFocus()</ref> in their <ref refid="classBTabView_1a0300bd5b05234996a9eab7c6afc9479e" kindref="member">MouseDown()</ref> method to update the focus view of the window on click.</para>
+<para>If the view isn&apos;t attached to a window this method has no effect.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>focus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><emphasis>true</emphasis> to set focus, <emphasis>false</emphasis> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="136" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ac7ab32a3a7ab1326820f11dea6ce834d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BTabView::MaxSize</definition>
+        <argsstring>()</argsstring>
+        <name>MaxSize</name>
+        <qualifiedname>BTabView::MaxSize</qualifiedname>
+        <reimplements refid="classBView_1ad1f1843a380e850948cf7e4ed2d5f1ba">MaxSize</reimplements>
+        <briefdescription>
+<para>Returns the tab view&apos;s maximum size in a <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="152" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a9833a3bdc0cca3508a099e7054943fe1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BTabView::MinSize</definition>
+        <argsstring>()</argsstring>
+        <name>MinSize</name>
+        <qualifiedname>BTabView::MinSize</qualifiedname>
+        <reimplements refid="classBView_1acfb0cffde35b853dab6bc5d1bb03265f">MinSize</reimplements>
+        <briefdescription>
+<para>Returns the tab view&apos;s minimum size in a <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="151" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a708fd8766fddb7b0cd72566c57c2977a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BTabView::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BTabView::Perform</qualifiedname>
+        <reimplements refid="classBView_1a512a6c8dca1a62b14cdcb1c22070129b">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Perform some action. (Internal Method) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="117" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a0a9aebb15a78aab7ffd6a9286a6e9dca" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BTabView::PreferredSize</definition>
+        <argsstring>()</argsstring>
+        <name>PreferredSize</name>
+        <qualifiedname>BTabView::PreferredSize</qualifiedname>
+        <reimplements refid="classBView_1a7f51d63e71b60a2721d04436ffbcfe36">PreferredSize</reimplements>
+        <briefdescription>
+<para>Returns the tab view&apos;s preferred size in a <ref refid="classBLayout" kindref="compound">BLayout</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="153" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1af951a54c88617dc47010c81487fc9fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBTab" kindref="compound">BTab</ref> *</type>
+        <definition>BTab * BTabView::RemoveTab</definition>
+        <argsstring>(int32 tabIndex)</argsstring>
+        <name>RemoveTab</name>
+        <qualifiedname>BTabView::RemoveTab</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>tabIndex</declname>
+          <defname>index</defname>
+        </param>
+        <briefdescription>
+<para>Removes the tab at the specified <emphasis>index</emphasis> from the <ref refid="classBTabView" kindref="compound">BTabView</ref> and returns a pointer to the <ref refid="classBTab" kindref="compound">BTab</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="classBTab" kindref="compound">BTab</ref> object is not deleted, if you don&apos;t need it anymore you should delete it.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="165" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ae71c385d5a612edaaac3aa2d43ecd959" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::ResizeToPreferred</definition>
+        <argsstring>()</argsstring>
+        <name>ResizeToPreferred</name>
+        <qualifiedname>BTabView::ResizeToPreferred</qualifiedname>
+        <reimplements refid="classBView_1abe8c63c85555e800e063388e7cf3e1a7">ResizeToPreferred</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Resizes the view to its preferred size keeping the position of the left top corner constant.  </para>
+<para><simplesect kind="warning"><para>It is not recommended to use this method for views that are part of a <ref refid="classBLayout" kindref="compound">BLayout</ref>.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="148" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a2d18bd3eeb63be72e3954b6d58cf3809" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBHandler" kindref="compound">BHandler</ref> *</type>
+        <definition>BHandler * BTabView::ResolveSpecifier</definition>
+        <argsstring>(BMessage *message, int32 index, BMessage *specifier, int32 what, const char *property)</argsstring>
+        <name>ResolveSpecifier</name>
+        <qualifiedname>BTabView::ResolveSpecifier</qualifiedname>
+        <reimplements refid="classBView_1a4c0c6d3b21ae92056e5e40fe4d3ec175">ResolveSpecifier</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>specifier</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>what</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Determine the proper handler for a scripting message.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The scripting message to determine the handler. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>specifier</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message which contains the specifier. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>what</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The &apos;what&apos; field of the specifier message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>property</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the target property.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the proper <ref refid="classBHandler" kindref="compound">BHandler</ref> for the given scripting message.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="158" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ab12f1d7ec48b49be3826432cd5471b50" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::SetBorder</definition>
+        <argsstring>(border_style borderStyle)</argsstring>
+        <name>SetBorder</name>
+        <qualifiedname>BTabView::SetBorder</qualifiedname>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1a9624f7e0b98ddd4f28be86eb84d3a0d6" kindref="member">border_style</ref></type>
+          <declname>borderStyle</declname>
+        </param>
+        <briefdescription>
+<para>Sets the border style of the tab view to <emphasis>borderStyle</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>borderStyle</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of the following:<itemizedlist>
+<listitem><para><computeroutput>B_FANCY_BORDER</computeroutput> (the default)</para>
+</listitem><listitem><para><computeroutput>B_PLAIN_BORDER</computeroutput> a plain line border,</para>
+</listitem><listitem><para><computeroutput>B_NO_BORDER</computeroutput> do not draw a border.</para>
+</listitem></itemizedlist>
+</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="175" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a15a7a76d27f6faff9faedd740b10f485" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::SetFlags</definition>
+        <argsstring>(uint32 flags)</argsstring>
+        <name>SetFlags</name>
+        <qualifiedname>BTabView::SetFlags</qualifiedname>
+        <reimplements refid="classBView_1a4740f9a1e1163073b042102a421a2e33">SetFlags</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the view flags to the <emphasis>flags</emphasis> mask.  </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The view flags to set as a uint32 mask.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="classBView_1a561b10abf94dd65a26b02253af667508" kindref="member">Flags()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="145" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a7bafb2e1723054f202fef29d9ae11036" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::SetFocusTab</definition>
+        <argsstring>(int32 tab, bool focused)</argsstring>
+        <name>SetFocusTab</name>
+        <qualifiedname>BTabView::SetFocusTab</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>tab</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>focused</declname>
+          <defname>focus</defname>
+        </param>
+        <briefdescription>
+<para>Sets the focus state of the specified <emphasis>tab</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tab</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the tab to set the focus state of. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>focus</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput> to set focus, <computeroutput>false</computeroutput> to remove it.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="137" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ac291b408315b6070e217bec7960243c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::SetResizingMode</definition>
+        <argsstring>(uint32 mode)</argsstring>
+        <name>SetResizingMode</name>
+        <qualifiedname>BTabView::SetResizingMode</qualifiedname>
+        <reimplements refid="classBView_1a38d29ea581880c3978d7e50dcc851696">SetResizingMode</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the resizing mode of the view according to the <emphasis>mode</emphasis> mask.  </para>
+<para>The resizing mode is first set in the <ref refid="classBView" kindref="compound">BView</ref> constructor.</para>
+<para><simplesect kind="see"><para><ref refid="classBView_1a1e93df523fc9edc807274ac6cfd2dc8d" kindref="member">ResizingMode()</ref></para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3   </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="146" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1aa27f7f9b89087e49ce27a97cf9464056" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::SetTabHeight</definition>
+        <argsstring>(float height)</argsstring>
+        <name>SetTabHeight</name>
+        <qualifiedname>BTabView::SetTabHeight</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Sets the height of the tabs to <emphasis>height</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><emphasis>height</emphasis> should be an integral value.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="172" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a396346223d01cbe368fbe12c377944b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::SetTabSide</definition>
+        <argsstring>(tab_side tabSide)</argsstring>
+        <name>SetTabSide</name>
+        <qualifiedname>BTabView::SetTabSide</qualifiedname>
+        <param>
+          <type>tab_side</type>
+          <declname>tabSide</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="178" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a082bed4429de8fb872ee83ab6cb3b2da" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BTabView::SetTabWidth</definition>
+        <argsstring>(button_width width)</argsstring>
+        <name>SetTabWidth</name>
+        <qualifiedname>BTabView::SetTabWidth</qualifiedname>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6" kindref="member">button_width</ref></type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+<para>Sets the width of the tabs in the <ref refid="classBTabView" kindref="compound">BTabView</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><emphasis>width</emphasis> is one of the following:<itemizedlist>
+<listitem><para><computeroutput>B_WIDTH_FROM_WIDEST</computeroutput> Each tab&apos;s width is determined from the width of the widest tab.</para>
+</listitem><listitem><para><computeroutput>B_WIDTH_AS_USUAL</computeroutput> The default tab width is used for all tabs.</para>
+</listitem><listitem><para><computeroutput>B_WIDTH_FROM_LABEL</computeroutput> The label of each tab determines the tab width.</para>
+</listitem></itemizedlist>
+</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="169" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ad417bb696711a310aa4aa9525b15eb66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBTab" kindref="compound">BTab</ref> *</type>
+        <definition>BTab * BTabView::TabAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>TabAt</name>
+        <qualifiedname>BTabView::TabAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns a pointer to the <ref refid="classBTab" kindref="compound">BTab</ref> object at the specified <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="167" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ac2fba88a5d6cab4d3b7f3fc9114fc069" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BTabView::TabFrame</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>TabFrame</name>
+        <qualifiedname>BTabView::TabFrame</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Returns the frame rectangle of the tab at the specified <emphasis>index</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="143" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1acce1dbee45ff0c7b68945dcf307340bd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BTabView::TabHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>TabHeight</name>
+        <qualifiedname>BTabView::TabHeight</qualifiedname>
+        <briefdescription>
+<para>Returns the current tab height. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="173" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a69728d0920c6bec49cdcb2208b8dcf24" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>tab_side</type>
+        <definition>tab_side BTabView::TabSide</definition>
+        <argsstring>() const</argsstring>
+        <name>TabSide</name>
+        <qualifiedname>BTabView::TabSide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="179" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1af7ddbaed20b85295fa2be6cd003da037" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6" kindref="member">button_width</ref></type>
+        <definition>button_width BTabView::TabWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>TabWidth</name>
+        <qualifiedname>BTabView::TabWidth</qualifiedname>
+        <briefdescription>
+<para>Returns the current tab width flag. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="170" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a105bc16f4b22583bf5a2de5d7aa1fefc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BTabView::ViewForTab</definition>
+        <argsstring>(int32 tabIndex) const</argsstring>
+        <name>ViewForTab</name>
+        <qualifiedname>BTabView::ViewForTab</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>tabIndex</declname>
+        </param>
+        <briefdescription>
+<para>Returns the <ref refid="classBView" kindref="compound">BView</ref> of the tab at the specified <emphasis>tabIndex</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="184" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBTabView_1a1b88d2c9cdb8051b988be10ebb194579" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BTabView::BTabView</definition>
+        <argsstring>(const BTabView &amp;)</argsstring>
+        <name>BTabView</name>
+        <qualifiedname>BTabView::BTabView</qualifiedname>
+        <param>
+          <type>const <ref refid="classBTabView" kindref="compound">BTabView</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="201" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ad863c9b8a1786330a1476217618a6e49" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float BTabView::_BorderWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>_BorderWidth</name>
+        <qualifiedname>BTabView::_BorderWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="208" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a5acc3fd4fefe1542b917572c3f5cba9e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BTabView::_InitContainerView</definition>
+        <argsstring>(bool layouted)</argsstring>
+        <name>_InitContainerView</name>
+        <qualifiedname>BTabView::_InitContainerView</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>layouted</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="206" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a1b3a943f1558b5f2f4c343099d6c6703" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BTabView::_InitObject</definition>
+        <argsstring>(bool layouted, button_width width)</argsstring>
+        <name>_InitObject</name>
+        <qualifiedname>BTabView::_InitObject</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>layouted</declname>
+        </param>
+        <param>
+          <type><ref refid="InterfaceDefs_8h_1a670732462ef1d0b9433a503a70c31ce6" kindref="member">button_width</ref></type>
+          <declname>width</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="205" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a47ce31a48387143e4fd390e7562a69db" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BTabView::_LayoutContainerView</definition>
+        <argsstring>(bool layouted)</argsstring>
+        <name>_LayoutContainerView</name>
+        <qualifiedname>BTabView::_LayoutContainerView</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>layouted</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="209" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a8d3b097292be3ab48162062eeca7518d" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView10</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView10</name>
+        <qualifiedname>BTabView::_ReservedTabView10</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="197" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a5ebc91ad51d990c87c565126d0bb04ec" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView11</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView11</name>
+        <qualifiedname>BTabView::_ReservedTabView11</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="198" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a8cce741fc901c934b94404e408329022" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView12</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView12</name>
+        <qualifiedname>BTabView::_ReservedTabView12</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="199" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a634f27ee307f13d9d379c5495ccd3f08" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView3</name>
+        <qualifiedname>BTabView::_ReservedTabView3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="190" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a11449f31f8c59a139857bdbb4dc65910" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView4</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView4</name>
+        <qualifiedname>BTabView::_ReservedTabView4</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="191" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1aa47af5026626bfdfdb6a39d079bf0f82" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView5</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView5</name>
+        <qualifiedname>BTabView::_ReservedTabView5</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="192" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a71362cd26cf0eb24cb319360641436d3" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView6</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView6</name>
+        <qualifiedname>BTabView::_ReservedTabView6</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="193" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a6cf16b92e859e61dc1f9c044ef69b52e" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView7</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView7</name>
+        <qualifiedname>BTabView::_ReservedTabView7</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="194" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a87a37afda4f908e7f5bf29002afe8009" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView8</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView8</name>
+        <qualifiedname>BTabView::_ReservedTabView8</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="195" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1abbc79d8f51e951a4446d823fec35f599" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BTabView::_ReservedTabView9</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedTabView9</name>
+        <qualifiedname>BTabView::_ReservedTabView9</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="196" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1a942871ecd42223ece1508d1967b4a636" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+        <definition>BSize BTabView::_TabsMinSize</definition>
+        <argsstring>() const</argsstring>
+        <name>_TabsMinSize</name>
+        <qualifiedname>BTabView::_TabsMinSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="207" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBTabView_1ab544d9a470dd4431dc8e385bbf920107" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBTabView" kindref="compound">BTabView</ref> &amp;</type>
+        <definition>BTabView &amp; BTabView::operator=</definition>
+        <argsstring>(const BTabView &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BTabView::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBTabView" kindref="compound">BTabView</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="202" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A container for <ref refid="classBTab" kindref="compound">BTab</ref> objects to display all tabs. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BTabView</label>
+        <link refid="classBTabView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="3">
+        <label>BHandler</label>
+        <link refid="classBHandler"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BTabView</label>
+        <link refid="classBTabView"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BView</label>
+        <link refid="classBView"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/TabView.h" line="90" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/TabView.h" bodystart="90" bodyend="225"/>
+    <listofallmembers>
+      <member refid="classBTabView_1ad863c9b8a1786330a1476217618a6e49" prot="private" virt="non-virtual"><scope>BTabView</scope><name>_BorderWidth</name></member>
+      <member refid="classBTabView_1a5acc3fd4fefe1542b917572c3f5cba9e" prot="private" virt="non-virtual"><scope>BTabView</scope><name>_InitContainerView</name></member>
+      <member refid="classBTabView_1a1b3a943f1558b5f2f4c343099d6c6703" prot="private" virt="non-virtual"><scope>BTabView</scope><name>_InitObject</name></member>
+      <member refid="classBTabView_1a47ce31a48387143e4fd390e7562a69db" prot="private" virt="non-virtual"><scope>BTabView</scope><name>_LayoutContainerView</name></member>
+      <member refid="classBTabView_1a751635b92ae0cb004a1eb35105b3157c" prot="private" virt="non-virtual"><scope>BTabView</scope><name>_reserved</name></member>
+      <member refid="classBTabView_1a8d3b097292be3ab48162062eeca7518d" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView10</name></member>
+      <member refid="classBTabView_1a5ebc91ad51d990c87c565126d0bb04ec" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView11</name></member>
+      <member refid="classBTabView_1a8cce741fc901c934b94404e408329022" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView12</name></member>
+      <member refid="classBTabView_1a634f27ee307f13d9d379c5495ccd3f08" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView3</name></member>
+      <member refid="classBTabView_1a11449f31f8c59a139857bdbb4dc65910" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView4</name></member>
+      <member refid="classBTabView_1aa47af5026626bfdfdb6a39d079bf0f82" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView5</name></member>
+      <member refid="classBTabView_1a71362cd26cf0eb24cb319360641436d3" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView6</name></member>
+      <member refid="classBTabView_1a6cf16b92e859e61dc1f9c044ef69b52e" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView7</name></member>
+      <member refid="classBTabView_1a87a37afda4f908e7f5bf29002afe8009" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView8</name></member>
+      <member refid="classBTabView_1abbc79d8f51e951a4446d823fec35f599" prot="private" virt="virtual"><scope>BTabView</scope><name>_ReservedTabView9</name></member>
+      <member refid="classBTabView_1a942871ecd42223ece1508d1967b4a636" prot="private" virt="non-virtual"><scope>BTabView</scope><name>_TabsMinSize</name></member>
+      <member refid="classBView_1ab6382c582e5e1be527d3199459d05e8f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AddChild</name></member>
+      <member refid="classBView_1a5d30ae4fa0119bf5286f52f83c2f351c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AddChild</name></member>
+      <member refid="classBHandler_1a862bea548363faac6f883b348cbed838" prot="public" virt="virtual"><scope>BTabView</scope><name>AddFilter</name></member>
+      <member refid="classBView_1a88440336a66ee9b1a4b1661e9ba9e59c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AddLine</name></member>
+      <member refid="classBTabView_1a9353bca7cdb50cc525bff5f8837e0d45" prot="public" virt="virtual"><scope>BTabView</scope><name>AddTab</name></member>
+      <member refid="classBView_1ac780f029d415ee0a915792b4e756fa77" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AdoptParentColors</name></member>
+      <member refid="classBView_1a0e429a82fe06e9ab390b06d993ee31be" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AdoptSystemColors</name></member>
+      <member refid="classBView_1ab68ad7103708884f9e6fd84e8a579746" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AdoptViewColors</name></member>
+      <member refid="classBView_1a561e82ed41cbb93d3bacf371787497bf" prot="public" virt="virtual"><scope>BTabView</scope><name>AllArchived</name></member>
+      <member refid="classBTabView_1a8243f114472f895f2491b1bf051da93d" prot="public" virt="virtual"><scope>BTabView</scope><name>AllAttached</name></member>
+      <member refid="classBTabView_1aaaa411a7931a91b7b840d2db3785ed04" prot="public" virt="virtual"><scope>BTabView</scope><name>AllDetached</name></member>
+      <member refid="classBTabView_1a6cc6ca514c10001b8610e5937f96b48e" prot="public" virt="virtual"><scope>BTabView</scope><name>AllUnarchived</name></member>
+      <member refid="classBView_1a2d73d2f2b0b35390929cf54fbfa5ecff" prot="public" virt="non-virtual"><scope>BTabView</scope><name>AppendToPicture</name></member>
+      <member refid="classBTabView_1a3354f9343238295b7ed0a24339106cd5" prot="public" virt="virtual"><scope>BTabView</scope><name>Archive</name></member>
+      <member refid="classBTabView_1a88bc95e53bc3a3cbc7fddfb7b9ce736a" prot="public" virt="virtual"><scope>BTabView</scope><name>AttachedToWindow</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BArchivable</name></member>
+      <member refid="classBView_1abe65757b7c83c8db390bf0c87457a343" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BeginLayer</name></member>
+      <member refid="classBView_1ab3f2e9f54d2b93952b27e182ac552983" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BeginLineArray</name></member>
+      <member refid="classBView_1a14155192773aad22ebe47a9975afac5f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BeginPicture</name></member>
+      <member refid="classBView_1ac1eb1eeee67ec97205a4acc6955185bd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BeginRectTracking</name></member>
+      <member refid="classBHandler_1a2142e21fe781b24f914ec2086e5f05b7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BHandler</name></member>
+      <member refid="classBHandler_1add8fa081a7bb8633581e78777b215d0b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BHandler</name></member>
+      <member refid="classBTabView_1a4a2451db462e1c9fdc26d1a3964a6a71" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Border</name></member>
+      <member refid="classBView_1acbb8ea442346e91428689163db9d633e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Bounds</name></member>
+      <member refid="classBTabView_1a01cf2718632b5bfd2d510f475d38f36a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BTabView</name></member>
+      <member refid="classBTabView_1aaa4419646f63f69f7367ba10a7039d0e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BTabView</name></member>
+      <member refid="classBTabView_1afbbb336fb8eacbae0a08012b5a777eab" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BTabView</name></member>
+      <member refid="classBTabView_1a1b88d2c9cdb8051b988be10ebb194579" prot="private" virt="non-virtual"><scope>BTabView</scope><name>BTabView</name></member>
+      <member refid="classBView_1ab148f59c41c9a22ced87bf7a0221ed62" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BView</name></member>
+      <member refid="classBView_1ae3a1b2a66dc19690e766623be65c37e2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BView</name></member>
+      <member refid="classBView_1ae982fac35c278cc64990c506efe3965e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>BView</name></member>
+      <member refid="classBView_1aaf91592f50f2f44d16f23e7504f494cb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ChildAt</name></member>
+      <member refid="classBView_1ae7582b9a2b0b446a1de16c681f23baf9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClearViewBitmap</name></member>
+      <member refid="classBView_1a0ae48f37c3f56b422841638971488cc0" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClearViewOverlay</name></member>
+      <member refid="classBView_1a18d61bcae2a7ca8a1a0977ac23d15171" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClipToInversePicture</name></member>
+      <member refid="classBView_1ad1762d160500ec3ce90c7bd73944d8a7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClipToInverseRect</name></member>
+      <member refid="classBView_1a17dcb4f2e92994cde9a9ece9caa619c2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClipToInverseShape</name></member>
+      <member refid="classBView_1a9c92c9e8e306d00dbfef81f2b0282339" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClipToPicture</name></member>
+      <member refid="classBView_1a22ff147a2f0a0bd65de494c9a039acee" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClipToRect</name></member>
+      <member refid="classBView_1ac0884c62949361a7eb6a4834f46b902c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ClipToShape</name></member>
+      <member refid="classBView_1a656b8d82a6a7c7c6ab33c3dd08aad6ec" prot="public" virt="virtual"><scope>BTabView</scope><name>ConstrainClippingRegion</name></member>
+      <member refid="classBTabView_1a9708b972061a72fb4dfd59d2575e56cb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ContainerView</name></member>
+      <member refid="classBView_1a43c16140dd4491a6a6f7bad11bbea1f9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1aa3201bdf5c489fbab7d67afe3453466d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1ab2aeeb14409a18f950173e7cb22e147c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a45b405f10c29442aea8b70161410565f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromParent</name></member>
+      <member refid="classBView_1a4b794ccd899dc6a0cafd886169122df5" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a75f1d68cf77bccc03930eb8e273f2967" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a3fbc496f437925cb02ccf9e817406e4e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1a44c3b5174e4ccfa4c123e0d5d54e9408" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertFromScreen</name></member>
+      <member refid="classBView_1ab20700567eabd5f8135be179b4232e2c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1a91e6a7edab78547be47cb8dc84cfdecf" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ac7bd2e0e7aac40d1be9a47999b5701a9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1ae3b385e4d1b9f70bc848bf2fd0b7753c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToParent</name></member>
+      <member refid="classBView_1aefefb1242613b869feb6b8e0cc119518" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1af90cdeb62cc60adf64eb9a669c37c153" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ad99f5af006f28c485f02484752a2ac5d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1ae60c56c306d0cf3f504d710fac8b9bed" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ConvertToScreen</name></member>
+      <member refid="classBView_1a8ace5c5cc811c4ad16acf281ffd1a48d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>CopyBits</name></member>
+      <member refid="classBView_1ae30d094a1cb1f3357c4aa7caa4b0e29d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>CountChildren</name></member>
+      <member refid="classBTabView_1a83dff446e7ba13d9d2e8881acad5b46f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>CountTabs</name></member>
+      <member refid="classBView_1ae2a9da1ca04489dd60ef8aefa86331ed" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBView_1a6389a46cf1842eb0d412b44958955e61" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DelayedInvalidate</name></member>
+      <member refid="classBTabView_1a6fdc45a6555af003617cfac94c3866ae" prot="public" virt="virtual"><scope>BTabView</scope><name>DetachedFromWindow</name></member>
+      <member refid="classBView_1aa165cbaac7d6915feaae6048c4378c85" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DisableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9d766a06d0885200c6ababba4c87808b" prot="protected" virt="virtual"><scope>BTabView</scope><name>DoLayout</name></member>
+      <member refid="classBView_1a1f4f0c3c5946df1d14e6031e5e12f40b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DragMessage</name></member>
+      <member refid="classBView_1a466287a3d939759cc09e4a6d1c9982cd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DragMessage</name></member>
+      <member refid="classBView_1ae1caa1d0bef9452db00c2adc8e3280b4" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DragMessage</name></member>
+      <member refid="classBTabView_1adafa3b55c2565daffe2c7df0f7c50fc7" prot="public" virt="virtual"><scope>BTabView</scope><name>Draw</name></member>
+      <member refid="classBView_1abb50623b4236926b068fc5a2264f6a48" prot="public" virt="virtual"><scope>BTabView</scope><name>DrawAfterChildren</name></member>
+      <member refid="classBView_1a6171150993fbf7c73966c7c302a95573" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a63db7245fd9b9fefd461d7596c15f9cc" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1abce81666128d183d59b5cf2ed75c7f07" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a1c8b6e3e9218388a68ae43dd408a187c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1a769c3e3dee7d86ed50308f7a3f46ef91" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmap</name></member>
+      <member refid="classBView_1ae66727344d35f05c56b6163ad70e360c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a0ef432afa41aefcb3fdd537e2d290001" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1aa3275b791787a66f3638611cd6a5ae09" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1a6931c5fe803eb5fa9e66438d347c4b6d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBView_1ab50fba0500357abebb9f3ef3832f2e68" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawBitmapAsync</name></member>
+      <member refid="classBTabView_1a25a91b79630f7def5ca5a29f9e2950ab" prot="public" virt="virtual"><scope>BTabView</scope><name>DrawBox</name></member>
+      <member refid="classBView_1a02ba5c68f21d4345ec3ee683496ce851" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawChar</name></member>
+      <member refid="classBView_1a2ed7c3628692426116fc0bb450c0f0c7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawChar</name></member>
+      <member refid="classBView_1ae7953a2e451fb6e5a439df9e9dc8451a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawingMode</name></member>
+      <member refid="classBView_1ae4b252943befd9f0b62e30517b3ecec2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a2fdf36421cccce9136cdd9966a971955" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a9f5781a2b37113c55950c93b621984a7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawPicture</name></member>
+      <member refid="classBView_1a65498927c21d6681a0e77c4e3d29efba" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a05881f8b07989e1e9db0bd41f8181341" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a7f2fde4e7719bded5af33805b8242b06" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawPictureAsync</name></member>
+      <member refid="classBView_1a5c261dbbb4e8157799e85d6ad1530920" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawString</name></member>
+      <member refid="classBView_1a83d77965bd9cda6212189d92b97d8198" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawString</name></member>
+      <member refid="classBView_1ad3830d09ed0300a1144d47ac78cd2dde" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawString</name></member>
+      <member refid="classBView_1a4e1f1c59352a1373ccace7255a0ccf23" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawString</name></member>
+      <member refid="classBView_1a5dacf5d193a0c492f296bc1e402e6370" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawString</name></member>
+      <member refid="classBView_1a135868eb5cd1b35ee1c2d03517b9a33f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawString</name></member>
+      <member refid="classBTabView_1a82c66166b3545607d7e7ddc8a3c85000" prot="public" virt="virtual"><scope>BTabView</scope><name>DrawTabs</name></member>
+      <member refid="classBView_1a8848d931fd0354860a0e71934e66cb03" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawTiledBitmap</name></member>
+      <member refid="classBView_1ad281a4e40f212e3cb56c23fa6e574a84" prot="public" virt="non-virtual"><scope>BTabView</scope><name>DrawTiledBitmapAsync</name></member>
+      <member refid="classBView_1ad43cc5c22f83d95632d3d81eff73f425" prot="public" virt="non-virtual"><scope>BTabView</scope><name>EnableLayoutInvalidation</name></member>
+      <member refid="classBView_1a9f54d4478a12823f116168a45af30898" prot="public" virt="non-virtual"><scope>BTabView</scope><name>EndLayer</name></member>
+      <member refid="classBView_1a24ba922f9698936bc27f48b3c51349a1" prot="public" virt="non-virtual"><scope>BTabView</scope><name>EndLineArray</name></member>
+      <member refid="classBView_1ae01506892a9b2d39f6df13726be9d0af" prot="public" virt="non-virtual"><scope>BTabView</scope><name>EndPicture</name></member>
+      <member refid="classBView_1a7bcc3532c03eeeb929278de8fcc1fd25" prot="public" virt="non-virtual"><scope>BTabView</scope><name>EndRectTracking</name></member>
+      <member refid="classBView_1a8851d500773c732ddbb1a4b31f0ad664" prot="public" virt="non-virtual"><scope>BTabView</scope><name>EventMask</name></member>
+      <member refid="classBView_1a1f078f5c987061c5cf3059f7091bcb1a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ExplicitAlignment</name></member>
+      <member refid="classBView_1a4e63cc8ca1f604ccb20f5891adade70f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ExplicitMaxSize</name></member>
+      <member refid="classBView_1a1b24db754473008766cdd0fd9c4ee3b7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ExplicitMinSize</name></member>
+      <member refid="classBView_1a218cd0d238104a6ff31c1d72ae2d9e6e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ExplicitPreferredSize</name></member>
+      <member refid="classBTabView_1a0163808b61ba0fda75494c2d85cf75c3" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fBorderStyle</name></member>
+      <member refid="classBTabView_1a78760e6d0a318db6be568e1a1639ce9b" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fContainerView</name></member>
+      <member refid="classBTabView_1afc73fb426e7436a760c3b2f656fa000c" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fFocus</name></member>
+      <member refid="classBView_1af0e5d362474d39199116045aa9621aa5" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillArc</name></member>
+      <member refid="classBView_1ac216c652253a21f0f28a7caef07deb77" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillArc</name></member>
+      <member refid="classBView_1a49017edefe45ca5c74954e1227e673bb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillArc</name></member>
+      <member refid="classBView_1a4304fe45708f72d0ba20b579870c24ce" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillArc</name></member>
+      <member refid="classBView_1a531ad43e129d810ee64208123b550193" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a7cf8a5eaa5451b2c7df0d6fa392012bd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillBezier</name></member>
+      <member refid="classBView_1a06942f0dd4c13175bcfff6a88eae7cc0" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a98a73cbccb42edfc61b93f9aa6f4a13b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a2738cf2f3d39f560d0cff90543f45afa" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1a86de91f260577187eaf22ba0fdf32fba" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillEllipse</name></member>
+      <member refid="classBView_1ae72733cae8a1fc2da8feb47c0c2149fa" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1adc7d96f2d60a819f03685eb11b6945e2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a1bdc02a311b2a051ad7fbdbf1789e958" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a96cdb60a8c87e4958380a3077a2197a5" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a22a5ce1f024e622b6eade6a9176ff1f7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a57b0870cd6a0109c347d80c34ca2f34a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillPolygon</name></member>
+      <member refid="classBView_1a4d074663998c7ba922a9d981d0cfe086" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRect</name></member>
+      <member refid="classBView_1aae6a3ff6683bb15ac8c647c946475e8f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRect</name></member>
+      <member refid="classBView_1a4810086c415d90bffa25ab2963716936" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a56828d13947717462b661e1645305509" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRegion</name></member>
+      <member refid="classBView_1a38d7e7b15a13591c20020599886402b5" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a73956d28b356b2eee83ebc19bd6e398b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRoundRect</name></member>
+      <member refid="classBView_1a3a2fd2d7313a9bb7dff359a4f4362a5f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillRule</name></member>
+      <member refid="classBView_1a91b9ce4b8b8ee13ff5f1071e1fb0d829" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillShape</name></member>
+      <member refid="classBView_1a9a82da733397e97b985875be941f77a6" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillShape</name></member>
+      <member refid="classBView_1a46ec16609a402d03baa322a04d8c50e2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1af512b76752705cba87f89c8dac313005" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a5dd1c64839c11a79e80581e37656cc26" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillTriangle</name></member>
+      <member refid="classBView_1a0878dea14a61d58c951bd8e11c0a2ef6" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FillTriangle</name></member>
+      <member refid="classBHandler_1a909662a049856f6863a934cf18161554" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FilterList</name></member>
+      <member refid="classBView_1ab83ef89f1876913174c825ff7cd02c4a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FindView</name></member>
+      <member refid="classBTabView_1a0d091327088f7755b2d42462aba2de7d" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fInitialSelection</name></member>
+      <member refid="classBView_1a561b10abf94dd65a26b02253af667508" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Flags</name></member>
+      <member refid="classBView_1a15465930f84d2d01f7818bd79bc91c3e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Flush</name></member>
+      <member refid="classBTabView_1ae3c9fcc7e0521d59af89b419916d8bd9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>FocusTab</name></member>
+      <member refid="classBView_1a424161ccf6f52a354fdd67ed1376d196" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ForceFontAliasing</name></member>
+      <member refid="classBView_1a487b04a3aaffdd1a1afb730dca36a7e2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Frame</name></member>
+      <member refid="classBTabView_1af1b6043bcdb3372a0800aa3a086b8218" prot="public" virt="virtual"><scope>BTabView</scope><name>FrameMoved</name></member>
+      <member refid="classBTabView_1adaacf9a6c7cc8d4afb23022b60bc71fb" prot="public" virt="virtual"><scope>BTabView</scope><name>FrameResized</name></member>
+      <member refid="classBTabView_1a6d5a05c7ebd4931aee7c257b303be73d" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fSelection</name></member>
+      <member refid="classBTabView_1a62818545390d96e48385cec322319ae2" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fTabHeight</name></member>
+      <member refid="classBTabView_1ab433cf1cfa89fd2ebc2a2f239ccb0b40" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fTabList</name></member>
+      <member refid="classBTabView_1a3c3a2d52e0a27ace297c73ae1ad603b5" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fTabOffset</name></member>
+      <member refid="classBTabView_1a7a483c63280cafd04cd7a2f1fc669f93" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fTabSide</name></member>
+      <member refid="classBTabView_1ab9745c7d896ce2e3411b5617da558de1" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fTabWidth</name></member>
+      <member refid="classBTabView_1a57232032719a226991a8a3cf804dad33" prot="private" virt="non-virtual"><scope>BTabView</scope><name>fTabWidthSetting</name></member>
+      <member refid="classBView_1ad50d5ba2249fdf3dd8640b3573c2a2e8" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetBlendingMode</name></member>
+      <member refid="classBView_1acf50a063c9621f35a84b1d0245b12d69" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetClippingRegion</name></member>
+      <member refid="classBView_1af244d01f85e6d9ae7f5fcca4637dc78c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetFont</name></member>
+      <member refid="classBView_1a5bf95d66754634c647b2ddf7d39b4dfb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetFontHeight</name></member>
+      <member refid="classBView_1ad34bee968b1ec98a0bf89343340b6b07" prot="public" virt="virtual"><scope>BTabView</scope><name>GetHeightForWidth</name></member>
+      <member refid="classBView_1aec2975b51966c397aa52b9e3eebd2c85" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetLayout</name></member>
+      <member refid="classBView_1a830ce9cf2ac2ffb5f73f526ee5d6e53d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetMouse</name></member>
+      <member refid="classBTabView_1a331553465a07b7de9cef71e54d6b3ed0" prot="public" virt="virtual"><scope>BTabView</scope><name>GetPreferredSize</name></member>
+      <member refid="classBView_1aaae0dc93bc61d7f221465fbe0aecd30a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>GetStringWidths</name></member>
+      <member refid="classBTabView_1aed45f36a1cdcc1bb23fc964714cbe20d" prot="public" virt="virtual"><scope>BTabView</scope><name>GetSupportedSuites</name></member>
+      <member refid="classBView_1afb826fe9b8964e4d843cae190170badf" prot="protected" virt="virtual"><scope>BTabView</scope><name>GetToolTipAt</name></member>
+      <member refid="classBView_1a606e0e7e03516dccb53bf073827460a8" prot="public" virt="non-virtual"><scope>BTabView</scope><name>HasDefaultColors</name></member>
+      <member refid="classBView_1abd411461b7e23ad17e7294f8f5e1cbeb" prot="public" virt="virtual"><scope>BTabView</scope><name>HasHeightForWidth</name></member>
+      <member refid="classBView_1aa9aacc95606b650e6a8d776b51cb902b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>HasSystemColors</name></member>
+      <member refid="classBView_1a7688dc04178a2955950154ee3670d029" prot="public" virt="virtual"><scope>BTabView</scope><name>Hide</name></member>
+      <member refid="classBView_1af75bbc1131ad6a90e299c6cbcf623fa7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>HideToolTip</name></member>
+      <member refid="classBView_1abda3583967fba9f6ed9524058d00a6e9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>HighColor</name></member>
+      <member refid="classBView_1aa86f548fba2e82d022066198be6d5af6" prot="public" virt="non-virtual"><scope>BTabView</scope><name>HighUIColor</name></member>
+      <member refid="classBTabView_1a7bb1dd022ca51fc1f4c4a1724ebd024b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IndexOf</name></member>
+      <member refid="classBTabView_1aadc26bf6ad5717b8e32011b2e50d5c14" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Instantiate</name></member>
+      <member refid="classBView_1a8c767d948dc9435c006cabdcab1cd08e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Invalidate</name></member>
+      <member refid="classBView_1ac70b682819c0f9b008c428e02015b19b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Invalidate</name></member>
+      <member refid="classBView_1adfced0dcb244e199f872fdbd48349a05" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Invalidate</name></member>
+      <member refid="classBView_1a4a711316094e43076a3f5478d937accf" prot="public" virt="non-virtual"><scope>BTabView</scope><name>InvalidateLayout</name></member>
+      <member refid="classBView_1af7e5ebc41cd5a471dcdcfa1f3db801a5" prot="public" virt="non-virtual"><scope>BTabView</scope><name>InvertRect</name></member>
+      <member refid="classBView_1a165719de682845f80735042a499692ff" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsFocus</name></member>
+      <member refid="classBView_1a33a65050c2315b19b4c5af16c48e3cdb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a95cfa8ee585230ea8fb224e88eddc503" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsHidden</name></member>
+      <member refid="classBView_1a4e86b719129a12afbda7c10371eeca47" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsLayoutInvalidationDisabled</name></member>
+      <member refid="classBView_1a00a5d5d6edee7d488d77df03945b3e94" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsLayoutValid</name></member>
+      <member refid="classBView_1a8e3f1722e40fdf01c5131e49199ec3ff" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsPrinting</name></member>
+      <member refid="classBHandler_1a581b84f0f067afa88768ce6a0c07f59f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>IsWatched</name></member>
+      <member refid="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffaa89da788d3bc6bbb5641b723bd955f5f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>kBottomSide</name></member>
+      <member refid="classBTabView_1a6eca83e00f1649fbe6b6aacd3f0f66f6" prot="public" virt="virtual"><scope>BTabView</scope><name>KeyDown</name></member>
+      <member refid="classBView_1acbc528bb70be49993bd99aa136dbb089" prot="public" virt="virtual"><scope>BTabView</scope><name>KeyUp</name></member>
+      <member refid="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffa4d5f9eb56c8f7e214888a6795719a6a6" prot="public" virt="non-virtual"><scope>BTabView</scope><name>kLeftSide</name></member>
+      <member refid="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffad4fe96689a8ae812e488297f4454bb23" prot="public" virt="non-virtual"><scope>BTabView</scope><name>kRightSide</name></member>
+      <member refid="classBTabView_1a83597cbdcddffee4edb4bb50eda0beffa01afd124d81cfda29ee742d7bf36ebb4" prot="public" virt="non-virtual"><scope>BTabView</scope><name>kTopSide</name></member>
+      <member refid="classBView_1a854b6ca54eeca610db9eab8b58d68a8b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Layout</name></member>
+      <member refid="classBView_1a2f74b3e7c602045d8c927f923f45eefa" prot="public" virt="virtual"><scope>BTabView</scope><name>LayoutAlignment</name></member>
+      <member refid="classBView_1ada521f848e4c800cd02eb4fe529e7ea0" prot="protected" virt="virtual"><scope>BTabView</scope><name>LayoutChanged</name></member>
+      <member refid="classBView_1ae066513c0a788a9544744d409f28cada" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LayoutContext</name></member>
+      <member refid="classBView_1a0a552cc0d8678939c619f98dcc80d254" prot="protected" virt="virtual"><scope>BTabView</scope><name>LayoutInvalidated</name></member>
+      <member refid="classBView_1a5d252dfe28eee049be2192d1a01ed6e3" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LeftTop</name></member>
+      <member refid="classBView_1a551f5961188e4f26ef310eb5eea7c926" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LineCapMode</name></member>
+      <member refid="classBView_1a0aa47adb29d91b4cc6c4924b7f436012" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LineJoinMode</name></member>
+      <member refid="classBView_1ab1cd7cf77a4fa01755d186a05163cfbe" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LineMiterLimit</name></member>
+      <member refid="classBHandler_1a9d64bf66b4914918e24390d117e83477" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LockLooper</name></member>
+      <member refid="classBHandler_1afa0099ff6defcb6d64e3ee1c2fb47afe" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LockLooperWithTimeout</name></member>
+      <member refid="classBHandler_1ac8e949959b12e602e3b0c4f023c60e6c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Looper</name></member>
+      <member refid="classBView_1a423c54f22ab95745b28b583af999e554" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LowColor</name></member>
+      <member refid="classBView_1ae32ca6d8f106d44b5b51df82a7eb64c5" prot="public" virt="non-virtual"><scope>BTabView</scope><name>LowUIColor</name></member>
+      <member refid="classBTabView_1a0bba5d8ebb1263111769df12ab9b4c2a" prot="public" virt="virtual"><scope>BTabView</scope><name>MakeFocus</name></member>
+      <member refid="classBTabView_1ac7ab32a3a7ab1326820f11dea6ce834d" prot="public" virt="virtual"><scope>BTabView</scope><name>MaxSize</name></member>
+      <member refid="classBTabView_1a5827436caab3b27791f2280d2d151624" prot="public" virt="virtual"><scope>BTabView</scope><name>MessageReceived</name></member>
+      <member refid="classBTabView_1a9833a3bdc0cca3508a099e7054943fe1" prot="public" virt="virtual"><scope>BTabView</scope><name>MinSize</name></member>
+      <member refid="classBTabView_1a0300bd5b05234996a9eab7c6afc9479e" prot="public" virt="virtual"><scope>BTabView</scope><name>MouseDown</name></member>
+      <member refid="classBTabView_1a482f5de48a2c17f2898b39602849a820" prot="public" virt="virtual"><scope>BTabView</scope><name>MouseMoved</name></member>
+      <member refid="classBTabView_1a9f889b22d3b00132a15b82c6d322a21a" prot="public" virt="virtual"><scope>BTabView</scope><name>MouseUp</name></member>
+      <member refid="classBView_1a6e122baca4494f6ce739a507054fa81f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>MoveBy</name></member>
+      <member refid="classBView_1a979f8f0090284919b6e7c6c04d91cbde" prot="public" virt="non-virtual"><scope>BTabView</scope><name>MovePenBy</name></member>
+      <member refid="classBView_1acb61254a2121f569f6223a95cd835abd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1ae32d7951a4ce9cff6b81899f5208a25f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>MovePenTo</name></member>
+      <member refid="classBView_1acce9c93118a3db24078f16bdabc6fbec" prot="public" virt="non-virtual"><scope>BTabView</scope><name>MoveTo</name></member>
+      <member refid="classBView_1a1c9b2df47ba1b9f3a1ce3286995fb8bd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>MoveTo</name></member>
+      <member refid="classBHandler_1a40b246ac272e09b2f641d1290be21200" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Name</name></member>
+      <member refid="classBHandler_1a92855d8f88f6072e7225bde292feaa38" prot="public" virt="non-virtual"><scope>BTabView</scope><name>NextHandler</name></member>
+      <member refid="classBView_1a76e7d862fe78e4d2766573bf073b9d30" prot="public" virt="non-virtual"><scope>BTabView</scope><name>NextSibling</name></member>
+      <member refid="classBTabView_1ab544d9a470dd4431dc8e385bbf920107" prot="private" virt="non-virtual"><scope>BTabView</scope><name>operator=</name></member>
+      <member refid="classBView_1aefbf71a7a403900e960ffa3943dc9901" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Origin</name></member>
+      <member refid="classBView_1a332f34d9862000dbc859fd4e308839dd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Parent</name></member>
+      <member refid="classBView_1a2774e13c2b12c6a5fee333e95b76b07d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>PenLocation</name></member>
+      <member refid="classBView_1a69d8657d26b49773fa2de914f263b204" prot="public" virt="non-virtual"><scope>BTabView</scope><name>PenSize</name></member>
+      <member refid="classBTabView_1a708fd8766fddb7b0cd72566c57c2977a" prot="public" virt="virtual"><scope>BTabView</scope><name>Perform</name></member>
+      <member refid="classBView_1abc0d202fe13366b80703afbdb3832951" prot="public" virt="non-virtual"><scope>BTabView</scope><name>PopState</name></member>
+      <member refid="classBTabView_1a0a9aebb15a78aab7ffd6a9286a6e9dca" prot="public" virt="virtual"><scope>BTabView</scope><name>PreferredSize</name></member>
+      <member refid="classBView_1a2a46f78756eacca3f3d4c90d31c758b1" prot="public" virt="non-virtual"><scope>BTabView</scope><name>PreviousSibling</name></member>
+      <member refid="classBTabView_1ac5411bc039523eb177d52f9e1b357cbd" prot="public" virt="virtual"><scope>BTabView</scope><name>Pulse</name></member>
+      <member refid="classBView_1a1dcb914cd0c6ef8d1291aa8492968d40" prot="public" virt="non-virtual"><scope>BTabView</scope><name>PushState</name></member>
+      <member refid="classBView_1a2cf4e698a4322ecfb946e440e0f7ac62" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Relayout</name></member>
+      <member refid="classBView_1a5f93a23d06267da83c128bce222ceb17" prot="public" virt="non-virtual"><scope>BTabView</scope><name>RemoveChild</name></member>
+      <member refid="classBHandler_1a2b608135b27f283802648e7c6f8cdc83" prot="public" virt="virtual"><scope>BTabView</scope><name>RemoveFilter</name></member>
+      <member refid="classBView_1a87e0848b1760a9f28aad4516467a03ed" prot="public" virt="non-virtual"><scope>BTabView</scope><name>RemoveSelf</name></member>
+      <member refid="classBTabView_1af951a54c88617dc47010c81487fc9fbd" prot="public" virt="virtual"><scope>BTabView</scope><name>RemoveTab</name></member>
+      <member refid="classBView_1a127933a3820f0bfe0497b5e7ddfa191f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ResetLayoutInvalidation</name></member>
+      <member refid="classBView_1ace23acc948bbc9b9272da8dc7f01d3ce" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ResizeBy</name></member>
+      <member refid="classBView_1a742bccd6034ef9ade65b0e596fba55f2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ResizeTo</name></member>
+      <member refid="classBView_1a6134097569f75679616257a361086d7a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ResizeTo</name></member>
+      <member refid="classBTabView_1ae71c385d5a612edaaac3aa2d43ecd959" prot="public" virt="virtual"><scope>BTabView</scope><name>ResizeToPreferred</name></member>
+      <member refid="classBView_1a1e93df523fc9edc807274ac6cfd2dc8d" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ResizingMode</name></member>
+      <member refid="classBTabView_1a2d18bd3eeb63be72e3954b6d58cf3809" prot="public" virt="virtual"><scope>BTabView</scope><name>ResolveSpecifier</name></member>
+      <member refid="classBView_1a02ab6b6196b140b20ae516a55680e30b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>RotateBy</name></member>
+      <member refid="classBView_1a50e12d6b8080b3bc6bc617d31d1ab200" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Scale</name></member>
+      <member refid="classBView_1ac83f9fdfb882f849e3ac79bfb06a0fd6" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ScaleBy</name></member>
+      <member refid="classBView_1a0878bc7981ba814190b822349599a120" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ScrollBar</name></member>
+      <member refid="classBView_1ae20e2a3c46fc30a2a292c832eead7387" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ScrollBy</name></member>
+      <member refid="classBView_1a33ed2a9eeff474a756b548996a82b964" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a2b76ddc60289ce92e1fb706332edbafc" prot="public" virt="virtual"><scope>BTabView</scope><name>ScrollTo</name></member>
+      <member refid="classBView_1a54991372110199183fed775598ae1912" prot="protected" virt="non-virtual"><scope>BTabView</scope><name>ScrollWithMouseWheelDelta</name></member>
+      <member refid="classBTabView_1a40c3b03fb69dd273843304120e98c62b" prot="public" virt="virtual"><scope>BTabView</scope><name>Select</name></member>
+      <member refid="classBTabView_1a375938ffbd6f7331691aa407298e4ae0" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Selection</name></member>
+      <member refid="classBHandler_1a71bf72dc17a64bcd42656722271a9e0c" prot="public" virt="virtual"><scope>BTabView</scope><name>SendNotices</name></member>
+      <member refid="classBView_1ad01fc0fd68e4683af9b9386bf33abf63" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetBlendingMode</name></member>
+      <member refid="classBTabView_1ab12f1d7ec48b49be3826432cd5471b50" prot="public" virt="virtual"><scope>BTabView</scope><name>SetBorder</name></member>
+      <member refid="classBView_1a8ba0fe3a3dbeec1b7fd8c9655070ef64" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetDiskMode</name></member>
+      <member refid="classBView_1a0c392ed0e36213e1007322a9cbca71c0" prot="public" virt="virtual"><scope>BTabView</scope><name>SetDrawingMode</name></member>
+      <member refid="classBView_1a5d8d6b469a8a11a577d1d138cfc31162" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetEventMask</name></member>
+      <member refid="classBView_1a6906e47d4fdd6923dd51edb60a83ccea" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetExplicitAlignment</name></member>
+      <member refid="classBView_1acd759dd7505050f9cbd8213c71991b8b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetExplicitMaxSize</name></member>
+      <member refid="classBView_1abfcb5c761f9b06da3b4a6788aad5d0ee" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetExplicitMinSize</name></member>
+      <member refid="classBView_1a98b7d450210099ed59b7cd34f2575e20" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetExplicitPreferredSize</name></member>
+      <member refid="classBView_1aeef8a27a5577db87251412ce44421494" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetExplicitSize</name></member>
+      <member refid="classBView_1a2019def93337069c0b7d416e103522e9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetFillRule</name></member>
+      <member refid="classBHandler_1a503344dc801858e1f5f419be3919e9cf" prot="public" virt="virtual"><scope>BTabView</scope><name>SetFilterList</name></member>
+      <member refid="classBTabView_1a15a7a76d27f6faff9faedd740b10f485" prot="public" virt="virtual"><scope>BTabView</scope><name>SetFlags</name></member>
+      <member refid="classBTabView_1a7bafb2e1723054f202fef29d9ae11036" prot="public" virt="virtual"><scope>BTabView</scope><name>SetFocusTab</name></member>
+      <member refid="classBView_1a9247127c151153542a3e6bc1f3904433" prot="public" virt="virtual"><scope>BTabView</scope><name>SetFont</name></member>
+      <member refid="classBView_1a443e4d9ff182f85a6b1c8478ef22ffe8" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetFontSize</name></member>
+      <member refid="classBView_1ab5482f91a642d545bc3fcefe199f95e9" prot="public" virt="virtual"><scope>BTabView</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1aff9e1ab5e88f33027e72b39874868e9b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetHighColor</name></member>
+      <member refid="classBView_1a54eefc28bf7a4bc30612cf83aff2963b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetHighUIColor</name></member>
+      <member refid="classBView_1acac1ebbba8c76e543e1b06e84dffab02" prot="public" virt="virtual"><scope>BTabView</scope><name>SetLayout</name></member>
+      <member refid="classBView_1ae97bfe6c0c93fce98bc7bbd93761dbfb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetLineMode</name></member>
+      <member refid="classBView_1af0426243110fb150ad7ef0705209a12c" prot="public" virt="virtual"><scope>BTabView</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a929fb1ca47a00220c355ae55a0ea6077" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetLowColor</name></member>
+      <member refid="classBView_1a879ab88d4e64345069f1041d3a7b652f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetLowUIColor</name></member>
+      <member refid="classBView_1ae7705783d064a8613dcc6f36a2866ab2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetMouseEventMask</name></member>
+      <member refid="classBHandler_1abf861126df4b6e71b9261a99da4ad0eb" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetName</name></member>
+      <member refid="classBHandler_1a02f78779c8141987d6030e73c22e734a" prot="public" virt="virtual"><scope>BTabView</scope><name>SetNextHandler</name></member>
+      <member refid="classBView_1a769e5fa6486adf12e7a3511ed372a06c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a7cf4e3ac5b0759b9c38d7b36517f2337" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetOrigin</name></member>
+      <member refid="classBView_1a80ea4cb97d2e6e2c3088e610a9e157e6" prot="public" virt="virtual"><scope>BTabView</scope><name>SetPenSize</name></member>
+      <member refid="classBTabView_1ac291b408315b6070e217bec7960243c7" prot="public" virt="virtual"><scope>BTabView</scope><name>SetResizingMode</name></member>
+      <member refid="classBView_1a077136ea06f0a6b39aa0b8b24311cce8" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetScale</name></member>
+      <member refid="classBTabView_1aa27f7f9b89087e49ce27a97cf9464056" prot="public" virt="virtual"><scope>BTabView</scope><name>SetTabHeight</name></member>
+      <member refid="classBTabView_1a396346223d01cbe368fbe12c377944b3" prot="public" virt="virtual"><scope>BTabView</scope><name>SetTabSide</name></member>
+      <member refid="classBTabView_1a082bed4429de8fb872ee83ab6cb3b2da" prot="public" virt="virtual"><scope>BTabView</scope><name>SetTabWidth</name></member>
+      <member refid="classBView_1a75fb825a3ef69c1c6fbf3535ee2260ab" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1aa377bad64048a2d3cd1c2b272ae3079b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetToolTip</name></member>
+      <member refid="classBView_1afbd9b8f35226ba89980c450f7626fc85" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetTransform</name></member>
+      <member refid="classBView_1ac247ddc58f1cb719d60e354a77c51c1e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1a046a9c1656823db5401e530cf8121734" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewBitmap</name></member>
+      <member refid="classBView_1ae8dde0e0330b394db016f3e609e7fb6a" prot="public" virt="virtual"><scope>BTabView</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a7dace2963c85b5ce55b7d8e96946625c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewColor</name></member>
+      <member refid="classBView_1a39b4878773b4436e3c76aee51c4fbc09" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewCursor</name></member>
+      <member refid="classBView_1a576100502a8c6dfb46ff36b08cbe9405" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a9770c1bb97d7ffd797f7c40ca1339f98" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewOverlay</name></member>
+      <member refid="classBView_1a34f020c4bb1008cef972cf1eec7dba0f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>SetViewUIColor</name></member>
+      <member refid="classBView_1a06e0584057d6c7a7c7e048b6272b7016" prot="public" virt="virtual"><scope>BTabView</scope><name>Show</name></member>
+      <member refid="classBView_1a61d28f55d6fdc55b59c38c44b9788205" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ShowToolTip</name></member>
+      <member refid="classBHandler_1af7d600e33a0586af7444d9abc8500504" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a20713ff6ee9df49a014f391374eaf689" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StartWatching</name></member>
+      <member refid="classBHandler_1a58d7c8d30e47fbb7590f10dea1f21166" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a31927c51d89e0e3b3bf609a786ee6c3b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StartWatchingAll</name></member>
+      <member refid="classBHandler_1a9d1f0d55b3dc7337058aba769b4e4f93" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1ad3544be491270f856a0af8d36ce02d78" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StopWatching</name></member>
+      <member refid="classBHandler_1a199c167e0dcee95aa65d09435804b3d9" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StopWatchingAll</name></member>
+      <member refid="classBHandler_1a8b9a424ce63f5932666094b6eadf10cf" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StopWatchingAll</name></member>
+      <member refid="classBView_1adef480de8a8bcd2fff3129660501616e" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StringWidth</name></member>
+      <member refid="classBView_1aef3638cf597407e6a9f31bc75cd42097" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StringWidth</name></member>
+      <member refid="classBView_1a57222cd40096dfe23e1df86a01277041" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a9c958b9399925a8a0ea333afd337ebfd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeArc</name></member>
+      <member refid="classBView_1a64ea2ad06018b0b3b156113d201c7ad7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeBezier</name></member>
+      <member refid="classBView_1a042703445263f1d9a9213757fcf27414" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1ae7727ca808873634363e5306fdbcc09a" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeEllipse</name></member>
+      <member refid="classBView_1a909ee03901fac4ae5504f7faf5e41a7c" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ab713fc42e330d0a091a9774edfb9626f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeLine</name></member>
+      <member refid="classBView_1ae871d03592c1bba5d6be3d5d982ea747" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1638c58553467f3ebe5ee2b3683d4905" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1a1482fddababe3dd1377f86a038f7119b" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokePolygon</name></member>
+      <member refid="classBView_1ad3893af66d3891855f9db7072bfb4de7" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeRect</name></member>
+      <member refid="classBView_1acf743b2ba22b82c8bc38eb514513df55" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeRoundRect</name></member>
+      <member refid="classBView_1a507e9b732e880ac8e6379e19e74d5757" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeShape</name></member>
+      <member refid="classBView_1a8221cce8942e590c2fea954f57933e78" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1ae59fc9e9cfaba5e2d6e79a90723a3330" prot="public" virt="non-virtual"><scope>BTabView</scope><name>StrokeTriangle</name></member>
+      <member refid="classBView_1a27e217abb3fefa45b6e4ceb7a54cb362" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Sync</name></member>
+      <member refid="classBTabView_1a83597cbdcddffee4edb4bb50eda0beff" prot="public" virt="non-virtual"><scope>BTabView</scope><name>tab_side</name></member>
+      <member refid="classBTabView_1ad417bb696711a310aa4aa9525b15eb66" prot="public" virt="virtual"><scope>BTabView</scope><name>TabAt</name></member>
+      <member refid="classBTabView_1ac2fba88a5d6cab4d3b7f3fc9114fc069" prot="public" virt="virtual"><scope>BTabView</scope><name>TabFrame</name></member>
+      <member refid="classBTabView_1acce1dbee45ff0c7b68945dcf307340bd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>TabHeight</name></member>
+      <member refid="classBTabView_1a69728d0920c6bec49cdcb2208b8dcf24" prot="public" virt="non-virtual"><scope>BTabView</scope><name>TabSide</name></member>
+      <member refid="classBTabView_1af7ddbaed20b85295fa2be6cd003da037" prot="public" virt="non-virtual"><scope>BTabView</scope><name>TabWidth</name></member>
+      <member refid="classBView_1a668a4ed5419c86a7f2696ca7ece28df7" prot="public" virt="virtual"><scope>BTabView</scope><name>TargetedByScrollView</name></member>
+      <member refid="classBView_1a127ceec2101b12c0fbe1e0e66a7b9dc1" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ToolTip</name></member>
+      <member refid="classBView_1ab16cc72cf8ae3b40abcf1f714e7e9b74" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Transform</name></member>
+      <member refid="classBView_1a98597d70ae48b2576683f25078135534" prot="public" virt="non-virtual"><scope>BTabView</scope><name>TransformTo</name></member>
+      <member refid="classBView_1a8ae6d4e1cdfeeee33b753d56bee6ae7f" prot="public" virt="non-virtual"><scope>BTabView</scope><name>TranslateBy</name></member>
+      <member refid="classBView_1ac2e293fbdd999e4857b44b6e4d4c3820" prot="public" virt="non-virtual"><scope>BTabView</scope><name>TruncateString</name></member>
+      <member refid="classBHandler_1ab131af7eb7aa2b9eea3a11ac1bfd4c03" prot="public" virt="non-virtual"><scope>BTabView</scope><name>UnlockLooper</name></member>
+      <member refid="classBView_1a8b2b1d9e08ce0c1763dd6a077ed02fdd" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ViewColor</name></member>
+      <member refid="classBTabView_1a105bc16f4b22583bf5a2de5d7aa1fefc" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ViewForTab</name></member>
+      <member refid="classBView_1aec6c89446eb4f5ded151adced9126df8" prot="public" virt="non-virtual"><scope>BTabView</scope><name>ViewUIColor</name></member>
+      <member refid="classBView_1a32733d357b76bc3504cae326d174f4a2" prot="public" virt="non-virtual"><scope>BTabView</scope><name>Window</name></member>
+      <member refid="classBTabView_1a2935851b89461b8d5ff01b11948dd885" prot="public" virt="virtual"><scope>BTabView</scope><name>WindowActivated</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BTabView</scope><name>~BArchivable</name></member>
+      <member refid="classBHandler_1a928254034959d19ef588b7898a6f8194" prot="public" virt="virtual"><scope>BTabView</scope><name>~BHandler</name></member>
+      <member refid="classBTabView_1a9b4909b80d969e42731a8b0145df1a59" prot="public" virt="virtual"><scope>BTabView</scope><name>~BTabView</name></member>
+      <member refid="classBView_1a7df0d7eaeb97a3c8a800f9e321f23f67" prot="public" virt="virtual"><scope>BTabView</scope><name>~BView</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,2103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classBBitmap" kind="class" language="C++" prot="public">
+    <compoundname>BBitmap</compoundname>
+    <basecompoundref refid="classBArchivable" prot="public" virt="non-virtual">BArchivable</basecompoundref>
+      <sectiondef kind="user-defined">
+      <header>Archiving</header>
+      <memberdef kind="function" id="classBBitmap_1a331444d4bc838444f65f534cbbd66f41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::Archive</definition>
+        <argsstring>(BMessage *data, bool deep=true) const</argsstring>
+        <name>Archive</name>
+        <qualifiedname>BBitmap::Archive</qualifiedname>
+        <reimplements refid="classBArchivable_1a051c5263dd1a75dcf28787b60825dc44">Archive</reimplements>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>deep</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Archives the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deep</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if <computeroutput>true</computeroutput>, child object will be archived as well.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput>, if everything went fine, an error code otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="69" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a224387ddb9077e37f917c15a3be85ed0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBArchivable" kindref="compound">BArchivable</ref> *</type>
+        <definition>BArchivable * BBitmap::Instantiate</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>Instantiate</name>
+        <qualifiedname>BBitmap::Instantiate</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Instantiates a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> from an archive. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A bitmap reconstructed from the archive or <computeroutput>NULL</computeroutput> if an error occurred.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="68" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Locking</header>
+      <memberdef kind="function" id="classBBitmap_1a9b3ee36e63ffe3c2b65cc73e77232a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::LockBits</definition>
+        <argsstring>(uint32 *state=NULL)</argsstring>
+        <name>LockBits</name>
+        <qualifiedname>BBitmap::LockBits</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref> *</type>
+          <declname>state</declname>
+          <defval><ref refid="SupportDefs_8h_1a070d2ce7b6bb7e5c05602aa8c308d0c4" kindref="member">NULL</ref></defval>
+        </param>
+        <briefdescription>
+<para>Locks the bitmap bits so that they cannot be relocated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is currently only used for overlay bitmaps; whenever you need to access their <ref refid="classBBitmap_1afaee868ddc68f625fbf0ef99a5c0af8b" kindref="member">Bits()</ref> you must lock them first. On resolution change overlay bitmaps can be relocated in memory; using this call prevents you from accessing an invalid pointer and clobbering memory that doesn&apos;t belong you.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Unused </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>B_OK</computeroutput> on success or an error status code.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="74" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a43e2f9b6606e0a6681701688259b87a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::UnlockBits</definition>
+        <argsstring>()</argsstring>
+        <name>UnlockBits</name>
+        <qualifiedname>BBitmap::UnlockBits</qualifiedname>
+        <briefdescription>
+<para>Unlocks the bitmap&apos;s buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Counterpart to <ref refid="classBBitmap_1a9b3ee36e63ffe3c2b65cc73e77232a4d" kindref="member">BBitmap::LockBits()</ref>.</para>
+<para><simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="75" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a2ff4163d458a95c91fbc9f09de6a1043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BBitmap::Lock</definition>
+        <argsstring>()</argsstring>
+        <name>Lock</name>
+        <qualifiedname>BBitmap::Lock</qualifiedname>
+        <briefdescription>
+<para>Locks the off-screen window that belongs to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bitmap must accept views, if locking should work.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the lock was acquired successfully.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="107" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a49f7e85512bc9f8013b1561e0056e283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::Unlock</definition>
+        <argsstring>()</argsstring>
+        <name>Unlock</name>
+        <qualifiedname>BBitmap::Unlock</qualifiedname>
+        <briefdescription>
+<para>Unlocks the off-screen window that belongs to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bitmap must accept views, if locking should work.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="108" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a2249dd4cc01a8e26dd9d6858a894a189" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BBitmap::IsLocked</definition>
+        <argsstring>() const</argsstring>
+        <name>IsLocked</name>
+        <qualifiedname>BBitmap::IsLocked</qualifiedname>
+        <briefdescription>
+<para>Determines whether or not the bitmap&apos;s off-screen window is locked. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bitmap must accept views, if locking should work.</para>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the caller owns a lock , <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R4 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="109" column="5"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Accessors</header>
+      <memberdef kind="function" id="classBBitmap_1ab345582f0870304b2800e4ed38880cd7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>area_id</type>
+        <definition>area_id BBitmap::Area</definition>
+        <argsstring>() const</argsstring>
+        <name>Area</name>
+        <qualifiedname>BBitmap::Area</qualifiedname>
+        <briefdescription>
+<para>Gets the ID of the area the bitmap data reside in. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The ID of the area the bitmap data reside in.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="77" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1afaee868ddc68f625fbf0ef99a5c0af8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * BBitmap::Bits</definition>
+        <argsstring>() const</argsstring>
+        <name>Bits</name>
+        <qualifiedname>BBitmap::Bits</qualifiedname>
+        <briefdescription>
+<para>Gets the pointer to the bitmap data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The pointer to the bitmap data.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="78" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a84afbb2b49a461d309d1a3b7a10c4c0e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::BitsLength</definition>
+        <argsstring>() const</argsstring>
+        <name>BitsLength</name>
+        <qualifiedname>BBitmap::BitsLength</qualifiedname>
+        <briefdescription>
+<para>Gets the length of the bitmap data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The length of the bitmap data as an int32.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="79" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a4520f3a1dd50e093929d03dfb9e4e578" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::BytesPerRow</definition>
+        <argsstring>() const</argsstring>
+        <name>BytesPerRow</name>
+        <qualifiedname>BBitmap::BytesPerRow</qualifiedname>
+        <briefdescription>
+<para>Gets the number of bytes used to store a row of bitmap data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of bytes used to store a row of bitmap data.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="80" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a2edc3ddc95fb6f2d09deda6ab3804ec8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>color_space</type>
+        <definition>color_space BBitmap::ColorSpace</definition>
+        <argsstring>() const</argsstring>
+        <name>ColorSpace</name>
+        <qualifiedname>BBitmap::ColorSpace</qualifiedname>
+        <briefdescription>
+<para>Gets the bitmap&apos;s color space. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The bitmap&apos;s color space.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="81" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a1bdea44a85dfc1c8743d2ac30a324be6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BBitmap::Bounds</definition>
+        <argsstring>() const</argsstring>
+        <name>Bounds</name>
+        <qualifiedname>BBitmap::Bounds</qualifiedname>
+        <briefdescription>
+<para>Gets a <ref refid="classBRect" kindref="compound">BRect</ref> the size of the bitmap&apos;s dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A <ref refid="classBRect" kindref="compound">BRect</ref> the size of the bitmap&apos;s dimensions.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="82" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a8297355bf7c5374ec81fce8ea30d14f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BBitmap::Flags</definition>
+        <argsstring>() const</argsstring>
+        <name>Flags</name>
+        <qualifiedname>BBitmap::Flags</qualifiedname>
+        <briefdescription>
+<para>Accesses the bitmap&apos;s creation flags. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method informs about which flags have been used to create the bitmap. It would for example tell you wether this is an overlay bitmap. If bitmap creation succeeded, all flags are fulfilled.</para>
+<para><simplesect kind="return"><para>The bitmap&apos;s creation flags.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="85" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a75626d082fae29e89e29e7fb1317cd27" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::GetOverlayRestrictions</definition>
+        <argsstring>(overlay_restrictions *restrictions) const</argsstring>
+        <name>GetOverlayRestrictions</name>
+        <qualifiedname>BBitmap::GetOverlayRestrictions</qualifiedname>
+        <param>
+          <type>overlay_restrictions *</type>
+          <declname>restrictions</declname>
+        </param>
+        <briefdescription>
+<para>Gets the overlay_restrictions structure for this bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>restrictions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The overlay restrictions flag</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The overlay restriction structure was found. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_TYPE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The overlay restriction structure for the bitmap could not be found.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="97" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Setters</header>
+      <memberdef kind="function" id="classBBitmap_1a5c8636bc49535adf6fb5de8c492c976a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::ImportBits</definition>
+        <argsstring>(const void *data, int32 length, int32 bpr, int32 offset, color_space colorSpace)</argsstring>
+        <name>ImportBits</name>
+        <qualifiedname>BBitmap::ImportBits</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bpr</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <briefdescription>
+<para>Assigns data to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Data are directly written into the bitmap&apos;s data buffer, being converted beforehand, if necessary. Unlike for <ref refid="classBBitmap_1a33e76109224b86faa983cbe9c2f17cd0" kindref="member">SetBits()</ref>, the meaning of <emphasis>colorSpace</emphasis> is exactly the expected one here, i.e. the source buffer is supposed to contain data of that color space. <emphasis>bpr</emphasis> specifies how many bytes the source contains per row. <computeroutput>B_ANY_BYTES_PER_ROW</computeroutput> can be supplied, if standard padding to int32 is used.</para>
+<para>The currently supported source/target color spaces are <computeroutput>B_RGB{32,24,16,15}[_BIG]</computeroutput>, <computeroutput>B_CMAP8</computeroutput> and <computeroutput>B_GRAY{8,1}</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length in bytes of the data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bpr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes per row in the source data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset (in bytes) relative to beginning of the bitmap data specifying the position at which the source data shall be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>colorSpace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color space of the source data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bits were imported into the bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>data</emphasis>, invalid <emphasis>bpr</emphasis> or <emphasis>offset</emphasis>, or unsupported <emphasis>colorSpace</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="87" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1aff7c2bfbc397e6df76e4f0633631f0bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::ImportBits</definition>
+        <argsstring>(const BBitmap *bitmap)</argsstring>
+        <name>ImportBits</name>
+        <qualifiedname>BBitmap::ImportBits</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>bitmap</declname>
+        </param>
+        <briefdescription>
+<para>Assigns another bitmap&apos;s data to this bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The supplied bitmap must have the exact same dimensions as this bitmap. Its data is converted to the color space of this bitmap.</para>
+<para>The currently supported source/target color spaces are <computeroutput>B_RGB{32,24,16,15}[_BIG]</computeroutput>, <computeroutput>B_CMAP8</computeroutput> and <computeroutput>B_GRAY{8,1}</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bitmap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source bitmap.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bits were imported into the bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>bitmap</emphasis>, or <emphasis>bitmap</emphasis> has other dimensions, or the conversion from or to one of the color spaces is not supported.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="93" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a33e76109224b86faa983cbe9c2f17cd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::SetBits</definition>
+        <argsstring>(const void *data, int32 length, int32 offset, color_space colorSpace)</argsstring>
+        <name>SetBits</name>
+        <qualifiedname>BBitmap::SetBits</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <briefdescription>
+<para>Assigns data to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Data are directly written into the bitmap&apos;s data buffer, being converted beforehand, if necessary. Some conversions do not work intuitively:<itemizedlist>
+<listitem><para><computeroutput>B_RGB32:</computeroutput> The source buffer is supposed to contain <computeroutput>B_RGB24_BIG</computeroutput> data without padding at the end of the rows.</para>
+</listitem><listitem><para><computeroutput>B_RGB32:</computeroutput> The source buffer is supposed to contain <computeroutput>B_CMAP8</computeroutput> data without padding at the end of the rows.</para>
+</listitem><listitem><para>other color spaces: The source buffer is supposed to contain data according to the specified color space being padded to int32 row-wise.</para>
+</listitem></itemizedlist>
+</para>
+<para>The currently supported source/target color spaces are <computeroutput>B_RGB{32,24,16,15}[_BIG]</computeroutput>, <computeroutput>B_CMAP8</computeroutput> and <computeroutput>B_GRAY{8,1}</computeroutput>.</para>
+<para><simplesect kind="note"><para>Since this methods is a bit strange to use, Haiku has introduced the <ref refid="classBBitmap_1a5c8636bc49535adf6fb5de8c492c976a" kindref="member">ImportBits()</ref> method which is the recommended replacement.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length in bytes of the data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset (in bytes) relative to beginning of the bitmap data specifying the position at which the source data shall be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>colorSpace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color space of the source data.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="117" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1af75051c9583ae8de92379e470d5b29bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::ImportBits</definition>
+        <argsstring>(const void *data, int32 length, int32 bpr, color_space colorSpace, BPoint from, BPoint to, int32 width, int32 height)</argsstring>
+        <name>ImportBits</name>
+        <qualifiedname>BBitmap::ImportBits</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bpr</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Assigns data to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allows for a <ref refid="classBPoint" kindref="compound">BPoint</ref> offset in the source and in the bitmap. The region of the source at <emphasis>from</emphasis> extending <emphasis>width</emphasis> and <emphasis>height</emphasis> is assigned (and converted if necessary) to the bitmap at <emphasis>to</emphasis>.</para>
+<para>The currently supported source/target color spaces are <computeroutput>B_RGB{32,24,16,15}[_BIG]</computeroutput>, <computeroutput>B_CMAP8</computeroutput> and <computeroutput>B_GRAY{8,1}</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length in bytes of the data to be copied. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bpr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes per row in the source data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>colorSpace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color space of the source data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the source where reading should begin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the bitmap where the source should be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width (in pixels) to be imported. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The height (in pixels) to be imported.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bits were imported into the bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>data</emphasis>, invalid <emphasis>bpr</emphasis>, unsupported <emphasis>colorSpace</emphasis> or invalid <emphasis>width</emphasis> or <emphasis>height</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="121" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a74f44cf5ebb894460a2c8f4ab8ace038" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::ImportBits</definition>
+        <argsstring>(const BBitmap *bitmap, BPoint from, BPoint to, int32 width, int32 height)</argsstring>
+        <name>ImportBits</name>
+        <qualifiedname>BBitmap::ImportBits</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>bitmap</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>Assigns data to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allows for a <ref refid="classBPoint" kindref="compound">BPoint</ref> offset in the source and in the bitmap. The region of the source at <emphasis>from</emphasis> extending <emphasis>width</emphasis> and <emphasis>height</emphasis> is assigned (and converted if necessary) to the bitmap at <emphasis>to</emphasis>. The source bitmap is clipped to the bitmap and they don&apos;t need to have the same dimensions.</para>
+<para>The currently supported source/target color spaces are <computeroutput>B_RGB{32,24,16,15}[_BIG]</computeroutput>, <computeroutput>B_CMAP8</computeroutput> and <computeroutput>B_GRAY{8,1}</computeroutput>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bitmap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the source where reading should begin. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The offset in the bitmap where the source should be written. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The width (in pixels) to be imported. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The height (in pixels) to be imported.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>B_OK</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bits were imported into the bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>B_BAD_VALUE</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>NULL</computeroutput> <emphasis>bitmap</emphasis>, the conversion from or to one of the color spaces is not supported, or invalid <emphasis>width</emphasis> or <emphasis>height</emphasis>.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="124" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>View Hierarchy</header>
+      <memberdef kind="function" id="classBBitmap_1a6ff37d55938b549ce17f98421261c677" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void BBitmap::AddChild</definition>
+        <argsstring>(BView *view)</argsstring>
+        <name>AddChild</name>
+        <qualifiedname>BBitmap::AddChild</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+<para>Adds a <ref refid="classBView" kindref="compound">BView</ref> to the bitmap&apos;s view hierarchy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The bitmap must accept views and the supplied view must not be child of another parent.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The view to be added.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="101" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a280a222002a796ecb83ba89e3e37c6d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool BBitmap::RemoveChild</definition>
+        <argsstring>(BView *view)</argsstring>
+        <name>RemoveChild</name>
+        <qualifiedname>BBitmap::RemoveChild</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+<para>Removes a <ref refid="classBView" kindref="compound">BView</ref> from the bitmap&apos;s view hierarchy. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>view</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The view to be removed.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="102" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a8b3ba846da36f10f700c188f9337d78c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::CountChildren</definition>
+        <argsstring>() const</argsstring>
+        <name>CountChildren</name>
+        <qualifiedname>BBitmap::CountChildren</qualifiedname>
+        <briefdescription>
+<para>Gets the number of BViews currently belonging to the bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number of BViews currently belonging to the bitmap.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="103" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1af20f52333b3ec788b5b6345f5e659ab7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BBitmap::ChildAt</definition>
+        <argsstring>(int32 index) const</argsstring>
+        <name>ChildAt</name>
+        <qualifiedname>BBitmap::ChildAt</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>Gets the <ref refid="classBView" kindref="compound">BView</ref> at a certain index in the bitmap&apos;s list of views. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>index</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the <ref refid="classBView" kindref="compound">BView</ref> to be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="classBView" kindref="compound">BView</ref> at index <emphasis>index</emphasis> or <computeroutput>NULL</computeroutput> if the index is out of range.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="104" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1aa59171fe5e7e28e1502f27b2b294d09c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BBitmap::FindView</definition>
+        <argsstring>(const char *viewName) const</argsstring>
+        <name>FindView</name>
+        <qualifiedname>BBitmap::FindView</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>viewName</declname>
+        </param>
+        <briefdescription>
+<para>Accesses a bitmap&apos;s child <ref refid="classBView" kindref="compound">BView</ref> with the name <emphasis>viewName</emphasis>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>viewName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the <ref refid="classBView" kindref="compound">BView</ref> to be returned. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="classBView" kindref="compound">BView</ref> with the name <emphasis>name</emphasis> or <computeroutput>NULL</computeroutput> if the bitmap doesn&apos;t know a view with that name.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="105" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a10cd18788485595277d17f66cb974af7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBView" kindref="compound">BView</ref> *</type>
+        <definition>BView * BBitmap::FindView</definition>
+        <argsstring>(BPoint point) const</argsstring>
+        <name>FindView</name>
+        <qualifiedname>BBitmap::FindView</qualifiedname>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+<para>Accesses a bitmap&apos;s <ref refid="classBView" kindref="compound">BView</ref> at a certain location. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>point</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The location. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="classBView" kindref="compound">BView</ref> with located at <emphasis>point</emphasis> or <computeroutput>NULL</computeroutput> if the bitmap doesn&apos;t know a view at this location.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="106" column="6"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classBBitmap_1a93f3ffef0b767124f53be1bfea2ef4f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class ::BPrivate::BPrivateScreen</definition>
+        <argsstring></argsstring>
+        <name>::BPrivate::BPrivateScreen</name>
+        <qualifiedname>BBitmap::BPrivateScreen</qualifiedname>
+        <param>
+          <type>::BPrivate::BPrivateScreen</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="130" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBBitmap_1ae165aff26722b3fd863557348acd8ef6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BApplication</definition>
+        <argsstring></argsstring>
+        <name>BApplication</name>
+        <qualifiedname>BBitmap::BApplication</qualifiedname>
+        <param>
+          <type><ref refid="classBApplication" kindref="compound">BApplication</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="129" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBBitmap_1a304c5edf0ab3769baf95966dda5800a1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BView</definition>
+        <argsstring></argsstring>
+        <name>BView</name>
+        <qualifiedname>BBitmap::BView</qualifiedname>
+        <param>
+          <type><ref refid="classBView" kindref="compound">BView</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="128" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classBBitmap_1ac96b60d37bd806132da680e187dc2288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Private</definition>
+        <argsstring></argsstring>
+        <name>Private</name>
+        <qualifiedname>BBitmap::Private</qualifiedname>
+        <param>
+          <type>Private</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="131" column="14" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classBBitmap_1a9b7563465e2e8d1ce6f5191a6fb0f8a0" prot="private" static="no" mutable="no">
+        <type>area_id</type>
+        <definition>area_id BBitmap::fArea</definition>
+        <argsstring></argsstring>
+        <name>fArea</name>
+        <qualifiedname>BBitmap::fArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="159" column="8" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1a6df8395a823c6ca23b8ac161df03daaa" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::fAreaOffset</definition>
+        <argsstring></argsstring>
+        <name>fAreaOffset</name>
+        <qualifiedname>BBitmap::fAreaOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="157" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1ad669cd911c789b32594c7b0d6cf3d9d4" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref> *</type>
+        <definition>uint8* BBitmap::fBasePointer</definition>
+        <argsstring></argsstring>
+        <name>fBasePointer</name>
+        <qualifiedname>BBitmap::fBasePointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="150" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1a658ef97227d035a0697419d499a18dea" prot="private" static="no" mutable="no">
+        <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+        <definition>BRect BBitmap::fBounds</definition>
+        <argsstring></argsstring>
+        <name>fBounds</name>
+        <qualifiedname>BBitmap::fBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="153" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1a61e4fccc7db4f7e57a7e98e4d78bed4f" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::fBytesPerRow</definition>
+        <argsstring></argsstring>
+        <name>fBytesPerRow</name>
+        <qualifiedname>BBitmap::fBytesPerRow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="154" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1afcb6ac5ad4c5f7d05c3c11d35d2daae2" prot="private" static="no" mutable="no">
+        <type>color_space</type>
+        <definition>color_space BBitmap::fColorSpace</definition>
+        <argsstring></argsstring>
+        <name>fColorSpace</name>
+        <qualifiedname>BBitmap::fColorSpace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="152" column="12" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1af3c677d0b3d850d4418c83ed04727f3f" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+        <definition>uint32 BBitmap::fFlags</definition>
+        <argsstring></argsstring>
+        <name>fFlags</name>
+        <qualifiedname>BBitmap::fFlags</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="161" column="7" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1ac60a9ce4280ab5d24b1a963a38dbf191" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::fInitError</definition>
+        <argsstring></argsstring>
+        <name>fInitError</name>
+        <qualifiedname>BBitmap::fInitError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="162" column="9" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1a308eed2db4070d660da28d8a1c655d91" prot="private" static="no" mutable="no">
+        <type>area_id</type>
+        <definition>area_id BBitmap::fServerArea</definition>
+        <argsstring></argsstring>
+        <name>fServerArea</name>
+        <qualifiedname>BBitmap::fServerArea</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="160" column="8" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1a25223a33feaa78f2236f0968150b9ad3" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::fServerToken</definition>
+        <argsstring></argsstring>
+        <name>fServerToken</name>
+        <qualifiedname>BBitmap::fServerToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="156" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1adac658a71c9e30a7fba60f698a2e85d5" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::fSize</definition>
+        <argsstring></argsstring>
+        <name>fSize</name>
+        <qualifiedname>BBitmap::fSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="151" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1afe0f238f4ee8926db082cff3bef77ed9" prot="private" static="no" mutable="no">
+        <type><ref refid="classBWindow" kindref="compound">BWindow</ref> *</type>
+        <definition>BWindow* BBitmap::fWindow</definition>
+        <argsstring></argsstring>
+        <name>fWindow</name>
+        <qualifiedname>BBitmap::fWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="155" column="8" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classBBitmap_1ab17c909e6b827f861a99075242c4e99c" prot="private" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ac56eeb3040e225fafe52dc1872233eeb" kindref="member">uint8</ref></type>
+        <definition>uint8 BBitmap::unused</definition>
+        <argsstring></argsstring>
+        <name>unused</name>
+        <qualifiedname>BBitmap::unused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="158" column="6" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classBBitmap_1aa14f1d313a76877cc8e4f39a6948ca0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(area_id area, ptrdiff_t areaOffset, BRect bounds, uint32 flags, color_space colorSpace, int32 bytesPerRow=B_ANY_BYTES_PER_ROW, screen_id screenID=B_MAIN_SCREEN_ID)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type>area_id</type>
+          <declname>area</declname>
+        </param>
+        <param>
+          <type>ptrdiff_t</type>
+          <declname>areaOffset</declname>
+        </param>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>bounds</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bytesPerRow</declname>
+          <defval>B_ANY_BYTES_PER_ROW</defval>
+        </param>
+        <param>
+          <type>screen_id</type>
+          <declname>screenID</declname>
+          <defval>B_MAIN_SCREEN_ID</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="59" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1aef910245967d6003df3fa84c3dc84821" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(BMessage *data)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type><ref refid="classBMessage" kindref="compound">BMessage</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Unarchives a bitmap from a <ref refid="classBMessage" kindref="compound">BMessage</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The archive.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="67" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a51c04ac9c8a86d002ed1b5e6e5edc248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(BRect bounds, color_space colorSpace, bool acceptsViews=false, bool needsContiguous=false)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>bounds</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>acceptsViews</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>needsContiguous</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bounds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bitmap dimensions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>colorSpace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bitmap&apos;s color space. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceptsViews</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput>, if the bitmap shall accept BViews, i.e. if it shall be possible to attach <ref refid="classBView" kindref="compound">BView</ref> to the bitmap and draw into it. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>needsContiguous</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput> a physically contiguous chunk of memory will be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="51" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a44075e2478d2dc2189bd5cb1e8a3b4c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(BRect bounds, uint32 flags, color_space colorSpace, int32 bytesPerRow=B_ANY_BYTES_PER_ROW, screen_id screenID=B_MAIN_SCREEN_ID)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>bounds</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bytesPerRow</declname>
+          <defval>B_ANY_BYTES_PER_ROW</defval>
+        </param>
+        <param>
+          <type>screen_id</type>
+          <declname>screenID</declname>
+          <defval>B_MAIN_SCREEN_ID</defval>
+        </param>
+        <briefdescription>
+<para>Creates and initializes a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bounds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bitmap dimensions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Creation flags. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>colorSpace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The bitmap&apos;s color space. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bytesPerRow</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes per row the bitmap should use. <computeroutput>B_ANY_BYTES_PER_ROW</computeroutput> to let the constructor choose an appropriate value. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>screenID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>???</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="47" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a6814786d752908d0430b647eb8d91ad8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(const BBitmap &amp;source)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object as a clone of another bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source bitmap.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="55" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1ac4fea6b475b44ae26b4a772e569cf9ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(const BBitmap &amp;source, uint32 flags)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object as a clone of another bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Creation flags.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="54" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a3eba6423633f71901121936ae614dc03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BBitmap::BBitmap</definition>
+        <argsstring>(const BBitmap *source, bool acceptsViews=false, bool needsContiguous=false)</argsstring>
+        <name>BBitmap</name>
+        <qualifiedname>BBitmap::BBitmap</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>acceptsViews</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>needsContiguous</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object as a clone of another bitmap. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The source bitmap. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>acceptsViews</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>true</computeroutput>, if the bitmap shall accept BViews, i.e. if it shall be possible to attach <ref refid="classBView" kindref="compound">BView</ref> to the bitmap and draw into it. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>needsContiguous</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If <computeroutput>true</computeroutput> a physically contiguous chunk of memory will be allocated.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="56" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a29690d46af87471d8a478d559249dbbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>BBitmap::~BBitmap</definition>
+        <argsstring>()</argsstring>
+        <name>~BBitmap</name>
+        <qualifiedname>BBitmap::~BBitmap</qualifiedname>
+        <briefdescription>
+<para>Destructor Method. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Frees all resources associated with this object.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="64" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1ab701555656fdd5fa30ad77afd9898684" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::ImportBits</definition>
+        <argsstring>(const BBitmap *bitmap, BPoint from, BPoint to, BSize size)</argsstring>
+        <name>ImportBits</name>
+        <qualifiedname>BBitmap::ImportBits</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> *</type>
+          <declname>bitmap</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a332de29a49d4998ce5e3b9665cd12519" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::ImportBits</definition>
+        <argsstring>(const void *data, int32 length, int32 bpr, color_space colorSpace, BPoint from, BPoint to, BSize size)</argsstring>
+        <name>ImportBits</name>
+        <qualifiedname>BBitmap::ImportBits</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bpr</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="classBPoint" kindref="compound">BPoint</ref></type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type><ref refid="classBSize" kindref="compound">BSize</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="90" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1aba3ee96f8d1510df437a29dc000031ae" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::InitCheck</definition>
+        <argsstring>() const</argsstring>
+        <name>InitCheck</name>
+        <qualifiedname>BBitmap::InitCheck</qualifiedname>
+        <briefdescription>
+<para>Gets the status of the constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>B_OK if initialization succeeded, otherwise returns an error status.</para>
+</simplesect>
+<simplesect kind="since"><para>Haiku R1 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1ac8212018930f325d55c105fb4e3514ee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BBitmap::IsValid</definition>
+        <argsstring>() const</argsstring>
+        <name>IsValid</name>
+        <qualifiedname>BBitmap::IsValid</qualifiedname>
+        <briefdescription>
+<para>Determines whether or not the <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object is valid. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><computeroutput>true</computeroutput>, if the object is properly initialized, <computeroutput>false</computeroutput> otherwise.</para>
+</simplesect>
+<simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="72" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a845eb8d4e7b2efd532169e0203c06948" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classBBitmap" kindref="compound">BBitmap</ref> &amp;</type>
+        <definition>BBitmap &amp; BBitmap::operator=</definition>
+        <argsstring>(const BBitmap &amp;source)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BBitmap::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classBBitmap" kindref="compound">BBitmap</ref> &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="111" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a88a464b5664eb4a690630b12a9b13abd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>status_t BBitmap::SetDrawingFlags</definition>
+        <argsstring>(uint32 flags)</argsstring>
+        <name>SetDrawingFlags</name>
+        <qualifiedname>BBitmap::SetDrawingFlags</qualifiedname>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="84" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classBBitmap_1a4c65f70fe5ec15a4a53fe59599122a9f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::_AssertPointer</definition>
+        <argsstring>()</argsstring>
+        <name>_AssertPointer</name>
+        <qualifiedname>BBitmap::_AssertPointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="145" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1ac88b0b3b89e2a53f744034a7f4464498" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::_CleanUp</definition>
+        <argsstring>()</argsstring>
+        <name>_CleanUp</name>
+        <qualifiedname>BBitmap::_CleanUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="144" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a3ea1045cb3dd0328880d5da9ba31d15a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::_InitObject</definition>
+        <argsstring>(BRect bounds, color_space colorSpace, uint32 flags, int32 bytesPerRow, screen_id screenID, area_id area=-1, ptrdiff_t areaOffset=0)</argsstring>
+        <name>_InitObject</name>
+        <qualifiedname>BBitmap::_InitObject</qualifiedname>
+        <param>
+          <type><ref refid="classBRect" kindref="compound">BRect</ref></type>
+          <declname>bounds</declname>
+        </param>
+        <param>
+          <type>color_space</type>
+          <declname>colorSpace</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a9a72138d173e1e5243078b8644d4a1c2" kindref="member">uint32</ref></type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+          <declname>bytesPerRow</declname>
+        </param>
+        <param>
+          <type>screen_id</type>
+          <declname>screenID</declname>
+        </param>
+        <param>
+          <type>area_id</type>
+          <declname>area</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>ptrdiff_t</type>
+          <declname>areaOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="139" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1aac722b147a2dd6c8f46258b1532ee474" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BBitmap::_ReconnectToAppServer</definition>
+        <argsstring>()</argsstring>
+        <name>_ReconnectToAppServer</name>
+        <qualifiedname>BBitmap::_ReconnectToAppServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="147" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1ad09a4110b756d430fb3fffc162394fbd" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BBitmap::_ReservedBitmap1</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedBitmap1</name>
+        <qualifiedname>BBitmap::_ReservedBitmap1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="134" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1ad73d7352d9c28ce9e79129f82d43763b" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BBitmap::_ReservedBitmap2</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedBitmap2</name>
+        <qualifiedname>BBitmap::_ReservedBitmap2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="135" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a586670cbd23ae0f0b750a19f71c2d09f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>virtual void BBitmap::_ReservedBitmap3</definition>
+        <argsstring>()</argsstring>
+        <name>_ReservedBitmap3</name>
+        <qualifiedname>BBitmap::_ReservedBitmap3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="136" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1a9f9c7060e9ada4c21c18b72d65cf1d70" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="SupportDefs_8h_1a87905854573530ba20766196388ad2a1" kindref="member">int32</ref></type>
+        <definition>int32 BBitmap::_ServerToken</definition>
+        <argsstring>() const</argsstring>
+        <name>_ServerToken</name>
+        <qualifiedname>BBitmap::_ServerToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="138" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="classBBitmap_1afed64c53793af567182136d5a56acdc8" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref></type>
+        <definition>virtual status_t BBitmap::Perform</definition>
+        <argsstring>(perform_code d, void *arg)</argsstring>
+        <name>Perform</name>
+        <qualifiedname>BBitmap::Perform</qualifiedname>
+        <reimplements refid="classBArchivable_1a827fa92febcf925f07545aa9777df9de">Perform</reimplements>
+        <param>
+          <type><ref refid="SupportDefs_8h_1ad2237b0064c91c237159edc020989bab" kindref="member">perform_code</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Perform some action (Internal method defined for binary compatibility purposes). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="133" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Access and manipulate digital images commonly known as bitmaps. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="classBBitmap" kindref="compound">BBitmap</ref> is a rectangular map of pixel data. The <ref refid="classBBitmap" kindref="compound">BBitmap</ref> class allows you to create a bitmap by specifying its pixel data and has operations for altering and accessing the properties of bitmaps.</para>
+<para>To create a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object use one of the constructor methods below. You can determine if initialization was successful by calling the <ref refid="classBBitmap_1aba3ee96f8d1510df437a29dc000031ae" kindref="member">InitCheck()</ref> method. You can determine if a <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object is valid at any time by calling the <ref refid="classBBitmap_1ac8212018930f325d55c105fb4e3514ee" kindref="member">IsValid()</ref> method.</para>
+<para>An example of creating a new 32x32 pixel <ref refid="classBBitmap" kindref="compound">BBitmap</ref> object and assigning the icon of the current application looks like this:</para>
+<para><programlisting><codeline><highlight class="normal"><ref refid="classBBitmap" kindref="compound">BBitmap</ref><sp/>iconBitmap<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="classBBitmap" kindref="compound">BBitmap</ref>(<ref refid="classBRect" kindref="compound">BRect</ref>(0,<sp/>0,<sp/>31,<sp/>31),<sp/>B_RGBA32));</highlight></codeline>
+<codeline><highlight class="normal">appFileInfo.GetIcon(iconBitmap,<sp/><ref refid="Mime_8h_1a4eaa14a487fd1f13f91438b15b96cf15a788acb110dbd7d3c1533ebb556abe12d" kindref="member">B_LARGE_ICON</ref>);</highlight></codeline>
+</programlisting></para>
+<para>You can access the properties of a bitmap by calling the <ref refid="classBBitmap_1a1bdea44a85dfc1c8743d2ac30a324be6" kindref="member">Bounds()</ref>, <ref refid="classBBitmap_1a8297355bf7c5374ec81fce8ea30d14f1" kindref="member">Flags()</ref>, <ref refid="classBBitmap_1a2edc3ddc95fb6f2d09deda6ab3804ec8" kindref="member">ColorSpace()</ref>, <ref refid="classBBitmap_1ab345582f0870304b2800e4ed38880cd7" kindref="member">Area()</ref>, <ref refid="classBBitmap_1afaee868ddc68f625fbf0ef99a5c0af8b" kindref="member">Bits()</ref>, <ref refid="classBBitmap_1a84afbb2b49a461d309d1a3b7a10c4c0e" kindref="member">BitsLength()</ref>, <ref refid="classBBitmap_1a4520f3a1dd50e093929d03dfb9e4e578" kindref="member">BytesPerRow()</ref>, and <ref refid="classBBitmap_1a75626d082fae29e89e29e7fb1317cd27" kindref="member">GetOverlayRestrictions()</ref> methods.</para>
+<para>To directly set the pixel data of a bitmap call the <ref refid="classBBitmap_1afaee868ddc68f625fbf0ef99a5c0af8b" kindref="member">Bits()</ref> or <ref refid="classBBitmap_1a33e76109224b86faa983cbe9c2f17cd0" kindref="member">SetBits()</ref> methods or you can use the <ref refid="classBBitmap_1a5c8636bc49535adf6fb5de8c492c976a" kindref="member">ImportBits()</ref> method to copy the bits from an existing bitmap.</para>
+<para>You can also draw into a bitmap by attaching a child <ref refid="classBView" kindref="compound">BView</ref> to the bitmap. To add and remove child <ref refid="classBView" kindref="compound">BView</ref>'s to a bitmap call the <ref refid="classBBitmap_1a6ff37d55938b549ce17f98421261c677" kindref="member">AddChild()</ref> and <ref refid="classBBitmap_1a280a222002a796ecb83ba89e3e37c6d8" kindref="member">RemoveChild()</ref> methods respectively. You can access the child views of a bitmap by calling the <ref refid="classBBitmap_1a8b3ba846da36f10f700c188f9337d78c" kindref="member">CountChildren()</ref>, <ref refid="classBBitmap_1af20f52333b3ec788b5b6345f5e659ab7" kindref="member">ChildAt()</ref>, and <ref refid="classBBitmap_1aa59171fe5e7e28e1502f27b2b294d09c" kindref="member">FindView()</ref> methods.</para>
+<para>For off-screen bitmaps it is important to lock the bitmap before drawing the pixels and then unlock the bitmap when you are done to prevent flickering. To lock and unlock a bitmap call the <ref refid="classBBitmap_1a9b3ee36e63ffe3c2b65cc73e77232a4d" kindref="member">LockBits()</ref> and UnLockBits() methods respectively. To lock and unlock the off-screen window that a bitmap resides in you should call the <ref refid="classBBitmap_1a2ff4163d458a95c91fbc9f09de6a1043" kindref="member">Lock()</ref> and UnLock() methods. To determine is a bitmap is currently locked you can call the <ref refid="classBBitmap_1a2249dd4cc01a8e26dd9d6858a894a189" kindref="member">IsLocked()</ref> method.</para>
+<para><simplesect kind="since"><para>BeOS R3 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BBitmap</label>
+        <link refid="classBBitmap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BArchivable</label>
+        <link refid="classBArchivable"/>
+      </node>
+      <node id="1">
+        <label>BBitmap</label>
+        <link refid="classBBitmap"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/boot/home/src/haiku/headers/os/interface/Bitmap.h" line="45" column="1" bodyfile="/boot/home/src/haiku/headers/os/interface/Bitmap.h" bodystart="45" bodyend="163"/>
+    <listofallmembers>
+      <member refid="classBBitmap_1a4c65f70fe5ec15a4a53fe59599122a9f" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>_AssertPointer</name></member>
+      <member refid="classBBitmap_1ac88b0b3b89e2a53f744034a7f4464498" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>_CleanUp</name></member>
+      <member refid="classBBitmap_1a3ea1045cb3dd0328880d5da9ba31d15a" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>_InitObject</name></member>
+      <member refid="classBBitmap_1aac722b147a2dd6c8f46258b1532ee474" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>_ReconnectToAppServer</name></member>
+      <member refid="classBBitmap_1ad09a4110b756d430fb3fffc162394fbd" prot="private" virt="virtual"><scope>BBitmap</scope><name>_ReservedBitmap1</name></member>
+      <member refid="classBBitmap_1ad73d7352d9c28ce9e79129f82d43763b" prot="private" virt="virtual"><scope>BBitmap</scope><name>_ReservedBitmap2</name></member>
+      <member refid="classBBitmap_1a586670cbd23ae0f0b750a19f71c2d09f" prot="private" virt="virtual"><scope>BBitmap</scope><name>_ReservedBitmap3</name></member>
+      <member refid="classBBitmap_1a9f9c7060e9ada4c21c18b72d65cf1d70" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>_ServerToken</name></member>
+      <member refid="classBBitmap_1a6ff37d55938b549ce17f98421261c677" prot="public" virt="virtual"><scope>BBitmap</scope><name>AddChild</name></member>
+      <member refid="classBArchivable_1a4075315c407443a3b0dbb3d7551b53c9" prot="public" virt="virtual"><scope>BBitmap</scope><name>AllArchived</name></member>
+      <member refid="classBArchivable_1a2b1d74c147ea18e4b4bfacd42f11e0d2" prot="public" virt="virtual"><scope>BBitmap</scope><name>AllUnarchived</name></member>
+      <member refid="classBBitmap_1a331444d4bc838444f65f534cbbd66f41" prot="public" virt="virtual"><scope>BBitmap</scope><name>Archive</name></member>
+      <member refid="classBBitmap_1ab345582f0870304b2800e4ed38880cd7" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Area</name></member>
+      <member refid="classBArchivable_1aed4f0566f9659b03912a859077c27c89" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BArchivable</name></member>
+      <member refid="classBArchivable_1a66e6b947f092d32f287913a8c253290f" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BArchivable</name></member>
+      <member refid="classBBitmap_1a44075e2478d2dc2189bd5cb1e8a3b4c8" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1a51c04ac9c8a86d002ed1b5e6e5edc248" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1ac4fea6b475b44ae26b4a772e569cf9ca" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1a6814786d752908d0430b647eb8d91ad8" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1a3eba6423633f71901121936ae614dc03" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1aa14f1d313a76877cc8e4f39a6948ca0b" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1aef910245967d6003df3fa84c3dc84821" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BBitmap</name></member>
+      <member refid="classBBitmap_1afaee868ddc68f625fbf0ef99a5c0af8b" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Bits</name></member>
+      <member refid="classBBitmap_1a84afbb2b49a461d309d1a3b7a10c4c0e" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BitsLength</name></member>
+      <member refid="classBBitmap_1a1bdea44a85dfc1c8743d2ac30a324be6" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Bounds</name></member>
+      <member refid="classBBitmap_1a4520f3a1dd50e093929d03dfb9e4e578" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>BytesPerRow</name></member>
+      <member refid="classBBitmap_1af20f52333b3ec788b5b6345f5e659ab7" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>ChildAt</name></member>
+      <member refid="classBBitmap_1a2edc3ddc95fb6f2d09deda6ab3804ec8" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>ColorSpace</name></member>
+      <member refid="classBBitmap_1a8b3ba846da36f10f700c188f9337d78c" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>CountChildren</name></member>
+      <member refid="classBBitmap_1a9b7563465e2e8d1ce6f5191a6fb0f8a0" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fArea</name></member>
+      <member refid="classBBitmap_1a6df8395a823c6ca23b8ac161df03daaa" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fAreaOffset</name></member>
+      <member refid="classBBitmap_1ad669cd911c789b32594c7b0d6cf3d9d4" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fBasePointer</name></member>
+      <member refid="classBBitmap_1a658ef97227d035a0697419d499a18dea" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fBounds</name></member>
+      <member refid="classBBitmap_1a61e4fccc7db4f7e57a7e98e4d78bed4f" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fBytesPerRow</name></member>
+      <member refid="classBBitmap_1afcb6ac5ad4c5f7d05c3c11d35d2daae2" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fColorSpace</name></member>
+      <member refid="classBBitmap_1af3c677d0b3d850d4418c83ed04727f3f" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fFlags</name></member>
+      <member refid="classBBitmap_1aa59171fe5e7e28e1502f27b2b294d09c" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>FindView</name></member>
+      <member refid="classBBitmap_1a10cd18788485595277d17f66cb974af7" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>FindView</name></member>
+      <member refid="classBBitmap_1ac60a9ce4280ab5d24b1a963a38dbf191" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fInitError</name></member>
+      <member refid="classBBitmap_1a8297355bf7c5374ec81fce8ea30d14f1" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Flags</name></member>
+      <member refid="classBBitmap_1a308eed2db4070d660da28d8a1c655d91" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fServerArea</name></member>
+      <member refid="classBBitmap_1a25223a33feaa78f2236f0968150b9ad3" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fServerToken</name></member>
+      <member refid="classBBitmap_1adac658a71c9e30a7fba60f698a2e85d5" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fSize</name></member>
+      <member refid="classBBitmap_1afe0f238f4ee8926db082cff3bef77ed9" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>fWindow</name></member>
+      <member refid="classBBitmap_1a75626d082fae29e89e29e7fb1317cd27" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>GetOverlayRestrictions</name></member>
+      <member refid="classBBitmap_1a5c8636bc49535adf6fb5de8c492c976a" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>ImportBits</name></member>
+      <member refid="classBBitmap_1a332de29a49d4998ce5e3b9665cd12519" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>ImportBits</name></member>
+      <member refid="classBBitmap_1aff7c2bfbc397e6df76e4f0633631f0bc" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>ImportBits</name></member>
+      <member refid="classBBitmap_1ab701555656fdd5fa30ad77afd9898684" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>ImportBits</name></member>
+      <member refid="classBBitmap_1af75051c9583ae8de92379e470d5b29bb" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>ImportBits</name></member>
+      <member refid="classBBitmap_1a74f44cf5ebb894460a2c8f4ab8ace038" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>ImportBits</name></member>
+      <member refid="classBBitmap_1aba3ee96f8d1510df437a29dc000031ae" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>InitCheck</name></member>
+      <member refid="classBBitmap_1a224387ddb9077e37f917c15a3be85ed0" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Instantiate</name></member>
+      <member refid="classBBitmap_1a2249dd4cc01a8e26dd9d6858a894a189" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>IsLocked</name></member>
+      <member refid="classBBitmap_1ac8212018930f325d55c105fb4e3514ee" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>IsValid</name></member>
+      <member refid="classBBitmap_1a2ff4163d458a95c91fbc9f09de6a1043" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Lock</name></member>
+      <member refid="classBBitmap_1a9b3ee36e63ffe3c2b65cc73e77232a4d" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>LockBits</name></member>
+      <member refid="classBBitmap_1a845eb8d4e7b2efd532169e0203c06948" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>operator=</name></member>
+      <member refid="classBBitmap_1afed64c53793af567182136d5a56acdc8" prot="private" virt="virtual"><scope>BBitmap</scope><name>Perform</name></member>
+      <member refid="classBBitmap_1a280a222002a796ecb83ba89e3e37c6d8" prot="public" virt="virtual"><scope>BBitmap</scope><name>RemoveChild</name></member>
+      <member refid="classBBitmap_1a33e76109224b86faa983cbe9c2f17cd0" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>SetBits</name></member>
+      <member refid="classBBitmap_1a88a464b5664eb4a690630b12a9b13abd" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>SetDrawingFlags</name></member>
+      <member refid="classBBitmap_1a49f7e85512bc9f8013b1561e0056e283" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>Unlock</name></member>
+      <member refid="classBBitmap_1a43e2f9b6606e0a6681701688259b87a6" prot="public" virt="non-virtual"><scope>BBitmap</scope><name>UnlockBits</name></member>
+      <member refid="classBBitmap_1ab17c909e6b827f861a99075242c4e99c" prot="private" virt="non-virtual"><scope>BBitmap</scope><name>unused</name></member>
+      <member refid="classBArchivable_1af1a37be4b953423787b0d0be0b345ff3" prot="public" virt="virtual"><scope>BBitmap</scope><name>~BArchivable</name></member>
+      <member refid="classBBitmap_1a29690d46af87471d8a478d559249dbbd" prot="public" virt="virtual"><scope>BBitmap</scope><name>~BBitmap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

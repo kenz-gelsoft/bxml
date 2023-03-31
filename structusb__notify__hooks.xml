@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structusb__notify__hooks" kind="struct" language="C++" prot="public">
+    <compoundname>usb_notify_hooks</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_notify_hooks::device_added)(usb_device device, void **cookie)</definition>
+        <argsstring>)(usb_device device, void **cookie)</argsstring>
+        <name>device_added</name>
+        <qualifiedname>usb_notify_hooks::device_added</qualifiedname>
+        <briefdescription>
+<para>Called by the stack in case a device is added. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Once you have registered hooks using the <ref refid="structusb__module__info_1adac3df39f6f1038fc85ecce83ea8f885" kindref="member">usb_module_info::install_notify()</ref> method, this hook will be called as soon as a device is inserted that matches your provided <ref refid="structusb__support__descriptor" kindref="compound">usb_support_descriptor</ref>.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A unique id that identifies this USB device. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>You can store a pointer to an object in this variable. When the device is removed, this cookie will be provided to you. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>You should return <computeroutput>B_OK</computeroutput> in case of success. The USB stack will then request the kernel to republish your device names so that the new device will be shown in the <computeroutput>/dev</computeroutput> tree. If you return an error value, the <emphasis>device</emphasis> id will become invalid and you will not be notified if this device is removed. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" kindref="member">device_removed()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="35" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" prot="public" static="no" mutable="no">
+        <type><ref refid="SupportDefs_8h_1ab6735558965995709a53691ae913c81b" kindref="member">status_t</ref>(*</type>
+        <definition>status_t(* usb_notify_hooks::device_removed)(void *cookie)</definition>
+        <argsstring>)(void *cookie)</argsstring>
+        <name>device_removed</name>
+        <qualifiedname>usb_notify_hooks::device_removed</qualifiedname>
+        <briefdescription>
+<para>Called by the stack in case a device you are using is removed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If you have accepted a device in the <ref refid="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" kindref="member">device_added()</ref> hook, this hook will be called as soon as the device is removed.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cookie</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The cookie you provided in the <ref refid="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" kindref="member">device_added()</ref> hook. Make sure that you free the cookie if necessary. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Currently the return value of this hook is ignored. It is recommended to return <computeroutput>B_OK</computeroutput> though. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="36" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hooks that the USB stack can callback in case of events. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/boot/home/src/haiku/headers/os/drivers/USB3.h" line="34" column="1" bodyfile="/boot/home/src/haiku/headers/os/drivers/USB3.h" bodystart="34" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structusb__notify__hooks_1a085850c6ae438b706e8d20bb6922c29d" prot="public" virt="non-virtual"><scope>usb_notify_hooks</scope><name>device_added</name></member>
+      <member refid="structusb__notify__hooks_1a94732cd5bdac9baee4de594e78df0756" prot="public" virt="non-virtual"><scope>usb_notify_hooks</scope><name>device_removed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
